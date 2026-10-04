@@ -788,7 +788,8 @@
             "capture.created",
             "summary.updated",
             "response.verified",
-            "intervention.created"
+            "intervention.created",
+            "viewpoint_map.updated"
           ]
         },
         "payload": {
@@ -919,6 +920,16 @@
             },
             "payload": {
               "$ref": "#/$defs/InterventionCandidate"
+            }
+          }
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "viewpoint_map.updated"
+            },
+            "payload": {
+              "$ref": "#/$defs/ViewpointMap"
             }
           }
         }
@@ -1280,6 +1291,90 @@
           }
         }
       ]
+    },
+    "Viewpoint": {
+      "type": "object",
+      "properties": {
+        "viewpoint_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "speaker_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,63}$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "response_status": {
+          "type": "string",
+          "enum": [
+            "responded",
+            "possibly_unresponded",
+            "uncertain",
+            "no_analysis"
+          ]
+        },
+        "response_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "viewpoint_id",
+        "speaker_id",
+        "text",
+        "evidence_ids",
+        "response_status",
+        "response_evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ViewpointMap": {
+      "type": "object",
+      "properties": {
+        "map_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "meeting_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "context_seq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "viewpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Viewpoint"
+          }
+        }
+      },
+      "required": [
+        "map_id",
+        "meeting_id",
+        "context_seq",
+        "viewpoints"
+      ],
+      "additionalProperties": false
     }
   },
   "examples": [
@@ -2130,6 +2225,90 @@
       "playback sample stream used as AEC reference with board-specific alignment; AFE raw multichannel input not assumed identical to normalized wire PCM"
     ],
     "remote_media": "LiveKit WebRTC; remote track bound to authorized meeting member; onsite published track not resubscribed and fed back as remote input",
-    "privacy": "Media crosses public service for consented voice meeting; event relay never stores/base64 embeds raw PCM; default no raw audio retention; transcript/image retention and model processing separately disclosed"
+    "privacy": "Media crosses public service for consented voice meeting; event relay never stores/base64 embeds raw PCM; default no raw audio retention; transcript/image retention and model processing separately disclosed",
+    "Viewpoint": {
+      "type": "object",
+      "properties": {
+        "viewpoint_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "speaker_id": {
+          "type": "string",
+          "pattern": "^[a-z][a-z0-9_]{0,63}$"
+        },
+        "text": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 2000
+        },
+        "evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        },
+        "response_status": {
+          "type": "string",
+          "enum": [
+            "responded",
+            "possibly_unresponded",
+            "uncertain",
+            "no_analysis"
+          ]
+        },
+        "response_evidence_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "minItems": 0,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "viewpoint_id",
+        "speaker_id",
+        "text",
+        "evidence_ids",
+        "response_status",
+        "response_evidence_ids"
+      ],
+      "additionalProperties": false
+    },
+    "ViewpointMap": {
+      "type": "object",
+      "properties": {
+        "map_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "meeting_id": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "context_seq": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "viewpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/Viewpoint"
+          }
+        }
+      },
+      "required": [
+        "map_id",
+        "meeting_id",
+        "context_seq",
+        "viewpoints"
+      ],
+      "additionalProperties": false
+    }
   }
 }

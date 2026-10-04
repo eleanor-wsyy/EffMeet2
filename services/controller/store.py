@@ -299,14 +299,14 @@ class Store:
         now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds")
         payload = {
             "capture_id": capture_id,
-            "meeting_id": meeting_id,
-            "filename": filename,
-            "content_type": content_type,
-            "size_bytes": len(image_data),
+            "image_asset_id": str(uuid4()),
+            "mime_type": content_type,
+            "description": filename,
         }
+        validate("Capture", payload)
         with self.db(write=True) as conn:
             self.require_meeting(conn, meeting_id)
-            event = self.emit(conn, meeting_id, "capture.shared", payload, str(uuid4()), "demo_capture")
+            event = self.emit(conn, meeting_id, "capture.created", payload, str(uuid4()), "demo_capture")
             conn.execute(
                 "INSERT INTO captures VALUES (?,?,?,?,?,?,?)",
                 (capture_id, meeting_id, event["event_id"], filename, content_type, image_data, now.replace("+00:00", "Z")),
@@ -329,6 +329,45 @@ class Store:
             if row is None:
                 raise DemoError(404, "CAPTURE_NOT_FOUND", "图片不存在。")
             return row
+
+    def build_viewpoint_map(self, meeting_id):
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            context = self.context_seq(conn, meeting_id)
+            utterances = [json.loads(x[0]) for x in conn.execute("""SELECT u.data FROM utterances u
+                JOIN events e ON e.id=u.event_id WHERE u.meeting_id=? ORDER BY e.seq""", (meeting_id,))]
+            analyses = {}
+            for row in conn.execute("SELECT result FROM analyses WHERE meeting_id=?", (meeting_id,)):
+                result = json.loads(row[0])
+                a = result["analysis"]
+                analyses[a["claim_id"]] = a
+            viewpoints = []
+            for u in utterances:
+                if not u["speaker_id"]:
+                    continue
+                matched = None
+                for a in analyses.values():
+                    if u["utterance_id"] in a["evidence_ids"] and a["owner_speaker_id"] == u["speaker_id"]:
+                        matched = a
+                        break
+                vp = {
+                    "viewpoint_id": str(uuid5(NAMESPACE_URL, meeting_id + u["utterance_id"])),
+                    "speaker_id": u["speaker_id"],
+                    "text": u["text"],
+                    "evidence_ids": [u["utterance_id"]],
+                    "response_status": matched["status"] if matched else "no_analysis",
+                    "response_evidence_ids": matched["response_utterance_ids"] if matched else [],
+                }
+                viewpoints.append(vp)
+            vmap = {
+                "map_id": str(uuid4()),
+                "meeting_id": meeting_id,
+                "context_seq": context,
+                "viewpoints": viewpoints,
+            }
+            validate("ViewpointMap", vmap)
+            self.emit(conn, meeting_id, "viewpoint_map.updated", vmap, str(uuid4()), "deterministic_mock_viewpoint_map")
+        return vmap
 
     def build_summary(self, meeting_id):
         with self.db(write=True) as conn:

@@ -160,6 +160,17 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         actor(request)
         return store.events(meeting_id, after_seq)
 
+    @app.post("/api/v1/meetings/{meeting_id}/viewpoint-map", status_code=202)
+    def build_viewpoint_map(meeting_id: str, request: Request, body: dict = Body(...)):
+        operator(request)
+        validate("EmptyRequest", body)
+        return store.build_viewpoint_map(meeting_id)
+
+    @app.get("/api/v1/meetings/{meeting_id}/viewpoint-map")
+    def read_viewpoint_map(meeting_id: str, request: Request):
+        actor(request)
+        return store.build_viewpoint_map(meeting_id)
+
     @app.post("/api/v1/meetings/{meeting_id}/summary", status_code=202)
     def build_summary(meeting_id: str, request: Request, body: dict = Body(...)):
         operator(request)

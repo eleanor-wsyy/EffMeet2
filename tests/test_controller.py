@@ -285,6 +285,108 @@ class ControllerTests(unittest.TestCase):
         match = re.search(r'<script[^>]*id="contract-bundle"[^>]*>(.*?)</script>', html, re.S)
         self.assertIsNotNone(match)
         self.assertEqual(json.loads(match.group(1)), BUNDLE)
+    def test_capture_upload_and_read(self):
+        image_data = b"\x89PNG\r\n\x1a\n" + b"\x00" * 100
+        response = self.client.post(
+            f"/api/v1/meetings/{self.mid}/captures",
+            files={"file": ("sketch.png", image_data, "image/png")},
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(response.status_code, 201, response.text)
+        result = response.json()
+        self.assertIn("capture_id", result)
+        self.assertEqual(result["event"]["event_type"], "capture.created")
+        # list captures
+        listed = self.client.get(
+            f"/api/v1/meetings/{self.mid}/captures",
+            headers=self.headers("operator"),
+        ).json()
+        self.assertEqual(len(listed), 1)
+        self.assertEqual(listed[0]["filename"], "sketch.png")
+        # read image bytes
+        img = self.client.get(
+            f"/api/v1/meetings/{self.mid}/captures/{result['capture_id']}",
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(img.status_code, 200)
+        self.assertEqual(img.content, image_data)
+        self.assertEqual(img.headers["content-type"], "image/png")
+
+    def test_capture_remote_can_read(self):
+        image_data = b"\xff\xd8\xff\xe0" + b"\x00" * 50
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/captures",
+            files={"file": ("whiteboard.jpg", image_data, "image/jpeg")},
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 201)
+        cid = r.json()["capture_id"]
+        # remote identity can list and read
+        listed = self.client.get(
+            f"/api/v1/meetings/{self.mid}/captures",
+            headers=self.headers("remote_1"),
+        ).json()
+        self.assertEqual(len(listed), 1)
+        img = self.client.get(
+            f"/api/v1/meetings/{self.mid}/captures/{cid}",
+            headers=self.headers("remote_1"),
+        )
+        self.assertEqual(img.status_code, 200)
+
+    def test_capture_non_image_rejected(self):
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/captures",
+            files={"file": ("evil.txt", b"not an image", "text/plain")},
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 422)
+        validate("ErrorResponse", r.json())
+
+    def test_capture_no_auth_rejected(self):
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/captures",
+            files={"file": ("sketch.png", b"\x89PNG", "image/png")},
+        )
+        self.assertEqual(r.status_code, 401)
+
+    def test_capture_not_found(self):
+        r = self.client.get(
+            f"/api/v1/meetings/{self.mid}/captures/{uuid4()}",
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 404)
+        validate("ErrorResponse", r.json())
+
+    def test_viewpoint_map_build(self):
+        self.add(self.utterance(channel="remote", speaker="remote_1", text="我们先用A方案。"))
+        self.add(self.utterance(channel="onsite", speaker="onsite_1", text="同意，先验证可行性。"))
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/viewpoint-map",
+            json={},
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 202, r.text)
+        vmap = r.json()
+        validate("ViewpointMap", vmap)
+        self.assertEqual(len(vmap["viewpoints"]), 2)
+        for vp in vmap["viewpoints"]:
+            self.assertEqual(vp["response_status"], "no_analysis")
+
+    def test_viewpoint_map_with_analysis(self):
+        u1 = self.add(self.utterance(channel="remote", speaker="remote_1"))
+        self.add(self.utterance(channel="onsite", speaker="onsite_1", text="我回应一下。"))
+        self.analyze([u1], status="possibly_unresponded")
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/viewpoint-map",
+            json={},
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 202)
+        vmap = r.json()
+        validate("ViewpointMap", vmap)
+        analyzed = [vp for vp in vmap["viewpoints"] if vp["response_status"] != "no_analysis"]
+        self.assertEqual(len(analyzed), 1)
+        self.assertEqual(analyzed[0]["response_status"], "possibly_unresponded")
 
 
 if __name__ == "__main__":

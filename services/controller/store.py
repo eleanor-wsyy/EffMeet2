@@ -62,6 +62,12 @@ class Store:
                     meeting_id TEXT PRIMARY KEY REFERENCES meetings(id),
                     context_seq INTEGER NOT NULL, data TEXT NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS captures (
+                    id TEXT PRIMARY KEY, meeting_id TEXT REFERENCES meetings(id),
+                    event_id TEXT REFERENCES events(id), filename TEXT NOT NULL,
+                    content_type TEXT NOT NULL, data BLOB NOT NULL,
+                    created_at TEXT NOT NULL
+                );
             """)
 
     @contextmanager
@@ -287,6 +293,42 @@ class Store:
                         for x in conn.execute("SELECT * FROM commands WHERE meeting_id=? ORDER BY rowid", (meeting_id,))]
         return {"meeting_id": meeting_id, "title": meeting["title"], "mode": "mock",
                 "utterances": utterances, "interventions": candidates, "commands": commands}
+
+    def add_capture(self, meeting_id, filename, content_type, image_data):
+        capture_id = str(uuid4())
+        now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds")
+        payload = {
+            "capture_id": capture_id,
+            "meeting_id": meeting_id,
+            "filename": filename,
+            "content_type": content_type,
+            "size_bytes": len(image_data),
+        }
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            event = self.emit(conn, meeting_id, "capture.shared", payload, str(uuid4()), "demo_capture")
+            conn.execute(
+                "INSERT INTO captures VALUES (?,?,?,?,?,?,?)",
+                (capture_id, meeting_id, event["event_id"], filename, content_type, image_data, now.replace("+00:00", "Z")),
+            )
+        return {"capture_id": capture_id, "event": event}
+
+    def list_captures(self, meeting_id):
+        with self.db() as conn:
+            self.require_meeting(conn, meeting_id)
+            return [
+                {"capture_id": r["id"], "filename": r["filename"], "content_type": r["content_type"], "created_at": r["created_at"]}
+                for r in conn.execute("SELECT * FROM captures WHERE meeting_id=? ORDER BY rowid", (meeting_id,))
+            ]
+
+    def get_capture(self, meeting_id, capture_id):
+        with self.db() as conn:
+            row = conn.execute(
+                "SELECT * FROM captures WHERE id=? AND meeting_id=?", (capture_id, meeting_id)
+            ).fetchone()
+            if row is None:
+                raise DemoError(404, "CAPTURE_NOT_FOUND", "图片不存在。")
+            return row
 
     def build_summary(self, meeting_id):
         with self.db(write=True) as conn:

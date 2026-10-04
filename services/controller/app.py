@@ -7,7 +7,7 @@ from typing import Literal
 from urllib.parse import urlsplit
 from uuid import uuid4
 
-from fastapi import Body, FastAPI, Query, Request
+from fastapi import Body, FastAPI, Query, Request, UploadFile
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import HTMLResponse, JSONResponse
 from starlette.exceptions import HTTPException
@@ -50,7 +50,11 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         if origin and origin != f"{request.url.scheme}://{host}":
             return error(403, "BAD_ORIGIN", "拒绝跨站请求本机模拟服务。")
         if request.headers.get("content-length", "0").isdigit() and int(request.headers.get("content-length", "0")) > 16384:
-            return error(413, "BODY_TOO_LARGE", "模拟请求不能超过16KiB。")
+            # Allow larger bodies only for the multipart capture upload route.
+            if not request.url.path.endswith("/captures"):
+                return error(413, "BODY_TOO_LARGE", "模拟请求不能超过16KiB。")
+            if int(request.headers.get("content-length", "0")) > 2 * 1024 * 1024:
+                return error(413, "CAPTURE_TOO_LARGE", "图片不能超过2MiB。")
         response = await call_next(request)
         response.headers["Cache-Control"] = "no-store"
         response.headers["X-Content-Type-Options"] = "nosniff"
@@ -110,6 +114,30 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
             raise DemoError(403, "SPEAKER_MISMATCH", "模拟线上会话不能替别人提交发言。")
         result = store.add_utterance(meeting_id, body)
         return JSONResponse(result, status_code=200 if result["replayed"] else 201)
+
+    @app.post("/api/v1/meetings/{meeting_id}/captures", status_code=201)
+    async def upload_capture(meeting_id: str, request: Request, file: UploadFile):
+        operator(request)
+        content_type = file.content_type or ""
+        if not content_type.startswith("image/"):
+            raise DemoError(422, "INVALID_CONTENT_TYPE", "只接受图片文件。")
+        data = await file.read()
+        if not data:
+            raise DemoError(422, "EMPTY_FILE", "文件内容为空。")
+        filename = file.filename or "capture.jpg"
+        return store.add_capture(meeting_id, filename, content_type, data)
+
+    @app.get("/api/v1/meetings/{meeting_id}/captures")
+    def list_captures(meeting_id: str, request: Request):
+        actor(request)
+        return store.list_captures(meeting_id)
+
+    @app.get("/api/v1/meetings/{meeting_id}/captures/{capture_id}")
+    def get_capture(meeting_id: str, capture_id: str, request: Request):
+        actor(request)
+        row = store.get_capture(meeting_id, capture_id)
+        from fastapi.responses import Response
+        return Response(content=row["data"], media_type=row["content_type"])
 
     @app.post("/api/v1/meetings/{meeting_id}/analysis", status_code=202)
     def analyze(meeting_id: str, request: Request, body: dict = Body(...),

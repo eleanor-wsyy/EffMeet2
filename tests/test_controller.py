@@ -388,6 +388,83 @@ class ControllerTests(unittest.TestCase):
         self.assertEqual(len(analyzed), 1)
         self.assertEqual(analyzed[0]["response_status"], "possibly_unresponded")
 
+    def test_audio_session_open_and_end(self):
+        config = {
+            "schema_version": "1.0", "type": "audio.start",
+            "session_id": str(uuid4()), "meeting_id": self.mid,
+            "device_id": "esp32_01", "stream_id": "mic_01",
+            "stream_key": 1, "direction": "uplink", "purpose": "onsite_voice",
+            "command_id": None, "sample_rate_hz": 16000, "channels": 1,
+            "encoding": "s16le", "frame_ms": 20,
+        }
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions",
+            json=config, headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 201, r.text)
+        result = r.json()
+        self.assertTrue(result["ready"]["accepted"])
+        # end session
+        end_req = {"type": "audio.end", "session_id": config["session_id"],
+                   "stream_key": 1, "reason": "completed", "command_id": None}
+        r2 = self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions/end",
+            json=end_req, headers=self.headers("operator"),
+        )
+        self.assertEqual(r2.status_code, 202, r2.text)
+
+    def test_audio_session_end_twice_conflict(self):
+        config = {
+            "schema_version": "1.0", "type": "audio.start",
+            "session_id": str(uuid4()), "meeting_id": self.mid,
+            "device_id": "esp32_01", "stream_id": "mic_01",
+            "stream_key": 1, "direction": "uplink", "purpose": "onsite_voice",
+            "command_id": None, "sample_rate_hz": 16000, "channels": 1,
+            "encoding": "s16le", "frame_ms": 20,
+        }
+        self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions",
+            json=config, headers=self.headers("operator"),
+        )
+        end_req = {"type": "audio.end", "session_id": config["session_id"],
+                   "stream_key": 1, "reason": "stopped", "command_id": None}
+        self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions/end",
+            json=end_req, headers=self.headers("operator"),
+        )
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions/end",
+            json=end_req, headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 409)
+        validate("ErrorResponse", r.json())
+
+    def test_audio_session_invalid_schema_rejected(self):
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/audio/sessions",
+            json={"type": "audio.start"}, headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 422)
+        validate("ErrorResponse", r.json())
+
+    def test_device_pair(self):
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/devices/esp32_01/pair",
+            headers=self.headers("operator"),
+        )
+        self.assertEqual(r.status_code, 201, r.text)
+        result = r.json()
+        self.assertEqual(result["device_id"], "esp32_01")
+        self.assertIn("media_token", result)
+        self.assertIn("paired_at", result)
+
+    def test_device_pair_remote_rejected(self):
+        r = self.client.post(
+            f"/api/v1/meetings/{self.mid}/devices/esp32_01/pair",
+            headers=self.headers("remote_1"),
+        )
+        self.assertEqual(r.status_code, 403)
+
 
 if __name__ == "__main__":
     unittest.main()

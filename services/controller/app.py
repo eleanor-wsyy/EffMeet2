@@ -139,6 +139,21 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         from fastapi.responses import Response
         return Response(content=row["data"], media_type=row["content_type"])
 
+    @app.post("/api/v1/meetings/{meeting_id}/audio/sessions", status_code=201)
+    def open_audio_session(meeting_id: str, request: Request, body: dict = Body(...)):
+        operator(request)
+        return store.open_audio_session(meeting_id, body)
+
+    @app.post("/api/v1/meetings/{meeting_id}/audio/sessions/end", status_code=202)
+    def end_audio_session(meeting_id: str, request: Request, body: dict = Body(...)):
+        operator(request)
+        return store.end_audio_session(meeting_id, body)
+
+    @app.post("/api/v1/meetings/{meeting_id}/devices/{device_id}/pair", status_code=201)
+    def pair_device(meeting_id: str, device_id: str, request: Request):
+        operator(request)
+        return store.pair_device(meeting_id, device_id)
+
     @app.post("/api/v1/meetings/{meeting_id}/analysis", status_code=202)
     def analyze(meeting_id: str, request: Request, body: dict = Body(...),
                 mock_status: Literal["possibly_unresponded", "responded", "uncertain"] = Query("possibly_unresponded")):

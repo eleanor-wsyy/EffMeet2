@@ -80,14 +80,14 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 - `services/controller/store.py`：SQLite账本、服务端seq、候选/确认状态、模拟执行与幂等、原文记录、共享原图、观点地图。
 - `services/controller/fakes.py`：两个mock适配器。本轮模拟设备仅支持speak。
 - `services/controller/app.py`：HTTP入口、测试会话、owner检查、错误响应、capture上传（multipart）、viewpoint-map；只接受本机Host/客户端和同源请求。
-- `services/controller/qwen_client.py`：千问（DashScope）接入骨架。默认mock模式，设`QWEN_API_KEY`环境变量后切真实API调用（待实现）。Key仅存服务端。
+- `services/controller/qwen_client.py`：千问（DashScope）接入。默认mock模式，设`QWEN_API_KEY`环境变量后切真实API调用（qwen-plus）。Key仅存服务端。
 - `services/controller/demo.html`：B暂代的调试页，原生HTML/JS，无前端构建或外部运行资源。含观点地图展示与图片共享。
 - `fixtures/demo/closed_loop.json`：合成发言材料，可供C/D/E复用。
-- `services/relay/`：媒体中继服务骨架（README），待实现。
+- `services/relay/`：媒体中继服务（FastAPI WebSocket），接收设备 PCM 音频帧、转发控制器、推送 TTS。可独立启动（`uvicorn services.relay.app:app --port 8766`）。
 - `firmware/esp32/`：ESP32-S3固件骨架（README），待实现。
 - `hardware/electronics/`：供电接线与BOM骨架（README），待填充。
 
-已实现的业务路由：创建会议、最终发言摄入、分析、本人决定、事件读取/after_seq恢复、生成/读取原文记录、上传/读取共享原图（capture）、生成/读取观点地图（viewpoint-map）。调试专用`/api/demo/*`和`mock_status`查询参数不属于正式产品协议。原报告中的WebSocket、设备HTTP、媒体等其余接口尚不在本轮范围；HTTP轮询不是WebSocket。
+已实现的业务路由：创建会议、最终发言摄入、分析、本人决定、事件读取/after_seq恢复、生成/读取原文记录、上传/读取共享原图（capture）、生成/读取观点地图（viewpoint-map）、音频会话开/关（audio sessions）、设备配对与media-token签发。调试专用`/api/demo/*`和`mock_status`查询参数不属于正式产品协议。原报告中的WebSocket、媒体等其余接口尚不在本轮范围；HTTP轮询不是WebSocket。
 
 参数边界：候选120秒有效，过期后重新分析会更新待确认版本，旧版本不能执行；新发言进入后确认须重新分析；同一ID不同内容返回409；same-context分析重试复用候选。修正发言、真实回应判断、冷却策略和人工决议核对留给后续模块，当前摘要均标unresolved。
 

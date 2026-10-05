@@ -789,7 +789,9 @@
             "summary.updated",
             "response.verified",
             "intervention.created",
-            "viewpoint_map.updated"
+            "viewpoint_map.updated",
+            "audio.session_opened",
+            "audio.session_ended"
           ]
         },
         "payload": {
@@ -930,6 +932,26 @@
             },
             "payload": {
               "$ref": "#/$defs/ViewpointMap"
+            }
+          }
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "audio.session_opened"
+            },
+            "payload": {
+              "$ref": "#/$defs/AudioStreamReady"
+            }
+          }
+        },
+        {
+          "properties": {
+            "event_type": {
+              "const": "audio.session_ended"
+            },
+            "payload": {
+              "$ref": "#/$defs/AudioStreamEnd"
             }
           }
         }

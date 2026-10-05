@@ -1,13 +1,20 @@
-"""Qwen (DashScope) client skeleton.
+"""Qwen (DashScope) client.
 
 Default mode is "mock" — no real API calls. Set QWEN_API_KEY environment
 variable to switch to real DashScope API calls. API key is read from
 environment only, never hardcoded or sent to frontend/firmware.
+
+DashScope API reference:
+  Endpoint: https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
+  Model: qwen-plus (configurable via QWEN_MODEL env var)
+  Auth: Bearer <QWEN_API_KEY>
 """
+import json
 import os
 from typing import Optional
+from uuid import uuid4
 
-from .contracts import DemoError
+from .contracts import DemoError, validate
 
 
 class QwenAnalyzer:
@@ -16,8 +23,11 @@ class QwenAnalyzer:
     Falls back to mock mode when no API key is available.
     """
 
-    def __init__(self, api_key: Optional[str] = None):
+    DASHSCOPE_URL = "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation"
+
+    def __init__(self, api_key: Optional[str] = None, model: Optional[str] = None):
         self._api_key = api_key or os.environ.get("QWEN_API_KEY")
+        self._model = model or os.environ.get("QWEN_MODEL", "qwen-plus")
         self.mode = "real" if self._api_key else "mock"
 
     def analyze_viewpoints(self, utterances: list[dict]) -> list[dict]:
@@ -36,6 +46,17 @@ class QwenAnalyzer:
             return self._mock_analyze(utterances)
         return self._call_dashscope(utterances)
 
+    def analyze(self, evidence: list[dict], status: str) -> dict:
+        """Analyze evidence and return an AnalysisResult.
+
+        Compatible with FakeAnalyzer.analyze() interface.
+        """
+        if self.mode == "mock":
+            return self._mock_analyze_single(evidence, status)
+        return self._call_dashscope_analysis(evidence)
+
+    # ── Mock implementations (deterministic, no API call) ──
+
     def _mock_analyze(self, utterances: list[dict]) -> list[dict]:
         """Deterministic mock: no real model call, no semantic judgment."""
         return [
@@ -50,21 +71,166 @@ class QwenAnalyzer:
             if u.get("speaker_id")
         ]
 
-    def _call_dashscope(self, utterances: list[dict]) -> list[dict]:
-        """Call DashScope API (qwen-plus) for viewpoint analysis.
+    def _mock_analyze_single(self, evidence: list[dict], status: str) -> dict:
+        remote = [x for x in evidence if x["channel"] == "remote"]
+        owners = {x["speaker_id"] for x in remote}
+        if not remote or None in owners or len(owners) != 1:
+            raise DemoError(422, "OWNER_UNCLEAR", "请选择归属明确的同一线上成员的发言。")
+        responses = [x["utterance_id"] for x in evidence if x["channel"] == "onsite"]
+        if status == "responded" and not responses:
+            raise DemoError(422, "RESPONSE_MISSING", "模拟已回应场景需包含一条现场回应。")
+        snippet = remote[-1]["text"].strip()[:42].rstrip("。！？!?.,，；;")
+        text = "线上成员提出：" + snippet + "，现场可以回应一下吗？"
+        return {
+            "claim_id": str(uuid4()),
+            "owner_speaker_id": next(iter(owners)),
+            "status": status,
+            "evidence_ids": [x["utterance_id"] for x in evidence],
+            "response_utterance_ids": responses if status == "responded" else [],
+            "proposed_text": text,
+            "reason": "本地手选模拟场景：" + {
+                "possibly_unresponded": "线上观点可能尚未获得现场回应",
+                "responded": "线上观点已有现场回应",
+                "uncertain": "线上观点是否获得现场回应不确定",
+            }[status] + "；未调用真实模型，不作语义判断。",
+            "model": {"provider": "mock", "model_id": "fake-analyzer", "prompt_version": "mock-v1"},
+        }
 
-        TODO: Implement when API key and network are available.
-        - Endpoint: https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation
-        - Model: qwen-plus
-        - Input: serialized utterances with speaker labels
-        - Output: JSON array of viewpoints with response_status
-        - API key sent as Bearer token in Authorization header only
-        """
-        raise DemoError(
-            501,
-            "QWEN_NOT_IMPLEMENTED",
-            "千问云端分析尚未接入，当前使用模拟分析。",
-        )
+    # ── Real DashScope API calls ──
+
+    def _call_dashscope(self, utterances: list[dict]) -> list[dict]:
+        """Call DashScope for viewpoint analysis across all utterances."""
+        prompt = self._build_viewpoint_prompt(utterances)
+        raw = self._dashscope_request(prompt)
+        return self._parse_viewpoints(raw, utterances)
+
+    def _call_dashscope_analysis(self, evidence: list[dict]) -> dict:
+        """Call DashScope for single-claim analysis (FakeAnalyzer.analyze replacement)."""
+        prompt = self._build_analysis_prompt(evidence)
+        raw = self._dashscope_request(prompt)
+        return self._parse_analysis(raw, evidence)
+
+    def _dashscope_request(self, prompt: str) -> str:
+        """Send a request to DashScope API and return the text response."""
+        import httpx
+
+        headers = {
+            "Authorization": f"Bearer {self._api_key}",
+            "Content-Type": "application/json",
+        }
+        payload = {
+            "model": self._model,
+            "input": {
+                "messages": [
+                    {"role": "system", "content": "你是一个会议内容分析助手。只输出JSON，不要输出其他内容。"},
+                    {"role": "user", "content": prompt},
+                ]
+            },
+            "parameters": {
+                "result_format": "message",
+                "temperature": 0.1,
+            },
+        }
+        try:
+            resp = httpx.post(self.DASHSCOPE_URL, json=payload, headers=headers, timeout=30)
+            resp.raise_for_status()
+            data = resp.json()
+            return data["output"]["choices"][0]["message"]["content"]
+        except httpx.HTTPStatusError as e:
+            raise DemoError(502, "QWEN_API_ERROR", f"千问API返回错误：{e.response.status_code}")
+        except httpx.RequestError as e:
+            raise DemoError(502, "QWEN_NETWORK_ERROR", f"千问API网络错误：{type(e).__name__}")
+        except (KeyError, IndexError) as e:
+            raise DemoError(502, "QWEN_PARSE_ERROR", f"千问API响应格式异常：{e}")
+
+    def _build_viewpoint_prompt(self, utterances: list[dict]) -> str:
+        lines = []
+        for u in utterances:
+            speaker = u.get("speaker_id", "unknown")
+            channel = "现场" if u["channel"] == "onsite" else "线上"
+            lines.append(f"[{channel}] {speaker}: {u['text']}")
+        conversation = "\n".join(lines)
+        return f"""分析以下会议对话，提取每个发言者的观点及其回应状态。
+
+对话内容：
+{conversation}
+
+请以JSON数组格式输出，每个元素包含：
+- speaker_id: 发言者ID
+- text: 观点原文（截取关键部分，不超过100字）
+- response_status: "responded"(已有回应) / "possibly_unresponded"(可能未回应) / "uncertain"(不确定)
+- response_evidence_ids: 回应的发言utterance_id列表（如有）
+
+只输出JSON数组，不要输出其他内容。"""
+
+    def _build_analysis_prompt(self, evidence: list[dict]) -> str:
+        lines = []
+        for u in evidence:
+            speaker = u.get("speaker_id", "unknown")
+            channel = "现场" if u["channel"] == "onsite" else "线上"
+            lines.append(f"[{channel}] {speaker}: {u['text']} (id: {u['utterance_id']})")
+        conversation = "\n".join(lines)
+        return f"""分析以下会议片段，判断线上成员的观点是否已获得现场回应。
+
+片段内容：
+{conversation}
+
+请以JSON对象格式输出：
+- status: "responded" / "possibly_unresponded" / "uncertain"
+- proposed_text: 如果未回应，生成一句不超过80字的提示语（格式：线上成员提出：...，现场可以回应一下吗？）
+- reason: 判断理由（不超过100字）
+
+只输出JSON对象，不要输出其他内容。"""
+
+    def _parse_viewpoints(self, raw: str, utterances: list[dict]) -> list[dict]:
+        """Parse Qwen response into viewpoint list."""
+        try:
+            items = json.loads(raw.strip().removeprefix("```json").removesuffix("```").strip())
+            if not isinstance(items, list):
+                raise ValueError("expected array")
+        except (json.JSONDecodeError, ValueError):
+            # Fallback: return unanalyzed viewpoints
+            return self._mock_analyze(utterances)
+        utterance_map = {u["utterance_id"]: u for u in utterances if u.get("speaker_id")}
+        results = []
+        for item in items:
+            speaker = item.get("speaker_id", "")
+            matched = [u for u in utterances if u.get("speaker_id") == speaker]
+            if not matched:
+                continue
+            results.append({
+                "speaker_id": speaker,
+                "text": item.get("text", matched[-1]["text"])[:100],
+                "evidence_ids": [u["utterance_id"] for u in matched],
+                "response_status": item.get("response_status", "uncertain"),
+                "response_evidence_ids": [
+                    rid for rid in item.get("response_evidence_ids", [])
+                    if rid in utterance_map
+                ],
+            })
+        return results
+
+    def _parse_analysis(self, raw: str, evidence: list[dict]) -> dict:
+        """Parse Qwen response into AnalysisResult."""
+        remote = [x for x in evidence if x["channel"] == "remote"]
+        owners = {x["speaker_id"] for x in remote}
+        try:
+            item = json.loads(raw.strip().removeprefix("```json").removesuffix("```").strip())
+        except json.JSONDecodeError:
+            item = {}
+        status = item.get("status", "uncertain")
+        if status not in {"responded", "possibly_unresponded", "uncertain"}:
+            status = "uncertain"
+        return {
+            "claim_id": str(uuid4()),
+            "owner_speaker_id": next(iter(owners), "unknown"),
+            "status": status,
+            "evidence_ids": [x["utterance_id"] for x in evidence],
+            "response_utterance_ids": [x["utterance_id"] for x in evidence if x["channel"] == "onsite"] if status == "responded" else [],
+            "proposed_text": item.get("proposed_text", "")[:120],
+            "reason": item.get("reason", "千问分析结果")[:200],
+            "model": {"provider": "dashscope", "model_id": self._model, "prompt_version": "qwen-v1"},
+        }
 
 
 def create_analyzer() -> QwenAnalyzer:

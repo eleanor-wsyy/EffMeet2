@@ -68,6 +68,17 @@ class Store:
                     content_type TEXT NOT NULL, data BLOB NOT NULL,
                     created_at TEXT NOT NULL
                 );
+                CREATE TABLE IF NOT EXISTS audio_sessions (
+                    session_id TEXT PRIMARY KEY, meeting_id TEXT REFERENCES meetings(id),
+                    device_id TEXT NOT NULL, stream_id TEXT NOT NULL,
+                    stream_key INTEGER NOT NULL, direction TEXT NOT NULL,
+                    purpose TEXT NOT NULL, state TEXT NOT NULL DEFAULT 'ready',
+                    created_at TEXT NOT NULL, ended_at TEXT
+                );
+                CREATE TABLE IF NOT EXISTS device_tokens (
+                    device_id TEXT PRIMARY KEY, token TEXT NOT NULL,
+                    paired_at TEXT NOT NULL, meeting_id TEXT REFERENCES meetings(id)
+                );
             """)
 
     @contextmanager
@@ -329,6 +340,59 @@ class Store:
             if row is None:
                 raise DemoError(404, "CAPTURE_NOT_FOUND", "图片不存在。")
             return row
+
+    def open_audio_session(self, meeting_id, config):
+        validate("AudioStreamConfig", config)
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+            conn.execute(
+                "INSERT INTO audio_sessions VALUES (?,?,?,?,?,?,?,?,?,NULL)",
+                (config["session_id"], meeting_id, config["device_id"], config["stream_id"],
+                 config["stream_key"], config["direction"], config["purpose"], "ready", now),
+            )
+            ready = {"type": "audio.ready", "session_id": config["session_id"],
+                     "stream_key": config["stream_key"], "accepted": True, "error_code": None}
+            validate("AudioStreamReady", ready)
+            event = self.emit(conn, meeting_id, "audio.session_opened", ready, str(uuid4()), "audio_gateway")
+        return {"ready": ready, "event": event}
+
+    def end_audio_session(self, meeting_id, end_request):
+        validate("AudioStreamEnd", end_request)
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            row = conn.execute(
+                "SELECT * FROM audio_sessions WHERE session_id=? AND meeting_id=?",
+                (end_request["session_id"], meeting_id),
+            ).fetchone()
+            if row is None:
+                raise DemoError(404, "SESSION_NOT_FOUND", "音频会话不存在。")
+            if row["state"] == "ended":
+                raise DemoError(409, "SESSION_ALREADY_ENDED", "音频会话已结束。")
+            now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+            conn.execute("UPDATE audio_sessions SET state='ended', ended_at=? WHERE session_id=?",
+                         (now, end_request["session_id"]))
+            event = self.emit(conn, meeting_id, "audio.session_ended", end_request, str(uuid4()), "audio_gateway")
+        return {"event": event}
+
+    def pair_device(self, meeting_id, device_id):
+        import secrets as _secrets
+        token = _secrets.token_urlsafe(32)
+        now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds").replace("+00:00", "Z")
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            conn.execute(
+                "INSERT OR REPLACE INTO device_tokens VALUES (?,?,?,?)",
+                (device_id, token, now, meeting_id),
+            )
+        return {"device_id": device_id, "media_token": token, "paired_at": now}
+
+    def verify_device_token(self, device_id, token):
+        with self.db() as conn:
+            row = conn.execute(
+                "SELECT * FROM device_tokens WHERE device_id=? AND token=?", (device_id, token)
+            ).fetchone()
+            return row is not None
 
     def build_viewpoint_map(self, meeting_id):
         with self.db(write=True) as conn:

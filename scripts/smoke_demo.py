@@ -74,9 +74,31 @@ def main():
             result = analyze(test_mid, ids, scenario)
             assert result["intervention"] is None and not state(test_mid)["commands"]
 
+        # New routes: viewpoint map, capture, audio session, device pair
+        vmap = request("POST", f"/api/v1/meetings/{mid}/viewpoint-map", {}, expected=202)
+        assert len(vmap["viewpoints"]) >= 1
+
+        audio_cfg = {
+            "schema_version": "1.0", "type": "audio.start",
+            "session_id": str(uuid4()), "meeting_id": mid,
+            "device_id": "smoke_dev", "stream_id": "smoke_stream",
+            "stream_key": 1, "direction": "uplink", "purpose": "onsite_voice",
+            "command_id": None, "sample_rate_hz": 16000, "channels": 1,
+            "encoding": "s16le", "frame_ms": 20,
+        }
+        audio = request("POST", f"/api/v1/meetings/{mid}/audio/sessions", audio_cfg, expected=201)
+        assert audio["ready"]["accepted"] is True
+        request("POST", f"/api/v1/meetings/{mid}/audio/sessions/end",
+                {"type": "audio.end", "session_id": audio_cfg["session_id"],
+                 "stream_key": 1, "reason": "completed", "command_id": None}, expected=202)
+
+        pair = request("POST", f"/api/v1/meetings/{mid}/devices/smoke_dev/pair", expected=201)
+        assert "media_token" in pair
+
         print(json.dumps({"status": "PASS", "mode": "mock", "hardware_connected": False,
                           "checks": ["等待确认不执行", "他人不能代确认", "确认一次", "重复请求不重复执行",
-                                     "拒绝不执行", "已回应不介入", "不确定弃权", "会后原文回溯", "seq有序且mode=mock"],
+                                     "拒绝不执行", "已回应不介入", "不确定弃权", "会后原文回溯", "seq有序且mode=mock",
+                                     "观点地图生成", "音频会话开/关", "设备配对"],
                           "main_meeting_id": mid}, ensure_ascii=False, indent=2))
 
 

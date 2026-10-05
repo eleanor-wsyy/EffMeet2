@@ -1,6 +1,6 @@
 # v1 契约
 
-`bundle.json` 是当前代码使用的唯一数据契约，来自 2026-10-04 产品报告。本轮新增 `Viewpoint`、`ViewpointMap` schema 和 `viewpoint_map.updated` 事件类型。
+`bundle.json` 是当前代码使用的唯一数据契约，来自 2026-10-04 产品报告。本轮新增 `Viewpoint`、`ViewpointMap` schema 和 `viewpoint_map.updated`、`audio.session_opened`、`audio.session_ended` 事件类型。
 
 业务请求提交 DTO，控制器生成并持久化 EventEnvelope。客户端不能提交 seq 或确认者身份。
 

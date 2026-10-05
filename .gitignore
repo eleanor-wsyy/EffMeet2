@@ -10,6 +10,7 @@ build/
 Thumbs.db
 
 .venv/
+.venv-asr/
 data/
 *.sqlite3
 *.sqlite3-shm

@@ -10,19 +10,20 @@ from uuid import uuid4, uuid5, NAMESPACE_URL
 
 from .contracts import DemoError, validate
 from .fakes import FakeAnalyzer, FakeRobot
+from .responses import ResponseTracking
 
 
 def packed(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
-class Store:
-    def __init__(self, path, analyzer=None, robot=None, clock=time.time, candidate_ttl=120):
+class Store(ResponseTracking):
+    def __init__(self, path, analyzer=None, robot=None, clock=time.time, candidate_ttl=120, bench=False):
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
         self.analyzer = analyzer or FakeAnalyzer()
         self.robot = robot or FakeRobot()
-        if self.analyzer.mode != "mock" or self.robot.mode != "mock":
+        if self.analyzer.mode != "mock" or (self.robot.mode != "mock" and not bench):
             raise ValueError("This demo cannot dispatch to real model/device adapters.")
         self.clock = clock
         self.candidate_ttl = candidate_ttl
@@ -79,6 +80,11 @@ class Store:
                     device_id TEXT PRIMARY KEY, token TEXT NOT NULL,
                     paired_at TEXT NOT NULL, meeting_id TEXT REFERENCES meetings(id)
                 );
+                CREATE TABLE IF NOT EXISTS response_verifications (
+                    claim_id TEXT PRIMARY KEY REFERENCES analyses(id),
+                    meeting_id TEXT NOT NULL REFERENCES meetings(id), data TEXT NOT NULL,
+                    event_id TEXT NOT NULL REFERENCES events(id)
+                );
             """)
 
     @contextmanager
@@ -106,7 +112,7 @@ class Store:
         return row
 
     def emit(self, conn, meeting_id, kind, payload, trace_id, source,
-             producer="controller", parent=None):
+             producer="controller", parent=None, mode="mock"):
         seq = conn.execute(
             "SELECT COALESCE(MAX(seq),0)+1 FROM events WHERE meeting_id=?", (meeting_id,)
         ).fetchone()[0]
@@ -116,7 +122,7 @@ class Store:
             "seq": seq, "occurred_at": now.replace("+00:00", "Z"),
             "received_at": now.replace("+00:00", "Z"), "trace_id": trace_id,
             "parent_event_id": parent, "producer": producer, "source": source,
-            "mode": "mock", "event_type": kind, "payload": payload,
+            "mode": mode, "event_type": kind, "payload": payload,
         }
         validate("EventEnvelope", event)
         conn.execute("INSERT INTO events VALUES (?,?,?,?)", (event["event_id"], meeting_id, seq, packed(event)))
@@ -136,7 +142,7 @@ class Store:
             event = self.emit(conn, meeting_id, "meeting.started", request, str(uuid4()), "demo_controller")
         return {"meeting_id": meeting_id, "mode": "mock", "event": event}
 
-    def add_utterance(self, meeting_id, request):
+    def add_utterance(self, meeting_id, request, *, mode="mock", source="demo_manual_text", producer="web"):
         validate("UtteranceFinal", request)
         if request["end_ms"] < request["start_ms"]:
             raise DemoError(422, "INVALID_INTERVAL", "end_ms不能小于start_ms。")
@@ -150,11 +156,11 @@ class Store:
                     raise DemoError(409, "UTTERANCE_CONFLICT", "同一utterance_id不能对应不同内容或会议。")
                 event = json.loads(conn.execute("SELECT data FROM events WHERE id=?", (old["event_id"],)).fetchone()[0])
                 return {"event": event, "replayed": True}
-            event = self.emit(conn, meeting_id, "utterance.final", request, str(uuid4()), "demo_manual_text", "web")
+            event = self.emit(conn, meeting_id, "utterance.final", request, str(uuid4()), source, producer, mode=mode)
             conn.execute("INSERT INTO utterances VALUES (?,?,?,?)", (request["utterance_id"], meeting_id, event["event_id"], packed(request)))
         return {"event": event, "replayed": False}
 
-    def analyze(self, meeting_id, request, status):
+    def analyze(self, meeting_id, request, status, *, prepared=None, expected_context=None):
         validate("AnalysisRequest", request)
         if status not in {"responded", "possibly_unresponded", "uncertain"}:
             raise DemoError(422, "INVALID_SCENARIO", "未知模拟场景。")
@@ -169,6 +175,8 @@ class Store:
                 rows.append(row)
             rows.sort(key=lambda x: x["seq"])
             context = self.context_seq(conn, meeting_id)
+            if expected_context is not None and context != expected_context:
+                raise DemoError(409, "CONTEXT_CHANGED", "分析期间有新发言，请重新分析。")
             key = hashlib.sha256(packed({"evidence_ids": sorted(request["evidence_ids"]), "context": context}).encode()).hexdigest()
             old = conn.execute("SELECT result FROM analyses WHERE meeting_id=? AND cache_key=?", (meeting_id, key)).fetchone()
             if old:
@@ -176,6 +184,8 @@ class Store:
                 if result["analysis"]["status"] != status:
                     raise DemoError(409, "SCENARIO_CONFLICT", "同一上下文已有模拟结果；换场景请新建会议。")
                 candidate = result["intervention"]
+                if self.response_is_verified(conn, meeting_id, result["analysis"]):
+                    return {**result, "intervention": None, "replayed": True}
                 if candidate:
                     pending = conn.execute("SELECT * FROM interventions WHERE id=?", (candidate["intervention_id"],)).fetchone()
                     if not pending["result"] and self.clock() >= pending["expires_at"]:
@@ -194,12 +204,13 @@ class Store:
                         return result
                 return {**result, "replayed": True}
             evidence = [json.loads(x["data"]) for x in rows]
-            analysis = self.analyzer.analyze(evidence, status)
+            analysis = prepared if prepared is not None else self.analyzer.analyze(evidence, status)
             validate("AnalysisResult", analysis)
             trace = str(uuid4())
-            analysis_event = self.emit(conn, meeting_id, "analysis.completed", analysis, trace, "fake_analyzer", parent=rows[0]["id"])
+            analysis_mode = "real" if analysis["model"]["provider"] != "mock" else "mock"
+            analysis_event = self.emit(conn, meeting_id, "analysis.completed", analysis, trace, analysis["model"]["provider"], parent=rows[0]["id"], mode=analysis_mode)
             candidate = None
-            if analysis["status"] == "possibly_unresponded":
+            if analysis["status"] == "possibly_unresponded" and not self.response_is_verified(conn, meeting_id, analysis):
                 candidate = {
                     "intervention_id": str(uuid4()), "claim_id": analysis["claim_id"],
                     "owner_speaker_id": analysis["owner_speaker_id"], "status": "awaiting_confirmation",
@@ -213,7 +224,7 @@ class Store:
                 candidate["intervention_id"] if candidate else None,
             ))
             if candidate:
-                event = self.emit(conn, meeting_id, "intervention.created", candidate, trace, "fake_analyzer", parent=analysis_event["event_id"])
+                event = self.emit(conn, meeting_id, "intervention.created", candidate, trace, analysis["model"]["provider"], parent=analysis_event["event_id"], mode=analysis_mode)
                 conn.execute("""INSERT INTO interventions (
                     id,meeting_id,claim_id,owner,candidate,candidate_event_id,state,revision,context_seq,expires_at
                 ) VALUES (?,?,?,?,?,?,?,?,?,?)""", (
@@ -236,6 +247,9 @@ class Store:
                 if row["request"] != packed(request):
                     raise DemoError(409, "DECISION_CONFLICT", "候选已有最终决定，不能改写。")
                 return {**json.loads(row["result"]), "replayed": True}
+            original_analysis = json.loads(conn.execute("SELECT result FROM analyses WHERE id=?", (row["claim_id"],)).fetchone()[0])["analysis"]
+            if self.response_is_verified(conn, meeting_id, original_analysis):
+                raise DemoError(409, "ALREADY_RESPONDED", "本人已确认获得回应，不再发送提示。")
             if request["expected_revision"] != row["revision"]:
                 raise DemoError(409, "STALE_REVISION", "候选版本已变化，请刷新。")
             if self.clock() >= row["expires_at"]:
@@ -255,15 +269,16 @@ class Store:
                            "target_device_id": self.robot.device_id, "action": "speak", "ttl_ms": 5000,
                            "args": {"text": candidate["proposed_text"], "voice_profile": "mock_voice"}}
                 validate("RobotCommand", command)
-                cmd_event = self.emit(conn, meeting_id, "robot.command", command, trace, "demo_controller", parent=event["event_id"])
+                deferred = getattr(self.robot, "deferred", False)
+                cmd_event = self.emit(conn, meeting_id, "robot.command", command, trace, "bench_controller" if deferred else "demo_controller", parent=event["event_id"], mode="manual" if deferred else "mock")
                 # Mock-only, synchronous and inside this short transaction. A real-device
                 # implementation needs an outbox/worker and must not use this dispatch path.
                 try:
-                    receipts = self.robot.execute(command)
+                    receipts = [] if deferred else self.robot.execute(command)
                 except Exception:
                     receipts = [{"command_id": command["command_id"], "target_device_id": self.robot.device_id,
                                  "boot_id": self.robot.boot_id, "status": "failed", "error_code": "MOCK_ADAPTER_ERROR"}]
-                if not receipts or receipts[-1]["status"] not in {"completed", "failed", "rejected"}:
+                if not deferred and (not receipts or receipts[-1]["status"] not in {"completed", "failed", "rejected"}):
                     raise DemoError(500, "INVALID_MOCK_RECEIPT", "模拟设备未给出终态回执。")
                 for receipt in receipts:
                     validate("RobotReceipt", receipt)
@@ -271,7 +286,7 @@ class Store:
                         raise DemoError(500, "INVALID_MOCK_RECEIPT", "模拟回执不匹配命令。")
                     self.emit(conn, meeting_id, "robot.receipt", receipt, trace, "fake_robot", "robot", cmd_event["event_id"])
                 conn.execute("INSERT INTO commands VALUES (?,?,?,?,?)", (command["command_id"], meeting_id, intervention_id, packed(command), packed(receipts)))
-                state = "completed" if receipts[-1]["status"] == "completed" else "failed"
+                state = "queued" if deferred else ("completed" if receipts[-1]["status"] == "completed" else "failed")
                 result.update(command=command, receipts=receipts)
             conn.execute("UPDATE interventions SET state=?,revision=?,request=?,decision=?,result=? WHERE id=?", (
                 state, revision, packed(request), request["decision"], packed(result), intervention_id,
@@ -305,7 +320,7 @@ class Store:
         return {"meeting_id": meeting_id, "title": meeting["title"], "mode": "mock",
                 "utterances": utterances, "interventions": candidates, "commands": commands}
 
-    def add_capture(self, meeting_id, filename, content_type, image_data):
+    def add_capture(self, meeting_id, filename, content_type, image_data, *, mode="mock", source="demo_capture"):
         capture_id = str(uuid4())
         now = datetime.fromtimestamp(self.clock(), timezone.utc).isoformat(timespec="milliseconds")
         payload = {
@@ -317,7 +332,7 @@ class Store:
         validate("Capture", payload)
         with self.db(write=True) as conn:
             self.require_meeting(conn, meeting_id)
-            event = self.emit(conn, meeting_id, "capture.created", payload, str(uuid4()), "demo_capture")
+            event = self.emit(conn, meeting_id, "capture.created", payload, str(uuid4()), source, mode=mode)
             conn.execute(
                 "INSERT INTO captures VALUES (?,?,?,?,?,?,?)",
                 (capture_id, meeting_id, event["event_id"], filename, content_type, image_data, now.replace("+00:00", "Z")),
@@ -401,11 +416,12 @@ class Store:
             utterances = [json.loads(x[0]) for x in conn.execute("""SELECT u.data FROM utterances u
                 JOIN events e ON e.id=u.event_id WHERE u.meeting_id=? ORDER BY e.seq""", (meeting_id,))]
             analyses = {}
-            for row in conn.execute("SELECT result FROM analyses WHERE meeting_id=?", (meeting_id,)):
+            for row in conn.execute("SELECT result FROM analyses WHERE meeting_id=? ORDER BY rowid DESC", (meeting_id,)):
                 result = json.loads(row[0])
                 a = result["analysis"]
                 analyses[a["claim_id"]] = a
             viewpoints = []
+            verified = self.verified_sources(conn, meeting_id)
             for u in utterances:
                 if not u["speaker_id"]:
                     continue
@@ -422,6 +438,9 @@ class Store:
                     "response_status": matched["status"] if matched else "no_analysis",
                     "response_evidence_ids": matched["response_utterance_ids"] if matched else [],
                 }
+                if u["utterance_id"] in verified:
+                    vp["response_status"] = "responded"
+                    vp["response_evidence_ids"] = verified[u["utterance_id"]]["response_utterance_ids"]
                 viewpoints.append(vp)
             vmap = {
                 "map_id": str(uuid4()),
@@ -447,6 +466,10 @@ class Store:
                       "kind": "view", "speaker_id": x["speaker_id"], "text": x["text"],
                       "evidence_ids": [x["utterance_id"]], "verification_status": "unresolved"}
                      for x in utterances]
+            verified_responses = {rid for v in self.verified_sources(conn, meeting_id).values() for rid in v["response_utterance_ids"]}
+            for item in items:
+                if item["evidence_ids"][0] in verified_responses:
+                    item.update(kind="response", verification_status="human_verified")
             summary = {"summary_id": str(uuid4()), "items": items}
             validate("Summary", summary)
             self.emit(conn, meeting_id, "summary.updated", summary, str(uuid4()), "deterministic_mock_summary")

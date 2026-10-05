@@ -83,7 +83,7 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 - `services/controller/qwen_client.py`：千问（DashScope）接入。默认mock模式，设`QWEN_API_KEY`环境变量后切真实API调用（qwen-plus）。Key仅存服务端。
 - `services/controller/demo.html`：B暂代的调试页，原生HTML/JS，无前端构建或外部运行资源。含观点地图展示与图片共享。
 - `fixtures/demo/closed_loop.json`：合成发言材料，可供C/D/E复用。
-- `services/relay/`：媒体中继服务（FastAPI WebSocket），接收设备 PCM 音频帧、转发控制器、推送 TTS。可独立启动（`uvicorn services.relay.app:app --port 8766`）。
+- `services/relay/`：媒体中继服务（FastAPI WebSocket），接收设备 PCM 音频帧、转发控制器、推送 TTS。可独立启动（`python scripts/run_relay.py` 或 `uvicorn services.relay.app:app --port 8766`）。
 - `firmware/esp32/`：ESP32-S3固件骨架（README），待实现。
 - `hardware/electronics/`：供电接线与BOM骨架（README），待填充。
 

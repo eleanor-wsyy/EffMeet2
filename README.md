@@ -1,6 +1,8 @@
 # EffMeet 2
 
-天猫 AI 黑客松「效率进化」方向的 AI 桌面会议伙伴。固定式机器人以桌面宠物形态呈现，配合电脑伴侣应用与远程网页，围绕现场材料共享、本人确认后的观点提醒和可核对的会后记录设计产品体验。会后打开手机App，观点地图一目了然：聊了什么、谁持什么观点、哪些问题待回应，线上线下参与者看到同一张图。
+在线，不等于在场。
+
+天猫 AI 黑客松「效率进化」方向的 AI 桌面会议伙伴。固定式机器人以桌面宠物形态呈现，配合电脑伴侣应用与远程网页，围绕现场材料共享、本人确认后的观点提醒和可核对的会后记录设计产品体验。会后打开手机App，观点地图一目了然：聊了什么、谁持什么观点、哪些问题待回应，线上线下参与者看到同一张图。面向有固定讨论节奏的小团队，首发验证场景为校园科研与课程项目小组。
 
 **产品形态分两路线**：路线A（当前参赛Demo）以电脑伴侣应用承载本地AI（FunASR + 千问候选 + 事件账本）；路线B（最终产品形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，仅需平板或手机即可完整使用。
 
@@ -9,7 +11,7 @@
 - [论文依据与技术路径 HTML 报告](docs/product/EffMeet2_论文依据与技术路径.html)：产品形态、机内音频与 Wi-Fi、开源参考及改造映射、任务分工、实施步骤与参赛计划。
 - [v1 接口契约 JSON](docs/product/EffMeet2_contract_v1.json)：统一数据格式、业务接口、媒体契约与合成测试样例。
 
-当前报告版本：2026-10-04（第二修订）。文档用于方案规划与模块协作；路线A（Demo）不要求用户外接USB麦克风，USB音频仅作台架测试；路线B（最终形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，仅需平板或手机即可完整使用。千问通过阿里云百炼 DashScope API 调用（模型暂定 qwen-plus），API Key 仅存服务端，不进前端或固件。
+当前报告版本：2026-10-05（第三修订）。文档用于方案规划与模块协作；路线A（Demo）不要求用户外接USB麦克风，USB音频仅作台架测试；路线B（最终形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，设备经配对码绑定团队账号，成员经账号在多端加入会议，仅需平板或手机即可完整使用。千问通过阿里云百炼 DashScope API 调用（模型暂定 qwen-plus），API Key 仅存服务端，不进前端或固件。候选120秒未确认自动取消，过期后需重新分析。
 
 ### 阅读 HTML
 
@@ -83,7 +85,7 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 - `services/controller/qwen_client.py`：千问（DashScope）接入。默认mock模式，设`QWEN_API_KEY`环境变量后切真实API调用（qwen-plus）。Key仅存服务端。
 - `services/controller/demo.html`：B暂代的调试页，原生HTML/JS，无前端构建或外部运行资源。含观点地图展示与图片共享。
 - `fixtures/demo/closed_loop.json`：合成发言材料，可供C/D/E复用。
-- `services/relay/`：媒体中继服务（FastAPI WebSocket），接收设备 PCM 音频帧、转发控制器、推送 TTS。可独立启动（`python scripts/run_relay.py` 或 `uvicorn services.relay.app:app --port 8766`）。
+- `services/relay/`：媒体中继服务（FastAPI WebSocket），接收设备 PCM 音频帧（20ms @16kHz s16le mono）、转发控制器、推送 TTS。协议：audio.start → audio.ready → 二进制 PCM 帧 → audio.end。独立启动：`python scripts/run_relay.py`（默认 127.0.0.1:8766）。
 - `firmware/esp32/`：ESP32-S3固件骨架（README），待实现。
 - `hardware/electronics/`：供电接线与BOM骨架（README），待填充。
 
@@ -92,6 +94,17 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 参数边界：候选120秒有效，过期后重新分析会更新待确认版本，旧版本不能执行；新发言进入后确认须重新分析；同一ID不同内容返回409；same-context分析重试复用候选。修正发言、真实回应判断、冷却策略和人工决议核对留给后续模块，当前摘要均标unresolved。
 
 模拟完成回执只说明FakeRobot执行分支运行，不证明实际播放。mock在短SQLite事务内同步执行，**不能把真实设备/远程模型直接塞进这条事务路径**；后续需要持久化任务队列/worker、真实设备回执、安全停顿和取消机制。本轮禁止非mock适配器。
+
+### C 对接指南：音频链路
+
+C 优先交付三项：PCM 收发接口、FunASR adapter 接口、TTS 生成器接口。对接步骤：
+
+1. **开音频会话**：`POST /api/v1/meetings/{id}/audio/sessions`（operator 角色），payload 为 `AudioStreamConfig`，返回 `AudioStreamReady`（含 `stream_key`）。
+2. **连 relay WebSocket**：`ws://127.0.0.1:8766/ws/audio/{session_id}?token=xxx&device_id=xxx`。发送 `audio.start` JSON → 收到 `audio.ready` → 开始发二进制 PCM 帧（640 bytes = 20ms @16kHz s16le mono）。
+3. **关音频会话**：发送 `audio.end` JSON，relay 通知控制器 `POST /audio/sessions/end`。
+4. **TTS 推送**：`POST /api/tts/{session_id}` 向 relay 推送字节，relay 转发给设备。
+
+PCM 帧尺寸不符会收到 `error INVALID_FRAME_SIZE`。token 校验当前为 mock（不验证），后续接入 `verify_device_token`。
 
 ### 数据与后续交接
 

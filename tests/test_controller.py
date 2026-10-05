@@ -270,11 +270,13 @@ class ControllerTests(unittest.TestCase):
 
     def test_console_copy_names_view_owner_and_onsite_recipient(self):
         page = self.client.get("/").text
-        for text in ["线上观点可能尚未获现场回应", "请机器人向现场提示", "不用向现场提示这条观点",
+        for text in ["线上观点可能尚未获现场回应", "请机器人提醒", "不必提醒",
                      "提示接收方：现场参与讨论的人", "观点本人决定是否提示现场"]:
             self.assertIn(text, page)
         self.assertNotIn("可能未回应 → 产生候选", page)
-        self.assertNotIn("[['confirm','请提醒'],['dismiss','不必提醒']]", page)
+        # Button array must use the new unified copy.
+        self.assertNotIn("'请机器人向现场提示'", page)
+        self.assertNotIn("'不用向现场提示这条观点'", page)
 
     def test_report_and_runtime_contract_stay_equal(self):
         documented = json.loads((ROOT / "docs/product/EffMeet2_contract_v1.json").read_text(encoding="utf-8"))

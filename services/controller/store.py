@@ -17,6 +17,15 @@ def packed(value):
     return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
 
 
+def _texts_overlap(a, b):
+    """判定两段文本是否实质重合（用于机器人自声识别：播报被麦克风回收后，转写文本与播报文本互为包含）。"""
+    norm = lambda s: "".join(ch for ch in s if ch.isalnum())
+    a, b = norm(a), norm(b)
+    if not a or not b:
+        return False
+    return a in b or b in a
+
+
 class Store(ResponseTracking):
     def __init__(self, path, analyzer=None, robot=None, clock=time.time, candidate_ttl=120, bench=False):
         self.path = Path(path)
@@ -27,6 +36,9 @@ class Store(ResponseTracking):
             raise ValueError("This demo cannot dispatch to real model/device adapters.")
         self.clock = clock
         self.candidate_ttl = candidate_ttl
+        # robot_bleed 抑制窗口：播报文本 + 播报窗口截止时间（无播报时 _speak_until 为 0）
+        self._speak_text = None
+        self._speak_until = 0.0
         with self.db() as conn:
             conn.execute("PRAGMA journal_mode=WAL")
             conn.executescript("""
@@ -148,6 +160,13 @@ class Store(ResponseTracking):
             raise DemoError(422, "INVALID_INTERVAL", "end_ms不能小于start_ms。")
         if not request["text"].strip():
             raise DemoError(422, "EMPTY_TEXT", "发言不能只有空白。")
+        # 机器人自声抑制（robot_bleed 兜底）：播报窗口内收到的现场发言，
+        # 若文本与正在播报的内容重合，判定为扬声器回放被麦克风回收，不落盘、不进账本。
+        # 真实链路另有 AEC（C 的职责），此处是控制器软件兜底。
+        if (request["channel"] == "onsite" and self._speak_text
+                and self.clock() < self._speak_until
+                and _texts_overlap(request["text"], self._speak_text)):
+            return {"event": None, "replayed": False, "skipped": "robot_bleed"}
         with self.db(write=True) as conn:
             self.require_meeting(conn, meeting_id)
             old = conn.execute("SELECT * FROM utterances WHERE id=?", (request["utterance_id"],)).fetchone()
@@ -269,6 +288,9 @@ class Store(ResponseTracking):
                            "target_device_id": self.robot.device_id, "action": "speak", "ttl_ms": 5000,
                            "args": {"text": f"打扰一下——刚才线上成员提到{candidate['proposed_text']}，现场可以回应一下吗？", "voice_profile": "mock_voice"}}
                 validate("RobotCommand", command)
+                # 开 robot_bleed 抑制窗口：TTS 约每字 0.22s，加 2 秒余量
+                self._speak_text = command["args"]["text"]
+                self._speak_until = self.clock() + len(command["args"]["text"]) * 0.22 + 2.0
                 deferred = getattr(self.robot, "deferred", False)
                 cmd_event = self.emit(conn, meeting_id, "robot.command", command, trace, "bench_controller" if deferred else "demo_controller", parent=event["event_id"], mode="manual" if deferred else "mock")
                 # Mock-only, synchronous and inside this short transaction. A real-device

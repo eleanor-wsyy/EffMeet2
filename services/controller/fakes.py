@@ -16,8 +16,8 @@ class FakeAnalyzer:
         if status == "responded" and not responses:
             raise DemoError(422, "RESPONSE_MISSING", "模拟已回应场景需包含一条现场回应。")
         # This is intentionally a selected scenario, NOT semantic detection.
-        snippet = remote[-1]["text"].strip()[:42].rstrip("。！？!?.,，；;")
-        text = "线上成员提出：" + snippet + "，现场可以回应一下吗？"
+        # proposed_text 只产观点转述（≤30字）；完整播报句由 store 用服务端模板拼接，模型/mock 原话不上设备。
+        text = remote[-1]["text"].strip()[:30].rstrip("。！？!?.,，；;")
         return {
             "claim_id": str(uuid4()),
             "owner_speaker_id": next(iter(owners)),

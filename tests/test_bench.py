@@ -66,6 +66,19 @@ class BenchTests(unittest.TestCase):
         self.runtime = self.app.state.bench
 
     def tearDown(self):
+        # Explicitly close any pending asyncio tasks before TestClient cleanup
+        # to prevent "Event loop is closed" errors on Python 3.13+
+        try:
+            loop = asyncio.get_event_loop()
+            if loop.is_running():
+                # Cancel all pending tasks
+                pending = asyncio.all_tasks(loop)
+                for task in pending:
+                    task.cancel()
+                if pending:
+                    loop.run_until_complete(asyncio.gather(*pending, return_exceptions=True))
+        except RuntimeError:
+            pass  # No event loop in this thread
         self.client.__exit__(None, None, None)
         self.tmp.cleanup()
 

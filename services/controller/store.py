@@ -267,7 +267,7 @@ class Store(ResponseTracking):
                 candidate = json.loads(row["candidate"])
                 command = {"command_id": str(uuid4()), "intervention_id": intervention_id,
                            "target_device_id": self.robot.device_id, "action": "speak", "ttl_ms": 5000,
-                           "args": {"text": candidate["proposed_text"], "voice_profile": "mock_voice"}}
+                           "args": {"text": f"打扰一下——刚才线上成员提到{candidate['proposed_text']}，现场可以回应一下吗？", "voice_profile": "mock_voice"}}
                 validate("RobotCommand", command)
                 deferred = getattr(self.robot, "deferred", False)
                 cmd_event = self.emit(conn, meeting_id, "robot.command", command, trace, "bench_controller" if deferred else "demo_controller", parent=event["event_id"], mode="manual" if deferred else "mock")

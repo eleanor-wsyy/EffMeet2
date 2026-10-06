@@ -1,12 +1,12 @@
 {
-  "description": "合成测试文本；非会议录音、非模型输出、非真实设备事件。",
+  "description": "合成测试文本（回收箱课设场景，对齐演示脚本附录A）；非会议录音、非模型输出、非真实设备事件。",
   "remote": {
     "stream_id": "demo_remote",
     "speaker_id": "remote_1",
     "channel": "remote",
     "start_ms": 0,
-    "end_ms": 3000,
-    "text": "先验证线上成员能否看清草图，再讨论硬件选型。",
+    "end_ms": 4000,
+    "text": "我说个事，满溢检测的话，用重量传感器比摄像头便宜很多，而且不用处理隐私问题。",
     "final": true,
     "revision": 1
   },
@@ -14,9 +14,9 @@
     "stream_id": "demo_onsite",
     "speaker_id": "onsite_1",
     "channel": "onsite",
-    "start_ms": 4000,
-    "end_ms": 7000,
-    "text": "我回应一下：先共享原图，再让线上成员核对。",
+    "start_ms": 40000,
+    "end_ms": 44000,
+    "text": "哎这个有道理，重量传感器确实比摄像头便宜一半都不止。",
     "final": true,
     "revision": 1
   }

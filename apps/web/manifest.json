@@ -1,0 +1,9 @@
+{
+  "name": "EffMeet 2",
+  "short_name": "EffMeet 2",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#F6F7F9",
+  "theme_color": "#FF6B4A",
+  "description": "在线，不等于在场。"
+}

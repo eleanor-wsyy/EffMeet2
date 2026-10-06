@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#FF6B4A">
+<title>EffMeet 2</title>
+<link rel="manifest" href="manifest.json">
+<style>
+:root{--bg:#F6F7F9;--card:#FFF;--ink:#1A1D21;--gray:#6B7280;--faint:#9CA3AF;--brand:#FF6B4A;--brand-d:#F0522E;--green:#16A34A;--green-bg:#DCFCE7;--orange:#D97706;--orange-bg:#FEF3C7;--green-soft:#F0FDF4;--r:20px;--shadow:0 6px 16px rgba(26,29,33,.07)}
+*{margin:0;padding:0;box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif;background:var(--bg);color:var(--ink);max-width:430px;margin:0 auto;min-height:100vh;display:flex;flex-direction:column}
+.hero{background:linear-gradient(180deg,#FF8552,#F0522E);color:#fff;padding:max(env(safe-area-inset-top),18px) 20px 18px}
+.hero h1{font-size:21px;font-weight:700}
+.hero .meta{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.pill{display:inline-flex;align-items:center;gap:6px;background:rgba(255,255,255,.22);border-radius:999px;padding:5px 10px;font-size:11px;font-weight:500}
+.pill .dot{width:7px;height:7px;border-radius:50%;background:#fff}
+.avatars{display:flex}
+.avatars span{width:30px;height:30px;border-radius:50%;color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;margin-left:-8px;border:2px solid rgba(255,255,255,.4)}
+.avatars span:first-child{margin-left:0}
+main{flex:1;padding:16px 16px 120px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border-radius:var(--r);box-shadow:var(--shadow);padding:14px}
+.livebar{display:flex;gap:10px;align-items:center;font-size:12px}
+.livebar .bar{width:3px;height:26px;border-radius:2px;background:var(--brand)}
+.livebar b{font-size:12px}.livebar .t{color:var(--gray)}
+.capture img{width:100%;border-radius:14px;display:block}
+.capture .row{display:flex;justify-content:space-between;align-items:center;margin-top:10px}
+.capture .lab{font-size:10px;color:var(--faint);font-weight:500;letter-spacing:.5px}
+.capture .desc{font-size:12px;color:var(--gray)}
+.link{color:var(--brand);font-size:12px;font-weight:500;text-decoration:none}
+.sec-title{display:flex;justify-content:space-between;align-items:center;padding:0 2px;font-size:16px;font-weight:700}
+.sec-title .count{background:#FFE9E3;color:var(--brand-d);font-size:11px;font-weight:700;border-radius:999px;padding:5px 10px}
+.op-card{display:flex;flex-direction:column;gap:8px}
+.op-head{display:flex;justify-content:space-between;align-items:center}
+.op-who{display:flex;gap:8px;align-items:center;font-size:11px;color:var(--faint)}
+.av{width:26px;height:26px;border-radius:50%;background:var(--brand);color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.tag{border-radius:999px;padding:5px 10px;font-size:11px;font-weight:500}
+.tag.warn{background:var(--orange-bg);color:var(--orange)}
+.tag.ok{background:var(--green-bg);color:var(--green)}
+.op-text{font-size:14px;line-height:1.5}
+.mic-fab{position:fixed;bottom:24px;left:50%;transform:translateX(-50%);width:68px;height:68px;border-radius:50%;border:none;background:linear-gradient(180deg,#FF8552,#F0522E);box-shadow:0 8px 20px rgba(240,82,46,.4);display:flex;align-items:center;justify-content:center;cursor:pointer}
+.mic-fab svg{width:30px;height:30px}
+.mic-fab.muted{background:#4B5563}
+.mic-hint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:var(--faint)}
+.scrim{position:fixed;inset:0;background:rgba(16,18,22,.44);display:none;z-index:10}
+.sheet{position:fixed;left:0;right:0;bottom:0;max-width:430px;margin:0 auto;background:#fff;border-radius:28px 28px 0 0;padding:12px 20px calc(20px + env(safe-area-inset-bottom));display:none;z-index:11;flex-direction:column;gap:14px}
+.sheet.on,.scrim.on{display:flex}.scrim.on{display:block}
+.sheet .handle{width:40px;height:4px;border-radius:2px;background:#E5E7EB;margin:0 auto}
+.sheet .ai{background:#FFE9E3;color:var(--brand-d);font-size:11px;font-weight:700;border-radius:999px;padding:5px 10px;align-self:flex-start}
+.sheet h2{font-size:16px}
+.quote{background:var(--bg);border-radius:14px;padding:12px;font-size:13px;color:#3F454B}
+.quote .m{font-size:11px;color:var(--faint);margin-top:4px}
+.sheet .btns{display:flex;gap:12px}
+.btn{flex:1;height:50px;border:none;border-radius:14px;font-size:15px;cursor:pointer;font-weight:700}
+.btn.primary{background:linear-gradient(180deg,#FF8552,#F0522E);color:#fff;box-shadow:0 6px 14px rgba(240,82,46,.35)}
+.btn.ghost{background:#F3F4F6;color:var(--ink);font-weight:500}
+.sheet .note{font-size:11px;color:var(--faint);text-align:center}
+/* 观点地图 */
+.map-head{padding:max(env(safe-area-inset-top),18px) 20px 4px}
+.map-head h1{font-size:26px;font-weight:700}
+.map-head .sub{font-size:12px;color:var(--gray);margin-top:4px}
+.stats{display:flex;gap:10px;padding:10px 20px}
+.stat{flex:1;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:14px}
+.stat .n{font-size:22px;font-weight:700}
+.stat .l{font-size:11px;color:var(--gray)}
+.reply{background:var(--green-soft);border-radius:14px;padding:10px;font-size:12px;color:#3F454B}
+.reply b{color:var(--green);font-size:11px}
+.viewlink{color:var(--brand);font-size:12px;font-weight:500}
+.export{margin:16px 20px 24px;height:52px;border:none;border-radius:16px;background:var(--ink);color:#fff;font-size:15px;font-weight:700;cursor:pointer}
+.join{display:flex;flex-direction:column;gap:14px;padding:24px 20px}
+.join input{height:50px;border:1px solid #E5E7EB;border-radius:14px;padding:0 16px;font-size:15px}
+.join .btn{width:100%}
+.err{color:#c0392b;font-size:12px;padding:0 2px}
+</style>
+</head>
+<body>
+<!-- 入会页 -->
+<div id="view-join" class="join" style="justify-content:center;min-height:100vh">
+  <h1 style="font-size:24px">EffMeet 2</h1>
+  <p style="color:var(--gray);font-size:13px">在线，不等于在场。</p>
+  <input id="j-mid" placeholder="粘贴会议链接或会议 ID">
+  <input id="j-name" placeholder="你的名字（如：丙）">
+  <button class="btn primary" onclick="joinMeeting()">加入会议</button>
+  <div class="err" id="j-err"></div>
+</div>
+
+<!-- 会中页 -->
+<div id="view-live" style="display:none;flex-direction:column;min-height:100vh">
+<header class="hero">
+  <h1 id="lv-title">会议</h1>
+  <div class="meta">
+    <span class="pill"><span class="dot"></span><span id="lv-status">录音中</span></span>
+    <div class="avatars" id="lv-avatars"></div>
+  </div>
+</header>
+<main>
+  <div class="card livebar"><span class="bar"></span><b id="lv-speaker">现场</b><span class="t" id="lv-transcript">等待发言…</span></div>
+  <div class="card capture">
+    <img id="lv-img" alt="现场画面" style="display:none">
+    <div class="row"><div><div class="lab">AI 描述</div><div class="desc" id="lv-desc">尚未抓拍</div></div><a class="link" id="lv-viewimg" href="#">查看原图 ›</a></div>
+  </div>
+  <div class="sec-title">我的观点<span class="count" id="lv-count">0 条</span></div>
+  <div id="lv-ops" style="display:flex;flex-direction:column;gap:14px"></div>
+</main>
+<button class="mic-fab" id="lv-mic" onclick="toggleMic()" aria-label="开麦发言">
+  <svg viewBox="0 0 24 24" fill="none"><rect x="9" y="2" width="6" height="12" rx="3" fill="#fff"/><path d="M5 10a7 7 0 0 0 14 0" stroke="#fff" stroke-width="2" stroke-linecap="round"/><path d="M12 19v3" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
+</button>
+<div class="mic-hint" id="lv-michint">点击开麦发言</div>
+</div>
+
+<!-- 观点地图 -->
+<div id="view-map" style="display:none">
+  <div class="map-head"><h1>观点地图</h1><div class="sub" id="mp-info"></div></div>
+  <div class="stats" id="mp-stats"></div>
+  <main style="padding-bottom:24px" id="mp-list"></main>
+  <button class="export" onclick="alert('导出为会议记录（接 store 导出接口）')">导出会议记录</button>
+</div>
+
+<!-- 候选确认弹层 -->
+<div class="scrim" id="scrim" onclick="dismissSheet()"></div>
+<div class="sheet" id="sheet">
+  <div class="handle"></div>
+  <span class="ai">AI 候选</span>
+  <h2>你的观点可能还没被现场听到</h2>
+  <div class="quote"><div id="sh-quote"></div><div class="m" id="sh-meta"></div></div>
+  <div class="btns">
+    <button class="btn primary" onclick="confirmCandidate()">请机器人提醒</button>
+    <button class="btn ghost" onclick="dismissCandidate()">不必提醒</button>
+  </div>
+  <div class="note" id="sh-note"></div>
+</div>
+
+<script>
+/* EffMeet2 apps/web 骨架 v0 —— 小W（A 侧助手）代做 2026-10-06，D 接管后拆模块。
+   数据源：store 状态接口轮询；LiveKit 接入口见 connectLiveKit()。 */
+const API = '';
+let MID = '', ME = '', MIC_ON = false, SHEET_IID = null, SHEET_REV = 1, pollTimer = null;
+
+function $(id){return document.getElementById(id)}
+async function api(path, opts={}){
+  const r = await fetch(API+path, {headers:{'Content-Type':'application/json', ...(opts.headers||{})}, ...opts});
+  if(!r.ok){const e=await r.json().catch(()=>({}));throw Object.assign(new Error(e.message||r.statusText),{status:r.status,code:e.error_code})}
+  return r.json();
+}
+function joinMeeting(){
+  const raw = $('j-mid').value.trim();
+  MID = raw.includes('/') ? raw.split('/').filter(Boolean).pop() : raw;
+  ME = $('j-name').value.trim();
+  if(!MID || !ME){$('j-err').textContent='会议和名字都要填';return}
+  $('view-join').style.display='none'; $('view-live').style.display='flex';
+  startPoll(); connectLiveKit();
+}
+/* —— LiveKit 接入点（B/C 落地后启用）：token 走服务端签发，Key 不进前端 —— */
+async function connectLiveKit(){
+  try{
+    const t = await api(`/api/v1/meetings/${MID}/livekit-token`, {method:'POST', body:JSON.stringify({identity:ME})});
+    // const room = new LivekitClient.Room();
+    // await room.connect(t.url, t.token); room.localParticipant.setMicrophoneEnabled(false);
+    console.log('livekit token ok', t.room);
+  }catch(e){ console.log('livekit 未配置（预期内，mock 链路可用）', e.code||e.message) }
+}
+function toggleMic(){ MIC_ON=!MIC_ON; $('lv-mic').classList.toggle('muted',!MIC_ON); $('lv-michint').textContent=MIC_ON?'发言中 · 再点静音':'点击开麦发言'; /* room.localParticipant.setMicrophoneEnabled(MIC_ON) */ }
+
+async function startPoll(){
+  const tick = async ()=>{
+    try{
+      const s = await api(`/api/demo/meetings/${MID}/state`);
+      renderLive(s);
+      const c = s.candidate;
+      if(c && c.status==='awaiting_confirmation' && c.owner_speaker_id===ME && !SHEET_IID){ openSheet(c) }
+    }catch(e){ $('lv-status').textContent='连接异常，本地停止仍可用' }
+  };
+  await tick(); pollTimer = setInterval(tick, 2000);
+}
+function renderLive(s){
+  $('lv-title').textContent = s.title||'会议';
+  $('lv-avatars').innerHTML = (s.participants||[]).map(p=>`<span style="background:${p.color||'#6366F1'}">${p.name[0]}</span>`).join('');
+  if(s.transcript){ $('lv-speaker').textContent = s.transcript.who; $('lv-transcript').textContent = s.transcript.text }
+  if(s.capture){ $('lv-img').src=s.capture.url; $('lv-img').style.display='block'; $('lv-desc').textContent=s.capture.desc||'—'; $('lv-viewimg').href=s.capture.url }
+  const ops = (s.my_opinions||[]);
+  $('lv-count').textContent = ops.length+' 条';
+  $('lv-ops').innerHTML = ops.map(o=>`<div class="card op-card"><div class="op-head"><div class="op-who"><span class="av">我</span><span>${o.time}</span></div><span class="tag ${o.status==='已回应'?'ok':'warn'}">${o.status}</span></div><div class="op-text">${o.text}</div></div>`).join('');
+}
+/* —— 候选确认弹层（文案固定，取自判断样例 §3，禁改）—— */
+function openSheet(c){
+  SHEET_IID=c.intervention_id; SHEET_REV=c.state_revision;
+  $('sh-quote').textContent='「'+c.proposed_text+'」'; $('sh-meta').textContent='你说的';
+  $('sh-note').textContent='机器人会在现场停顿时转述你的原话 · 剩余 120 秒';
+  $('scrim').classList.add('on'); $('sheet').classList.add('on');
+}
+async function confirmCandidate(){
+  try{ await api(`/api/v1/meetings/${MID}/interventions/${SHEET_IID}/decision`, {method:'POST', body:JSON.stringify({decision:'confirm', expected_revision:SHEET_REV})}); }catch(e){ alert(e.message) }
+  closeSheet();
+}
+async function dismissCandidate(){
+  try{ await api(`/api/v1/meetings/${MID}/interventions/${SHEET_IID}/decision`, {method:'POST', body:JSON.stringify({decision:'dismiss', expected_revision:SHEET_REV})}); }catch(e){}
+  closeSheet();
+}
+function dismissSheet(){ closeSheet() }
+function closeSheet(){ SHEET_IID=null; $('scrim').classList.remove('on'); $('sheet').classList.remove('on') }
+</script>
+</body>
+</html>

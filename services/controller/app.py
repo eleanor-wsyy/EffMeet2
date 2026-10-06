@@ -241,6 +241,17 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         operator(request)
         return store.end_audio_session(meeting_id, body)
 
+    @app.post("/api/v1/meetings/{meeting_id}/livekit-token", status_code=201)
+    def livekit_token(meeting_id: str, request: Request, body: dict = Body(...)):
+        identity = actor(request)
+        requested = body.get("identity") or identity
+        if requested != identity:
+            raise DemoError(403, "IDENTITY_MISMATCH", "只能给本人签发媒体 token。")
+        from services.relay.livekit_token import issue_token
+        with store.db() as conn:
+            store.require_meeting(conn, meeting_id)
+        return issue_token(meeting_id, requested)
+
     @app.post("/api/v1/meetings/{meeting_id}/devices/{device_id}/pair", status_code=201)
     def pair_device(meeting_id: str, device_id: str, request: Request):
         operator(request)

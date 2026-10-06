@@ -10,7 +10,7 @@ import time
 from ..controller.contracts import DemoError
 
 
-def issue_token(meeting_id, identity):
+def issue_token(meeting_id, identity, *, relay=False):
     api_key = os.environ.get("LIVEKIT_API_KEY")
     api_secret = os.environ.get("LIVEKIT_API_SECRET")
     url = os.environ.get("LIVEKIT_URL")
@@ -29,6 +29,9 @@ def issue_token(meeting_id, identity):
         "sub": identity.strip(),
         "nbf": now - 10,
         "exp": now + 3600,
-        "video": {"roomJoin": True, "room": meeting_id, "canPublish": True, "canSubscribe": True},
+        "video": {"roomJoin": True, "room": meeting_id, "canPublish": not relay,
+                  "canSubscribe": True, "canPublishData": False, "canUpdateOwnMetadata": False},
     }
+    if not relay:
+        payload['video']['canPublishSources'] = ['microphone']
     return {"token": jwt.encode(payload, api_secret, algorithm="HS256"), "url": url, "room": meeting_id}

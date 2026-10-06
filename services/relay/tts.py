@@ -15,6 +15,8 @@ class WindowsTTS:
             raise RuntimeError("WINDOWS_TTS_ONLY")
         if not isinstance(text, str) or not 1 <= len(text) <= 80:
             raise ValueError("INVALID_TTS_TEXT")
+        if rate is not None and (type(rate) is not int or not -10 <= rate <= 10):
+            raise ValueError('INVALID_TTS_RATE')
         with tempfile.TemporaryDirectory(prefix="effmeet-tts-") as folder:
             output = Path(folder) / "speech.wav"
             env = {**os.environ, "EFFMEET_TTS_TEXT": text, "EFFMEET_TTS_OUTPUT": str(output)}

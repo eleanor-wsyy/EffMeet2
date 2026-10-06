@@ -17,6 +17,7 @@ from websockets.sync.client import connect
 
 
 def main():
+    real_tts = '--real-tts' in sys.argv
     with socket.socket() as sock:
         sock.bind(("127.0.0.1", 0))
         port = sock.getsockname()[1]
@@ -27,6 +28,7 @@ def main():
                "EFFMEET_FIXTURE_PORT": str(port), "PYTHONIOENCODING": "utf-8"}
         # A fixture must never accidentally call a real configured account.
         env.pop("QWEN_API_KEY", None)
+        env['EFFMEET_REAL_TTS_TEST'] = '1' if real_tts else '0'
         with log_path.open("w", encoding="utf-8") as log:
             proc = subprocess.Popen([sys.executable, "-m", "tests.network_fixture"], cwd=ROOT,
                 env=env, stdout=log, stderr=log, creationflags=subprocess.CREATE_NO_WINDOW if os.name == "nt" else 0)
@@ -54,7 +56,7 @@ def main():
                         wav.writeframes(bytes(3200))
                     def client(*args):
                         r = subprocess.run([sys.executable, "scripts/bench_audio.py", "--url", base,
-                            "--meeting", mid, *args], cwd=ROOT, env=env, capture_output=True, timeout=15)
+                            "--meeting", mid, *args], cwd=ROOT, env=env, capture_output=True, timeout=60)
                         if r.returncode:
                             raise RuntimeError(r.stderr.decode("utf-8", errors="replace"))
                     client("upload", str(wav_path), "--channel", "remote", "--speaker", "remote_1")
@@ -74,18 +76,18 @@ def main():
                     body = {"decision": "confirm", "expected_revision": 1}
                     decision = request("POST", path, body, "remote_1")
                     cid = decision["command"]["command_id"]
-                    client("play", cid, "--simulate", "--safe-pause")
+                    client("play", cid, *([] if real_tts else ['--simulate']), "--safe-pause")
                     state = request("GET", f"/api/demo/meetings/{mid}/state")
                     assert [r["status"] for r in state["commands"][0]["receipts"]] == ["accepted", "started", "completed"]
                     assert request("POST", path, body, "remote_1")["replayed"]
                     events = request("GET", f"/api/v1/meetings/{mid}/events")
                     assert next(e for e in events if e["event_type"] == "utterance.final")["mode"] == "mock"
-                    assert all(e["mode"] == "mock" for e in events if e["event_type"] == "robot.receipt")
+                    assert all(e["mode"] == ('manual' if real_tts else 'mock') for e in events if e["event_type"] == "robot.receipt")
                     with connect(base.replace("http:", "ws:") + f"/api/v1/meetings/{mid}/events", proxy=None) as ws:
                         ws.send(json.dumps({"token": tokens["remote_1"], "after_seq": events[-2]["seq"]}))
                         assert json.loads(ws.recv(timeout=2))["seq"] == events[-1]["seq"]
                     print(json.dumps({"status": "PASS", "transport": "real HTTP + WebSocket",
-                        "providers": "synthetic ASR/model/TTS and simulated audio sink",
+                        "providers": 'synthetic ASR/model; Windows TTS + host audio' if real_tts else "synthetic ASR/model/TTS and simulated audio sink",
                         "checks": ["WAV to EFMA", "FunASR wire handshake", "final transcript ledger",
                             "async model job", "owner confirmation", "PCM downlink with bounded ACK",
                             "drained receipt", "retry idempotency", "event resume"],

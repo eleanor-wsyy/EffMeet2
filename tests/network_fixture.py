@@ -23,7 +23,12 @@ class TTS:
 
 asr = FunASR(f"ws://127.0.0.1:{os.environ['EFFMEET_FIXTURE_PORT']}/fixture/funasr")
 asr.mode = "mock"
-app = create_app(bench=True, asr=asr, analyzer=Model(), tts=TTS())
+if os.getenv('EFFMEET_REAL_TTS_TEST') == '1':
+    from services.relay.tts import WindowsTTS
+    tts = WindowsTTS()
+else:
+    tts = TTS()
+app = create_app(bench=True, asr=asr, analyzer=Model(), tts=tts)
 
 
 @app.websocket("/fixture/funasr")

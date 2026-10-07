@@ -41,6 +41,8 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         {"actor": "remote_2", "label": "线上成员 2", "token": secrets.token_urlsafe(24)},
     ]
     tokens = {x["token"]: x["actor"] for x in profiles}
+    from services.relay.livekit_bridge import LiveKitBridge
+    livekit_bridge = LiveKitBridge(store, asr)
 
     @asynccontextmanager
     async def lifespan(app):
@@ -51,6 +53,7 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         try:
             yield
         finally:
+            await livekit_bridge.close()
             if task:
                 task.cancel()
                 with suppress(asyncio.CancelledError):
@@ -60,6 +63,7 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     app.state.store = store
     app.state.robot = store.robot
     app.state.bench = runtime
+    app.state.livekit_bridge = livekit_bridge
 
     def error(status, code, message):
         body = {"error": {"code": code, "message": message, "retryable": False, "trace_id": str(uuid4())}}
@@ -242,7 +246,7 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         return store.end_audio_session(meeting_id, body)
 
     @app.post("/api/v1/meetings/{meeting_id}/livekit-token", status_code=201)
-    def livekit_token(meeting_id: str, request: Request, body: dict = Body(...)):
+    async def livekit_token(meeting_id: str, request: Request, body: dict = Body(...)):
         identity = actor(request)
         requested = body.get("identity") or identity
         if requested != identity:
@@ -250,7 +254,22 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         from services.relay.livekit_token import issue_token
         with store.db() as conn:
             store.require_meeting(conn, meeting_id)
-        return issue_token(meeting_id, requested)
+        if identity not in {'remote_1', 'remote_2'}:
+            raise DemoError(403, 'REMOTE_IDENTITY_REQUIRED', '仅供远程测试成员入会。')
+        credentials = issue_token(meeting_id, requested)
+        await livekit_bridge.join(meeting_id)
+        return credentials
+
+    @app.get('/api/v1/meetings/{meeting_id}/livekit-status')
+    def livekit_status(meeting_id: str, request: Request):
+        actor(request)
+        with store.db() as conn:
+            store.require_meeting(conn, meeting_id)
+        room = livekit_bridge.rooms.get(meeting_id)
+        return {'room': meeting_id, 'relay_connected': bool(room and room.isconnected()),
+                'active_tracks': sum(1 for key, task in livekit_bridge.tasks.items()
+                                     if key[0] == meeting_id and not task.done()),
+                'last_error': livekit_bridge.errors.get(meeting_id)}
 
     @app.post("/api/v1/meetings/{meeting_id}/devices/{device_id}/pair", status_code=201)
     def pair_device(meeting_id: str, device_id: str, request: Request):

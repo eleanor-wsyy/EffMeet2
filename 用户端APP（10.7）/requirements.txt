@@ -1,0 +1,9 @@
+-c constraints.txt
+fastapi==0.124.4
+uvicorn==0.33.0
+jsonschema==4.23.0
+httpx==0.28.1
+rfc3339-validator==0.1.4
+python-multipart==0.0.21
+websockets==15.0.1
+pyjwt==2.10.1

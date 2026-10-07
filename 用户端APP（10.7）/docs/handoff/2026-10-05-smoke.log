@@ -1,0 +1,20 @@
+{
+  "status": "PASS",
+  "mode": "mock",
+  "hardware_connected": false,
+  "checks": [
+    "等待确认不执行",
+    "他人不能代确认",
+    "确认一次",
+    "重复请求不重复执行",
+    "拒绝不执行",
+    "已回应不介入",
+    "不确定弃权",
+    "会后原文回溯",
+    "seq有序且mode=mock",
+    "观点地图生成",
+    "音频会话开/关",
+    "设备配对"
+  ],
+  "main_meeting_id": "5fd8af71-e5b1-4592-a074-f7300fae8fab"
+}

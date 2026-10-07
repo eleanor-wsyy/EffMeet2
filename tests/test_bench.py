@@ -69,7 +69,12 @@ class BenchTests(unittest.TestCase):
         # Explicitly close any pending asyncio tasks before TestClient cleanup
         # to prevent "Event loop is closed" errors on Python 3.13+
         try:
-            loop = asyncio.get_event_loop()
+            # Python 3.13+: avoid DeprecationWarning from get_event_loop()
+            try:
+                loop = asyncio.get_running_loop()
+            except RuntimeError:
+                loop = asyncio.new_event_loop()
+                asyncio.set_event_loop(loop)
             if loop.is_running():
                 # Cancel all pending tasks
                 pending = asyncio.all_tasks(loop)
@@ -77,6 +82,8 @@ class BenchTests(unittest.TestCase):
                     task.cancel()
                 if pending:
                     loop.run_until_complete(asyncio.gather(*pending, return_exceptions=True))
+            if not loop.is_closed():
+                loop.close()
         except RuntimeError:
             pass  # No event loop in this thread
         self.client.__exit__(None, None, None)

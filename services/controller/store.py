@@ -36,6 +36,7 @@ class Store(ResponseTracking):
             raise ValueError("This demo cannot dispatch to real model/device adapters.")
         self.clock = clock
         self.candidate_ttl = candidate_ttl
+        self.bench = bench
         # robot_bleed 抑制窗口：播报文本 + 播报窗口截止时间（无播报时 _speak_until 为 0）
         self._speak_text = None
         self._speak_until = 0.0
@@ -253,6 +254,51 @@ class Store(ResponseTracking):
                 ))
         return result
 
+    def recheck_candidate(self, meeting_id, intervention_id, request, actor):
+        """Explicit owner retry; no automatic renewal and no bypass of current evidence."""
+        if not isinstance(request, dict) or set(request) != {"expected_revision"}:
+            raise DemoError(422, "INVALID_RECHECK", "重新校验必须提供候选版本。")
+        validate("DecisionRequest", {**request, "decision": "confirm"})
+        with self.db(write=True) as conn:
+            self.require_meeting(conn, meeting_id)
+            row = conn.execute("SELECT * FROM interventions WHERE id=? AND meeting_id=?",
+                               (intervention_id, meeting_id)).fetchone()
+            if row is None:
+                raise DemoError(404, "CANDIDATE_NOT_FOUND", "候选不存在。")
+            if actor != row["owner"]:
+                raise DemoError(403, "NOT_OWNER", "只有该观点的线上本人可以请求提醒。")
+            if row["result"]:
+                raise DemoError(409, "DECISION_CONFLICT", "这条候选已有决定，不能重复提醒。")
+            analysis = json.loads(conn.execute("SELECT result FROM analyses WHERE id=?",
+                                             (row["claim_id"],)).fetchone()[0])["analysis"]
+            if self.response_is_verified(conn, meeting_id, analysis):
+                raise DemoError(409, "ALREADY_RESPONDED", "本人已确认获得回应，不再发送提示。")
+            if request["expected_revision"] != row["revision"]:
+                raise DemoError(409, "STALE_REVISION", "候选版本已变化，请刷新后再决定。")
+            if self.context_seq(conn, meeting_id) != row["context_seq"]:
+                raise DemoError(409, "CONTEXT_CHANGED", "现场已有新发言，请等待重新分析后再提醒。")
+            if analysis["status"] != "possibly_unresponded" or row["state"] != "awaiting_confirmation":
+                raise DemoError(409, "NOT_ELIGIBLE", "当前观点不满足提醒条件。")
+            candidate = json.loads(row["candidate"])
+            if self.clock() >= row["expires_at"]:
+                # Existing analysis is usable only while its evidence context is unchanged.
+                # Atomic revision update prevents another tab from replaying an old decision.
+                candidate = {**candidate, "state_revision": row["revision"] + 1}
+                validate("InterventionCandidate", candidate)
+                event = self.emit(conn, meeting_id, "intervention.created", candidate, str(uuid4()),
+                                  "participant_recheck", "web", row["candidate_event_id"], mode="manual")
+                expires_at = self.clock() + self.candidate_ttl
+                conn.execute("UPDATE interventions SET candidate=?,candidate_event_id=?,revision=?,expires_at=? WHERE id=?",
+                             (packed(candidate), event["event_id"], candidate["state_revision"], expires_at, intervention_id))
+                # Keep cached analysis in sync with its candidate's current revision.
+                cached = json.loads(conn.execute("SELECT result FROM analyses WHERE id=?", (row["claim_id"],)).fetchone()[0])
+                cached["intervention"] = candidate
+                conn.execute("UPDATE analyses SET result=? WHERE id=?", (packed(cached), row["claim_id"]))
+            else:
+                expires_at = row["expires_at"]
+            return {"candidate": candidate, "state": "awaiting_confirmation",
+                    "state_revision": candidate["state_revision"], "decision": None, "expires_at": expires_at}
+
     def decide(self, meeting_id, intervention_id, request, actor):
         validate("DecisionRequest", request)
         with self.db(write=True) as conn:
@@ -336,10 +382,18 @@ class Store(ResponseTracking):
                     elif self.context_seq(conn, meeting_id) != row["context_seq"]:
                         state = "stale"
                 candidates.append({"candidate": json.loads(row["candidate"]), "state": state,
-                                   "state_revision": row["revision"], "decision": row["decision"]})
+                                   "state_revision": row["revision"], "decision": row["decision"],
+                                   "expires_at": row["expires_at"]})
+            # A read-only revision lets the participant UI refresh the map only
+            # when source evidence changes, not on every two-second heartbeat.
+            viewpoint_revision = conn.execute("""SELECT COALESCE(MAX(seq),0) FROM events
+                WHERE meeting_id=? AND json_extract(data, '$.event_type') IN
+                ('utterance.final','analysis.completed','response.verified')""", (meeting_id,)).fetchone()[0]
             commands = [{"command": json.loads(x["data"]), "receipts": json.loads(x["receipts"])}
                         for x in conn.execute("SELECT * FROM commands WHERE meeting_id=? ORDER BY rowid", (meeting_id,))]
-        return {"meeting_id": meeting_id, "title": meeting["title"], "mode": "mock",
+        return {"meeting_id": meeting_id, "title": meeting["title"],
+                "mode": "bench" if self.bench else "mock", "server_time": self.clock(),
+                "viewpoint_revision": viewpoint_revision,
                 "utterances": utterances, "interventions": candidates, "commands": commands}
 
     def add_capture(self, meeting_id, filename, content_type, image_data, *, mode="mock", source="demo_capture"):

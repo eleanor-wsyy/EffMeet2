@@ -12,6 +12,7 @@ from uuid import uuid4
 from fastapi import Body, FastAPI, Query, Request, UploadFile, WebSocket, WebSocketDisconnect
 from fastapi.exceptions import RequestValidationError
 from fastapi.responses import HTMLResponse, JSONResponse, Response
+from fastapi.staticfiles import StaticFiles
 from starlette.exceptions import HTTPException
 
 from .contracts import DemoError, ROOT, validate
@@ -135,6 +136,9 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     @app.get("/bench-audio.js", include_in_schema=False)
     def audio_script():
         return Response(Path(__file__).with_name("audio.js").read_text(encoding="utf-8"), media_type="text/javascript")
+
+    # Same-origin participant UI: keep the operator/bench console at /.
+    app.mount("/app", StaticFiles(directory=ROOT / "apps/web", html=True), name="participant_ui")
 
     @app.get("/healthz")
     def health():
@@ -283,6 +287,10 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         if runtime:
             return runtime.enqueue(meeting_id, body)
         return store.analyze(meeting_id, body, mock_status)
+
+    @app.post("/api/v1/meetings/{meeting_id}/interventions/{intervention_id}/recheck")
+    def recheck_candidate(meeting_id: str, intervention_id: str, request: Request, body: dict = Body(...)):
+        return store.recheck_candidate(meeting_id, intervention_id, body, actor(request))
 
     @app.post("/api/v1/meetings/{meeting_id}/interventions/{intervention_id}/decision", status_code=202)
     def decide(meeting_id: str, intervention_id: str, request: Request, body: dict = Body(...)):

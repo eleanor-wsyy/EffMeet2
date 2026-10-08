@@ -15,3 +15,14 @@ data/
 *.sqlite3
 *.sqlite3-shm
 *.sqlite3-wal
+
+# 3D 模型大文件走 Releases，不入仓（参照构件惯例）
+assets/enclosure/*.glb
+assets/enclosure/*.zip
+assets/enclosure/*.obj
+assets/enclosure/*.fbx
+
+# 本地验证与建模临时产物
+model3d/
+shots/
+shot_participant.js

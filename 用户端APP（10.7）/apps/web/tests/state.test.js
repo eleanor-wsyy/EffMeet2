@@ -85,3 +85,32 @@ test('status action uses owner recheck before decision rather than client-side d
   assert.ok(js.includes('Object.assign(row, renewed)'));
   assert.ok(!js.includes('row.expires_at ='));
 });
+
+test('installable PWA assets have real PNG dimensions and remain scoped to /app/', async () => {
+  const manifest = JSON.parse(await readFile(new URL('../manifest.json', import.meta.url), 'utf8'));
+  assert.equal(manifest.start_url, '/app/');
+  assert.equal(manifest.scope, '/app/');
+  assert.equal(manifest.display, 'standalone');
+  for (const [size, path] of [[192,'icon-192.png'],[512,'icon-512.png'],[180,'apple-touch-icon.png']]) {
+    const png = await readFile(new URL('../assets/' + path, import.meta.url));
+    assert.equal(png.subarray(0,8).toString('hex'), '89504e470d0a1a0a');
+    assert.equal(png.readUInt32BE(16), size);
+    assert.equal(png.readUInt32BE(20), size);
+  }
+  assert.ok(manifest.icons.every(icon => icon.purpose.includes('maskable')));
+});
+test('offline cache covers shell but never API, identities or evidence', async () => {
+  const sw = await readFile(new URL('../sw.js', import.meta.url), 'utf8');
+  const js = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
+  assert.match(sw, /const BASE = '\/app\/'/);
+  assert.match(sw, /req\.method !== 'GET' \|\| url\.origin !== self\.location\.origin \|\| !url\.pathname\.startsWith\(BASE\)/);
+  assert.doesNotMatch(sw.match(/const SHELL = \[[^;]+/s)[0], /\/api\//);
+  assert.match(js, /serviceWorker\.register\('\/app\/sw\.js', \{scope:'\/app\/'\}\)/);
+  assert.match(html, /rel="apple-touch-icon"/);
+});
+test('network return triggers a single existing poll instead of duplicate candidate decisions', async () => {
+  const js = await readFile(new URL('../app.js', import.meta.url), 'utf8');
+  assert.match(js, /window\.addEventListener\('online', \(\) => \{\s*if \(model\.mid && !model\.polling\) startPolling\(\);/);
+  assert.match(js, /document\.addEventListener\('visibilitychange', \(\) => \{\s*if \(!document\.hidden && model\.mid && !model\.polling\) startPolling\(\);/);
+});

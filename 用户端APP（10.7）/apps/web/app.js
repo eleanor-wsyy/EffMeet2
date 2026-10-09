@@ -366,4 +366,19 @@ setInterval(() => {
 request('/healthz',{auth:false}).then(updateEnvironment).catch(()=>{$('environment').textContent='本机服务未连接，请先启动控制器。';});
 const invite = new URL(location.href).searchParams.get('meeting_id'); if(invite) $('j-mid').value=invite;
 
+// This PWA caches only its static shell; meeting evidence and decisions remain server-only.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('/app/sw.js', {scope:'/app/'}).catch(() => {}));
+}
+window.addEventListener('offline', () => {
+  if (!model.mid) return;
+  model.online = false; $('connection-state').textContent = '连接中断';
+  renderSheet(); renderPending();
+});
+window.addEventListener('online', () => {
+  if (model.mid && !model.polling) startPolling();
+});
+document.addEventListener('visibilitychange', () => {
+  if (!document.hidden && model.mid && !model.polling) startPolling();
+});
 updateJoinAvailability();

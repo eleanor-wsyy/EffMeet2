@@ -4,7 +4,11 @@
   "start_url": "/app/",
   "scope": "/app/",
   "display": "standalone",
-  "background_color": "#F6F7F9",
+  "background_color": "#FFEFBA",
   "theme_color": "#FF6B4A",
-  "description": "在线，不等于在场。"
+  "description": "在线，不等于在场。",
+  "icons": [
+    {"src": "assets/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable"},
+    {"src": "assets/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable"}
+  ]
 }

@@ -44,13 +44,13 @@ python -m venv .venv
 node --test apps/web/tests/state.test.js
 ```
 
-交付前验证：85 项 Python 测试、29 项 Node 测试通过。
+交付前验证：88 项 Python 测试、32 项 Node 测试通过（包含 HTTPS 网关与 PWA 安全边界测试）。
 
 ## 目录索引
 
 | 位置 | 用途 |
 | --- | --- |
-| `apps/web/` | 手机前端源码、样式、SVG 资源、状态测试和详细接入说明 |
+| `apps/web/` | 手机前端源码、图标、静态壳 Service Worker、状态测试和详细接入说明 |
 | `services/controller/` | 已接入用户端的同源后端快照 |
 | `services/relay/` | 现有音频 / LiveKit 中继支撑代码 |
 | `scripts/run_participant.py` | 本地用户端启动入口 |
@@ -59,13 +59,23 @@ node --test apps/web/tests/state.test.js
 | `tests/` | 后端与用户端集成测试 |
 | `docs/`、`assets/` | 产品资料和原始设计资源 |
 
+## 临时 HTTPS 手机验收（合成数据）
+
+`apps/web/qa/run_phone_preview.py` 新增单会议、单人身份、随机口令保护的临时 HTTPS 网关。详情见 `apps/web/qa/README.md`。本机已有 OpenSSL 时，可在本目录运行：
+
+```powershell
+./.venv/Scripts/python.exe apps/web/qa/run_phone_preview.py --lan-ip 192.168.43.25 --openssl "D:\Program Files\Git\usr\bin\openssl.exe"
+```
+
+将示例 IP 替换为电脑当前局域网 IPv4。手机必须与电脑处于同一网络，安装并核对该脚本输出的公开测试根证书；不要上传私钥或绕过证书警告。临时会议候选 120 秒到期，重新启动生成新链接和口令。根证书最多有效 30 天，测试后撤销手机信任。这只是合成数据验收，不是公网生产部署，也不是现场机器人实播。
+
 ## 范围与限制
 
 - 这是已完成的本地联调用户端，不是正式公网生产部署。
-- 本机演示身份不是正式账号登录；服务仅监听 `127.0.0.1`。
+- 本机演示身份不是正式账号登录；控制器默认仅监听 `127.0.0.1`；手机验收只经临时受保护 HTTPS 网关访问。
 - 默认使用 mock 模型/机器人回执，不代表机器人真的播报。
 - 麦克风仅完成真实权限检查；用户端尚未接通 LiveKit 音频发送，不能称为已持续录音。
-- 现场 AI 描述、会议结束事件及完整离线 PWA 尚未接通。
+- 现场 AI 描述和会议结束事件尚未接通；PWA 仅缓存静态壳，离线不能操作候选或获取新会议证据。
 - 未提交数据库、会话令牌、真实 API 密钥、虚拟环境或依赖缓存。
 
 更详细的接口、交互和验收记录见 `apps/web/README.md`。

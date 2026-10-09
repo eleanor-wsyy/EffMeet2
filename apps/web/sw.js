@@ -14,7 +14,7 @@ self.addEventListener('fetch', event => {
   // API calls and authenticated evidence always use the network and existing server checks.
   if (req.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(BASE)) return;
   event.respondWith(fetch(req).then(response => {
-    if (response.ok && response.type === 'basic') {
+    if (response.ok && response.type === 'basic' && new URL(response.url).pathname.startsWith(BASE)) {
       const copy = response.clone();
       event.waitUntil(caches.open(CACHE).then(cache => cache.put(req, copy)));
     }

@@ -35,3 +35,7 @@ python -m venv .venv
 ./.venv/Scripts/python.exe -m unittest discover -s tests
 node --test apps/web/tests/state.test.js
 ```
+
+## 临时 HTTPS 真机演示
+
+使用合成会议、单人身份和口令保护的本机隧道：详见 [手机验收说明](qa/README.md)。不要把本机调试 API 直接暴露公网；此入口不等于正式部署或机器人实播。

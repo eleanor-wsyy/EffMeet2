@@ -26,3 +26,6 @@ assets/enclosure/*.fbx
 model3d/
 shots/
 shot_participant.js
+
+# Temporary phone QA tunnel binaries, logs and isolated databases
+.local/

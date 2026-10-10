@@ -1,6 +1,6 @@
 """Offline handoff checks. Does not import Blender or claim hardware validation."""
 from pathlib import Path
-import ast,json,re,hashlib
+import ast,json,re,hashlib,csv
 ROOT=Path(__file__).resolve().parent
 REPO=ROOT.parents[1]
 manifest=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
@@ -28,7 +28,7 @@ assert len(final_ids)==30 and set(final_ids)==set(ids)
 plan=(ROOT/'round-yaw-v2/PRINT_PLAN.md').read_text(encoding='utf-8')
 assert 'ABS-GF' in plan and '不是已经存在的可打印文件' in plan
 checks.append('all 30 IDs have final procurement decisions and a non-released print plan')
-active=[ROOT/'round-yaw-v2/PRINT_PLAN.md',ROOT/'round-yaw-v2/BOM.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md',ROOT/'archive/README.md',ROOT/'archive/procurement/README.md',REPO/'README.md',REPO/'docs/handoff/README.md',REPO/'docs/handoff/2026-10-10-robot-design-and-bom.md',REPO/'docs/handoff/2026-10-05-hardware-purchase-list.md',REPO/'docs/handoff/2026-10-05-final-handoff.md',REPO/'docs/handoff/2026-10-07-装配联调计划.md',REPO/'hardware/electronics/README.md',REPO/'hardware/enclosure/README.md',REPO/'hardware/enclosure/EffMeet2_外壳说明_v2.md',REPO/'assets/enclosure/README.md']
+active=[ROOT/'round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md',ROOT/'round-yaw-v2/concept/nomi-aligned-20261010/SOURCE.md',ROOT/'round-yaw-v2/ASSEMBLY_GUIDE.md',ROOT/'round-yaw-v2/TEST_GUIDE.md',ROOT/'round-yaw-v2/PRINT_PLAN.md',ROOT/'round-yaw-v2/BOM.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md',ROOT/'archive/README.md',ROOT/'archive/procurement/README.md',REPO/'README.md',REPO/'docs/handoff/README.md',REPO/'docs/handoff/2026-10-10-robot-design-and-bom.md',REPO/'docs/handoff/2026-10-05-hardware-purchase-list.md',REPO/'docs/handoff/2026-10-05-final-handoff.md',REPO/'docs/handoff/2026-10-07-装配联调计划.md',REPO/'hardware/electronics/README.md',REPO/'hardware/enclosure/README.md',REPO/'hardware/enclosure/EffMeet2_外壳说明_v2.md',REPO/'assets/enclosure/README.md']
 count=0
 for f in active:
     for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',f.read_text(encoding='utf-8')):
@@ -38,6 +38,17 @@ for f in active:
             assert (f.parent/target).exists(),f'{f.relative_to(REPO)} -> {link}'
             count+=1
 checks.append(f'{count} local links in active/compatibility documents resolve')
+with (ROOT/'round-yaw-v2/TEST_RECORD_TEMPLATE.csv').open(encoding='utf-8-sig',newline='') as f:
+    records=list(csv.DictReader(f))
+assert len(records)==26 and {r['test_id'] for r in records}=={f'T{i:02d}' for i in range(1,27)}
+assert all(r['status']=='NOT_RUN' and not r['actual_result'] and not r['executed_at'] for r in records)
+guide=(ROOT/'round-yaw-v2/TEST_GUIDE.md').read_text(encoding='utf-8')
+assert set(re.findall(r'^\| (T\d\d) \|',guide,re.M))=={r['test_id'] for r in records}
+checks.append('26 test cases match the untouched NOT_RUN template; no hardware pass fabricated')
+for name in ['ASSEMBLY_GUIDE.md','PRINT_PLAN.md','TEST_GUIDE.md','BOM.md']:
+    assert 'EXTERIOR_ASSEMBLY_REVISION.md' in (ROOT/'round-yaw-v2'/name).read_text(encoding='utf-8'),name
+assert manifest['latest_visual']['hardware_changed'] is False and manifest['latest_visual']['cad_changed'] is False
+checks.append('current exterior revision is referenced by assembly/print/test/BOM, without false CAD completion')
 for f in (ROOT/'round-yaw-v2').glob('*.py'):ast.parse(f.read_text(encoding='utf-8'),filename=str(f))
 checks.append('current Python helper scripts parse without importing optional dependencies')
 fit=json.loads((ROOT/'round-yaw-v2/fit-report.json').read_text(encoding='utf-8'))

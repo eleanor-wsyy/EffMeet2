@@ -18,11 +18,15 @@
     "bom": "round-yaw-v2/BOM.md",
     "parameters": "round-yaw-v2/parameters.json",
     "model": "round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend",
-    "hero_concept": "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png",
+    "hero_concept": "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png",
     "yaw_review": "round-yaw-v2/EffMeet2_圆润转头版_三姿态预览_修订.png",
     "fit_report": "round-yaw-v2/fit-report.json",
     "validation": "round-yaw-v2/production/validation_report.json",
-    "print_plan": "round-yaw-v2/PRINT_PLAN.md"
+    "print_plan": "round-yaw-v2/PRINT_PLAN.md",
+    "assembly_guide": "round-yaw-v2/ASSEMBLY_GUIDE.md",
+    "test_guide": "round-yaw-v2/TEST_GUIDE.md",
+    "test_record_template": "round-yaw-v2/TEST_RECORD_TEMPLATE.csv",
+    "exterior_assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md"
   },
   "nominal_envelope_mm": {
     "width": 180,
@@ -51,7 +55,10 @@
     "round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend": "bf404db274d0feadfdabbb11b3a55bda3b1dcc044ca685026e38565b6c653343",
     "archive/seat-card-v1/EffMeet2_席位牌_封装布局_v1_审阅.blend": "1fdd32ea003dda007382304679161224e505a8e5292d7ef48c20f77ebd107ad0",
     "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png": "0049088b32bc038014455386e8666fa77c8dee62e7946a2c95c15b2879253c2d",
-    "archive/procurement/2026-10-09-original-shared-list.md": "50f49271bcbd319a7760619f09272f52cd5c28d4799b15e0f9780ab8e99a687a"
+    "archive/procurement/2026-10-09-original-shared-list.md": "50f49271bcbd319a7760619f09272f52cd5c28d4799b15e0f9780ab8e99a687a",
+    "round-yaw-v2/concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png": "027cd61dd6acb1ed48870aaa4dca390aa854944168fcec8887e31bf0c77f2f29",
+    "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png": "d85145bbf54b820eaa431ba29f56bb9855ece89c2ac085abfcbd1039948794e6",
+    "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png": "4dc233ca50f62970d7fed49ad34acc6039eeaa82e45465ce17baea1887e5c67c"
   },
   "procurement_and_print_decision": {
     "status": "planning_only_not_print_release",
@@ -62,5 +69,40 @@
     "finish": "as-printed matte; no sanding/filler/paint workflow",
     "face": "printed black bezel, exposed LCD panel; no additional laser-cut transparent cover",
     "hardware_substitution": "standard bearing / existing or tested micro position servo; equivalent acceptance targets, not untested performance equivalence"
-  }
+  },
+  "prior_hero_concept": "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png",
+  "latest_visual": {
+    "type": "image2_reference_guided_concept",
+    "direction": "NOMI-inspired sphere / circular printed black face / ordinary rectangular LCD",
+    "references": [
+      "https://www.nio.cn/es6",
+      "https://cdn-public.nio.com/www-nio-cn/sheng-ji-ang-ran-ling-gan-ji-fa/es6-2025/cockpit/carousel-screen-04-desktop.jpg",
+      "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png"
+    ],
+    "assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
+    "actual_pixels": [
+      2513,
+      1669
+    ],
+    "hardware_changed": false,
+    "cad_changed": false,
+    "functional_apertures": "illustrative_not_frozen"
+  },
+  "validation_guidance": {
+    "test_count": 26,
+    "template_status": "NOT_RUN",
+    "documents_are": "instructions_and_test_plan_not_execution_report",
+    "hardware_tests_run": false
+  },
+  "visual_feedback": {
+    "latest_request": "保持现有方案，向NOMI球头/圆脸方向靠近，并同步组装方案",
+    "proposed_candidate": "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png",
+    "proposed_notes": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
+    "user_approved": false,
+    "cad_verified": false
+  },
+  "previous_visual_candidates": [
+    "round-yaw-v2/concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png",
+    "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png"
+  ]
 }

@@ -2,6 +2,14 @@
 
 日期：2026-10-10。当前阶段：**reversible blockout，可逆封装布局**。采购请只使用[BOM.md](BOM.md)，统一交接见[../HANDOFF.md](../HANDOFF.md)。
 
+## 最新外观/组装版本
+
+[NOMI方向效果图](concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png)：球头＋近圆黑面板，内部仍为普通矩形LCD。[组装接口更新](EXTERIOR_ASSEMBLY_REVISION.md)同步面板/相机/短颈接收、打印分件、走线顺序和复测；未改变采购架构，尚未执行CAD。旧效果图保留为历史。
+
+## 安装与测试入口
+
+准备装机先读[安装指南](ASSEMBLY_GUIDE.md)，实际检查按[26项测试指南](TEST_GUIDE.md)执行，填写[记录模板](TEST_RECORD_TEMPLATE.csv)。目前这些是计划，模板全部未执行，不代表已打印/已联调。
+
 ## 打开文件
 
 - [EffMeet2_圆润转头版_封装布局_v2.blend](EffMeet2_圆润转头版_封装布局_v2.blend)：Blender 5.2.1 LTS创建，默认场景R2_ROUND_YAW_BLOCKOUT。新文件中保留旧场景；原席位牌.blend在archive中，未改写。
@@ -19,7 +27,7 @@
 
 ## 看图时如何判断
 
-- [Image2主视觉](concept/EffMeet2_圆润转头版_主视觉.png)是AI外观概念，尺寸/细节不与模型锁定；不可从图量采购尺寸。
+- [此前灰模对应Image2效果图](concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png)以模型三视图＋ABS-GF裸打方案为依据，采用黑打印框/外露矩形LCD；仍是AI概念，不能量采购尺寸。[旧主视觉](concept/EffMeet2_圆润转头版_主视觉.png)保留为历史。
 - [三姿态预览](EffMeet2_圆润转头版_三姿态预览_修订.png)来自实际Blender模型。
 - [组装审阅](renders/review-02/01_assembled.png)、[正视](renders/review-02/02_front.png)、[侧视](renders/review-02/03_side.png)、[俯视](renders/review-02/04_top.png)、[内部布局](renders/review-02/05_internal.png)：中性建模审阅，不是最终CMF渲染。
 

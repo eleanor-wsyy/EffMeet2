@@ -4,6 +4,16 @@
 
 从仓库README进入hardware/robot-design/README.md，再读本文件、round-yaw-v2/BOM.md与round-yaw-v2/README.md。**当前设计方向是圆润转头版，阶段为可逆封装布局；没有最终外观批准、打印放行或实机转头验收。** 本次工作是设计与资料整合，不是固件和软件功能上线。
 
+## 2026-10-10最新外观要求：NOMI方向＋组装同步
+
+用户再次明确参考NOMI，保留现有硬件/转头/少操作打印方案。新的[效果图](round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png)采用球头与圆黑面板，里面仍为普通矩形LCD；之前小横窗/大白脸颊候选不作为当前方向。
+
+新增[外观/组装同步说明](round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md)，并同步ASSEMBLY_GUIDE、PRINT_PLAN、TEST_GUIDE及BOM入口：面板接收、屏/相机可拆支架、先穿线后封头、内藏颈间隙、声孔/按键和对应复测。物料ID/数量与核心选型不增加；parameters.json/.blend尚未执行新接口改造，仍无打印/实机放行。
+
+## 2026-10-10补充：安装与测试文档
+
+新增[安装指南](round-yaw-v2/ASSEMBLY_GUIDE.md)、[测试指南](round-yaw-v2/TEST_GUIDE.md)及[26项记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv)。安装按裸板→机构→活动线→入壳；实机验收包括50循环、30分钟运行、本人确认/真实回执、实体停止及AEC边界。模板全部NOT_RUN，缺CAD/接线/固件记BLOCKED。文档不是已执行测试或可装配CAD，manufacturing_ready/hardware_validated保持false。
+
 ## 2026-10-10补充：每项部件负责什么
 
 当前[BOM第10节](round-yaw-v2/BOM.md#component-functions)已逐项解释全部30个部件的具体功能、直接效果和最终验收目标，并补充板载器件分工与整机闭环。物料数量、尺寸、采购状态及模型未改变；目标描述不代表已经实机通过。

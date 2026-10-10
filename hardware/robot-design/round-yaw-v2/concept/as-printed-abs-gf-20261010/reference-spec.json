@@ -1,0 +1,25 @@
+{
+  "model": "tt-image-2",
+  "intent": "reference-guided visual concept, not CAD validation",
+  "source_commit": "0f33a1e",
+  "references": [
+    "../../renders/review-02/01_assembled.png",
+    "../../renders/review-02/02_front.png",
+    "../../renders/review-02/03_side.png"
+  ],
+  "plan": "../../PRINT_PLAN.md",
+  "parameters": "../../parameters.json",
+  "requested_size": "2048x1360",
+  "geometry_changes": false,
+  "concept_detail_overrides": [
+    "matte white/black ABS-GF",
+    "exposed rectangular display, no oval glass cover",
+    "black mute button",
+    "speaker slots and microphone apertures are placement proposals"
+  ],
+  "actual_pixels": [
+    2513,
+    1669
+  ],
+  "output": "EffMeet2_最新图纸_ABS-GF裸打效果图.png"
+}

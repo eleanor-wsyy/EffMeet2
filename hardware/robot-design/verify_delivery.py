@@ -17,7 +17,18 @@ bom=(ROOT/'round-yaw-v2/BOM.md').read_text(encoding='utf-8')
 ids=re.findall(r'^\| ([EMC]\d\d) \|',bom,re.M)
 assert len(ids)==30 and len(set(ids))==30
 checks.append('one current BOM contains 30 unique material entries')
-active=[ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md',ROOT/'archive/README.md',ROOT/'archive/procurement/README.md',REPO/'README.md',REPO/'docs/handoff/README.md',REPO/'docs/handoff/2026-10-10-robot-design-and-bom.md',REPO/'docs/handoff/2026-10-05-hardware-purchase-list.md',REPO/'docs/handoff/2026-10-05-final-handoff.md',REPO/'docs/handoff/2026-10-07-装配联调计划.md',REPO/'hardware/electronics/README.md',REPO/'hardware/enclosure/README.md',REPO/'hardware/enclosure/EffMeet2_外壳说明_v2.md',REPO/'assets/enclosure/README.md']
+explained=re.findall(r'^#### ([EMC]\d\d) ',bom,re.M)
+assert len(explained)==30 and set(explained)==set(ids)
+for part in re.split(r'^#### [EMC]\d\d ',bom,flags=re.M)[1:]:
+    assert all(label in part for label in ['**具体功能：**','**直接效果：**','**最终目标/验收：**'])
+checks.append('all 30 material IDs have function, direct effect and final acceptance explanations')
+final_section=bom.split('## 12.',1)[1].split('## 官方来源',1)[0]
+final_ids=re.findall(r'^\| \*\*([EMC]\d\d)\*\* \|',final_section,re.M)
+assert len(final_ids)==30 and set(final_ids)==set(ids)
+plan=(ROOT/'round-yaw-v2/PRINT_PLAN.md').read_text(encoding='utf-8')
+assert 'ABS-GF' in plan and '不是已经存在的可打印文件' in plan
+checks.append('all 30 IDs have final procurement decisions and a non-released print plan')
+active=[ROOT/'round-yaw-v2/PRINT_PLAN.md',ROOT/'round-yaw-v2/BOM.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md',ROOT/'archive/README.md',ROOT/'archive/procurement/README.md',REPO/'README.md',REPO/'docs/handoff/README.md',REPO/'docs/handoff/2026-10-10-robot-design-and-bom.md',REPO/'docs/handoff/2026-10-05-hardware-purchase-list.md',REPO/'docs/handoff/2026-10-05-final-handoff.md',REPO/'docs/handoff/2026-10-07-装配联调计划.md',REPO/'hardware/electronics/README.md',REPO/'hardware/enclosure/README.md',REPO/'hardware/enclosure/EffMeet2_外壳说明_v2.md',REPO/'assets/enclosure/README.md']
 count=0
 for f in active:
     for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',f.read_text(encoding='utf-8')):

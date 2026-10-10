@@ -21,7 +21,8 @@
     "hero_concept": "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png",
     "yaw_review": "round-yaw-v2/EffMeet2_圆润转头版_三姿态预览_修订.png",
     "fit_report": "round-yaw-v2/fit-report.json",
-    "validation": "round-yaw-v2/production/validation_report.json"
+    "validation": "round-yaw-v2/production/validation_report.json",
+    "print_plan": "round-yaw-v2/PRINT_PLAN.md"
   },
   "nominal_envelope_mm": {
     "width": 180,
@@ -51,5 +52,15 @@
     "archive/seat-card-v1/EffMeet2_席位牌_封装布局_v1_审阅.blend": "1fdd32ea003dda007382304679161224e505a8e5292d7ef48c20f77ebd107ad0",
     "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png": "0049088b32bc038014455386e8666fa77c8dee62e7946a2c95c15b2879253c2d",
     "archive/procurement/2026-10-09-original-shared-list.md": "50f49271bcbd319a7760619f09272f52cd5c28d4799b15e0f9780ab8e99a687a"
+  },
+  "procurement_and_print_decision": {
+    "status": "planning_only_not_print_release",
+    "user_priority": "print_where_practical_minimize_manual_operations",
+    "prototype": "A1 with existing PETG 1:1 fit samples",
+    "final_printer": "school H2S subject to availability and approval",
+    "final_material": "Bambu ABS-GF white 41100 / black 41101",
+    "finish": "as-printed matte; no sanding/filler/paint workflow",
+    "face": "printed black bezel, exposed LCD panel; no additional laser-cut transparent cover",
+    "hardware_substitution": "standard bearing / existing or tested micro position servo; equivalent acceptance targets, not untested performance equivalence"
   }
 }

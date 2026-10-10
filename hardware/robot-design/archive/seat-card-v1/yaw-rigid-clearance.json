@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "yaw_deg": -45,
+      "head_min_z_mm": 64.0,
+      "base_top_z_mm": 52,
+      "body_base_gap_mm": 12.0
+    },
+    {
+      "yaw_deg": 0,
+      "head_min_z_mm": 64.0,
+      "base_top_z_mm": 52,
+      "body_base_gap_mm": 12.0
+    },
+    {
+      "yaw_deg": 45,
+      "head_min_z_mm": 64.0,
+      "base_top_z_mm": 52,
+      "body_base_gap_mm": 12.0
+    }
+  ],
+  "verified_scope": "rigid proxy shell vs base only",
+  "not_verified": [
+    "cable travel",
+    "bearing interface",
+    "servo travel/torque",
+    "fasteners"
+  ]
+}

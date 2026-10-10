@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-10T07:15:35.303244+00:00",
+  "max_automatic_reviews_per_part_stage": 2,
+  "thresholds": {
+    "pass": 80,
+    "pass_with_local_repairs": 60,
+    "rebuild_part": 40
+  },
+  "stage_criteria": {
+    "analysis_readiness": {
+      "intent_and_role": 20,
+      "scale_and_reference": 20,
+      "construction_route": 25,
+      "relationships": 20,
+      "risk_and_downstream_use": 15
+    },
+    "blockout": {
+      "silhouette": 30,
+      "proportion": 25,
+      "position_support_clearance": 25,
+      "directionality": 20
+    },
+    "formal_topology": {
+      "continuity": 20,
+      "structural_form": 20,
+      "transition_quality": 20,
+      "bevel_edge_language": 15,
+      "cleanup": 15,
+      "editability": 10
+    },
+    "structural_transition": {
+      "structural_completeness": 25,
+      "transition_continuity": 25,
+      "connection_correctness": 20,
+      "edge_language": 15,
+      "multiview_evidence": 15
+    },
+    "systems": {
+      "causal_fit": 25,
+      "setup": 20,
+      "stability": 25,
+      "interfaces": 15,
+      "cache_and_performance": 15
+    },
+    "surfacing": {
+      "material_identity": 25,
+      "scale_and_mapping": 20,
+      "physical_response": 25,
+      "causal_layering": 15,
+      "geometry_compatibility": 15
+    },
+    "final": {
+      "multiview_or_reference": 25,
+      "construction": 20,
+      "technical_integrity": 20,
+      "surfacing_and_lighting": 20,
+      "downstream_fitness": 15
+    }
+  },
+  "parts": [
+    {
+      "part_id": "assembly_part_graph_scope",
+      "critical": false,
+      "stages": {
+        "analysis_readiness": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "blockout": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "formal_topology": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "structural_transition": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "systems": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "surfacing": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        },
+        "final": {
+          "attempts": 0,
+          "current_score": null,
+          "disposition": "deferred",
+          "gate_clear": true,
+          "consecutive_below_60": 0,
+          "history": []
+        }
+      }
+    }
+  ],
+  "project_policy": {
+    "noncritical_failure_scope": "part_only",
+    "critical_failure_scope": "current_visual_gate_only",
+    "project_delete_from_part_failure": false
+  }
+}

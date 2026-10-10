@@ -4,9 +4,17 @@
 
 **产品形态分两路线**：路线A（当前参赛Demo）以电脑伴侣应用承载本地AI（FunASR + 千问候选 + 事件账本）；路线B（最终产品形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，仅需平板或手机即可完整使用。
 
+## 机器人外观、建模与采购：2026-10-10更新
+
+**统一目录：[hardware/robot-design](hardware/robot-design/README.md)。** 当前迭代方向为“圆润头部＋短颈转台＋固定底座”，阶段是可逆封装布局，未完成最终外观批准、制造放行或实机转头验收。
+
+- 成员及AI接手顺序：[统一交接](hardware/robot-design/HANDOFF.md) → [当前硬件BOM](hardware/robot-design/round-yaw-v2/BOM.md) → [模型与验证说明](hardware/robot-design/round-yaw-v2/README.md)；机器可读入口见[manifest.json](hardware/robot-design/manifest.json)。
+- 当前可编辑.blend、Image2主视觉、建模审阅、尺寸参数、采购依据与历史方案都在该目录；采购不再维护分散副本。旧席位牌/旧外壳已归档，不能用旧尺寸、±120°或未核实接口覆盖新版。
+- 本次没有实现舵机固件、传动、跨轴排线或打印结构；也没有改变路线A/B、本人确认规则和软件接口。
+
 ## 产品方案与实施计划
 
-- **10 月 5 日当前交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[硬件采购清单](docs/handoff/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。最近一次单元测试 61 项通过。机器人实播、AEC、完整 LiveKit 和连续真人实机验收未完成。
+- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。最近一次单元测试 61 项通过。机器人实播、AEC、完整 LiveKit 和连续真人实机验收未完成。
 
 - [论文依据与技术路径 HTML 报告](docs/product/EffMeet2_论文依据与技术路径.html)：产品形态、机内音频与 Wi-Fi、开源参考及改造映射、任务分工、实施步骤与参赛计划。
 - [v1 接口契约 JSON](docs/product/EffMeet2_contract_v1.json)：统一数据格式、业务接口、媒体契约与合成测试样例。

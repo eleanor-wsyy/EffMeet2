@@ -1,0 +1,27 @@
+# Local checkpoints / duplicate delivery bundles stay on the author's machine.
+**/local-only/
+*.zip
+*.blend1
+**/checkpoint*.blend
+**/protected-files-before.json
+**/protected-files-after.json
+**/production/blender_capabilities.json
+**/production/protected-scene-before.json
+
+# Raw generation receipts are not team design inputs. Prompts and source notes remain.
+/round-yaw-v2/concept/*.json
+/archive/concepts/**/*.json
+
+# Keep the accepted review set, not failed/duplicate render iterations.
+/round-yaw-v2/renders/review-01/
+/round-yaw-v2/EffMeet2_圆润转头版_三姿态预览.png
+/archive/seat-card-v1/renders/*
+!/archive/seat-card-v1/renders/review-06/
+/archive/seat-card-v1/production/
+/archive/seat-card-v1/*.blend
+!/archive/seat-card-v1/EffMeet2_席位牌_封装布局_v1_审阅.blend
+/archive/seat-card-v1/render_review02.py
+
+# Historic audit depends on author-local tools; retain locally only.
+/archive/seat-card-v1/audit_blockout.py
+/archive/seat-card-v1/EffMeet2_新版封装布局总览.png

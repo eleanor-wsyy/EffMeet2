@@ -1,0 +1,157 @@
+{
+  "units": "mm",
+  "all_inside": true,
+  "all_pairs_separated": true,
+  "components": [
+    {
+      "id": "MAINBOARD",
+      "inside": true,
+      "minimum_conservative_margin_mm": 2.6,
+      "reserve": [
+        125,
+        90,
+        22
+      ],
+      "confidence": "115x80 official PCB, thickness/component/cable keepout assumed"
+    },
+    {
+      "id": "LCD",
+      "inside": true,
+      "minimum_conservative_margin_mm": 1.0,
+      "reserve": [
+        89.4,
+        20,
+        68.4
+      ],
+      "confidence": "79.4x58.4 official expansion PCB; complete display stack/flex clearance assumed"
+    },
+    {
+      "id": "CAMERA",
+      "inside": true,
+      "minimum_conservative_margin_mm": 1.0,
+      "reserve": [
+        24,
+        16,
+        20
+      ],
+      "confidence": "candidate purchase-size constraint, not a selected camera module"
+    },
+    {
+      "id": "SERVO",
+      "inside": true,
+      "minimum_conservative_margin_mm": 1.6,
+      "reserve": [
+        35,
+        25,
+        44
+      ],
+      "confidence": "SG90 body sourced; total horn/bracket/output-axis location assumed"
+    },
+    {
+      "id": "BEARING",
+      "inside": true,
+      "minimum_conservative_margin_mm": 2.6,
+      "reserve": [
+        56,
+        56,
+        18
+      ],
+      "confidence": "generic bearing envelope; no matching SKU or mounting faces selected"
+    },
+    {
+      "id": "SPEAKER",
+      "inside": true,
+      "minimum_conservative_margin_mm": 5.6,
+      "reserve": [
+        44,
+        24,
+        44
+      ],
+      "confidence": "4-ohm candidate <=40mm diameter <=18mm depth, not a selected speaker"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "MAINBOARD",
+      "b": "SERVO",
+      "separated": true,
+      "axis_gaps_mm": [
+        -31.0,
+        -54.5,
+        1.0
+      ]
+    },
+    {
+      "a": "MAINBOARD",
+      "b": "BEARING",
+      "separated": true,
+      "axis_gaps_mm": [
+        -90.5,
+        -73.0,
+        26.0
+      ]
+    },
+    {
+      "a": "MAINBOARD",
+      "b": "SPEAKER",
+      "separated": true,
+      "axis_gaps_mm": [
+        -84.5,
+        1.0,
+        -3.0
+      ]
+    },
+    {
+      "a": "LCD",
+      "b": "CAMERA",
+      "separated": true,
+      "axis_gaps_mm": [
+        -56.7,
+        -16.0,
+        1.8
+      ]
+    },
+    {
+      "a": "SERVO",
+      "b": "BEARING",
+      "separated": true,
+      "axis_gaps_mm": [
+        3.5,
+        -37.5,
+        -19.0
+      ]
+    },
+    {
+      "a": "SERVO",
+      "b": "SPEAKER",
+      "separated": true,
+      "axis_gaps_mm": [
+        9.5,
+        36.5,
+        -40.0
+      ]
+    },
+    {
+      "a": "BEARING",
+      "b": "SPEAKER",
+      "separated": true,
+      "axis_gaps_mm": [
+        -50.0,
+        18.0,
+        -15.0
+      ]
+    }
+  ],
+  "scope": "conservative analytic generating cavity volumes only, not purchased parts or full assembly",
+  "not_verified": [
+    "actual PCB populated heights and ports",
+    "LCD and camera connectors/pin mapping and acceptable flex length",
+    "FPC cable routing and bend radius over yaw stroke",
+    "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+    "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+    "speaker acoustic chamber and fixed mic acoustic ports",
+    "real mute electrical circuit",
+    "thermal, tipping stability, print tolerances and fasteners"
+  ],
+  "manufacturing_ready": false
+}

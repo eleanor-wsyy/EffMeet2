@@ -1,0 +1,68 @@
+{
+  "scope": "native evaluated rotating shell at -45/0/+45; no physical drive/cable/torque test",
+  "status": "PASS",
+  "maximum_volume_relative_change": 1.6744307728029772e-7,
+  "threshold": 0.0001,
+  "poses": [
+    {
+      "yaw_deg": -45,
+      "closed_volume_mm3": 97901.24012494422,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "boolean_dependencies": [
+        {
+          "cutter": "R2_HEAD_INNER",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_BOTTOM_TRIM",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_FACE_OPENING",
+          "same_parent": true
+        }
+      ]
+    },
+    {
+      "yaw_deg": 0,
+      "closed_volume_mm3": 97901.22373206205,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "boolean_dependencies": [
+        {
+          "cutter": "R2_HEAD_INNER",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_BOTTOM_TRIM",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_FACE_OPENING",
+          "same_parent": true
+        }
+      ]
+    },
+    {
+      "yaw_deg": 45,
+      "closed_volume_mm3": 97901.24012494422,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0,
+      "boolean_dependencies": [
+        {
+          "cutter": "R2_HEAD_INNER",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_BOTTOM_TRIM",
+          "same_parent": true
+        },
+        {
+          "cutter": "R2_HEAD_FACE_OPENING",
+          "same_parent": true
+        }
+      ]
+    }
+  ]
+}

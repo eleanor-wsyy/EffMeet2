@@ -1,0 +1,147 @@
+{
+  "scope": "Conservative rectangular keep-out / rounded-cavity blockout checks only",
+  "units": "mm",
+  "all_reserved_volumes_inside": true,
+  "all_same_compartment_pairs_separated": true,
+  "fit": [
+    {
+      "id": "MAINBOARD",
+      "reserve_mm": [
+        125,
+        22,
+        90
+      ],
+      "reserve_center_mm": [
+        0,
+        20,
+        124
+      ],
+      "inside_cavity": true,
+      "minimum_corner_clearance_mm": 9.1,
+      "confidence": "planar_verified_thickness_assumed"
+    },
+    {
+      "id": "LCD",
+      "reserve_mm": [
+        89.4,
+        16,
+        68.4
+      ],
+      "reserve_center_mm": [
+        -15,
+        -22,
+        137
+      ],
+      "inside_cavity": true,
+      "minimum_corner_clearance_mm": 9.6,
+      "confidence": "planar_verified_thickness_assumed"
+    },
+    {
+      "id": "CAMERA",
+      "reserve_mm": [
+        24,
+        16,
+        20
+      ],
+      "reserve_center_mm": [
+        47,
+        -30,
+        157
+      ],
+      "inside_cavity": true,
+      "minimum_corner_clearance_mm": 1.6,
+      "confidence": "assumed"
+    },
+    {
+      "id": "SERVO",
+      "reserve_mm": [
+        35,
+        25,
+        44
+      ],
+      "reserve_center_mm": [
+        -5,
+        12,
+        27
+      ],
+      "inside_cavity": true,
+      "minimum_corner_clearance_mm": 0.6,
+      "confidence": "body_verified_assembly_assumed"
+    },
+    {
+      "id": "SPEAKER",
+      "reserve_mm": [
+        44,
+        24,
+        44
+      ],
+      "reserve_center_mm": [
+        0,
+        -39,
+        27
+      ],
+      "inside_cavity": true,
+      "minimum_corner_clearance_mm": 0.6,
+      "confidence": "purchase_constraint"
+    }
+  ],
+  "pairs": [
+    {
+      "a": "MAINBOARD",
+      "b": "LCD",
+      "separated": true,
+      "axis_gaps_mm": [
+        -92.2,
+        23.0,
+        -66.2
+      ]
+    },
+    {
+      "a": "MAINBOARD",
+      "b": "CAMERA",
+      "separated": true,
+      "axis_gaps_mm": [
+        -27.5,
+        31.0,
+        -22.0
+      ]
+    },
+    {
+      "a": "LCD",
+      "b": "CAMERA",
+      "separated": true,
+      "axis_gaps_mm": [
+        5.3,
+        -8.0,
+        -24.2
+      ]
+    },
+    {
+      "a": "SERVO",
+      "b": "SPEAKER",
+      "separated": true,
+      "axis_gaps_mm": [
+        -34.5,
+        26.5,
+        -44.0
+      ]
+    }
+  ],
+  "not_verified": [
+    "实物板高及元件/接头突出量",
+    "LCD与摄像头FPC出线和弯折半径",
+    "板载麦克风声学通道与AEC",
+    "舵机扭矩、支撑轴承、线束及转角",
+    "紧固件孔径孔位及前后盖连接",
+    "热设计、打印收缩与装配公差"
+  ],
+  "yaw_preview": {
+    "limits_deg": [
+      -45,
+      45
+    ],
+    "rigid_head_to_base_vertical_gap_mm": 12,
+    "cables_torque_acoustics_not_verified": true
+  },
+  "manufacturing_ready": false
+}

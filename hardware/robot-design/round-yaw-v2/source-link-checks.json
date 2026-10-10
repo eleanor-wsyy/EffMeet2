@@ -1,0 +1,32 @@
+[
+  {
+    "url": "https://docs.espressif.com/projects/esp-adf/en/latest/multimedia-boards/dev-boards/user-guide-esp32-s3-korvo-2.html",
+    "status": 200,
+    "type": "text/html"
+  },
+  {
+    "url": "https://docs.espressif.com/projects/esp-adf/en/latest/multimedia-boards/dev-boards/user-guide-esp32-s3-korvo-2-lcd.html",
+    "status": 200,
+    "type": "text/html"
+  },
+  {
+    "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-S3-KORVO-2-LCD_V1.0_20210918.pdf",
+    "status": 200,
+    "type": "application/pdf"
+  },
+  {
+    "url": "https://dl.espressif.com/dl/schematics/SCH_ESP32-S3-Korvo-2_V3.1.2_20240116.pdf",
+    "status": 200,
+    "type": "application/pdf"
+  },
+  {
+    "url": "https://dl.espressif.com/dl/schematics/PCB_ESP32-S3-Korvo-2_V3.1_20221104.pdf",
+    "status": 200,
+    "type": "application/pdf"
+  },
+  {
+    "url": "https://towerpro.com.tw/product/sg90-7/",
+    "status": 200,
+    "type": "text/html; charset=UTF-8"
+  }
+]

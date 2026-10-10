@@ -1,0 +1,132 @@
+{
+  "pose_anchor_only": true,
+  "sample_step_deg": 5,
+  "poses": [
+    {
+      "yaw_deg": -45,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -40,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -35,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -30,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -25,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -20,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -15,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -10,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": -5,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 0,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 5,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 10,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 15,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 20,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 25,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 30,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 35,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 40,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    },
+    {
+      "yaw_deg": 45,
+      "head_min_z_mm": 92.0,
+      "stationary_base_top_z_mm": 78,
+      "vertical_gap_mm": 14.0
+    }
+  ],
+  "neck_to_lid_nominal_radial_clearance_mm": 1,
+  "minimum_shell_vertical_gap_mm": 14.0,
+  "excluded": [
+    "actual PCB populated heights and ports",
+    "LCD and camera connectors/pin mapping and acceptable flex length",
+    "FPC cable routing and bend radius over yaw stroke",
+    "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+    "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+    "speaker acoustic chamber and fixed mic acoustic ports",
+    "real mute electrical circuit",
+    "thermal, tipping stability, print tolerances and fasteners"
+  ]
+}

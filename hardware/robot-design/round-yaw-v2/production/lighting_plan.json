@@ -1,0 +1,29 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-10T07:15:35.303244+00:00",
+  "analysis_status": "open",
+  "reference_evidence": {
+    "contact_points": [],
+    "shadow_endpoints": [],
+    "shadow_direction": null,
+    "shadow_length": null,
+    "estimated_source_elevation": null,
+    "penumbra": null,
+    "lit_and_unlit_faces": [],
+    "visible_sources": [],
+    "unknowns": []
+  },
+  "first_pass": {
+    "status": "open",
+    "allowed_sources": [
+      "SUN",
+      "WORLD"
+    ],
+    "gray_model_required": true,
+    "topology_gate_required": true,
+    "evidence": []
+  },
+  "lights": [],
+  "color_management": {},
+  "unresolved_blockers": []
+}

@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "updated_on": "2026-10-10",
+  "timezone": "Asia/Shanghai",
+  "title": "EffMeet2 机器人外观、建模与硬件采购",
+  "active_revision": "round-yaw-v2",
+  "stage": "reversible_blockout",
+  "final_design_approved": false,
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "entry_read_order": [
+    "README.md",
+    "HANDOFF.md",
+    "round-yaw-v2/BOM.md",
+    "round-yaw-v2/README.md"
+  ],
+  "canonical_files": {
+    "bom": "round-yaw-v2/BOM.md",
+    "parameters": "round-yaw-v2/parameters.json",
+    "model": "round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend",
+    "hero_concept": "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png",
+    "yaw_review": "round-yaw-v2/EffMeet2_圆润转头版_三姿态预览_修订.png",
+    "fit_report": "round-yaw-v2/fit-report.json",
+    "validation": "round-yaw-v2/production/validation_report.json"
+  },
+  "nominal_envelope_mm": {
+    "width": 180,
+    "depth": 164,
+    "height": 222
+  },
+  "nominal_yaw_limits_deg": [
+    -45,
+    45
+  ],
+  "evidence_policy": "AI concept is visual intent only; parameters and scoped validation are not physical or manufacturing approval",
+  "archive_index": "archive/README.md",
+  "deferred_procurement": [
+    "bearing/turntable SKU",
+    "drive transmission and head receiver",
+    "cross-axis flex lengths and lifetime",
+    "formal enclosure print"
+  ],
+  "do_not_infer": [
+    "working servo firmware",
+    "continuous 360 rotation",
+    "hardware microphone cutoff",
+    "approved final CAD"
+  ],
+  "artifact_sha256": {
+    "round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend": "bf404db274d0feadfdabbb11b3a55bda3b1dcc044ca685026e38565b6c653343",
+    "archive/seat-card-v1/EffMeet2_席位牌_封装布局_v1_审阅.blend": "1fdd32ea003dda007382304679161224e505a8e5292d7ef48c20f77ebd107ad0",
+    "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png": "0049088b32bc038014455386e8666fa77c8dee62e7946a2c95c15b2879253c2d",
+    "archive/procurement/2026-10-09-original-shared-list.md": "50f49271bcbd319a7760619f09272f52cd5c28d4799b15e0f9780ab8e99a687a"
+  }
+}

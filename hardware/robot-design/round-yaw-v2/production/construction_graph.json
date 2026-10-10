@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "part_graph_status": "provisional_blockout",
+  "parts": [
+    {
+      "id": "R2_HEAD_SHELL",
+      "object": "R2_HEAD_SHELL",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "single ellipsoid with native Boolean inner / flat face / bottom trim",
+      "physical_function": "rotating enclosure",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "R2_HEAD_YAW_POSE"
+    },
+    {
+      "id": "R2_BLACK_FACE_MASK",
+      "object": "R2_BLACK_FACE_MASK",
+      "role": "blockout_proxy",
+      "form_level": "STRUCTURAL",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "independent elliptical cover proxy",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "R2_HEAD_YAW_POSE"
+    },
+    {
+      "id": "R2_BASE_CUP",
+      "object": "R2_BASE_CUP",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "native Screw from one closed radial cross-section",
+      "physical_function": "fixed housing",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    },
+    {
+      "id": "R2_BASE_LID",
+      "object": "R2_BASE_LID",
+      "role": "blockout_proxy",
+      "form_level": "STRUCTURAL",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "native Screw with Boolean central hole",
+      "physical_function": "fixed housing",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    },
+    {
+      "id": "R2_YAW_NECK",
+      "object": "R2_YAW_NECK",
+      "role": "blockout_proxy",
+      "form_level": "STRUCTURAL",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "independent cylinder with Boolean cable bore",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "R2_HEAD_YAW_POSE"
+    },
+    {
+      "id": "R2_MAINBOARD",
+      "object": "R2_MAINBOARD",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    },
+    {
+      "id": "R2_LCD",
+      "object": "R2_LCD",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "R2_HEAD_YAW_POSE"
+    },
+    {
+      "id": "R2_CAMERA",
+      "object": "R2_CAMERA",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "R2_HEAD_YAW_POSE"
+    },
+    {
+      "id": "R2_SERVO",
+      "object": "R2_SERVO",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    },
+    {
+      "id": "R2_BEARING",
+      "object": "R2_BEARING",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    },
+    {
+      "id": "R2_SPEAKER",
+      "object": "R2_SPEAKER",
+      "role": "blockout_proxy",
+      "form_level": "PRIMARY",
+      "combination_level": "A_VISUAL_GROUPING",
+      "construction_method": "dimensional component proxy; not vendor CAD",
+      "physical_function": "component reservation",
+      "clearance_policy": "per parameters.json and fit-report; no manufacturing tolerance release",
+      "manufacturing_state": "provisional independent part",
+      "pivot_owner": "fixed"
+    }
+  ],
+  "relationships": [
+    {
+      "from": "R2_BASE_CUP",
+      "to": "R2_BASE_LID",
+      "type": "mechanical_seam",
+      "status": "blockout_proposal",
+      "note": "split at z68; final lip and fasteners missing"
+    },
+    {
+      "from": "R2_BASE_LID",
+      "to": "R2_YAW_NECK",
+      "type": "constraint_connection",
+      "status": "blockout_proposal",
+      "note": "Ø48 hole / Ø46 neck gives1mm nominal radial gap; mounting support unengineered"
+    },
+    {
+      "from": "R2_BEARING",
+      "to": "R2_YAW_NECK",
+      "type": "physical_contact",
+      "status": "blockout_proposal",
+      "note": "z73 contact plane, retainers / coupling unengineered"
+    },
+    {
+      "from": "R2_YAW_NECK",
+      "to": "R2_HEAD_SHELL",
+      "type": "constraint_connection",
+      "status": "blockout_proposal",
+      "note": "head receiver and supporting webs missing"
+    },
+    {
+      "from": "R2_HEAD_SHELL",
+      "to": "R2_BLACK_FACE_MASK",
+      "type": "embedded_component",
+      "status": "blockout_proposal",
+      "note": "mask perimeter lip, clips and transparent screen area unengineered"
+    },
+    {
+      "from": "R2_SERVO",
+      "to": "R2_BEARING",
+      "type": "constraint_connection",
+      "status": "not_built",
+      "note": "off-axis belt/pulley proposal only; no transmission mesh"
+    }
+  ],
+  "unclassified_visible_intersections_allowed": false,
+  "modeling_contract": {
+    "analysis_before_mutation": true,
+    "minimum_viable_analysis_allows_reversible_blockout": true,
+    "part_analysis_required_before_formal_topology": true,
+    "primitive_blockout_is_final": false,
+    "continuous_shell_requires_single_component": true,
+    "difficulty_is_valid_separation_reason": false,
+    "functional_or_detail_before_transition_allowed": false,
+    "material_or_lighting_may_conceal_geometry_failure": false,
+    "wireframe_acceptance_required": true,
+    "real_bevel_geometry_required": true,
+    "shape_grammar_before_primitive_creation": true,
+    "native_generator_comparison_required": true,
+    "manual_assembly_requires_documented_exception": true,
+    "python_is_orchestration_layer": true,
+    "native_component_ownership_required": true,
+    "manual_count_driven_fragments_allowed": false
+  },
+  "construction_archetypes": [],
+  "construction_method_decision": {
+    "shape_grammar_review_required": true,
+    "detected_archetypes": [],
+    "parameter_owners": {},
+    "native_generator_comparisons": [],
+    "fallback_when_no_archetype_matches": "inspect the form and declare unique topology, deformation, distribution, simulation, assembly, or shading ownership before primitive creation",
+    "native_component_decision": {
+      "status": "planned",
+      "primary_system": "ASSEMBLY_DATA",
+      "parameter_owners": {},
+      "source_policy": "one semantic source/control object per dependent system",
+      "python_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "fallback_reason": null,
+      "scene_design_required": true,
+      "system_choice": {
+        "comparison_required": false,
+        "direct_candidate": "ASSEMBLY_DATA",
+        "node_candidate": null,
+        "selected_system": "ASSEMBLY_DATA",
+        "selection_reason": "The current route has one credible owner; do not add a node graph without a concrete control benefit.",
+        "rejected_alternative": "No credible node alternative was identified at route selection.",
+        "node_justification": [],
+        "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+      },
+      "official_sources": [
+        "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/parent.html",
+        "https://docs.blender.org/manual/en/5.2/animation/constraints/index.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.is_registered_node_type",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.rst.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html",
+        "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.rst.html",
+        "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass_py"
+      ],
+      "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+    }
+  },
+  "design_owner": "blender-scene-design",
+  "native_component_decision": {
+    "native_system": "SCREW_BOOLEAN_ASSEMBLY",
+    "source_objects": [
+      "base radial section profile",
+      "ellipsoid head source",
+      "native cavities and lid hole cutters"
+    ],
+    "semantic_inputs": {
+      "revision": "round-yaw-v2",
+      "units": "mm",
+      "scope": "reversible dimensional blockout, not manufacturing CAD",
+      "envelope": {
+        "width": 180,
+        "depth": 164,
+        "height": 222
+      },
+      "head": {
+        "center": [
+          0,
+          0,
+          150
+        ],
+        "outer_size": [
+          150,
+          128,
+          144
+        ],
+        "wall": 2.4,
+        "trim_bottom_z": 92,
+        "face_cut_y": -35
+      },
+      "base": {
+        "width": 180,
+        "depth": 164,
+        "bottom_z": 2,
+        "top_z": 78,
+        "lower_radius": 12,
+        "upper_radius": 14,
+        "wall": 2.4,
+        "lid_seam_z": 68
+      },
+      "yaw": {
+        "axis": [
+          0,
+          0,
+          0
+        ],
+        "range_deg": [
+          -45,
+          45
+        ],
+        "neck_od": 46,
+        "neck_id": 22,
+        "neck_bottom": 73,
+        "neck_top": 98,
+        "lid_hole_diameter": 48,
+        "drive": "off-axis SG90 + unspecified belt/pulley proposal; no release",
+        "cable": "cross-axis LCD/camera flex loop, bend radius / EMI / connector path not verified; no slip ring or continuous 360"
+      },
+      "components": [
+        {
+          "id": "MAINBOARD",
+          "group": "base",
+          "body": [
+            115,
+            80,
+            1.6
+          ],
+          "center": [
+            0,
+            0,
+            18
+          ],
+          "reserve": [
+            125,
+            90,
+            22
+          ],
+          "confidence": "115x80 official PCB, thickness/component/cable keepout assumed"
+        },
+        {
+          "id": "LCD",
+          "group": "head",
+          "body": [
+            79.4,
+            1.6,
+            58.4
+          ],
+          "center": [
+            0,
+            -24,
+            148
+          ],
+          "reserve": [
+            89.4,
+            20,
+            68.4
+          ],
+          "confidence": "79.4x58.4 official expansion PCB; complete display stack/flex clearance assumed"
+        },
+        {
+          "id": "CAMERA",
+          "group": "head",
+          "body": [
+            20,
+            10,
+            18
+          ],
+          "center": [
+            0,
+            -26,
+            194
+          ],
+          "reserve": [
+            24,
+            16,
+            20
+          ],
+          "confidence": "candidate purchase-size constraint, not a selected camera module"
+        },
+        {
+          "id": "SERVO",
+          "group": "base",
+          "body": [
+            23,
+            12.2,
+            29
+          ],
+          "center": [
+            -49,
+            3,
+            49
+          ],
+          "reserve": [
+            35,
+            25,
+            44
+          ],
+          "reserve_center": [
+            -49,
+            3,
+            52
+          ],
+          "confidence": "SG90 body sourced; total horn/bracket/output-axis location assumed"
+        },
+        {
+          "id": "BEARING",
+          "group": "base",
+          "body": [
+            56,
+            56,
+            18
+          ],
+          "center": [
+            0,
+            0,
+            64
+          ],
+          "reserve": [
+            56,
+            56,
+            18
+          ],
+          "confidence": "generic bearing envelope; no matching SKU or mounting faces selected"
+        },
+        {
+          "id": "SPEAKER",
+          "group": "base",
+          "body": [
+            40,
+            18,
+            40
+          ],
+          "center": [
+            0,
+            -58,
+            48
+          ],
+          "reserve": [
+            44,
+            24,
+            44
+          ],
+          "confidence": "4-ohm candidate <=40mm diameter <=18mm depth, not a selected speaker"
+        }
+      ],
+      "unverified": [
+        "actual PCB populated heights and ports",
+        "LCD and camera connectors/pin mapping and acceptable flex length",
+        "FPC cable routing and bend radius over yaw stroke",
+        "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+        "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+        "speaker acoustic chamber and fixed mic acoustic ports",
+        "real mute electrical circuit",
+        "thermal, tipping stability, print tolerances and fasteners"
+      ]
+    },
+    "code_role": "orchestration",
+    "application_policy": "keep_non_destructive",
+    "system_choice": {
+      "direct_candidate": "Screw + Boolean + semantic pose anchors",
+      "node_candidate": "Geometry Nodes parametric shell",
+      "selected_system": "native direct components",
+      "selection_reason": "one revolved base profile and unique head; no fields or repeated fragments",
+      "rejected_alternative": "GN adds no control benefit at this blockout stage"
+    },
+    "official_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/screw.html",
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html"
+    ]
+  },
+  "local_asset_library": {
+    "status": "not_requested",
+    "requested": false,
+    "request_origin": "not_requested",
+    "root": null,
+    "eligible_catalogs": [],
+    "candidate_policy": "No local candidate discovery is needed for the selected direct system."
+  },
+  "code_role": "orchestration",
+  "application_policy": "keep_non_destructive",
+  "fallback_reason": null
+}

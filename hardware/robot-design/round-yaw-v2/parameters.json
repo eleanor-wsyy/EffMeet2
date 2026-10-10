@@ -1,0 +1,190 @@
+{
+  "revision": "round-yaw-v2",
+  "units": "mm",
+  "scope": "reversible dimensional blockout, not manufacturing CAD",
+  "envelope": {
+    "width": 180,
+    "depth": 164,
+    "height": 222
+  },
+  "head": {
+    "center": [
+      0,
+      0,
+      150
+    ],
+    "outer_size": [
+      150,
+      128,
+      144
+    ],
+    "wall": 2.4,
+    "trim_bottom_z": 92,
+    "face_cut_y": -35
+  },
+  "base": {
+    "width": 180,
+    "depth": 164,
+    "bottom_z": 2,
+    "top_z": 78,
+    "lower_radius": 12,
+    "upper_radius": 14,
+    "wall": 2.4,
+    "lid_seam_z": 68
+  },
+  "yaw": {
+    "axis": [
+      0,
+      0,
+      0
+    ],
+    "range_deg": [
+      -45,
+      45
+    ],
+    "neck_od": 46,
+    "neck_id": 22,
+    "neck_bottom": 73,
+    "neck_top": 98,
+    "lid_hole_diameter": 48,
+    "drive": "off-axis SG90 + unspecified belt/pulley proposal; no release",
+    "cable": "cross-axis LCD/camera flex loop, bend radius / EMI / connector path not verified; no slip ring or continuous 360"
+  },
+  "components": [
+    {
+      "id": "MAINBOARD",
+      "group": "base",
+      "body": [
+        115,
+        80,
+        1.6
+      ],
+      "center": [
+        0,
+        0,
+        18
+      ],
+      "reserve": [
+        125,
+        90,
+        22
+      ],
+      "confidence": "115x80 official PCB, thickness/component/cable keepout assumed"
+    },
+    {
+      "id": "LCD",
+      "group": "head",
+      "body": [
+        79.4,
+        1.6,
+        58.4
+      ],
+      "center": [
+        0,
+        -24,
+        148
+      ],
+      "reserve": [
+        89.4,
+        20,
+        68.4
+      ],
+      "confidence": "79.4x58.4 official expansion PCB; complete display stack/flex clearance assumed"
+    },
+    {
+      "id": "CAMERA",
+      "group": "head",
+      "body": [
+        20,
+        10,
+        18
+      ],
+      "center": [
+        0,
+        -26,
+        194
+      ],
+      "reserve": [
+        24,
+        16,
+        20
+      ],
+      "confidence": "candidate purchase-size constraint, not a selected camera module"
+    },
+    {
+      "id": "SERVO",
+      "group": "base",
+      "body": [
+        23,
+        12.2,
+        29
+      ],
+      "center": [
+        -49,
+        3,
+        49
+      ],
+      "reserve": [
+        35,
+        25,
+        44
+      ],
+      "reserve_center": [
+        -49,
+        3,
+        52
+      ],
+      "confidence": "SG90 body sourced; total horn/bracket/output-axis location assumed"
+    },
+    {
+      "id": "BEARING",
+      "group": "base",
+      "body": [
+        56,
+        56,
+        18
+      ],
+      "center": [
+        0,
+        0,
+        64
+      ],
+      "reserve": [
+        56,
+        56,
+        18
+      ],
+      "confidence": "generic bearing envelope; no matching SKU or mounting faces selected"
+    },
+    {
+      "id": "SPEAKER",
+      "group": "base",
+      "body": [
+        40,
+        18,
+        40
+      ],
+      "center": [
+        0,
+        -58,
+        48
+      ],
+      "reserve": [
+        44,
+        24,
+        44
+      ],
+      "confidence": "4-ohm candidate <=40mm diameter <=18mm depth, not a selected speaker"
+    }
+  ],
+  "unverified": [
+    "actual PCB populated heights and ports",
+    "LCD and camera connectors/pin mapping and acceptable flex length",
+    "FPC cable routing and bend radius over yaw stroke",
+    "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+    "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+    "speaker acoustic chamber and fixed mic acoustic ports",
+    "real mute electrical circuit",
+    "thermal, tipping stability, print tolerances and fasteners"
+  ]
+}

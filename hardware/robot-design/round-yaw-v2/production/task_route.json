@@ -1,0 +1,496 @@
+{
+  "schema_version": "1.0",
+  "request": "Original reversible blockout revision of EffMeet2 round desktop meeting robot, yaw-first product assembly. Native UV sphere ellipsoid and Boolean hollow shell; elliptical base from native cylinder and Bevel, independent stationary Korvo board 115x80, rotating LCD 79.4x58.4 and camera. Propose 180x164x218 mm product, inspectable reusable .blend and neutral multiview views. SG90 off-axis drive proposal and centered bearing keepouts only; no physical motion systems release, no surfacing, no export. Preserve all old design files. Nomi is inspiration only, not image reconstruction.",
+  "deliverable": "environment",
+  "classes": [
+    "manufactured_interfaces",
+    "object_assembly",
+    "scene_hierarchy",
+    "static_geometry",
+    "volume_operation"
+  ],
+  "physical_causes": [],
+  "candidates": [
+    {
+      "method": "assembly_structure",
+      "skill": "blender-assembly-structure",
+      "score": 26,
+      "matched_terms": [
+        "assembly"
+      ],
+      "reasons": [
+        "manufactured assemblies",
+        "moving parts",
+        "hinges",
+        "mounts",
+        "seams",
+        "embedded components",
+        "object hierarchy"
+      ],
+      "risks": [
+        "Join treated as weld",
+        "deep penetration without a receiver",
+        "decorative fasteners",
+        "unexplained mesh islands"
+      ],
+      "available": true
+    },
+    {
+      "method": "boolean_construction",
+      "skill": "blender-direct-surface-modeling",
+      "score": 16,
+      "matched_terms": [
+        "boolean"
+      ],
+      "reasons": [
+        "hard cuts",
+        "volume union",
+        "repeatable cutter workflow"
+      ],
+      "risks": [
+        "internal faces",
+        "shading artifacts",
+        "tiny sliver faces"
+      ],
+      "available": true
+    },
+    {
+      "method": "alternative:topology_fusion",
+      "skill": "blender-production-router",
+      "score": 16,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: topology fusion"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    },
+    {
+      "method": "alternative:collection_instances",
+      "skill": "blender-production-router",
+      "score": 15,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: collection instances"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    }
+  ],
+  "selected_method": "assembly_structure",
+  "selected_skill": "blender-assembly-structure",
+  "secondary_methods": [
+    "boolean_construction",
+    "alternative:topology_fusion",
+    "alternative:collection_instances"
+  ],
+  "forbidden_substitutions": [
+    "blockout_proxy_as_final_topology",
+    "color_block_partition_as_part_graph",
+    "decorative_fastener_without_mount",
+    "detail_before_transition_forms",
+    "difficulty_as_part_boundary",
+    "join_objects_as_topology_fusion",
+    "material_or_lighting_as_geometry_concealment",
+    "penetrating_part_without_interface",
+    "primitive_only_formal_modeling",
+    "primitive_stacking_after_blockout",
+    "scene_or_world_reset_without_authorization",
+    "smooth_shading_or_weighted_normal_as_bevel",
+    "unclassified_mesh_islands",
+    "unclassified_visible_intersections"
+  ],
+  "prerequisites": [
+    "approved Part Graph",
+    "separation reasons",
+    "combination levels",
+    "scale",
+    "interface requirements"
+  ],
+  "validation": [
+    "approved Part Graph",
+    "combination level",
+    "mating surfaces and clearances",
+    "mesh-island intent",
+    "pivot hierarchy constraints and collision",
+    "unclassified overlap audit",
+    "approved Part Graph and construction methods",
+    "front side top hero clay and wireframe evidence",
+    "formal-topology conversion after Blockout",
+    "topology rollback strike audit"
+  ],
+  "required_specialists": [
+    "blender-production-router",
+    "blender-scene-design",
+    "blender-assembly-structure",
+    "blender-geometry-validation"
+  ],
+  "construction_archetypes": [],
+  "construction_method_decision": {
+    "shape_grammar_review_required": true,
+    "detected_archetypes": [],
+    "parameter_owners": {},
+    "native_generator_comparisons": [],
+    "fallback_when_no_archetype_matches": "inspect the form and declare unique topology, deformation, distribution, simulation, assembly, or shading ownership before primitive creation",
+    "native_component_decision": {
+      "status": "planned",
+      "primary_system": "ASSEMBLY_DATA",
+      "parameter_owners": {},
+      "source_policy": "one semantic source/control object per dependent system",
+      "python_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "fallback_reason": null,
+      "scene_design_required": true,
+      "system_choice": {
+        "comparison_required": false,
+        "direct_candidate": "ASSEMBLY_DATA",
+        "node_candidate": null,
+        "selected_system": "ASSEMBLY_DATA",
+        "selection_reason": "The current route has one credible owner; do not add a node graph without a concrete control benefit.",
+        "rejected_alternative": "No credible node alternative was identified at route selection.",
+        "node_justification": [],
+        "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+      },
+      "official_sources": [
+        "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/parent.html",
+        "https://docs.blender.org/manual/en/5.2/animation/constraints/index.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.is_registered_node_type",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.rst.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html",
+        "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.rst.html",
+        "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.html",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass_py"
+      ],
+      "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+    }
+  },
+  "design_owner": "blender-scene-design",
+  "native_component_decision": {
+    "native_system": "SCREW_BOOLEAN_ASSEMBLY",
+    "source_objects": [
+      "base radial section profile",
+      "ellipsoid head source",
+      "native cavities and lid hole cutters"
+    ],
+    "semantic_inputs": {
+      "revision": "round-yaw-v2",
+      "units": "mm",
+      "scope": "reversible dimensional blockout, not manufacturing CAD",
+      "envelope": {
+        "width": 180,
+        "depth": 164,
+        "height": 222
+      },
+      "head": {
+        "center": [
+          0,
+          0,
+          150
+        ],
+        "outer_size": [
+          150,
+          128,
+          144
+        ],
+        "wall": 2.4,
+        "trim_bottom_z": 92,
+        "face_cut_y": -35
+      },
+      "base": {
+        "width": 180,
+        "depth": 164,
+        "bottom_z": 2,
+        "top_z": 78,
+        "lower_radius": 12,
+        "upper_radius": 14,
+        "wall": 2.4,
+        "lid_seam_z": 68
+      },
+      "yaw": {
+        "axis": [
+          0,
+          0,
+          0
+        ],
+        "range_deg": [
+          -45,
+          45
+        ],
+        "neck_od": 46,
+        "neck_id": 22,
+        "neck_bottom": 73,
+        "neck_top": 98,
+        "lid_hole_diameter": 48,
+        "drive": "off-axis SG90 + unspecified belt/pulley proposal; no release",
+        "cable": "cross-axis LCD/camera flex loop, bend radius / EMI / connector path not verified; no slip ring or continuous 360"
+      },
+      "components": [
+        {
+          "id": "MAINBOARD",
+          "group": "base",
+          "body": [
+            115,
+            80,
+            1.6
+          ],
+          "center": [
+            0,
+            0,
+            18
+          ],
+          "reserve": [
+            125,
+            90,
+            22
+          ],
+          "confidence": "115x80 official PCB, thickness/component/cable keepout assumed"
+        },
+        {
+          "id": "LCD",
+          "group": "head",
+          "body": [
+            79.4,
+            1.6,
+            58.4
+          ],
+          "center": [
+            0,
+            -24,
+            148
+          ],
+          "reserve": [
+            89.4,
+            20,
+            68.4
+          ],
+          "confidence": "79.4x58.4 official expansion PCB; complete display stack/flex clearance assumed"
+        },
+        {
+          "id": "CAMERA",
+          "group": "head",
+          "body": [
+            20,
+            10,
+            18
+          ],
+          "center": [
+            0,
+            -26,
+            194
+          ],
+          "reserve": [
+            24,
+            16,
+            20
+          ],
+          "confidence": "candidate purchase-size constraint, not a selected camera module"
+        },
+        {
+          "id": "SERVO",
+          "group": "base",
+          "body": [
+            23,
+            12.2,
+            29
+          ],
+          "center": [
+            -49,
+            3,
+            49
+          ],
+          "reserve": [
+            35,
+            25,
+            44
+          ],
+          "reserve_center": [
+            -49,
+            3,
+            52
+          ],
+          "confidence": "SG90 body sourced; total horn/bracket/output-axis location assumed"
+        },
+        {
+          "id": "BEARING",
+          "group": "base",
+          "body": [
+            56,
+            56,
+            18
+          ],
+          "center": [
+            0,
+            0,
+            64
+          ],
+          "reserve": [
+            56,
+            56,
+            18
+          ],
+          "confidence": "generic bearing envelope; no matching SKU or mounting faces selected"
+        },
+        {
+          "id": "SPEAKER",
+          "group": "base",
+          "body": [
+            40,
+            18,
+            40
+          ],
+          "center": [
+            0,
+            -58,
+            48
+          ],
+          "reserve": [
+            44,
+            24,
+            44
+          ],
+          "confidence": "4-ohm candidate <=40mm diameter <=18mm depth, not a selected speaker"
+        }
+      ],
+      "unverified": [
+        "actual PCB populated heights and ports",
+        "LCD and camera connectors/pin mapping and acceptable flex length",
+        "FPC cable routing and bend radius over yaw stroke",
+        "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+        "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+        "speaker acoustic chamber and fixed mic acoustic ports",
+        "real mute electrical circuit",
+        "thermal, tipping stability, print tolerances and fasteners"
+      ]
+    },
+    "code_role": "orchestration",
+    "application_policy": "keep_non_destructive",
+    "system_choice": {
+      "direct_candidate": "Screw + Boolean + semantic pose anchors",
+      "node_candidate": "Geometry Nodes parametric shell",
+      "selected_system": "native direct components",
+      "selection_reason": "one revolved base profile and unique head; no fields or repeated fragments",
+      "rejected_alternative": "GN adds no control benefit at this blockout stage"
+    },
+    "official_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/screw.html",
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html"
+    ]
+  },
+  "local_asset_library": {
+    "status": "not_requested",
+    "requested": false,
+    "request_origin": "not_requested",
+    "root": null,
+    "eligible_catalogs": [],
+    "candidate_policy": "No local candidate discovery is needed for the selected direct system."
+  },
+  "official_doc_resolution": {
+    "schema_version": "1.0",
+    "status": "cached_plus_runtime_RNA",
+    "version": "5.2",
+    "query": "assembly structure Original reversible blockout revision of EffMeet2 round desktop meeting robot, yaw-first product assembly. Native UV sphere ellipsoid and Boolean hollow shell; elliptical base from native cylinder and Bevel, independent stationary Korvo board 115x80, rotating LCD 79.4x58.4 and camera. Propose 180x164x218 mm product, inspectable reusable .blend and neutral multiview views. SG90 off-axis drive proposal and centered bearing keepouts only; no physical motion systems release, no surfacing, no export. Preserve all old design files. Nomi is inspiration only, not image reconstruction.",
+    "cache_path": "local-tool-cache (not required to read this deliverable)",
+    "source_status": {
+      "manual": "live_verified",
+      "python_api": "live_verified"
+    },
+    "source_urls": {
+      "manual": "https://docs.blender.org/manual/en/5.2/",
+      "python_api": "https://docs.blender.org/api/5.2/"
+    },
+    "results": [
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands.is_registered_node_type",
+        "title": "bpy.types.GeometryNodeUVPackIslands.is_registered_node_type",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.is_registered_node_type",
+        "source": "python_api",
+        "score": 48.3659
+      },
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands.rst",
+        "title": "GeometryNodeUVPackIslands(GeometryNode)",
+        "role": "page",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.rst.html",
+        "source": "python_api",
+        "score": 46.8492
+      },
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands",
+        "title": "GeometryNodeUVPackIslands(GeometryNode)",
+        "role": "std:doc",
+        "priority": -1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html",
+        "source": "python_api",
+        "score": 46.8492
+      },
+      {
+        "name": "modeling/geometry_nodes/mesh/uv/pack_uv_islands.rst",
+        "title": "Pack UV Islands Node",
+        "role": "page",
+        "priority": 1,
+        "url": "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.rst.html",
+        "source": "manual",
+        "score": 46.2738
+      },
+      {
+        "name": "modeling/geometry_nodes/mesh/uv/pack_uv_islands",
+        "title": "Pack UV Islands Node",
+        "role": "std:doc",
+        "priority": -1,
+        "url": "https://docs.blender.org/manual/en/5.2/modeling/geometry_nodes/mesh/uv/pack_uv_islands.html",
+        "source": "manual",
+        "score": 46.2738
+      },
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands",
+        "title": "bpy.types.GeometryNodeUVPackIslands",
+        "role": "py:class",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands",
+        "source": "python_api",
+        "score": 45.9861
+      },
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass",
+        "title": "bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass",
+        "source": "python_api",
+        "score": 45.9861
+      },
+      {
+        "name": "bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass_py",
+        "title": "bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass_py",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeUVPackIslands.html#bpy.types.GeometryNodeUVPackIslands.bl_rna_get_subclass_py",
+        "source": "python_api",
+        "score": 45.9861
+      }
+    ],
+    "errors": [],
+    "declared_sources": [
+      "https://docs.blender.org/manual/en/5.2/scene_layout/object/editing/parent.html",
+      "https://docs.blender.org/manual/en/5.2/animation/constraints/index.html"
+    ],
+    "resolved_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/screw.html",
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html"
+    ]
+  },
+  "code_role": "orchestration",
+  "application_policy": "keep_non_destructive",
+  "fallback_reason": null,
+  "task_id": "4c5e99ca4cca",
+  "generated_at": "2026-10-10T07:15:35.302278+00:00"
+}

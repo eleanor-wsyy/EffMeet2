@@ -1,0 +1,208 @@
+{
+  "schema_version": "1.0",
+  "units": "mm",
+  "stage": "reversible_blockout",
+  "concept": "01 桌面席位牌：Korvo-2 开发板封装版",
+  "overall_target": [
+    148,
+    118,
+    188
+  ],
+  "wall": 2.4,
+  "head": {
+    "size": [
+      148,
+      84,
+      120
+    ],
+    "center": [
+      0,
+      0,
+      124
+    ],
+    "radius": 14
+  },
+  "base": {
+    "size": [
+      136,
+      118,
+      50
+    ],
+    "center": [
+      0,
+      0,
+      27
+    ],
+    "radius": 10
+  },
+  "foot": {
+    "size": [
+      132,
+      114,
+      2
+    ],
+    "center": [
+      0,
+      0,
+      1
+    ]
+  },
+  "yaw": {
+    "axis": [
+      0,
+      12,
+      58
+    ],
+    "bearing_keepout": {
+      "diameter": 56,
+      "height": 14,
+      "center": [
+        0,
+        12,
+        57
+      ]
+    },
+    "preview_limits_deg": [
+      -45,
+      45
+    ],
+    "verified": false
+  },
+  "components": [
+    {
+      "id": "MAINBOARD",
+      "label": "Korvo-2 V3.1",
+      "group": "head",
+      "body": [
+        115,
+        1.6,
+        80
+      ],
+      "center": [
+        0,
+        20,
+        124
+      ],
+      "reserve": [
+        125,
+        22,
+        90
+      ],
+      "evidence": "官方PCB平面115×80；板厚1.6和总占位厚22为待实测假设",
+      "confidence": "planar_verified_thickness_assumed"
+    },
+    {
+      "id": "LCD",
+      "label": "Korvo-2-LCD V1.1",
+      "group": "head",
+      "body": [
+        79.4,
+        1.6,
+        58.4
+      ],
+      "center": [
+        -15,
+        -22,
+        137
+      ],
+      "reserve": [
+        89.4,
+        16,
+        68.4
+      ],
+      "evidence": "官方扩展板平面79.4×58.4；厚度与连接器占位待实测",
+      "confidence": "planar_verified_thickness_assumed"
+    },
+    {
+      "id": "CAMERA",
+      "label": "OV2640配套模块占位",
+      "group": "head",
+      "body": [
+        20,
+        10,
+        18
+      ],
+      "center": [
+        47,
+        -30,
+        157
+      ],
+      "reserve": [
+        24,
+        16,
+        20
+      ],
+      "evidence": "未选定封装，全部尺寸为采购上限与布局假设，不是已购模块尺寸",
+      "confidence": "assumed"
+    },
+    {
+      "id": "SERVO",
+      "label": "SG90",
+      "group": "base",
+      "body": [
+        23,
+        12.2,
+        29
+      ],
+      "center": [
+        -5,
+        12,
+        23.5
+      ],
+      "reserve": [
+        35,
+        25,
+        44
+      ],
+      "reserve_center": [
+        -5,
+        12,
+        27
+      ],
+      "evidence": "官方本体23×12.2×29；舵盘/支架/轴偏置仍须实测",
+      "confidence": "body_verified_assembly_assumed"
+    },
+    {
+      "id": "SPEAKER",
+      "label": "4Ω扬声器候选",
+      "group": "base",
+      "body": [
+        40,
+        18,
+        40
+      ],
+      "center": [
+        0,
+        -40,
+        27
+      ],
+      "reserve": [
+        44,
+        24,
+        44
+      ],
+      "evidence": "要求选圆形外径≤40、深度≤18；不是官方指定扬声器封装",
+      "confidence": "purchase_constraint",
+      "reserve_center": [
+        0,
+        -39,
+        27
+      ]
+    }
+  ],
+  "fixed_decisions": [
+    "扬声器移到底座，板载麦克风随主板在上部",
+    "使用原版板载Micro-USB，暂不改USB-C",
+    "不内置电池或充电宝",
+    "不刻画虚构麦阵孔；等待板载麦克风实际位置核对",
+    "不输出可打印STL或生产STEP，先验证封装空间"
+  ],
+  "unverified": [
+    "实物板高及元件/接头突出量",
+    "LCD与摄像头FPC出线和弯折半径",
+    "板载麦克风声学通道与AEC",
+    "舵机扭矩、支撑轴承、线束及转角",
+    "紧固件孔径孔位及前后盖连接",
+    "热设计、打印收缩与装配公差"
+  ]
+}

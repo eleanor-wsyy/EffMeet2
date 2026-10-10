@@ -1,0 +1,133 @@
+{
+  "scope": "evaluated blockout geometry, analytic keepouts, pre-existing object snapshot",
+  "overall_status": "PASS",
+  "mesh_checks": [
+    {
+      "object": "R2_BASE_CUP",
+      "vertices": 8706,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_BASE_LID",
+      "vertices": 4982,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_SILICONE_FOOT",
+      "vertices": 192,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_YAW_NECK",
+      "vertices": 384,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_HEAD_SHELL",
+      "vertices": 8374,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_BLACK_FACE_MASK",
+      "vertices": 192,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_EXPRESSION_-12.5",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_EXPRESSION_12.5",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_CAMERA_LENS",
+      "vertices": 192,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_SHUTTER_POSITION",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_MUTE_POSITION",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_STATUS_POSITION",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_SPEAKER_PORT_POSITION",
+      "vertices": 192,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_MAINBOARD",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_LCD",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_CAMERA",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_SERVO",
+      "vertices": 296,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_BEARING",
+      "vertices": 384,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    },
+    {
+      "object": "R2_SPEAKER",
+      "vertices": 192,
+      "nonmanifold_edges": 0,
+      "zero_area_faces": 0
+    }
+  ],
+  "protected_scene_objects_unchanged": true,
+  "not_evaluated": [
+    "actual PCB populated heights and ports",
+    "LCD and camera connectors/pin mapping and acceptable flex length",
+    "FPC cable routing and bend radius over yaw stroke",
+    "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+    "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+    "speaker acoustic chamber and fixed mic acoustic ports",
+    "real mute electrical circuit",
+    "thermal, tipping stability, print tolerances and fasteners"
+  ],
+  "stage": "blockout",
+  "formal_production_release": false
+}

@@ -1,0 +1,39 @@
+{
+  "screw": {
+    "R2_BASE_CUP": [
+      {
+        "name": "Radial section 360 degrees",
+        "type": "SCREW"
+      }
+    ],
+    "R2_BASE_LID": [
+      {
+        "name": "Radial section 360 degrees",
+        "type": "SCREW"
+      },
+      {
+        "name": "DIFFERENCE_R2_LID_YAW_HOLE",
+        "type": "BOOLEAN"
+      },
+      {
+        "name": "DIFFERENCE_R2_MUTE_RECESS",
+        "type": "BOOLEAN"
+      }
+    ]
+  },
+  "boolean_solver": "MANIFOLD",
+  "native_screw_RNA_probe": true,
+  "units": "meters internally, mm source parameters",
+  "old_scene_snapshot_equal": true,
+  "render_views": [
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\01_assembled.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\02_front.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\03_side.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\04_top.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\05_internal.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\06_internal_side.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\07_yaw_left.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\07_yaw_center.png",
+    "hardware/robot-design/round-yaw-v2\\renders\\review-02\\07_yaw_right.png"
+  ]
+}

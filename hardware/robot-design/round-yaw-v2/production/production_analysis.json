@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-10T07:15:35.302278+00:00",
+  "status": "provisional",
+  "execution_allowed": true,
+  "execution_scope": "reversible_blockout",
+  "deliverable": "environment",
+  "completion_scope": "unresolved",
+  "protected_scope": {
+    "status": "open",
+    "objects": [
+      "All existing repository files and prior seat-card-packaging-v1 blend scenes"
+    ],
+    "task_owned_collection": null
+  },
+  "real_scale": {
+    "status": "unresolved",
+    "units": "METRIC",
+    "anchors": []
+  },
+  "minimum_viable_analysis": {
+    "status": "open",
+    "attempts": 0,
+    "max_automatic_reviews": 2,
+    "required_decisions": {
+      "deliverable_scope": false,
+      "protected_scope": false,
+      "major_parts_or_regions": false,
+      "scale_strategy": false,
+      "provisional_route": false
+    },
+    "evidence": []
+  },
+  "design_intent": {
+    "thesis": "Rounded expressive head turns toward participants; a substantial stationary pebble base carries electronics and independent yaw support",
+    "reference_policy": "NOMI is general proportion inspiration only, no image reconstruction and no copy of branding; Image2 hero is not a CAD dimensional source",
+    "nominal_envelope_mm": {
+      "width": 180,
+      "depth": 164,
+      "height": 222
+    }
+  },
+  "focal_hierarchy": [
+    "head/black face",
+    "short yaw neck negative space",
+    "stable rounded base",
+    "internal component layout"
+  ],
+  "depth_layers": [
+    "primary ellipsoidal silhouette",
+    "two-shell seams and axis",
+    "hardware proxy reservations"
+  ],
+  "visual_flow": "eyes lead to speaker direction while fixed plinth remains grounded",
+  "camera_mobility": "free inspection, fixed review cameras, bounded yaw poses",
+  "representation_budget": {
+    "native_geometry": "head/base shells, true cavities, neck bore",
+    "proxy": "board/servo/bearing/camera, port locations, no final mechanisms"
+  },
+  "performance_budget": {
+    "objects_max": 60,
+    "vertices_max": 150000,
+    "render": [
+      1200,
+      1100
+    ]
+  },
+  "failure_repair_policy": "repair only failed packaging region; preserve prior v1 and concept image",
+  "reference_inputs": [],
+  "camera_and_perspective": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "primary_silhouette_and_proportion": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "spatial_and_support_structure": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "object_partition_basis": [],
+  "geometry_vs_shading": [],
+  "form_hierarchy": {
+    "primary_masses": [],
+    "structural_forms": [],
+    "transition_forms": [],
+    "functional_parts": [],
+    "surface_details": []
+  },
+  "part_graph_status": "open",
+  "lighting_analysis": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "material_analysis": {
+    "status": "unresolved",
+    "classes": [],
+    "scale_evidence": [],
+    "unknowns": []
+  },
+  "systems_analysis": {
+    "deformation": [],
+    "simulation": [],
+    "procedural": [],
+    "animation": [],
+    "export": []
+  },
+  "critical_blockers": [],
+  "blocking_unknowns": [],
+  "assumptions": [],
+  "approvals": [],
+  "minimum_analysis": {
+    "passed": true,
+    "deliverable": "editable new .blend with dimension-driven rounded silhouette and stationary base hardware; image2 is separate concept",
+    "protected_scope": "all pre-existing files and scene objects",
+    "scale": "mm, external anchors main PCB 115x80 / LCD PCB79.4x58.4",
+    "critical_blockers": [],
+    "uncertainty": [
+      "actual PCB populated heights and ports",
+      "LCD and camera connectors/pin mapping and acceptable flex length",
+      "FPC cable routing and bend radius over yaw stroke",
+      "SG90 gear backlash, idle acoustic noise, firmware pins, inertia and loaded torque",
+      "bearing SKU / motor mount / transmission ratio / head receiver / hard stop",
+      "speaker acoustic chamber and fixed mic acoustic ports",
+      "real mute electrical circuit",
+      "thermal, tipping stability, print tolerances and fasteners"
+    ]
+  }
+}

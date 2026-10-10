@@ -39,3 +39,18 @@ node --test apps/web/tests/state.test.js
 ## 临时 HTTPS 真机演示
 
 使用合成会议、单人身份和口令保护的本机隧道：详见 [手机验收说明](qa/README.md)。不要把本机调试 API 直接暴露公网；此入口不等于正式部署或机器人实播。
+
+## 单一代码源与存储兼容
+
+`apps/web/` 与根目录 `services/` 是唯一维护源；`用户端APP（10.7）/` 仅保留交付入口和历史恢复说明，不再复制整仓。UI 文案、样式与交互在本轮整改中未改动。
+
+默认使用 SQLite WAL；只有 WAL 在事务开始前报只读错误时，才尝试切换当前数据库到 DELETE，并确认写事务能开始。不会重放已经开始的业务事务、延长候选 TTL，或影响其他数据库。真正的权限问题/其他进程占用仍可能失败，应检查权限和进程，而不是无限重试。
+
+已知存储环境不兼容时，可在启动前显式配置（不是在浏览器中设置）：
+
+```powershell
+$env:EFFMEET_SQLITE_JOURNAL_MODE = "DELETE"
+./.venv/Scripts/python.exe scripts/run_participant.py
+```
+
+该本机控制器维持单进程/单 worker；同数据库的短连接由进程内锁协调，跨进程仍依赖 SQLite 文件锁。真实设备投递不使用 mock 同步事务；真实网络副作用的 exactly-once 不能由这项修复保证。

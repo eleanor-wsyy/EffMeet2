@@ -1,5 +1,0 @@
-# Optional CPU ASR environment; keep separate from the controller .venv.
-funasr==1.4.16
-torch==2.5.1
-torchaudio==2.5.1
-websockets==15.0.1

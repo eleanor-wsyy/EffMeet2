@@ -1,4 +1,0 @@
--r requirements.txt
-livekit==1.1.20
-pyjwt==2.10.1
-sounddevice==0.5.6

@@ -3,9 +3,13 @@ from contextlib import contextmanager
 from datetime import datetime, timezone
 import hashlib
 import json
+import logging
+import os
 from pathlib import Path
 import sqlite3
 import time
+import threading
+import weakref
 from uuid import uuid4, uuid5, NAMESPACE_URL
 
 from .contracts import DemoError, validate
@@ -26,10 +30,34 @@ def _texts_overlap(a, b):
     return a in b or b in a
 
 
+logger = logging.getLogger(__name__)
+
+
+class _DatabaseAccess:
+    def __init__(self):
+        self.lock = threading.RLock()
+        self.rollback_journal = False
+
+
 class Store(ResponseTracking):
+    # This controller is single-process. Coordinate connections to the SAME file
+    # so journal fallback never races a local reader/writer. SQLite still owns
+    # cross-process transaction locking; different databases remain independent.
+    _access_guard = threading.Lock()
+    _access_by_path = weakref.WeakValueDictionary()
+
     def __init__(self, path, analyzer=None, robot=None, clock=time.time, candidate_ttl=120, bench=False):
         self.path = Path(path)
         self.path.parent.mkdir(parents=True, exist_ok=True)
+        key = os.path.normcase(str(self.path.resolve()))
+        with self._access_guard:
+            self._database = self._access_by_path.get(key)
+            if self._database is None:
+                self._database = _DatabaseAccess()
+                self._access_by_path[key] = self._database
+        self.journal_mode = os.getenv("EFFMEET_SQLITE_JOURNAL_MODE", "WAL").upper()
+        if self.journal_mode not in {"WAL", "DELETE"}:
+            raise ValueError("EFFMEET_SQLITE_JOURNAL_MODE must be WAL or DELETE")
         self.analyzer = analyzer or FakeAnalyzer()
         self.robot = robot or FakeRobot()
         if self.analyzer.mode != "mock" or (self.robot.mode != "mock" and not bench):
@@ -41,7 +69,7 @@ class Store(ResponseTracking):
         self._speak_text = None
         self._speak_until = 0.0
         with self.db() as conn:
-            conn.execute("PRAGMA journal_mode=WAL")
+            self._configure_journal(conn)
             conn.executescript("""
                 CREATE TABLE IF NOT EXISTS meetings (
                     id TEXT PRIMARY KEY, title TEXT NOT NULL
@@ -100,23 +128,69 @@ class Store(ResponseTracking):
                 );
             """)
 
+    @staticmethod
+    def _is_readonly(exc):
+        code = getattr(exc, "sqlite_errorcode", None)
+        if code is not None:
+            return code & 0xff == sqlite3.SQLITE_READONLY
+        # Older Python/adapters do not always expose the extended error code.
+        return "readonly" in str(exc).lower() or "read-only" in str(exc).lower()
+
+    def _fallback_to_delete(self, conn, original):
+        # Never replay a transaction BODY (it can dispatch a mock command).
+        # Only retry BEGIN, before any business SQL or external side effect.
+        if not self._is_readonly(original) or self._database.rollback_journal:
+            raise original
+        try:
+            if conn.execute("PRAGMA journal_mode").fetchone()[0].lower() != "wal":
+                raise original
+            mode = conn.execute("PRAGMA journal_mode=DELETE").fetchone()[0]
+            if mode.lower() != "delete":
+                raise sqlite3.OperationalError("SQLite did not accept DELETE journal mode")
+            conn.execute("BEGIN IMMEDIATE")
+        except sqlite3.Error as fallback_error:
+            # Real read-only permissions, other processes holding WAL, etc. are
+            # not magically repaired. Preserve the original failure as well.
+            if fallback_error is original:
+                raise
+            raise original from fallback_error
+        self._database.rollback_journal = True
+        logger.warning("SQLite WAL write failed; verified DELETE fallback for %s", self.path)
+
+    def _configure_journal(self, conn):
+        requested = "DELETE" if self._database.rollback_journal else self.journal_mode
+        try:
+            actual = conn.execute(f"PRAGMA journal_mode={requested}").fetchone()[0]
+            if actual.lower() != requested.lower():
+                raise sqlite3.OperationalError("SQLite did not accept requested journal mode")
+        except sqlite3.OperationalError as exc:
+            self._fallback_to_delete(conn, exc)
+            conn.rollback()  # initialization probe; schema setup follows
+
     @contextmanager
     def db(self, write=False):
-        conn = sqlite3.connect(self.path, timeout=10)
-        conn.row_factory = sqlite3.Row
-        conn.execute("PRAGMA foreign_keys=ON")
-        try:
-            if write:
-                conn.execute("BEGIN IMMEDIATE")
-            yield conn
-            if write:
-                conn.commit()
-        except Exception:
-            if write:
-                conn.rollback()
-            raise
-        finally:
-            conn.close()
+        with self._database.lock:
+            conn = sqlite3.connect(self.path, timeout=10)
+            conn.row_factory = sqlite3.Row
+            try:
+                conn.execute("PRAGMA foreign_keys=ON")
+                if write:
+                    try:
+                        conn.execute("BEGIN IMMEDIATE")
+                    except sqlite3.OperationalError as exc:
+                        self._fallback_to_delete(conn, exc)
+                yield conn
+                if write:
+                    conn.commit()
+            except Exception:
+                if write:
+                    try:
+                        conn.rollback()
+                    except sqlite3.Error:
+                        logger.exception("SQLite rollback failed for %s", self.path)
+                raise
+            finally:
+                conn.close()
 
     def require_meeting(self, conn, meeting_id):
         row = conn.execute("SELECT * FROM meetings WHERE id=?", (meeting_id,)).fetchone()

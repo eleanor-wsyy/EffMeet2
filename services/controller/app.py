@@ -1,5 +1,7 @@
 """Local-only demo API. Simulated identities are NOT a production login system."""
 import os
+import logging
+import sqlite3
 import asyncio
 from contextlib import asynccontextmanager, suppress
 from pathlib import Path
@@ -66,8 +68,8 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     app.state.bench = runtime
     app.state.livekit_bridge = livekit_bridge
 
-    def error(status, code, message):
-        body = {"error": {"code": code, "message": message, "retryable": False, "trace_id": str(uuid4())}}
+    def error(status, code, message, *, retryable=False):
+        body = {"error": {"code": code, "message": message, "retryable": retryable, "trace_id": str(uuid4())}}
         validate("ErrorResponse", body)
         return JSONResponse(body, status_code=status)
 
@@ -104,6 +106,17 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     @app.exception_handler(DemoError)
     async def domain_error(request, exc):
         return error(exc.status, exc.code, exc.message)
+
+    @app.exception_handler(sqlite3.OperationalError)
+    async def storage_error(request, exc):
+        code = getattr(exc, "sqlite_errorcode", None)
+        transient = code is not None and (code & 0xff) in {
+            sqlite3.SQLITE_BUSY, sqlite3.SQLITE_LOCKED, sqlite3.SQLITE_READONLY}
+        if not transient:
+            # Missing tables / malformed SQL are code errors, not retryable busy.
+            raise exc
+        logging.getLogger(__name__).error("Controller storage unavailable", exc_info=exc)
+        return error(503, "STORE_BUSY", "本机存储暂时不可写，请重试。", retryable=True)
 
     @app.exception_handler(RequestValidationError)
     async def request_error(request, exc):

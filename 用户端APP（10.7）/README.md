@@ -1,81 +1,23 @@
-# 用户端APP（10.7）
+# 用户端 APP（10.7）交付入口
 
-2026-10-07 用户端交付快照。对应 Figma 手机参与者界面，不是仓库根目录的主持人/调试工作台。
+此目录保留作为原交付包的入口，不再保存整仓代码副本。**唯一维护源为仓库根目录的 `apps/web/`，配套后端为根目录 `services/`。** 用户端仍使用 `/app/`，主持人/台架工作台仍使用 `/`。
 
-## 交付内容
+- [用户端代码及运行说明](../apps/web/README.md)
+- [临时 HTTPS 手机验收说明](../apps/web/qa/README.md)
+- [总体整改核实与实施记录](../docs/product/EffMeet2_整改核实记录_2026-10-09.md)
 
-- 三个界面：入会页、会中页、观点地图页。
-- 最新视觉精修：保留白色 → `#FFEFBA` 背景渐变及既有文案、交互。
-- 底部候选弹层；在「查看状态」中点击「请机器人提醒」。
-- 默认 4 条独立待确认演示数据，逐条确认、不重复提醒。
-- 前端、同源控制器后端、接口契约、资源、启动脚本及测试全部包含。
+## 启动方法
 
-本目录是独立可运行快照，基于 `aa7cdab76ae7401031735ab07a6f3da782c2b942` 加入已验证的用户端实现。保留原始支撑代码/资料以便联调；本次提交仅新增本目录，未替换仓库根目录的工作台或后端。主要用户端代码在 `apps/web/`。
-
-## 启动（Windows / PowerShell）
-
-先在克隆后的 EffMeet2 仓库根目录打开终端，然后进入本目录。以下命令必须在本目录执行，不是在外层仓库根目录执行。
+在**仓库根目录**运行，而不是在本目录复制一套服务：
 
 ```powershell
-Set-Location -LiteralPath "用户端APP（10.7）"
 python -m venv .venv
-.\.venv\Scripts\python.exe -m pip install -r requirements-media.txt
-.\.venv\Scripts\python.exe scripts/run_participant.py --port 8765 --db .local/participant.sqlite3
+./.venv/Scripts/python.exe -m pip install -r requirements-media.txt
+./.venv/Scripts/python.exe scripts/run_participant.py
 ```
 
-打开 `http://127.0.0.1:8765/app/`。前端无需 npm 安装或打包；不要直接双击 HTML，否则无法接入同源后端。
+打开 `http://127.0.0.1:8765/app/`。另一终端执行 `./.venv/Scripts/python.exe scripts/seed_participant_demo.py --candidates 4`，用输出的新邀请链接展示合成候选。
 
-默认端口如果已被占用，可将两个脚本的 `--port` 一并改为其他空闲端口。现有预览使用 8876，不受上述独立实例影响。
+历史完整快照可以从 `0e35865` 或 `923a8d0` 的本目录恢复；本轮去重前另生成了仓库外本地备份，不会上传数据库、密钥或冗余 ZIP。主仓库代码含原用户端、PWA、后端接入、合成数据与临时 HTTPS 工具，去重没有减少这些功能。
 
-## 创建多条待确认演示
-
-另开终端并进入同一目录，执行：
-
-```powershell
-.\.venv\Scripts\python.exe scripts/seed_participant_demo.py --port 8765 --candidates 4
-```
-
-脚本输出邀请链接和会议 ID；使用该链接入会，填写昵称，逐条打开「查看状态」并点击「请机器人提醒」。所有数据均为明确标记的人工合成证据，不是真实会议录音或模型判断。候选有效期为 120 秒；过期后主动请求提醒会由后端重新校验，并非重新打开弹层就自动延期。
-
-## 测试
-
-```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s tests
-node --test apps/web/tests/state.test.js
-```
-
-交付前验证：88 项 Python 测试、32 项 Node 测试通过（包含 HTTPS 网关与 PWA 安全边界测试）。
-
-## 目录索引
-
-| 位置 | 用途 |
-| --- | --- |
-| `apps/web/` | 手机前端源码、图标、静态壳 Service Worker、状态测试和详细接入说明 |
-| `services/controller/` | 已接入用户端的同源后端快照 |
-| `services/relay/` | 现有音频 / LiveKit 中继支撑代码 |
-| `scripts/run_participant.py` | 本地用户端启动入口 |
-| `scripts/seed_participant_demo.py` | 1～4 条独立候选的模拟会议创建脚本 |
-| `contracts/`、`fixtures/` | 接口契约、模拟输入 |
-| `tests/` | 后端与用户端集成测试 |
-| `docs/`、`assets/` | 产品资料和原始设计资源 |
-
-## 临时 HTTPS 手机验收（合成数据）
-
-`apps/web/qa/run_phone_preview.py` 新增单会议、单人身份、随机口令保护的临时 HTTPS 网关。详情见 `apps/web/qa/README.md`。本机已有 OpenSSL 时，可在本目录运行：
-
-```powershell
-./.venv/Scripts/python.exe apps/web/qa/run_phone_preview.py --lan-ip 192.168.43.25 --openssl "D:\Program Files\Git\usr\bin\openssl.exe"
-```
-
-将示例 IP 替换为电脑当前局域网 IPv4。手机必须与电脑处于同一网络，安装并核对该脚本输出的公开测试根证书；不要上传私钥或绕过证书警告。临时会议候选 120 秒到期，重新启动生成新链接和口令。根证书最多有效 30 天，测试后撤销手机信任。这只是合成数据验收，不是公网生产部署，也不是现场机器人实播。
-
-## 范围与限制
-
-- 这是已完成的本地联调用户端，不是正式公网生产部署。
-- 本机演示身份不是正式账号登录；控制器默认仅监听 `127.0.0.1`；手机验收只经临时受保护 HTTPS 网关访问。
-- 默认使用 mock 模型/机器人回执，不代表机器人真的播报。
-- 麦克风仅完成真实权限检查；用户端尚未接通 LiveKit 音频发送，不能称为已持续录音。
-- 现场 AI 描述和会议结束事件尚未接通；PWA 仅缓存静态壳，离线不能操作候选或获取新会议证据。
-- 未提交数据库、会话令牌、真实 API 密钥、虚拟环境或依赖缓存。
-
-更详细的接口、交互和验收记录见 `apps/web/README.md`。
+**120 秒有效期保持不变；打开链接不会续期。模拟机器人回执不等于真实机器人播报，实机/真实会议联调仍需独立验收。**

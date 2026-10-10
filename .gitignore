@@ -29,3 +29,7 @@ shot_participant.js
 
 # Temporary phone QA tunnel binaries, logs and isolated databases
 .local/
+
+# Keep the named handoff entry, not a second independently maintained repository.
+/用户端APP（10.7）/*
+!/用户端APP（10.7）/README.md

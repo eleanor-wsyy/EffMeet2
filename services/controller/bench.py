@@ -3,6 +3,9 @@ import asyncio
 from datetime import datetime
 import hashlib
 import json
+import logging
+import sqlite3
+import threading
 import secrets
 import time
 from uuid import uuid4
@@ -18,12 +21,19 @@ class DeferredRobot:
     boot_id = "00000000-0000-4000-8000-000000000000"
 
 
+logger = logging.getLogger(__name__)
+
+
 class Bench:
     def __init__(self, store, analyzer, tts=None):
         self.store, self.analyzer, self.tts = store, analyzer, tts
         self.active = {}
         self.speaking = set()
         self.last_voice = {}
+        # Retain terminal errors while persistence is unavailable. Recovery on
+        # process restart already marks interrupted jobs failed; never re-run AI.
+        self._failed_jobs = {}
+        self._failure_lock = threading.Lock()
         with store.db() as conn:
             conn.executescript("""
                 CREATE TABLE IF NOT EXISTS bench_jobs (
@@ -89,10 +99,29 @@ class Bench:
             row = conn.execute("SELECT * FROM bench_jobs WHERE id=? AND meeting_id=?", (jid, mid)).fetchone()
         if not row:
             raise DemoError(404, "JOB_NOT_FOUND", "任务不存在。")
+        with self._failure_lock:
+            pending_error = self._failed_jobs.get(jid)
+        if pending_error:
+            return {"job_id": jid, "status": "failed", "result": None, "error_code": pending_error}
         return {"job_id": jid, "status": row["status"],
                 "result": json.loads(row["result"]) if row["result"] else None, "error_code": row["error"]}
 
+    def _persist_failure(self, jid, code):
+        try:
+            with self.store.db(write=True) as conn:
+                conn.execute("UPDATE bench_jobs SET status='failed',error=? WHERE id=?", (code, jid))
+        except Exception:
+            logger.exception("Could not persist terminal failure for bench job %s; will retry", jid)
+            return False
+        with self._failure_lock:
+            self._failed_jobs.pop(jid, None)
+        return True
+
     def work_once(self):
+        with self._failure_lock:
+            pending = list(self._failed_jobs.items())
+        for jid, code in pending:
+            self._persist_failure(jid, code)
         with self.store.db(write=True) as conn:
             row = conn.execute("SELECT * FROM bench_jobs WHERE status='queued' ORDER BY rowid LIMIT 1").fetchone()
             if not row:
@@ -118,15 +147,24 @@ class Bench:
             with self.store.db(write=True) as conn:
                 conn.execute("UPDATE bench_jobs SET status='completed',result=? WHERE id=?", (packed(committed), row["id"]))
         except Exception as exc:
-            code = exc.code if isinstance(exc, DemoError) else "ANALYSIS_FAILED"
-            with self.store.db(write=True) as conn:
-                conn.execute("UPDATE bench_jobs SET status='failed',error=? WHERE id=?", (code, row["id"]))
+            if isinstance(exc, DemoError):
+                code = exc.code
+            else:
+                logger.exception("Unexpected failure in bench job %s", row["id"])
+                code = "ANALYSIS_FAILED"
+            with self._failure_lock:
+                self._failed_jobs[row["id"]] = code
+            self._persist_failure(row["id"], code)
         return True
 
     async def worker(self):
         while True:
-            if not await asyncio.to_thread(self.work_once):
-                await asyncio.sleep(0.1)
+            try:
+                if not await asyncio.to_thread(self.work_once):
+                    await asyncio.sleep(0.1)
+            except sqlite3.Error:
+                logger.exception("Bench worker storage unavailable; retrying without replaying running jobs")
+                await asyncio.sleep(0.5)
 
     def authenticate(self, device_id, token, meeting_id=None):
         with self.store.db() as conn:

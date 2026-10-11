@@ -19,6 +19,7 @@
 | [外观/组装同步](round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md) | 圆面板、支架/短颈接口、分件与复测变化 | 待CAD落实；采购架构不变 |
 | [当前打印方案](round-yaw-v2/PRINT_PLAN.md) | A1/学校机器分工、PLA Matte 裸打、打印件/现成件分工 | 不喷漆不切屏窗；尚未制造放行 |
 | [建模任务书](round-yaw-v2/MODELING_BRIEF.md) | **美学不变量 + 15条红线 + 功能位规格表 + 建模任务清单** | **动 .blend 前必读**；美学锁死、工程重做 |
+| [微雪板官方规格](round-yaw-v2/WAVESHARE-BOARD-SPEC.md) | 引脚全表、屏选型 2.8″320×240、OV3660 参数 | **接线/选屏/定腔体前必读**；板体尺寸仍待实测 |
 | [配合样片](round-yaw-v2/fit-coupons/README.md) | 4 件 1:1 公差阶梯 STL + 生成脚本 | 先跑通再打大壳；今晚可直接切片 |
 | [安装指南](round-yaw-v2/ASSEMBLY_GUIDE.md) | 裸板→机构→头部线束→入壳的安装顺序与接线确认 | 缺实物/CAD/固件的步骤不可跳过当通过 |
 | [测试指南](round-yaw-v2/TEST_GUIDE.md) | 26项用例、暂定目标、故障排查 | 实机测试计划，不是已验收报告 |

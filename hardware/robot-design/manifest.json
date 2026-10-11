@@ -64,8 +64,8 @@
     "status": "planning_only_not_print_release",
     "user_priority": "print_where_practical_minimize_manual_operations",
     "prototype": "A1 with existing PETG 1:1 fit samples",
-    "final_printer": "school H2S subject to availability and approval",
-    "final_material": "Bambu ABS-GF white 41100 / black 41101",
+    "final_printer": "school H2D preferred (dual nozzle) or H2S; A1 for fit coupons",
+    "final_material": "PLA Matte (gray body / black details), unpainted as-printed",
     "finish": "as-printed matte; no sanding/filler/paint workflow",
     "face": "printed black bezel, exposed LCD panel; no additional laser-cut transparent cover",
     "hardware_substitution": "standard bearing / existing or tested micro position servo; equivalent acceptance targets, not untested performance equivalence"

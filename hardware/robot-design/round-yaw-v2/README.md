@@ -27,7 +27,7 @@
 
 ## 看图时如何判断
 
-- [此前灰模对应Image2效果图](concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png)以模型三视图＋ABS-GF裸打方案为依据，采用黑打印框/外露矩形LCD；仍是AI概念，不能量采购尺寸。[旧主视觉](concept/EffMeet2_圆润转头版_主视觉.png)保留为历史。
+- [此前灰模对应Image2效果图](concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_PLA Matte 裸打效果图.png)以模型三视图＋PLA Matte 裸打方案为依据，采用黑打印框/外露矩形LCD；仍是AI概念，不能量采购尺寸。[旧主视觉](concept/EffMeet2_圆润转头版_主视觉.png)保留为历史。
 - [三姿态预览](EffMeet2_圆润转头版_三姿态预览_修订.png)来自实际Blender模型。
 - [组装审阅](renders/review-02/01_assembled.png)、[正视](renders/review-02/02_front.png)、[侧视](renders/review-02/03_side.png)、[俯视](renders/review-02/04_top.png)、[内部布局](renders/review-02/05_internal.png)：中性建模审阅，不是最终CMF渲染。
 

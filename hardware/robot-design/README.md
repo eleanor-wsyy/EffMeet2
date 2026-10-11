@@ -17,7 +17,7 @@
 | [HANDOFF.md](HANDOFF.md) | 本次改动、已验证边界、团队后续事项 | 接手的人和AI先读 |
 | [当前BOM](round-yaw-v2/BOM.md) | 30项物料、数量、采购状态、[逐项功能/效果/验收目标](round-yaw-v2/BOM.md#component-functions) | **采购唯一维护入口**；待定件不能直接下单 |
 | [外观/组装同步](round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md) | 圆面板、支架/短颈接口、分件与复测变化 | 待CAD落实；采购架构不变 |
-| [当前打印方案](round-yaw-v2/PRINT_PLAN.md) | A1验证、H2S ABS-GF裸打、打印件/现成件分工 | 不喷漆不切屏窗；尚未制造放行 |
+| [当前打印方案](round-yaw-v2/PRINT_PLAN.md) | A1/学校机器分工、PLA Matte 裸打、打印件/现成件分工 | 不喷漆不切屏窗；尚未制造放行 |
 | [安装指南](round-yaw-v2/ASSEMBLY_GUIDE.md) | 裸板→机构→头部线束→入壳的安装顺序与接线确认 | 缺实物/CAD/固件的步骤不可跳过当通过 |
 | [测试指南](round-yaw-v2/TEST_GUIDE.md) | 26项用例、暂定目标、故障排查 | 实机测试计划，不是已验收报告 |
 | [测试记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv) | 版本、步骤、实际结果、证据与修复 | 默认全部NOT_RUN |

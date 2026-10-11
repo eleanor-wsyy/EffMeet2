@@ -14,7 +14,7 @@
 
 ## 产品方案与实施计划
 
-- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。最近一次单元测试 61 项通过。机器人实播、AEC、完整 LiveKit 和连续真人实机验收未完成。
+- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。单元测试 102 项全部通过。机器人实播、AEC、完整 LiveKit 和连续真人实机验收未完成。
 
 - [论文依据与技术路径 HTML 报告](docs/product/EffMeet2_论文依据与技术路径.html)：产品形态、机内音频与 Wi-Fi、开源参考及改造映射、任务分工、实施步骤与参赛计划。
 - [v1 接口契约 JSON](docs/product/EffMeet2_contract_v1.json)：统一数据格式、业务接口、媒体契约与合成测试样例。
@@ -62,9 +62,9 @@ python3 -m venv .venv
 如果当前Python已经安装requirements中的依赖，可直接运行`python scripts/run_demo.py`。脚本默认仅监听`127.0.0.1:8765`，无需任何API Key。浏览器打开`http://127.0.0.1:8765`。
 
 1. 新建会议，加入线上发言，选择“线上观点可能尚未获现场回应”并生成模拟结果：向现场提示的模拟执行次数仍为0。
-2. 决定身份选“线上成员1”，点击“请机器人向现场提示”：模拟执行次数变为1，显示accepted → started → completed。
+2. 决定身份选“线上成员1”，点击“请机器人提醒”：模拟执行次数变为1，显示accepted → started → completed。
 3. 点击“重试同一提示决定”：次数仍为1。同一请求复用已持久化结果。
-4. 换“线上成员2”尝试替本人决定，或新建会议点击“不用向现场提示这条观点”：不执行。
+4. 换“线上成员2”尝试替本人决定，或新建会议点击“不必提醒”：不执行。
 5. 新建会议测试“线上观点已有现场回应”（先加现场回应）或“是否已获现场回应不确定”：不产生提示候选。
 6. 生成原文记录，每项能定位到发言。记录只含原文观点，不伪造已达成的决议。
 
@@ -80,7 +80,7 @@ python3 -m venv .venv
 .\.venv\Scripts\python.exe scripts/smoke_demo.py
 ```
 
-macOS/Linux执行测试时，把上面的`.\.venv\Scripts\python.exe`替换为`.venv/bin/python`。
+macOS/Linux执行测试时，把上面的`.\.venv\Scripts\python.exe`替换为`.venv/bin/python`。跑满全部测试需另装`requirements-media.txt`（含 livekit）。
 
 HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重试、拒绝、已有回应、不确定。不会调用云模型、录音或真实机器人。
 
@@ -115,10 +115,10 @@ C可先按UtteranceFinal和样例接真实ASR；真实模型先产出AnalysisRes
 
 ### 2026-10-05 软件台架交接补充
 
-- 文本判断模型：`qwen-plus`；视觉模型：`qwen3-vl-plus`。
+- 文本判断模型：`qwen-plus`；视觉模型：`qwen3-vl-plus`（代码默认 `qwen-vl-max`，需设 `QWEN_VL_MODEL=qwen3-vl-plus`）。
 - 已完成真实录音分段转写、千问判断、确认接口与命令排队的软件联调；完整连续真人实机验收未完成。
 - 已通过摄像头图片上传和 `qwen3-vl-plus` 视觉接口测试（HTTP 200）。
-- 单元测试结果为 `61/61 OK`。
+- 单元测试结果为 `102/102 OK`。
 - 尚未完成机器人、ESP32、扬声器、AEC 实机效果和完整 LiveKit 链路验收。
 - 台架启动：先运行本地 ASR，再配置密钥及模型变量，执行 `.\.venv\Scripts\python.exe scripts/run_bench.py`，打开 http://127.0.0.1:8768/ 。完整命令见 [最终交接记录](docs/handoff/2026-10-05-final-handoff.md)。
 

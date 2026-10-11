@@ -13,14 +13,11 @@
 ## 文件
 
 - `EffMeet2_席位牌_封装布局_v1_审阅.blend`：建议打开的中性建模审阅版本；修正壳体/盖板截面，器件位置与尺寸不变。
-- `EffMeet2_席位牌_封装布局_v1.blend`：初始原生布局文件，保留为检查点。
 - `parameters.json`：毫米制统一尺寸、占位、坐标与证据状态。
 - `fit-report.json`：预留体积与腔体、同舱器件之间的空间检查。
 - `yaw-rigid-clearance.json`：±45°时的刚性壳体与底座高度间隙，不验证线束、扭矩或实际舵机行程。
-- `production/validation_report.json`：该占位范围内的求值网格拓扑与封装检查；不是生产放行证明。
-- `production/blender_geometry_audit.json`：套件附加审计，完整保留未知项，不把未做的检查伪装成PASS。
 - `renders/review-06/`：装配、正视、侧视、去壳布局、侧向布局和顶视图片。早期曝光图片保留在上一级。
-- `build_packaging.py`：构建脚本；`render_review02.py`：原生模型审阅脚本。
+- `build_packaging.py`：构建脚本；`render_blockout_review.py`：原生模型审阅脚本。
 
 新版采购清单位于仓库`hardware/robot-design/archive/seat-card-v1/BOM.md`，与本文件使用同一组尺寸和假设。
 

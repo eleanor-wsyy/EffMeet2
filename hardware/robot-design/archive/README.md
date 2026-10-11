@@ -9,5 +9,6 @@
 | concepts/egg-refinement-20261009 | 早期蛋形外观Image2精修，不代表当前选择 |
 | concepts/alternatives-20261010 | 席位牌、圆盘、圆角三角、竖向胶囊等对比图，不是已验证可装配产品 |
 | [procurement](procurement/README.md) | 10月5日通用采购表及用户10月9日分享原文副本 |
+| [layout-candidates-20261011](layout-candidates-20261011/README.md) | 布局 A/B 二选一候选提案全文；**已定案布局 A**，B 已否决。有效内容已并入 BOM §12 与 [MODELING_BRIEF](../round-yaw-v2/MODELING_BRIEF.md) |
 
 Git仅保存历史最终审阅模型/视图，重复ZIP、备份、失败图和本机工具记录留本地。历史脚本保留其来源，不承诺全部可跨机器直接运行；新工作使用当前round-yaw-v2参数和说明。

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-10",
+  "updated_on": "2026-10-11",
   "timezone": "Asia/Shanghai",
   "title": "EffMeet2 机器人外观、建模与硬件采购",
   "active_revision": "round-yaw-v2",
@@ -12,6 +12,8 @@
     "README.md",
     "HANDOFF.md",
     "round-yaw-v2/BOM.md",
+    "round-yaw-v2/PRINT_PLAN.md",
+    "round-yaw-v2/MODELING_BRIEF.md",
     "round-yaw-v2/README.md"
   ],
   "canonical_files": {

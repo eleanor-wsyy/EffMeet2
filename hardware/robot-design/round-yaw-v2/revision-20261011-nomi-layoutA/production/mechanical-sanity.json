@@ -1,0 +1,20 @@
+{
+  "servo_body_z_max_mm": 52.25,
+  "driver_pulley_z_min_mm": 55.3,
+  "body_clearance_mm": 3.05,
+  "lower_bearing_inner_race": [
+    46,
+    53
+  ],
+  "upper_bearing_inner_race": [
+    66,
+    73
+  ],
+  "shaft_span_mm": [
+    45,
+    93
+  ],
+  "d_flat_start_z_mm": 73,
+  "neck_socket_round_shafts_overlap_resolved": true,
+  "actual_servo_output_and_axial_retention_validated": false
+}

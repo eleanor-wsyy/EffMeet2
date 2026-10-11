@@ -1,0 +1,46 @@
+{
+  "schema_version": "1.0",
+  "overall_status": "WARN",
+  "stage": "reversible_blockout",
+  "formal_production_release": false,
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "scoped_pass": {
+    "closed_exterior_meshes": 5,
+    "single_components": 5,
+    "nominal_reserve_boxes": 15,
+    "yaw_poses": 3,
+    "minimum_vertical_shell_gap_mm": 14,
+    "maximum_head_z_mm": 221.998,
+    "prior_object_data_unchanged": true
+  },
+  "independent_audit": {
+    "report": "independent-validator-raw.json",
+    "status": "FAIL",
+    "remaining": [
+      "EVAL_N4_BASE_LID:zero_length_edges",
+      "EVAL_N4_HEAD_SHELL:zero_area_faces",
+      "EVAL_N4_HEAD_SHELL:zero_length_edges",
+      "EVAL_N4_SHORT_YAW_NECK:zero_length_edges"
+    ],
+    "interpretation": "Raw tolerance labels microscopic positive-area facets/edges. Exact-zero areas and open volumes are separately checked; retain raw FAIL as unresolved manufacture hygiene, not rewritten to PASS."
+  },
+  "warnings": [
+    "Included kit extension board is NOT in current fit claim; screen/module physical dimensions must be measured",
+    "TP4056 is not5V conversion or a released battery power-path",
+    "Final fastening/axis retention/servo horn/gear profile/electronic supports not fully measured or released",
+    "FPC pin map/contact side/length/minimum bend radius and50-cycle life untested",
+    "Independent microscopic-edge/small-face audit needs cleanup before manufacturing export",
+    "Reference-guided appearance candidate not user-approved final; preview materials not validated print surfaces"
+  ],
+  "evidence": [
+    "evaluated-shells.json",
+    "nominal-fit.json",
+    "yaw-candidate-audit.json",
+    "protected-scene-check.json"
+  ],
+  "hardware_tests_run": false,
+  "firmware_tests_run": false,
+  "hardware_basis": "GOOUU kit record f0788c8",
+  "microfeature_evidence": "microfeature-classification.json"
+}

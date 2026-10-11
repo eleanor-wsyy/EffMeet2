@@ -25,3 +25,10 @@
 # Historic audit depends on author-local tools; retain locally only.
 /archive/seat-card-v1/audit_blockout.py
 /archive/seat-card-v1/EffMeet2_新版封装布局总览.png
+
+# v4 keeps only the technically repaired review set.
+/round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-01/
+/round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-02/
+/round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-03/
+
+/round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-04/

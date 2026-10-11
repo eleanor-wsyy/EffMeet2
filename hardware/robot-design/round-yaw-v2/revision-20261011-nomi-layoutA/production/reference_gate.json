@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:48.089662+00:00",
+  "state_authority": "stage_state.json",
+  "stage_mapping": {
+    "R0": "analysis",
+    "R1": "blockout",
+    "R2": "primary_surface",
+    "R3": "surfacing_lighting",
+    "R4": "final"
+  },
+  "current_gate": "R0",
+  "gate_status": "provisional",
+  "checks": [
+    {
+      "id": "p0_observation_completeness",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "spatial_hypothesis_completeness",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "camera_evidence",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "blocking_uncertainty",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "camera_overlay",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "negative_space_and_occlusion",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "portal_and_region_connectivity",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "camera_spatial_consistency",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "cross_view_blockout",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "directional_structure_skeleton",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "blockout_similarity_score",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "p0_primary_geometry",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "part_graph_complete",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "blockout_replaced_by_formal_topology",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "structural_forms",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "transition_forms",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "assembly_interfaces",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "real_bevel_geometry",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "wireframe_acceptance",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "continuous_connections_and_smoothing",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "semantic_material_identity",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "causal_aging_and_wetness",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "lighting_and_depth",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "final_overlay",
+      "status": "open",
+      "evidence": []
+    },
+    {
+      "id": "final_semantic_review",
+      "status": "open",
+      "evidence": []
+    }
+  ],
+  "evidence_paths": [
+    "../../parameters.json",
+    "../../MODELING_BRIEF.md"
+  ],
+  "camera_revision": 0,
+  "approvals": [],
+  "blockout_scoring": {
+    "schema_version": "1.0",
+    "scale": 100,
+    "emergency_rebuild_threshold": 40,
+    "stop_after_consecutive_under_threshold": 2,
+    "attempt_index": 0,
+    "current_score": null,
+    "raw_score": null,
+    "consecutive_under_40": 0,
+    "disposition": "not_scored",
+    "component_maxima": {
+      "primary_form_proportion": 30,
+      "spatial_layout_connectivity": 25,
+      "directional_structures": 25,
+      "structural_contact_support_clearance": 20
+    },
+    "component_scores": {},
+    "history": []
+  },
+  "router_decision": {
+    "required": false,
+    "owner": "blender-production-router",
+    "action": null,
+    "attempt_id": null,
+    "applied": false
+  },
+  "project_disposition": {
+    "status": "active",
+    "explicit_user_confirmation_required": true,
+    "deletion_candidate_paths": [],
+    "task_owned_paths": [],
+    "confirmation": null
+  },
+  "unresolved_blockers": []
+}

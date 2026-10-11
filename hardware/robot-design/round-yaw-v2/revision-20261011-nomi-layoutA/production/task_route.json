@@ -1,0 +1,290 @@
+{
+  "schema_version": "1.0",
+  "request": "Reference-guided reusable desktop meeting robot NOMI-inspired round head circular matte black panel, layout A Waveshare fixed base board, native Screw shells Boolean openings, constrained yaw +/-45, neutral blockout review only, envelope 180x164x222 mm, keep earlier scenes protected, no manufacture release",
+  "deliverable": "asset",
+  "classes": [
+    "static_geometry",
+    "volume_operation"
+  ],
+  "physical_causes": [],
+  "candidates": [
+    {
+      "method": "boolean_construction",
+      "skill": "blender-direct-surface-modeling",
+      "score": 16,
+      "matched_terms": [
+        "boolean"
+      ],
+      "reasons": [
+        "hard cuts",
+        "volume union",
+        "repeatable cutter workflow"
+      ],
+      "risks": [
+        "internal faces",
+        "shading artifacts",
+        "tiny sliver faces"
+      ],
+      "available": true
+    },
+    {
+      "method": "alternative:direct_topology_edit",
+      "skill": "blender-production-router",
+      "score": 6,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: direct topology edit"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    },
+    {
+      "method": "alternative:voxel_remesh",
+      "skill": "blender-production-router",
+      "score": 5,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: voxel remesh"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    }
+  ],
+  "selected_method": "boolean_construction",
+  "selected_skill": "blender-direct-surface-modeling",
+  "secondary_methods": [
+    "alternative:direct_topology_edit",
+    "alternative:voxel_remesh"
+  ],
+  "forbidden_substitutions": [
+    "blockout_proxy_as_final_topology",
+    "boolean_for_physical_contact",
+    "color_block_partition_as_part_graph",
+    "detail_before_transition_forms",
+    "join_objects_as_topology_fusion",
+    "material_or_lighting_as_geometry_concealment",
+    "primitive_only_formal_modeling",
+    "primitive_stacking_after_blockout",
+    "scene_or_world_reset_without_authorization",
+    "smooth_shading_or_weighted_normal_as_bevel",
+    "unclassified_mesh_islands",
+    "unclassified_visible_intersections"
+  ],
+  "prerequisites": [
+    "closed volumes",
+    "valid transforms",
+    "explicit cutter role"
+  ],
+  "validation": [
+    "internal faces",
+    "sliver faces",
+    "evaluated shading",
+    "approved Part Graph and construction methods",
+    "front side top hero clay and wireframe evidence",
+    "formal-topology conversion after Blockout",
+    "topology rollback strike audit"
+  ],
+  "required_specialists": [
+    "blender-production-router",
+    "blender-scene-design",
+    "blender-direct-surface-modeling",
+    "blender-assembly-structure",
+    "blender-geometry-validation"
+  ],
+  "construction_archetypes": [],
+  "construction_method_decision": {
+    "shape_grammar_review_required": true,
+    "detected_archetypes": [],
+    "parameter_owners": {},
+    "native_generator_comparisons": [],
+    "fallback_when_no_archetype_matches": "inspect the form and declare unique topology, deformation, distribution, simulation, assembly, or shading ownership before primitive creation",
+    "native_component_decision": {
+      "status": "planned",
+      "primary_system": "BOOLEAN",
+      "parameter_owners": {},
+      "source_policy": "one semantic source/control object per dependent system",
+      "python_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "fallback_reason": null,
+      "scene_design_required": true,
+      "system_choice": {
+        "comparison_required": false,
+        "direct_candidate": "BOOLEAN",
+        "node_candidate": null,
+        "selected_system": "BOOLEAN",
+        "selection_reason": "A semantic host volume and evaluated native Boolean own an ordinary hard-surface cut; a node graph may generate cutters but cannot replace Boolean ownership.",
+        "rejected_alternative": "Geometry Nodes is not a substitute for the host Boolean and cleanup review.",
+        "node_justification": [],
+        "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+      },
+      "official_sources": [
+        "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection"
+      ],
+      "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+    }
+  },
+  "design_owner": "blender-scene-design",
+  "native_component_decision": {
+    "status": "planned",
+    "primary_system": "BOOLEAN",
+    "parameter_owners": {},
+    "source_policy": "one semantic source/control object per dependent system",
+    "python_role": "orchestration",
+    "application_policy": "keep_non_destructive",
+    "fallback_reason": null,
+    "scene_design_required": true,
+    "system_choice": {
+      "comparison_required": false,
+      "direct_candidate": "BOOLEAN",
+      "node_candidate": null,
+      "selected_system": "BOOLEAN",
+      "selection_reason": "A semantic host volume and evaluated native Boolean own an ordinary hard-surface cut; a node graph may generate cutters but cannot replace Boolean ownership.",
+      "rejected_alternative": "Geometry Nodes is not a substitute for the host Boolean and cleanup review.",
+      "node_justification": [],
+      "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+    },
+    "official_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection"
+    ],
+    "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+  },
+  "local_asset_library": {
+    "status": "not_requested",
+    "requested": false,
+    "request_origin": "not_requested",
+    "root": null,
+    "eligible_catalogs": [],
+    "candidate_policy": "No local candidate discovery is needed for the selected direct system."
+  },
+  "official_doc_resolution": {
+    "schema_version": "1.0",
+    "status": "cached",
+    "version": "5.2",
+    "query": "bpy.types.BooleanModifier Boolean modifier mesh cleanup Reference-guided reusable desktop meeting robot NOMI-inspired round head circular matte black panel, layout A Waveshare fixed base board, native Screw shells Boolean openings, constrained yaw +/-45, neutral blockout review only, envelope 180x164x222 mm, keep earlier scenes protected, no manufacture release",
+    "cache_path": "C:\\Users\\路西法\\.codex\\cache\\blender-production-suite\\5.2\\official_blender_docs_index.json",
+    "source_status": {
+      "manual": "live_verified",
+      "python_api": "live_verified"
+    },
+    "source_urls": {
+      "manual": "https://docs.blender.org/manual/en/5.2/",
+      "python_api": "https://docs.blender.org/api/5.2/"
+    },
+    "results": [
+      {
+        "name": "bpy.types.BooleanModifier.material_mode",
+        "title": "bpy.types.BooleanModifier.material_mode",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+        "source": "python_api",
+        "score": 33.1711
+      },
+      {
+        "name": "bpy.types.BooleanModifier.bl_rna_get_subclass",
+        "title": "bpy.types.BooleanModifier.bl_rna_get_subclass",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+        "source": "python_api",
+        "score": 33.0376
+      },
+      {
+        "name": "bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+        "title": "bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+        "source": "python_api",
+        "score": 33.0376
+      },
+      {
+        "name": "bpy.types.BooleanModifier.operand_type",
+        "title": "bpy.types.BooleanModifier.operand_type",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+        "source": "python_api",
+        "score": 32.8834
+      },
+      {
+        "name": "bpy.types.BooleanModifier.operation",
+        "title": "bpy.types.BooleanModifier.operation",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+        "source": "python_api",
+        "score": 32.8834
+      },
+      {
+        "name": "bpy.types.BooleanModifier.use_hole_tolerant",
+        "title": "bpy.types.BooleanModifier.use_hole_tolerant",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+        "source": "python_api",
+        "score": 32.8834
+      },
+      {
+        "name": "bpy.types.BooleanModifier",
+        "title": "bpy.types.BooleanModifier",
+        "role": "py:class",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+        "source": "python_api",
+        "score": 32.478
+      },
+      {
+        "name": "bpy.types.BooleanModifier.collection",
+        "title": "bpy.types.BooleanModifier.collection",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection",
+        "source": "python_api",
+        "score": 32.478
+      }
+    ],
+    "errors": [],
+    "declared_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html"
+    ],
+    "resolved_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection"
+    ]
+  },
+  "code_role": "orchestration",
+  "application_policy": "keep_non_destructive",
+  "fallback_reason": null,
+  "task_id": "7a581471f3d6",
+  "generated_at": "2026-10-11T14:34:46.715773+00:00",
+  "current_hardware_basis": "GOOUU ordered kit, f0788c8; external INMP441x2/MAX98357A/TP4056; current parameters authoritative",
+  "initial_hardware_mentions_are_superseded": true
+}

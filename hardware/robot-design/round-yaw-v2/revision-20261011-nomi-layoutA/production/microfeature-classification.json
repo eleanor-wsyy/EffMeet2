@@ -1,0 +1,12 @@
+{
+  "scope": "blockout geometry acceptance only",
+  "exact_zero_area_faces": 0,
+  "nonmanifold_edges": 0,
+  "small_positive_faces": 2,
+  "areas_mm2": [
+    6.132070457692037e-9,
+    5.050672387778418e-9
+  ],
+  "classification": "numerical-scale positive facets at bottom trim; retained as WARN, not called clean manufacture mesh",
+  "manufacturing_export_blocked": true
+}

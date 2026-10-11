@@ -1,0 +1,681 @@
+{
+  "schema_version": "1.0",
+  "generator": "blender-geometry-validation/scripts/validate_scene.py",
+  "manual_status_override_allowed": false,
+  "generated_at": "2026-10-11T18:09:08.666790+00:00",
+  "overall_status": "FAIL",
+  "modeling_stage": "blockout",
+  "topology_rollback_strikes": [],
+  "rollback": {
+    "required": false,
+    "target": null,
+    "reasons": [],
+    "decision_owner": "blender-production-router"
+  },
+  "checks": [
+    {
+      "id": "mesh_EVAL_N4_BASE_CUP",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_BASE_CUP",
+        "vertices": 16030,
+        "edges": 31560,
+        "faces": 15510,
+        "bbox_diagonal": 0.25177768580006804,
+        "position_tolerance": 2.51777685800068e-07,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_length_edges": 0,
+        "zero_area_faces": 0,
+        "duplicate_positions": 0,
+        "connected_components": 1,
+        "smooth_faces": 15294,
+        "flat_faces": 216,
+        "smooth_face_ratio": 0.986073500967118,
+        "bbox_volume": 0.0018892802169942938,
+        "bbox_volume_ratio": 0.11837082233465039,
+        "primitive_signature": null,
+        "max_face_aspect_ratio": 1500.4841961253255,
+        "faces_aspect_ratio_over_12": 630,
+        "max_manifold_face_angle_degrees": 125.72650224133461,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "non_uniform_scale": false,
+        "allow_open": false,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "mesh_EVAL_N4_BASE_LID",
+      "status": "FAIL",
+      "evidence": {
+        "object": "EVAL_N4_BASE_LID",
+        "vertices": 8002,
+        "edges": 15716,
+        "faces": 7712,
+        "bbox_diagonal": 0.2322070279279021,
+        "position_tolerance": 2.322070279279021e-07,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_length_edges": 6,
+        "zero_area_faces": 0,
+        "duplicate_positions": 6,
+        "connected_components": 1,
+        "smooth_faces": 7688,
+        "flat_faces": 24,
+        "smooth_face_ratio": 0.9968879668049793,
+        "bbox_volume": 0.00031327355420491046,
+        "bbox_volume_ratio": 0.025020596242410792,
+        "primitive_signature": null,
+        "max_face_aspect_ratio": 654.5274073217904,
+        "faces_aspect_ratio_over_12": 312,
+        "max_manifold_face_angle_degrees": 124.36871527584944,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "non_uniform_scale": false,
+        "allow_open": false,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "mesh_EVAL_N4_HEAD_SHELL",
+      "status": "FAIL",
+      "evidence": {
+        "object": "EVAL_N4_HEAD_SHELL",
+        "vertices": 29368,
+        "edges": 57725,
+        "faces": 28353,
+        "bbox_diagonal": 0.23618524740673738,
+        "position_tolerance": 2.3618524740673738e-07,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_length_edges": 184,
+        "zero_area_faces": 8,
+        "duplicate_positions": 181,
+        "connected_components": 1,
+        "smooth_faces": 28337,
+        "flat_faces": 16,
+        "smooth_face_ratio": 0.9994356858180792,
+        "bbox_volume": 0.0024959678584073573,
+        "bbox_volume_ratio": 0.1894439265957591,
+        "primitive_signature": null,
+        "max_face_aspect_ratio": 23902.158424958725,
+        "faces_aspect_ratio_over_12": 965,
+        "max_manifold_face_angle_degrees": 179.99997768819966,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "non_uniform_scale": false,
+        "allow_open": false,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "mesh_EVAL_N4_FACE_PANEL",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_FACE_PANEL",
+        "vertices": 695,
+        "edges": 1105,
+        "faces": 408,
+        "bbox_diagonal": 0.1499258538880118,
+        "position_tolerance": 1.499258538880118e-07,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_length_edges": 0,
+        "zero_area_faces": 0,
+        "duplicate_positions": 0,
+        "connected_components": 1,
+        "smooth_faces": 256,
+        "flat_faces": 152,
+        "smooth_face_ratio": 0.6274509803921569,
+        "bbox_volume": 2.696652287932008e-05,
+        "bbox_volume_ratio": 0.008001941245153443,
+        "primitive_signature": null,
+        "max_face_aspect_ratio": 876.8399189767886,
+        "faces_aspect_ratio_over_12": 37,
+        "max_manifold_face_angle_degrees": 90.00004348561319,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "non_uniform_scale": false,
+        "allow_open": false,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "mesh_EVAL_N4_SHORT_YAW_NECK",
+      "status": "FAIL",
+      "evidence": {
+        "object": "EVAL_N4_SHORT_YAW_NECK",
+        "vertices": 1770,
+        "edges": 2797,
+        "faces": 1023,
+        "bbox_diagonal": 0.09151196462125409,
+        "position_tolerance": 1e-07,
+        "boundary_edges": 0,
+        "non_manifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_length_edges": 2,
+        "zero_area_faces": 0,
+        "duplicate_positions": 2,
+        "connected_components": 1,
+        "smooth_faces": 1010,
+        "flat_faces": 13,
+        "smooth_face_ratio": 0.9872922776148583,
+        "bbox_volume": 0.00010071278314414072,
+        "bbox_volume_ratio": 0.1314168219270858,
+        "primitive_signature": null,
+        "max_face_aspect_ratio": 530.9954072041354,
+        "faces_aspect_ratio_over_12": 508,
+        "max_manifold_face_angle_degrees": 90.00053525923343,
+        "scale": [
+          1.0,
+          1.0,
+          1.0
+        ],
+        "non_uniform_scale": false,
+        "allow_open": false,
+        "modifiers": []
+      }
+    },
+    {
+      "id": "relationship_0",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_CUP",
+        "b": "EVAL_N4_BASE_LID",
+        "type": "mechanical_seam",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.00029999762773513794,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_1",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_CUP",
+        "b": "EVAL_N4_HEAD_SHELL",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.0260000079870224,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_2",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_CUP",
+        "b": "EVAL_N4_FACE_PANEL",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.031000003218650818,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_3",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_CUP",
+        "b": "EVAL_N4_SHORT_YAW_NECK",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.006999999284744263,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_4",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_LID",
+        "b": "EVAL_N4_HEAD_SHELL",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.014000006020069122,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_5",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_LID",
+        "b": "EVAL_N4_FACE_PANEL",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.01900000125169754,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_6",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_BASE_LID",
+        "b": "EVAL_N4_SHORT_YAW_NECK",
+        "type": "mechanical_seam",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.0,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_7",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_HEAD_SHELL",
+        "b": "EVAL_N4_FACE_PANEL",
+        "type": "mechanical_seam",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.0,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_8",
+      "status": "WARN",
+      "evidence": {
+        "a": "EVAL_N4_HEAD_SHELL",
+        "b": "EVAL_N4_SHORT_YAW_NECK",
+        "type": "physical_contact",
+        "surface_overlap": true,
+        "overlap_pairs": 263,
+        "bbox_gap": 0.0,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "relationship_9",
+      "status": "PASS",
+      "evidence": {
+        "a": "EVAL_N4_FACE_PANEL",
+        "b": "EVAL_N4_SHORT_YAW_NECK",
+        "type": "intentionally_independent",
+        "surface_overlap": false,
+        "overlap_pairs": 0,
+        "bbox_gap": 0.03060000017285347,
+        "require_overlap": false,
+        "max_gap": null,
+        "min_gap": null
+      }
+    },
+    {
+      "id": "part_requirements_BASE_CUP",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_BASE_CUP",
+        "requirements": {
+          "closed_volume": true,
+          "connected_component_count": 1
+        },
+        "mesh": {
+          "object": "EVAL_N4_BASE_CUP",
+          "vertices": 16030,
+          "edges": 31560,
+          "faces": 15510,
+          "bbox_diagonal": 0.25177768580006804,
+          "position_tolerance": 2.51777685800068e-07,
+          "boundary_edges": 0,
+          "non_manifold_edges": 0,
+          "wire_edges": 0,
+          "loose_vertices": 0,
+          "zero_length_edges": 0,
+          "zero_area_faces": 0,
+          "duplicate_positions": 0,
+          "connected_components": 1,
+          "smooth_faces": 15294,
+          "flat_faces": 216,
+          "smooth_face_ratio": 0.986073500967118,
+          "bbox_volume": 0.0018892802169942938,
+          "bbox_volume_ratio": 0.11837082233465039,
+          "primitive_signature": null,
+          "max_face_aspect_ratio": 1500.4841961253255,
+          "faces_aspect_ratio_over_12": 630,
+          "max_manifold_face_angle_degrees": 125.72650224133461,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_uniform_scale": false,
+          "allow_open": false,
+          "modifiers": []
+        },
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "part_requirements_BASE_LID",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_BASE_LID",
+        "requirements": {
+          "closed_volume": true,
+          "connected_component_count": 1
+        },
+        "mesh": {
+          "object": "EVAL_N4_BASE_LID",
+          "vertices": 8002,
+          "edges": 15716,
+          "faces": 7712,
+          "bbox_diagonal": 0.2322070279279021,
+          "position_tolerance": 2.322070279279021e-07,
+          "boundary_edges": 0,
+          "non_manifold_edges": 0,
+          "wire_edges": 0,
+          "loose_vertices": 0,
+          "zero_length_edges": 6,
+          "zero_area_faces": 0,
+          "duplicate_positions": 6,
+          "connected_components": 1,
+          "smooth_faces": 7688,
+          "flat_faces": 24,
+          "smooth_face_ratio": 0.9968879668049793,
+          "bbox_volume": 0.00031327355420491046,
+          "bbox_volume_ratio": 0.025020596242410792,
+          "primitive_signature": null,
+          "max_face_aspect_ratio": 654.5274073217904,
+          "faces_aspect_ratio_over_12": 312,
+          "max_manifold_face_angle_degrees": 124.36871527584944,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_uniform_scale": false,
+          "allow_open": false,
+          "modifiers": []
+        },
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "part_requirements_HEAD_SHELL",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_HEAD_SHELL",
+        "requirements": {
+          "closed_volume": true,
+          "connected_component_count": 1
+        },
+        "mesh": {
+          "object": "EVAL_N4_HEAD_SHELL",
+          "vertices": 29368,
+          "edges": 57725,
+          "faces": 28353,
+          "bbox_diagonal": 0.23618524740673738,
+          "position_tolerance": 2.3618524740673738e-07,
+          "boundary_edges": 0,
+          "non_manifold_edges": 0,
+          "wire_edges": 0,
+          "loose_vertices": 0,
+          "zero_length_edges": 184,
+          "zero_area_faces": 8,
+          "duplicate_positions": 181,
+          "connected_components": 1,
+          "smooth_faces": 28337,
+          "flat_faces": 16,
+          "smooth_face_ratio": 0.9994356858180792,
+          "bbox_volume": 0.0024959678584073573,
+          "bbox_volume_ratio": 0.1894439265957591,
+          "primitive_signature": null,
+          "max_face_aspect_ratio": 23902.158424958725,
+          "faces_aspect_ratio_over_12": 965,
+          "max_manifold_face_angle_degrees": 179.99997768819966,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_uniform_scale": false,
+          "allow_open": false,
+          "modifiers": []
+        },
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "part_requirements_FACE_PANEL",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_FACE_PANEL",
+        "requirements": {
+          "closed_volume": true,
+          "connected_component_count": 1
+        },
+        "mesh": {
+          "object": "EVAL_N4_FACE_PANEL",
+          "vertices": 695,
+          "edges": 1105,
+          "faces": 408,
+          "bbox_diagonal": 0.1499258538880118,
+          "position_tolerance": 1.499258538880118e-07,
+          "boundary_edges": 0,
+          "non_manifold_edges": 0,
+          "wire_edges": 0,
+          "loose_vertices": 0,
+          "zero_length_edges": 0,
+          "zero_area_faces": 0,
+          "duplicate_positions": 0,
+          "connected_components": 1,
+          "smooth_faces": 256,
+          "flat_faces": 152,
+          "smooth_face_ratio": 0.6274509803921569,
+          "bbox_volume": 2.696652287932008e-05,
+          "bbox_volume_ratio": 0.008001941245153443,
+          "primitive_signature": null,
+          "max_face_aspect_ratio": 876.8399189767886,
+          "faces_aspect_ratio_over_12": 37,
+          "max_manifold_face_angle_degrees": 90.00004348561319,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_uniform_scale": false,
+          "allow_open": false,
+          "modifiers": []
+        },
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "part_requirements_SHORT_YAW_NECK",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_SHORT_YAW_NECK",
+        "requirements": {
+          "closed_volume": true,
+          "connected_component_count": 1
+        },
+        "mesh": {
+          "object": "EVAL_N4_SHORT_YAW_NECK",
+          "vertices": 1770,
+          "edges": 2797,
+          "faces": 1023,
+          "bbox_diagonal": 0.09151196462125409,
+          "position_tolerance": 1e-07,
+          "boundary_edges": 0,
+          "non_manifold_edges": 0,
+          "wire_edges": 0,
+          "loose_vertices": 0,
+          "zero_length_edges": 2,
+          "zero_area_faces": 0,
+          "duplicate_positions": 2,
+          "connected_components": 1,
+          "smooth_faces": 1010,
+          "flat_faces": 13,
+          "smooth_face_ratio": 0.9872922776148583,
+          "bbox_volume": 0.00010071278314414072,
+          "bbox_volume_ratio": 0.1314168219270858,
+          "primitive_signature": null,
+          "max_face_aspect_ratio": 530.9954072041354,
+          "faces_aspect_ratio_over_12": 508,
+          "max_manifold_face_angle_degrees": 90.00053525923343,
+          "scale": [
+            1.0,
+            1.0,
+            1.0
+          ],
+          "non_uniform_scale": false,
+          "allow_open": false,
+          "modifiers": []
+        },
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "production_stage",
+      "status": "PASS",
+      "evidence": {
+        "modeling_stage": "blockout",
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "form_gate_order",
+      "status": "PASS",
+      "evidence": {
+        "modeling_stage": "blockout",
+        "failed_requirements": []
+      }
+    },
+    {
+      "id": "topology_part_BASE_CUP",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_BASE_CUP",
+        "form_level": "primary",
+        "topology_status": "reversible_blockout",
+        "failed_requirements": [],
+        "topology_strikes": []
+      }
+    },
+    {
+      "id": "topology_part_BASE_LID",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_BASE_LID",
+        "form_level": "primary",
+        "topology_status": "reversible_blockout",
+        "failed_requirements": [],
+        "topology_strikes": []
+      }
+    },
+    {
+      "id": "topology_part_HEAD_SHELL",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_HEAD_SHELL",
+        "form_level": "primary",
+        "topology_status": "reversible_blockout",
+        "failed_requirements": [],
+        "topology_strikes": []
+      }
+    },
+    {
+      "id": "topology_part_FACE_PANEL",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_FACE_PANEL",
+        "form_level": "primary",
+        "topology_status": "reversible_blockout",
+        "failed_requirements": [],
+        "topology_strikes": []
+      }
+    },
+    {
+      "id": "topology_part_SHORT_YAW_NECK",
+      "status": "PASS",
+      "evidence": {
+        "object": "EVAL_N4_SHORT_YAW_NECK",
+        "form_level": "primary",
+        "topology_status": "reversible_blockout",
+        "failed_requirements": [],
+        "topology_strikes": []
+      }
+    }
+  ],
+  "thresholds": {
+    "position_tolerance": "max(bbox_diagonal * 1e-6, 1e-7 m)",
+    "face_aspect_ratio_warning": 12.0,
+    "non_uniform_scale_delta": 0.0001,
+    "max_unclassified_pairs": 200
+  },
+  "intentional_exceptions": [],
+  "not_evaluated": [
+    "protected_scene_state",
+    "spatial_scene_mapping_before_camera_lock"
+  ],
+  "repair_suggestions": [
+    "Repair mesh legality and transforms on EVAL_N4_BASE_LID",
+    "Repair mesh legality and transforms on EVAL_N4_HEAD_SHELL",
+    "Repair mesh legality and transforms on EVAL_N4_SHORT_YAW_NECK"
+  ],
+  "failures": [
+    "EVAL_N4_BASE_LID:zero_length_edges",
+    "EVAL_N4_HEAD_SHELL:zero_area_faces",
+    "EVAL_N4_HEAD_SHELL:zero_length_edges",
+    "EVAL_N4_SHORT_YAW_NECK:zero_length_edges"
+  ],
+  "warnings": [],
+  "audit_scope": "Five evaluated exterior meshes; modifier source profiles remain deliberately non-manifold curves",
+  "original_file_modified": false,
+  "evaluated_mapping": {
+    "N4_BASE_CUP": "EVAL_N4_BASE_CUP",
+    "N4_BASE_LID": "EVAL_N4_BASE_LID",
+    "N4_HEAD_SHELL": "EVAL_N4_HEAD_SHELL",
+    "N4_FACE_PANEL": "EVAL_N4_FACE_PANEL",
+    "N4_SHORT_YAW_NECK": "EVAL_N4_SHORT_YAW_NECK"
+  },
+  "native_generator_preservation": "verified separately by source modifier stacks in evaluated-shells.json"
+}

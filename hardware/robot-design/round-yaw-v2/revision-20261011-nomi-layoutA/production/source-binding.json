@@ -1,0 +1,9 @@
+{
+  "schema_version": "1.0",
+  "scope": "GOOUU v4 candidate source/parameter/model binding; geometry and actual hardware unverified parts distinguished",
+  "parameters_sha256": "06cbc15c7af065e7fbe123241dc3283340cfa0c97c3fa5745754a712562c5d9a",
+  "generator_sha256": "e31b460120f72b471043936153184ad982eeba4ca2f2de9642152e3b311006e8",
+  "model_sha256": "85b1b52507e0edaeac580964b30a992f98261235ccfd775544a1b01f672d5d14",
+  "hardware_basis_commit": "f0788c8",
+  "note": "Explicit profile and interface controls in source; changing dimensions requires synchronizing source and regenerating evidence"
+}

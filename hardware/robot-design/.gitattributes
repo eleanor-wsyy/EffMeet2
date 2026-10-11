@@ -1,2 +1,6 @@
 # Preserve the user-supplied source bytes, including its final blank line.
 archive/procurement/2026-10-09-original-shared-list.md -text whitespace=-blank-at-eof
+
+# Frozen text source hashes must survive Windows checkouts.
+*.json text eol=lf
+*.py text eol=lf

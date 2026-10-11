@@ -2,33 +2,41 @@
   "schema_version": 1,
   "updated_on": "2026-10-11",
   "timezone": "Asia/Shanghai",
-  "title": "EffMeet2 机器人外观、建模与硬件采购",
-  "active_revision": "round-yaw-v2",
+  "title": "EffMeet2 NOMI／GOOUU布局A v4工程候选",
+  "active_revision": "nomi-goouu-layoutA-v4",
   "stage": "reversible_blockout",
   "final_design_approved": false,
   "manufacturing_ready": false,
   "hardware_validated": false,
   "entry_read_order": [
-    "README.md",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/README.md",
     "HANDOFF.md",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md",
     "round-yaw-v2/BOM.md",
+    "round-yaw-v2/ASSEMBLY_GUIDE.md",
     "round-yaw-v2/PRINT_PLAN.md",
-    "round-yaw-v2/MODELING_BRIEF.md",
-    "round-yaw-v2/README.md"
+    "round-yaw-v2/TEST_GUIDE.md"
   ],
   "canonical_files": {
     "bom": "round-yaw-v2/BOM.md",
     "parameters": "round-yaw-v2/parameters.json",
-    "model": "round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend",
+    "model": "round-yaw-v2/revision-20261011-nomi-layoutA/EffMeet2_NOMI_布局A_工程候选_v4.blend",
     "hero_concept": "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png",
-    "yaw_review": "round-yaw-v2/EffMeet2_圆润转头版_三姿态预览_修订.png",
-    "fit_report": "round-yaw-v2/fit-report.json",
-    "validation": "round-yaw-v2/production/validation_report.json",
+    "yaw_review": "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/06_yaw_left.png",
+    "fit_report": "round-yaw-v2/revision-20261011-nomi-layoutA/production/nominal-fit.json",
+    "validation": "round-yaw-v2/revision-20261011-nomi-layoutA/production/validation_report.json",
     "print_plan": "round-yaw-v2/PRINT_PLAN.md",
     "assembly_guide": "round-yaw-v2/ASSEMBLY_GUIDE.md",
     "test_guide": "round-yaw-v2/TEST_GUIDE.md",
     "test_record_template": "round-yaw-v2/TEST_RECORD_TEMPLATE.csv",
-    "exterior_assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md"
+    "exterior_assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
+    "hero_render": "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/01_hero.png",
+    "hero_board": "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/01_主视觉_CMF.png",
+    "orthographic_board": "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/02_三视图_名义尺寸.png",
+    "layout_board": "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/03_分解与内舱布局.png",
+    "yaw_right": "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/07_yaw_right.png",
+    "engineering_review": "round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md",
+    "model_source": "round-yaw-v2/revision-20261011-nomi-layoutA/update_nomi_layoutA.py"
   },
   "nominal_envelope_mm": {
     "width": 180,
@@ -60,51 +68,65 @@
     "archive/procurement/2026-10-09-original-shared-list.md": "50f49271bcbd319a7760619f09272f52cd5c28d4799b15e0f9780ab8e99a687a",
     "round-yaw-v2/concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png": "027cd61dd6acb1ed48870aaa4dca390aa854944168fcec8887e31bf0c77f2f29",
     "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png": "d85145bbf54b820eaa431ba29f56bb9855ece89c2ac085abfcbd1039948794e6",
-    "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png": "4dc233ca50f62970d7fed49ad34acc6039eeaa82e45465ce17baea1887e5c67c"
+    "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png": "4dc233ca50f62970d7fed49ad34acc6039eeaa82e45465ce17baea1887e5c67c",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/EffMeet2_NOMI_布局A_工程候选_v4.blend": "85b1b52507e0edaeac580964b30a992f98261235ccfd775544a1b01f672d5d14",
+    "round-yaw-v2/parameters.json": "06cbc15c7af065e7fbe123241dc3283340cfa0c97c3fa5745754a712562c5d9a",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/update_nomi_layoutA.py": "e31b460120f72b471043936153184ad982eeba4ca2f2de9642152e3b311006e8",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/01_主视觉_CMF.png": "43c7eb9e3f2d8b0c470929bcb271e2bf33af74ea29f6896b14b374c80d5817ac",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/02_三视图_名义尺寸.png": "aa54b6ac03e28a17073d68c167c8fde1c3bae27be24fb672cef284c4288a3925",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/03_分解与内舱布局.png": "ac31bae258f6b0841d521515d91dd5c228ad57679ebd517d40687fdd5b3fc842",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/01_hero.png": "4c0fb737b69086dabedabad3356dbcb0bd0de6909d0d6dee1a5f60277e162f9c",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/02_front.png": "c9c05dea07c59a2c04a895b9e60ce65fa57a02240fd08147f9e69a39c1a2f369",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/03_side.png": "77ec735d07d1d6d53357fc10fab5bae7da5eb88903a5792cbdad5fe7ad5b6e28",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/04_top.png": "6e74219277fe23e349f426dd94194cbea76d63861562e5db92384c599b4c9d5f",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/05_rear.png": "b5834e6c5f89e1778abb43d47969a703563f2d680b615336f03f3c1bc1b9364c",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/06_yaw_left.png": "4f809800c9b0cd386b2fcc3a42f7b19812e548b342e2096452288ebb3ba7abd5",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/07_yaw_right.png": "e502ce181e26a389bb535ed5aaed38e0c687aaa0b8257bb27dcc9a19e7a4df96",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/08_internal_layout.png": "a624b73a3d13f44401eaf25689bfa1ffcfe2ae0b4e999e37e287e713422492df",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/09_exploded_layout.png": "d4e9cde96b2af2f91aa6119d553cd36697e7fe004dafabe03571b7b8f892cf8e",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/10_wireframe.png": "130c076b2ea94874602291c5754d88a9ac803e3beaea05f27aaf01ba47690bd5"
   },
   "procurement_and_print_decision": {
-    "status": "planning_only_not_print_release",
-    "user_priority": "print_where_practical_minimize_manual_operations",
-    "prototype": "A1 with existing PETG 1:1 fit samples",
-    "final_printer": "school H2D preferred (dual nozzle) or H2S; A1 for fit coupons",
-    "final_material": "PLA Matte (gray body / black details), unpainted as-printed",
-    "finish": "as-printed matte; no sanding/filler/paint workflow",
-    "face": "printed black bezel, exposed LCD panel; no additional laser-cut transparent cover",
-    "hardware_substitution": "standard bearing / existing or tested micro position servo; equivalent acceptance targets, not untested performance equivalence"
+    "authority": "round-yaw-v2/BOM.md#final-purchase-decision",
+    "platform": "GOOUU ordered kit / layout A",
+    "display": "included2.8inch HSD028309 A6 /14PIN J2; SPI inference, exact dimensions and pin map pending",
+    "material": "grey/black PLA Matte",
+    "operations": "as-printed, removal/deburr/screw assembly, no coating or transparent cover",
+    "manufacturing_release": false,
+    "extra_audio": "INMP441x2 andMAX98357A are mandatory; not onboard audio",
+    "battery": "TP4056 candidate charging/protection, NOT5V boost; standalone battery power unreleased"
   },
   "prior_hero_concept": "round-yaw-v2/concept/EffMeet2_圆润转头版_主视觉.png",
   "latest_visual": {
-    "type": "image2_reference_guided_concept",
-    "direction": "NOMI-inspired sphere / circular printed black face / ordinary rectangular LCD",
-    "references": [
-      "https://www.nio.cn/es6",
-      "https://cdn-public.nio.com/www-nio-cn/sheng-ji-ang-ran-ling-gan-ji-fa/es6-2025/cockpit/carousel-screen-04-desktop.jpg",
-      "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png"
-    ],
+    "type": "blender_evaluated_model_render",
+    "direction": "NOMI-guided rounded head / round matte printed face / actual rectangular LCD / compact honest yaw gap",
+    "path": "round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-05/01_hero.png",
     "assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
     "actual_pixels": [
-      2513,
-      1669
+      1600,
+      1200
     ],
-    "hardware_changed": false,
-    "cad_changed": false,
-    "functional_apertures": "illustrative_not_frozen"
+    "hardware_basis": "GOOUU ordered kit / layout A / external INMP441x2 + MAX98357A + TP4056; core-direct candidate; extension board excluded until measured",
+    "hardware_changed": true,
+    "cad_changed": true,
+    "cad_scope": "Continuous exterior, receiving interfaces and15 conservative component boxes; fastening/transmission incomplete",
+    "functional_apertures": "modeled; dimensions/tolerances/physical functions unverified"
   },
-  "validation_guidance": {
-    "test_count": 26,
-    "template_status": "NOT_RUN",
-    "documents_are": "instructions_and_test_plan_not_execution_report",
-    "hardware_tests_run": false
-  },
+  "validation_guidance": "Use review-05 evaluated shells/15 component budgets/3 yaw poses. Raw numerical microfeatures remain WARN and manufacturing export needs cleanup. Actual extension board/display/module dimensions, full fixtures and hardware functions are unverified.",
   "visual_feedback": {
-    "latest_request": "保持现有方案，向NOMI球头/圆脸方向靠近，并同步组装方案",
-    "proposed_candidate": "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png",
-    "proposed_notes": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
     "user_approved": false,
-    "cad_verified": false
+    "cad_verified": "scoped geometry only, not manufacturing assembly",
+    "hardware_verified": false
   },
   "previous_visual_candidates": [
     "round-yaw-v2/concept/as-printed-abs-gf-20261010/EffMeet2_最新图纸_ABS-GF裸打效果图.png",
     "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png"
-  ]
+  ],
+  "hardware_basis_commit": "f0788c8",
+  "hardware_decision_record_date": "2026-10-12",
+  "extension_board": {
+    "included_in_order": true,
+    "dimensions_known": false,
+    "in_current_fit_claim": false
+  }
 }

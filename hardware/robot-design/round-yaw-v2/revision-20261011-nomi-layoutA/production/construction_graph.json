@@ -1,0 +1,461 @@
+{
+  "schema_version": "1.0",
+  "part_graph_status": "provisional",
+  "parts": [
+    {
+      "id": "BASE_CUP",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "revolved hollow shell with4 speaker slots, rear vents and USB/mic apertures",
+      "separation_policy": "independent_manufacture",
+      "separation_reason": "service/motion seam",
+      "construction_method": "SCREW",
+      "connection_method": "provisional mechanical assembly",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N4_BASE_CUP",
+      "blockout_object_names": [
+        "N4_BASE_CUP"
+      ],
+      "blockout_proxy": true,
+      "topology_status": "reversible_blockout",
+      "native_system": "SCREW",
+      "source_objects": [
+        "N4_BASE_CUP"
+      ],
+      "semantic_inputs": {
+        "parameter_owner": "../../parameters.json"
+      },
+      "generated_dependents": [
+        "evaluated BASE_CUP"
+      ],
+      "code_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "native_component_evidence": {
+        "status": "evaluated",
+        "modifier_types": [
+          "SCREW",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN"
+        ],
+        "nonmanifold_edges": 0,
+        "exact_zero_area_faces": 0,
+        "sub_print_scale_faces": 0,
+        "connected_components": 1
+      },
+      "requirements": {
+        "closed_volume": true,
+        "connected_component_count": 1
+      },
+      "bevel_policy": {
+        "classes": [
+          "PRIMARY_BEVEL",
+          "MICRO_BEVEL"
+        ],
+        "method": "radial profile, native cutter bevel",
+        "widths": {
+          "shell_mm": 2.4
+        }
+      },
+      "assembly_interfaces": []
+    },
+    {
+      "id": "BASE_LID",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "removable shoulder with yaw and stop-button openings",
+      "separation_policy": "independent_manufacture",
+      "separation_reason": "service/motion seam",
+      "construction_method": "SCREW",
+      "connection_method": "provisional mechanical assembly",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N4_BASE_LID",
+      "blockout_object_names": [
+        "N4_BASE_LID"
+      ],
+      "blockout_proxy": true,
+      "topology_status": "reversible_blockout",
+      "native_system": "SCREW",
+      "source_objects": [
+        "N4_BASE_LID"
+      ],
+      "semantic_inputs": {
+        "parameter_owner": "../../parameters.json"
+      },
+      "generated_dependents": [
+        "evaluated BASE_LID"
+      ],
+      "code_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "native_component_evidence": {
+        "status": "evaluated",
+        "modifier_types": [
+          "SCREW",
+          "BOOLEAN",
+          "BOOLEAN"
+        ],
+        "nonmanifold_edges": 0,
+        "exact_zero_area_faces": 0,
+        "sub_print_scale_faces": 0,
+        "connected_components": 1
+      },
+      "requirements": {
+        "closed_volume": true,
+        "connected_component_count": 1
+      },
+      "bevel_policy": {
+        "classes": [
+          "PRIMARY_BEVEL",
+          "MICRO_BEVEL"
+        ],
+        "method": "radial profile, native cutter bevel",
+        "widths": {
+          "shell_mm": 2.4
+        }
+      },
+      "assembly_interfaces": []
+    },
+    {
+      "id": "HEAD_SHELL",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "single curved shell and circular mouth; Y-axis Screw/Lattice/Solidify",
+      "separation_policy": "independent_manufacture",
+      "separation_reason": "service/motion seam",
+      "construction_method": "SCREW",
+      "connection_method": "provisional mechanical assembly",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N4_HEAD_SHELL",
+      "blockout_object_names": [
+        "N4_HEAD_SHELL"
+      ],
+      "blockout_proxy": true,
+      "topology_status": "reversible_blockout",
+      "native_system": "SCREW",
+      "source_objects": [
+        "N4_HEAD_SHELL"
+      ],
+      "semantic_inputs": {
+        "parameter_owner": "../../parameters.json"
+      },
+      "generated_dependents": [
+        "evaluated HEAD_SHELL"
+      ],
+      "code_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "native_component_evidence": {
+        "status": "evaluated",
+        "modifier_types": [
+          "SCREW",
+          "LATTICE",
+          "SOLIDIFY",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN"
+        ],
+        "nonmanifold_edges": 0,
+        "exact_zero_area_faces": 0,
+        "sub_print_scale_faces": 2,
+        "connected_components": 1
+      },
+      "requirements": {
+        "closed_volume": true,
+        "connected_component_count": 1
+      },
+      "bevel_policy": {
+        "classes": [
+          "PRIMARY_BEVEL",
+          "MICRO_BEVEL"
+        ],
+        "method": "radial profile, native cutter bevel",
+        "widths": {
+          "shell_mm": 2.4
+        }
+      },
+      "assembly_interfaces": []
+    },
+    {
+      "id": "FACE_PANEL",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "removable matte disk with through rectangle and camera hole",
+      "separation_policy": "independent_manufacture",
+      "separation_reason": "service/motion seam",
+      "construction_method": "BOOLEAN",
+      "connection_method": "provisional mechanical assembly",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N4_FACE_PANEL",
+      "blockout_object_names": [
+        "N4_FACE_PANEL"
+      ],
+      "blockout_proxy": true,
+      "topology_status": "reversible_blockout",
+      "native_system": "BOOLEAN",
+      "source_objects": [
+        "N4_FACE_PANEL"
+      ],
+      "semantic_inputs": {
+        "parameter_owner": "../../parameters.json"
+      },
+      "generated_dependents": [
+        "evaluated FACE_PANEL"
+      ],
+      "code_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "native_component_evidence": {
+        "status": "evaluated",
+        "modifier_types": [
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN"
+        ],
+        "nonmanifold_edges": 0,
+        "exact_zero_area_faces": 0,
+        "sub_print_scale_faces": 0,
+        "connected_components": 1
+      },
+      "requirements": {
+        "closed_volume": true,
+        "connected_component_count": 1
+      },
+      "bevel_policy": {
+        "classes": [
+          "PRIMARY_BEVEL",
+          "MICRO_BEVEL"
+        ],
+        "method": "radial profile, native cutter bevel",
+        "widths": {
+          "shell_mm": 2.4
+        }
+      },
+      "assembly_interfaces": []
+    },
+    {
+      "id": "SHORT_YAW_NECK",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "independent moving neck with22mm cable passage",
+      "separation_policy": "independent_manufacture",
+      "separation_reason": "service/motion seam",
+      "construction_method": "BOOLEAN",
+      "connection_method": "provisional mechanical assembly",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N4_SHORT_YAW_NECK",
+      "blockout_object_names": [
+        "N4_SHORT_YAW_NECK"
+      ],
+      "blockout_proxy": true,
+      "topology_status": "reversible_blockout",
+      "native_system": "BOOLEAN",
+      "source_objects": [
+        "N4_SHORT_YAW_NECK"
+      ],
+      "semantic_inputs": {
+        "parameter_owner": "../../parameters.json"
+      },
+      "generated_dependents": [
+        "evaluated SHORT_YAW_NECK"
+      ],
+      "code_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "native_component_evidence": {
+        "status": "evaluated",
+        "modifier_types": [
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN",
+          "BOOLEAN"
+        ],
+        "nonmanifold_edges": 0,
+        "exact_zero_area_faces": 0,
+        "sub_print_scale_faces": 0,
+        "connected_components": 1
+      },
+      "requirements": {
+        "closed_volume": true,
+        "connected_component_count": 1
+      },
+      "bevel_policy": {
+        "classes": [
+          "PRIMARY_BEVEL",
+          "MICRO_BEVEL"
+        ],
+        "method": "radial profile, native cutter bevel",
+        "widths": {
+          "shell_mm": 2.4
+        }
+      },
+      "assembly_interfaces": []
+    }
+  ],
+  "relationships": [
+    {
+      "a": "BASE_CUP",
+      "b": "BASE_LID",
+      "type": "mechanical_seam",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_CUP",
+      "b": "HEAD_SHELL",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_CUP",
+      "b": "FACE_PANEL",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_CUP",
+      "b": "SHORT_YAW_NECK",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_LID",
+      "b": "HEAD_SHELL",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_LID",
+      "b": "FACE_PANEL",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "BASE_LID",
+      "b": "SHORT_YAW_NECK",
+      "type": "mechanical_seam",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "HEAD_SHELL",
+      "b": "FACE_PANEL",
+      "type": "mechanical_seam",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "HEAD_SHELL",
+      "b": "SHORT_YAW_NECK",
+      "type": "physical_contact",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    },
+    {
+      "a": "FACE_PANEL",
+      "b": "SHORT_YAW_NECK",
+      "type": "intentionally_independent",
+      "scope": "nominal exterior candidate; no manufacturing tolerances asserted"
+    }
+  ],
+  "unclassified_visible_intersections_allowed": false,
+  "modeling_contract": {
+    "analysis_before_mutation": true,
+    "minimum_viable_analysis_allows_reversible_blockout": true,
+    "part_analysis_required_before_formal_topology": true,
+    "primitive_blockout_is_final": false,
+    "continuous_shell_requires_single_component": true,
+    "difficulty_is_valid_separation_reason": false,
+    "functional_or_detail_before_transition_allowed": false,
+    "material_or_lighting_may_conceal_geometry_failure": false,
+    "wireframe_acceptance_required": true,
+    "real_bevel_geometry_required": true,
+    "shape_grammar_before_primitive_creation": true,
+    "native_generator_comparison_required": true,
+    "manual_assembly_requires_documented_exception": true,
+    "python_is_orchestration_layer": true,
+    "native_component_ownership_required": true,
+    "manual_count_driven_fragments_allowed": false
+  },
+  "construction_archetypes": [],
+  "construction_method_decision": {
+    "shape_grammar_review_required": true,
+    "detected_archetypes": [],
+    "parameter_owners": {},
+    "native_generator_comparisons": [],
+    "fallback_when_no_archetype_matches": "inspect the form and declare unique topology, deformation, distribution, simulation, assembly, or shading ownership before primitive creation",
+    "native_component_decision": {
+      "status": "planned",
+      "primary_system": "BOOLEAN",
+      "parameter_owners": {},
+      "source_policy": "one semantic source/control object per dependent system",
+      "python_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "fallback_reason": null,
+      "scene_design_required": true,
+      "system_choice": {
+        "comparison_required": false,
+        "direct_candidate": "BOOLEAN",
+        "node_candidate": null,
+        "selected_system": "BOOLEAN",
+        "selection_reason": "A semantic host volume and evaluated native Boolean own an ordinary hard-surface cut; a node graph may generate cutters but cannot replace Boolean ownership.",
+        "rejected_alternative": "Geometry Nodes is not a substitute for the host Boolean and cleanup review.",
+        "node_justification": [],
+        "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+      },
+      "official_sources": [
+        "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection"
+      ],
+      "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+    }
+  },
+  "design_owner": "blender-scene-design",
+  "native_component_decision": {
+    "status": "planned",
+    "primary_system": "BOOLEAN",
+    "parameter_owners": {},
+    "source_policy": "one semantic source/control object per dependent system",
+    "python_role": "orchestration",
+    "application_policy": "keep_non_destructive",
+    "fallback_reason": null,
+    "scene_design_required": true,
+    "system_choice": {
+      "comparison_required": false,
+      "direct_candidate": "BOOLEAN",
+      "node_candidate": null,
+      "selected_system": "BOOLEAN",
+      "selection_reason": "A semantic host volume and evaluated native Boolean own an ordinary hard-surface cut; a node graph may generate cutters but cannot replace Boolean ownership.",
+      "rejected_alternative": "Geometry Nodes is not a substitute for the host Boolean and cleanup review.",
+      "node_justification": [],
+      "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+    },
+    "official_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.material_mode",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.bl_rna_get_subclass_py",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operation",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.use_hole_tolerant",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.collection"
+    ],
+    "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+  },
+  "local_asset_library": {
+    "status": "not_requested",
+    "requested": false,
+    "request_origin": "not_requested",
+    "root": null,
+    "eligible_catalogs": [],
+    "candidate_policy": "No local candidate discovery is needed for the selected direct system."
+  },
+  "code_role": "orchestration",
+  "application_policy": "keep_non_destructive",
+  "fallback_reason": null
+}

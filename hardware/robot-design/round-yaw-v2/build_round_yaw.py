@@ -2,7 +2,8 @@ import bpy,bmesh,json,math,itertools,hashlib,os
 from pathlib import Path
 from mathutils import Vector
 ROOT=Path(__file__).resolve().parent
-P=json.loads((ROOT/'parameters.json').read_text(encoding='utf-8'))
+# Historical v2 rebuild uses its frozen snapshot, never the current v4 specification.
+P=json.loads((ROOT/'revision-20261011-nomi-layoutA/parameters-before-v2.json').read_text(encoding='utf-8'))
 OUT=ROOT/'renders'/os.environ.get('EFFMEET_DESIGN_REVIEW_DIR','rebuild-review')
 if OUT.exists() and any(OUT.glob('*.png')):raise FileExistsError('Choose a new EFFMEET_DESIGN_REVIEW_DIR; archived evidence must not be overwritten')
 OUT.mkdir(parents=True,exist_ok=True)

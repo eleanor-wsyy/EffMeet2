@@ -1,0 +1,61 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:48.089662+00:00",
+  "reference_size": [
+    2513,
+    1669
+  ],
+  "projection_hypotheses": [
+    {
+      "type": "orthographic review; perspective75mm candidate hero",
+      "confidence": 0.8,
+      "evidence": "authored review camera; not claimed original lens"
+    }
+  ],
+  "line_families": [],
+  "lens_distortion_hypotheses": [],
+  "horizon_y_normalized": null,
+  "vanishing_evidence": [],
+  "anchors": [
+    {
+      "id": "HEAD",
+      "bbox_normalized": [
+        0.3,
+        0.13,
+        0.63,
+        0.55
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "BASE",
+      "bbox_normalized": [
+        0.26,
+        0.53,
+        0.7,
+        0.9
+      ],
+      "confidence": 0.9
+    },
+    {
+      "id": "FACE",
+      "bbox_normalized": [
+        0.34,
+        0.16,
+        0.55,
+        0.46
+      ],
+      "confidence": 0.9
+    }
+  ],
+  "negative_space": {},
+  "lock_state": "provisional",
+  "revision": 0,
+  "tolerances": {
+    "aspect_ratio_error": 0.01,
+    "anchor_center_warn": 0.02,
+    "anchor_center_fail": 0.04,
+    "size_warn": 0.05,
+    "size_fail": 0.1
+  }
+}

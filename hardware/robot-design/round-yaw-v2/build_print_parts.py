@@ -3,8 +3,11 @@
 用法：
   blender --background --python build_print_parts.py
 
+历史草案提示：当前模型与安装入口为 revision-20261011-nomi-layoutA/README.md。
+本脚本不是当前生成源，不应直接用其STL打印整机；已有文件仅供追溯。
+
 输出：
-  stl/*.stl            14 件打印件（1:1 mm，可直接切片）
+  stl/*.stl            历史草案网格（1:1 mm，未经过制造／装配放行）
   renders/*.png        整机渲染图（三视角 + 爆炸）
 
 依据：round-yaw-v2/parameters.json、MODELING_BRIEF.md（美学不变量）、PRINT_PLAN.md

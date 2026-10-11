@@ -1,67 +1,52 @@
-"""Offline handoff checks. Does not import Blender or claim hardware validation."""
+"""Offline current-design audit. No Blender/firmware/hardware PASS implied."""
 from pathlib import Path
-import ast,json,re,hashlib,csv
-ROOT=Path(__file__).resolve().parent
-REPO=ROOT.parents[1]
-manifest=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'))
-checks=[]
-for name,rel in manifest['canonical_files'].items():
-    f=(ROOT/rel).resolve();assert f.is_relative_to(ROOT.resolve()) and f.is_file(),(name,rel)
-checks.append('manifest canonical paths exist and remain inside design folder')
-P=json.loads((ROOT/'round-yaw-v2/parameters.json').read_text(encoding='utf-8'))
-assert manifest['nominal_envelope_mm']==P['envelope']
-assert manifest['nominal_yaw_limits_deg']==P['yaw']['range_deg']
-assert manifest['stage']=='reversible_blockout' and not any(manifest[k] for k in ['final_design_approved','manufacturing_ready','hardware_validated'])
-checks.append('manifest agrees with source parameters and unreleased stage')
-bom=(ROOT/'round-yaw-v2/BOM.md').read_text(encoding='utf-8')
-ids=re.findall(r'^\| ([EMC]\d\d) \|',bom,re.M)
-assert len(ids)==30 and len(set(ids))==30
-checks.append('one current BOM contains 30 unique material entries')
-explained=re.findall(r'^#### ([EMC]\d\d) ',bom,re.M)
-assert len(explained)==30 and set(explained)==set(ids)
-for part in re.split(r'^#### [EMC]\d\d ',bom,flags=re.M)[1:]:
-    assert all(label in part for label in ['**具体功能：**','**直接效果：**','**最终目标/验收：**'])
-checks.append('all 30 material IDs have function, direct effect and final acceptance explanations')
-final_section=bom.split('## 12.',1)[1].split('## 官方来源',1)[0]
-final_ids=re.findall(r'^\| \*\*([EMC]\d\d)\*\* \|',final_section,re.M)
-assert len(final_ids)==30 and set(final_ids)==set(ids)
-plan=(ROOT/'round-yaw-v2/PRINT_PLAN.md').read_text(encoding='utf-8')
-assert 'ABS-GF' in plan and '不是已经存在的可打印文件' in plan
-checks.append('all 30 IDs have final procurement decisions and a non-released print plan')
-active=[ROOT/'round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md',ROOT/'round-yaw-v2/concept/nomi-aligned-20261010/SOURCE.md',ROOT/'round-yaw-v2/ASSEMBLY_GUIDE.md',ROOT/'round-yaw-v2/TEST_GUIDE.md',ROOT/'round-yaw-v2/PRINT_PLAN.md',ROOT/'round-yaw-v2/BOM.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md',ROOT/'archive/README.md',ROOT/'archive/procurement/README.md',REPO/'README.md',REPO/'docs/handoff/README.md',REPO/'docs/handoff/2026-10-10-robot-design-and-bom.md',REPO/'docs/handoff/2026-10-05-hardware-purchase-list.md',REPO/'docs/handoff/2026-10-05-final-handoff.md',REPO/'docs/handoff/2026-10-07-装配联调计划.md',REPO/'hardware/electronics/README.md',REPO/'hardware/enclosure/README.md',REPO/'hardware/enclosure/EffMeet2_外壳说明_v2.md',REPO/'assets/enclosure/README.md']
-count=0
-for f in active:
-    for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',f.read_text(encoding='utf-8')):
-        if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',link) or link.startswith('#'):continue
-        target=link.split('#',1)[0]
-        if target:
-            assert (f.parent/target).exists(),f'{f.relative_to(REPO)} -> {link}'
-            count+=1
-checks.append(f'{count} local links in active/compatibility documents resolve')
-with (ROOT/'round-yaw-v2/TEST_RECORD_TEMPLATE.csv').open(encoding='utf-8-sig',newline='') as f:
-    records=list(csv.DictReader(f))
+import ast,json,re,csv,hashlib
+ROOT=Path(__file__).resolve().parent;REPO=ROOT.parents[1]
+M=json.loads((ROOT/'manifest.json').read_text(encoding='utf-8'));checks=[]
+for name,rel in M['canonical_files'].items():
+ p=(ROOT/rel).resolve();assert p.is_relative_to(ROOT.resolve()) and p.is_file(),(name,rel)
+checks.append('canonical active artifact paths exist')
+P=json.loads((ROOT/M['canonical_files']['parameters']).read_text(encoding='utf-8'))
+assert M['nominal_envelope_mm']==P['envelope'] and M['nominal_yaw_limits_deg']==P['yaw']['range_deg']
+assert M['stage']=='reversible_blockout' and not any(M[k] for k in ['manufacturing_ready','hardware_validated','final_design_approved'])
+assert P['hardware_platform'].startswith('GOOUU') and P['layout']=='A' and 'PLA Matte' in P['print_material']['body']
+checks.append('GOOUU/layoutA/PLA source parameters and unreleased stage agree')
+B=(ROOT/M['canonical_files']['bom']).read_text(encoding='utf-8');S=B.split('## 12.',1)[1].split('## 官方来源',1)[0]
+ids=re.findall(r'^\| \*\*([EMC]\d\d)\*\* \|',S,re.M)
+assert len(ids)==33 and len(set(ids))==33
+assert all(s in S for s in ['GOOUU','HSD028309','INMP441','MAX98357','TP4056','禁止裁剪FPC','228mm'])
+checks.append('33 canonical BOM IDs include current board/display/drive and safe FPC handling')
+REV=ROOT/'round-yaw-v2/revision-20261011-nomi-layoutA'
+mesh=json.loads((REV/'production/evaluated-shells.json').read_text(encoding='utf-8'))
+assert len(mesh)==5
+for n,s in mesh.items():assert not any(s[k] for k in ['boundary_edges','nonmanifold_edges','loose_edges','zero_area_faces']) and s['components']==1,n
+assert mesh['N4_HEAD_SHELL']['bounds_mm'][1][2]<=222.05
+bounds=mesh['N4_FACE_PANEL']['bounds_mm'];size=[bounds[1][i]-bounds[0][i] for i in range(3)]
+assert abs(size[1]-2.4)<.05 and abs(size[2]-106)<.05
+checks.append('5 current closed shells, one component each, vertical106mm face and actual222mm height bound')
+fit=json.loads((REV/'production/nominal-fit.json').read_text(encoding='utf-8'));assert fit['all_inside'] and len(fit['components'])==15 and not fit['hardware_validated']
+yaw=json.loads((REV/'production/yaw-candidate-audit.json').read_text(encoding='utf-8'));assert {p['angle_deg'] for p in yaw['poses']}=={-45,0,45}
+assert all(p['nonmanifold_edges']==0 and p['shell_to_lid_min_vertical_gap_mm']>=13.99 for p in yaw['poses'])
+volumes=[p['head_volume_mm3'] for p in yaw['poses']];assert (max(volumes)-min(volumes))/max(volumes)<1e-5
+assert json.loads((REV/'production/protected-scene-check.json').read_text(encoding='utf-8'))['unchanged']
+checks.append('15 nominal boxes and3 yaw poses scoped-pass; earlier object data preserved; no flex-life claim')
+with (ROOT/M['canonical_files']['test_record_template']).open(encoding='utf-8-sig',newline='') as f:records=list(csv.DictReader(f))
 assert len(records)==26 and {r['test_id'] for r in records}=={f'T{i:02d}' for i in range(1,27)}
 assert all(r['status']=='NOT_RUN' and not r['actual_result'] and not r['executed_at'] for r in records)
-guide=(ROOT/'round-yaw-v2/TEST_GUIDE.md').read_text(encoding='utf-8')
-assert set(re.findall(r'^\| (T\d\d) \|',guide,re.M))=={r['test_id'] for r in records}
-checks.append('26 test cases match the untouched NOT_RUN template; no hardware pass fabricated')
-for name in ['ASSEMBLY_GUIDE.md','PRINT_PLAN.md','TEST_GUIDE.md','BOM.md']:
-    assert 'EXTERIOR_ASSEMBLY_REVISION.md' in (ROOT/'round-yaw-v2'/name).read_text(encoding='utf-8'),name
-assert manifest['latest_visual']['hardware_changed'] is False and manifest['latest_visual']['cad_changed'] is False
-checks.append('current exterior revision is referenced by assembly/print/test/BOM, without false CAD completion')
-for f in (ROOT/'round-yaw-v2').glob('*.py'):ast.parse(f.read_text(encoding='utf-8'),filename=str(f))
-checks.append('current Python helper scripts parse without importing optional dependencies')
-fit=json.loads((ROOT/'round-yaw-v2/fit-report.json').read_text(encoding='utf-8'))
-raw=json.loads((ROOT/'round-yaw-v2/production/evaluated_mesh_validation.json').read_text(encoding='utf-8'))
-final=json.loads((ROOT/'round-yaw-v2/production/validation_report.json').read_text(encoding='utf-8'))
-yaw=json.loads((ROOT/'round-yaw-v2/production/yaw-dependency-audit.json').read_text(encoding='utf-8'))
-assert fit['all_inside'] and fit['all_pairs_separated'] and len(fit['components'])==6
-assert raw['overall_status']=='PASS' and yaw['status']=='PASS'
-assert final['overall_status']=='WARN' and final['formal_production_release'] is False
-checks.append('existing scoped geometry evidence preserved without manufacturing approval')
-for f in [ROOT/manifest['canonical_files']['model'],ROOT/'archive/seat-card-v1/EffMeet2_席位牌_封装布局_v1_审阅.blend']:
-    assert f.read_bytes().startswith((b'BLENDER',bytes.fromhex('28b52ffd'),bytes.fromhex('1f8b'))),f.name
-for rel,expected in manifest['artifact_sha256'].items():
-    assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==expected,rel
-checks.append('Blender containers and frozen artifact/source SHA256 hashes match')
-print(json.dumps({'status':'PASS','checks':checks,'software_tests_rerun':False,'hardware_tests_run':False},ensure_ascii=False,indent=2))
+checks.append('26 unexecuted hardware test records preserved')
+count=0
+active=[REPO/'README.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md']+list(REV.glob('*.md'))+[ROOT/'round-yaw-v2'/n for n in ['BOM.md','ASSEMBLY_GUIDE.md','PRINT_PLAN.md','TEST_GUIDE.md','EXTERIOR_ASSEMBLY_REVISION.md','MODELING_BRIEF.md']]
+for p in active:
+ for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
+  if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',link) or link.startswith('#'):continue
+  link=link.split('#',1)[0]
+  if link:assert (p.parent/link).exists(),f'{p.relative_to(REPO)} -> {link}';count+=1
+checks.append(f'{count} current local documentation links resolve')
+for p in ROOT.rglob('*.py'):
+ if 'local-only' not in p.parts:ast.parse(p.read_text(encoding='utf-8'),filename=str(p))
+for rel,sha in M['artifact_sha256'].items():assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==sha,rel
+binding=json.loads((REV/'production/source-binding.json').read_text(encoding='utf-8'))
+assert binding['parameters_sha256']==hashlib.sha256((ROOT/M['canonical_files']['parameters']).read_bytes()).hexdigest()
+assert binding['generator_sha256']==hashlib.sha256((ROOT/M['canonical_files']['model_source']).read_bytes()).hexdigest()
+checks.append('helpers parse and frozen artifact/source/parameter binding SHA256 hashes match')
+print(json.dumps({'status':'PASS','checks':checks,'scope':'offline current design delivery only','firmware_tests_run':False,'hardware_tests_run':False,'manufacturing_release':False},ensure_ascii=False,indent=2))

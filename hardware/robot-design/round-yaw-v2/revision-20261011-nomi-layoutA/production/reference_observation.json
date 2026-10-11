@@ -1,0 +1,107 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:48.089662+00:00",
+  "reference_files": [
+    {
+      "path": "C:\\Users\\路西法\\AppData\\Roaming\\reasonix\\global-workspace\\EffMeet2\\hardware\\robot-design\\round-yaw-v2\\concept\\nomi-aligned-20261010\\EffMeet2_NOMI方向_现有硬件_效果图.png",
+      "width": 2513,
+      "height": 1669,
+      "aspect_ratio": 1.505692031156381
+    }
+  ],
+  "purpose": "reference_guided_design_not_exact_reconstruction",
+  "observations": [
+    {
+      "id": "HEAD",
+      "priority": "P0",
+      "bbox_normalized": [
+        0.3,
+        0.13,
+        0.63,
+        0.55
+      ],
+      "confidence": 0.9,
+      "evidence": [
+        "../../concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png"
+      ],
+      "description": "round spherical head with black round disk, not white face with tiny pill"
+    },
+    {
+      "id": "BASE",
+      "priority": "P0",
+      "bbox_normalized": [
+        0.26,
+        0.53,
+        0.7,
+        0.9
+      ],
+      "confidence": 0.9,
+      "evidence": [
+        "../../MODELING_BRIEF.md"
+      ],
+      "description": "broad rounded physical base, not car mount pad"
+    },
+    {
+      "id": "FACE",
+      "priority": "P0",
+      "bbox_normalized": [
+        0.34,
+        0.16,
+        0.55,
+        0.46
+      ],
+      "confidence": 0.9,
+      "evidence": [
+        "../../MODELING_BRIEF.md"
+      ],
+      "description": "round matte disk, rectangular real LCD and small lens/shutter"
+    }
+  ],
+  "uncertainty_register": [
+    {
+      "description": "actual revision V1/V1.1 PCB populated/USB/connector clearance",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "display selected SKU and18PIN voltage/pin map/contact side; assembled thickness/FPC exit",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "OV3660 removable module dimensions/24PIN extension pin map and high-speed signal integrity",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "two FPC simultaneous dynamic routing, bend radius and50cycles at +/-45",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "MG90S horn/ears/output axis,60mm? no use nominal50center; actual torque, current, noise",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "split bearing seats, axial preload/retention,30OD hollow shaft and head receiver load path",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "GT2 tooth profile,228mm belt stock availability/tension/hub fixing, hard stops",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "screw receivers/assembly tool access, actual hole compensation with PLA samples",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "fixed dual-mic locations/acoustic guides/AEC and actual speaker chamber",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "battery dimensions, protection/polarity/charge circuit and independent servo supply",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    },
+    {
+      "description": "thermal/creep/center of mass/tip stability; no hardware test performed",
+      "blocks": "manufacturing release, not reversible packaging candidate"
+    }
+  ],
+  "visual_priorities": []
+}

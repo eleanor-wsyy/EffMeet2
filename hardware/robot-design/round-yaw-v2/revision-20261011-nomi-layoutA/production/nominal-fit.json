@@ -1,0 +1,81 @@
+{
+  "components": [
+    {
+      "id": "MAINBOARD",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "LCD",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "CAMERA",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "SERVO",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "BEARING_LOWER",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "BEARING_UPPER",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "SPEAKER",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "BATTERY",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "DRIVEN_PULLEY",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "DRIVER_PULLEY",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "LCD_FRONT",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "MIC_LEFT",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "MIC_RIGHT",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "I2S_AMP",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    },
+    {
+      "id": "BATTERY_CHARGER",
+      "nominal_shell_containment": true,
+      "method": "conservative box corners against nominal inner radial profile; NOT fastener/FPC/hardware verification"
+    }
+  ],
+  "all_inside": true,
+  "hardware_validated": false
+}

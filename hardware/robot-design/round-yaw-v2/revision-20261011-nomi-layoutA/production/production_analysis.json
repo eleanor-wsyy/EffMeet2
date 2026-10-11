@@ -1,0 +1,145 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:46.715773+00:00",
+  "status": "provisional",
+  "execution_allowed": true,
+  "execution_scope": "reversible_blockout",
+  "deliverable": "asset",
+  "completion_scope": "updated candidate model and spatial/render/installation review; no print release",
+  "protected_scope": [
+    "All existing scenes/objects/World/cameras and v2 file preserved"
+  ],
+  "real_scale": {
+    "units": "mm",
+    "envelope": {
+      "width": 180,
+      "depth": 164,
+      "height": 222
+    }
+  },
+  "minimum_viable_analysis": {
+    "status": "passed",
+    "attempts": 1,
+    "max_automatic_reviews": 2,
+    "required_decisions": {
+      "deliverable_scope": true,
+      "protected_scope": true,
+      "major_parts_or_regions": true,
+      "scale_strategy": true,
+      "provisional_route": true
+    },
+    "evidence": [
+      "../../MODELING_BRIEF.md",
+      "../../parameters.json"
+    ]
+  },
+  "design_intent": {
+    "thesis": "A gentle rounded companion with a circular dark face, compact shadow neck, pebble base and honest rectangular LCD seam",
+    "target_reference": "NOMI-aligned AI concept for aesthetic language only; no exact photo reconstruction"
+  },
+  "focal_hierarchy": [
+    "warm smile eyes",
+    "round dark face on round head",
+    "quiet base and honest rotation gap"
+  ],
+  "depth_layers": [
+    "circular face",
+    "curved head shell",
+    "short neck clearance",
+    "fixed base"
+  ],
+  "visual_flow": [
+    "two eye arcs fit actual LCD",
+    "3 front slots; small stop and status windows",
+    "ports moved to concealed rear, not removed"
+  ],
+  "camera_mobility": "free inspection plus front/side/top/hero review",
+  "representation_budget": {
+    "primary": "native editable shell profiles and boolean apertures",
+    "interfaces": "explicit provisional envelopes, not final screws/hubs",
+    "electronics": "nominal boxes/rings based on sources; not product CAD"
+  },
+  "performance_budget": {
+    "render": [
+      1600,
+      1200
+    ],
+    "shell_radial_segments": 128,
+    "engine": "EEVEE neutral review"
+  },
+  "failure_repair_policy": {
+    "preserve_old_scene": true,
+    "technical_retries": 3,
+    "scope": "local shell/dependency repair"
+  },
+  "reference_inputs": [],
+  "camera_and_perspective": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "primary_silhouette_and_proportion": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "spatial_and_support_structure": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "object_partition_basis": [],
+  "geometry_vs_shading": [],
+  "form_hierarchy": {
+    "primary_masses": [],
+    "structural_forms": [],
+    "transition_forms": [],
+    "functional_parts": [],
+    "surface_details": []
+  },
+  "part_graph_status": "provisional",
+  "lighting_analysis": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "material_analysis": {
+    "status": "unresolved",
+    "classes": [],
+    "scale_evidence": [],
+    "unknowns": []
+  },
+  "systems_analysis": {
+    "deformation": [],
+    "simulation": [],
+    "procedural": [],
+    "animation": [],
+    "export": []
+  },
+  "critical_blockers": [],
+  "blocking_unknowns": [
+    "GOOUU core USB/header populated dimensions, kit extension board size excluded from nominal fit",
+    "Actual HSD028309 A6 screen glass/PCB/thickness/14PIN definitions; not Waveshare module",
+    "INMP441x2/MAX98357A/TP4056 actual module sizes and full GPIO camera/display/I2S/servo allocation",
+    "TP4056 is not5V conversion or power-path; portable power not released",
+    "display selected SKU andkit14PIN voltage/pin map/contact side; assembled thickness/FPC exit",
+    "OV3660 removable module dimensions/kit camera-pin extension pin map and high-speed signal integrity",
+    "two FPC simultaneous dynamic routing, bend radius and50cycles at +/-45",
+    "MG90S horn/ears/output axis,60mm? no use nominal50center; actual torque, current, noise",
+    "split bearing seats, axial preload/retention,30OD hollow shaft and head receiver load path",
+    "GT2 tooth profile,228mm belt stock availability/tension/hub fixing, hard stops",
+    "screw receivers/assembly tool access, actual hole compensation with PLA samples",
+    "fixed dual-mic locations/acoustic guides/AEC and actual speaker chamber",
+    "battery dimensions, protection/polarity/charge circuit and independent servo supply",
+    "thermal/creep/center of mass/tip stability; no hardware test performed"
+  ],
+  "assumptions": [
+    "15 conservative component budgets, not measured product CAD",
+    "Extension board is included in order but not modeled as fitting until measured",
+    "HSD028309 screen stack is a budget, not vendor certified dimensions",
+    "Only display bundle andcamera FPC cross yaw; front button uses external tactile switch candidate",
+    "Demo uses regulated external5V; battery power conversion andGPIO allocation pending"
+  ],
+  "approvals": [],
+  "current_hardware_basis": "GOOUU kit / fixed core / external digital mic and amp / charger"
+}

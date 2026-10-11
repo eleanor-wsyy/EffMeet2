@@ -1,5 +1,8 @@
 # EffMeet 2
 
+<!-- robot-design-current -->
+机器人外观与机构资料当前入口：[NOMI／GOOUU布局A-v4模型、实渲图纸与安装更新](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/README.md)。采购仅按[BOM第12节](hardware/robot-design/round-yaw-v2/BOM.md#final-purchase-decision)；制造／实机状态仍未放行。
+
 天猫 AI 黑客松「效率进化」方向的 AI 桌面会议伙伴。固定式机器人以桌面宠物形态呈现，配合电脑伴侣应用与远程网页，围绕现场材料共享、本人确认后的观点提醒和可核对的会后记录设计产品体验。会后打开手机App，观点地图一目了然：聊了什么、谁持什么观点、哪些问题待回应，线上线下参与者看到同一张图。
 
 **产品形态分两路线**：路线A（当前参赛Demo）以电脑伴侣应用承载本地AI（FunASR + 千问候选 + 事件账本）；路线B（最终产品形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，仅需平板或手机即可完整使用。

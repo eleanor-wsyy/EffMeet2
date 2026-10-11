@@ -1,0 +1,95 @@
+{
+  "schema_version": "1.0",
+  "current_stage": "blockout",
+  "modeling_stage": "blockout",
+  "iteration": 0,
+  "visual_gate": "blockout",
+  "gate_status": "waiting_for_user",
+  "analysis_gate_status": "provisional",
+  "topology_gate_status": "open",
+  "form_gates": {
+    "primary_masses": "open",
+    "structural_forms": "open",
+    "transition_forms": "open",
+    "functional_parts": "open",
+    "surface_details": "open"
+  },
+  "review_evidence": {
+    "front_clay": "../renders/review-05/02_front.png",
+    "side_clay": "../renders/review-05/03_side.png",
+    "top_clay": "../renders/review-05/04_top.png",
+    "hero_clay": "../renders/review-05/01_hero.png",
+    "wireframe": "../renders/review-05/10_wireframe.png",
+    "internal": "../renders/review-05/08_internal_layout.png"
+  },
+  "topology_rollback_strikes": [],
+  "rollback": {
+    "required": false,
+    "target": null,
+    "reasons": []
+  },
+  "part_progress": {
+    "active": [],
+    "continuable": [],
+    "paused": [],
+    "needs_user_review": []
+  },
+  "protected_objects": [],
+  "checkpoints": [],
+  "mutations_blocked": true,
+  "allowed_operations": [
+    "review current candidate",
+    "revise per user feedback; no formal manufacturing export"
+  ],
+  "project_disposition": {
+    "status": "active",
+    "explicit_user_confirmation_required": true,
+    "deletion_candidate_paths": [],
+    "task_owned_paths": [],
+    "confirmation": null
+  },
+  "authority": {
+    "state_owner": "blender-production-router",
+    "design_owner": "blender-scene-design",
+    "reference_owner": "blender-reference-reconstruction",
+    "validator_can_reroute": false,
+    "specialist_can_restart_analysis": false
+  },
+  "review_budgets": {
+    "minimum_analysis_reviews": 2,
+    "technical_repairs_per_stage": 3,
+    "part_reviews_per_part_stage": 2,
+    "consecutive_white_model_under_40_stop": 2,
+    "route_candidate_replacements": 1,
+    "unchanged_geometry_render_counts_as_attempt": false
+  },
+  "route_conflict": {
+    "replacement_count": 0,
+    "replacement_limit": 1
+  },
+  "local_repair_requests": [
+    {
+      "symptom": "hidden cutters inherited operator selection transforms",
+      "repair": "mesh-owned transforms only",
+      "status": "repaired"
+    },
+    {
+      "symptom": "face plane default cylinder axis",
+      "repair": "explicit Y-axis and shape assertion",
+      "status": "repaired"
+    },
+    {
+      "symptom": "Lattice B-spline exceeded222mm",
+      "repair": "linear axes and evaluated envelope assertion",
+      "status": "repaired"
+    },
+    {
+      "symptom": "receiver outer surface coplanar with shell caused microscopic sliver",
+      "repair": "inset receiver source radius by0.1percent to overlap shell wall without coplanarity",
+      "status": "repaired",
+      "evidence": "evaluated-shells.json"
+    }
+  ],
+  "execution_scope": "reversible_blockout",
+  "hardware_basis": "GOOUU f0788c8"
+}

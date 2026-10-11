@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:48.089662+00:00",
+  "source_references": [
+    "C:\\Users\\路西法\\AppData\\Roaming\\reasonix\\global-workspace\\EffMeet2\\hardware\\robot-design\\round-yaw-v2\\concept\\nomi-aligned-20261010\\EffMeet2_NOMI方向_现有硬件_效果图.png"
+  ],
+  "generation_capability": "unknown",
+  "attempt_limit": 1,
+  "blocking": false,
+  "authority": "auxiliary_hypothesis_only",
+  "depth_map": {
+    "status": "pending",
+    "attempts": 0,
+    "path": null,
+    "method": null
+  },
+  "white_model_guide": {
+    "status": "pending",
+    "attempts": 0,
+    "path": null,
+    "method": null
+  }
+}

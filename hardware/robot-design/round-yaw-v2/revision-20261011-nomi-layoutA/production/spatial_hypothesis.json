@@ -1,0 +1,90 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-11T14:34:48.089662+00:00",
+  "deliverable_scope": "asset",
+  "scene_kind": "reference_guided_product_assembly",
+  "coordinate_frame": {
+    "up_axis": "Z",
+    "forward_axis": "-Y",
+    "lateral_axis": "X",
+    "ground_elevation": 0,
+    "origin_policy": "fixed base yaw axis at XY0",
+    "evidence": [
+      "../../parameters.json"
+    ]
+  },
+  "camera_context": {
+    "region_id": "studio",
+    "inside_outside": "outside",
+    "height_range": [
+      100,
+      350
+    ],
+    "lateral_bias": "three-quarter front",
+    "view_direction": "toward centerZ111",
+    "lock_state": "provisional",
+    "revision": 1,
+    "confidence": 0.85,
+    "evidence": [
+      "../../MODELING_BRIEF.md"
+    ]
+  },
+  "axes": [
+    {
+      "id": "yaw",
+      "axis": "Z",
+      "range_deg": [
+        -45,
+        45
+      ]
+    }
+  ],
+  "regions": [
+    {
+      "id": "base",
+      "object_names": [
+        "N4_BASE_CUP",
+        "N4_BASE_LID"
+      ]
+    },
+    {
+      "id": "head",
+      "object_names": [
+        "N4_HEAD_SHELL",
+        "N4_FACE_PANEL"
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "head",
+      "to": "base",
+      "type": "independent yaw bearing support and flexible cable passage",
+      "clearance_mm": 14,
+      "verified": false
+    }
+  ],
+  "occlusion_order": [
+    "face",
+    "head",
+    "neck",
+    "base"
+  ],
+  "scale_anchors": [
+    {
+      "id": "height",
+      "value_mm": 222,
+      "evidence": "../../parameters.json"
+    }
+  ],
+  "alternative_hypotheses": [],
+  "spatial_invariants": [
+    "board and microphones never rotate",
+    "14mm true shell-to-lid gap",
+    "LCD+camera only in head",
+    "all old scene data protected"
+  ],
+  "hypothesis_revision": 1,
+  "directional_structures": [],
+  "blockout_views": []
+}

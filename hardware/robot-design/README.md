@@ -1,55 +1,39 @@
-# EffMeet2 机器人外观、建模与硬件采购
+# EffMeet2 · 机器人设计与采购统一入口
 
-更新：2026-10-11（北京时间）。本目录是机器人建模、视觉参考及硬件采购的统一入口；其他路径只保留导航。
+**当前：NOMI方向／GOOUU核心板／布局A／灰黑PLA Matte，v4工程候选。** 电脑伴侣路线A不变。当前模型已改，不再是仅AI效果图。
 
-## 最新外观方向与组装同步
+## 从这里开始
 
-用户要求保留现有方案，靠近NOMI的球头、圆黑面部和短转颈，不继续“小横窗白脸”方向。[当前NOMI方向效果图](round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png)以蔚来官方近景与本项目硬件布局为参考；[外观/组装同步说明](round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md)列出圆面板、LCD/相机支架、短颈内藏边、打印分件及复测要求。安装/打印/测试指南已同步入口。**新外观接口尚未CAD验证，核心采购和模型参数不变。**
+| 内容 | 当前入口 |
+|---|---|
+| 本次改动与接手顺序 | [HANDOFF](HANDOFF.md) |
+| 可编辑模型、10张实渲、3张说明图纸 | [NOMI布局A-v4](round-yaw-v2/revision-20261011-nomi-layoutA/README.md) |
+| 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
+| 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
+| 安装顺序 | [ASSEMBLY_GUIDE](round-yaw-v2/ASSEMBLY_GUIDE.md) |
+| 少操作打印与放行条件 | [PRINT_PLAN](round-yaw-v2/PRINT_PLAN.md) |
+| 功能与实机验收 | [TEST_GUIDE](round-yaw-v2/TEST_GUIDE.md)／[空白记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv) |
+| 已实现／未锁定工程接口 | [ENGINEERING_REVIEW](round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md) |
+| 机器可读入口 | [manifest.json](manifest.json) |
 
-## 当前使用哪一版
+套装已含屏和OV3660，不重复采购；新增外置INMP441×2／MAX98357A／TP4056必须纳入底座。扩展板未实测，不宣称完整套装都能装入。
 
-**当前迭代方向：round-yaw-v2，圆润头部＋短颈转台＋固定鹅卵石底座。** 用户要求优先实现转头，参考NOMI的圆润比例与面向人的表达，不复刻其商标、机构或性能。
+## 本轮到底改了什么
 
-这是**可逆封装布局/外观提案**，不是已确认最终外观、可打印CAD、采购全部定型或实机转头完成。
+圆润连续头壳、Ø106圆打印脸、真实矩形屏窗、圆润遮盖、头底接收面／法兰／D接收、短颈和双轴承／传动预留、新板／电池封装、固定INMP441声孔、四条声槽、后供电／通风、按钮和状态窗；安装、采购、打印和测试同版同步。
 
-| 入口 | 内容 | 使用规则 |
-|---|---|---|
-| [HANDOFF.md](HANDOFF.md) | 本次改动、已验证边界、团队后续事项 | 接手的人和AI先读 |
-| [当前BOM](round-yaw-v2/BOM.md) | 30项物料、数量、采购状态、[逐项功能/效果/验收目标](round-yaw-v2/BOM.md#component-functions) | **采购唯一维护入口**；待定件不能直接下单 |
-| [外观/组装同步](round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md) | 圆面板、支架/短颈接口、分件与复测变化 | 待CAD落实；采购架构不变 |
-| [当前打印方案](round-yaw-v2/PRINT_PLAN.md) | A1/学校机器分工、PLA Matte 裸打、打印件/现成件分工 | 不喷漆不切屏窗；尚未制造放行 |
-| [建模任务书](round-yaw-v2/MODELING_BRIEF.md) | **美学不变量 + 15条红线 + 功能位规格表 + 建模任务清单** | **动 .blend 前必读**；美学锁死、工程重做 |
-| [主板规格 GOOUU](round-yaw-v2/GOOUU-BOARD-SPEC.md) | **板体 62.6×28.3mm**、全 GPIO 表、必配外接件 | **接线/选屏/定腔体前必读** |
-| [配合样片](round-yaw-v2/fit-coupons/README.md) | 4 件 1:1 公差阶梯 STL + 生成脚本 | 先跑通再打大壳；今晚可直接切片 |
-| [安装指南](round-yaw-v2/ASSEMBLY_GUIDE.md) | 裸板→机构→头部线束→入壳的安装顺序与接线确认 | 缺实物/CAD/固件的步骤不可跳过当通过 |
-| [测试指南](round-yaw-v2/TEST_GUIDE.md) | 26项用例、暂定目标、故障排查 | 实机测试计划，不是已验收报告 |
-| [测试记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv) | 版本、步骤、实际结果、证据与修复 | 默认全部NOT_RUN |
-| [当前模型说明](round-yaw-v2/README.md) | Blender文件、时间轴、参数与证据、复现方式 | 先看范围，再打开模型 |
-| [parameters.json](round-yaw-v2/parameters.json) | 毫米尺寸、器件预留及未验证项 | 几何参数来源；实物尺寸优先核验 |
-| [可编辑模型](round-yaw-v2/EffMeet2_圆润转头版_封装布局_v2.blend) | 原生Screw/Boolean、分件、转头姿态 | Blender 5.2.1 LTS创建；不是打印放行文件 |
-| [AI外观主视觉](round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png) | 参考NOMI球头圆脸＋现有硬件的Image2概念 | 不用于量尺寸或判定机械可装配 |
-| [三姿态建模预览](round-yaw-v2/EffMeet2_圆润转头版_三姿态预览_修订.png) | 左45°／正向／右45° | 模型渲染，仍不代表实机控制已实现 |
-| [manifest.json](manifest.json) | 机器可读入口、版本状态、优先级 | 路径均相对本目录 |
-| [历史档案](archive/README.md) | 原始清单、旧外壳和席位牌/其他概念 | 历史证据，**不是当前规格** |
+模型保持原生Screw／Boolean／Lattice／Solidify，所有头部控制同轴旋转。渲染图来自实际模型，不是AI想象内部结构；旧v2文件和原始视觉图保留。
 
-## 当前结构参数
+## 验证边界
 
-- 整机名义包络：180宽×164深×222高 mm；头部150×128×144 mm；底座180×164×76 mm＋2 mm脚垫。
-- **布局 A**：主板（**GOOUU ESP32-S3-CAM**）、电源、3.7V 电池、扬声器、舵机全在底座；LCD 和摄像头在转动头部，靠 E04/E05 两条跨轴排线连接。**麦克风（INMP441×2）固定在底座、不随头转。**
-- 先按单轴左右各45°验证，不包含连续360°、俯仰或轮式行走。
-- 轴承承担头部载荷，SG90为原型驱动候选；偏置传动、头部连接、**排线寿命**和固件控制未完成。
-- 当前固件仍是骨架；本次未改变软件接口、业务逻辑或产品的“本人确认后再提示”规则。
+阶段仍为reversible_blockout，final_design_approved=false、manufacturing_ready=false、hardware_validated=false。
 
-## 判读优先级
+五个外壳／颈部件的闭合与连通、十五个名义预留盒、三姿态壳体依赖／14mm间隙已检查。真实FPC、全件固定／工具空间、带轮齿形／舵盘、滑盖导向、正式料公差和固件／实机性能未放行，不能把渲染图和闭合网格当成验收PASS。
 
-采购以当前BOM及实物核验为准；建模以parameters.json、当前.blend及带范围的检查记录为准；图片只说明视觉方向。历史文件中的90×90×110 mm、±120°、LCD V1.1以及未经核实的接口针数说法均不能覆盖本版。具体修正见BOM第2节。
+## 历史和复建
 
-![圆润转头外观概念](round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png)
-
-## 归档与提交范围
-
-所有本次/早期建模和采购资料集中在本目录。历史源文件保留，已验证的最终审阅集入Git；重复ZIP、自动备份、失败审阅集、生成接口原始回执和本机工具缓存不入Git，留在本地。小型可编辑.blend直接入仓，不要求成员另找网盘。原始分享清单以副本归档，来源文件未改动。
-
-## 离线交接检查
-
-从仓库根运行`python hardware/robot-design/verify_delivery.py`，检查入口路径、当前BOM条目、尺寸/状态一致性、文档本地链接、辅助脚本语法及既有检查范围。无需Blender/网络；它不重新验证硬件，也不代替软件回归。
+- [旧v2与历史材料索引](round-yaw-v2/README.md)；[archive](archive/README.md)。
+- [旧STL警示](round-yaw-v2/stl/README.md)：不是当前打印包，不能直接整机打印。
+- v4生成源位于当前v4目录；复建用新的审阅ID，禁止覆盖冻结图。
+- [离线验收脚本](verify_delivery.py)检查路径／当前参数／几何证据／26项NOT_RUN／散列，不冒充实机测试。
+- [本地ZIP打包](round-yaw-v2/package_delivery.py)仅生成忽略目录中的归档，Git提交单一源文件和图纸，不重复提交ZIP。

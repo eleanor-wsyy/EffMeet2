@@ -1,0 +1,77 @@
+{
+  "poses": [
+    {
+      "angle_deg": -45,
+      "head_volume_mm3": 135243.8280286211,
+      "nonmanifold_edges": 0,
+      "head_min_z": 92.00000762939453,
+      "shell_to_lid_min_vertical_gap_mm": 14.000007629394531
+    },
+    {
+      "angle_deg": 0,
+      "head_volume_mm3": 135243.82172808112,
+      "nonmanifold_edges": 0,
+      "head_min_z": 92.00000762939453,
+      "shell_to_lid_min_vertical_gap_mm": 14.000007629394531
+    },
+    {
+      "angle_deg": 45,
+      "head_volume_mm3": 135243.8280286211,
+      "nonmanifold_edges": 0,
+      "head_min_z": 92.00000762939453,
+      "shell_to_lid_min_vertical_gap_mm": 14.000007629394531
+    }
+  ],
+  "parented_head_objects": [
+    "N4_CAMERA_APERTURE",
+    "N4_CAMERA_LENS_PROXY",
+    "N4_CAMERA_MODULE_PROXY",
+    "N4_DISPLAY_CAMERA_SHARED_ACTIVITY_RESERVE",
+    "N4_DRIVEN_PULLEY_ENVELOPE",
+    "N4_DRIVEN_PULLEY_SHAFT_SPACE",
+    "N4_FACE_PANEL",
+    "N4_FACE_RECEIVING_LIP_CONTROL",
+    "N4_FACE_RECEIVING_LIP_CONTROL_BORE",
+    "N4_HEAD_BOTTOM_TRIM",
+    "N4_HEAD_LATTICE",
+    "N4_HEAD_NECK_SEATING_HOLE",
+    "N4_HEAD_RECEIVER_FLOOR_CONTROL",
+    "N4_HEAD_RECEIVER_M3_SOURCE",
+    "N4_HEAD_RECEIVER_OUTER_CONTROL",
+    "N4_HEAD_SHELL",
+    "N4_HOLLOW_SHAFT_PROXY",
+    "N4_HOLLOW_SHAFT_PROXY_BORE",
+    "N4_KEEP_OUT_CAMERA",
+    "N4_KEEP_OUT_LCD",
+    "N4_KEEP_OUT_LCD_FRONT",
+    "N4_LCD_GLASS_PROXY",
+    "N4_LCD_PCB_PROXY",
+    "N4_LCD_REAR_POCKET",
+    "N4_NECK_D_SOCKET_CONTROL",
+    "N4_NECK_D_SOCKET_FLAT",
+    "N4_NECK_HIDDEN_FLANGE_CONTROL",
+    "N4_NECK_HIDDEN_FLANGE_CONTROL_BORE",
+    "N4_PRIVACY_SLIDER_PROXY",
+    "N4_REAL_LCD_APERTURE",
+    "N4_ROUND_FACE_RECEIVER",
+    "N4_SHAFT_D_FLAT_CONTROL",
+    "N4_SHORT_YAW_NECK",
+    "N4_SHORT_YAW_NECK_BORE",
+    "N4_TWO_EYES_REVIEW"
+  ],
+  "flex_life_validated": false,
+  "shared_activity_bay": {
+    "size_mm": [
+      20,
+      32,
+      24
+    ],
+    "center_mm": [
+      0,
+      20,
+      117
+    ],
+    "nominal_flange_vertical_gap_mm": 5.8,
+    "dynamic_cable_validation": false
+  }
+}

@@ -1,4 +1,4 @@
-> **当前拆件/安装/打印入口：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。41件真实独立候选；只做几何导出，未切片、未实打、未制造放行。v4继续作为保留的外观输入和历史证据。**
+> **当前拆件/安装/打印入口：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。41件独立候选；G1 头壳/G2 杯体已上机实打，其余未切片、未制造放行。v4继续作为保留的外观输入和历史证据。**
 
 # EffMeet2 · 机器人设计与采购统一入口
 
@@ -11,6 +11,7 @@
 | **接手第一入口：当前状态与下一步** | [**HANDOFF**](HANDOFF.md)（顶部「2026-10-12 会话收尾」节） |
 | 可编辑模型、10张实渲、3张说明图纸 | [NOMI布局A-v4](round-yaw-v2/revision-20261011-nomi-layoutA/README.md) |
 | **打印件拆分任务书（交接管方执行）** | [**SPLIT_PLAN**](round-yaw-v2/revision-20261011-nomi-layoutA/SPLIT_PLAN.md) |
+| **打印执行：盘×机器×特殊设置** | [**PLATE-RUNBOOK**](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PLATE-RUNBOOK.md)（G1/G2 已上机） |
 | 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
 | 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
 | 安装顺序 | [ASSEMBLY_GUIDE](round-yaw-v2/ASSEMBLY_GUIDE.md) |
@@ -21,9 +22,9 @@
 
 套装已含屏和OV3660，不重复采购；新增外置INMP441×2／MAX98357A／TP4056必须纳入底座。扩展板未实测，不宣称完整套装都能装入。
 
-**采购状态**：✅ 已下单 GOOUU 套装（¥86.5）+ PLA Matte 灰×2/黑×1；🔴 待下单 INMP441×2、MAX98357、TP4056、扬声器、6806×2、MG90S、锂电、五金线材（见 [BOM §12.0 执行状态表](round-yaw-v2/BOM.md#final-purchase-decision)）。
+**采购状态**（执行表见 [BOM §12.0](round-yaw-v2/BOM.md#final-purchase-decision)）：✅ 已下单——GOOUU 套装（¥86.5）；PLA Matte 灰×2（**已到货**）、黑×1（**已下单未到货，勿重复下单**）。🔴 待下单——INMP441×2、MAX98357、TP4056（必买）；扬声器、6806×2、MG90S、五金线材（要买）。🟡 先翻库存——Type-C 线×2、5V 电源、舵机稳压、轻触开关。🟡 第二批——E04/E05 跨轴线束、GT2 带、3.7V 锂电。
 
-**打印工作室**：学校 = 广美实验教学中心模型实验室（P2S×8 + H2S×10 + H2D×10 = 28 台，⚠️ **通风禁 ABS/ASA**，0.4 喷嘴，需预约）；自有 = A1（256³）。分工：A1 打样片与黑料小件，学校打三件灰料大壳。
+**打印工作室**：学校 = 广美实验教学中心模型实验室（P2S×8 + H2S×10 + H2D×10 = 28 台，⚠️ **通风禁 ABS/ASA**，0.4 喷嘴＝**硬化钢**，需预约）；自有 = A1（256³）。分工：A1 打样片与黑料小件，学校打三件灰料大壳。**进度：G1 头壳（H2S）、G2 杯体（H2D）已上机（2026-10-12）；其余盘见 PLATE-RUNBOOK。**
 
 ## 本轮到底改了什么
 

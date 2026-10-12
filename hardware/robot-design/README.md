@@ -6,8 +6,9 @@
 
 | 内容 | 当前入口 |
 |---|---|
-| 本次改动与接手顺序 | [HANDOFF](HANDOFF.md) |
+| **接手第一入口：当前状态与下一步** | [**HANDOFF**](HANDOFF.md)（顶部「2026-10-12 会话收尾」节） |
 | 可编辑模型、10张实渲、3张说明图纸 | [NOMI布局A-v4](round-yaw-v2/revision-20261011-nomi-layoutA/README.md) |
+| **打印件拆分任务书（交接管方执行）** | [**SPLIT_PLAN**](round-yaw-v2/revision-20261011-nomi-layoutA/SPLIT_PLAN.md) |
 | 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
 | 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
 | 安装顺序 | [ASSEMBLY_GUIDE](round-yaw-v2/ASSEMBLY_GUIDE.md) |
@@ -17,6 +18,10 @@
 | 机器可读入口 | [manifest.json](manifest.json) |
 
 套装已含屏和OV3660，不重复采购；新增外置INMP441×2／MAX98357A／TP4056必须纳入底座。扩展板未实测，不宣称完整套装都能装入。
+
+**采购状态**：✅ 已下单 GOOUU 套装（¥86.5）+ PLA Matte 灰×2/黑×1；🔴 待下单 INMP441×2、MAX98357、TP4056、扬声器、6806×2、MG90S、锂电、五金线材（见 [BOM §12.0 执行状态表](round-yaw-v2/BOM.md#final-purchase-decision)）。
+
+**打印工作室**：学校 = 广美实验教学中心模型实验室（P2S×8 + H2S×10 + H2D×10 = 28 台，⚠️ **通风禁 ABS/ASA**，0.4 喷嘴，需预约）；自有 = A1（256³）。分工：A1 打样片与黑料小件，学校打三件灰料大壳。
 
 ## 本轮到底改了什么
 

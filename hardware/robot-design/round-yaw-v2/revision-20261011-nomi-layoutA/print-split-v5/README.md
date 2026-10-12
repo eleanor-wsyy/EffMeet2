@@ -5,10 +5,11 @@
 ## 给下一位AI的入口
 
 1. [PARTS.md](PARTS.md)：实际件名/数量/色/朝向起点/支撑/所属盘，CSV可回填。
-2. [ASSEMBLY.md](ASSEMBLY.md)：按真实分件和接收接口装配；轴承螺钉不可与夹紧螺钉相交。
-3. [PRINTING.md](PRINTING.md)：PETG样片→正式PLA Matte复测→切片确认→灰壳。
-4. [MEASUREMENTS.csv](MEASUREMENTS.csv)、[SLICER_CHECKLIST.csv](SLICER_CHECKLIST.csv)：未知尺寸、最终朝向/支撑保持空。
-5. 唯一 [parameters.json](../../parameters.json)、[BOM§12](../../BOM.md#final-purchase-decision)、[TEST_GUIDE](../../TEST_GUIDE.md)。v4参数原样冻结在parameters-v4-frozen.json，不能用旧fit-report给新结构背书。
+2. **[PLATE-RUNBOOK.md](PLATE-RUNBOOK.md)：盘 × 机器 × 特殊设置执行口径**——每盘推荐机型、每盘特殊设置（Brim/层高/朝向/支撑）、全局切片设置、当前打印状态。**上机前先读这份。**
+3. [ASSEMBLY.md](ASSEMBLY.md)：按真实分件和接收接口装配；轴承螺钉不可与夹紧螺钉相交。
+4. [PRINTING.md](PRINTING.md)：PETG样片→正式PLA Matte复测→切片确认→灰壳。
+5. [MEASUREMENTS.csv](MEASUREMENTS.csv)、[SLICER_CHECKLIST.csv](SLICER_CHECKLIST.csv)：未知尺寸、最终朝向/支撑保持空。
+6. 唯一 [parameters.json](../../parameters.json)、[BOM§12](../../BOM.md#final-purchase-decision)、[TEST_GUIDE](../../TEST_GUIDE.md)。v4参数原样冻结在parameters-v4-frozen.json，不能用旧fit-report给新结构背书。
 
 ## 模型和独立文件
 

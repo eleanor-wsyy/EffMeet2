@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-12T01:53:32.709292+00:00",
+  "status": "open",
+  "execution_allowed": false,
+  "execution_scope": "none",
+  "deliverable": "asset",
+  "completion_scope": "unresolved",
+  "protected_scope": {
+    "status": "open",
+    "objects": [],
+    "task_owned_collection": null
+  },
+  "real_scale": {
+    "status": "unresolved",
+    "units": "METRIC",
+    "anchors": []
+  },
+  "minimum_viable_analysis": {
+    "status": "open",
+    "attempts": 0,
+    "max_automatic_reviews": 2,
+    "required_decisions": {
+      "deliverable_scope": false,
+      "protected_scope": false,
+      "major_parts_or_regions": false,
+      "scale_strategy": false,
+      "provisional_route": false
+    },
+    "evidence": []
+  },
+  "design_intent": {
+    "status": "unresolved",
+    "visual_thesis": "",
+    "scope": "original_or_reference_guided",
+    "evidence": [],
+    "unknowns": []
+  },
+  "focal_hierarchy": [],
+  "depth_layers": [],
+  "visual_flow": {
+    "leading_lines": [],
+    "occlusion_order": [],
+    "negative_space": [],
+    "scale_rhythm": [],
+    "repetition_rhythm": []
+  },
+  "camera_mobility": {
+    "mode": "unresolved",
+    "allowed_move": null,
+    "parallax_requirements": []
+  },
+  "representation_budget": {
+    "status": "unresolved",
+    "real_geometry": [],
+    "instances": [],
+    "shader_or_normal": [],
+    "distant_simplification": []
+  },
+  "performance_budget": {
+    "status": "unresolved",
+    "object_limit": null,
+    "instance_limit": null,
+    "realization_policy": "unresolved",
+    "simulation_preview": null,
+    "render_target": null
+  },
+  "failure_repair_policy": {},
+  "reference_inputs": [],
+  "camera_and_perspective": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "primary_silhouette_and_proportion": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "spatial_and_support_structure": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "object_partition_basis": [],
+  "geometry_vs_shading": [],
+  "form_hierarchy": {
+    "primary_masses": [],
+    "structural_forms": [],
+    "transition_forms": [],
+    "functional_parts": [],
+    "surface_details": []
+  },
+  "part_graph_status": "open",
+  "lighting_analysis": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "material_analysis": {
+    "status": "unresolved",
+    "classes": [],
+    "scale_evidence": [],
+    "unknowns": []
+  },
+  "systems_analysis": {
+    "deformation": [],
+    "simulation": [],
+    "procedural": [],
+    "animation": [],
+    "export": []
+  },
+  "critical_blockers": [],
+  "blocking_unknowns": [],
+  "assumptions": [],
+  "approvals": []
+}

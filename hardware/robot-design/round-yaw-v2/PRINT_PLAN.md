@@ -1,3 +1,5 @@
+> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+
 # v4 · 最少操作打印方案（PLA Matte／布局A）
 
 更新：2026-10-11。采购以 [BOM §12](BOM.md#final-purchase-decision) 为准；当前采用GOOUU已下单套装，外置双INMP441／MAX98357A／TP4056；扩展板未测，不计入容纳结论。当前模型和渲染入口见 [v4](revision-20261011-nomi-layoutA/README.md)，安装接口见 [EXTERIOR_ASSEMBLY_REVISION](EXTERIOR_ASSEMBLY_REVISION.md)。

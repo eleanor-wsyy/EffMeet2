@@ -1,0 +1,952 @@
+{
+  "status": "PASS",
+  "input_model_sha256": "6004151abd70301a66db544c7807e42f2919eadc62483ad453d30eeaea55b766",
+  "native_model_unchanged": true,
+  "library": "manifold3d3.5.4",
+  "scope": "candidate export mesh only, no release",
+  "parts": [
+    {
+      "id": "P01",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 62100,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0007844519132049754,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 7.549127639583393e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P02",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 4144,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.005390621678088792,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 4.160485095621311e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P03",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 4112,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0001514022527322909,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 9.57413155587502e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P04",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 20172,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 4.5111739412046364e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 4.802984355791938e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P05",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 52224,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 2.4951327948090677e-07,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 6.763212309318144e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P06",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1708,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.028626531367990538,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 9.439961962923014e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P07",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 2056,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.013016322096518707,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.1893698116130148e-06
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P08",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 2106,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.01627776413806714,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.2012415547375518e-06
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P09",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 2104,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0055435963195122895,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.3329042824765126e-06
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P10",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 2154,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.005544955605728319,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.3842517812016105e-06
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P11",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 768,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.012995812806366303,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P12",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 768,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.012995812806366303,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P13",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 768,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.012995756783311663,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P14",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 768,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.012995756783311663,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P15",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1588,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.009889840704317976,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.1180598602055887e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P16",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1628,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0028465877403505147,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 8.860669483902454e-10
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P17",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 14628,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 2.6239511043968378e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 2.4825843027241945e-07
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P18",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 14144,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 2.6125380827579647e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 2.1286033447989587e-07
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P19",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1228,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.011772167936214828,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P20",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1048,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.01128136002807878,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 7.74606861634957e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P21",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 396,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0007074875938997138,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P22",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1032,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.009252828478146112,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.2292206791465123e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P23",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1416,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 1.79035260633098e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 3.576264658428691e-10
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P24",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1256,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0001112121335136349,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 2.4104350943566367e-06
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P25",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 3820,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 7.900861678948683e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 6.56893611985853e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P26",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1760,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.00021665414551514447,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 3.059095131063026e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P27",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 584,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.005114719026453535,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P28",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1900,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 7.447233656421304e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.7186288579491992e-16
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P29",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 2060,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 1.4326070123951201e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 2.7825513420375053e-07
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P30",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1032,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 7.922097229509291e-05,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P31",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 3272,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0001044207838276634,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.985163275914665e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P32",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 964,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.009253796024261397,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P33",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 3272,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0001044207838276634,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.9905695722773427e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P34",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 964,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.009253796024261397,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P35",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 864,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.005205153546759365,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P36",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1252,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.00520498280201459,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P37",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1416,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.00019025409710593522,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P38",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 4094,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.0004045078676426783,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 2.686093694652089e-09
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P39",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 1794,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.00224044342758134,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 1.697574846415812e-08
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P40",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 648,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.022862112087750575,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    },
+    {
+      "id": "P41",
+      "raw_status": "Error.NoError",
+      "trials": [
+        {
+          "tolerance_mm": 0.001,
+          "faces": 648,
+          "zero_area": 0,
+          "micro_faces": 0,
+          "minimum_area_mm2": 0.022861378252855502,
+          "watertight": true,
+          "bounds_delta_mm": 0.0,
+          "relative_volume_delta": 0.0
+        }
+      ],
+      "float32_export_checks": [
+        {
+          "iteration": 0,
+          "collapsed_float32_faces": 0,
+          "watertight_float32": true
+        }
+      ]
+    }
+  ]
+}

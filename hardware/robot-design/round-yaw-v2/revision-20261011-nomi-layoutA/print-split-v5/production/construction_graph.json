@@ -1,0 +1,1859 @@
+{
+  "schema_version": "1.0",
+  "part_graph_status": "approved",
+  "approval_scope": "User explicitly authorized this manufactured-part segmentation, NOT final geometry/hardware release",
+  "parts": [
+    {
+      "id": "P01",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "头壳（原生曲面＋新增接收）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_HEAD_SHELL",
+      "blockout_object_names": [
+        "N5_HEAD_SHELL"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "SCREW",
+        "LATTICE",
+        "SOLIDIFY",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 灰",
+      "export_owner": "P01",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P02",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "圆形黑面板",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_FACE_PANEL",
+      "blockout_object_names": [
+        "N5_FACE_PANEL"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P02",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P03",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "短颈＋止转舌",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_SHORT_YAW_NECK",
+      "blockout_object_names": [
+        "N5_SHORT_YAW_NECK"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P03",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P04",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "底座上盖＋机械限位",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BASE_LID",
+      "blockout_object_names": [
+        "N5_BASE_LID"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "SCREW",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 灰",
+      "export_owner": "P04",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P05",
+      "role": "primary_form",
+      "form_level": "primary",
+      "physical_function": "底座杯体＋接收柱＋出音通道",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BASE_CUP",
+      "blockout_object_names": [
+        "N5_BASE_CUP"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "SCREW",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 灰",
+      "export_owner": "P05",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P06",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "双轴承承力塔",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_TOWER",
+      "blockout_object_names": [
+        "N5_BEARING_TOWER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P06",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P07",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "下轴承座左半",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_SEAT_LOWER_LEFT",
+      "blockout_object_names": [
+        "N5_BEARING_SEAT_LOWER_LEFT"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P07",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P08",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "下轴承座右半",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_SEAT_LOWER_RIGHT",
+      "blockout_object_names": [
+        "N5_BEARING_SEAT_LOWER_RIGHT"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P08",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P09",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "上轴承座左半",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_SEAT_UPPER_LEFT",
+      "blockout_object_names": [
+        "N5_BEARING_SEAT_UPPER_LEFT"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P09",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P10",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "上轴承座右半",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_SEAT_UPPER_RIGHT",
+      "blockout_object_names": [
+        "N5_BEARING_SEAT_UPPER_RIGHT"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P10",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P11",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "轴承层间支柱 1",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_STACK_SPACER_1",
+      "blockout_object_names": [
+        "N5_BEARING_STACK_SPACER_1"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P11",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P12",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "轴承层间支柱 2",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_STACK_SPACER_2",
+      "blockout_object_names": [
+        "N5_BEARING_STACK_SPACER_2"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P12",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P13",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "轴承层间支柱 3",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_STACK_SPACER_3",
+      "blockout_object_names": [
+        "N5_BEARING_STACK_SPACER_3"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P13",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P14",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "轴承层间支柱 4",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BEARING_STACK_SPACER_4",
+      "blockout_object_names": [
+        "N5_BEARING_STACK_SPACER_4"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P14",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P15",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "空心承力轴（轴肩＋两段D面）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_HOLLOW_LOAD_SHAFT",
+      "blockout_object_names": [
+        "N5_HOLLOW_LOAD_SHAFT"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P15",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P16",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "空心轴下止推夹环",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_SHAFT_LOWER_LOCK_COLLAR",
+      "blockout_object_names": [
+        "N5_SHAFT_LOWER_LOCK_COLLAR"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P16",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P17",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "从动64齿候选带轮",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_DRIVEN_64T_WHEEL",
+      "blockout_object_names": [
+        "N5_DRIVEN_64T_WHEEL"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P17",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P18",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "舵机主动64齿候选带轮",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_DRIVER_64T_WHEEL",
+      "blockout_object_names": [
+        "N5_DRIVER_64T_WHEEL"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P18",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P19",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "舵机可调耳槽架",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_SERVO_ADJUSTABLE_CRADLE",
+      "blockout_object_names": [
+        "N5_SERVO_ADJUSTABLE_CRADLE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P19",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P20",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "隐私滑盖后导向座",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_PRIVACY_GUIDE_BASE",
+      "blockout_object_names": [
+        "N5_PRIVACY_GUIDE_BASE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P20",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P21",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "隐私滑片（13.5mm行程）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_PRIVACY_MOVING_BLADE",
+      "blockout_object_names": [
+        "N5_PRIVACY_MOVING_BLADE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P21",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P22",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "隐私导向前压框",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_PRIVACY_FRONT_RETAINER",
+      "blockout_object_names": [
+        "N5_PRIVACY_FRONT_RETAINER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P22",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P23",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "LCD后支承框（预算边缘夹持）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_LCD_BUDGET_FRAME",
+      "blockout_object_names": [
+        "N5_LCD_BUDGET_FRAME"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P23",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P24",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "LCD前压框（间距待实测）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_LCD_PRESSURE_FRAME",
+      "blockout_object_names": [
+        "N5_LCD_PRESSURE_FRAME"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P24",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P25",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "摄像模组预算托架",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_CAMERA_CRADLE",
+      "blockout_object_names": [
+        "N5_CAMERA_CRADLE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P25",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P26",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "摄像托架后压片＋排线口",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_CAMERA_BACK_RETAINER",
+      "blockout_object_names": [
+        "N5_CAMERA_BACK_RETAINER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P26",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P27",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "前肩停止键帽＋短键柱",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_STOP_KEY_CAP",
+      "blockout_object_names": [
+        "N5_STOP_KEY_CAP"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P27",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P28",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "外接轻触键托座及限行程导向",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_TACTILE_SWITCH_HOLDER",
+      "blockout_object_names": [
+        "N5_TACTILE_SWITCH_HOLDER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P28",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P29",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "核心板开放边缘托架",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_MAINBOARD_EDGE_CRADLE",
+      "blockout_object_names": [
+        "N5_MAINBOARD_EDGE_CRADLE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P29",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P30",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "核心板可拆上压条",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_MAINBOARD_TOP_RETAINER",
+      "blockout_object_names": [
+        "N5_MAINBOARD_TOP_RETAINER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P30",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P31",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "固定麦托架＋硬声管 1",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_FIXED_MIC_DUCT_CRADLE_1",
+      "blockout_object_names": [
+        "N5_FIXED_MIC_DUCT_CRADLE_1"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P31",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P32",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "固定麦前压条 1",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_MIC_RETAINER_1",
+      "blockout_object_names": [
+        "N5_MIC_RETAINER_1"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P32",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P33",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "固定麦托架＋硬声管 2",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_FIXED_MIC_DUCT_CRADLE_2",
+      "blockout_object_names": [
+        "N5_FIXED_MIC_DUCT_CRADLE_2"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P33",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P34",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "固定麦前压条 2",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_MIC_RETAINER_2",
+      "blockout_object_names": [
+        "N5_MIC_RETAINER_2"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P34",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P35",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "功放开放托盘",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_I2S_AMP_OPEN_TRAY",
+      "blockout_object_names": [
+        "N5_I2S_AMP_OPEN_TRAY"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P35",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P36",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "充电保护板开放托盘",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_BATTERY_CHARGER_OPEN_TRAY",
+      "blockout_object_names": [
+        "N5_BATTERY_CHARGER_OPEN_TRAY"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P36",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P37",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "选装电池开放托盘（90度避让）",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_OPTIONAL_BATTERY_TRAY",
+      "blockout_object_names": [
+        "N5_OPTIONAL_BATTERY_TRAY"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P37",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P38",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "扬声器圆筒托架＋后挡肩",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_SPEAKER_AXIAL_CRADLE",
+      "blockout_object_names": [
+        "N5_SPEAKER_AXIAL_CRADLE"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P38",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P39",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "扬声器前压圈",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_SPEAKER_FRONT_RETAINER",
+      "blockout_object_names": [
+        "N5_SPEAKER_FRONT_RETAINER"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P39",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P40",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "线束固定鞍 1",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_CABLE_SADDLE_1",
+      "blockout_object_names": [
+        "N5_CABLE_SADDLE_1"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P40",
+      "clearance_policy": "sample pending"
+    },
+    {
+      "id": "P41",
+      "role": "structural_part",
+      "form_level": "structural",
+      "physical_function": "线束固定鞍 2",
+      "separation_policy": "separate_manufactured_part",
+      "separation_reason": "independent assembly, motion, service or measured fit interface",
+      "construction_method": "native profile/Boolean fusion with evaluated export cleanup",
+      "connection_method": "mechanical assembly, unverified budget interface",
+      "combination_level": "C_PHYSICAL_ASSEMBLY",
+      "final_object_name": "N5_CABLE_SADDLE_2",
+      "blockout_object_names": [
+        "N5_CABLE_SADDLE_2"
+      ],
+      "blockout_proxy": false,
+      "topology_status": "deferred",
+      "topology_evidence": {
+        "report": "mesh-audit.json",
+        "connected_component_count": 1
+      },
+      "native_system": [
+        "BEVEL",
+        "BOOLEAN",
+        "BOOLEAN"
+      ],
+      "assembly_interfaces": [
+        {
+          "status": "unverified",
+          "policy": "parameterized budget interface; do not claim real fit"
+        }
+      ],
+      "requirements": {
+        "single_component": true
+      },
+      "material": "PLA Matte 黑",
+      "export_owner": "P41",
+      "clearance_policy": "sample pending"
+    }
+  ],
+  "relationships": []
+}

@@ -1,3 +1,5 @@
+> **v4已冻结为输入与历史证据。当前独立打印候选和安装顺序进入 [print-split-v5](print-split-v5/README.md)，不得用v4报告给v5接口背书。**
+
 # EffMeet2 · NOMI／布局A · v4工程候选
 
 本轮把GOOUU换板、PLA Matte和NOMI造型落实到**真实Blender候选模型、渲染图纸和安装文档**。旧v2文件保留，当前尺寸源只维护 [../parameters.json](../parameters.json)，采购只维护 [BOM §12](../BOM.md#final-purchase-decision)。

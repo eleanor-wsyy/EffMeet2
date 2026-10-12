@@ -1,3 +1,5 @@
+> **硬件最新交付（2026-10-12）：[NOMI布局A-v5独立打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。模型、41件清单、打印/安装指南与真实模型渲染在同一目录；实测接口、切片、样片仍待验。**
+
 # EffMeet 2
 
 <!-- robot-design-current -->

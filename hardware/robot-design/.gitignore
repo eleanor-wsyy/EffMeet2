@@ -32,3 +32,10 @@
 /round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-03/
 
 /round-yaw-v2/revision-20261011-nomi-layoutA/renders/review-04/
+
+# v5 local derivation/debug caches; retain curated public evidence only.
+/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/production/export-geometry.json
+/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/production/blender_capabilities.json
+/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/test_shell_cleanup.py
+/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/inspect_micro_faces.py
+/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/renders/06_parts_index_raw.png

@@ -1,0 +1,11 @@
+{
+  "protected_objects": 164,
+  "unchanged": true,
+  "earlier_scenes": [
+    "EFFMEET2_PACKAGING_V1",
+    "N4_NOMI_LAYOUT_A_CANDIDATE",
+    "R2_ROUND_YAW_BLOCKOUT",
+    "Scene"
+  ],
+  "scope": "original object/data/modifier snapshot equality"
+}

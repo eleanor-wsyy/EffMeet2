@@ -1,3 +1,5 @@
+> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+
 # 圆润转头方案 · 当前模型与资料索引
 
 **当前模型是v4 NOMI／GOOUU布局A／灰黑PLA Matte候选**，不是旧Korvo-v2，也不是上轮AI效果图。

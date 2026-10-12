@@ -1,0 +1,6412 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-12T05:52:16.521232+00:00",
+  "blend_file": "C:\\Users\\\u8def\u897f\u6cd5\\AppData\\Roaming\\reasonix\\global-workspace\\EffMeet2\\hardware\\robot-design\\round-yaw-v2\\revision-20261011-nomi-layoutA\\print-split-v5\\EffMeet2_NOMI_\u5e03\u5c40A_v5_\u62c6\u4ef6\u5019\u9009.blend",
+  "scene": {
+    "name": "N5_PRINT_SPLIT_CANDIDATE",
+    "camera": "N5_CAM_HERO",
+    "world": "N4_NEUTRAL_WORLD.001",
+    "render_engine": "CYCLES",
+    "render_filepath": "//",
+    "frame_start": 1,
+    "frame_end": 250
+  },
+  "protected_objects": [
+    "BASE_CAVITY",
+    "BASE_LID",
+    "BASE_SHELL",
+    "CAMERA_BODY",
+    "CAMERA_KEEP_OUT",
+    "CAMERA_LENS_POSITION",
+    "Camera",
+    "Cube",
+    "EXPRESSION_POSITION_-26",
+    "EXPRESSION_POSITION_-4",
+    "FACE_MASK",
+    "FACE_OPENING",
+    "FILL",
+    "HEAD_BACK",
+    "HEAD_CAVITY",
+    "HEAD_SHELL",
+    "HEAD_YAW_CONTROL",
+    "KEY",
+    "LCD_ACTIVE_AREA_ASSUMPTION",
+    "LCD_BODY",
+    "LCD_KEEP_OUT",
+    "Light",
+    "MAINBOARD_BODY",
+    "MAINBOARD_KEEP_OUT",
+    "MUTE_BUTTON_POSITION",
+    "N4_BASE_CUP",
+    "N4_BASE_LID",
+    "N4_BATTERY",
+    "N4_BATTERY_CHARGER",
+    "N4_BEARING_LOWER",
+    "N4_BEARING_LOWER_BORE",
+    "N4_BEARING_LOWER_SEAT_PROXY",
+    "N4_BEARING_LOWER_SEAT_PROXY_BORE",
+    "N4_BEARING_UPPER",
+    "N4_BEARING_UPPER_BORE",
+    "N4_BEARING_UPPER_SEAT_PROXY",
+    "N4_BEARING_UPPER_SEAT_PROXY_BORE",
+    "N4_BELT_PITCH_PATH_PROXY",
+    "N4_CAMERA_APERTURE",
+    "N4_CAMERA_LENS_PROXY",
+    "N4_CAMERA_MODULE_PROXY",
+    "N4_CAM_EXPLODED",
+    "N4_CAM_FRONT",
+    "N4_CAM_HERO",
+    "N4_CAM_INTERNAL",
+    "N4_CAM_REAR",
+    "N4_CAM_SIDE",
+    "N4_CAM_TOP",
+    "N4_DISPLAY_CAMERA_SHARED_ACTIVITY_RESERVE",
+    "N4_DRIVEN_PULLEY_ENVELOPE",
+    "N4_DRIVEN_PULLEY_SHAFT_SPACE",
+    "N4_DRIVER_PULLEY_ENVELOPE",
+    "N4_DRIVER_PULLEY_SHAFT_SPACE",
+    "N4_FACE_PANEL",
+    "N4_FACE_RECEIVING_LIP_CONTROL",
+    "N4_FACE_RECEIVING_LIP_CONTROL_BORE",
+    "N4_FILL",
+    "N4_FIXED_MIC_OUTLET_SOURCE",
+    "N4_GROUND",
+    "N4_HEAD_BOTTOM_TRIM",
+    "N4_HEAD_LATTICE",
+    "N4_HEAD_NECK_SEATING_HOLE",
+    "N4_HEAD_RECEIVER_FLOOR_CONTROL",
+    "N4_HEAD_RECEIVER_M3_SOURCE",
+    "N4_HEAD_RECEIVER_OUTER_CONTROL",
+    "N4_HEAD_SHELL",
+    "N4_HOLLOW_SHAFT_PROXY",
+    "N4_HOLLOW_SHAFT_PROXY_BORE",
+    "N4_I2S_AMP",
+    "N4_INMP441_FIXED_SOURCE",
+    "N4_KEEP_OUT_BATTERY",
+    "N4_KEEP_OUT_BATTERY_CHARGER",
+    "N4_KEEP_OUT_BEARING_LOWER",
+    "N4_KEEP_OUT_BEARING_UPPER",
+    "N4_KEEP_OUT_CAMERA",
+    "N4_KEEP_OUT_DRIVEN_PULLEY",
+    "N4_KEEP_OUT_DRIVER_PULLEY",
+    "N4_KEEP_OUT_I2S_AMP",
+    "N4_KEEP_OUT_LCD",
+    "N4_KEEP_OUT_LCD_FRONT",
+    "N4_KEEP_OUT_MAINBOARD",
+    "N4_KEEP_OUT_MIC_LEFT",
+    "N4_KEEP_OUT_MIC_RIGHT",
+    "N4_KEEP_OUT_SERVO",
+    "N4_KEEP_OUT_SPEAKER",
+    "N4_KEY",
+    "N4_LCD_GLASS_PROXY",
+    "N4_LCD_PCB_PROXY",
+    "N4_LCD_REAR_POCKET",
+    "N4_LID_AXIS_OPENING",
+    "N4_MAINBOARD",
+    "N4_NECK_D_SOCKET_CONTROL",
+    "N4_NECK_D_SOCKET_FLAT",
+    "N4_NECK_HIDDEN_FLANGE_CONTROL",
+    "N4_NECK_HIDDEN_FLANGE_CONTROL_BORE",
+    "N4_POPULATED_BOARD_KEEP_HEIGHT_PROXY",
+    "N4_PRIVACY_SLIDER_PROXY",
+    "N4_PURCHASED_SILICONE_FOOT",
+    "N4_REAL_LCD_APERTURE",
+    "N4_REAR",
+    "N4_REAR_USB_CABLE_OPENING",
+    "N4_REAR_VENT_SOURCE",
+    "N4_ROUND_FACE_RECEIVER",
+    "N4_SERVO",
+    "N4_SHAFT_D_FLAT_CONTROL",
+    "N4_SHORT_YAW_NECK",
+    "N4_SHORT_YAW_NECK_BORE",
+    "N4_SPEAKER",
+    "N4_SPEAKER_SLOT_SOURCE",
+    "N4_STATUS_APERTURE",
+    "N4_STATUS_DISPLAY_REVIEW",
+    "N4_STOP_BUTTON_CAP_PROXY",
+    "N4_STOP_BUTTON_OPENING",
+    "N4_TWO_EYES_REVIEW",
+    "N4_YAW_LAYOUT_ANCHOR",
+    "NONSLIP_FOOT",
+    "R2_BASE_CUP",
+    "R2_BASE_LID",
+    "R2_BEARING",
+    "R2_BEARING_CABLE_HOLE",
+    "R2_BLACK_FACE_MASK",
+    "R2_CABLE_BORE",
+    "R2_CAMERA",
+    "R2_CAMERA_LENS",
+    "R2_EXPRESSION_-12.5",
+    "R2_EXPRESSION_12.5",
+    "R2_HEAD_BOTTOM_TRIM",
+    "R2_HEAD_FACE_OPENING",
+    "R2_HEAD_INNER",
+    "R2_HEAD_SHELL",
+    "R2_HEAD_YAW_POSE",
+    "R2_KEEP_OUT_BEARING",
+    "R2_KEEP_OUT_CAMERA",
+    "R2_KEEP_OUT_LCD",
+    "R2_KEEP_OUT_MAINBOARD",
+    "R2_KEEP_OUT_SERVO",
+    "R2_KEEP_OUT_SPEAKER",
+    "R2_LCD",
+    "R2_LID_YAW_HOLE",
+    "R2_MAINBOARD",
+    "R2_MUTE_POSITION",
+    "R2_MUTE_RECESS",
+    "R2_REVIEW_CAMERA",
+    "R2_SERVO",
+    "R2_SHUTTER_POSITION",
+    "R2_SILICONE_FOOT",
+    "R2_SPEAKER",
+    "R2_SPEAKER_PORT_POSITION",
+    "R2_STATUS_POSITION",
+    "R2_YAW_NECK",
+    "REVIEW_FLOOR",
+    "Review_camera",
+    "SERVO_BODY",
+    "SERVO_KEEP_OUT",
+    "SHUTTER_THUMB_POSITION",
+    "SHUTTER_TRAVEL_RESERVATION",
+    "SPEAKER_BODY",
+    "SPEAKER_GRILLE_RESERVATION",
+    "SPEAKER_KEEP_OUT",
+    "SPEAKER_PORT_CUTTER",
+    "STATUS_WINDOW_POSITION",
+    "TOP",
+    "YAW_APERTURE_CUTTER",
+    "YAW_SUPPORT"
+  ],
+  "objects": {
+    "BASE_CAVITY": {
+      "name": "BASE_CAVITY",
+      "type": "MESH",
+      "data_name": "Cube.007",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "BASE_LID": {
+      "name": "BASE_LID",
+      "type": "MESH",
+      "data_name": "Cube.008",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        },
+        {
+          "name": "Provisional_bearing_aperture",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "YAW_APERTURE_CUTTER"
+        }
+      ]
+    },
+    "BASE_SHELL": {
+      "name": "BASE_SHELL",
+      "type": "MESH",
+      "data_name": "Cube.006",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        },
+        {
+          "name": "Adjustable_base_cavity_open_top",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "BASE_CAVITY"
+        },
+        {
+          "name": "Provisional_speaker_opening",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "SPEAKER_PORT_CUTTER"
+        }
+      ]
+    },
+    "CAMERA_BODY": {
+      "name": "CAMERA_BODY",
+      "type": "MESH",
+      "data_name": "Cube.020",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Camera_diagnostic_gold"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "CAMERA_KEEP_OUT": {
+      "name": "CAMERA_KEEP_OUT",
+      "type": "MESH",
+      "data_name": "Cube.021",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Keepout_wire"
+      ],
+      "modifiers": []
+    },
+    "CAMERA_LENS_POSITION": {
+      "name": "CAMERA_LENS_POSITION",
+      "type": "MESH",
+      "data_name": "Cylinder.003",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Optical_placeholder"
+      ],
+      "modifiers": [
+        {
+          "name": "Small_real_edge_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "Camera": {
+      "name": "Camera",
+      "type": "CAMERA",
+      "data_name": "Camera",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "WIRE",
+      "collections": [
+        "Collection"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "Cube": {
+      "name": "Cube",
+      "type": "MESH",
+      "data_name": "Cube",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "Collection"
+      ],
+      "materials": [
+        "Material"
+      ],
+      "modifiers": []
+    },
+    "EXPRESSION_POSITION_-26": {
+      "name": "EXPRESSION_POSITION_-26",
+      "type": "MESH",
+      "data_name": "Cube.014",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Control_diagnostic_orange"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "EXPRESSION_POSITION_-4": {
+      "name": "EXPRESSION_POSITION_-4",
+      "type": "MESH",
+      "data_name": "Cube.015",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Control_diagnostic_orange"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "FACE_MASK": {
+      "name": "FACE_MASK",
+      "type": "MESH",
+      "data_name": "Cube.005",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Optical_placeholder"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "FACE_OPENING": {
+      "name": "FACE_OPENING",
+      "type": "MESH",
+      "data_name": "Cube.003",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "FILL": {
+      "name": "FILL",
+      "type": "LIGHT",
+      "data_name": "FILL",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "HEAD_BACK": {
+      "name": "HEAD_BACK",
+      "type": "MESH",
+      "data_name": "Cube.004",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "HEAD_CAVITY": {
+      "name": "HEAD_CAVITY",
+      "type": "MESH",
+      "data_name": "Cube.002",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "HEAD_SHELL": {
+      "name": "HEAD_SHELL",
+      "type": "MESH",
+      "data_name": "Cube.001",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        },
+        {
+          "name": "Adjustable_head_cavity_open_rear",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "HEAD_CAVITY"
+        },
+        {
+          "name": "Adjustable_front_aperture",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "FACE_OPENING"
+        }
+      ]
+    },
+    "HEAD_YAW_CONTROL": {
+      "name": "HEAD_YAW_CONTROL",
+      "type": "EMPTY",
+      "data_name": null,
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "KEY": {
+      "name": "KEY",
+      "type": "LIGHT",
+      "data_name": "KEY",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "LCD_ACTIVE_AREA_ASSUMPTION": {
+      "name": "LCD_ACTIVE_AREA_ASSUMPTION",
+      "type": "MESH",
+      "data_name": "Cube.027",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Optical_placeholder"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "LCD_BODY": {
+      "name": "LCD_BODY",
+      "type": "MESH",
+      "data_name": "Cube.018",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "LCD_diagnostic_blue"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "LCD_KEEP_OUT": {
+      "name": "LCD_KEEP_OUT",
+      "type": "MESH",
+      "data_name": "Cube.019",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Keepout_wire"
+      ],
+      "modifiers": []
+    },
+    "Light": {
+      "name": "Light",
+      "type": "LIGHT",
+      "data_name": "Light",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "Collection"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "MAINBOARD_BODY": {
+      "name": "MAINBOARD_BODY",
+      "type": "MESH",
+      "data_name": "Cube.016",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Mainboard_diagnostic_green"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "MAINBOARD_KEEP_OUT": {
+      "name": "MAINBOARD_KEEP_OUT",
+      "type": "MESH",
+      "data_name": "Cube.017",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Keepout_wire"
+      ],
+      "modifiers": []
+    },
+    "MUTE_BUTTON_POSITION": {
+      "name": "MUTE_BUTTON_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.012",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Control_diagnostic_orange"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "N4_BASE_CUP": {
+      "name": "N4_BASE_CUP",
+      "type": "MESH",
+      "data_name": "N4_BASE_CUP_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.911111116,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_GREY_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable radial section",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "DIFFERENCE N4_SPEAKER_SLOT_SOURCE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_SPEAKER_SLOT_SOURCE"
+        },
+        {
+          "name": "DIFFERENCE N4_REAR_VENT_SOURCE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_REAR_VENT_SOURCE"
+        },
+        {
+          "name": "DIFFERENCE N4_REAR_USB_CABLE_OPENING",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_REAR_USB_CABLE_OPENING"
+        },
+        {
+          "name": "DIFFERENCE N4_FIXED_MIC_OUTLET_SOURCE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_FIXED_MIC_OUTLET_SOURCE"
+        },
+        {
+          "name": "DIFFERENCE N4_STATUS_APERTURE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_STATUS_APERTURE"
+        }
+      ]
+    },
+    "N4_BASE_LID": {
+      "name": "N4_BASE_LID",
+      "type": "MESH",
+      "data_name": "N4_BASE_LID_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.911111116,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_GREY_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable radial section",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "DIFFERENCE N4_LID_AXIS_OPENING",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_LID_AXIS_OPENING"
+        },
+        {
+          "name": "DIFFERENCE N4_STOP_BUTTON_OPENING",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_STOP_BUTTON_OPENING"
+        }
+      ]
+    },
+    "N4_BATTERY": {
+      "name": "N4_BATTERY",
+      "type": "MESH",
+      "data_name": "Cube.063",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.045000002,
+        0.0,
+        1.0,
+        0.0,
+        0.004,
+        0.0,
+        0.0,
+        1.0,
+        0.014,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_BATTERY_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_BATTERY_CHARGER": {
+      "name": "N4_BATTERY_CHARGER",
+      "type": "MESH",
+      "data_name": "Cube.066",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.040000003,
+        0.0,
+        1.0,
+        0.0,
+        0.036000002,
+        0.0,
+        0.0,
+        1.0,
+        0.016000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_BEARING_LOWER": {
+      "name": "N4_BEARING_LOWER",
+      "type": "MESH",
+      "data_name": "Cylinder.026",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.049500003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_BEARING_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_BEARING_LOWER_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_BEARING_LOWER_BORE"
+        }
+      ]
+    },
+    "N4_BEARING_LOWER_BORE": {
+      "name": "N4_BEARING_LOWER_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.027",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.049500003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_BEARING_LOWER_SEAT_PROXY": {
+      "name": "N4_BEARING_LOWER_SEAT_PROXY",
+      "type": "MESH",
+      "data_name": "Cylinder.028",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.049500003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_BEARING_LOWER_SEAT_PROXY_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_BEARING_LOWER_SEAT_PROXY_BORE"
+        }
+      ]
+    },
+    "N4_BEARING_LOWER_SEAT_PROXY_BORE": {
+      "name": "N4_BEARING_LOWER_SEAT_PROXY_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.029",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.049500003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_BEARING_UPPER": {
+      "name": "N4_BEARING_UPPER",
+      "type": "MESH",
+      "data_name": "Cylinder.030",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.069500007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_BEARING_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_BEARING_UPPER_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_BEARING_UPPER_BORE"
+        }
+      ]
+    },
+    "N4_BEARING_UPPER_BORE": {
+      "name": "N4_BEARING_UPPER_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.031",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.069500007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_BEARING_UPPER_SEAT_PROXY": {
+      "name": "N4_BEARING_UPPER_SEAT_PROXY",
+      "type": "MESH",
+      "data_name": "Cylinder.032",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.069500007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_BEARING_UPPER_SEAT_PROXY_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_BEARING_UPPER_SEAT_PROXY_BORE"
+        }
+      ]
+    },
+    "N4_BEARING_UPPER_SEAT_PROXY_BORE": {
+      "name": "N4_BEARING_UPPER_SEAT_PROXY_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.033",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.069500007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_BELT_PITCH_PATH_PROXY": {
+      "name": "N4_BELT_PITCH_PATH_PROXY",
+      "type": "CURVE",
+      "data_name": "N4_BELT_PITCH_PATH_PROXY",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": []
+    },
+    "N4_CAMERA_APERTURE": {
+      "name": "N4_CAMERA_APERTURE",
+      "type": "MESH",
+      "data_name": "Cylinder.021",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.063000001,
+        0.0,
+        0.0,
+        1.0,
+        0.18900001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAMERA_LENS_PROXY": {
+      "name": "N4_CAMERA_LENS_PROXY",
+      "type": "MESH",
+      "data_name": "Cylinder.022",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062800005,
+        0.0,
+        0.0,
+        1.0,
+        0.18900001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_LCD_ONLY"
+      ],
+      "modifiers": []
+    },
+    "N4_CAMERA_MODULE_PROXY": {
+      "name": "N4_CAMERA_MODULE_PROXY",
+      "type": "MESH",
+      "data_name": "Cube.061",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.053400002,
+        0.0,
+        0.0,
+        1.0,
+        0.188000008,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_CAM_EXPLODED": {
+      "name": "N4_CAM_EXPLODED",
+      "type": "CAMERA",
+      "data_name": "N4_EXPLODED",
+      "matrix_world": [
+        0.880471051,
+        -0.1239715,
+        0.457604408,
+        0.350000024,
+        0.474099904,
+        0.230232701,
+        -0.849836588,
+        -0.650000036,
+        1.5e-08,
+        0.965206683,
+        0.26148811,
+        0.350000024,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_FRONT": {
+      "name": "N4_CAM_FRONT",
+      "type": "CAMERA",
+      "data_name": "N4_FRONT",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        -1.63e-07,
+        -1.0,
+        -0.650000036,
+        0.0,
+        1.0,
+        -1.63e-07,
+        0.111000009,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_HERO": {
+      "name": "N4_CAM_HERO",
+      "type": "CAMERA",
+      "data_name": "N4_HERO",
+      "matrix_world": [
+        0.876215935,
+        -0.114828728,
+        0.468038499,
+        0.330000013,
+        0.481918752,
+        0.208779439,
+        -0.850979149,
+        -0.600000024,
+        3.1e-08,
+        0.971197963,
+        0.238273993,
+        0.280000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_INTERNAL": {
+      "name": "N4_CAM_INTERNAL",
+      "type": "CAMERA",
+      "data_name": "N4_INTERNAL",
+      "matrix_world": [
+        0.863778889,
+        -0.160240799,
+        0.477712184,
+        0.350000024,
+        0.503871083,
+        0.274698555,
+        -0.818935037,
+        -0.600000024,
+        -4.3e-08,
+        0.948084176,
+        0.318019509,
+        0.340000004,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_REAR": {
+      "name": "N4_CAM_REAR",
+      "type": "CAMERA",
+      "data_name": "N4_REAR",
+      "matrix_world": [
+        -1.0,
+        -1.51e-07,
+        0.0,
+        0.0,
+        0.0,
+        7.5e-08,
+        1.0,
+        0.650000036,
+        -1.51e-07,
+        1.0,
+        -7.5e-08,
+        0.111000009,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_SIDE": {
+      "name": "N4_CAM_SIDE",
+      "type": "CAMERA",
+      "data_name": "N4_SIDE",
+      "matrix_world": [
+        -4.4e-08,
+        4.4e-08,
+        1.0,
+        0.650000036,
+        1.0,
+        0.0,
+        4.4e-08,
+        0.0,
+        0.0,
+        1.0,
+        -4.4e-08,
+        0.111000009,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_CAM_TOP": {
+      "name": "N4_CAM_TOP",
+      "type": "CAMERA",
+      "data_name": "N4_TOP",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.650000036,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_DISPLAY_CAMERA_SHARED_ACTIVITY_RESERVE": {
+      "name": "N4_DISPLAY_CAMERA_SHARED_ACTIVITY_RESERVE",
+      "type": "MESH",
+      "data_name": "Cube.082",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.02,
+        0.0,
+        0.0,
+        1.0,
+        0.116999999,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_DRIVEN_PULLEY_ENVELOPE": {
+      "name": "N4_DRIVEN_PULLEY_ENVELOPE",
+      "type": "MESH",
+      "data_name": "Cylinder.037",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_DRIVEN_PULLEY_SHAFT_SPACE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_DRIVEN_PULLEY_SHAFT_SPACE"
+        }
+      ]
+    },
+    "N4_DRIVEN_PULLEY_SHAFT_SPACE": {
+      "name": "N4_DRIVEN_PULLEY_SHAFT_SPACE",
+      "type": "MESH",
+      "data_name": "Cylinder.038",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_DRIVER_PULLEY_ENVELOPE": {
+      "name": "N4_DRIVER_PULLEY_ENVELOPE",
+      "type": "MESH",
+      "data_name": "Cylinder.039",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.050000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_DRIVER_PULLEY_SHAFT_SPACE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_DRIVER_PULLEY_SHAFT_SPACE"
+        }
+      ]
+    },
+    "N4_DRIVER_PULLEY_SHAFT_SPACE": {
+      "name": "N4_DRIVER_PULLEY_SHAFT_SPACE",
+      "type": "MESH",
+      "data_name": "Cylinder.040",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.050000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_FACE_PANEL": {
+      "name": "N4_FACE_PANEL",
+      "type": "MESH",
+      "data_name": "Cylinder.020",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062800005,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_REAL_LCD_APERTURE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_REAL_LCD_APERTURE"
+        },
+        {
+          "name": "DIFFERENCE N4_LCD_REAR_POCKET",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_LCD_REAR_POCKET"
+        },
+        {
+          "name": "DIFFERENCE N4_CAMERA_APERTURE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_CAMERA_APERTURE"
+        }
+      ]
+    },
+    "N4_FACE_RECEIVING_LIP_CONTROL": {
+      "name": "N4_FACE_RECEIVING_LIP_CONTROL",
+      "type": "MESH",
+      "data_name": "Cylinder.018",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062800005,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_FACE_RECEIVING_LIP_CONTROL_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_FACE_RECEIVING_LIP_CONTROL_BORE"
+        }
+      ]
+    },
+    "N4_FACE_RECEIVING_LIP_CONTROL_BORE": {
+      "name": "N4_FACE_RECEIVING_LIP_CONTROL_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.019",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062800005,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_FILL": {
+      "name": "N4_FILL",
+      "type": "LIGHT",
+      "data_name": "N4_FILL",
+      "matrix_world": [
+        0.29408586,
+        -0.461514175,
+        0.836969614,
+        0.26000002,
+        0.955779016,
+        0.142004281,
+        -0.257529169,
+        -0.080000006,
+        8.7e-08,
+        0.875693679,
+        0.482867002,
+        0.270000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_FIXED_MIC_OUTLET_SOURCE": {
+      "name": "N4_FIXED_MIC_OUTLET_SOURCE",
+      "type": "MESH",
+      "data_name": "Cylinder.015",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0163,
+        0.0,
+        1.0,
+        0.0,
+        0.074000001,
+        0.0,
+        0.0,
+        1.0,
+        0.052000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Fixed dual-mic outlets candidate coordinates",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_GROUND": {
+      "name": "N4_GROUND",
+      "type": "MESH",
+      "data_name": "Cube.087",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.0012,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [
+        "N4_REVIEW_GROUND"
+      ],
+      "modifiers": []
+    },
+    "N4_HEAD_BOTTOM_TRIM": {
+      "name": "N4_HEAD_BOTTOM_TRIM",
+      "type": "MESH",
+      "data_name": "Cube.054",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        -0.058000002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_HEAD_LATTICE": {
+      "name": "N4_HEAD_LATTICE",
+      "type": "LATTICE",
+      "data_name": "N4_HEAD_SECTION_TRANSITION",
+      "matrix_world": [
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.016000001,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.150000006,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_HEAD_NECK_SEATING_HOLE": {
+      "name": "N4_HEAD_NECK_SEATING_HOLE",
+      "type": "MESH",
+      "data_name": "Cylinder.041",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.093600005,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_HEAD_RECEIVER_FLOOR_CONTROL": {
+      "name": "N4_HEAD_RECEIVER_FLOOR_CONTROL",
+      "type": "MESH",
+      "data_name": "Cube.084",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.093600005,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "INTERSECT N4_HEAD_RECEIVER_OUTER_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_RECEIVER_OUTER_CONTROL"
+        }
+      ]
+    },
+    "N4_HEAD_RECEIVER_M3_SOURCE": {
+      "name": "N4_HEAD_RECEIVER_M3_SOURCE",
+      "type": "MESH",
+      "data_name": "Cylinder.045",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.026000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.095000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Two head receiver screw positions",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_HEAD_RECEIVER_OUTER_CONTROL": {
+      "name": "N4_HEAD_RECEIVER_OUTER_CONTROL",
+      "type": "MESH",
+      "data_name": "N4_HEAD_RECEIVER_OUTER_CONTROL_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Editable radial section",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Same head transition owner",
+          "type": "LATTICE",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_LATTICE"
+        }
+      ]
+    },
+    "N4_HEAD_SHELL": {
+      "name": "N4_HEAD_SHELL",
+      "type": "MESH",
+      "data_name": "N4_HEAD_SHELL_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_GREY_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable radial section",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Round face to softly flattened head",
+          "type": "LATTICE",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_LATTICE"
+        },
+        {
+          "name": "Real nominal shell thickness",
+          "type": "SOLIDIFY",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "DIFFERENCE N4_HEAD_BOTTOM_TRIM",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_BOTTOM_TRIM"
+        },
+        {
+          "name": "DIFFERENCE N4_ROUND_FACE_RECEIVER",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_ROUND_FACE_RECEIVER"
+        },
+        {
+          "name": "UNION N4_FACE_RECEIVING_LIP_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_FACE_RECEIVING_LIP_CONTROL"
+        },
+        {
+          "name": "UNION N4_HEAD_RECEIVER_FLOOR_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_RECEIVER_FLOOR_CONTROL"
+        },
+        {
+          "name": "DIFFERENCE N4_HEAD_NECK_SEATING_HOLE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_NECK_SEATING_HOLE"
+        },
+        {
+          "name": "DIFFERENCE N4_HEAD_RECEIVER_M3_SOURCE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_RECEIVER_M3_SOURCE"
+        }
+      ]
+    },
+    "N4_HOLLOW_SHAFT_PROXY": {
+      "name": "N4_HOLLOW_SHAFT_PROXY",
+      "type": "MESH",
+      "data_name": "Cylinder.034",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.068999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SUPPORT_ENVELOPES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_HOLLOW_SHAFT_PROXY_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HOLLOW_SHAFT_PROXY_BORE"
+        },
+        {
+          "name": "DIFFERENCE N4_SHAFT_D_FLAT_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_SHAFT_D_FLAT_CONTROL"
+        }
+      ]
+    },
+    "N4_HOLLOW_SHAFT_PROXY_BORE": {
+      "name": "N4_HOLLOW_SHAFT_PROXY_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.035",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.068999998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_I2S_AMP": {
+      "name": "N4_I2S_AMP",
+      "type": "MESH",
+      "data_name": "Cube.065",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.038000003,
+        0.0,
+        1.0,
+        0.0,
+        -0.031000001,
+        0.0,
+        0.0,
+        1.0,
+        0.020000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_INMP441_FIXED_SOURCE": {
+      "name": "N4_INMP441_FIXED_SOURCE",
+      "type": "MESH",
+      "data_name": "Cube.064",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0163,
+        0.0,
+        1.0,
+        0.0,
+        0.069000006,
+        0.0,
+        0.0,
+        1.0,
+        0.052000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Two stationary I2S mic modules",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_KEEP_OUT_BATTERY": {
+      "name": "N4_KEEP_OUT_BATTERY",
+      "type": "MESH",
+      "data_name": "Cube.074",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.045000002,
+        0.0,
+        1.0,
+        0.0,
+        0.004,
+        0.0,
+        0.0,
+        1.0,
+        0.014,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_BATTERY_CHARGER": {
+      "name": "N4_KEEP_OUT_BATTERY_CHARGER",
+      "type": "MESH",
+      "data_name": "Cube.081",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.040000003,
+        0.0,
+        1.0,
+        0.0,
+        0.036000002,
+        0.0,
+        0.0,
+        1.0,
+        0.016000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_BEARING_LOWER": {
+      "name": "N4_KEEP_OUT_BEARING_LOWER",
+      "type": "MESH",
+      "data_name": "Cube.071",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.049500003,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_BEARING_UPPER": {
+      "name": "N4_KEEP_OUT_BEARING_UPPER",
+      "type": "MESH",
+      "data_name": "Cube.072",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.069500007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_CAMERA": {
+      "name": "N4_KEEP_OUT_CAMERA",
+      "type": "MESH",
+      "data_name": "Cube.069",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.053400002,
+        0.0,
+        0.0,
+        1.0,
+        0.188000008,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_DRIVEN_PULLEY": {
+      "name": "N4_KEEP_OUT_DRIVEN_PULLEY",
+      "type": "MESH",
+      "data_name": "Cube.075",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_DRIVER_PULLEY": {
+      "name": "N4_KEEP_OUT_DRIVER_PULLEY",
+      "type": "MESH",
+      "data_name": "Cube.076",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.050000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.059500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_I2S_AMP": {
+      "name": "N4_KEEP_OUT_I2S_AMP",
+      "type": "MESH",
+      "data_name": "Cube.080",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.038000003,
+        0.0,
+        1.0,
+        0.0,
+        -0.031000001,
+        0.0,
+        0.0,
+        1.0,
+        0.020000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_LCD": {
+      "name": "N4_KEEP_OUT_LCD",
+      "type": "MESH",
+      "data_name": "Cube.068",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.0548,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_LCD_FRONT": {
+      "name": "N4_KEEP_OUT_LCD_FRONT",
+      "type": "MESH",
+      "data_name": "Cube.077",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062000003,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_MAINBOARD": {
+      "name": "N4_KEEP_OUT_MAINBOARD",
+      "type": "MESH",
+      "data_name": "Cube.067",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.054000001,
+        0.0,
+        0.0,
+        1.0,
+        0.048,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_MIC_LEFT": {
+      "name": "N4_KEEP_OUT_MIC_LEFT",
+      "type": "MESH",
+      "data_name": "Cube.078",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.0163,
+        0.0,
+        1.0,
+        0.0,
+        0.069000006,
+        0.0,
+        0.0,
+        1.0,
+        0.052000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_MIC_RIGHT": {
+      "name": "N4_KEEP_OUT_MIC_RIGHT",
+      "type": "MESH",
+      "data_name": "Cube.079",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0163,
+        0.0,
+        1.0,
+        0.0,
+        0.069000006,
+        0.0,
+        0.0,
+        1.0,
+        0.052000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_SERVO": {
+      "name": "N4_KEEP_OUT_SERVO",
+      "type": "MESH",
+      "data_name": "Cube.070",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.050000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.039000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEEP_OUT_SPEAKER": {
+      "name": "N4_KEEP_OUT_SPEAKER",
+      "type": "MESH",
+      "data_name": "Cube.073",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.057000004,
+        0.0,
+        0.0,
+        1.0,
+        0.033,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_KEY": {
+      "name": "N4_KEY",
+      "type": "LIGHT",
+      "data_name": "N4_KEY",
+      "matrix_world": [
+        0.764911175,
+        0.397749752,
+        -0.506661654,
+        -0.320000023,
+        -0.644135773,
+        0.472327828,
+        -0.601660609,
+        -0.380000025,
+        4.4e-08,
+        0.786575854,
+        0.617493689,
+        0.5,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_LCD_GLASS_PROXY": {
+      "name": "N4_LCD_GLASS_PROXY",
+      "type": "MESH",
+      "data_name": "Cube.057",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.062550001,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_LCD_ONLY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_LCD_PCB_PROXY": {
+      "name": "N4_LCD_PCB_PROXY",
+      "type": "MESH",
+      "data_name": "Cube.058",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.058800001,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_LCD_REAR_POCKET": {
+      "name": "N4_LCD_REAR_POCKET",
+      "type": "MESH",
+      "data_name": "Cube.056",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.061900005,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_LID_AXIS_OPENING": {
+      "name": "N4_LID_AXIS_OPENING",
+      "type": "MESH",
+      "data_name": "Cylinder.014",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.077000007,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_MAINBOARD": {
+      "name": "N4_MAINBOARD",
+      "type": "MESH",
+      "data_name": "Cube.059",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.054000001,
+        0.0,
+        0.0,
+        1.0,
+        0.048,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PCB_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_NECK_D_SOCKET_CONTROL": {
+      "name": "N4_NECK_D_SOCKET_CONTROL",
+      "type": "MESH",
+      "data_name": "Cylinder.044",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.083250001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_NECK_D_SOCKET_FLAT",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_NECK_D_SOCKET_FLAT"
+        }
+      ]
+    },
+    "N4_NECK_D_SOCKET_FLAT": {
+      "name": "N4_NECK_D_SOCKET_FLAT",
+      "type": "MESH",
+      "data_name": "Cube.085",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.049200002,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.083250001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_NECK_HIDDEN_FLANGE_CONTROL": {
+      "name": "N4_NECK_HIDDEN_FLANGE_CONTROL",
+      "type": "MESH",
+      "data_name": "Cylinder.042",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.097199999,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_NECK_HIDDEN_FLANGE_CONTROL_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_NECK_HIDDEN_FLANGE_CONTROL_BORE"
+        }
+      ]
+    },
+    "N4_NECK_HIDDEN_FLANGE_CONTROL_BORE": {
+      "name": "N4_NECK_HIDDEN_FLANGE_CONTROL_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.043",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.097199999,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_POPULATED_BOARD_KEEP_HEIGHT_PROXY": {
+      "name": "N4_POPULATED_BOARD_KEEP_HEIGHT_PROXY",
+      "type": "MESH",
+      "data_name": "Cube.060",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.057500001,
+        0.0,
+        0.0,
+        1.0,
+        0.048,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_PRIVACY_SLIDER_PROXY": {
+      "name": "N4_PRIVACY_SLIDER_PROXY",
+      "type": "MESH",
+      "data_name": "Cylinder.023",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.009000001,
+        0.0,
+        1.0,
+        0.0,
+        -0.064000003,
+        0.0,
+        0.0,
+        1.0,
+        0.18900001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": []
+    },
+    "N4_PURCHASED_SILICONE_FOOT": {
+      "name": "N4_PURCHASED_SILICONE_FOOT",
+      "type": "MESH",
+      "data_name": "Cylinder.016",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.897435904,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": []
+    },
+    "N4_REAL_LCD_APERTURE": {
+      "name": "N4_REAL_LCD_APERTURE",
+      "type": "MESH",
+      "data_name": "Cube.055",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.063000001,
+        0.0,
+        0.0,
+        1.0,
+        0.145000011,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_REAR": {
+      "name": "N4_REAR",
+      "type": "LIGHT",
+      "data_name": "N4_REAR",
+      "matrix_world": [
+        -0.910366476,
+        -0.259856492,
+        0.322036505,
+        0.100000001,
+        0.413802981,
+        -0.571684003,
+        0.708480418,
+        0.220000014,
+        -1.14e-07,
+        0.778236449,
+        0.627971351,
+        0.330000013,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_REAR_USB_CABLE_OPENING": {
+      "name": "N4_REAR_USB_CABLE_OPENING",
+      "type": "MESH",
+      "data_name": "Cube.049",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.030000001,
+        0.0,
+        1.0,
+        0.0,
+        0.075000003,
+        0.0,
+        0.0,
+        1.0,
+        0.018000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_REAR_VENT_SOURCE": {
+      "name": "N4_REAR_VENT_SOURCE",
+      "type": "MESH",
+      "data_name": "Cube.048",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.075000003,
+        0.0,
+        0.0,
+        1.0,
+        0.018000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Three rear ventilation slots",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_ROUND_FACE_RECEIVER": {
+      "name": "N4_ROUND_FACE_RECEIVER",
+      "type": "MESH",
+      "data_name": "Cylinder.017",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.064000003,
+        0.0,
+        0.0,
+        1.0,
+        0.150000006,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_SERVO": {
+      "name": "N4_SERVO",
+      "type": "MESH",
+      "data_name": "Cube.062",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        -0.050000001,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.037999999,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_SERVO_PROXY"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_SHAFT_D_FLAT_CONTROL": {
+      "name": "N4_SHAFT_D_FLAT_CONTROL",
+      "type": "MESH",
+      "data_name": "Cube.086",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.049000002,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.083499998,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_SHORT_YAW_NECK": {
+      "name": "N4_SHORT_YAW_NECK",
+      "type": "MESH",
+      "data_name": "Cylinder.024",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.085500002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE N4_SHORT_YAW_NECK_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_SHORT_YAW_NECK_BORE"
+        },
+        {
+          "name": "UNION N4_NECK_HIDDEN_FLANGE_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_NECK_HIDDEN_FLANGE_CONTROL"
+        },
+        {
+          "name": "DIFFERENCE N4_NECK_D_SOCKET_CONTROL",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_NECK_D_SOCKET_CONTROL"
+        },
+        {
+          "name": "DIFFERENCE N4_HEAD_RECEIVER_M3_SOURCE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "N4_HEAD_RECEIVER_M3_SOURCE"
+        }
+      ]
+    },
+    "N4_SHORT_YAW_NECK_BORE": {
+      "name": "N4_SHORT_YAW_NECK_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.025",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.085500002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "N4_SPEAKER": {
+      "name": "N4_SPEAKER",
+      "type": "MESH",
+      "data_name": "Cylinder.036",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.057000004,
+        0.0,
+        0.0,
+        1.0,
+        0.033,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_COMPONENT_PROXIES"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": []
+    },
+    "N4_SPEAKER_SLOT_SOURCE": {
+      "name": "N4_SPEAKER_SLOT_SOURCE",
+      "type": "MESH",
+      "data_name": "Cube.047",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.078000002,
+        0.0,
+        0.0,
+        1.0,
+        0.023000002,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Four honest speaker outlets",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_STATUS_APERTURE": {
+      "name": "N4_STATUS_APERTURE",
+      "type": "MESH",
+      "data_name": "Cube.050",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.078000002,
+        0.0,
+        0.0,
+        1.0,
+        0.054000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_STATUS_DISPLAY_REVIEW": {
+      "name": "N4_STATUS_DISPLAY_REVIEW",
+      "type": "MESH",
+      "data_name": "Cube.051",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.080700003,
+        0.0,
+        0.0,
+        1.0,
+        0.054000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [
+        "N4_STATUS_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_STOP_BUTTON_CAP_PROXY": {
+      "name": "N4_STOP_BUTTON_CAP_PROXY",
+      "type": "MESH",
+      "data_name": "Cube.053",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.049000002,
+        0.0,
+        0.0,
+        1.0,
+        0.077500001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [
+        "N4_PLA_BLACK_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_STOP_BUTTON_OPENING": {
+      "name": "N4_STOP_BUTTON_OPENING",
+      "type": "MESH",
+      "data_name": "Cube.052",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        -0.049000002,
+        0.0,
+        0.0,
+        1.0,
+        0.074000001,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "N4_NATIVE_CONTROLS"
+      ],
+      "materials": [],
+      "modifiers": [
+        {
+          "name": "Scale-aware edge radius",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_TWO_EYES_REVIEW": {
+      "name": "N4_TWO_EYES_REVIEW",
+      "type": "CURVE",
+      "data_name": "N4_TWO_EYES_REVIEW",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_REVIEW_ONLY"
+      ],
+      "materials": [
+        "N4_WARM_DISPLAY_PREVIEW"
+      ],
+      "modifiers": [
+        {
+          "name": "Exactly two eyes within active LCD",
+          "type": "ARRAY",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "N4_YAW_LAYOUT_ANCHOR": {
+      "name": "N4_YAW_LAYOUT_ANCHOR",
+      "type": "EMPTY",
+      "data_name": null,
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "N4_SHELLS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "NONSLIP_FOOT": {
+      "name": "NONSLIP_FOOT",
+      "type": "MESH",
+      "data_name": "Cube.009",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_dark"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "R2_BASE_CUP": {
+      "name": "R2_BASE_CUP",
+      "type": "MESH",
+      "data_name": "R2_BASE_CUP_RADIAL_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": [
+        {
+          "name": "Radial section 360 degrees",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_BASE_LID": {
+      "name": "R2_BASE_LID",
+      "type": "MESH",
+      "data_name": "R2_BASE_LID_RADIAL_PROFILE",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": [
+        {
+          "name": "Radial section 360 degrees",
+          "type": "SCREW",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "DIFFERENCE_R2_LID_YAW_HOLE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_LID_YAW_HOLE"
+        },
+        {
+          "name": "DIFFERENCE_R2_MUTE_RECESS",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_MUTE_RECESS"
+        }
+      ]
+    },
+    "R2_BEARING": {
+      "name": "R2_BEARING",
+      "type": "MESH",
+      "data_name": "Cylinder.011",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_BEARING"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE_R2_BEARING_CABLE_HOLE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_BEARING_CABLE_HOLE"
+        }
+      ]
+    },
+    "R2_BEARING_CABLE_HOLE": {
+      "name": "R2_BEARING_CABLE_HOLE",
+      "type": "MESH",
+      "data_name": "Cylinder.012",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_BLACK_FACE_MASK": {
+      "name": "R2_BLACK_FACE_MASK",
+      "type": "MESH",
+      "data_name": "Cylinder.008",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_FACE"
+      ],
+      "modifiers": []
+    },
+    "R2_CABLE_BORE": {
+      "name": "R2_CABLE_BORE",
+      "type": "MESH",
+      "data_name": "Cylinder.007",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_CAMERA": {
+      "name": "R2_CAMERA",
+      "type": "MESH",
+      "data_name": "Cube.041",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CAMERA"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_CAMERA_LENS": {
+      "name": "R2_CAMERA_LENS",
+      "type": "MESH",
+      "data_name": "Cylinder.009",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_FACE"
+      ],
+      "modifiers": []
+    },
+    "R2_EXPRESSION_-12.5": {
+      "name": "R2_EXPRESSION_-12.5",
+      "type": "MESH",
+      "data_name": "Cube.031",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CORAL"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_EXPRESSION_12.5": {
+      "name": "R2_EXPRESSION_12.5",
+      "type": "MESH",
+      "data_name": "Cube.032",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CORAL"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_HEAD_BOTTOM_TRIM": {
+      "name": "R2_HEAD_BOTTOM_TRIM",
+      "type": "MESH",
+      "data_name": "Cube.029",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_HEAD_FACE_OPENING": {
+      "name": "R2_HEAD_FACE_OPENING",
+      "type": "MESH",
+      "data_name": "Cube.030",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_HEAD_INNER": {
+      "name": "R2_HEAD_INNER",
+      "type": "MESH",
+      "data_name": "Sphere.001",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_HEAD_SHELL": {
+      "name": "R2_HEAD_SHELL",
+      "type": "MESH",
+      "data_name": "Sphere",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE_R2_HEAD_INNER",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_HEAD_INNER"
+        },
+        {
+          "name": "DIFFERENCE_R2_HEAD_BOTTOM_TRIM",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_HEAD_BOTTOM_TRIM"
+        },
+        {
+          "name": "DIFFERENCE_R2_HEAD_FACE_OPENING",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_HEAD_FACE_OPENING"
+        }
+      ]
+    },
+    "R2_HEAD_YAW_POSE": {
+      "name": "R2_HEAD_YAW_POSE",
+      "type": "EMPTY",
+      "data_name": null,
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_BEARING": {
+      "name": "R2_KEEP_OUT_BEARING",
+      "type": "MESH",
+      "data_name": "Cube.045",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_CAMERA": {
+      "name": "R2_KEEP_OUT_CAMERA",
+      "type": "MESH",
+      "data_name": "Cube.042",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_LCD": {
+      "name": "R2_KEEP_OUT_LCD",
+      "type": "MESH",
+      "data_name": "Cube.040",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_MAINBOARD": {
+      "name": "R2_KEEP_OUT_MAINBOARD",
+      "type": "MESH",
+      "data_name": "Cube.038",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_SERVO": {
+      "name": "R2_KEEP_OUT_SERVO",
+      "type": "MESH",
+      "data_name": "Cube.044",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_KEEP_OUT_SPEAKER": {
+      "name": "R2_KEEP_OUT_SPEAKER",
+      "type": "MESH",
+      "data_name": "Cube.046",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_KEEP_OUTS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_LCD": {
+      "name": "R2_LCD",
+      "type": "MESH",
+      "data_name": "Cube.039",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_LCD_SERVO"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_LID_YAW_HOLE": {
+      "name": "R2_LID_YAW_HOLE",
+      "type": "MESH",
+      "data_name": "Cylinder.004",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": []
+    },
+    "R2_MAINBOARD": {
+      "name": "R2_MAINBOARD",
+      "type": "MESH",
+      "data_name": "Cube.037",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_PCB"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_MUTE_POSITION": {
+      "name": "R2_MUTE_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.035",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CORAL"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_MUTE_RECESS": {
+      "name": "R2_MUTE_RECESS",
+      "type": "MESH",
+      "data_name": "Cube.034",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "R2_NATIVE_CONTROLS"
+      ],
+      "materials": [
+        "R2_CLAY"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_REVIEW_CAMERA": {
+      "name": "R2_REVIEW_CAMERA",
+      "type": "CAMERA",
+      "data_name": "Camera.001",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_REVIEW_CAMERAS"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "R2_SERVO": {
+      "name": "R2_SERVO",
+      "type": "MESH",
+      "data_name": "Cube.043",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_LCD_SERVO"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_SHUTTER_POSITION": {
+      "name": "R2_SHUTTER_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.033",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_BEARING"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_SILICONE_FOOT": {
+      "name": "R2_SILICONE_FOOT",
+      "type": "MESH",
+      "data_name": "Cylinder.005",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_FACE"
+      ],
+      "modifiers": []
+    },
+    "R2_SPEAKER": {
+      "name": "R2_SPEAKER",
+      "type": "MESH",
+      "data_name": "Cylinder.013",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_BEARING"
+      ],
+      "modifiers": []
+    },
+    "R2_SPEAKER_PORT_POSITION": {
+      "name": "R2_SPEAKER_PORT_POSITION",
+      "type": "MESH",
+      "data_name": "Cylinder.010",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_BEARING"
+      ],
+      "modifiers": []
+    },
+    "R2_STATUS_POSITION": {
+      "name": "R2_STATUS_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.036",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_CORAL"
+      ],
+      "modifiers": [
+        {
+          "name": "Semantic edge transition",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        }
+      ]
+    },
+    "R2_YAW_NECK": {
+      "name": "R2_YAW_NECK",
+      "type": "MESH",
+      "data_name": "Cylinder.006",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "R2_MODEL"
+      ],
+      "materials": [
+        "R2_BEARING"
+      ],
+      "modifiers": [
+        {
+          "name": "DIFFERENCE_R2_CABLE_BORE",
+          "type": "BOOLEAN",
+          "show_viewport": true,
+          "show_render": true,
+          "object": "R2_CABLE_BORE"
+        }
+      ]
+    },
+    "REVIEW_FLOOR": {
+      "name": "REVIEW_FLOOR",
+      "type": "MESH",
+      "data_name": "Cube.028",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": []
+    },
+    "Review_camera": {
+      "name": "Review_camera",
+      "type": "CAMERA",
+      "data_name": "Review_camera",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "SERVO_BODY": {
+      "name": "SERVO_BODY",
+      "type": "MESH",
+      "data_name": "Cube.022",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Servo_diagnostic_blue"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "SERVO_KEEP_OUT": {
+      "name": "SERVO_KEEP_OUT",
+      "type": "MESH",
+      "data_name": "Cube.023",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Keepout_wire"
+      ],
+      "modifiers": []
+    },
+    "SHUTTER_THUMB_POSITION": {
+      "name": "SHUTTER_THUMB_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.026",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Control_diagnostic_orange"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "SHUTTER_TRAVEL_RESERVATION": {
+      "name": "SHUTTER_TRAVEL_RESERVATION",
+      "type": "MESH",
+      "data_name": "Cube.025",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_dark"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "SPEAKER_BODY": {
+      "name": "SPEAKER_BODY",
+      "type": "MESH",
+      "data_name": "Cylinder.002",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Speaker_diagnostic_gray"
+      ],
+      "modifiers": [
+        {
+          "name": "Small_real_edge_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "SPEAKER_GRILLE_RESERVATION": {
+      "name": "SPEAKER_GRILLE_RESERVATION",
+      "type": "MESH",
+      "data_name": "Cube.011",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Speaker_diagnostic_gray"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "SPEAKER_KEEP_OUT": {
+      "name": "SPEAKER_KEEP_OUT",
+      "type": "MESH",
+      "data_name": "Cube.024",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Keepout_wire"
+      ],
+      "modifiers": []
+    },
+    "SPEAKER_PORT_CUTTER": {
+      "name": "SPEAKER_PORT_CUTTER",
+      "type": "MESH",
+      "data_name": "Cube.010",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Neutral_shell"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "STATUS_WINDOW_POSITION": {
+      "name": "STATUS_WINDOW_POSITION",
+      "type": "MESH",
+      "data_name": "Cube.013",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Control_diagnostic_orange"
+      ],
+      "modifiers": [
+        {
+          "name": "Editable_profile_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "TOP": {
+      "name": "TOP",
+      "type": "LIGHT",
+      "data_name": "TOP",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [],
+      "modifiers": []
+    },
+    "YAW_APERTURE_CUTTER": {
+      "name": "YAW_APERTURE_CUTTER",
+      "type": "MESH",
+      "data_name": "Cylinder",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": true,
+      "display_type": "WIRE",
+      "collections": [
+        "CUTTERS_AND_KEEP_OUTS"
+      ],
+      "materials": [
+        "Neutral_dark"
+      ],
+      "modifiers": [
+        {
+          "name": "Small_real_edge_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    },
+    "YAW_SUPPORT": {
+      "name": "YAW_SUPPORT",
+      "type": "MESH",
+      "data_name": "Cylinder.001",
+      "matrix_world": [
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0,
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        1.0
+      ],
+      "hide_viewport": false,
+      "hide_render": false,
+      "display_type": "TEXTURED",
+      "collections": [
+        "EFFMEET2_PACKAGING_V1"
+      ],
+      "materials": [
+        "Neutral_dark"
+      ],
+      "modifiers": [
+        {
+          "name": "Small_real_edge_bevel",
+          "type": "BEVEL",
+          "show_viewport": true,
+          "show_render": true
+        },
+        {
+          "name": "Review_normals",
+          "type": "WEIGHTED_NORMAL",
+          "show_viewport": false,
+          "show_render": false
+        }
+      ]
+    }
+  }
+}

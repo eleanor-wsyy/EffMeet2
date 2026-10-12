@@ -1,0 +1,17 @@
+﻿id,measure,budget_note,actual_mm,evidence,measured_at,status
+MAINBOARD,PCB完整排针/USB/最高元件,62.6x28.3为板体记录，装配空间未测,,,,UNVERIFIED
+LCD,玻璃/PCB/厚度/J2朝向/元件,窗口58.2x43.8、PCB85x55为预算,,,,UNVERIFIED
+CAMERA,模组/镜头凸高/FPC口,20x10x18预算,,,,UNVERIFIED
+INMP441_L,PCB/焊点/底部拾音孔坐标,16x6x12装配轴预算,,,,UNVERIFIED
+INMP441_R,PCB/焊点/底部拾音孔坐标,同左，不能推定同批即相同,,,,UNVERIFIED
+MAX98357A,PCB/接头/焊点/元件,23x16x4预算,,,,UNVERIFIED
+TP4056,PCB/USB/焊点,28x17x4预算，不是5V升压,,,,UNVERIFIED
+MG90S,固定耳/舵盘/输出轴偏移,本体22.8x12.2x28.5，其他未测,,,,UNVERIFIED
+6806_LOWER,真实OD/ID/宽/内圈面/配合,标称30x42x7,,,,UNVERIFIED
+6806_UPPER,真实OD/ID/宽/内圈面/配合,标称30x42x7,,,,UNVERIFIED
+GT2_BELT,型号/真实节线长/宽/弹性,228mm仅候选，齿槽未认证,,,,UNVERIFIED
+SPEAKER,外圈/深/接线/安全夹持边,预算<=40x18,,,,UNVERIFIED
+BATTERY,受保护电芯外形/线出/极性,30x55x10装配轴预算,,,,UNVERIFIED
+TACTILE_KEY,6mm键体/脚/致动高/行程,6x6x5预算,,,,UNVERIFIED
+FASTENERS,M3x70头形/头高/螺母厚度,不能只看标称长度,,,,UNVERIFIED
+EXTENSION_BOARD,完整外形/排针,未计入内舱,,,,UNVERIFIED

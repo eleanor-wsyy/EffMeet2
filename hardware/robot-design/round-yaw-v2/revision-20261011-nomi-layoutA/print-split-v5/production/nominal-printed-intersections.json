@@ -1,0 +1,6 @@
+{
+  "scope": "native nominal printed volumes only, not hardware/support/tolerance verification",
+  "bbox_candidates_checked": 65,
+  "positive_intersections": [],
+  "manufacturing_ready": false
+}

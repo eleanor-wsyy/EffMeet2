@@ -1,3 +1,5 @@
+> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+
 # v4 · 外观与安装接口同步
 
 更新：2026-10-11。**NOMI圆头＋圆黑脸的造型方向保留，工程基线改为GOOUU／布局A／灰黑PLA Matte。** 本轮已生成真实模型候选及实渲图，不能再用“仅AI效果图、CAD未改”描述。

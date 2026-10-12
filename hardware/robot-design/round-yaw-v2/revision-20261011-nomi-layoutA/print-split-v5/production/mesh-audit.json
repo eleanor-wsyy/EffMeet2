@@ -1,0 +1,3531 @@
+{
+  "scope": "evaluated candidates, NOT manufacturing release",
+  "cleanup_weld_mm": 1e-05,
+  "parts": [
+    {
+      "id": "P01",
+      "object": "N5_HEAD_SHELL",
+      "raw": {
+        "vertices": 31817,
+        "faces": 29275,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 9,
+        "components": 1,
+        "volume_mm3": 141719.53933215517,
+        "minimum_area_mm2": 4.912794247502461e-05,
+        "bounds_mm": [
+          [
+            -74.99937438964844,
+            -64.00000762939453,
+            92.00000762939453
+          ],
+          [
+            74.99937438964844,
+            64.0,
+            221.9993896484375
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 31808,
+        "faces": 63656,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 141719.14956329952,
+        "minimum_area_mm2": 4.912794247502461e-05,
+        "bounds_mm": [
+          [
+            -74.99937438964844,
+            -64.00000762939453,
+            92.00000762939453
+          ],
+          [
+            74.99937438964844,
+            64.0,
+            221.9993896484375
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 2.7502831118631558e-06,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P01",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 62100,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0007844519132049754,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 7.549127639583393e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 141719.13886473674
+    },
+    {
+      "id": "P02",
+      "object": "N5_FACE_PANEL",
+      "raw": {
+        "vertices": 2072,
+        "faces": 1108,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 13271.285624080007,
+        "minimum_area_mm2": 0.005619603209197521,
+        "bounds_mm": [
+          [
+            -53.0,
+            -64.00000762939453,
+            97.0
+          ],
+          [
+            53.0,
+            -58.60000228881836,
+            203.00001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 2072,
+        "faces": 4168,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 13271.285366770786,
+        "minimum_area_mm2": 0.0054168701171875,
+        "bounds_mm": [
+          [
+            -53.0,
+            -64.00000762939453,
+            97.0
+          ],
+          [
+            53.0,
+            -58.60000228881836,
+            203.00001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.93884170609643e-08,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P02",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 4144,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.005390621678088792,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 4.160485095621311e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 13271.285311556081
+    },
+    {
+      "id": "P03",
+      "object": "N5_SHORT_YAW_NECK",
+      "raw": {
+        "vertices": 2452,
+        "faces": 1402,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 2,
+        "short_edges_below_0001_mm": 92,
+        "components": 1,
+        "volume_mm3": 30132.51294681706,
+        "minimum_area_mm2": 1.9099388737231493e-10,
+        "bounds_mm": [
+          [
+            -31.0,
+            -31.0,
+            74.60000610351562
+          ],
+          [
+            31.0,
+            31.0,
+            99.19999694824219
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 2378,
+        "faces": 4764,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 30132.51291530256,
+        "minimum_area_mm2": 7.485604874091223e-05,
+        "bounds_mm": [
+          [
+            -31.0,
+            -31.0,
+            74.60000610351562
+          ],
+          [
+            31.0,
+            31.0,
+            99.19999694824219
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.0458636751965248e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P03",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 4112,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0001514022527322909,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 9.57413155587502e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 30132.515796174757
+    },
+    {
+      "id": "P04",
+      "object": "N5_BASE_LID",
+      "raw": {
+        "vertices": 10862,
+        "faces": 8979,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 19,
+        "components": 1,
+        "volume_mm3": 48958.20341426269,
+        "minimum_area_mm2": 2.9802322387695312e-08,
+        "bounds_mm": [
+          [
+            -85.71427917480469,
+            -78.0952377319336,
+            66.00000762939453
+          ],
+          [
+            85.71427917480469,
+            78.0952377319336,
+            83.19999694824219
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 10851,
+        "faces": 21730,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 8,
+        "components": 1,
+        "volume_mm3": 48958.20343885928,
+        "minimum_area_mm2": 1.5160832589344864e-08,
+        "bounds_mm": [
+          [
+            -85.71427917480469,
+            -78.0952377319336,
+            66.00000762939453
+          ],
+          [
+            85.71427917480469,
+            78.0952377319336,
+            83.19999694824219
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.023998283872877e-10,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges",
+        "zero_area_faces"
+      ],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P04",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 20172,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 4.5111739412046364e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 4.802984355791938e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 48958.20108713945
+    },
+    {
+      "id": "P05",
+      "object": "N5_BASE_CUP",
+      "raw": {
+        "vertices": 27565,
+        "faces": 21039,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 3,
+        "micro_faces_below_1e8_mm2": 1,
+        "short_edges_below_0001_mm": 124,
+        "components": 1,
+        "volume_mm3": 130959.43718858167,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -90.0,
+            -82.0,
+            2.0
+          ],
+          [
+            90.0,
+            82.0,
+            66.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 27538,
+        "faces": 55204,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 2,
+        "micro_faces_below_1e8_mm2": 22,
+        "short_edges_below_0001_mm": 123,
+        "components": 1,
+        "volume_mm3": 130959.4378683372,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -90.0,
+            -82.0,
+            2.0
+          ],
+          [
+            90.0,
+            82.0,
+            66.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.190580796181192e-09,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges",
+        "zero_area_faces"
+      ],
+      "initial_blocking": [
+        "zero_area_faces",
+        "micro_faces_below_1e8_mm2"
+      ],
+      "export_copy_repair": {
+        "id": "P05",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 52224,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 2.4951327948090677e-07,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 6.763212309318144e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 130959.4369840769
+    },
+    {
+      "id": "P06",
+      "object": "N5_BEARING_TOWER",
+      "raw": {
+        "vertices": 870,
+        "faces": 446,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 16379.553589551415,
+        "minimum_area_mm2": 3.8712360858917236,
+        "bounds_mm": [
+          [
+            -35.0,
+            -19.000001907348633,
+            10.000000953674316
+          ],
+          [
+            35.0,
+            19.000001907348633,
+            44.79999923706055
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 870,
+        "faces": 1752,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 16379.553601758513,
+        "minimum_area_mm2": 0.0286407470703125,
+        "bounds_mm": [
+          [
+            -35.0,
+            -19.000001907348633,
+            10.000000953674316
+          ],
+          [
+            35.0,
+            19.000001907348633,
+            44.79999923706055
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 7.452643784381967e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P06",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1708,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.028626531367990538,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 9.439961962923014e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 16379.553447136055
+    },
+    {
+      "id": "P07",
+      "object": "N5_BEARING_SEAT_LOWER_LEFT",
+      "raw": {
+        "vertices": 1125,
+        "faces": 560,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 5,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 17,
+        "components": 1,
+        "volume_mm3": 11368.2358135096,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -34.0,
+            -31.0,
+            44.80000305175781
+          ],
+          [
+            -0.19999998807907104,
+            31.0,
+            54.20000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1105,
+        "faces": 2230,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 11368.235860329238,
+        "minimum_area_mm2": 0.006210147403180599,
+        "bounds_mm": [
+          [
+            -34.0,
+            -31.0,
+            44.80000305175781
+          ],
+          [
+            -0.19999998807907104,
+            31.0,
+            54.20000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 4.1184611591473626e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P07",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 2056,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.013016322096518707,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.1893698116130148e-06
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 11368.222297050144
+    },
+    {
+      "id": "P08",
+      "object": "N5_BEARING_SEAT_LOWER_RIGHT",
+      "raw": {
+        "vertices": 1150,
+        "faces": 583,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 13,
+        "components": 1,
+        "volume_mm3": 11272.913584431986,
+        "minimum_area_mm2": 1.0968506103381515e-07,
+        "bounds_mm": [
+          [
+            0.19999998807907104,
+            -31.0,
+            44.80000305175781
+          ],
+          [
+            34.0,
+            31.0,
+            54.20000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1134,
+        "faces": 2288,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 11272.913641253355,
+        "minimum_area_mm2": 0.0010418891906738281,
+        "bounds_mm": [
+          [
+            0.19999998807907104,
+            -31.0,
+            44.80000305175781
+          ],
+          [
+            34.0,
+            31.0,
+            54.20000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.040522012847606e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P08",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 2106,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.01627776413806714,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.2012415547375518e-06
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 11272.900052054167
+    },
+    {
+      "id": "P09",
+      "object": "N5_BEARING_SEAT_UPPER_LEFT",
+      "raw": {
+        "vertices": 1233,
+        "faces": 641,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 96,
+        "components": 1,
+        "volume_mm3": 11233.358895170257,
+        "minimum_area_mm2": 3.0254220746428473e-06,
+        "bounds_mm": [
+          [
+            -34.0,
+            -31.0,
+            64.80000305175781
+          ],
+          [
+            -0.19999998807907104,
+            31.0,
+            74.20000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1137,
+        "faces": 2294,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 1,
+        "components": 1,
+        "volume_mm3": 11233.360143526825,
+        "minimum_area_mm2": 1.52587890625e-05,
+        "bounds_mm": [
+          [
+            -34.0,
+            -31.0,
+            64.80000305175781
+          ],
+          [
+            -0.19999998807907104,
+            31.0,
+            74.20000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.1112941191807184e-07,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges"
+      ],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P09",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 2104,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0055435963195122895,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.3329042824765126e-06
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 11233.343893332183
+    },
+    {
+      "id": "P10",
+      "object": "N5_BEARING_SEAT_UPPER_RIGHT",
+      "raw": {
+        "vertices": 1259,
+        "faces": 662,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 93,
+        "components": 1,
+        "volume_mm3": 11138.03667919853,
+        "minimum_area_mm2": 3.0254220746428473e-06,
+        "bounds_mm": [
+          [
+            0.19999998807907104,
+            -31.0,
+            64.80000305175781
+          ],
+          [
+            34.0,
+            31.0,
+            74.20000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1166,
+        "faces": 2352,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 11138.038238338053,
+        "minimum_area_mm2": 0.0010418891906738281,
+        "bounds_mm": [
+          [
+            0.19999998807907104,
+            -31.0,
+            64.80000305175781
+          ],
+          [
+            34.0,
+            31.0,
+            74.20000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.3998333522517443e-07,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P10",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 2154,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.005544955605728319,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.3842517812016105e-06
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 11138.021281579453
+    },
+    {
+      "id": "P11",
+      "object": "N5_BEARING_STACK_SPACER_1",
+      "raw": {
+        "vertices": 384,
+        "faces": 196,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.2175298367855,
+        "minimum_area_mm2": 1.1791568994522095,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            -18.100000381469727,
+            54.20000076293945
+          ],
+          [
+            -23.899999618530273,
+            -9.899999618530273,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 384,
+        "faces": 768,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.2175298367859,
+        "minimum_area_mm2": 0.01300048828125,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            -18.100000381469727,
+            54.20000076293945
+          ],
+          [
+            -23.899999618530273,
+            -9.899999618530273,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 8.590001595273335e-16,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P11",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 768,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.012995812806366303,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 463.2175298367846
+    },
+    {
+      "id": "P12",
+      "object": "N5_BEARING_STACK_SPACER_2",
+      "raw": {
+        "vertices": 384,
+        "faces": 196,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.21752983678533,
+        "minimum_area_mm2": 1.1791568994522095,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            9.899999618530273,
+            54.20000076293945
+          ],
+          [
+            -23.899999618530273,
+            18.100000381469727,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 384,
+        "faces": 768,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.2175298367866,
+        "minimum_area_mm2": 0.01299285888671875,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            9.899999618530273,
+            54.20000076293945
+          ],
+          [
+            -23.899999618530273,
+            18.100000381469727,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 2.699714787085906e-15,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P12",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 768,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.012995812806366303,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 463.2175298367846
+    },
+    {
+      "id": "P13",
+      "object": "N5_BEARING_STACK_SPACER_3",
+      "raw": {
+        "vertices": 384,
+        "faces": 196,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.21752983678493,
+        "minimum_area_mm2": 1.1791568994522095,
+        "bounds_mm": [
+          [
+            23.899999618530273,
+            -18.100000381469727,
+            54.20000076293945
+          ],
+          [
+            32.099998474121094,
+            -9.899999618530273,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 384,
+        "faces": 768,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.2175298367854,
+        "minimum_area_mm2": 0.01300048828125,
+        "bounds_mm": [
+          [
+            23.899999618530273,
+            -18.100000381469727,
+            54.20000076293945
+          ],
+          [
+            32.099998474121094,
+            -9.899999618530273,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 9.817144680312396e-16,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P13",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 768,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.012995756783311663,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 463.2175298367846
+    },
+    {
+      "id": "P14",
+      "object": "N5_BEARING_STACK_SPACER_4",
+      "raw": {
+        "vertices": 384,
+        "faces": 196,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.2175298367842,
+        "minimum_area_mm2": 1.1791568994522095,
+        "bounds_mm": [
+          [
+            23.899999618530273,
+            9.899999618530273,
+            54.20000076293945
+          ],
+          [
+            32.099998474121094,
+            18.100000381469727,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 384,
+        "faces": 768,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 463.217529836785,
+        "minimum_area_mm2": 0.01299285888671875,
+        "bounds_mm": [
+          [
+            23.899999618530273,
+            9.899999618530273,
+            54.20000076293945
+          ],
+          [
+            32.099998474121094,
+            18.100000381469727,
+            64.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.7180003190546717e-15,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P14",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 768,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.012995756783311663,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 463.2175298367846
+    },
+    {
+      "id": "P15",
+      "object": "N5_HOLLOW_LOAD_SHAFT",
+      "raw": {
+        "vertices": 1041,
+        "faces": 574,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 17307.356226737298,
+        "minimum_area_mm2": 0.36017414927482605,
+        "bounds_mm": [
+          [
+            -17.25,
+            -17.25,
+            38.999996185302734
+          ],
+          [
+            17.25,
+            17.25,
+            93.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1041,
+        "faces": 2082,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 17307.356237527558,
+        "minimum_area_mm2": 0.009889721870422363,
+        "bounds_mm": [
+          [
+            -17.25,
+            -17.25,
+            38.999996185302734
+          ],
+          [
+            17.25,
+            17.25,
+            93.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 6.234493328957948e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P15",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1588,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.009889840704317976,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.1180598602055887e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 17307.35621817701
+    },
+    {
+      "id": "P16",
+      "object": "N5_SHAFT_LOWER_LOCK_COLLAR",
+      "raw": {
+        "vertices": 825,
+        "faces": 424,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 3188.337152124041,
+        "minimum_area_mm2": 0.4115953743457794,
+        "bounds_mm": [
+          [
+            -19.0,
+            -23.0,
+            32.60000228881836
+          ],
+          [
+            19.0,
+            19.0,
+            45.79999923706055
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 825,
+        "faces": 1654,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 3188.3371549796193,
+        "minimum_area_mm2": 0.002841949462890625,
+        "bounds_mm": [
+          [
+            -19.0,
+            -23.0,
+            32.60000228881836
+          ],
+          [
+            19.0,
+            19.0,
+            45.79999923706055
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 8.95632463864189e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P16",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1628,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0028465877403505147,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 8.860669483902454e-10
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 3188.3371521545464
+    },
+    {
+      "id": "P17",
+      "object": "N5_DRIVEN_64T_WHEEL",
+      "raw": {
+        "vertices": 10642,
+        "faces": 3796,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 4769.825532739126,
+        "minimum_area_mm2": 0.00027734789182431996,
+        "bounds_mm": [
+          [
+            -21.600000381469727,
+            -21.600000381469727,
+            55.29999923706055
+          ],
+          [
+            21.600000381469727,
+            21.600000381469727,
+            63.70000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 10642,
+        "faces": 21288,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 4769.825640085186,
+        "minimum_area_mm2": 1.1622905731201172e-05,
+        "bounds_mm": [
+          [
+            -21.600000381469727,
+            -21.600000381469727,
+            55.29999923706055
+          ],
+          [
+            21.600000381469727,
+            21.600000381469727,
+            63.70000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 2.2505238213070157e-08,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P17",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 14628,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 2.6239511043968378e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 2.4825843027241945e-07
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 4769.82445593579
+    },
+    {
+      "id": "P18",
+      "object": "N5_DRIVER_64T_WHEEL",
+      "raw": {
+        "vertices": 10406,
+        "faces": 3676,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 9557.361552197377,
+        "minimum_area_mm2": 0.0982518419623375,
+        "bounds_mm": [
+          [
+            -71.60000610351562,
+            -21.600000381469727,
+            55.29999923706055
+          ],
+          [
+            -28.399999618530273,
+            21.600000381469727,
+            63.70000457763672
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 10406,
+        "faces": 20812,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 9557.36166250139,
+        "minimum_area_mm2": 1.1682510375976562e-05,
+        "bounds_mm": [
+          [
+            -71.60000610351562,
+            -21.600000381469727,
+            55.29999923706055
+          ],
+          [
+            -28.399999618530273,
+            21.600000381469727,
+            63.70000457763672
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.1541261842373013e-08,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P18",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 14144,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 2.6125380827579647e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 2.1286033447989587e-07
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 9557.359628118382
+    },
+    {
+      "id": "P19",
+      "object": "N5_SERVO_ADJUSTABLE_CRADLE",
+      "raw": {
+        "vertices": 604,
+        "faces": 356,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 8943.175654751069,
+        "minimum_area_mm2": 0.01445824559777975,
+        "bounds_mm": [
+          [
+            -64.5999984741211,
+            -17.0,
+            8.0
+          ],
+          [
+            -35.39999771118164,
+            17.0,
+            52.40000915527344
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 604,
+        "faces": 1228,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 8943.175655563404,
+        "minimum_area_mm2": 0.01177215576171875,
+        "bounds_mm": [
+          [
+            -64.5999984741211,
+            -17.0,
+            8.0
+          ],
+          [
+            -35.39999771118164,
+            17.0,
+            52.40000915527344
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 9.083296953251457e-11,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P19",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1228,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.011772167936214828,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 8943.175655563391
+    },
+    {
+      "id": "P20",
+      "object": "N5_PRIVACY_GUIDE_BASE",
+      "raw": {
+        "vertices": 522,
+        "faces": 317,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 1,
+        "components": 1,
+        "volume_mm3": 595.503165519613,
+        "minimum_area_mm2": 0.014457212761044502,
+        "bounds_mm": [
+          [
+            -12.249999046325684,
+            -67.19999694824219,
+            182.5
+          ],
+          [
+            25.75,
+            -64.0,
+            195.50001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 522,
+        "faces": 1052,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 1,
+        "components": 1,
+        "volume_mm3": 595.5031652827963,
+        "minimum_area_mm2": 0.0003662109375,
+        "bounds_mm": [
+          [
+            -12.249999046325684,
+            -67.19999694824219,
+            182.5
+          ],
+          [
+            25.75,
+            -64.0,
+            195.50001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 3.976750171452536e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P20",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1048,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.01128136002807878,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 7.74606861634957e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 595.5032114108695
+    },
+    {
+      "id": "P21",
+      "object": "N5_PRIVACY_MOVING_BLADE",
+      "raw": {
+        "vertices": 200,
+        "faces": 192,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 277.0842580376474,
+        "minimum_area_mm2": 0.009253039956092834,
+        "bounds_mm": [
+          [
+            -8.0,
+            -70.0,
+            184.00001525878906
+          ],
+          [
+            8.0,
+            -65.30000305175781,
+            194.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 200,
+        "faces": 396,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 277.08420282505284,
+        "minimum_area_mm2": 0.0007074922323226929,
+        "bounds_mm": [
+          [
+            -8.0,
+            -70.0,
+            184.00001525878906
+          ],
+          [
+            8.0,
+            -65.30000305175781,
+            194.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.9926283406686042e-07,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P21",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 396,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0007074875938997138,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 277.08420282504545
+    },
+    {
+      "id": "P22",
+      "object": "N5_PRIVACY_FRONT_RETAINER",
+      "raw": {
+        "vertices": 514,
+        "faces": 311,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 280.9387387327472,
+        "minimum_area_mm2": 0.009253039956092834,
+        "bounds_mm": [
+          [
+            -12.249999046325684,
+            -68.40000915527344,
+            182.5
+          ],
+          [
+            25.75,
+            -67.20000457763672,
+            195.50001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 514,
+        "faces": 1036,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 280.9387383046609,
+        "minimum_area_mm2": 0.009253039956092834,
+        "bounds_mm": [
+          [
+            -12.249999046325684,
+            -68.40000915527344,
+            182.5
+          ],
+          [
+            25.75,
+            -67.20000457763672,
+            195.50001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.5237710236860103e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P22",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1032,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.009252828478146112,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.2292206791465123e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 280.93873864995584
+    },
+    {
+      "id": "P23",
+      "object": "N5_LCD_BUDGET_FRAME",
+      "raw": {
+        "vertices": 722,
+        "faces": 467,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 11,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 5137.191954179108,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -51.29999923706055,
+            -57.70000076293945,
+            115.50000762939453
+          ],
+          [
+            51.29999923706055,
+            -53.900001525878906,
+            174.50001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 706,
+        "faces": 1420,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 5137.194124857269,
+        "minimum_area_mm2": 1.7886757632368244e-05,
+        "bounds_mm": [
+          [
+            -51.29999923706055,
+            -57.70000076293945,
+            115.50000762939453
+          ],
+          [
+            51.29999923706055,
+            -53.900001525878906,
+            174.50001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 4.2254176622326065e-07,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P23",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1416,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 1.79035260633098e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 3.576264658428691e-10
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 5137.194119550511
+    },
+    {
+      "id": "P24",
+      "object": "N5_LCD_PRESSURE_FRAME",
+      "raw": {
+        "vertices": 703,
+        "faces": 427,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 29,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 92,
+        "components": 1,
+        "volume_mm3": 2021.3787159648818,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -51.29999923706055,
+            -61.400001525878906,
+            115.50000762939453
+          ],
+          [
+            51.29999923706055,
+            -59.80000305175781,
+            174.50001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 649,
+        "faces": 1306,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 1,
+        "short_edges_below_0001_mm": 47,
+        "components": 1,
+        "volume_mm3": 2021.3788856028443,
+        "minimum_area_mm2": 9.313225746154785e-10,
+        "bounds_mm": [
+          [
+            -51.29999923706055,
+            -61.400001525878906,
+            115.50000762939453
+          ],
+          [
+            51.29999923706055,
+            -59.80000305175781,
+            174.50001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 8.39219098984378e-08,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges",
+        "zero_area_faces"
+      ],
+      "initial_blocking": [
+        "micro_faces_below_1e8_mm2"
+      ],
+      "export_copy_repair": {
+        "id": "P24",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1256,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0001112121335136349,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 2.4104350943566367e-06
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 2021.3837556520837
+    },
+    {
+      "id": "P25",
+      "object": "N5_CAMERA_CRADLE",
+      "raw": {
+        "vertices": 1949,
+        "faces": 1080,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 5,
+        "short_edges_below_0001_mm": 20,
+        "components": 1,
+        "volume_mm3": 4672.977082658678,
+        "minimum_area_mm2": 1.1641532182693481e-10,
+        "bounds_mm": [
+          [
+            -25.000001907348633,
+            -61.200008392333984,
+            172.0
+          ],
+          [
+            25.000001907348633,
+            -46.400001525878906,
+            199.70001220703125
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1944,
+        "faces": 3908,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 3,
+        "short_edges_below_0001_mm": 13,
+        "components": 1,
+        "volume_mm3": 4672.977105264412,
+        "minimum_area_mm2": 1.3015628852475203e-10,
+        "bounds_mm": [
+          [
+            -25.000001907348633,
+            -61.200008392333984,
+            172.0
+          ],
+          [
+            25.000001907348633,
+            -46.400001525878906,
+            199.70001220703125
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 4.837544299444762e-09,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges",
+        "zero_area_faces"
+      ],
+      "initial_blocking": [
+        "micro_faces_below_1e8_mm2"
+      ],
+      "export_copy_repair": {
+        "id": "P25",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 3820,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 7.900861678948683e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 6.56893611985853e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 4672.976744124163
+    },
+    {
+      "id": "P26",
+      "object": "N5_CAMERA_BACK_RETAINER",
+      "raw": {
+        "vertices": 925,
+        "faces": 481,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 7,
+        "components": 1,
+        "volume_mm3": 902.3782341435608,
+        "minimum_area_mm2": 2.1505547920241952e-05,
+        "bounds_mm": [
+          [
+            -13.600000381469727,
+            -46.400001525878906,
+            172.0
+          ],
+          [
+            13.600000381469727,
+            -44.0,
+            200.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 925,
+        "faces": 1858,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 1,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 8,
+        "components": 1,
+        "volume_mm3": 902.3779914567181,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -13.600000381469727,
+            -46.400001525878906,
+            172.0
+          ],
+          [
+            13.600000381469727,
+            -44.0,
+            200.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 2.6894137464378854e-07,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges",
+        "zero_area_faces"
+      ],
+      "initial_blocking": [
+        "zero_area_faces"
+      ],
+      "export_copy_repair": {
+        "id": "P26",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1760,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.00021665414551514447,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 3.059095131063026e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 902.3779638521294
+    },
+    {
+      "id": "P27",
+      "object": "N5_STOP_KEY_CAP",
+      "raw": {
+        "vertices": 310,
+        "faces": 288,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 16,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 395.5022311830556,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -7.099999904632568,
+            -54.10000228881836,
+            72.19999694824219
+          ],
+          [
+            7.099999904632568,
+            -43.900001525878906,
+            78.5
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 294,
+        "faces": 584,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 395.502208054275,
+        "minimum_area_mm2": 0.005114804487675428,
+        "bounds_mm": [
+          [
+            -7.099999904632568,
+            -54.10000228881836,
+            72.19999694824219
+          ],
+          [
+            7.099999904632568,
+            -43.900001525878906,
+            78.5
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.847951986012327e-08,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P27",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 584,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.005114719026453535,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 395.5022080542742
+    },
+    {
+      "id": "P28",
+      "object": "N5_TACTILE_SWITCH_HOLDER",
+      "raw": {
+        "vertices": 952,
+        "faces": 558,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 2,
+        "components": 1,
+        "volume_mm3": 2645.989264861689,
+        "minimum_area_mm2": 0.005205290857702494,
+        "bounds_mm": [
+          [
+            -20.0,
+            -56.500003814697266,
+            64.0
+          ],
+          [
+            20.0,
+            -41.500003814697266,
+            74.5999984741211
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 952,
+        "faces": 1908,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 2,
+        "components": 1,
+        "volume_mm3": 2645.9892651232644,
+        "minimum_area_mm2": 6.103515625e-05,
+        "bounds_mm": [
+          [
+            -20.0,
+            -56.500003814697266,
+            64.0
+          ],
+          [
+            20.0,
+            -41.500003814697266,
+            74.5999984741211
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 9.885725054786874e-11,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges"
+      ],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P28",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1900,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 7.447233656421304e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.7186288579491992e-16
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 2645.9892651232676
+    },
+    {
+      "id": "P29",
+      "object": "N5_MAINBOARD_EDGE_CRADLE",
+      "raw": {
+        "vertices": 1041,
+        "faces": 646,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 8,
+        "components": 1,
+        "volume_mm3": 5303.549364231281,
+        "minimum_area_mm2": 5.4001808166503906e-05,
+        "bounds_mm": [
+          [
+            -37.900001525878906,
+            44.500003814697266,
+            8.000000953674316
+          ],
+          [
+            37.900001525878906,
+            58.500003814697266,
+            63.500003814697266
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1041,
+        "faces": 2094,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 8,
+        "components": 1,
+        "volume_mm3": 5303.549430378292,
+        "minimum_area_mm2": 5.586326096818084e-06,
+        "bounds_mm": [
+          [
+            -37.900001525878906,
+            44.500003814697266,
+            8.000000953674316
+          ],
+          [
+            37.900001525878906,
+            58.500003814697266,
+            63.500003814697266
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.2472215451731644e-08,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P29",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 2060,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 1.4326070123951201e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 2.7825513420375053e-07
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 5303.547954638414
+    },
+    {
+      "id": "P30",
+      "object": "N5_MAINBOARD_TOP_RETAINER",
+      "raw": {
+        "vertices": 514,
+        "faces": 303,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 1653.613888687959,
+        "minimum_area_mm2": 0.014458589255809784,
+        "bounds_mm": [
+          [
+            -35.0,
+            48.900001525878906,
+            60.0
+          ],
+          [
+            35.0,
+            56.20000457763672,
+            66.0999984741211
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 514,
+        "faces": 1032,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 1653.6138887054958,
+        "minimum_area_mm2": 7.923258090158924e-05,
+        "bounds_mm": [
+          [
+            -35.0,
+            48.900001525878906,
+            60.0
+          ],
+          [
+            35.0,
+            56.20000457763672,
+            66.0999984741211
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.0605182358198525e-11,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P30",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1032,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 7.922097229509291e-05,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 1653.6138887054851
+    },
+    {
+      "id": "P31",
+      "object": "N5_FIXED_MIC_DUCT_CRADLE_1",
+      "raw": {
+        "vertices": 1757,
+        "faces": 1031,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 3,
+        "micro_faces_below_1e8_mm2": 1,
+        "short_edges_below_0001_mm": 28,
+        "components": 1,
+        "volume_mm3": 3836.609014150493,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -32.30000305175781,
+            59.000003814697266,
+            7.999997615814209
+          ],
+          [
+            -0.299999475479126,
+            77.30000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1745,
+        "faces": 3502,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 3836.6089933776584,
+        "minimum_area_mm2": 4.386936780065298e-06,
+        "bounds_mm": [
+          [
+            -32.30000305175781,
+            59.000003814697266,
+            7.999997615814209
+          ],
+          [
+            -0.299999475479126,
+            77.30000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.414373566741015e-09,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges"
+      ],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P31",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 3272,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0001044207838276634,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.985163275914665e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 3836.609084016389
+    },
+    {
+      "id": "P32",
+      "object": "N5_MIC_RETAINER_1",
+      "raw": {
+        "vertices": 480,
+        "faces": 294,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 570.5743373874847,
+        "minimum_area_mm2": 0.009253564290702343,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            62.400001525878906,
+            53.80000305175781
+          ],
+          [
+            -0.5000010132789612,
+            64.80000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 480,
+        "faces": 964,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 570.5743373762647,
+        "minimum_area_mm2": 0.009253564290702343,
+        "bounds_mm": [
+          [
+            -32.099998474121094,
+            62.400001525878906,
+            53.80000305175781
+          ],
+          [
+            -0.5000010132789612,
+            64.80000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 1.9664363875520904e-11,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P32",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 964,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.009253796024261397,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 570.5743373762645
+    },
+    {
+      "id": "P33",
+      "object": "N5_FIXED_MIC_DUCT_CRADLE_2",
+      "raw": {
+        "vertices": 1757,
+        "faces": 1031,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 4,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 28,
+        "components": 1,
+        "volume_mm3": 3836.6090142523703,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            0.299999475479126,
+            59.000003814697266,
+            7.999997615814209
+          ],
+          [
+            32.30000305175781,
+            77.30000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1745,
+        "faces": 3502,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 1,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 3836.6089931452525,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            0.299999475479126,
+            59.000003814697266,
+            7.999997615814209
+          ],
+          [
+            32.30000305175781,
+            77.30000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.501503480579296e-09,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges"
+      ],
+      "initial_blocking": [
+        "zero_area_faces"
+      ],
+      "export_copy_repair": {
+        "id": "P33",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 3272,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0001044207838276634,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.9905695722773427e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 3836.609084171053
+    },
+    {
+      "id": "P34",
+      "object": "N5_MIC_RETAINER_2",
+      "raw": {
+        "vertices": 480,
+        "faces": 294,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 570.5743373874777,
+        "minimum_area_mm2": 0.009253564290702343,
+        "bounds_mm": [
+          [
+            0.5000010132789612,
+            62.400001525878906,
+            53.80000305175781
+          ],
+          [
+            32.099998474121094,
+            64.80000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 480,
+        "faces": 964,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 570.5743376511067,
+        "minimum_area_mm2": 0.009253564290702343,
+        "bounds_mm": [
+          [
+            0.5000010132789612,
+            62.400001525878906,
+            53.80000305175781
+          ],
+          [
+            32.099998474121094,
+            64.80000305175781,
+            61.80000305175781
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 4.6204141888669147e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P34",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 964,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.009253796024261397,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 570.5743376510898
+    },
+    {
+      "id": "P35",
+      "object": "N5_I2S_AMP_OPEN_TRAY",
+      "raw": {
+        "vertices": 442,
+        "faces": 295,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 6050.988459520519,
+        "minimum_area_mm2": 0.005205101799219847,
+        "bounds_mm": [
+          [
+            5.800000190734863,
+            -45.0,
+            6.899999618530273
+          ],
+          [
+            34.20000076293945,
+            -23.599998474121094,
+            28.400001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 442,
+        "faces": 888,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 6050.98840066599,
+        "minimum_area_mm2": 0.005205101799219847,
+        "bounds_mm": [
+          [
+            5.800000190734863,
+            -45.0,
+            6.899999618530273
+          ],
+          [
+            34.20000076293945,
+            -23.599998474121094,
+            28.400001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 9.726432203495777e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P35",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 864,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.005205153546759365,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 6050.988400665982
+    },
+    {
+      "id": "P36",
+      "object": "N5_BATTERY_CHARGER_OPEN_TRAY",
+      "raw": {
+        "vertices": 634,
+        "faces": 393,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 5376.403874190268,
+        "minimum_area_mm2": 0.005204929504543543,
+        "bounds_mm": [
+          [
+            -56.70000076293945,
+            20.80000114440918,
+            6.90000057220459
+          ],
+          [
+            -23.299999237060547,
+            43.20000076293945,
+            19.400001525878906
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 634,
+        "faces": 1276,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 5376.403845521984,
+        "minimum_area_mm2": 0.005204929504543543,
+        "bounds_mm": [
+          [
+            -56.70000076293945,
+            20.80000114440918,
+            6.90000057220459
+          ],
+          [
+            -23.299999237060547,
+            43.20000076293945,
+            19.400001525878906
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.3322414236996016e-09,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P36",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1252,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.00520498280201459,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 5376.40384552198
+    },
+    {
+      "id": "P37",
+      "object": "N5_OPTIONAL_BATTERY_TRAY",
+      "raw": {
+        "vertices": 706,
+        "faces": 479,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 10832.504969379606,
+        "minimum_area_mm2": 0.020819993689656258,
+        "bounds_mm": [
+          [
+            35.000003814697266,
+            -37.0,
+            5.600000858306885
+          ],
+          [
+            71.0,
+            37.0,
+            17.600000381469727
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 706,
+        "faces": 1416,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 10832.504969003867,
+        "minimum_area_mm2": 0.00019025802612304688,
+        "bounds_mm": [
+          [
+            35.000003814697266,
+            -37.0,
+            5.600000858306885
+          ],
+          [
+            71.0,
+            37.0,
+            17.600000381469727
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 3.468630267934869e-11,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P37",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1416,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.00019025409710593522,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 10832.50496900386
+    },
+    {
+      "id": "P38",
+      "object": "N5_SPEAKER_AXIAL_CRADLE",
+      "raw": {
+        "vertices": 2268,
+        "faces": 1226,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 3,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 16,
+        "components": 1,
+        "volume_mm3": 16552.310193386533,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -27.000001907348633,
+            -68.0,
+            8.000000953674316
+          ],
+          [
+            27.000001907348633,
+            -46.000003814697266,
+            56.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 2256,
+        "faces": 4520,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 4,
+        "components": 1,
+        "volume_mm3": 16552.310156084466,
+        "minimum_area_mm2": 3.3550168154761195e-07,
+        "bounds_mm": [
+          [
+            -27.000001907348633,
+            -68.0,
+            8.000000953674316
+          ],
+          [
+            27.000001907348633,
+            -46.000003814697266,
+            56.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 2.253586731664937e-09,
+      "blocking": [],
+      "independent_issues": [
+        "zero_length_edges"
+      ],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P38",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 4094,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.0004045078676426783,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 2.686093694652089e-09
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 16552.31011445718
+    },
+    {
+      "id": "P39",
+      "object": "N5_SPEAKER_FRONT_RETAINER",
+      "raw": {
+        "vertices": 1309,
+        "faces": 510,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 5,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 5,
+        "components": 1,
+        "volume_mm3": 1664.48078599785,
+        "minimum_area_mm2": 0.0,
+        "bounds_mm": [
+          [
+            -27.000001907348633,
+            -70.70001220703125,
+            10.0
+          ],
+          [
+            27.000001907348633,
+            -68.30000305175781,
+            56.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 1305,
+        "faces": 2618,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 1,
+        "components": 1,
+        "volume_mm3": 1664.4802497116762,
+        "minimum_area_mm2": 1.341104507446289e-07,
+        "bounds_mm": [
+          [
+            -27.000001907348633,
+            -70.70001220703125,
+            10.0
+          ],
+          [
+            27.000001907348633,
+            -68.30000305175781,
+            56.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 3.221942712673763e-07,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P39",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 1794,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.00224044342758134,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 1.697574846415812e-08
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 1664.4802779674758
+    },
+    {
+      "id": "P40",
+      "object": "N5_CABLE_SADDLE_1",
+      "raw": {
+        "vertices": 324,
+        "faces": 214,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 714.7038414041456,
+        "minimum_area_mm2": 0.03701319172978401,
+        "bounds_mm": [
+          [
+            8.0,
+            27.000001907348633,
+            10.0
+          ],
+          [
+            24.0,
+            41.0,
+            16.0
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 324,
+        "faces": 648,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 714.7038418478062,
+        "minimum_area_mm2": 0.022861480712890625,
+        "bounds_mm": [
+          [
+            8.0,
+            27.000001907348633,
+            10.0
+          ],
+          [
+            24.0,
+            41.0,
+            16.0
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 6.20761474571359e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P40",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 648,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.022862112087750575,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 714.7038418478066
+    },
+    {
+      "id": "P41",
+      "object": "N5_CABLE_SADDLE_2",
+      "raw": {
+        "vertices": 324,
+        "faces": 214,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 714.7040610540796,
+        "minimum_area_mm2": 0.037012092769145966,
+        "bounds_mm": [
+          [
+            28.0,
+            -7.0,
+            99.50000762939453
+          ],
+          [
+            44.000003814697266,
+            7.0,
+            105.50000762939453
+          ]
+        ]
+      },
+      "cleaned": {
+        "vertices": 324,
+        "faces": 648,
+        "boundary_edges": 0,
+        "nonmanifold_edges": 0,
+        "wire_edges": 0,
+        "loose_vertices": 0,
+        "zero_area_faces": 0,
+        "micro_faces_below_1e8_mm2": 0,
+        "short_edges_below_0001_mm": 0,
+        "components": 1,
+        "volume_mm3": 714.7040606441373,
+        "minimum_area_mm2": 0.022861480712890625,
+        "bounds_mm": [
+          [
+            28.0,
+            -7.0,
+            99.50000762939453
+          ],
+          [
+            44.000003814697266,
+            7.0,
+            105.50000762939453
+          ]
+        ]
+      },
+      "cleanup_max_bound_change_mm": 0.0,
+      "cleanup_relative_volume_change": 5.735833435089668e-10,
+      "blocking": [],
+      "independent_issues": [],
+      "initial_blocking": [],
+      "export_copy_repair": {
+        "id": "P41",
+        "raw_status": "Error.NoError",
+        "trials": [
+          {
+            "tolerance_mm": 0.001,
+            "faces": 648,
+            "zero_area": 0,
+            "micro_faces": 0,
+            "minimum_area_mm2": 0.022861378252855502,
+            "watertight": true,
+            "bounds_delta_mm": 0.0,
+            "relative_volume_delta": 0.0
+          }
+        ],
+        "float32_export_checks": [
+          {
+            "iteration": 0,
+            "collapsed_float32_faces": 0,
+            "watertight_float32": true
+          }
+        ]
+      },
+      "final_export_volume_mm3": 714.704060644143
+    }
+  ],
+  "all_closed": true,
+  "hardware_validated": false,
+  "manufacturing_ready": false,
+  "cleanup_note": "Initial Blender mesh diagnostics retained; final repaired copies checked separately. Does NOT authorize printing."
+}

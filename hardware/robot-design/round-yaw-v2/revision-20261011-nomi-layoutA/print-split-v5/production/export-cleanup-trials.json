@@ -1,0 +1,62 @@
+[
+  {
+    "object": "N5_HEAD_SHELL",
+    "angle_deg": 0.01,
+    "vertices": 31232,
+    "boundary": 0,
+    "nonmanifold": 0,
+    "zero": 0,
+    "micro": 4,
+    "volume": 141433.6172204733
+  },
+  {
+    "object": "N5_HEAD_SHELL",
+    "angle_deg": 0.1,
+    "vertices": 31114,
+    "boundary": 0,
+    "nonmanifold": 0,
+    "zero": 0,
+    "micro": 4,
+    "volume": 141433.61756247154
+  },
+  {
+    "object": "N5_HEAD_SHELL",
+    "angle_deg": 0.3,
+    "vertices": 30738,
+    "boundary": 0,
+    "nonmanifold": 0,
+    "zero": 0,
+    "micro": 4,
+    "volume": 141433.6055415852
+  },
+  {
+    "object": "N5_BASE_CUP",
+    "angle_deg": 0.01,
+    "vertices": 28453,
+    "boundary": 3,
+    "nonmanifold": 13,
+    "zero": 1,
+    "micro": 0,
+    "volume": 131242.0777454738
+  },
+  {
+    "object": "N5_BASE_CUP",
+    "angle_deg": 0.1,
+    "vertices": 27698,
+    "boundary": 0,
+    "nonmanifold": 10,
+    "zero": 1,
+    "micro": 0,
+    "volume": 131243.96625111508
+  },
+  {
+    "object": "N5_BASE_CUP",
+    "angle_deg": 0.3,
+    "vertices": 27524,
+    "boundary": 0,
+    "nonmanifold": 10,
+    "zero": 1,
+    "micro": 0,
+    "volume": 131243.13015832868
+  }
+]

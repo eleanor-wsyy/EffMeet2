@@ -1,5 +1,5 @@
 {
-  "revision": "nomi-goouu-layoutA-v4",
+  "revision": "nomi-goouu-layoutA-v5-print-candidate",
   "units": "mm",
   "scope": "reversible engineering packaging candidate; dimensions are nominal, not manufacturing release",
   "envelope": {
@@ -498,5 +498,272 @@
   "power_policy": {
     "demo": "external regulated5V board+amplifier; independent rated servo supply and common ground",
     "battery": "reserved protected3.7V cell and charger; no standalone battery operation claim; add validated5V conversion/power-path if required"
+  },
+  "print_split": {
+    "schema_version": 1,
+    "status": "conditional_candidate",
+    "interface_status": "unverified",
+    "layer_orientation_status": "NOT_SLICED_NOT_PRINTED",
+    "bearing": {
+      "od_budget": 42,
+      "id_budget": 30,
+      "width_budget": 7,
+      "seat_bore": 42.3,
+      "seat_od": 54,
+      "seat_height": 9.4,
+      "split_gap": 0.4,
+      "lip_id": 38.5,
+      "lip_height": 1,
+      "stack_bolt_xy": [
+        [
+          -28,
+          -14
+        ],
+        [
+          -28,
+          14
+        ],
+        [
+          28,
+          -14
+        ],
+        [
+          28,
+          14
+        ]
+      ],
+      "stack_bolt_hole": 3.4,
+      "spacer_height": 10.6,
+      "fit_verified": false,
+      "split_axis": "X",
+      "clamp_bolt_axis": "X",
+      "clamp_bolt_y": [
+        -24,
+        24
+      ],
+      "clamp_bolt_budget": "M3x70",
+      "stack_bolt_budget": "M3x70 from counterbore seat5.2mm",
+      "upper_stack_nut_recess_mm": 3.4,
+      "fastener_collision_resolved_nominally": true,
+      "spacer_od": 8.2
+    },
+    "shaft": {
+      "od": 29.8,
+      "id": 22,
+      "z_min": 39,
+      "z_max": 93,
+      "shoulder_od": 34.5,
+      "shoulder_z": [
+        73,
+        74.4
+      ],
+      "drive_flat_x": 14.2,
+      "drive_flat_z": [
+        54.6,
+        64.4
+      ],
+      "neck_flat_x": 14,
+      "neck_flat_z": [
+        75.4,
+        93
+      ],
+      "bearing_fit_verified": false
+    },
+    "pulley": {
+      "teeth": 64,
+      "pitch": 2,
+      "outer_diameter": 40.2436654315,
+      "groove_radius": 0.75,
+      "groove_center_radius": 20.13,
+      "belt_width": 6,
+      "flange_od": 43.2,
+      "flange_height": 1.2,
+      "body_z": [
+        55.3,
+        63.7
+      ],
+      "center_distance": 50,
+      "profile_status": "rounded-groove hypothesis; NOT certified GT2 tooling",
+      "horn_budget_od": 20,
+      "horn_budget_depth": 2.4,
+      "horn_slot_hole": 2.4,
+      "horn_interface_verified": false
+    },
+    "face_fasteners": {
+      "radius": 49,
+      "angles_deg": [
+        6,
+        174,
+        270
+      ],
+      "clearance": 2.8,
+      "nut_flat": 5.0,
+      "verified": false
+    },
+    "privacy": {
+      "travel": 13.5,
+      "guide_size": [
+        38,
+        3.2,
+        13
+      ],
+      "blade_size": [
+        16,
+        1.6,
+        10
+      ],
+      "screw_x": [
+        -10.3,
+        23.8
+      ],
+      "verified": false
+    },
+    "hard_stop": {
+      "soft_limit_deg": 45,
+      "contact_target_deg": 48,
+      "fixed_center_deg": 56.5,
+      "lug_radial_range": [
+        22,
+        30
+      ],
+      "lug_width": 4,
+      "verified": false
+    },
+    "fasteners": {
+      "m3_clearance": 3.4,
+      "m25_clearance": 2.8,
+      "m3_nut_flat": 5.7,
+      "m25_nut_flat": 5.0,
+      "captive_nut_pocket_depth": 2.6,
+      "hole_compensation_verified": false
+    },
+    "provisional_relocations": {
+      "BATTERY": {
+        "center": [
+          53,
+          0,
+          14
+        ],
+        "body": [
+          30,
+          55,
+          10
+        ],
+        "reserve": [
+          35,
+          60,
+          14
+        ],
+        "reason": "rotate90deg to clear bearing tower"
+      },
+      "I2S_AMP": {
+        "center": [
+          20,
+          -34.3,
+          25
+        ],
+        "body": [
+          23,
+          16,
+          4
+        ],
+        "reserve": [
+          28,
+          22,
+          12
+        ],
+        "reason": "raise/move away from battery and tower"
+      },
+      "BATTERY_CHARGER": {
+        "center": [
+          -40,
+          32,
+          16
+        ],
+        "body": [
+          28,
+          17,
+          4
+        ],
+        "reserve": [
+          34,
+          23,
+          10
+        ],
+        "reason": "clear mainboard feet and cup mounting boss"
+      }
+    },
+    "release_requirements": [
+      "real dimension and connector update",
+      "slicer preview per part",
+      "PETG + PLA Matte coupons",
+      "real assembly and cable yaw tests",
+      "wall/strength/thermal verification"
+    ],
+    "minimum_general_wall_mm": 2.4,
+    "explicit_exceptions": {
+      "privacy_blade": 1.6,
+      "privacy_front_retainer": 1.2,
+      "bearing_lip": 1.0,
+      "pulley_flange": 1.2,
+      "button_cap": 2.0
+    },
+    "plate_bed_budget_mm": [
+      256,
+      256
+    ],
+    "plate_spacing_mm": 8,
+    "plates_frozen": false,
+    "export_cleanup": {
+      "weld_mm": 1e-05,
+      "release": false
+    },
+    "button": {
+      "switch_budget": [
+        6,
+        6,
+        5
+      ],
+      "stem_min_z": 72.2,
+      "retention_foot": [
+        14.2,
+        10.2,
+        1.2
+      ],
+      "foot_center_z": 74.8,
+      "travel_budget": 0.6,
+      "verified": false,
+      "opening_radius": 1.0
+    },
+    "mating_clearances": {
+      "neck_bottom": 74.6,
+      "head_flange_relief_od": 62.4,
+      "head_flange_relief_z": [
+        95.2,
+        99.7
+      ],
+      "collar_ear_z": [
+        32.6,
+        44
+      ],
+      "mic_duct_end_y": 77.3,
+      "head_cable_saddle_center": [
+        36,
+        0,
+        102.5
+      ],
+      "head_cable_reserve_center": [
+        0,
+        20,
+        118.5
+      ],
+      "lcd_front_retainer_thickness": 1.6,
+      "status": "nominal modeled, physical clearance unverified"
+    },
+    "servo_mount": {
+      "ear_rail_center_z": 50.8,
+      "ear_pattern_status": "UNVERIFIED",
+      "axis_offset_status": "UNVERIFIED"
+    }
   }
 }

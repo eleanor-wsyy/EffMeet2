@@ -23,13 +23,13 @@ for n,s in mesh.items():assert not any(s[k] for k in ['boundary_edges','nonmanif
 assert mesh['N4_HEAD_SHELL']['bounds_mm'][1][2]<=222.05
 bounds=mesh['N4_FACE_PANEL']['bounds_mm'];size=[bounds[1][i]-bounds[0][i] for i in range(3)]
 assert abs(size[1]-2.4)<.05 and abs(size[2]-106)<.05
-checks.append('5 current closed shells, one component each, vertical106mm face and actual222mm height bound')
+checks.append('5 historical v4 closed shells, one component each, vertical106mm face and actual222mm height bound')
 fit=json.loads((REV/'production/nominal-fit.json').read_text(encoding='utf-8'));assert fit['all_inside'] and len(fit['components'])==15 and not fit['hardware_validated']
 yaw=json.loads((REV/'production/yaw-candidate-audit.json').read_text(encoding='utf-8'));assert {p['angle_deg'] for p in yaw['poses']}=={-45,0,45}
 assert all(p['nonmanifold_edges']==0 and p['shell_to_lid_min_vertical_gap_mm']>=13.99 for p in yaw['poses'])
 volumes=[p['head_volume_mm3'] for p in yaw['poses']];assert (max(volumes)-min(volumes))/max(volumes)<1e-5
 assert json.loads((REV/'production/protected-scene-check.json').read_text(encoding='utf-8'))['unchanged']
-checks.append('15 nominal boxes and3 yaw poses scoped-pass; earlier object data preserved; no flex-life claim')
+checks.append('historical v4 15 nominal boxes and3 yaw poses scoped-pass; earlier object data preserved; no flex-life claim')
 with (ROOT/M['canonical_files']['test_record_template']).open(encoding='utf-8-sig',newline='') as f:records=list(csv.DictReader(f))
 assert len(records)==26 and {r['test_id'] for r in records}=={f'T{i:02d}' for i in range(1,27)}
 assert all(r['status']=='NOT_RUN' and not r['actual_result'] and not r['executed_at'] for r in records)
@@ -46,7 +46,10 @@ for p in ROOT.rglob('*.py'):
  if 'local-only' not in p.parts:ast.parse(p.read_text(encoding='utf-8'),filename=str(p))
 for rel,sha in M['artifact_sha256'].items():assert hashlib.sha256((ROOT/rel).read_bytes()).hexdigest()==sha,rel
 binding=json.loads((REV/'production/source-binding.json').read_text(encoding='utf-8'))
-assert binding['parameters_sha256']==hashlib.sha256((ROOT/M['canonical_files']['parameters']).read_bytes()).hexdigest()
-assert binding['generator_sha256']==hashlib.sha256((ROOT/M['canonical_files']['model_source']).read_bytes()).hexdigest()
-checks.append('helpers parse and frozen artifact/source/parameter binding SHA256 hashes match')
+assert binding['parameters_sha256']==hashlib.sha256((REV/'print-split-v5/parameters-v4-frozen.json').read_bytes()).hexdigest()
+assert binding['generator_sha256']==hashlib.sha256((REV/'update_nomi_layoutA.py').read_bytes()).hexdigest()
+checks.append('helpers parse and artifact hashes match; historical v4 binding uses frozen parameters')
+import subprocess,sys
+subprocess.run([sys.executable,str(REV/'print-split-v5/verify_print_delivery.py')],check=True)
+checks.append('current41-part candidate delivery checks passed; no slice/print/hardware tests implied')
 print(json.dumps({'status':'PASS','checks':checks,'scope':'offline current design delivery only','firmware_tests_run':False,'hardware_tests_run':False,'manufacturing_release':False},ensure_ascii=False,indent=2))

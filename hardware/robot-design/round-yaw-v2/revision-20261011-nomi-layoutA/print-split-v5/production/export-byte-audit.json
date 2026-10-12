@@ -1,0 +1,294 @@
+{
+  "status": "PASS",
+  "scope": "binary STL edge test only, not fit/strength",
+  "count": 41,
+  "parts": [
+    {
+      "id": "P01",
+      "triangles": 61984,
+      "watertight": true,
+      "signed_volume_mm3": 141719.16758206647,
+      "sha256": "52c82c4bfb2e75be755eac380a367dbaed2e1303e4e5b9d0e8827fe44cfee731"
+    },
+    {
+      "id": "P02",
+      "triangles": 4144,
+      "watertight": true,
+      "signed_volume_mm3": 13271.285215399668,
+      "sha256": "132e8a77b8d24eb3c28ef73fdf2b991207ae5df97fdb9b14b4887cc30498d6b9"
+    },
+    {
+      "id": "P03",
+      "triangles": 4096,
+      "watertight": true,
+      "signed_volume_mm3": 30132.51604370501,
+      "sha256": "c71bb0004194a4909426bd193081e51529379b28a18a3454a36713d7d48ebcc6"
+    },
+    {
+      "id": "P04",
+      "triangles": 20172,
+      "watertight": true,
+      "signed_volume_mm3": 48958.20165968719,
+      "sha256": "cc6ccec6b6a26d133e40a860cbf36ccc3e30b6257812da131930286173563da9"
+    },
+    {
+      "id": "P05",
+      "triangles": 52212,
+      "watertight": true,
+      "signed_volume_mm3": 130959.4604972549,
+      "sha256": "f5cf088de422a056f6b16b97002591021bb80f4ec5af974c339039cc2184e38d"
+    },
+    {
+      "id": "P06",
+      "triangles": 1708,
+      "watertight": true,
+      "signed_volume_mm3": 16379.553726805581,
+      "sha256": "2ec465721f242e8580ac6c3795ea6c6aa8da0fa96afecbf404fd5bc122d7e9b2"
+    },
+    {
+      "id": "P07",
+      "triangles": 2056,
+      "watertight": true,
+      "signed_volume_mm3": 11368.222072631415,
+      "sha256": "0cd0c086d51f07a7a21f8b90cdb2dc194b34d734b0d0c9cdaab44fae871c61e5"
+    },
+    {
+      "id": "P08",
+      "triangles": 2106,
+      "watertight": true,
+      "signed_volume_mm3": 11272.89987039821,
+      "sha256": "d146aa4bf0206fb6acd7eec2899b3dbf94d0f155f44f0409515637e7d487b55b"
+    },
+    {
+      "id": "P09",
+      "triangles": 2104,
+      "watertight": true,
+      "signed_volume_mm3": 11233.343697472556,
+      "sha256": "022592dc9ad1e238d6f661e54d87b0bce1abdfeba70b1ebc36c46d8875682284"
+    },
+    {
+      "id": "P10",
+      "triangles": 2154,
+      "watertight": true,
+      "signed_volume_mm3": 11138.021128827253,
+      "sha256": "93e276fcb4cbf7dfeef8951c4872ebf1301dad43def96de47ad7e0780bc1cd60"
+    },
+    {
+      "id": "P11",
+      "triangles": 768,
+      "watertight": true,
+      "signed_volume_mm3": 463.21752983678454,
+      "sha256": "0449a8ec69dfd1596b6f7fabc2904696e069f711460b5a7a9426474e33532e17"
+    },
+    {
+      "id": "P12",
+      "triangles": 768,
+      "watertight": true,
+      "signed_volume_mm3": 463.2175298367843,
+      "sha256": "daf4879d63fbaaf96c85c9ddff9075a50cff1760132fdc95ea972341bc2c7f10"
+    },
+    {
+      "id": "P13",
+      "triangles": 768,
+      "watertight": true,
+      "signed_volume_mm3": 463.2175298367843,
+      "sha256": "d38a16db134be685f67f13c2ec811067571c93e213221b746d38bdfb021e2b86"
+    },
+    {
+      "id": "P14",
+      "triangles": 768,
+      "watertight": true,
+      "signed_volume_mm3": 463.21752983678414,
+      "sha256": "8e0d75ce61fe18bef1835bd20c2f51fa845bf7a1a1c906c0f12125792260a173"
+    },
+    {
+      "id": "P15",
+      "triangles": 1588,
+      "watertight": true,
+      "signed_volume_mm3": 17307.35657118321,
+      "sha256": "97567c5ba2e9726ea843e446aa666694bde5cdd2d75bb388475ddd00da61ca5c"
+    },
+    {
+      "id": "P16",
+      "triangles": 1628,
+      "watertight": true,
+      "signed_volume_mm3": 3188.3371052831885,
+      "sha256": "cf1f9fc4636b3a1c4a78cfd57e6bb4eddc98f9a3385a3deefcb00dc5441a85bb"
+    },
+    {
+      "id": "P17",
+      "triangles": 14628,
+      "watertight": true,
+      "signed_volume_mm3": 4769.82453476619,
+      "sha256": "4e3cd5fe4106b990281c13708b1153ae8a8e0ca41778d3acceefd823f9fb8cc1"
+    },
+    {
+      "id": "P18",
+      "triangles": 14144,
+      "watertight": true,
+      "signed_volume_mm3": 9557.359444935502,
+      "sha256": "560bb57a8ef87a388c4c18b642e634e8c02a898ca64944b649738b26b76310bd"
+    },
+    {
+      "id": "P19",
+      "triangles": 1228,
+      "watertight": true,
+      "signed_volume_mm3": 8943.175648627202,
+      "sha256": "85b7f137ecac0cb25f0380c089f5d84ed15b16de8b28ef53dd7bf400f5758b5f"
+    },
+    {
+      "id": "P20",
+      "triangles": 1048,
+      "watertight": true,
+      "signed_volume_mm3": 595.5032212273879,
+      "sha256": "36b0932042c2006ea048803285399479b3554bd55727a6ccfc863c0804e2e350"
+    },
+    {
+      "id": "P21",
+      "triangles": 396,
+      "watertight": true,
+      "signed_volume_mm3": 277.0842014415085,
+      "sha256": "041a4af29621c58e6602afb98eddd4cfe22ed360dc23da5c74fb7927ac3dc3a9"
+    },
+    {
+      "id": "P22",
+      "triangles": 1032,
+      "watertight": true,
+      "signed_volume_mm3": 280.93875082447363,
+      "sha256": "1850318fe0af9f348ac0a651addea2eb972c3d237bde832074f11c5acde78f92"
+    },
+    {
+      "id": "P23",
+      "triangles": 1416,
+      "watertight": true,
+      "signed_volume_mm3": 5137.1935582583765,
+      "sha256": "c35bad8f0fe37bc44b021fbf256f37dee73837b60ffad6af16e3b97868360043"
+    },
+    {
+      "id": "P24",
+      "triangles": 1256,
+      "watertight": true,
+      "signed_volume_mm3": 2021.3835685267672,
+      "sha256": "24bdd949ffa193b2c8c6f508c258743604f36c75bf3879427f026335d927e34f"
+    },
+    {
+      "id": "P25",
+      "triangles": 3820,
+      "watertight": true,
+      "signed_volume_mm3": 4672.976319244066,
+      "sha256": "e323d1de15078f67c29907f61fbbcdeaccf322eb4c9c7432e7fad340e02112ef"
+    },
+    {
+      "id": "P26",
+      "triangles": 1760,
+      "watertight": true,
+      "signed_volume_mm3": 902.3779744165721,
+      "sha256": "49f0c8e880047a1601981ca8fcaad7794b29384cb8116b4e18f0e6c165037540"
+    },
+    {
+      "id": "P27",
+      "triangles": 584,
+      "watertight": true,
+      "signed_volume_mm3": 395.50221430922437,
+      "sha256": "c40542c009f16ff0f69337c8447d9a03af264de4ba54498a025ac3abbfe0ce02"
+    },
+    {
+      "id": "P28",
+      "triangles": 1900,
+      "watertight": true,
+      "signed_volume_mm3": 2645.9891809559626,
+      "sha256": "29707243aa96026527ba5c80ecd40cfdf08b84ae5e5d76adc15d962d58b0a667"
+    },
+    {
+      "id": "P29",
+      "triangles": 2060,
+      "watertight": true,
+      "signed_volume_mm3": 5303.54826336153,
+      "sha256": "a03564769661fd90e58e3291da98d02c35dae18eebd6792904397fb3db62bba5"
+    },
+    {
+      "id": "P30",
+      "triangles": 1032,
+      "watertight": true,
+      "signed_volume_mm3": 1653.6138870369168,
+      "sha256": "ddb537a633212b5f33c8cd4e5277ae2105c35bbe0a3c88046abc52ed2d154d58"
+    },
+    {
+      "id": "P31",
+      "triangles": 3272,
+      "watertight": true,
+      "signed_volume_mm3": 3836.609294942001,
+      "sha256": "dd59ae8ae5cba394816fb77eb910f408001ebd8f821e153ad02b68a4be7b1d63"
+    },
+    {
+      "id": "P32",
+      "triangles": 964,
+      "watertight": true,
+      "signed_volume_mm3": 570.574327552544,
+      "sha256": "6febc8127370a8d760e2087cbd274c1af37f78a93381369a878c6ea6e6e9532a"
+    },
+    {
+      "id": "P33",
+      "triangles": 3272,
+      "watertight": true,
+      "signed_volume_mm3": 3836.609209544898,
+      "sha256": "38b35cfa0df4cca71c615df0efb902d5b95f3389df242c2b694da85ae3e867cc"
+    },
+    {
+      "id": "P34",
+      "triangles": 964,
+      "watertight": true,
+      "signed_volume_mm3": 570.5743206279909,
+      "sha256": "836fb59bb5ab8a475cbbd2954059e4098e51d9d0199b767213836462aee8d65b"
+    },
+    {
+      "id": "P35",
+      "triangles": 864,
+      "watertight": true,
+      "signed_volume_mm3": 6050.98872168345,
+      "sha256": "e3a3bfab9332860af62f0672fae716a158fd8d8e925e23e052792894e5745efe"
+    },
+    {
+      "id": "P36",
+      "triangles": 1252,
+      "watertight": true,
+      "signed_volume_mm3": 5376.403819030652,
+      "sha256": "b0009eb618467ea69afc882d2ed2c7b76b1201126d9cc7761ae6943527c9d0cf"
+    },
+    {
+      "id": "P37",
+      "triangles": 1416,
+      "watertight": true,
+      "signed_volume_mm3": 10832.504186399348,
+      "sha256": "d3cd6ca6a035646a2c1bf2edfb41239e5f6715ed94e903464afa244657c6d0c3"
+    },
+    {
+      "id": "P38",
+      "triangles": 4094,
+      "watertight": true,
+      "signed_volume_mm3": 16552.311484636964,
+      "sha256": "6488842e6cac241901351ed70cd4dac00b37179cd899baf72c7477feb848c3dd"
+    },
+    {
+      "id": "P39",
+      "triangles": 1792,
+      "watertight": true,
+      "signed_volume_mm3": 1664.4803045059073,
+      "sha256": "7e8e2de971cd782bdea51d09e02665af59b51742eb9867255fbf1148a9de1338"
+    },
+    {
+      "id": "P40",
+      "triangles": 648,
+      "watertight": true,
+      "signed_volume_mm3": 714.7038418478065,
+      "sha256": "fe0826c5e763e0f03d64a22fc51741f76f97a5c672c39227b62b0726878ff672"
+    },
+    {
+      "id": "P41",
+      "triangles": 648,
+      "watertight": true,
+      "signed_volume_mm3": 714.7040618379713,
+      "sha256": "d0f2d0d408f2c2a11efa3f02ef481dda4655a727269584d975f6bdb119196b66"
+    }
+  ]
+}

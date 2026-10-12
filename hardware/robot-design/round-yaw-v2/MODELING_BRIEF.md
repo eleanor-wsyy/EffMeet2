@@ -1,3 +1,5 @@
+> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+
 # 建模更新任务书 · 美学锁死 / 工程重做（2026-10-11 · 布局 A 已定案）
 
 > **v4当前执行：** 以GOOUU已下单套装＋布局A＋外置INMP441×2／MAX98357A／TP4056为基线，结果见[v4](revision-20261011-nomi-layoutA/README.md)。完整套装扩展板未测，不在容纳结论内；屏J2真实针序／尺寸需到货。以下旧板／旧尺寸仅供追溯，当前以parameters.json和v4工程复核为准。

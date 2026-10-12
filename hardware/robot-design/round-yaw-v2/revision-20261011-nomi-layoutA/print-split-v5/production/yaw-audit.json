@@ -1,0 +1,33 @@
+{
+  "poses": [
+    {
+      "angle_deg": -45,
+      "head_min_z_mm": 92.00000762939453,
+      "gap_from_original_lid_crown_mm": 14.000007629394531,
+      "volume_mm3": 141734.80281379132,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "dynamic_cable_test": "NOT_RUN"
+    },
+    {
+      "angle_deg": 0,
+      "head_min_z_mm": 92.00000762939453,
+      "gap_from_original_lid_crown_mm": 14.000007629394531,
+      "volume_mm3": 141719.52450346798,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "dynamic_cable_test": "NOT_RUN"
+    },
+    {
+      "angle_deg": 45,
+      "head_min_z_mm": 92.00000762939453,
+      "gap_from_original_lid_crown_mm": 14.000007629394531,
+      "volume_mm3": 141738.16172856805,
+      "boundary_edges": 0,
+      "nonmanifold_edges": 0,
+      "dynamic_cable_test": "NOT_RUN"
+    }
+  ],
+  "firmware_tested": false,
+  "scope": "native dependencies and head bounds; no flex/hardware test"
+}

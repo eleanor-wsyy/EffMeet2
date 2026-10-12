@@ -1,0 +1,21 @@
+{
+  "status": "PASS",
+  "scope": "offline conditional geometry delivery only",
+  "checks": [
+    "41 true independent candidate STLs, byte hashes and nonzero32bit triangles",
+    "re-read32bit topology edges all paired and positive oriented volume",
+    "geometry-only3MFs valid, each part included once,256mm budget arrangement; NOT sliced",
+    "native source binding and164 protected original objects unchanged",
+    "neutral printed-part intersections cleared above0.01mm3;3 yaw poses keep head14mm gap; no hardware proof",
+    "41 blank slicer/sample records, active links and source syntax checked"
+  ],
+  "parts": 41,
+  "start_plates": 6,
+  "slicer_tests_run": false,
+  "sample_prints_run": false,
+  "hardware_tests_run": false,
+  "manufacturing_ready": false,
+  "warnings": [
+    "Native pose Boolean volume differs by 0.013149052360198399 percent; rig is NOT validated. Final neutral STL checks are separate."
+  ]
+}

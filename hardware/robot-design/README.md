@@ -1,3 +1,5 @@
+> **当前拆件/安装/打印入口：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。41件真实独立候选；只做几何导出，未切片、未实打、未制造放行。v4继续作为保留的外观输入和历史证据。**
+
 # EffMeet2 · 机器人设计与采购统一入口
 
 **当前：NOMI方向／GOOUU核心板／布局A／灰黑PLA Matte，v4工程候选。** 电脑伴侣路线A不变。当前模型已改，不再是仅AI效果图。

@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-12T01:53:32.709292+00:00",
+  "overall_status": "WARN",
+  "checks": [],
+  "thresholds": {},
+  "intentional_exceptions": [],
+  "not_evaluated": [
+    "mesh_legality",
+    "surface_quality",
+    "construction_relationships",
+    "simulation_stability",
+    "protected_scene_state",
+    "visual_evidence"
+  ],
+  "repair_suggestions": [
+    "Run blender-geometry-validation after scene execution"
+  ]
+}

@@ -1,3 +1,5 @@
+> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+
 # EffMeet2 · 新版安装指南（NOMI／布局 A／v4）
 
 更新：2026-10-11（北京时间）。采购入口仅用 [BOM §12](BOM.md#final-purchase-decision)，尺寸来源仅用 [parameters.json](parameters.json)。本轮模型、图纸入口见 [v4目录](revision-20261011-nomi-layoutA/README.md)。

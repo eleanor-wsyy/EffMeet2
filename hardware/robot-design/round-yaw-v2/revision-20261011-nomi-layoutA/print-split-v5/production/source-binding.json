@@ -1,9 +1,10 @@
 {
-  "parameters_sha256": "c2176522fe6c753f8ace092c16370a1aeb6426981b6be7b7eb8bd736ce796e3e",
-  "generator_sha256": "ab39f7c60402b4c61025a459cfd33d93109fd018d2355950db939b661dc465a3",
+  "parameters_sha256": "992f511737bb0cd83eefac0562ebfe293ec1d8ecd48fca91f9ee302f3c33d6ad",
+  "generator_sha256": "cb575f1405a6ee7300be6ad5391bad8d8c5e46c6aaf87fb93121c4eb96f66a4a",
   "model_sha256": "6004151abd70301a66db544c7807e42f2919eadc62483ad453d30eeaea55b766",
   "input_v4_sha256": "85b1b52507e0edaeac580964b30a992f98261235ccfd775544a1b01f672d5d14",
   "status": "candidate_not_released",
-  "export_finalize_source_sha256": "fc7f88976ae46c068cd9f1a97cae8774c1da8026ee47a2dbc8627704ef963e2c",
-  "extract_source_sha256": "a4bb4b59646acdc83bf17d5e93720af07a8b598f43a46f4b32f224649e77f922"
+  "export_finalize_source_sha256": "c8fc02031eadb2e89543bd1869ab847c29a6581e3ebece135efdfd8c88aa985b",
+  "extract_source_sha256": "6b0e2ce76516d34b717c0e3ff9da14128f3ba610e2bd3b39551396b6c5576153",
+  "text_normalization": "LF repository bytes; geometry and candidate STL bytes unchanged"
 }

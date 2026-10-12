@@ -79,7 +79,7 @@
 
 ## 1.8 材质与质感
 
-- **灰 + 黑，未喷漆哑光 PLA Matte**，裸打，**全 14 件同一种料**
+- **灰 + 黑，未喷漆哑光 PLA Matte**，裸打，**全部打印件同一种料**（件数以拆分结果为准）
 - 真实细聚合物纹理 + 细微规则层纹
 - **禁止**：绒面 / 石膏 / 水泥质感
 - 圆面板的反光**只应来自里面的矩形 LCD**——不得把打印面做成/画成光学玻璃
@@ -213,7 +213,7 @@
 - 保留模型**原生 Screw/Boolean 控制**、分件与姿态依赖
 - 新建模遵循适用 Blender 技能；不以预览动画代替固件验收
 - `parameters.json` 与现有 `.blend` 的旧检查证据**不改写**；新参数另记并标 `unverified`
-- `manifest.json` 的 `stage / manufacturing_ready / hardware_validated` **保持 false**
+- `manifest.json` 的 `stage` **保留 `reversible_blockout`**（枚举）；`manufacturing_ready` / `hardware_validated` **保持 false**
 - 不导出伪参数 CAD（不把三角网格换后缀充当 STEP）
 - **导出白名单**：只导出已完成结构的零件；排除 MAINBOARD/LCD/CAMERA/SERVO/BEARING/SPEAKER 代理、KEEP_OUT 与布尔控制
 

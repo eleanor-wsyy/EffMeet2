@@ -38,7 +38,7 @@
 ## 历史和复建
 
 - [旧v2与历史材料索引](round-yaw-v2/README.md)；[archive](archive/README.md)。
-- [旧STL警示](round-yaw-v2/stl/README.md)：不是当前打印包，不能直接整机打印。
+- **可上机样片**：[fit-coupons](round-yaw-v2/fit-coupons/README.md)（外观样片 + 4 件公差阶梯，优先用 PLA Matte 打）；旧 stl/ 草案已于 2026-10-12 删除。
 - v4生成源位于当前v4目录；复建用新的审阅ID，禁止覆盖冻结图。
 - [离线验收脚本](verify_delivery.py)检查路径／当前参数／几何证据／26项NOT_RUN／散列，不冒充实机测试。
 - [本地ZIP打包](round-yaw-v2/package_delivery.py)仅生成忽略目录中的归档，Git提交单一源文件和图纸，不重复提交ZIP。

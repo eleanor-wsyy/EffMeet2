@@ -16,7 +16,7 @@
 - [旧v2模型](EffMeet2_圆润转头版_封装布局_v2.blend)和[renders/review-02](renders/review-02/01_assembled.png)：旧Korvo占位记录，不用于证明新GOOUU方案可装配。
 - [旧6项fit-report](fit-report.json)与[旧网格报告](production/validation_report.json)：只属于旧模型。
 - [NOMI方向AI参考](concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png)：审美来源，不是现行CAD／打印件照片。
-- [旧打印STL](stl/README.md)及build_print_parts.py：历史草案，尚未完成全件制造验证，不能直接拿来代替v4。
+- **可上机样片**：[fit-coupons](fit-coupons/README.md)。旧打印 STL 已于 2026-10-12 删除；`build_print_parts.py` 保留为历史源，不能代替 v4。
 - [1:1配合样片](fit-coupons/README.md)：现有实验输入，正式料、真实零件和具体配合仍要重测。
 
 当前ZIP应包含v4模型／图纸／参数和同版指南；ZIP本地生成，不入Git，不把旧包当最新版。

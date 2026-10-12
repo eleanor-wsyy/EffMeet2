@@ -41,7 +41,7 @@
 
 **[打印件拆分方案（交给建模接管方）](SPLIT_PLAN.md)** · [安装指南](../ASSEMBLY_GUIDE.md) · [打印方案](../PRINT_PLAN.md) · [测试指南](../TEST_GUIDE.md) · [记录模板](../TEST_RECORD_TEMPLATE.csv) · [统一交接](../../HANDOFF.md)
 
-旧 stl/ 和旧 build_print_parts.py 不是v4对应打印包。新模型仅为可逆工程候选，**本轮不生成一套伪装成放行件的STL，也不把网格改后缀冒充STEP**。
+旧 stl/ 已于 2026-10-12 删除；旧 build_print_parts.py 不是 v4 对应打印包。新模型仅为可逆工程候选，**本轮不生成一套伪装成放行件的STL，也不把网格改后缀冒充STEP**。
 
 ## 复建
 

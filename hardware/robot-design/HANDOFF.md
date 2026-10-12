@@ -78,7 +78,7 @@
 - 当前主板GOOUU，灰／黑PLA Matte；不回到微雪、Korvo、ABS-GF、圆屏、透明罩或喷漆。布局A／固定麦／电脑伴侣路线A不变。
 - 采购只看33项[BOM§12](round-yaw-v2/BOM.md#final-purchase-decision)：屏SKU需两端接口核准，摄像模组不重复买；新增电池与实际前部状态引出纳入同一BOM，不再散落互相矛盾。
 - **撤回旧“现场裁剪FPC”和多余跨轴信号。** 禁止裁排线；只有显示线束和CAMERA排线跨轴，舵机／按钮／灯／主板供电均固定。
-- 安装、打印、测试与README已同步。旧stl/是历史草案，不是v4打印放行包。
+- 安装、打印、测试与README已同步。**旧 stl/ 草案已于 2026-10-12 删除**（避免误当打印包）；`build_print_parts.py` 保留为历史源，不用于生成 v4 件。
 - 五外壳网格／十五预留盒／三姿态的检查属于名义几何范围；承力固定座、电子支架、齿形／轴向锁定、滑盖导向、实物配合、FPC50循环和固件／实机验收尚未放行。manifest的manufacturing_ready／hardware_validated仍false，模板全部NOT_RUN。
 - 下一位AI先读v4 README、[ENGINEERING_REVIEW](round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md)，再改唯一parameters.json及v4生成源；不要用旧6项fit-report宣称新结构已验证。
 

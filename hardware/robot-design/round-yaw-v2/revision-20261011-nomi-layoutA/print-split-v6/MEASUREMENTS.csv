@@ -1,0 +1,19 @@
+﻿id,measure,budget_note,actual_mm,evidence,measured_at,status
+MAINBOARD,PCB完整排针/USB/最高元件,v6：竖装头内，FPC/USB-C端朝上；USB-C插头留10mm头内调试空间；原：62.6x28.3为板体记录，装配空间未测,PCB上方最高元件6；PCB下排针8；两只Type-C与摄像头FPC座均在远离ESP32模组一端,用户实测（尺子，毫米级）,2026-10-13,MEASURED_UNFITTED
+LCD,玻璃/PCB/厚度/J2朝向/元件,v6：横向贴面板；4孔按80x45假定（UNVERIFIED）；玻璃到PCB深度假定4mm；原：窗口58.2x43.8、PCB85x55为预算,PCB85x50；最厚处总厚11；排针在屏FPC一侧短边；4个安装孔（孔径/孔距未测）,用户实测（尺子，毫米级）,2026-10-13,MEASURED_UNFITTED
+CAMERA,模组/镜头凸高/FPC口,v6：贴面板背面，镜头中心=窗口上沿+17；FPC直线跨距9.55，余量4.45（目标≥3）；原：20x10x18预算,模组8x8x4；FPC长14（不可裁剪；不足以从底座跨轴到头部）,用户实测（尺子，毫米级）,2026-10-13,MEASURED_UNFITTED
+INMP441_L,PCB/焊点/底部拾音孔坐标,采购页Ø14圆PCB，h≤12，底部中心拾音孔；v6装于后上壁袋；原：16x6x12装配轴预算,,,,UNVERIFIED
+INMP441_R,PCB/焊点/底部拾音孔坐标,采购页Ø14圆PCB，同左；不能推定同批即相同；原：同左，不能推定同批即相同,,,,UNVERIFIED
+MAX98357A,PCB/接头/焊点/元件,采购页17.7x19.1，孔距12.6，距底边16.7；v6低托盘；原：23x16x4预算,,,,UNVERIFIED
+TP4056,PCB/USB/焊点,v6推迟（路线B／决赛），Demo外供5V；28x17x4预算，不是5V升压,,,,DEFERRED
+MG90S,固定耳/舵盘/输出轴偏移,采购页本体22.4x12.5，带耳31.8，耳孔距27.7（导孔Ø1.8），底到耳22.8/19.8，含舵盘高32.9；双臂舵盘31.2x4.72；原：本体22.8x12.2x28.5，其他未测,,,,UNVERIFIED
+6806_LOWER,真实OD/ID/宽/内圈面/配合,标称30x42x7（6806）；原：标称30x42x7,,,,UNVERIFIED
+6806_UPPER,真实OD/ID/宽/内圈面/配合,标称30x42x7（6806）；原：标称30x42x7,,,,UNVERIFIED
+GT2_BELT,型号/真实节线长/宽/弹性,v6：188mm闭环6mm宽，32T/64T，C=44.84；齿槽未认证（v5 228mm作废）；原：228mm仅候选，齿槽未认证,,,,UNVERIFIED
+SPEAKER,外圈/深/接线/安全夹持边,采购页Ø40x17；v6前托架≤46宽；原：预算<=40x18,,,,UNVERIFIED
+BATTERY,受保护电芯外形/线出/极性,v6推迟（路线B／决赛），Demo外供5V；30x55x10装配轴预算,,,,DEFERRED
+TACTILE_KEY,6mm键体/脚/致动高/行程,6x6x5预算,,,,UNVERIFIED
+FASTENERS,M3x70头形/头高/螺母厚度,不能只看标称长度,,,,UNVERIFIED
+EXTENSION_BOARD,完整外形/排针,95x87x12实测，v6不装入；原：未计入内舱,95x87x12,用户实测（尺子，毫米级）,2026-10-13,MEASURED_UNFITTED
+USB_C_POWER_BOARD,PCB/USB-C口/焊盘/输入额定,v6新增，预算20x15x6，后部杯壁开口11.5x7；具体件未选,,,,UNVERIFIED
+CROSS_YAW_WIRES,线数/线径/外径/弯折寿命,"v6：约9根细软线（5V,GND,3V3?,BCLK,WS,MIC SD,AMP DIN,SERVO PWM,KEY）穿Ø22轴孔，Ø10禁入区，两端线夹",,,,UNVERIFIED

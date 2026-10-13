@@ -1,4 +1,6 @@
-> **当前拆件/安装/打印入口：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。41件独立候选；G1 头壳/G2 杯体已上机实打，其余未切片、未制造放行。v4继续作为保留的外观输入和历史证据。**
+> **当前入口（2026-10-13）：[v6紧凑候选·布局A2](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 153×139.4×200.8，核心板＋摄像头＋屏进头，麦/功放/扬声器/舵机固定底座；31件候选，未切片、未制造放行。v5（G1/G2已停打作废）及v4保留为历史。
+>
+> 历史：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)，41件独立候选。
 
 # EffMeet2 · 机器人设计与采购统一入口
 
@@ -11,7 +13,7 @@
 | **接手第一入口：当前状态与下一步** | [**HANDOFF**](HANDOFF.md)（顶部「2026-10-12 会话收尾」节） |
 | 可编辑模型、10张实渲、3张说明图纸 | [NOMI布局A-v4](round-yaw-v2/revision-20261011-nomi-layoutA/README.md) |
 | **打印件拆分任务书（交接管方执行）** | [**SPLIT_PLAN**](round-yaw-v2/revision-20261011-nomi-layoutA/SPLIT_PLAN.md) |
-| **打印执行：盘×机器×特殊设置** | [**PLATE-RUNBOOK**](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PLATE-RUNBOOK.md)（G1/G2 已上机） |
+| **打印执行：盘×机器×特殊设置** | [**v6 PLATE-RUNBOOK**](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)（v5 [旧手册](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PLATE-RUNBOOK.md)；G1/G2已停打作废） |
 | 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
 | 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
 | 安装顺序 | [ASSEMBLY_GUIDE](round-yaw-v2/ASSEMBLY_GUIDE.md) |

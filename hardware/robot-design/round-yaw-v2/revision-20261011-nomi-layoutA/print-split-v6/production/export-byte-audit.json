@@ -1,0 +1,317 @@
+{
+ "status": "PASS",
+ "count": 31,
+ "scope": "re-read float32 binary STL bytes; candidate only",
+ "parts": [
+  {
+   "triangles": 38642,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 91359.35,
+   "id": "P01",
+   "stl": "P01_BASE_CUP_UNVERIFIED.stl",
+   "manifold_volume_mm3": 91359.35
+  },
+  {
+   "triangles": 18134,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 34434.76,
+   "id": "P02",
+   "stl": "P02_BASE_LID_UNVERIFIED.stl",
+   "manifold_volume_mm3": 34434.76
+  },
+  {
+   "triangles": 8354,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 5842.9,
+   "id": "P03",
+   "stl": "P03_DRIVEN_64T_UNVERIFIED.stl",
+   "manifold_volume_mm3": 5842.9
+  },
+  {
+   "triangles": 4896,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 4652.49,
+   "id": "P04",
+   "stl": "P04_DRIVER_32T_UNVERIFIED.stl",
+   "manifold_volume_mm3": 4652.49
+  },
+  {
+   "triangles": 3124,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 23854.35,
+   "id": "P05",
+   "stl": "P05_BEARING_TOWER_LOWER_SEAT_UNVERIFIED.stl",
+   "manifold_volume_mm3": 23854.35
+  },
+  {
+   "triangles": 2464,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 11306.55,
+   "id": "P06",
+   "stl": "P06_UPPER_BEARING_SEAT_UNVERIFIED.stl",
+   "manifold_volume_mm3": 11306.55
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 497.73,
+   "id": "P07",
+   "stl": "P07_STACK_SPACER_0_UNVERIFIED.stl",
+   "manifold_volume_mm3": 497.73
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 497.73,
+   "id": "P08",
+   "stl": "P08_STACK_SPACER_1_UNVERIFIED.stl",
+   "manifold_volume_mm3": 497.73
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 497.73,
+   "id": "P09",
+   "stl": "P09_STACK_SPACER_2_UNVERIFIED.stl",
+   "manifold_volume_mm3": 497.73
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 497.73,
+   "id": "P10",
+   "stl": "P10_STACK_SPACER_3_UNVERIFIED.stl",
+   "manifold_volume_mm3": 497.73
+  },
+  {
+   "triangles": 1068,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 19160.47,
+   "id": "P11",
+   "stl": "P11_HOLLOW_LOAD_SHAFT_UNVERIFIED.stl",
+   "manifold_volume_mm3": 19160.47
+  },
+  {
+   "triangles": 1084,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 2295.83,
+   "id": "P12",
+   "stl": "P12_SHAFT_LOWER_LOCK_COLLAR_UNVERIFIED.stl",
+   "manifold_volume_mm3": 2295.83
+  },
+  {
+   "triangles": 608,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 715.84,
+   "id": "P13",
+   "stl": "P13_YAW_STOP_ARM_UNVERIFIED.stl",
+   "manifold_volume_mm3": 715.84
+  },
+  {
+   "triangles": 2036,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 18359.06,
+   "id": "P14",
+   "stl": "P14_SHORT_YAW_NECK_UNVERIFIED.stl",
+   "manifold_volume_mm3": 18359.06
+  },
+  {
+   "triangles": 1088,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 5683.11,
+   "id": "P15",
+   "stl": "P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 5683.11
+  },
+  {
+   "triangles": 1816,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 8057.68,
+   "id": "P16",
+   "stl": "P16_SPEAKER_CRADLE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 8057.68
+  },
+  {
+   "triangles": 472,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 2501.87,
+   "id": "P17",
+   "stl": "P17_AMP_LOW_TRAY_UNVERIFIED.stl",
+   "manifold_volume_mm3": 2501.87
+  },
+  {
+   "triangles": 516,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 2831.49,
+   "id": "P18",
+   "stl": "P18_POWER_IN_TRAY_UNVERIFIED.stl",
+   "manifold_volume_mm3": 2831.49
+  },
+  {
+   "triangles": 204,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 416.18,
+   "id": "P19",
+   "stl": "P19_STOP_KEY_CAP_UNVERIFIED.stl",
+   "manifold_volume_mm3": 416.18
+  },
+  {
+   "triangles": 1236,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 1752.11,
+   "id": "P20",
+   "stl": "P20_TACTILE_HOLDER_UNVERIFIED.stl",
+   "manifold_volume_mm3": 1752.11
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 84.18,
+   "id": "P21",
+   "stl": "P21_MIC_RETAINER_-1_UNVERIFIED.stl",
+   "manifold_volume_mm3": 84.18
+  },
+  {
+   "triangles": 512,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 84.18,
+   "id": "P22",
+   "stl": "P22_MIC_RETAINER_1_UNVERIFIED.stl",
+   "manifold_volume_mm3": 84.18
+  },
+  {
+   "triangles": 58222,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 101981.09,
+   "id": "P23",
+   "stl": "P23_HEAD_SHELL_UNVERIFIED.stl",
+   "manifold_volume_mm3": 101981.09
+  },
+  {
+   "triangles": 4040,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 13864.12,
+   "id": "P24",
+   "stl": "P24_FACE_PANEL_UNVERIFIED.stl",
+   "manifold_volume_mm3": 13864.12
+  },
+  {
+   "triangles": 1300,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 4438.99,
+   "id": "P25",
+   "stl": "P25_LCD_REAR_CLAMP_FRAME_UNVERIFIED.stl",
+   "manifold_volume_mm3": 4438.99
+  },
+  {
+   "triangles": 500,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 1150.95,
+   "id": "P26",
+   "stl": "P26_CAMERA_CRADLE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 1150.95
+  },
+  {
+   "triangles": 744,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 444.92,
+   "id": "P27",
+   "stl": "P27_PRIVACY_GUIDE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 444.92
+  },
+  {
+   "triangles": 204,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 71.33,
+   "id": "P28",
+   "stl": "P28_PRIVACY_BLADE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 71.33
+  },
+  {
+   "triangles": 764,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 2807.59,
+   "id": "P29",
+   "stl": "P29_CORE_BOARD_CRADLE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 2807.59
+  },
+  {
+   "triangles": 448,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 503.79,
+   "id": "P30",
+   "stl": "P30_CABLE_SADDLE_BASE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 503.79
+  },
+  {
+   "triangles": 492,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 503.19,
+   "id": "P31",
+   "stl": "P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl",
+   "manifold_volume_mm3": 503.19
+  }
+ ]
+}

@@ -7,11 +7,11 @@
 - 保留模型原生Screw/Boolean控制、分件与姿态依赖；新的建模必须遵循适用Blender技能。不得用预览动画代替固件验收。
 - 不提交密钥、本机工具缓存、生成接口回执、自动备份、失败审阅图或重复ZIP。
 
-## 当前v4生成与证据
+## 当前v6生成与证据
 
-- 当前模型／源／图纸以manifest.canonical_files和round-yaw-v2/revision-20261011-nomi-layoutA/README.md为准；build_round_yaw.py和build_print_parts.py是历史源，不用于生成新版整机。
+- 当前模型／源／件表以manifest.canonical_files和round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md为准（build_v6.py从v2.blend生成N6场景）；v4/v5及build_round_yaw.py、build_print_parts.py、build_print_split.py是历史源，不用于生成新版整机。
 - 保留Screw输入的边剖面。闭合检查应检查修改器评估结果，不为使源剖面“流形”而破坏原生生成器；独立微小短边／小面提示仍须制造导出前处理。
-- 主板GOOUU套装、固定布局A、灰黑PLA Matte。只有显示线束和CAMERA排线跨轴；禁止裁剪FPC改长度。
+- 主板GOOUU套装、布局A2、灰黑PLA Matte。核心板＋摄像头＋屏在头部，麦/功放/扬声器/舵机/按键固定底座，麦不随头转。只有约9根细软线跨轴；摄像头FPC不跨轴，禁止裁剪或加长FPC。扩展板、电池、TP4056不装入。
 - 不把内部座／轮／电子件代理导出为打印件；当前仍无制造／硬件放行。
 
 - 评估网格记录数学零面积与亚打印尺度正面积面，不能混为一谈。原始独立微特征FAIL仍保留，当前综合WARN；正式导出前必须做制造网格清理。

@@ -1,3 +1,5 @@
+> **2026-10-13：当前为[v6紧凑候选·布局A2](revision-20261011-nomi-layoutA/print-split-v6/README.md)，优先于v5/v4。** 以下为历史。
+>
 > **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
 
 # 圆润转头方案 · 当前模型与资料索引

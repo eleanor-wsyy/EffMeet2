@@ -1,0 +1,222 @@
+{
+ "scene": "N6_COMPACT_CANDIDATE",
+ "parts": [
+  {
+   "id": "P01",
+   "name": "底座杯体（原生Screw剖面×0.85）",
+   "object": "N6_BASE_CUP",
+   "rotating": false,
+   "function": "底座杯体（原生Screw剖面×0.85）"
+  },
+  {
+   "id": "P02",
+   "name": "底座上盖＋限位块",
+   "object": "N6_BASE_LID",
+   "rotating": false,
+   "function": "底座上盖＋限位块"
+  },
+  {
+   "id": "P03",
+   "name": "从动64T带轮（套空心轴＋M3顶丝）",
+   "object": "N6_DRIVEN_64T",
+   "rotating": true,
+   "function": "从动64T带轮（套空心轴＋M3顶丝）"
+  },
+  {
+   "id": "P04",
+   "name": "舵机主动32T带轮＋双臂舵盘口袋",
+   "object": "N6_DRIVER_32T",
+   "rotating": false,
+   "function": "舵机主动32T带轮＋双臂舵盘口袋"
+  },
+  {
+   "id": "P05",
+   "name": "承力塔＋下轴承座（一体，四柱落底）",
+   "object": "N6_BEARING_TOWER_LOWER_SEAT",
+   "rotating": false,
+   "function": "承力塔＋下轴承座（一体，四柱落底）"
+  },
+  {
+   "id": "P06",
+   "name": "上轴承座（4×M3贯穿压紧）",
+   "object": "N6_UPPER_BEARING_SEAT",
+   "rotating": false,
+   "function": "上轴承座（4×M3贯穿压紧）"
+  },
+  {
+   "id": "P07",
+   "name": "轴承层间支柱1",
+   "object": "N6_STACK_SPACER_0",
+   "rotating": false,
+   "function": "轴承层间支柱1"
+  },
+  {
+   "id": "P08",
+   "name": "轴承层间支柱2",
+   "object": "N6_STACK_SPACER_1",
+   "rotating": false,
+   "function": "轴承层间支柱2"
+  },
+  {
+   "id": "P09",
+   "name": "轴承层间支柱3",
+   "object": "N6_STACK_SPACER_2",
+   "rotating": false,
+   "function": "轴承层间支柱3"
+  },
+  {
+   "id": "P10",
+   "name": "轴承层间支柱4",
+   "object": "N6_STACK_SPACER_3",
+   "rotating": false,
+   "function": "轴承层间支柱4"
+  },
+  {
+   "id": "P11",
+   "name": "空心承力轴 Ø29.8/22（轴肩＋两段D面）",
+   "object": "N6_HOLLOW_LOAD_SHAFT",
+   "rotating": true,
+   "function": "空心承力轴 Ø29.8/22（轴肩＋两段D面）"
+  },
+  {
+   "id": "P12",
+   "name": "空心轴下止推夹环",
+   "object": "N6_SHAFT_LOWER_LOCK_COLLAR",
+   "rotating": true,
+   "function": "空心轴下止推夹环"
+  },
+  {
+   "id": "P13",
+   "name": "限位摆臂（D孔，硬限位48°）",
+   "object": "N6_YAW_STOP_ARM",
+   "rotating": true,
+   "function": "限位摆臂（D孔，硬限位48°）"
+  },
+  {
+   "id": "P14",
+   "name": "短颈＋法兰（D孔套轴）",
+   "object": "N6_SHORT_YAW_NECK",
+   "rotating": true,
+   "function": "短颈＋法兰（D孔套轴）"
+  },
+  {
+   "id": "P15",
+   "name": "MG90S舵机可调耳架（±2张紧槽）",
+   "object": "N6_SERVO_ADJUSTABLE_CRADLE",
+   "rotating": false,
+   "function": "MG90S舵机可调耳架（±2张紧槽）"
+  },
+  {
+   "id": "P16",
+   "name": "扬声器圆筒托架（≤46宽）",
+   "object": "N6_SPEAKER_CRADLE",
+   "rotating": false,
+   "function": "扬声器圆筒托架（≤46宽）"
+  },
+  {
+   "id": "P17",
+   "name": "MAX98357A低托盘",
+   "object": "N6_AMP_LOW_TRAY",
+   "rotating": false,
+   "function": "MAX98357A低托盘"
+  },
+  {
+   "id": "P18",
+   "name": "USB-C 5V输入板托架（预算件）",
+   "object": "N6_POWER_IN_TRAY",
+   "rotating": false,
+   "function": "USB-C 5V输入板托架（预算件）"
+  },
+  {
+   "id": "P19",
+   "name": "停止键帽＋键柱",
+   "object": "N6_STOP_KEY_CAP",
+   "rotating": false,
+   "function": "停止键帽＋键柱"
+  },
+  {
+   "id": "P20",
+   "name": "轻触开关托座",
+   "object": "N6_TACTILE_HOLDER",
+   "rotating": false,
+   "function": "轻触开关托座"
+  },
+  {
+   "id": "P21",
+   "name": "麦克风压圈左（胶固定于壁袋）",
+   "object": "N6_MIC_RETAINER_-1",
+   "rotating": false,
+   "function": "麦克风压圈左（胶固定于壁袋）"
+  },
+  {
+   "id": "P22",
+   "name": "麦克风压圈右（胶固定于壁袋）",
+   "object": "N6_MIC_RETAINER_1",
+   "rotating": false,
+   "function": "麦克风压圈右（胶固定于壁袋）"
+  },
+  {
+   "id": "P23",
+   "name": "头壳（原生Screw＋Lattice＋Solidify）",
+   "object": "N6_HEAD_SHELL",
+   "rotating": true,
+   "function": "头壳（原生Screw＋Lattice＋Solidify）"
+  },
+  {
+   "id": "P24",
+   "name": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）",
+   "object": "N6_FACE_PANEL",
+   "rotating": true,
+   "function": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）"
+  },
+  {
+   "id": "P25",
+   "name": "LCD后压框（周边夹持，孔位UNVERIFIED）",
+   "object": "N6_LCD_REAR_CLAMP_FRAME",
+   "rotating": true,
+   "function": "LCD后压框（周边夹持，孔位UNVERIFIED）"
+  },
+  {
+   "id": "P26",
+   "name": "摄像头8×8托架（贴面板背面）",
+   "object": "N6_CAMERA_CRADLE",
+   "rotating": true,
+   "function": "摄像头8×8托架（贴面板背面）"
+  },
+  {
+   "id": "P27",
+   "name": "隐私滑盖导轨（前贴面板）",
+   "object": "N6_PRIVACY_GUIDE",
+   "rotating": true,
+   "function": "隐私滑盖导轨（前贴面板）"
+  },
+  {
+   "id": "P28",
+   "name": "隐私滑片（打开位置在x=11+）",
+   "object": "N6_PRIVACY_BLADE",
+   "rotating": true,
+   "function": "隐私滑片（打开位置在x=11+）"
+  },
+  {
+   "id": "P29",
+   "name": "核心板竖直边缘托架（固定于头底）",
+   "object": "N6_CORE_BOARD_CRADLE",
+   "rotating": true,
+   "function": "核心板竖直边缘托架（固定于头底）"
+  },
+  {
+   "id": "P30",
+   "name": "线束固定鞍（底座侧）",
+   "object": "N6_CABLE_SADDLE_BASE",
+   "rotating": false,
+   "function": "线束固定鞍（底座侧）"
+  },
+  {
+   "id": "P31",
+   "name": "线束固定鞍（头侧）",
+   "object": "N6_CABLE_SADDLE_HEAD",
+   "rotating": true,
+   "function": "线束固定鞍（头侧）"
+  }
+ ]
+}

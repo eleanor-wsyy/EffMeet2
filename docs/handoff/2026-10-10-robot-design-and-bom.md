@@ -1,6 +1,6 @@
 # 2026-10-10 · 圆润转头版建模与采购交接入口
 
-本次完整交接正文统一在[hardware/robot-design/HANDOFF.md](../../hardware/robot-design/HANDOFF.md)，不在这里复制维护。
+本次完整交接正文统一在[hardware/robot-design/HANDOFF.md](../../hardware/robot-design/HANDOFF.md)，不在这里复制维护。**2026-10-13：当前版本为 [v6紧凑候选·布局A2](../../hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)，本页其余入口仍有效。**
 
 1. [统一目录README](../../hardware/robot-design/README.md)：当前版本、文件优先级与历史边界。
 2. [本次HANDOFF](../../hardware/robot-design/HANDOFF.md)：具体更新、已检查范围、未完成项与协作接口。

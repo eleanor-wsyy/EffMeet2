@@ -1,0 +1,769 @@
+{
+  "revision": "nomi-goouu-layoutA-v5-print-candidate",
+  "units": "mm",
+  "scope": "reversible engineering packaging candidate; dimensions are nominal, not manufacturing release",
+  "envelope": {
+    "width": 180,
+    "depth": 164,
+    "height": 222
+  },
+  "head": {
+    "center": [
+      0,
+      0,
+      150
+    ],
+    "outer_size": [
+      150,
+      128,
+      144
+    ],
+    "wall": 2.4,
+    "trim_bottom_z": 92,
+    "face_cut_y": -63.6,
+    "face_panel_diameter": 106,
+    "face_panel_center": [
+      0,
+      -62.8,
+      150
+    ],
+    "lcd_window_mm": [
+      58.2,
+      43.8
+    ],
+    "lcd_window_center": [
+      0,
+      -63,
+      145
+    ],
+    "camera_center": [
+      0,
+      -62.8,
+      189
+    ],
+    "actual_camera_module_measured": false,
+    "construction": "single Y-axis Screw profile, local lattice round-to-ellipsoid transition, Solidify 2.4mm and bottom trim",
+    "receiver": {
+      "floor_thickness_mm": 3.2,
+      "z_min": 92,
+      "z_max": 95.2,
+      "neck_socket_diameter_mm": 46.6,
+      "fastener_holes_mm": 3.4,
+      "fastener_centers": [
+        [
+          26,
+          0
+        ],
+        [
+          -26,
+          0
+        ]
+      ],
+      "status": "provisional geometry; real fasteners/tolerances required"
+    },
+    "lcd_interface": "kit14PIN J2, SPI inferred from vendor photos; actual pin map/voltage/touch lines pending",
+    "front_profile_radius_mm": 57,
+    "display_source": "GOOUU ordered HSD028309 A6 kit; physical glass/PCB dimensions not yet measured",
+    "receiving_lip": {
+      "outer_diameter_mm": 114.4,
+      "inner_diameter_mm": 106.6,
+      "depth_mm": 2.4,
+      "scope": "slightly proud receiving lip avoids coplanar overlap; provisional geometry"
+    },
+    "activity_reserve": {
+      "size_mm": [
+        20,
+        32,
+        24
+      ],
+      "center_mm": [
+        0,
+        20,
+        117
+      ],
+      "z_min_mm": 105,
+      "z_max_mm": 129,
+      "flange_top_z_mm": 99.2,
+      "scope": "shared display/camera activity bay above flange, not dynamic bend-radius/life proof"
+    }
+  },
+  "base": {
+    "width": 180,
+    "depth": 164,
+    "bottom_z": 2,
+    "top_z": 78,
+    "lower_radius": 18,
+    "upper_radius": 26,
+    "wall": 2.4,
+    "lid_seam_z": 66
+  },
+  "yaw": {
+    "axis": [
+      0,
+      0,
+      0
+    ],
+    "range_deg": [
+      -45,
+      45
+    ],
+    "neck_od": 46,
+    "neck_id": 22,
+    "neck_bottom": 73,
+    "neck_top": 98,
+    "lid_hole_diameter": 48,
+    "drive": "MG90S candidate off-axis with independent two 6806 bearings and 1:1 belt; couplings and actual torque not validated",
+    "cable": "Only display SPI/touch/power bundle and kit camera FPC cross yaw. Do not cut FPC.14PIN does not mean only6 wires if touch/MISO required; two7-position terminations are a provisional assembly option, connector diagonal must fit22mm bore.",
+    "bearing_centers_z": [
+      49.5,
+      69.5
+    ],
+    "bearing_seat_outer_diameter": 52,
+    "pulley_teeth_candidate": 64,
+    "pulley_pitch_mm": 2,
+    "pulley_pitch_diameter_mm": 40.74366543152521,
+    "belt_pitch_length_candidate_mm": 228,
+    "center_distance_candidate_mm": 50,
+    "pulley_plane_z": 59.5,
+    "hidden_flange": {
+      "outer_diameter_mm": 62,
+      "z_min": 95.2,
+      "z_max": 99.2
+    },
+    "stepped_socket": {
+      "nominal_diameter_mm": 30.3,
+      "d_flat_x_mm": 14.2,
+      "shaft_flat_x_mm": 14,
+      "real_fit_verified": false
+    },
+    "hollow_shaft": {
+      "nominal_outer_diameter_mm": 29.8,
+      "bore_mm": 22,
+      "z_min_mm": 45,
+      "z_max_mm": 93,
+      "d_flat_start_z_mm": 73,
+      "scope": "full nominal race engagement; axial retention remains to design/sample"
+    }
+  },
+  "components": [
+    {
+      "id": "MAINBOARD",
+      "group": "base",
+      "body": [
+        62.6,
+        1.6,
+        28.3
+      ],
+      "center": [
+        0,
+        54,
+        48
+      ],
+      "reserve": [
+        72,
+        18,
+        36
+      ],
+      "confidence": "62.6x28.3 from repository GOOUU vendor-size record; populated height/USB/headers assumed; extension board not included in this fit claim"
+    },
+    {
+      "id": "LCD",
+      "group": "head",
+      "body": [
+        85,
+        1.6,
+        55
+      ],
+      "center": [
+        0,
+        -58.8,
+        145
+      ],
+      "reserve": [
+        86,
+        10,
+        56
+      ],
+      "confidence": "Conservative SPI-kit PCB placeholder85x55, not actual HSD028309 module dimensions; actual glass/PCB/header stack must be measured",
+      "reserve_center": [
+        0,
+        -54.8,
+        145
+      ]
+    },
+    {
+      "id": "CAMERA",
+      "group": "head",
+      "body": [
+        20,
+        10,
+        18
+      ],
+      "center": [
+        0,
+        -53.4,
+        188
+      ],
+      "reserve": [
+        24,
+        18,
+        22
+      ],
+      "confidence": "removable OV3660 module connected to base DVP connector; NOT whole board in head; module and extension assembly dimensions unmeasured"
+    },
+    {
+      "id": "SERVO",
+      "group": "base",
+      "body": [
+        22.8,
+        12.2,
+        28.5
+      ],
+      "center": [
+        -50,
+        0,
+        38
+      ],
+      "reserve": [
+        35,
+        25,
+        38
+      ],
+      "reserve_center": [
+        -50,
+        0,
+        39
+      ],
+      "confidence": "TowerPro MG90S nominal body; ears, horn and output-axis offset unmeasured; center distance/tension adjustment provisional"
+    },
+    {
+      "id": "BEARING_LOWER",
+      "group": "base",
+      "body": [
+        42,
+        42,
+        7
+      ],
+      "center": [
+        0,
+        0,
+        49.5
+      ],
+      "reserve": [
+        52,
+        52,
+        10
+      ],
+      "confidence": "6806 30x42x7 nominal; split-seat outer52 and height10 provisional"
+    },
+    {
+      "id": "BEARING_UPPER",
+      "group": "base",
+      "body": [
+        42,
+        42,
+        7
+      ],
+      "center": [
+        0,
+        0,
+        69.5
+      ],
+      "reserve": [
+        52,
+        52,
+        10
+      ],
+      "confidence": "6806 30x42x7 nominal; upper independent carrier provisional"
+    },
+    {
+      "id": "SPEAKER",
+      "group": "base",
+      "body": [
+        40,
+        18,
+        40
+      ],
+      "center": [
+        0,
+        -57,
+        33
+      ],
+      "reserve": [
+        44,
+        24,
+        44
+      ],
+      "confidence": "4ohm3W <=40x18 candidate including leads unmeasured"
+    },
+    {
+      "id": "BATTERY",
+      "group": "base",
+      "body": [
+        55,
+        30,
+        10
+      ],
+      "center": [
+        45,
+        4,
+        14
+      ],
+      "reserve": [
+        60,
+        35,
+        14
+      ],
+      "confidence": "3.7V protected sample procurement limit, not selected SKU; battery must NOT feed5V servo directly"
+    },
+    {
+      "id": "DRIVEN_PULLEY",
+      "group": "base",
+      "body": [
+        44,
+        44,
+        8.4
+      ],
+      "center": [
+        0,
+        0,
+        59.5
+      ],
+      "reserve": [
+        45,
+        45,
+        9
+      ],
+      "confidence": "64T GT2 2mm pitch 1:1 candidate envelope only; tooth profile/hub clamp unverified"
+    },
+    {
+      "id": "DRIVER_PULLEY",
+      "group": "base",
+      "body": [
+        44,
+        44,
+        8.4
+      ],
+      "center": [
+        -50,
+        0,
+        59.5
+      ],
+      "reserve": [
+        45,
+        45,
+        9
+      ],
+      "confidence": "same tooth count; purchased servo horn screw coupling not invented spline"
+    },
+    {
+      "id": "LCD_FRONT",
+      "group": "head",
+      "body": [
+        73.06,
+        0.7,
+        50.54
+      ],
+      "center": [
+        0,
+        -62.55,
+        145
+      ],
+      "reserve": [
+        74,
+        2,
+        51
+      ],
+      "reserve_center": [
+        0,
+        -62,
+        145
+      ],
+      "confidence": "Front-glass design budget derived from generic2.8inch geometry, NOT verified GOOUU screen dimensions; clear aperture remains58.2x43.8 pending kit measurement"
+    },
+    {
+      "id": "MIC_LEFT",
+      "group": "base",
+      "body": [
+        16,
+        6,
+        12
+      ],
+      "center": [
+        -16.3,
+        69,
+        52
+      ],
+      "reserve": [
+        22,
+        10,
+        16
+      ],
+      "confidence": "INMP441 external-module size budget, not selected module PCB; bottom-port coordinates and connector height unmeasured"
+    },
+    {
+      "id": "MIC_RIGHT",
+      "group": "base",
+      "body": [
+        16,
+        6,
+        12
+      ],
+      "center": [
+        16.3,
+        69,
+        52
+      ],
+      "reserve": [
+        22,
+        10,
+        16
+      ],
+      "confidence": "Same fixed external-module budget; mic must not move with head"
+    },
+    {
+      "id": "I2S_AMP",
+      "group": "base",
+      "body": [
+        23,
+        16,
+        4
+      ],
+      "center": [
+        38,
+        -31,
+        20
+      ],
+      "reserve": [
+        28,
+        22,
+        12
+      ],
+      "confidence": "MAX98357A external module budget, not measured populated board; speaker BTL wiring required"
+    },
+    {
+      "id": "BATTERY_CHARGER",
+      "group": "base",
+      "body": [
+        28,
+        17,
+        4
+      ],
+      "center": [
+        -40,
+        36,
+        16
+      ],
+      "reserve": [
+        34,
+        23,
+        10
+      ],
+      "confidence": "TP4056 with protection module budget; charger/protection only, NOT5V boost or guaranteed load sharing"
+    }
+  ],
+  "unverified": [
+    "GOOUU core USB/header populated dimensions, kit extension board size excluded from nominal fit",
+    "Actual HSD028309 A6 screen glass/PCB/thickness/14PIN definitions; not Waveshare module",
+    "INMP441x2/MAX98357A/TP4056 actual module sizes and full GPIO camera/display/I2S/servo allocation",
+    "TP4056 is not5V conversion or power-path; portable power not released",
+    "display selected SKU andkit14PIN voltage/pin map/contact side; assembled thickness/FPC exit",
+    "OV3660 removable module dimensions/kit camera-pin extension pin map and high-speed signal integrity",
+    "two FPC simultaneous dynamic routing, bend radius and50cycles at +/-45",
+    "MG90S horn/ears/output axis,60mm? no use nominal50center; actual torque, current, noise",
+    "split bearing seats, axial preload/retention,30OD hollow shaft and head receiver load path",
+    "GT2 tooth profile,228mm belt stock availability/tension/hub fixing, hard stops",
+    "screw receivers/assembly tool access, actual hole compensation with PLA samples",
+    "fixed dual-mic locations/acoustic guides/AEC and actual speaker chamber",
+    "battery dimensions, protection/polarity/charge circuit and independent servo supply",
+    "thermal/creep/center of mass/tip stability; no hardware test performed"
+  ],
+  "updated_date": "2026-10-11",
+  "layout": "A",
+  "hardware_platform": "GOOUU ESP32-S3-CAM + OV3660 (ordered kit with extension board and2.8inch TFT)",
+  "print_material": {
+    "body": "PLA Matte grey",
+    "detail": "PLA Matte black",
+    "finish": "as-printed; no coating"
+  },
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "basis_commit": "f0788c8",
+  "extension_board_policy": {
+    "kit_included": true,
+    "in_current_internal_fit": false,
+    "decision": "current assembled candidate uses core board plus labeled direct wiring; extension board remains bench aid until measured; do not claim full kit board assembly fits",
+    "actual_dimensions": null
+  },
+  "power_policy": {
+    "demo": "external regulated5V board+amplifier; independent rated servo supply and common ground",
+    "battery": "reserved protected3.7V cell and charger; no standalone battery operation claim; add validated5V conversion/power-path if required"
+  },
+  "print_split": {
+    "schema_version": 1,
+    "status": "conditional_candidate",
+    "interface_status": "unverified",
+    "layer_orientation_status": "NOT_SLICED_NOT_PRINTED",
+    "bearing": {
+      "od_budget": 42,
+      "id_budget": 30,
+      "width_budget": 7,
+      "seat_bore": 42.3,
+      "seat_od": 54,
+      "seat_height": 9.4,
+      "split_gap": 0.4,
+      "lip_id": 38.5,
+      "lip_height": 1,
+      "stack_bolt_xy": [
+        [
+          -28,
+          -14
+        ],
+        [
+          -28,
+          14
+        ],
+        [
+          28,
+          -14
+        ],
+        [
+          28,
+          14
+        ]
+      ],
+      "stack_bolt_hole": 3.4,
+      "spacer_height": 10.6,
+      "fit_verified": false,
+      "split_axis": "X",
+      "clamp_bolt_axis": "X",
+      "clamp_bolt_y": [
+        -24,
+        24
+      ],
+      "clamp_bolt_budget": "M3x70",
+      "stack_bolt_budget": "M3x70 from counterbore seat5.2mm",
+      "upper_stack_nut_recess_mm": 3.4,
+      "fastener_collision_resolved_nominally": true,
+      "spacer_od": 8.2
+    },
+    "shaft": {
+      "od": 29.8,
+      "id": 22,
+      "z_min": 39,
+      "z_max": 93,
+      "shoulder_od": 34.5,
+      "shoulder_z": [
+        73,
+        74.4
+      ],
+      "drive_flat_x": 14.2,
+      "drive_flat_z": [
+        54.6,
+        64.4
+      ],
+      "neck_flat_x": 14,
+      "neck_flat_z": [
+        75.4,
+        93
+      ],
+      "bearing_fit_verified": false
+    },
+    "pulley": {
+      "teeth": 64,
+      "pitch": 2,
+      "outer_diameter": 40.2436654315,
+      "groove_radius": 0.75,
+      "groove_center_radius": 20.13,
+      "belt_width": 6,
+      "flange_od": 43.2,
+      "flange_height": 1.2,
+      "body_z": [
+        55.3,
+        63.7
+      ],
+      "center_distance": 50,
+      "profile_status": "rounded-groove hypothesis; NOT certified GT2 tooling",
+      "horn_budget_od": 20,
+      "horn_budget_depth": 2.4,
+      "horn_slot_hole": 2.4,
+      "horn_interface_verified": false
+    },
+    "face_fasteners": {
+      "radius": 49,
+      "angles_deg": [
+        6,
+        174,
+        270
+      ],
+      "clearance": 2.8,
+      "nut_flat": 5.0,
+      "verified": false
+    },
+    "privacy": {
+      "travel": 13.5,
+      "guide_size": [
+        38,
+        3.2,
+        13
+      ],
+      "blade_size": [
+        16,
+        1.6,
+        10
+      ],
+      "screw_x": [
+        -10.3,
+        23.8
+      ],
+      "verified": false
+    },
+    "hard_stop": {
+      "soft_limit_deg": 45,
+      "contact_target_deg": 48,
+      "fixed_center_deg": 56.5,
+      "lug_radial_range": [
+        22,
+        30
+      ],
+      "lug_width": 4,
+      "verified": false
+    },
+    "fasteners": {
+      "m3_clearance": 3.4,
+      "m25_clearance": 2.8,
+      "m3_nut_flat": 5.7,
+      "m25_nut_flat": 5.0,
+      "captive_nut_pocket_depth": 2.6,
+      "hole_compensation_verified": false
+    },
+    "provisional_relocations": {
+      "BATTERY": {
+        "center": [
+          53,
+          0,
+          14
+        ],
+        "body": [
+          30,
+          55,
+          10
+        ],
+        "reserve": [
+          35,
+          60,
+          14
+        ],
+        "reason": "rotate90deg to clear bearing tower"
+      },
+      "I2S_AMP": {
+        "center": [
+          20,
+          -34.3,
+          25
+        ],
+        "body": [
+          23,
+          16,
+          4
+        ],
+        "reserve": [
+          28,
+          22,
+          12
+        ],
+        "reason": "raise/move away from battery and tower"
+      },
+      "BATTERY_CHARGER": {
+        "center": [
+          -40,
+          32,
+          16
+        ],
+        "body": [
+          28,
+          17,
+          4
+        ],
+        "reserve": [
+          34,
+          23,
+          10
+        ],
+        "reason": "clear mainboard feet and cup mounting boss"
+      }
+    },
+    "release_requirements": [
+      "real dimension and connector update",
+      "slicer preview per part",
+      "PETG + PLA Matte coupons",
+      "real assembly and cable yaw tests",
+      "wall/strength/thermal verification"
+    ],
+    "minimum_general_wall_mm": 2.4,
+    "explicit_exceptions": {
+      "privacy_blade": 1.6,
+      "privacy_front_retainer": 1.2,
+      "bearing_lip": 1.0,
+      "pulley_flange": 1.2,
+      "button_cap": 2.0
+    },
+    "plate_bed_budget_mm": [
+      256,
+      256
+    ],
+    "plate_spacing_mm": 8,
+    "plates_frozen": false,
+    "export_cleanup": {
+      "weld_mm": 1e-05,
+      "release": false
+    },
+    "button": {
+      "switch_budget": [
+        6,
+        6,
+        5
+      ],
+      "stem_min_z": 72.2,
+      "retention_foot": [
+        14.2,
+        10.2,
+        1.2
+      ],
+      "foot_center_z": 74.8,
+      "travel_budget": 0.6,
+      "verified": false,
+      "opening_radius": 1.0
+    },
+    "mating_clearances": {
+      "neck_bottom": 74.6,
+      "head_flange_relief_od": 62.4,
+      "head_flange_relief_z": [
+        95.2,
+        99.7
+      ],
+      "collar_ear_z": [
+        32.6,
+        44
+      ],
+      "mic_duct_end_y": 77.3,
+      "head_cable_saddle_center": [
+        36,
+        0,
+        102.5
+      ],
+      "head_cable_reserve_center": [
+        0,
+        20,
+        118.5
+      ],
+      "lcd_front_retainer_thickness": 1.6,
+      "status": "nominal modeled, physical clearance unverified"
+    },
+    "servo_mount": {
+      "ear_rail_center_z": 50.8,
+      "ear_pattern_status": "UNVERIFIED",
+      "axis_offset_status": "UNVERIFIED"
+    }
+  }
+}

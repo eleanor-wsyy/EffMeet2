@@ -1,53 +1,45 @@
 {
   "schema_version": 1,
-  "updated_on": "2026-10-12",
+  "updated_on": "2026-10-13",
   "timezone": "Asia/Shanghai",
-  "title": "EffMeet2 NOMI／GOOUU布局A v5拆件候选",
-  "active_revision": "nomi-goouu-layoutA-v5-print-candidate",
+  "title": "EffMeet2 NOMI·GOOUU 布局A2 v6紧凑候选",
+  "active_revision": "nomi-goouu-layoutA2-v6-compact-candidate",
   "stage": "reversible_blockout",
   "final_design_approved": false,
   "manufacturing_ready": false,
   "hardware_validated": false,
   "entry_read_order": [
-    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md",
-    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PARTS.md",
-    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/ASSEMBLY.md",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md",
     "HANDOFF.md",
     "round-yaw-v2/BOM.md",
-    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PRINTING.md",
+    "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md",
     "round-yaw-v2/TEST_GUIDE.md"
   ],
   "canonical_files": {
     "bom": "round-yaw-v2/BOM.md",
     "parameters": "round-yaw-v2/parameters.json",
-    "model": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/EffMeet2_NOMI_布局A_v5_拆件候选.blend",
+    "model": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/EffMeet2_NOMI_布局A_v6_紧凑候选.blend",
     "hero_concept": "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png",
-    "yaw_review": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/renders/08_yaw_left_candidate.png",
-    "fit_report": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/production/nominal-printed-intersections.json",
-    "validation": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/production/delivery-validation.json",
+    "fit_report": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/production/stage1-checks.json",
+    "validation": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/production/delivery-validation.json",
     "print_plan": "round-yaw-v2/PRINT_PLAN.md",
     "assembly_guide": "round-yaw-v2/ASSEMBLY_GUIDE.md",
     "test_guide": "round-yaw-v2/TEST_GUIDE.md",
     "test_record_template": "round-yaw-v2/TEST_RECORD_TEMPLATE.csv",
     "exterior_assembly_revision": "round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md",
-    "hero_render": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/renders/01_hero_candidate.png",
-    "hero_board": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/drawings/01_主视觉_CMF_v5.png",
-    "orthographic_board": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/drawings/02_视图与尺寸_v5.png",
-    "layout_board": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/drawings/03_结构与独立件_v5.png",
-    "yaw_right": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/renders/09_yaw_right_candidate.png",
-    "engineering_review": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md",
-    "model_source": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/build_print_split.py",
-    "parts": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PARTS.csv",
-    "parts_readme": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PARTS.md",
-    "parts_registry": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/parts.json",
-    "print_split_assembly": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/ASSEMBLY.md",
-    "print_split_plan": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PRINTING.md",
-    "plate_registry": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/plate-start-layouts.json"
+    "hero_render": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/renders/01_hero.png",
+    "engineering_review": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md",
+    "model_source": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/build_v6.py",
+    "parts": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PARTS.csv",
+    "parts_registry": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/parts.json",
+    "print_split_plan": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md",
+    "size_comparison": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/renders/00_compare_v5_v6.png",
+    "measurements": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASUREMENTS.csv"
   },
   "nominal_envelope_mm": {
-    "width": 180,
-    "depth": 164,
-    "height": 222
+    "width": 153.0,
+    "depth": 139.4,
+    "height": 200.8
   },
   "nominal_yaw_limits_deg": [
     -45,
@@ -76,7 +68,7 @@
     "round-yaw-v2/concept/refined-friendly-20261010/EffMeet2_白色脸颊_普通LCD_优化效果图.png": "d85145bbf54b820eaa431ba29f56bb9855ece89c2ac085abfcbd1039948794e6",
     "round-yaw-v2/concept/nomi-aligned-20261010/EffMeet2_NOMI方向_现有硬件_效果图.png": "4dc233ca50f62970d7fed49ad34acc6039eeaa82e45465ce17baea1887e5c67c",
     "round-yaw-v2/revision-20261011-nomi-layoutA/EffMeet2_NOMI_布局A_工程候选_v4.blend": "85b1b52507e0edaeac580964b30a992f98261235ccfd775544a1b01f672d5d14",
-    "round-yaw-v2/parameters.json": "992f511737bb0cd83eefac0562ebfe293ec1d8ecd48fca91f9ee302f3c33d6ad",
+    "round-yaw-v2/parameters.json": "0ee2263a812d812ecf9fb9cc8c7761006751777eaaa74d647ced6fd1c4b98ad3",
     "round-yaw-v2/revision-20261011-nomi-layoutA/update_nomi_layoutA.py": "e31b460120f72b471043936153184ad982eeba4ca2f2de9642152e3b311006e8",
     "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/01_主视觉_CMF.png": "43c7eb9e3f2d8b0c470929bcb271e2bf33af74ea29f6896b14b374c80d5817ac",
     "round-yaw-v2/revision-20261011-nomi-layoutA/drawings/02_三视图_名义尺寸.png": "aa54b6ac03e28a17073d68c167c8fde1c3bae27be24fb672cef284c4288a3925",
@@ -210,5 +202,8 @@
     "legacy_input_model": "round-yaw-v2/revision-20261011-nomi-layoutA/EffMeet2_NOMI_布局A_工程候选_v4.blend",
     "legacy_parameter_snapshot": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/parameters-v4-frozen.json",
     "slicing_owner": "user / Bambu Studio"
+  },
+  "historical_files": {
+    "v5_print_split": "round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md"
   }
 }

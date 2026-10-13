@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "scope": "offline v6 conditional geometry delivery only",
+  "checks": [
+    "31 candidate STLs: hashes, sizes, no proxy/keep-out, grey/black grouping, all fit 256 bed",
+    "float32 STL re-read: all closed, positive volume",
+    "5 shells 0/0/1, 0 part/part & part/proxy overlaps, proxies contained, 3 yaw poses clear, FPC slack>=3, belt 188 2:1",
+    "parameters.json is v6/A2; v5 frozen copy matches v5 binding",
+    "PARTS.csv/MEASUREMENTS.csv records, source syntax and md links checked"
+  ],
+  "parts": 31,
+  "slicer_tests_run": false,
+  "sample_prints_run": false,
+  "hardware_tests_run": false,
+  "manufacturing_ready": false
+}

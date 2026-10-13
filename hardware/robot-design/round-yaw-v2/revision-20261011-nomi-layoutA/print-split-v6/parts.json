@@ -1,0 +1,881 @@
+{
+  "revision": "v6",
+  "layout": "A2",
+  "status": "conditional_candidate",
+  "units": "mm",
+  "stage": "reversible_blockout",
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "plates_frozen": false,
+  "model_sha256": "f127314845c60f5848a9a8c49aec910d994d37db6ec73a5ca8d46650454d2f5e",
+  "parts": [
+    {
+      "id": "P01",
+      "name": "底座杯体（原生Screw剖面×0.85）",
+      "object": "N6_BASE_CUP",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "灰",
+      "interface_status": "unverified",
+      "size_mm": [
+        153.0,
+        139.4,
+        54.1
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；肩部圆弧/声槽支撑待预览",
+      "plate_start": "GREY",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P01_BASE_CUP_UNVERIFIED.stl",
+      "stl_sha256": "f427ab28f331eb1685f3fe72da4670aafa5e9f70befb9e7efaaedabdf1f64041",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P02",
+      "name": "底座上盖＋限位块",
+      "object": "N6_BASE_LID",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "灰",
+      "interface_status": "unverified",
+      "size_mm": [
+        145.65,
+        132.71,
+        9.9
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "接缝圈朝下；顶面悬空需树支撑",
+      "plate_start": "GREY",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P02_BASE_LID_UNVERIFIED.stl",
+      "stl_sha256": "518a1410e2101bce9a135e0f345c458d29fd9739b3c680987fbb365158e11b38",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P03",
+      "name": "从动64T带轮（套空心轴＋M3顶丝）",
+      "object": "N6_DRIVEN_64T",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        43.24,
+        43.24,
+        10.6
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P03_DRIVEN_64T_UNVERIFIED.stl",
+      "stl_sha256": "f044c43d1e084cd1425e438676262af13517d89bb87e2df27ea9897b8589fd3e",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P04",
+      "name": "舵机主动32T带轮＋双臂舵盘口袋",
+      "object": "N6_DRIVER_32T",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        34.0,
+        34.0,
+        12.5
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P04_DRIVER_32T_UNVERIFIED.stl",
+      "stl_sha256": "881a58b4b3493b14a92f18b423d6af7125101381dca54059f7bd71288704fbb6",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P05",
+      "name": "承力塔＋下轴承座（一体，四柱落底）",
+      "object": "N6_BEARING_TOWER_LOWER_SEAT",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        64.0,
+        70.0,
+        36.2
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P05_BEARING_TOWER_LOWER_SEAT_UNVERIFIED.stl",
+      "stl_sha256": "d2a139d5f031483edbfa2e45656b9e66561f095916218de5a1ed5bb49e7eb3af",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P06",
+      "name": "上轴承座（4×M3贯穿压紧）",
+      "object": "N6_UPPER_BEARING_SEAT",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        58.0,
+        64.0,
+        8.6
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P06_UPPER_BEARING_SEAT_UNVERIFIED.stl",
+      "stl_sha256": "f3dcd9c72f3452db80f50983d34eaf1ac4df581719887a0a65b7c8996ecb915f",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P07",
+      "name": "轴承层间支柱1",
+      "object": "N6_STACK_SPACER_0",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        8.2,
+        8.2,
+        11.4
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P07_STACK_SPACER_0_UNVERIFIED.stl",
+      "stl_sha256": "59a13a0e01329911cbfa9aa17b520bcc8db7f6f328d8bd151f66e753277e29ea",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P08",
+      "name": "轴承层间支柱2",
+      "object": "N6_STACK_SPACER_1",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        8.2,
+        8.2,
+        11.4
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P08_STACK_SPACER_1_UNVERIFIED.stl",
+      "stl_sha256": "40d2a891c60a12e927023508e695fd4dc086be81c6e4c8e3159e36e0c7edf87f",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P09",
+      "name": "轴承层间支柱3",
+      "object": "N6_STACK_SPACER_2",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        8.2,
+        8.2,
+        11.4
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P09_STACK_SPACER_2_UNVERIFIED.stl",
+      "stl_sha256": "533321f193f4679079ab33a9742b2873fada24f4289278d89376a2e249bbc7ea",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P10",
+      "name": "轴承层间支柱4",
+      "object": "N6_STACK_SPACER_3",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        8.2,
+        8.2,
+        11.4
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P10_STACK_SPACER_3_UNVERIFIED.stl",
+      "stl_sha256": "9dd5fdc0884cc0e0ea4bd3316978b404ef05fe82c5e2cbeea0e5444a9597eaf4",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P11",
+      "name": "空心承力轴 Ø29.8/22（轴肩＋两段D面）",
+      "object": "N6_HOLLOW_LOAD_SHAFT",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        34.5,
+        34.5,
+        60.0
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P11_HOLLOW_LOAD_SHAFT_UNVERIFIED.stl",
+      "stl_sha256": "f7d2c7b418b71ae33e22c458cc548ae7d8c2d880d350dc91c7f1a3220578523f",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P12",
+      "name": "空心轴下止推夹环",
+      "object": "N6_SHAFT_LOWER_LOCK_COLLAR",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        36.0,
+        42.5,
+        7.8
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P12_SHAFT_LOWER_LOCK_COLLAR_UNVERIFIED.stl",
+      "stl_sha256": "1f5780bf1a8da9d9bf5a3b605fda8be5b05aa2868e41cfd7b92b32b8d8adcc9e",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P13",
+      "name": "限位摆臂（D孔，硬限位48°）",
+      "object": "N6_YAW_STOP_ARM",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        51.0,
+        36.0,
+        1.8
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P13_YAW_STOP_ARM_UNVERIFIED.stl",
+      "stl_sha256": "b34bbde9946bc95ee5ab5233f96ce04f4f9c0d3fca2c70051d88acc01fee97c8",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P14",
+      "name": "短颈＋法兰（D孔套轴）",
+      "object": "N6_SHORT_YAW_NECK",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        58.0,
+        58.0,
+        23.1
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P14_SHORT_YAW_NECK_UNVERIFIED.stl",
+      "stl_sha256": "9f9aea1b26356cee013bc5672368272f3a5e74dc2fac821c32d9fea4ef90e643",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P15",
+      "name": "MG90S舵机可调耳架（±2张紧槽）",
+      "object": "N6_SERVO_ADJUSTABLE_CRADLE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        36.0,
+        24.0,
+        23.7
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
+      "stl_sha256": "246194b515dd7a68f8f30e83d3e289351b25738f712e0efcfa88260345593dda",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P16",
+      "name": "扬声器圆筒托架（≤46宽）",
+      "object": "N6_SPEAKER_CRADLE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        46.0,
+        48.6,
+        19.2
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "圆筒轴竖直；腿部支撑待预览",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P16_SPEAKER_CRADLE_UNVERIFIED.stl",
+      "stl_sha256": "aaf31bce7ba795ebebd9f2b70037b385a0223c00a0a2bc118974d6e5ca45dd46",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P17",
+      "name": "MAX98357A低托盘",
+      "object": "N6_AMP_LOW_TRAY",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        22.7,
+        24.1,
+        11.6
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P17_AMP_LOW_TRAY_UNVERIFIED.stl",
+      "stl_sha256": "67c36772ac6f502b1d9b74cf4ebc98822dde3ecacf6c3a61f4a6f69821c1a800",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P18",
+      "name": "USB-C 5V输入板托架（预算件）",
+      "object": "N6_POWER_IN_TRAY",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        25.0,
+        15.5,
+        28.6
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P18_POWER_IN_TRAY_UNVERIFIED.stl",
+      "stl_sha256": "f85caf48920d993b9d22c40d3408ac7acebe22903adb6428ffb6eab4a8b2a7d2",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P19",
+      "name": "停止键帽＋键柱",
+      "object": "N6_STOP_KEY_CAP",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        15.0,
+        10.4,
+        6.3
+      ],
+      "orientation_start_euler_deg": [
+        180,
+        0,
+        0
+      ],
+      "support_start": "键面朝平台",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P19_STOP_KEY_CAP_UNVERIFIED.stl",
+      "stl_sha256": "1c60517f6f22f0c3040206e87accf2341666c244eab233eb0f045875f2a0bc66",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P20",
+      "name": "轻触开关托座",
+      "object": "N6_TACTILE_HOLDER",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        36.0,
+        14.0,
+        8.6
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P20_TACTILE_HOLDER_UNVERIFIED.stl",
+      "stl_sha256": "427d030945a4b47712d7faa7caf46cbbcb447232a918284095f4bbbc74bf0243",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P21",
+      "name": "麦克风压圈左（胶固定于壁袋）",
+      "object": "N6_MIC_RETAINER_-1",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        14.4,
+        14.4,
+        1.0
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "平放，无支撑",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P21_MIC_RETAINER_-1_UNVERIFIED.stl",
+      "stl_sha256": "a4888c4142e8eaa09e900231c62f4adaaf72a593a1c58d3d8f0150b464584c6d",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P22",
+      "name": "麦克风压圈右（胶固定于壁袋）",
+      "object": "N6_MIC_RETAINER_1",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        14.4,
+        14.4,
+        1.0
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "平放，无支撑",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P22_MIC_RETAINER_1_UNVERIFIED.stl",
+      "stl_sha256": "0b64b1d37a3ce6de27fee36af309b4d7daed35d8e5ab4896917ac368d6894ee0",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P23",
+      "name": "头壳（原生Screw＋Lattice＋Solidify）",
+      "object": "N6_HEAD_SHELL",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "灰",
+      "interface_status": "unverified",
+      "size_mm": [
+        132.0,
+        120.47,
+        110.04
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "前圈朝下；内底/接收座局部支撑，须试切片",
+      "plate_start": "GREY",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P23_HEAD_SHELL_UNVERIFIED.stl",
+      "stl_sha256": "c1dd6863db673ea9e744d366950ba314ef4e7fe2e1ea4fbd5e86387f8fa355b0",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P24",
+      "name": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）",
+      "object": "N6_FACE_PANEL",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        106.0,
+        106.0,
+        5.3
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "面朝平台；后柱向上",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P24_FACE_PANEL_UNVERIFIED.stl",
+      "stl_sha256": "41b6840ede75f5e2b68e4e246c557f041d1734f0b7c8c4bcd8dfd2510c0f3692",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P25",
+      "name": "LCD后压框（周边夹持，孔位UNVERIFIED）",
+      "object": "N6_LCD_REAR_CLAMP_FRAME",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        88.0,
+        53.0,
+        2.0
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "框面平放",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P25_LCD_REAR_CLAMP_FRAME_UNVERIFIED.stl",
+      "stl_sha256": "e97f0c68c02c6db62c3097c194699c4d4caa0401d7033f98fda8dc6c14e9f706",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P26",
+      "name": "摄像头8×8托架（贴面板背面）",
+      "object": "N6_CAMERA_CRADLE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        13.0,
+        13.0,
+        10.1
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "镜头管朝平台",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P26_CAMERA_CRADLE_UNVERIFIED.stl",
+      "stl_sha256": "5748ff7ae0e9c6e56e199b7ddfff89ec2caae403569b339852cba71ca8ea95d7",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P27",
+      "name": "隐私滑盖导轨（前贴面板）",
+      "object": "N6_PRIVACY_GUIDE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        42.0,
+        12.0,
+        1.6
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "平放，导槽向上",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P27_PRIVACY_GUIDE_UNVERIFIED.stl",
+      "stl_sha256": "3189eb66e248f508c817bbeeb8839a40bbaf13ffde313fa0a694d0687d86564a",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P28",
+      "name": "隐私滑片（打开位置在x=11+）",
+      "object": "N6_PRIVACY_BLADE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        10.0,
+        8.0,
+        2.2
+      ],
+      "orientation_start_euler_deg": [
+        90,
+        0,
+        0
+      ],
+      "support_start": "平放；拨片局部支撑",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P28_PRIVACY_BLADE_UNVERIFIED.stl",
+      "stl_sha256": "450754ceb99d27e72bee9b9ad8c4cd59d5f951e27562dd22dbdb72940379898b",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P29",
+      "name": "核心板竖直边缘托架（固定于头底）",
+      "object": "N6_CORE_BOARD_CRADLE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        36.3,
+        8.0,
+        46.1
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P29_CORE_BOARD_CRADLE_UNVERIFIED.stl",
+      "stl_sha256": "1e645b242b0361d4c2aa14d10a1e6e61d41c4d410c533d9b26eb8e312d19f1da",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P30",
+      "name": "线束固定鞍（底座侧）",
+      "object": "N6_CABLE_SADDLE_BASE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        14.0,
+        10.0,
+        5.0
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": false,
+      "stl": "candidate-stl/P30_CABLE_SADDLE_BASE_UNVERIFIED.stl",
+      "stl_sha256": "16cdcb1f8cc5a2dc53294d2074aadddea8e7e39dca3c3d2f3ab394f49d71b00a",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P31",
+      "name": "线束固定鞍（头侧）",
+      "object": "N6_CABLE_SADDLE_HEAD",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        14.0,
+        10.0,
+        5.0
+      ],
+      "orientation_start_euler_deg": [
+        0,
+        0,
+        0
+      ],
+      "support_start": "底面朝下；局部支撑待切片",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl",
+      "stl_sha256": "260d74c67d3ddd72cd53f61fab2ca0ed54413ee8ff56241420a207ae24257666",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    }
+  ]
+}

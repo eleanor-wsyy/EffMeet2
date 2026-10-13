@@ -1,0 +1,636 @@
+{
+  "bed_mm": [
+    256.0,
+    256.0
+  ],
+  "margin_mm": 8.0,
+  "gap_mm": 10.0,
+  "status": "geometric start layout; slice per PLATE-RUNBOOK; slicer_status stays NOT_RUN",
+  "plates": {
+    "G1": {
+      "file": "plates/plate_G1_v6.3mf",
+      "note": "头壳（灰）",
+      "parts": [
+        {
+          "id": "P23",
+          "name": "头壳（原生Screw＋Lattice＋Solidify）",
+          "object": "N6_HEAD_SHELL",
+          "stl_size_mm": [
+            132.0,
+            120.47
+          ],
+          "plate_xy": [
+            62.0,
+            67.8
+          ],
+          "support_start": "前圈朝下；内底/接收座局部支撑，须试切片",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "G2": {
+      "file": "plates/plate_G2_v6.3mf",
+      "note": "底座杯体（灰）",
+      "parts": [
+        {
+          "id": "P01",
+          "name": "底座杯体（原生Screw剖面×0.85）",
+          "object": "N6_BASE_CUP",
+          "stl_size_mm": [
+            153.0,
+            139.4
+          ],
+          "plate_xy": [
+            51.5,
+            58.3
+          ],
+          "support_start": "底面朝下；肩部圆弧/声槽支撑待预览",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "G3": {
+      "file": "plates/plate_G3_v6.3mf",
+      "note": "底座上盖（灰）",
+      "parts": [
+        {
+          "id": "P02",
+          "name": "底座上盖＋限位块",
+          "object": "N6_BASE_LID",
+          "stl_size_mm": [
+            145.65,
+            132.71
+          ],
+          "plate_xy": [
+            55.2,
+            61.6
+          ],
+          "support_start": "接缝圈朝下；顶面悬空需树支撑",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "B1": {
+      "file": "plates/plate_B1_v6.3mf",
+      "note": "外露黑件（面板/短颈/键帽/隐私滑盖，必须黑料）",
+      "parts": [
+        {
+          "id": "P24",
+          "name": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）",
+          "object": "N6_FACE_PANEL",
+          "stl_size_mm": [
+            106.0,
+            106.0
+          ],
+          "plate_xy": [
+            8.0,
+            8.0
+          ],
+          "support_start": "面朝平台；后柱向上",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P14",
+          "name": "短颈＋法兰（D孔套轴）",
+          "object": "N6_SHORT_YAW_NECK",
+          "stl_size_mm": [
+            58.0,
+            58.0
+          ],
+          "plate_xy": [
+            124.0,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P19",
+          "name": "停止键帽＋键柱",
+          "object": "N6_STOP_KEY_CAP",
+          "stl_size_mm": [
+            15.0,
+            10.4
+          ],
+          "plate_xy": [
+            8.0,
+            124.0
+          ],
+          "support_start": "键面朝平台",
+          "orientation_start_euler_deg": [
+            180,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P27",
+          "name": "隐私滑盖导轨（前贴面板）",
+          "object": "N6_PRIVACY_GUIDE",
+          "stl_size_mm": [
+            42.0,
+            12.0
+          ],
+          "plate_xy": [
+            192.0,
+            8.0
+          ],
+          "support_start": "平放，导槽向上",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P28",
+          "name": "隐私滑片（打开位置在x=11+）",
+          "object": "N6_PRIVACY_BLADE",
+          "stl_size_mm": [
+            10.0,
+            8.0
+          ],
+          "plate_xy": [
+            33.0,
+            124.0
+          ],
+          "support_start": "平放；拨片局部支撑",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "B2": {
+      "file": "plates/plate_B2_v6.3mf",
+      "note": "机构黑件（轴承/带轮/轴/舵机架，壳内可用灰）",
+      "parts": [
+        {
+          "id": "P03",
+          "name": "从动64T带轮（套空心轴＋M3顶丝）",
+          "object": "N6_DRIVEN_64T",
+          "stl_size_mm": [
+            43.24,
+            43.24
+          ],
+          "plate_xy": [
+            8.0,
+            88.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P04",
+          "name": "舵机主动32T带轮＋双臂舵盘口袋",
+          "object": "N6_DRIVER_32T",
+          "stl_size_mm": [
+            34.0,
+            34.0
+          ],
+          "plate_xy": [
+            197.7,
+            88.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P05",
+          "name": "承力塔＋下轴承座（一体，四柱落底）",
+          "object": "N6_BEARING_TOWER_LOWER_SEAT",
+          "stl_size_mm": [
+            64.0,
+            70.0
+          ],
+          "plate_xy": [
+            8.0,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P06",
+          "name": "上轴承座（4×M3贯穿压紧）",
+          "object": "N6_UPPER_BEARING_SEAT",
+          "stl_size_mm": [
+            58.0,
+            64.0
+          ],
+          "plate_xy": [
+            82.0,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P07",
+          "name": "轴承层间支柱1",
+          "object": "N6_STACK_SPACER_0",
+          "stl_size_mm": [
+            8.2,
+            8.2
+          ],
+          "plate_xy": [
+            8.0,
+            141.2
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P08",
+          "name": "轴承层间支柱2",
+          "object": "N6_STACK_SPACER_1",
+          "stl_size_mm": [
+            8.2,
+            8.2
+          ],
+          "plate_xy": [
+            26.2,
+            141.2
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P09",
+          "name": "轴承层间支柱3",
+          "object": "N6_STACK_SPACER_2",
+          "stl_size_mm": [
+            8.2,
+            8.2
+          ],
+          "plate_xy": [
+            44.4,
+            141.2
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P10",
+          "name": "轴承层间支柱4",
+          "object": "N6_STACK_SPACER_3",
+          "stl_size_mm": [
+            8.2,
+            8.2
+          ],
+          "plate_xy": [
+            62.6,
+            141.2
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P11",
+          "name": "空心承力轴 Ø29.8/22（轴肩＋两段D面）",
+          "object": "N6_HOLLOW_LOAD_SHAFT",
+          "stl_size_mm": [
+            34.5,
+            34.5
+          ],
+          "plate_xy": [
+            153.2,
+            88.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P12",
+          "name": "空心轴下止推夹环",
+          "object": "N6_SHAFT_LOWER_LOCK_COLLAR",
+          "stl_size_mm": [
+            36.0,
+            42.5
+          ],
+          "plate_xy": [
+            61.2,
+            88.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P13",
+          "name": "限位摆臂（D孔，硬限位48°）",
+          "object": "N6_YAW_STOP_ARM",
+          "stl_size_mm": [
+            51.0,
+            36.0
+          ],
+          "plate_xy": [
+            150.0,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P15",
+          "name": "MG90S舵机可调耳架（±2张紧槽）",
+          "object": "N6_SERVO_ADJUSTABLE_CRADLE",
+          "stl_size_mm": [
+            36.0,
+            24.0
+          ],
+          "plate_xy": [
+            107.2,
+            88.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    },
+    "B3": {
+      "file": "plates/plate_B3_v6.3mf",
+      "note": "支架黑件（LCD/相机/扬声器/麦/托盘/线鞍，壳内可用灰）",
+      "parts": [
+        {
+          "id": "P16",
+          "name": "扬声器圆筒托架（≤46宽）",
+          "object": "N6_SPEAKER_CRADLE",
+          "stl_size_mm": [
+            46.0,
+            48.6
+          ],
+          "plate_xy": [
+            106.0,
+            8.0
+          ],
+          "support_start": "圆筒轴竖直；腿部支撑待预览",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P17",
+          "name": "MAX98357A低托盘",
+          "object": "N6_AMP_LOW_TRAY",
+          "stl_size_mm": [
+            22.7,
+            24.1
+          ],
+          "plate_xy": [
+            43.0,
+            71.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P18",
+          "name": "USB-C 5V输入板托架（预算件）",
+          "object": "N6_POWER_IN_TRAY",
+          "stl_size_mm": [
+            25.0,
+            15.5
+          ],
+          "plate_xy": [
+            8.0,
+            71.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P20",
+          "name": "轻触开关托座",
+          "object": "N6_TACTILE_HOLDER",
+          "stl_size_mm": [
+            36.0,
+            14.0
+          ],
+          "plate_xy": [
+            208.3,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P21",
+          "name": "麦克风压圈左（胶固定于壁袋）",
+          "object": "N6_MIC_RETAINER_-1",
+          "stl_size_mm": [
+            14.4,
+            14.4
+          ],
+          "plate_xy": [
+            75.7,
+            71.0
+          ],
+          "support_start": "平放，无支撑",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P22",
+          "name": "麦克风压圈右（胶固定于壁袋）",
+          "object": "N6_MIC_RETAINER_1",
+          "stl_size_mm": [
+            14.4,
+            14.4
+          ],
+          "plate_xy": [
+            100.1,
+            71.0
+          ],
+          "support_start": "平放，无支撑",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P25",
+          "name": "LCD后压框（周边夹持，孔位UNVERIFIED）",
+          "object": "N6_LCD_REAR_CLAMP_FRAME",
+          "stl_size_mm": [
+            88.0,
+            53.0
+          ],
+          "plate_xy": [
+            8.0,
+            8.0
+          ],
+          "support_start": "框面平放",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P26",
+          "name": "摄像头8×8托架（贴面板背面）",
+          "object": "N6_CAMERA_CRADLE",
+          "stl_size_mm": [
+            13.0,
+            13.0
+          ],
+          "plate_xy": [
+            172.5,
+            71.0
+          ],
+          "support_start": "镜头管朝平台",
+          "orientation_start_euler_deg": [
+            90,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P29",
+          "name": "核心板竖直边缘托架（固定于头底）",
+          "object": "N6_CORE_BOARD_CRADLE",
+          "stl_size_mm": [
+            36.3,
+            8.0
+          ],
+          "plate_xy": [
+            162.0,
+            8.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P30",
+          "name": "线束固定鞍（底座侧）",
+          "object": "N6_CABLE_SADDLE_BASE",
+          "stl_size_mm": [
+            14.0,
+            10.0
+          ],
+          "plate_xy": [
+            124.5,
+            71.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "P31",
+          "name": "线束固定鞍（头侧）",
+          "object": "N6_CABLE_SADDLE_HEAD",
+          "stl_size_mm": [
+            14.0,
+            10.0
+          ],
+          "plate_xy": [
+            148.5,
+            71.0
+          ],
+          "support_start": "底面朝下；局部支撑待切片",
+          "orientation_start_euler_deg": [
+            0,
+            0,
+            0
+          ]
+        }
+      ]
+    }
+  }
+}

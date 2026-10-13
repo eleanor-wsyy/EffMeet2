@@ -9,13 +9,13 @@ checks.append('canonical active artifact paths exist')
 P=json.loads((ROOT/M['canonical_files']['parameters']).read_text(encoding='utf-8'))
 assert M['nominal_envelope_mm']==P['envelope'] and M['nominal_yaw_limits_deg']==P['yaw']['range_deg']
 assert M['stage']=='reversible_blockout' and not any(M[k] for k in ['manufacturing_ready','hardware_validated','final_design_approved'])
-assert P['hardware_platform'].startswith('GOOUU') and P['layout']=='A' and 'PLA Matte' in P['print_material']['body']
-checks.append('GOOUU/layoutA/PLA source parameters and unreleased stage agree')
+assert P['hardware_platform'].startswith('GOOUU') and P['layout']=='A2' and 'PLA Matte' in P['print_material']['body']
+checks.append('GOOUU/layoutA2/PLA source parameters and unreleased stage agree')
 B=(ROOT/M['canonical_files']['bom']).read_text(encoding='utf-8');S=B.split('## 12.',1)[1].split('## 官方来源',1)[0]
 ids=re.findall(r'^\| \*\*([EMC]\d\d)\*\* \|',S,re.M)
 assert len(ids)==33 and len(set(ids))==33
-assert all(s in S for s in ['GOOUU','HSD028309','INMP441','MAX98357','TP4056','禁止裁剪FPC','228mm'])
-checks.append('33 canonical BOM IDs include current board/display/drive and safe FPC handling')
+assert all(s in S for s in ['GOOUU','HSD028309','INMP441','MAX98357','TP4056','禁止裁剪FPC','188mm'])
+checks.append('33 canonical BOM IDs include current board/display/v6 2:1 drive and safe FPC handling')
 REV=ROOT/'round-yaw-v2/revision-20261011-nomi-layoutA'
 mesh=json.loads((REV/'production/evaluated-shells.json').read_text(encoding='utf-8'))
 assert len(mesh)==5
@@ -35,7 +35,7 @@ assert len(records)==26 and {r['test_id'] for r in records}=={f'T{i:02d}' for i 
 assert all(r['status']=='NOT_RUN' and not r['actual_result'] and not r['executed_at'] for r in records)
 checks.append('26 unexecuted hardware test records preserved')
 count=0
-active=[REPO/'README.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md']+list(REV.glob('*.md'))+[ROOT/'round-yaw-v2'/n for n in ['BOM.md','ASSEMBLY_GUIDE.md','PRINT_PLAN.md','TEST_GUIDE.md','EXTERIOR_ASSEMBLY_REVISION.md','MODELING_BRIEF.md']]
+active=[REPO/'README.md',ROOT/'README.md',ROOT/'HANDOFF.md',ROOT/'round-yaw-v2/README.md']+list(REV.glob('*.md'))+list((REV/'print-split-v6').glob('*.md'))+[ROOT/'round-yaw-v2'/n for n in ['BOM.md','ASSEMBLY_GUIDE.md','PRINT_PLAN.md','TEST_GUIDE.md','EXTERIOR_ASSEMBLY_REVISION.md','MODELING_BRIEF.md']]
 for p in active:
  for link in re.findall(r'!?\[[^\]]*\]\(([^)]+)\)',p.read_text(encoding='utf-8')):
   if re.match(r'^[a-zA-Z][a-zA-Z0-9+.-]*:',link) or link.startswith('#'):continue
@@ -50,6 +50,6 @@ assert binding['parameters_sha256']==hashlib.sha256((REV/'print-split-v5/paramet
 assert binding['generator_sha256']==hashlib.sha256((REV/'update_nomi_layoutA.py').read_bytes()).hexdigest()
 checks.append('helpers parse and artifact hashes match; historical v4 binding uses frozen parameters')
 import subprocess,sys
-subprocess.run([sys.executable,str(REV/'print-split-v5/verify_print_delivery.py')],check=True)
-checks.append('current41-part candidate delivery checks passed; no slice/print/hardware tests implied')
+subprocess.run([sys.executable,str(REV/'print-split-v6/verify_v6_delivery.py')],check=True)
+checks.append('current v6 31-part candidate delivery checks passed; no slice/print/hardware tests implied')
 print(json.dumps({'status':'PASS','checks':checks,'scope':'offline current design delivery only','firmware_tests_run':False,'hardware_tests_run':False,'manufacturing_release':False},ensure_ascii=False,indent=2))

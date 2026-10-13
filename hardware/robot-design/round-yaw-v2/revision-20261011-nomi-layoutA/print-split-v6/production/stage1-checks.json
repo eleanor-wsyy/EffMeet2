@@ -1,0 +1,1026 @@
+{
+ "stage": "STAGE1_reversible_blockout",
+ "manufacturing_ready": false,
+ "hardware_validated": false,
+ "params": {
+  "base_scale": 0.85,
+  "base_y_scale": 0.9111111111111111,
+  "wall": 2.4,
+  "bottom": 2.4,
+  "cup_top_z": 56.1,
+  "lid_top_z": 66.3,
+  "lid_seam_z": 56.4,
+  "head_gap_above_lid": 14,
+  "head_R": 66,
+  "head_B": 64,
+  "head_yc": -1,
+  "head_front_r": 57,
+  "head_front_y": -47.0,
+  "head_junction_y": -31.0,
+  "head_trim_below_center": 56,
+  "head_offset_y": 20,
+  "head_flatten": 0.04,
+  "head_wall": 2.4,
+  "head_floor": 3.2,
+  "face_d": 106,
+  "face_t": 2.4,
+  "face_y": -46.2,
+  "lcd_window": [
+   58.2,
+   43.8
+  ],
+  "lcd_window_dz": -2,
+  "camera_above_window": 17,
+  "glass_pocket": [
+   71,
+   1.4,
+   51
+  ],
+  "backstop": [
+   112,
+   102,
+   2
+  ],
+  "lcd_pcb": [
+   85,
+   1.6,
+   50
+  ],
+  "lcd_stack": 11,
+  "lcd_glass": [
+   69,
+   0.7,
+   50
+  ],
+  "lcd_boss_rect": [
+   80,
+   45
+  ],
+  "board": [
+   28.3,
+   1.6,
+   62.6
+  ],
+  "board_comp": 6,
+  "board_pins": 8,
+  "camera_module": [
+   8,
+   4,
+   8
+  ],
+  "camera_fpc": 14,
+  "camera_recess": 4.5,
+  "camera_fpc_max_span": 11,
+  "usb_access": 10,
+  "dupont_clear": 12,
+  "gt2_pitch": 2.0,
+  "driver_T": 32,
+  "driven_T": 64,
+  "belt_candidates": [
+   158,
+   160,
+   180,
+   188,
+   200
+  ],
+  "belt_w": 6,
+  "bearing": [
+   30,
+   42,
+   7
+  ],
+  "bearing_z": [
+   36.5,
+   56.5
+  ],
+  "lower_seat_z": [
+   32,
+   40.6
+  ],
+  "upper_seat_z": [
+   52,
+   60.6
+  ],
+  "pulley_z": 46.4,
+  "pulley_h": 8.4,
+  "flange_t": 1.2,
+  "seat_h": 7.6,
+  "seat_od": 54,
+  "seat_bore": 42.3,
+  "lip_id": 38.5,
+  "bolt_xy": [
+   [
+    26,
+    22
+   ],
+   [
+    26,
+    -22
+   ],
+   [
+    -22,
+    27
+   ],
+   [
+    -22,
+    -27
+   ]
+  ],
+  "shaft": [
+   29.8,
+   22
+  ],
+  "shaft_z": [
+   26,
+   86
+  ],
+  "shoulder": [
+   34.5,
+   60,
+   61.4
+  ],
+  "collar": [
+   36,
+   30.15,
+   27,
+   32.8
+  ],
+  "neck_od": 40,
+  "neck_spigot": 35,
+  "neck_bottom": 64.4,
+  "stop_arm_z": [
+   61.8,
+   63.6
+  ],
+  "flange_d": 58,
+  "flange_h": 4,
+  "neck_screw_x": 24,
+  "lid_axis_hole": 44,
+  "stop_soft": 45,
+  "stop_contact": 48,
+  "servo_body": [
+   12.5,
+   22.4,
+   22.7
+  ],
+  "servo_ear_len": 31.8,
+  "servo_ear_pitch": 27.7,
+  "servo_ear_z": [
+   19.8,
+   22.8
+  ],
+  "servo_h_horn": 32.9,
+  "servo_horn": [
+   31.2,
+   4.72
+  ],
+  "servo_shaft_from_end": 6.0,
+  "servo_tension": 2,
+  "mic_d": 14,
+  "mic_h": 12,
+  "mic_pitch": 32.6,
+  "mic_z": 46,
+  "mic_x": 16.3,
+  "amp": [
+   17.7,
+   19.1
+  ],
+  "amp_xy": [
+   50,
+   0
+  ],
+  "amp_floor": 14,
+  "power_z": 30,
+  "vent_x": 30,
+  "speaker": [
+   40,
+   17
+  ],
+  "speaker_z": 30,
+  "speaker_front_y": -57,
+  "servo_base_z": 8.3,
+  "power_board": [
+   20,
+   15,
+   6
+  ],
+  "key_xy": [
+   0,
+   -44
+  ],
+  "cable_keepout_d": 10,
+  "base_outer_mm": [
+   153.0,
+   139.4,
+   66.3
+  ],
+  "lid_inner_top_z": 63.9,
+  "base_inner_floor_z": 4.4,
+  "mic_wall_y": 62.094404277959185,
+  "pitch_D": 40.74366543152521,
+  "pitch_d": 20.371832715762604,
+  "belt_pick": {
+   "L": 188,
+   "C": 44.843
+  },
+  "belt_table": [
+   {
+    "L": 158,
+    "C": 29.225
+   },
+   {
+    "L": 160,
+    "C": 30.287
+   },
+   {
+    "L": 180,
+    "C": 40.726
+   },
+   {
+    "L": 188,
+    "C": 44.843
+   },
+   {
+    "L": 200,
+    "C": 50.982
+   }
+  ],
+  "C_min_clearance": 44.5,
+  "belt_L_check": 187.99969203777076,
+  "fixed_stop_center_deg": 59.87554490321086,
+  "head_center_z": 136.3,
+  "head_bottom_z": 80.30000000000001,
+  "head_floor_top_z": 83.50000000000001,
+  "servo_center_x": -50.043000000000006,
+  "power_board_y": 58.51333333333332,
+  "head_profile_y": [
+   -47.0,
+   63
+  ],
+  "camera_z": 173.20000000000002,
+  "lcd_back_y": -35.4,
+  "lcd_pcb_front_y_assumed": -42.4,
+  "board_pcb_y": -25.999999999999996,
+  "board_z": [
+   113.60000000000002,
+   176.20000000000002
+  ],
+  "camera_fpc_span_mm": 9.55,
+  "camera_fpc_slack_mm": 4.45
+ },
+ "overall_bbox_mm": [
+  [
+   -76.5,
+   -69.7,
+   2.0
+  ],
+  [
+   76.5,
+   69.7,
+   200.77
+  ]
+ ],
+ "part_bbox_mm": {
+  "P01 BASE_CUP": [
+   [
+    -76.5,
+    -69.7,
+    2.0
+   ],
+   [
+    76.5,
+    69.7,
+    56.1
+   ]
+  ],
+  "P02 BASE_LID": [
+   [
+    -72.83,
+    -66.35,
+    56.4
+   ],
+   [
+    72.83,
+    66.35,
+    66.3
+   ]
+  ],
+  "P03 DRIVEN_64T": [
+   [
+    -21.62,
+    -21.62,
+    41.1
+   ],
+   [
+    21.62,
+    21.62,
+    51.7
+   ]
+  ],
+  "P04 DRIVER_32T": [
+   [
+    -61.84,
+    -17.0,
+    39.2
+   ],
+   [
+    -27.84,
+    17.0,
+    51.7
+   ]
+  ],
+  "P05 BEARING_TOWER_LOWER_SEAT": [
+   [
+    -30.0,
+    -35.0,
+    4.4
+   ],
+   [
+    34.0,
+    35.0,
+    40.6
+   ]
+  ],
+  "P06 UPPER_BEARING_SEAT": [
+   [
+    -27.0,
+    -32.0,
+    52.0
+   ],
+   [
+    31.0,
+    32.0,
+    60.6
+   ]
+  ],
+  "P07 STACK_SPACER_0": [
+   [
+    21.9,
+    17.9,
+    40.6
+   ],
+   [
+    30.1,
+    26.1,
+    52.0
+   ]
+  ],
+  "P08 STACK_SPACER_1": [
+   [
+    21.9,
+    -26.1,
+    40.6
+   ],
+   [
+    30.1,
+    -17.9,
+    52.0
+   ]
+  ],
+  "P09 STACK_SPACER_2": [
+   [
+    -26.1,
+    22.9,
+    40.6
+   ],
+   [
+    -17.9,
+    31.1,
+    52.0
+   ]
+  ],
+  "P10 STACK_SPACER_3": [
+   [
+    -26.1,
+    -31.1,
+    40.6
+   ],
+   [
+    -17.9,
+    -22.9,
+    52.0
+   ]
+  ],
+  "P11 HOLLOW_LOAD_SHAFT": [
+   [
+    -17.25,
+    -17.25,
+    26.0
+   ],
+   [
+    17.25,
+    17.25,
+    86.0
+   ]
+  ],
+  "P12 SHAFT_LOWER_LOCK_COLLAR": [
+   [
+    -18.0,
+    -24.5,
+    25.0
+   ],
+   [
+    18.0,
+    18.0,
+    32.8
+   ]
+  ],
+  "P13 YAW_STOP_ARM": [
+   [
+    -18.0,
+    -18.0,
+    61.8
+   ],
+   [
+    33.0,
+    18.0,
+    63.6
+   ]
+  ],
+  "P14 SHORT_YAW_NECK": [
+   [
+    -29.0,
+    -29.0,
+    64.4
+   ],
+   [
+    29.0,
+    29.0,
+    87.5
+   ]
+  ],
+  "P15 SERVO_ADJUSTABLE_CRADLE": [
+   [
+    -68.04,
+    -12.0,
+    4.4
+   ],
+   [
+    -32.04,
+    12.0,
+    28.1
+   ]
+  ],
+  "P16 SPEAKER_CRADLE": [
+   [
+    -23.0,
+    -57.5,
+    4.4
+   ],
+   [
+    23.0,
+    -38.3,
+    53.0
+   ]
+  ],
+  "P17 AMP_LOW_TRAY": [
+   [
+    38.65,
+    -12.05,
+    4.4
+   ],
+   [
+    61.35,
+    12.05,
+    16.0
+   ]
+  ],
+  "P18 POWER_IN_TRAY": [
+   [
+    -12.5,
+    50.51,
+    4.4
+   ],
+   [
+    12.5,
+    66.01,
+    33.0
+   ]
+  ],
+  "P19 STOP_KEY_CAP": [
+   [
+    -7.5,
+    -49.2,
+    61.6
+   ],
+   [
+    7.5,
+    -38.8,
+    67.9
+   ]
+  ],
+  "P20 TACTILE_HOLDER": [
+   [
+    -18.0,
+    -51.0,
+    54.1
+   ],
+   [
+    18.0,
+    -37.0,
+    62.7
+   ]
+  ],
+  "P21 MIC_RETAINER_-1": [
+   [
+    -23.5,
+    57.39,
+    38.8
+   ],
+   [
+    -9.1,
+    58.39,
+    53.2
+   ]
+  ],
+  "P22 MIC_RETAINER_1": [
+   [
+    9.1,
+    57.39,
+    38.8
+   ],
+   [
+    23.5,
+    58.39,
+    53.2
+   ]
+  ],
+  "P23 HEAD_SHELL": [
+   [
+    -66.0,
+    -47.04,
+    80.3
+   ],
+   [
+    66.0,
+    63.0,
+    200.77
+   ]
+  ],
+  "P24 FACE_PANEL": [
+   [
+    -53.0,
+    -47.4,
+    83.3
+   ],
+   [
+    53.0,
+    -42.1,
+    189.3
+   ]
+  ],
+  "P25 LCD_REAR_CLAMP_FRAME": [
+   [
+    -44.0,
+    -35.4,
+    107.8
+   ],
+   [
+    44.0,
+    -33.4,
+    160.8
+   ]
+  ],
+  "P26 CAMERA_CRADLE": [
+   [
+    -6.5,
+    -45.0,
+    166.7
+   ],
+   [
+    6.5,
+    -34.9,
+    179.7
+   ]
+  ],
+  "P27 PRIVACY_GUIDE": [
+   [
+    -13.0,
+    -49.0,
+    167.2
+   ],
+   [
+    29.0,
+    -47.4,
+    179.2
+   ]
+  ],
+  "P28 PRIVACY_BLADE": [
+   [
+    -5.0,
+    -50.2,
+    169.2
+   ],
+   [
+    5.0,
+    -48.0,
+    177.2
+   ]
+  ],
+  "P29 CORE_BOARD_CRADLE": [
+   [
+    -18.15,
+    -30.0,
+    87.5
+   ],
+   [
+    18.15,
+    -22.0,
+    133.6
+   ]
+  ],
+  "P30 CABLE_SADDLE_BASE": [
+   [
+    -27.0,
+    -5.0,
+    4.4
+   ],
+   [
+    -13.0,
+    5.0,
+    9.4
+   ]
+  ],
+  "P31 CABLE_SADDLE_HEAD": [
+   [
+    -7.0,
+    -41.0,
+    86.5
+   ],
+   [
+    7.0,
+    -31.0,
+    91.5
+   ]
+  ]
+ },
+ "shell_stats": {
+  "HEAD_SHELL": {
+   "faces": 29465,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "components": 1,
+   "volume_mm3": 101980.9,
+   "bbox": [
+    [
+     -66.0,
+     -47.04,
+     80.3
+    ],
+    [
+     66.0,
+     63.0,
+     200.77
+    ]
+   ]
+  },
+  "FACE_PANEL": {
+   "faces": 1064,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "components": 1,
+   "volume_mm3": 13864.1,
+   "bbox": [
+    [
+     -53.0,
+     -47.4,
+     83.3
+    ],
+    [
+     53.0,
+     -42.1,
+     189.3
+    ]
+   ]
+  },
+  "SHORT_YAW_NECK": {
+   "faces": 521,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "components": 1,
+   "volume_mm3": 18359.1,
+   "bbox": [
+    [
+     -29.0,
+     -29.0,
+     64.4
+    ],
+    [
+     29.0,
+     29.0,
+     87.5
+    ]
+   ]
+  },
+  "BASE_CUP": {
+   "faces": 17894,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "components": 1,
+   "volume_mm3": 91359.3,
+   "bbox": [
+    [
+     -76.5,
+     -69.7,
+     2.0
+    ],
+    [
+     76.5,
+     69.7,
+     56.1
+    ]
+   ]
+  },
+  "BASE_LID": {
+   "faces": 8606,
+   "nonmanifold_edges": 0,
+   "boundary_edges": 0,
+   "components": 1,
+   "volume_mm3": 34434.8,
+   "bbox": [
+    [
+     -72.83,
+     -66.35,
+     56.4
+    ],
+    [
+     72.83,
+     66.35,
+     66.3
+    ]
+   ]
+  }
+ },
+ "part_mesh_issues": {
+  "BASE_CUP": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "BASE_LID": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "DRIVEN_64T": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "DRIVER_32T": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "BEARING_TOWER_LOWER_SEAT": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "UPPER_BEARING_SEAT": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "STACK_SPACER_0": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "STACK_SPACER_1": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "STACK_SPACER_2": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "STACK_SPACER_3": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "HOLLOW_LOAD_SHAFT": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "SHAFT_LOWER_LOCK_COLLAR": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "YAW_STOP_ARM": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "SHORT_YAW_NECK": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "SERVO_ADJUSTABLE_CRADLE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "SPEAKER_CRADLE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "AMP_LOW_TRAY": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "POWER_IN_TRAY": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "STOP_KEY_CAP": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "TACTILE_HOLDER": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "MIC_RETAINER_-1": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "MIC_RETAINER_1": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "HEAD_SHELL": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "FACE_PANEL": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "LCD_REAR_CLAMP_FRAME": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "CAMERA_CRADLE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "PRIVACY_GUIDE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "PRIVACY_BLADE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "CORE_BOARD_CRADLE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "CABLE_SADDLE_BASE": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  },
+  "CABLE_SADDLE_HEAD": {
+   "nonmanifold_edges": 0,
+   "components": 1
+  }
+ },
+ "overlap_part_part": [],
+ "overlap_part_proxy": [],
+ "proxy_containment": [
+  {
+   "proxy": "LCD_GLASS_PROXY",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "LCD_MODULE_PROXY",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "LCD_PCB_STACK_PROXY",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "LCD_HEADER_KEEPOUT",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "CAMERA_MODULE_PROXY",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "CORE_BOARD_PCB",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "CORE_BOARD_COMPONENTS",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "CORE_BOARD_PINS",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "USB_PLUG_ACCESS",
+   "shell": "head",
+   "inside": true
+  },
+  {
+   "proxy": "BEARING_LOWER",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "BEARING_UPPER",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "SERVO_MG90S",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "SPEAKER_40",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "INMP441_-1",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "INMP441_1",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "MAX98357A",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "USBC_POWER_IN",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "TACT_SWITCH_6MM",
+   "shell": "base",
+   "inside": true
+  }
+ ],
+ "yaw": [
+  {
+   "deg": -45,
+   "rot_vs_fixed": []
+  },
+  {
+   "deg": 0,
+   "rot_vs_fixed": []
+  },
+  {
+   "deg": 45,
+   "rot_vs_fixed": []
+  }
+ ],
+ "belt": {
+  "pitch_D": 40.744,
+  "pitch_d": 20.372,
+  "table": [
+   {
+    "L": 158,
+    "C": 29.225
+   },
+   {
+    "L": 160,
+    "C": 30.287
+   },
+   {
+    "L": 180,
+    "C": 40.726
+   },
+   {
+    "L": 188,
+    "C": 44.843
+   },
+   {
+    "L": 200,
+    "C": 50.982
+   }
+  ],
+  "picked": {
+   "L": 188,
+   "C": 44.843
+  },
+  "L_check": 188.0,
+  "C_min_clearance": 44.5,
+  "ratio": 2.0,
+  "servo_pm90_to_head_deg": 45.0,
+  "head_hard_stop_deg": 48,
+  "servo_deg_at_hard_stop": 96,
+  "servo_deg_at_soft_stop": 90
+ },
+ "overlap_method": "BVH overlap of evaluated meshes inset 0.05 mm along vertex normals (touching faces not counted)"
+}

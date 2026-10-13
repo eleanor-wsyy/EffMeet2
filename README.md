@@ -1,19 +1,19 @@
-> **硬件最新交付（2026-10-12）：[NOMI布局A-v5独立打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。模型、41件清单、打印/安装指南与真实模型渲染在同一目录；实测接口、切片、样片仍待验。**
+> **硬件最新交付（2026-10-13）：[NOMI布局A2-v6紧凑打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。整机153×139.4×200.8，31件清单、每盘一个3MF与打印总表在同一目录；实测接口、切片、样片仍待验。**
 
 # EffMeet 2
 
 <!-- robot-design-current -->
-机器人外观与机构资料当前入口：[NOMI／GOOUU布局A-v4模型、实渲图纸与安装更新](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/README.md)。采购仅按[BOM第12节](hardware/robot-design/round-yaw-v2/BOM.md#final-purchase-decision)；制造／实机状态仍未放行。
+机器人外观与机构资料当前入口：[NOMI／GOOUU布局A2-v6模型与打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)（核心板＋屏＋摄像头在头部，麦/功放/扬声器/舵机固定底座）。采购仅按[BOM第12节](hardware/robot-design/round-yaw-v2/BOM.md#final-purchase-decision)；制造／实机状态仍未放行。
 
 天猫 AI 黑客松「效率进化」方向的 AI 桌面会议伙伴。固定式机器人以桌面宠物形态呈现，配合电脑伴侣应用与远程网页，围绕现场材料共享、本人确认后的观点提醒和可核对的会后记录设计产品体验。会后打开手机App，观点地图一目了然：聊了什么、谁持什么观点、哪些问题待回应，线上线下参与者看到同一张图。
 
 **产品形态分两路线**：路线A（当前参赛Demo）以电脑伴侣应用承载本地AI（FunASR + 千问候选 + 事件账本）；路线B（最终产品形态）去除电脑依赖，机器人经Wi-Fi直连云端服务，仅需平板或手机即可完整使用。
 
-## 机器人外观、建模与采购：2026-10-10更新
+## 机器人外观、建模与采购：2026-10-13更新
 
-**统一目录：[hardware/robot-design](hardware/robot-design/README.md)。** 当前迭代方向为“圆润头部＋短颈转台＋固定底座”，阶段是可逆封装布局，未完成最终外观批准、制造放行或实机转头验收。
+**统一目录：[hardware/robot-design](hardware/robot-design/README.md)。** 当前迭代方向为“圆润头部＋短颈转台＋固定底座”（布局A2，整机153×139.4×200.8），阶段是可逆封装布局，未完成最终外观批准、制造放行或实机转头验收。
 
-- 成员及AI接手顺序：[统一交接](hardware/robot-design/HANDOFF.md) → [当前硬件BOM](hardware/robot-design/round-yaw-v2/BOM.md) → [模型与验证说明](hardware/robot-design/round-yaw-v2/README.md)；机器可读入口见[manifest.json](hardware/robot-design/manifest.json)。
+- 成员及AI接手顺序：[统一交接](hardware/robot-design/HANDOFF.md) → [当前硬件BOM](hardware/robot-design/round-yaw-v2/BOM.md) → [模型与验证说明](hardware/robot-design/round-yaw-v2/README.md)；机器可读入口见[manifest.json](hardware/robot-design/manifest.json)；打印按[v6盘执行手册](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)（每盘一个3MF，先样片后整件）。
 - 当前可编辑.blend、Image2主视觉、建模审阅、尺寸参数、采购依据与历史方案都在该目录；采购不再维护分散副本。旧席位牌/旧外壳已归档，不能用旧尺寸、±120°或未核实接口覆盖新版。
 - 本次没有实现舵机固件、传动、跨轴排线或打印结构；也没有改变路线A/B、本人确认规则和软件接口。
 

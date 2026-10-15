@@ -16,7 +16,7 @@ PARAMS=dict(
  head_gap_above_lid=14,head_R=66,head_B=64,head_yc=-1,head_front_r=57,head_front_y=-47.0,head_junction_y=-31.0,
  head_trim_below_center=56,head_offset_y=20,head_flatten=.04,head_wall=2.4,head_floor=3.2,
  face_d=106,face_t=2.4,face_y=-46.2,lcd_window=(58.2,43.8),lcd_window_dz=-2,camera_above_window=17,glass_pocket=(71,1.4,51),backstop=(112,102,2),
- lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(80,45),
+ lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(77,45)  # 2026-10-15 measured (was 80x45 assumed),
  board=(28.3,1.6,62.6),board_comp=6,board_pins=8,camera_module=(8,4,8),camera_fpc=14,camera_recess=4.5,camera_fpc_max_span=11,usb_access=10,dupont_clear=12,
  gt2_pitch=2.0,driver_T=32,driven_T=64,belt_candidates=(158,160,180,188,200),belt_w=6,
  bearing=(30,42,7),bearing_z=(36.5,56.5),lower_seat_z=(32,40.6),upper_seat_z=(52,60.6),pulley_z=46.4,pulley_h=8.4,flange_t=1.2,seat_h=7.6,seat_od=54,seat_bore=42.3,lip_id=38.5,bolt_xy=((26,22),(26,-22),(-22,27),(-22,-27)),
@@ -128,7 +128,7 @@ m=slot.modifiers.new('Four speaker outlets','ARRAY');m.count=4;m.use_relative_of
 vent=box('REAR_VENT_SOURCE',(20,34,1.8),(P['vent_x'],62,24),bevel=.8)
 m=vent.modifiers.new('Three rear vents','ARRAY');m.count=3;m.use_relative_offset=False;m.use_constant_offset=True;m.constant_offset_displace=(0,0,4.2*U);boolop(cup,vent,solver=EX)
 PB=P['power_board'];pbz=P['power_z']
-usb=box('REAR_USBC_POWER_OPENING',(11.5,30,7),(0,70,pbz),bevel=1);boolop(cup,usb,solver=EX)
+usb=box('REAR_USBC_POWER_OPENING',(13.5,30,9.5),(0,70,pbz),bevel=1)  # 2026-10-15 tolerant window, SKU-independent;boolop(cup,usb,solver=EX)
 mx=P['mic_x'];mz=P['mic_z']
 micport=cylinder('MIC_PORT_SOURCE',2.4,30,(-mx,70,mz),'Y')
 m=micport.modifiers.new('Two fixed mic ports','ARRAY');m.count=2;m.use_relative_offset=False;m.use_constant_offset=True;m.constant_offset_displace=(2*mx*U,0,0);boolop(cup,micport,solver=EX)

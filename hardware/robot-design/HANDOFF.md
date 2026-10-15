@@ -8,6 +8,10 @@
 - **薄壁发现（重要）**：切片报"空层无法打印"的 **P07–P10 层间支柱、P16 扬声器托架**，经逐Z三角面跨距验证**网格无真空层**；P07–P10 实为环状导出网格隐患，已用**解析干净管**（OD8.2/ID3.4/h11.4，体积497.7与理论吻合）替换；P16 改杯口朝上；THIN 与 P25 合并为 `TMP-THINP25_GREY_016`（小件层时变长反而更稳）。
 - **预设注入不可行**：外部写入 `%APPDATA%/BambuStudio/user/<id>/process/` 的预设 .json/.info 会被 Bambu 启动时删除。复用预设只能 UI「保存为预设」（已存 EffMeet2-v6 0.20 H2S / 0.16 H2D）。切片参数手设，简中标签：**墙层数**(=6)、**稀疏填充图案**(=螺旋体)、**开启支撑**、**顶部Z距离**(=0.25,需开支撑+高级才显示,可跳过)、**检查薄壁**、**床温**(在耗材·纹理PEI行·首层/其它层)。喷嘴须 **0.4**（H2S 默认0.2会隐藏0.4基预设）。
 - **待测**：全量见 [MEASURE-TODO.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。A组（LCD四孔/Type-C/镜头）已测完回填；B/C组等到货。
+- **空层警告真凶更正（重要）**：墙层数6×0.42线宽=2.52mm 塞不进薄特征（2.4壁/2mm柱/1.6唇）→切片整层丢弃→上半悬空炒面。**全局墙层数改4**（或墙生成器Arachne+检查薄壁）。已存预设（0.20H2S/0.16H2D）内含6，改4后须UI重存覆盖。manifold3d 逐层截面审计全件 clean，历次警告均非网格病。
+- **今晚最终队列**：H2S-A=G2NIGHT(P01杯体v6r3+P11重打)→G3p；H2D=G1头壳→COUPON样片；H2S-B=NIGHT→**BNIGHT2（7件黑0.12质量档：P14翻面/P04/P20/P28/P21P22平躺/P18T容差托架）**。交接时 BNIGHT2 尚未开打。
+- **新手测量指南**：[MEASURE-GUIDE.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-GUIDE.md)（图文PDF在outputs）交大一学妹执行到货测量 B1–B7/C1–C7；回表后回填 MEASUREMENTS.csv 并触发对应件重建/试配判定。
+- **清理与可复现**：plates-merged 9 个作废盘移入 `_superseded/`（git 历史可溯，未硬删）；`build_v6.py` 参数同步 v6r3（lcd_boss_rect=77×45、后USB-C容差窗13.5×9.5），仓库源现可复现 v6r2/v6r3 全部 STL。
 - **平行工作流（同日远端提交）**：v6接口复核/采购清理与[面板三点螺钉固定R1候选](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261015/face-retention-r1/)独立于 canonical v6；实物操作按 [INTERFACE_GATES](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)。**R1 是否合并须先过局部几何检查+接口样片；本打印线当前仍用 canonical P24（77×45 v6r2）**，两线不混打。
 - **状态纪律不变**：stage=reversible_blockout；三个放行布尔false；26项测试NOT_RUN；本次开打为候选件试打，不构成打印放行。
 

@@ -15,10 +15,11 @@
 | 检查 | [production/stage1-checks.json](production/stage1-checks.json)、[production/export-byte-audit.json](production/export-byte-audit.json) |
 | 实测表 / 打印手册 | [MEASUREMENTS.csv](MEASUREMENTS.csv) / [PLATE-RUNBOOK.md](PLATE-RUNBOOK.md) |
 | **待测清单（2026-10-15）** | [MEASURE-TODO.md](MEASURE-TODO.md) —— 全量缺测数据，A组中午可测（LCD四孔等） |
-| **打印教训集（2026-10-15）** | [PRINT-LESSONS.md](PRINT-LESSONS.md) —— 排机/耗材/预设/炒面/样片纪律 21 条，后人避坑 |
+| **打印教训集（2026-10-15）** | [PRINT-LESSONS.md](PRINT-LESSONS.md) —— 排机/耗材/预设/炒面/样片纪律 23 条（含墙层数4真凶更正），后人避坑 |
 | **安装手册（2026-10-15 预写）** | [ASSEMBLY.md](ASSEMBLY.md) —— 按已打印件的六步安装：底座电子→传动轴承→头部→颈/合壳/穿线→上电前→26项验收 |
+| **新手测量指南（2026-10-15）** | [MEASURE-GUIDE.md](MEASURE-GUIDE.md) —— 卡尺教学+15张图文测量卡+记录表，交新手执行到货测量；图文PDF在outputs |
 | 盘文件（每盘一个 3MF＋俯视预览） | [plates/](plates/)（[排布记录](plates/plates.json)，256 起点排布，未切片） |
-| **可打印盘（2026-10-15 B方案）** | [plates-merged/](plates-merged/) —— SAFE/THIN/G3p/B1p-v2/G1/P25 六盘；含 v6r2 重建件（LCD 77×45）P23/P24/P25 STL；旧 B1p 已 `.SUPERSEDED-by-v2` 作废 |
+| **可打印盘（2026-10-15 晚最新）** | [plates-merged/](plates-merged/) —— 有效8盘：SAFE / THINP25 / G3p / G1 / G2NIGHT(P01+P11重打) / BNIGHT2(黑7件质量档) / COUPON(样片) / B1p-v2(已打,P24/P27成功)；含 v6r2/v6r3 STL（P23/P24/P25/P01）；作废盘归档于 `_superseded/` |
 | 渲染 | [00 v5/v6 对比](renders/00_compare_v5_v6.png)、[01 主视](renders/01_hero.png)、[02 正视](renders/02_front.png)、[03 侧视](renders/03_side.png)、[05 内部](renders/05_internal.png) |
 
 ## 尺寸（mm，名义）

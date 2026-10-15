@@ -1,3 +1,17 @@
+# 2026-10-15 · 打印已开打（B方案：灰并行 / 黑单盘）＋待测清单
+
+**当前执行入口：[v6 PLATE-RUNBOOK §2026-10-15](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [待测清单](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md) ＋ [打印教训集](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。** 以下为本日事实记录。
+
+- **v6r2 重建完成（LCD 四孔实测）**：孔径4/横77/纵45（取代80×45假定）、Type-C未突出、镜头凸4、玻璃-PCB4 已回填 MEASUREMENTS.csv。`build_v6.py` `lcd_boss_rect=(77,45)` 在隔离副本以 Blender 4.5.3 重建，逐件 diff 其余28件 0.00% 漂移。新 P23/P24/P25 → [plates-merged/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/)，新增盘 **G1灰0.16(P23)**、**P25灰0.20**、**B1p-v2黑0.16(+P24)**；旧 B1p 作废改名 `.SUPERSEDED-by-v2`。
+- **已开打**：学校 H2S 打 `TMP-B23p-SAFE`（灰0.20，11件）；H2D 打 `TMP-G3p`（灰0.16，P02上盖）。队列：H2S→THIN（灰0.20，勾检查薄壁），H2D→B1p（黑0.16，末尾换黑料）。可打印 3MF 在 [plates-merged/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/)。
+- **B方案（用户定）**：黑料仅1卷→只有外露件 B1p 用黑；机构/支架件按 RUNBOOK"可灰"改灰，用闲置第2卷灰并行。原 plates/ 的 G1/G2/B1/B2/B3 六盘被 plates-merged 四盘取代（未删，仅取代）。
+- **薄壁发现（重要）**：切片报"空层无法打印"的 **P07–P10 层间支柱、P16 扬声器托架**，经逐Z三角面跨距验证**网格无真空层**，实为薄于0.4喷嘴的薄鳍被切片丢弃。已拆 `SAFE`(11件,零警告) 与 `THIN`(5件,切片前勾**检查薄壁**) 两盘。
+- **预设注入不可行**：外部写入 `%APPDATA%/BambuStudio/user/<id>/process/` 的预设 .json/.info 会被 Bambu 启动时删除。复用预设只能 UI「保存为预设」。切片参数手设，简中标签：**墙层数**(=6)、**稀疏填充图案**(=螺旋体)、**开启支撑**、**顶部Z距离**(=0.25,需开支撑+高级才显示,可跳过)、**检查薄壁**。喷嘴须 **0.4**（H2S 默认0.2会隐藏0.4基预设）。
+- **待测**：全量见 [MEASURE-TODO.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。**中午可测（在手边）**：LCD四孔孔径+横距+纵距（解锁P23/P24/P25）、Type-C凸出量、镜头突出量。其余等到货。
+- **状态纪律不变**：stage=reversible_blockout；三个放行布尔false；26项测试NOT_RUN；本次开打为候选件试打，不构成打印放行。
+
+---
+
 # 2026-10-13 · v6紧凑候选（布局A2，当前第一入口）
 
 **当前模型/件表/STL改看 [v6 README](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 以下10-12各节为历史。

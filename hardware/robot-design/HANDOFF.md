@@ -1,14 +1,25 @@
 # 2026-10-15 · 打印已开打（B方案：灰并行 / 黑单盘）＋待测清单
 
-**当前执行入口：[v6 PLATE-RUNBOOK §2026-10-15](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [待测清单](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md) ＋ [打印教训集](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。** 以下为本日事实记录。
+**当前执行入口：[v6 PLATE-RUNBOOK §2026-10-15](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [待测清单](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md) ＋ [打印教训集](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md) ＋ [安装手册](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)。** 以下为本日事实记录。
 
 - **v6r2 重建完成（LCD 四孔实测）**：孔径4/横77/纵45（取代80×45假定）、Type-C未突出、镜头凸4、玻璃-PCB4 已回填 MEASUREMENTS.csv。`build_v6.py` `lcd_boss_rect=(77,45)` 在隔离副本以 Blender 4.5.3 重建，逐件 diff 其余28件 0.00% 漂移。新 P23/P24/P25 → [plates-merged/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/)，新增盘 **G1灰0.16(P23)**、**P25灰0.20**、**B1p-v2黑0.16(+P24)**；旧 B1p 作废改名 `.SUPERSEDED-by-v2`。
-- **已开打**：学校 H2S 打 `TMP-B23p-SAFE`（灰0.20，11件）；H2D 打 `TMP-G3p`（灰0.16，P02上盖）。队列：H2S→THIN（灰0.20，勾检查薄壁），H2D→B1p（黑0.16，末尾换黑料）。可打印 3MF 在 [plates-merged/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/)。
-- **B方案（用户定）**：黑料仅1卷→只有外露件 B1p 用黑；机构/支架件按 RUNBOOK"可灰"改灰，用闲置第2卷灰并行。原 plates/ 的 G1/G2/B1/B2/B3 六盘被 plates-merged 四盘取代（未删，仅取代）。
-- **薄壁发现（重要）**：切片报"空层无法打印"的 **P07–P10 层间支柱、P16 扬声器托架**，经逐Z三角面跨距验证**网格无真空层**，实为薄于0.4喷嘴的薄鳍被切片丢弃。已拆 `SAFE`(11件,零警告) 与 `THIN`(5件,切片前勾**检查薄壁**) 两盘。
-- **预设注入不可行**：外部写入 `%APPDATA%/BambuStudio/user/<id>/process/` 的预设 .json/.info 会被 Bambu 启动时删除。复用预设只能 UI「保存为预设」。切片参数手设，简中标签：**墙层数**(=6)、**稀疏填充图案**(=螺旋体)、**开启支撑**、**顶部Z距离**(=0.25,需开支撑+高级才显示,可跳过)、**检查薄壁**。喷嘴须 **0.4**（H2S 默认0.2会隐藏0.4基预设）。
-- **待测**：全量见 [MEASURE-TODO.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。**中午可测（在手边）**：LCD四孔孔径+横距+纵距（解锁P23/P24/P25）、Type-C凸出量、镜头突出量。其余等到货。
+- **已开打**：学校 H2S 打 `TMP-B23p-SAFE`（灰0.20，11件）；H2D 先 `TMP-G3p`（灰0.16，P02上盖）后改 `TMP-THINP25`（灰0.16，P16+P25+4干净管）；H2S 黑卷 `TMP-B1p-v2`/`TMP-Bsmall`。可打印 3MF 在 [plates-merged/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/)。
+- **B方案（用户定）**：黑料仅1卷→只有外露件 B1p 用黑；机构/支架件按 RUNBOOK"可灰"改灰，用闲置第2卷灰并行。原 plates/ 的 G1/G2/B1/B2/B3 六盘被 plates-merged 取代（未删，仅取代）。
+- **薄壁发现（重要）**：切片报"空层无法打印"的 **P07–P10 层间支柱、P16 扬声器托架**，经逐Z三角面跨距验证**网格无真空层**；P07–P10 实为环状导出网格隐患，已用**解析干净管**（OD8.2/ID3.4/h11.4，体积497.7与理论吻合）替换；P16 改杯口朝上；THIN 与 P25 合并为 `TMP-THINP25_GREY_016`（小件层时变长反而更稳）。
+- **预设注入不可行**：外部写入 `%APPDATA%/BambuStudio/user/<id>/process/` 的预设 .json/.info 会被 Bambu 启动时删除。复用预设只能 UI「保存为预设」（已存 EffMeet2-v6 0.20 H2S / 0.16 H2D）。切片参数手设，简中标签：**墙层数**(=6)、**稀疏填充图案**(=螺旋体)、**开启支撑**、**顶部Z距离**(=0.25,需开支撑+高级才显示,可跳过)、**检查薄壁**、**床温**(在耗材·纹理PEI行·首层/其它层)。喷嘴须 **0.4**（H2S 默认0.2会隐藏0.4基预设）。
+- **待测**：全量见 [MEASURE-TODO.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。A组（LCD四孔/Type-C/镜头）已测完回填；B/C组等到货。
+- **平行工作流（同日远端提交）**：v6接口复核/采购清理与[面板三点螺钉固定R1候选](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261015/face-retention-r1/)独立于 canonical v6；实物操作按 [INTERFACE_GATES](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)。**R1 是否合并须先过局部几何检查+接口样片；本打印线当前仍用 canonical P24（77×45 v6r2）**，两线不混打。
 - **状态纪律不变**：stage=reversible_blockout；三个放行布尔false；26项测试NOT_RUN；本次开打为候选件试打，不构成打印放行。
+
+---
+
+# 2026-10-15 · v6接口复核与采购口径清理
+
+- 当前v6/A2模型和31件STL未替换。唯一BOM §12已清理旧布局、TP4056必买、v5 41件/跨轴FPC/长螺钉数量；新增E17预算输入板，SKU仍未选。原订单物流未新核实。
+- 实物操作按[v6接口门槛](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)推进。LCD孔位/堆叠、USB-C板、GT2/舵机、跨轴细线和脚垫均不伪填实测。
+- [面板三点螺钉固定R1候选](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261015/face-retention-r1/)独立于canonical v6；是否合并须先过局部几何检查和接口样片。不用胶/强过盈/脆性卡扣替代承力连接。
+- z=2mm底部空间与C07脚垫预算相符，尺寸图区分名义0基准与裸实体高度。
+- manufacturing_ready / hardware_validated / final_design_approved保持false；26项硬件测试NOT_RUN。
 
 ---
 
@@ -37,7 +48,7 @@
 
 ---
 
-# 2026-10-12 · v5真实拆件候选交接（当前第一入口）
+# 2026-10-12 · v5真实拆件候选交接（历史，当前按v6/A2）
 
 **当前模型和打印清单改看 [v5 README](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。** 已按SPLIT_PLAN v1.1补承力/传动/模块支架/导向/声管/线夹，生成41件独立候选。不要再按v4“内部都是代理、尚未拆件”的历史描述重复工作。
 

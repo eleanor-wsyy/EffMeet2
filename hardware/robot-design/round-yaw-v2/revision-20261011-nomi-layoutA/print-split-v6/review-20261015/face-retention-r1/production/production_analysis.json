@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-15T01:18:04.024039+00:00",
+  "status": "complete",
+  "execution_allowed": true,
+  "execution_scope": "formal_production",
+  "deliverable": "asset",
+  "completion_scope": "hero_only",
+  "protected_scope": {
+    "status": "passed",
+    "objects": [
+      "canonical v6 file",
+      "29 unrelated print parts"
+    ],
+    "task_owned_collection": "R1_NATIVE_CONTROLS"
+  },
+  "real_scale": {
+    "status": "resolved",
+    "units": "METRIC",
+    "anchors": [
+      "canonical parameters.json face plane and head center"
+    ]
+  },
+  "minimum_viable_analysis": {
+    "status": "open",
+    "attempts": 0,
+    "max_automatic_reviews": 2,
+    "required_decisions": {
+      "deliverable_scope": false,
+      "protected_scope": false,
+      "major_parts_or_regions": false,
+      "scale_strategy": false,
+      "provisional_route": false
+    },
+    "evidence": []
+  },
+  "design_intent": {
+    "thesis": "Close the face-to-shell load path with three removable fasteners, no elastic snaps or exterior redesign"
+  },
+  "focal_hierarchy": [
+    "face-to-head three-point connection",
+    "source face/display silhouette"
+  ],
+  "depth_layers": [],
+  "visual_flow": {
+    "leading_lines": [],
+    "occlusion_order": [],
+    "negative_space": [],
+    "scale_rhythm": [],
+    "repetition_rhythm": []
+  },
+  "camera_mobility": {
+    "type": "bounded inspection"
+  },
+  "representation_budget": {
+    "status": "unresolved",
+    "real_geometry": [],
+    "instances": [],
+    "shader_or_normal": [],
+    "distant_simplification": []
+  },
+  "performance_budget": {
+    "status": "unresolved",
+    "object_limit": null,
+    "instance_limit": null,
+    "realization_policy": "unresolved",
+    "simulation_preview": null,
+    "render_target": null
+  },
+  "failure_repair_policy": {},
+  "reference_inputs": [],
+  "camera_and_perspective": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "primary_silhouette_and_proportion": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "spatial_and_support_structure": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "object_partition_basis": [],
+  "geometry_vs_shading": [
+    "real native Boolean receivers and holes, not shader details"
+  ],
+  "form_hierarchy": {
+    "primary_masses": [
+      "source head and face reused"
+    ],
+    "structural_forms": [
+      "native fused receiver ribs"
+    ],
+    "transition_forms": [
+      "source head/face transitions retained"
+    ],
+    "functional_parts": [
+      "through holes",
+      "side-load nut pockets"
+    ],
+    "surface_details": [
+      "purchased fastener envelopes"
+    ]
+  },
+  "part_graph_status": "approved",
+  "lighting_analysis": {
+    "status": "unresolved",
+    "evidence": [],
+    "unknowns": []
+  },
+  "material_analysis": {
+    "status": "unresolved",
+    "classes": [],
+    "scale_evidence": [],
+    "unknowns": []
+  },
+  "systems_analysis": {
+    "deformation": [],
+    "simulation": [],
+    "procedural": [],
+    "animation": [],
+    "export": []
+  },
+  "critical_blockers": [],
+  "blocking_unknowns": [],
+  "assumptions": [
+    "All fastener dimensions are provisional budgets; no manufacturing acceptance"
+  ],
+  "approvals": []
+}

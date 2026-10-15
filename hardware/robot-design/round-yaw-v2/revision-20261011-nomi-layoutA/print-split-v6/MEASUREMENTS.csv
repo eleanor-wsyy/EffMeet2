@@ -17,3 +17,5 @@ FASTENERS,M3x70头形/头高/螺母厚度,不能只看标称长度,,,,UNVERIFIED
 EXTENSION_BOARD,完整外形/排针,95x87x12实测，v6不装入；原：未计入内舱,95x87x12,用户实测（尺子，毫米级）,2026-10-13,MEASURED_UNFITTED
 USB_C_POWER_BOARD,PCB/USB-C口/焊盘/输入额定,v6新增，预算20x15x6，后部杯壁开口11.5x7；具体件未选,,,,UNVERIFIED
 CROSS_YAW_WIRES,线数/线径/外径/弯折寿命,"v6：约9根细软线（5V,GND,3V3?,BCLK,WS,MIC SD,AMP DIN,SERVO PWM,KEY）穿Ø22轴孔，Ø10禁入区，两端线夹",,,,UNVERIFIED
+FACE_RETENTION,面板锁壳螺钉/螺母/拆装工具空间,R1三点M3x12及捕获螺母仅候选预算；canonical v6未合并；详见INTERFACE_GATES.md,,,,UNVERIFIED
+FOOT_PAD,脚垫含胶厚度/压缩/贴合,C07约2mm硅胶片对应杯底z=2预留；不是已安装实物,,,,UNVERIFIED

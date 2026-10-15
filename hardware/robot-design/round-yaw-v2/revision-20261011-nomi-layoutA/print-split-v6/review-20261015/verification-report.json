@@ -1,0 +1,32 @@
+{
+  "scope": "documentation plus local candidate integrity only",
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "checks": [
+    "canonical v6 original delivery verification passes; no report rewritten",
+    "local R1 two changed parts; 29 unrelated parts equal; no nominal surface intersections",
+    "2 candidate STLs raw float32 edge incidence/orientation/positive volume/zero area checks pass",
+    "single current BOM has 34 rows; E05/E16 zero; E17 unselected; v6 active old conflicts removed",
+    "new measurement rows remain unmeasured/unverified",
+    "changed Markdown local links exist"
+  ],
+  "candidate_exports": [
+    {
+      "file": "FACE_PANEL_R1_UNVERIFIED.stl",
+      "triangles": 4824,
+      "closed": true,
+      "signed_volume_mm3": 13798.86,
+      "zero_area": 0,
+      "sha256": "cacf7ce5dd3ad7a1b2c221dbb3e9f21c905583f56759663e5f6fe6df583ebf72"
+    },
+    {
+      "file": "HEAD_SHELL_R1_UNVERIFIED.stl",
+      "triangles": 63048,
+      "closed": true,
+      "signed_volume_mm3": 103566.892,
+      "zero_area": 0,
+      "sha256": "f3b91751747049260c8c6230afa23567223737cf4a17154f479f9c8d5339645d"
+    }
+  ],
+  "status": "PASS"
+}

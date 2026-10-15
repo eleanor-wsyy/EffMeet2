@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "status": "PASS",
+  "scope": "local geometry candidate only",
+  "source_sha256": "f127314845c60f5848a9a8c49aec910d994d37db6ec73a5ca8d46650454d2f5e",
+  "changed_parts": [
+    "N6_HEAD_SHELL",
+    "N6_FACE_PANEL"
+  ],
+  "unexpected_changed_parts": [],
+  "anchors": [
+    {
+      "id": 1,
+      "x_mm": 48.5,
+      "z_mm": 136.3,
+      "axis": "Y",
+      "panel_front_y": -47.400000000000006,
+      "panel_back_y": -45.0,
+      "receiver_front_y": -45.0,
+      "receiver_back_y": -36.0,
+      "nut_center_y": -38.5,
+      "screw_tip_y": -35.400000000000006,
+      "nominal_thread_beyond_nut_mm": 1.8999999999999915,
+      "panel_to_receiver_gap_mm": 0,
+      "nut_side_loading": "radially from head interior; no glue load path"
+    },
+    {
+      "id": 2,
+      "x_mm": -48.5,
+      "z_mm": 136.3,
+      "axis": "Y",
+      "panel_front_y": -47.400000000000006,
+      "panel_back_y": -45.0,
+      "receiver_front_y": -45.0,
+      "receiver_back_y": -36.0,
+      "nut_center_y": -38.5,
+      "screw_tip_y": -35.400000000000006,
+      "nominal_thread_beyond_nut_mm": 1.8999999999999915,
+      "panel_to_receiver_gap_mm": 0,
+      "nut_side_loading": "radially from head interior; no glue load path"
+    },
+    {
+      "id": 3,
+      "x_mm": -16,
+      "z_mm": 91.30000000000001,
+      "axis": "Y",
+      "panel_front_y": -47.400000000000006,
+      "panel_back_y": -45.0,
+      "receiver_front_y": -45.0,
+      "receiver_back_y": -36.0,
+      "nut_center_y": -38.5,
+      "screw_tip_y": -35.400000000000006,
+      "nominal_thread_beyond_nut_mm": 1.8999999999999915,
+      "panel_to_receiver_gap_mm": 0,
+      "nut_side_loading": "radially from head interior; no glue load path"
+    }
+  ],
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "interfaces_unverified": [
+    "screw SKU/head envelope",
+    "nut SKU/AF/thickness",
+    "printed clearance and torque",
+    "LCD mounting measurements"
+  ],
+  "modified_meshes": {
+    "N6_HEAD_SHELL": {
+      "vertices": 31506,
+      "faces": 30138,
+      "nonmanifold_edges": 0,
+      "boundary_edges": 0,
+      "components": 1,
+      "signed_volume_mm3": 103566.88523446422,
+      "zero_area_faces": 0,
+      "bbox_mm": [
+        [
+          -65.99905395507812,
+          -47.042354583740234,
+          80.29999542236328
+        ],
+        [
+          65.99905395507812,
+          63.0,
+          200.77220153808594
+        ]
+      ]
+    },
+    "N6_FACE_PANEL": {
+      "vertices": 2404,
+      "faces": 1261,
+      "nonmanifold_edges": 0,
+      "boundary_edges": 0,
+      "components": 1,
+      "signed_volume_mm3": 13798.860269532388,
+      "zero_area_faces": 0,
+      "bbox_mm": [
+        [
+          -53.0,
+          -47.40000915527344,
+          83.30001068115234
+        ],
+        [
+          53.0,
+          -42.10000228881836,
+          189.30001831054688
+        ]
+      ]
+    }
+  },
+  "surface_intersections": [],
+  "check_method": "same BVH surface inset 0.05mm as canonical v6; source envelopes budget-only; not a stress or tolerance analysis"
+}

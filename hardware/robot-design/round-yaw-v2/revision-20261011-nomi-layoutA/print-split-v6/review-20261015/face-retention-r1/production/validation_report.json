@@ -1,0 +1,45 @@
+{
+  "schema_version": "1.0",
+  "overall_status": "PASS",
+  "scope": "candidate geometry/document integrity only",
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "final_design_approved": false,
+  "checks": {
+    "changed_scope": {
+      "status": "PASS",
+      "changed": [
+        "N6_HEAD_SHELL",
+        "N6_FACE_PANEL"
+      ],
+      "unrelated_unchanged": 29,
+      "evidence": "geometry-review.json"
+    },
+    "topology": {
+      "status": "PASS",
+      "evidence": "geometry-review.json"
+    },
+    "nominal_surface_intersections": {
+      "status": "PASS",
+      "count": 0,
+      "evidence": "geometry-review.json"
+    },
+    "raw_export": {
+      "status": "PASS",
+      "evidence": "../../verification-report.json"
+    },
+    "visual_review": {
+      "status": "PASS",
+      "evidence": [
+        "../renders/01_assembled_candidate.png",
+        "../renders/03_exploded_evaluated.png"
+      ]
+    }
+  },
+  "limitations": [
+    "fastener dimensions are budgets, not supplier CAD",
+    "no sample, stress or fatigue testing",
+    "BVH surface check is not a tolerance or containment proof",
+    "not merged into canonical v6"
+  ]
+}

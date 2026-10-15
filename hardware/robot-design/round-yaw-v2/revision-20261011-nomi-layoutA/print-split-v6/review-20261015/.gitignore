@@ -1,0 +1,6 @@
+*.log
+*.blend1
+*.blend2
+__pycache__/
+face-retention-r1/production/blender_capabilities.json
+face-retention-r1/renders/02_exploded_fixation.png

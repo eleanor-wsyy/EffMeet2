@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "generated_at": "2026-10-15T01:18:04.024039+00:00",
+  "source_references": [],
+  "generation_capability": "unavailable",
+  "attempt_limit": 1,
+  "blocking": false,
+  "authority": "auxiliary_hypothesis_only",
+  "depth_map": {
+    "status": "skipped_no_reference",
+    "attempts": 0,
+    "path": null,
+    "method": null
+  },
+  "white_model_guide": {
+    "status": "skipped_no_reference",
+    "attempts": 0,
+    "path": null,
+    "method": null
+  }
+}

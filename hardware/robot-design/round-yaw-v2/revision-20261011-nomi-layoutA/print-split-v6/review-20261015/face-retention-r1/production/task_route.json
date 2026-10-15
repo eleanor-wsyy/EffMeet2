@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "request": "Bounded engineering candidate only: preserve canonical v6 files, add explicit three-point face-to-head M3 screw receivers and captive-nut side slots in a separate derived blend. Native Boolean union and difference, original silhouette, original head/core/LCD geometry, no manufacturing release. Validate two modified shells, all neighboring printed parts and component proxies, aligned screw axes, retained unrelated data, neutral and exploded views. Keep unique BOM current, mark all screw/nut budgets unverified.",
+  "deliverable": "asset",
+  "classes": [
+    "static_geometry",
+    "volume_operation"
+  ],
+  "physical_causes": [],
+  "candidates": [
+    {
+      "method": "boolean_construction",
+      "skill": "blender-direct-surface-modeling",
+      "score": 20,
+      "matched_terms": [
+        "boolean",
+        "boolean union"
+      ],
+      "reasons": [
+        "hard cuts",
+        "volume union",
+        "repeatable cutter workflow"
+      ],
+      "risks": [
+        "internal faces",
+        "shading artifacts",
+        "tiny sliver faces"
+      ],
+      "available": true
+    },
+    {
+      "method": "alternative:direct_topology_edit",
+      "skill": "blender-production-router",
+      "score": 10,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: direct topology edit"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    },
+    {
+      "method": "alternative:voxel_remesh",
+      "skill": "blender-production-router",
+      "score": 9,
+      "matched_terms": [],
+      "reasons": [
+        "documented alternative to compare: voxel remesh"
+      ],
+      "risks": [
+        "requires task-specific prerequisite and downstream compatibility review"
+      ],
+      "available": null
+    }
+  ],
+  "selected_method": "NATIVE_BOOLEAN_RECEIVERS_AND_CLEARANCE_HOLES",
+  "selected_skill": "blender-assembly-structure",
+  "secondary_methods": [
+    "alternative:direct_topology_edit",
+    "alternative:voxel_remesh"
+  ],
+  "forbidden_substitutions": [
+    "blockout_proxy_as_final_topology",
+    "boolean_for_physical_contact",
+    "color_block_partition_as_part_graph",
+    "detail_before_transition_forms",
+    "join_objects_as_topology_fusion",
+    "material_or_lighting_as_geometry_concealment",
+    "primitive_only_formal_modeling",
+    "primitive_stacking_after_blockout",
+    "scene_or_world_reset_without_authorization",
+    "smooth_shading_or_weighted_normal_as_bevel",
+    "unclassified_mesh_islands",
+    "unclassified_visible_intersections"
+  ],
+  "prerequisites": [
+    "closed volumes",
+    "valid transforms",
+    "explicit cutter role"
+  ],
+  "validation": [
+    "internal faces",
+    "sliver faces",
+    "evaluated shading",
+    "approved Part Graph and construction methods",
+    "front side top hero clay and wireframe evidence",
+    "formal-topology conversion after Blockout",
+    "topology rollback strike audit"
+  ],
+  "required_specialists": [
+    "blender-production-router",
+    "blender-scene-design",
+    "blender-direct-surface-modeling",
+    "blender-assembly-structure",
+    "blender-geometry-validation"
+  ],
+  "construction_archetypes": [],
+  "construction_method_decision": {
+    "shape_grammar_review_required": true,
+    "detected_archetypes": [],
+    "parameter_owners": {},
+    "native_generator_comparisons": [],
+    "fallback_when_no_archetype_matches": "inspect the form and declare unique topology, deformation, distribution, simulation, assembly, or shading ownership before primitive creation",
+    "native_component_decision": {
+      "status": "planned",
+      "primary_system": "BOOLEAN",
+      "parameter_owners": {},
+      "source_policy": "one semantic source/control object per dependent system",
+      "python_role": "orchestration",
+      "application_policy": "keep_non_destructive",
+      "fallback_reason": null,
+      "scene_design_required": true,
+      "system_choice": {
+        "comparison_required": false,
+        "direct_candidate": "BOOLEAN",
+        "node_candidate": null,
+        "selected_system": "BOOLEAN",
+        "selection_reason": "A semantic host volume and evaluated native Boolean own an ordinary hard-surface cut; a node graph may generate cutters but cannot replace Boolean ownership.",
+        "rejected_alternative": "Geometry Nodes is not a substitute for the host Boolean and cleanup review.",
+        "node_justification": [],
+        "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+      },
+      "official_sources": [
+        "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+        "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeFieldMinAndMax.html#bpy.types.GeometryNodeFieldMinAndMax.data_type",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.input_template",
+        "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.expanded",
+        "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.use_pure_random",
+        "https://docs.blender.org/api/5.2/bpy.types.LineStyleThicknessModifier_Calligraphy.html#bpy.types.LineStyleThicknessModifier_Calligraphy.expanded",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass",
+        "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass_py"
+      ],
+      "official_verification_policy": "search official Blender Manual/API for unfamiliar or version-sensitive components; use cached index plus RNA probing when offline"
+    }
+  },
+  "design_owner": "blender-scene-design",
+  "native_component_decision": {
+    "primary_system": "BOOLEAN",
+    "system_choice": {
+      "comparison_required": false,
+      "direct_candidate": "BOOLEAN",
+      "node_candidate": null,
+      "selected_system": "BOOLEAN",
+      "selection_reason": "three unique semantic mounting interfaces on existing closed source shells",
+      "rejected_alternative": "Geometry Nodes offers no needed field/scalability benefit; no snap-fit elasticity assumed",
+      "node_justification": [],
+      "boolean_policy": "native_boolean_required_for_normal_hard_surface_cuts"
+    }
+  },
+  "local_asset_library": {
+    "status": "not_requested",
+    "requested": false,
+    "request_origin": "not_requested",
+    "root": null,
+    "eligible_catalogs": [],
+    "candidate_policy": "No local candidate discovery is needed for the selected direct system."
+  },
+  "official_doc_resolution": {
+    "schema_version": "1.0",
+    "status": "cached",
+    "version": "5.2",
+    "query": "bpy.types.BooleanModifier Boolean modifier mesh cleanup Bounded engineering candidate only: preserve canonical v6 files, add explicit three-point face-to-head M3 screw receivers and captive-nut side slots in a separate derived blend. Native Boolean union and difference, original silhouette, original head/core/LCD geometry, no manufacturing release. Validate two modified shells, all neighboring printed parts and component proxies, aligned screw axes, retained unrelated data, neutral and exploded views. Keep unique BOM current, mark all screw/nut budgets unverified.",
+    "cache_path": "C:\\Users\\路西法\\.codex\\cache\\blender-production-suite\\5.2\\official_blender_docs_index.json",
+    "source_status": {
+      "manual": "live_verified",
+      "python_api": "live_verified"
+    },
+    "source_urls": {
+      "manual": "https://docs.blender.org/manual/en/5.2/",
+      "python_api": "https://docs.blender.org/api/5.2/"
+    },
+    "results": [
+      {
+        "name": "bpy.types.BooleanModifier.operand_type",
+        "title": "bpy.types.BooleanModifier.operand_type",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+        "source": "python_api",
+        "score": 51.2779
+      },
+      {
+        "name": "bpy.types.GeometryNodeFieldMinAndMax.data_type",
+        "title": "bpy.types.GeometryNodeFieldMinAndMax.data_type",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeFieldMinAndMax.html#bpy.types.GeometryNodeFieldMinAndMax.data_type",
+        "source": "python_api",
+        "score": 51.7887
+      },
+      {
+        "name": "bpy.types.GeometryNodeInputMeshIsland.input_template",
+        "title": "bpy.types.GeometryNodeInputMeshIsland.input_template",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.input_template",
+        "source": "python_api",
+        "score": 51.6064
+      },
+      {
+        "name": "bpy.types.LineStyleGeometryModifier_SpatialNoise.expanded",
+        "title": "bpy.types.LineStyleGeometryModifier_SpatialNoise.expanded",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.expanded",
+        "source": "python_api",
+        "score": 51.5656
+      },
+      {
+        "name": "bpy.types.LineStyleGeometryModifier_SpatialNoise.use_pure_random",
+        "title": "bpy.types.LineStyleGeometryModifier_SpatialNoise.use_pure_random",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.use_pure_random",
+        "source": "python_api",
+        "score": 51.5656
+      },
+      {
+        "name": "bpy.types.LineStyleThicknessModifier_Calligraphy.expanded",
+        "title": "bpy.types.LineStyleThicknessModifier_Calligraphy.expanded",
+        "role": "py:attribute",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.LineStyleThicknessModifier_Calligraphy.html#bpy.types.LineStyleThicknessModifier_Calligraphy.expanded",
+        "source": "python_api",
+        "score": 51.5656
+      },
+      {
+        "name": "bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass",
+        "title": "bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass",
+        "source": "python_api",
+        "score": 51.432
+      },
+      {
+        "name": "bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass_py",
+        "title": "bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass_py",
+        "role": "py:method",
+        "priority": 1,
+        "url": "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass_py",
+        "source": "python_api",
+        "score": 51.432
+      }
+    ],
+    "errors": [],
+    "declared_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html"
+    ],
+    "resolved_sources": [
+      "https://docs.blender.org/manual/en/5.2/modeling/modifiers/generate/booleans.html",
+      "https://docs.blender.org/api/5.2/bpy.types.BooleanModifier.html#bpy.types.BooleanModifier.operand_type",
+      "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeFieldMinAndMax.html#bpy.types.GeometryNodeFieldMinAndMax.data_type",
+      "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.input_template",
+      "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.expanded",
+      "https://docs.blender.org/api/5.2/bpy.types.LineStyleGeometryModifier_SpatialNoise.html#bpy.types.LineStyleGeometryModifier_SpatialNoise.use_pure_random",
+      "https://docs.blender.org/api/5.2/bpy.types.LineStyleThicknessModifier_Calligraphy.html#bpy.types.LineStyleThicknessModifier_Calligraphy.expanded",
+      "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass",
+      "https://docs.blender.org/api/5.2/bpy.types.GeometryNodeInputMeshIsland.html#bpy.types.GeometryNodeInputMeshIsland.bl_rna_get_subclass_py"
+    ]
+  },
+  "code_role": "orchestration",
+  "application_policy": "keep_non_destructive",
+  "fallback_reason": null,
+  "task_id": "adcd52bd3020",
+  "generated_at": "2026-10-15T01:18:04.024039+00:00"
+}

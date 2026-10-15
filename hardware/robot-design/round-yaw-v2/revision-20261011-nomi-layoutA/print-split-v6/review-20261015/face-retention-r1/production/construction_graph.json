@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "status": "approved_local_candidate",
+  "combination_policy": "C_PHYSICAL_ASSEMBLY for face/head/fasteners; D_TOPOLOGY_FUSION only for head receivers via native Boolean",
+  "parts": [
+    {
+      "id": "head",
+      "final_object": "N6_HEAD_SHELL",
+      "form_level": "STRUCTURAL",
+      "continuous": true,
+      "construction_method": "existing Screw/Lattice/Solidify plus native Boolean Union/holes",
+      "connection": "receiver bridge fused to native lip",
+      "expected_components": 1,
+      "export_owner": "local candidate STL only",
+      "bevel_policy": "source transitions retained; local bore transitions pending sample"
+    },
+    {
+      "id": "face",
+      "final_object": "N6_FACE_PANEL",
+      "form_level": "FUNCTIONAL",
+      "continuous": true,
+      "construction_method": "existing panel plus three native Boolean through holes",
+      "connection": "independent panel, front screw clamps to receiver plane",
+      "expected_components": 1,
+      "export_owner": "local candidate STL only"
+    },
+    {
+      "id": "screws_nuts",
+      "form_level": "FUNCTIONAL",
+      "construction_method": "budget purchased regular solid envelopes",
+      "manufacturing_state": "purchased, never_printed",
+      "connection": "M3 threaded connection, actual SKU and torque unverified",
+      "export_owner": "none"
+    }
+  ],
+  "parameters_owner": "retention_config.json for local exploration; canonical ../parameters.json unchanged",
+  "protected_scope": [
+    "canonical file",
+    "all unrelated printed parts"
+  ]
+}

@@ -1,3 +1,13 @@
+# 2026-10-15 · v6接口复核与采购口径清理
+
+- 当前v6/A2模型和31件STL未替换。唯一BOM §12已清理旧布局、TP4056必买、v5 41件/跨轴FPC/长螺钉数量；新增E17预算输入板，SKU仍未选。原订单物流未新核实。
+- 实物操作按[v6接口门槛](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)推进。LCD孔位/堆叠、USB-C板、GT2/舵机、跨轴细线和脚垫均不伪填实测。
+- [面板三点螺钉固定R1候选](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261015/face-retention-r1/)独立于canonical v6；是否合并须先过局部几何检查和接口样片。不用胶/强过盈/脆性卡扣替代承力连接。
+- z=2mm底部空间与C07脚垫预算相符，尺寸图区分名义0基准与裸实体高度。
+- manufacturing_ready / hardware_validated / final_design_approved保持false；26项硬件测试NOT_RUN。
+
+---
+
 # 2026-10-13 · v6紧凑候选（布局A2，当前第一入口）
 
 **当前模型/件表/STL改看 [v6 README](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 以下10-12各节为历史。
@@ -23,7 +33,7 @@
 
 ---
 
-# 2026-10-12 · v5真实拆件候选交接（当前第一入口）
+# 2026-10-12 · v5真实拆件候选交接（历史，当前按v6/A2）
 
 **当前模型和打印清单改看 [v5 README](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)。** 已按SPLIT_PLAN v1.1补承力/传动/模块支架/导向/声管/线夹，生成41件独立候选。不要再按v4“内部都是代理、尚未拆件”的历史描述重复工作。
 

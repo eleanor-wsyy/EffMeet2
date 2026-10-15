@@ -1,0 +1,46 @@
+{
+  "status": "candidate_not_active",
+  "canonical_parameters": "../../../../parameters.json",
+  "centers_xz_relative_head_mm": [
+    [
+      48.5,
+      0
+    ],
+    [
+      -48.5,
+      0
+    ],
+    [
+      -16,
+      -45
+    ]
+  ],
+  "screw_budget": {
+    "designation": "M3x12",
+    "quantity": 3,
+    "shank_d": 3,
+    "head_d": 5.5,
+    "head_h": 3,
+    "clearance_d": 3.4,
+    "sku_verified": false
+  },
+  "nut_budget": {
+    "designation": "M3 standard hex nut",
+    "quantity": 3,
+    "flat": 5.5,
+    "thickness": 2.4,
+    "pocket_flat": 5.7,
+    "pocket_depth": 2.8,
+    "sku_verified": false
+  },
+  "receiver": {
+    "od": 10,
+    "depth": 9,
+    "bridge_width": 6,
+    "bridge_thickness": 3,
+    "anchor_radius": 55.2
+  },
+  "manufacturing_ready": false,
+  "hardware_validated": false,
+  "local_repair": "Bottom receiver moved left to clear existing cable saddle; manifold solver for closed Boolean operands"
+}

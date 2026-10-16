@@ -19,3 +19,5 @@ USB_C_POWER_BOARD,PCB/USB-C口/焊盘/输入额定,v6新增，预算20x15x6，�
 CROSS_YAW_WIRES,线数/线径/外径/弯折寿命,"v6：约9根细软线（5V,GND,3V3?,BCLK,WS,MIC SD,AMP DIN,SERVO PWM,KEY）穿Ø22轴孔，Ø10禁入区，两端线夹",,,,UNVERIFIED
 FACE_RETENTION,面板锁壳螺钉/螺母/拆装工具空间,R1三点M3x12及捕获螺母仅候选预算；canonical v6未合并；详见INTERFACE_GATES.md,,,,UNVERIFIED
 FOOT_PAD,脚垫含胶厚度/压缩/贴合,C07约2mm硅胶片对应杯底z=2预留；不是已安装实物,,,,UNVERIFIED
+INMP441_PADW,含焊盘总宽(两侧凸出),P32腔19须≥实测总宽+0.5余量,"照片估17-18(±1-2,不可用)",学妹交付05报告C档1,2026-10-16,UNVERIFIED
+INMP441_BOTTOM,底面拾音孔中心偏差,≤0.5mm→P32声孔位置确认,缺照片(最重要一张未拍),学妹交付D档,2026-10-16,UNVERIFIED

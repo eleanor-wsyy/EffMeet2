@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>直尺禁用说明 — 哪些情况不能用直尺测量及原因</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#5f5e5a; --line:#d8d6d0; --bg:#fff;
+    --red:#b3261e; --red-bg:#fdecea; --amber:#8a5300; --amber-bg:#fdf3e0;
+    --blue:#14508f; --blue-bg:#eaf1fa; --green:#0f6e56; --green-bg:#e8f5f0;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:#f4f3f0;color:var(--ink);
+    font:15px/1.75 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;}
+  .page{max-width:900px;margin:0 auto;background:var(--bg);padding:44px 52px 64px;}
+  h1{font-size:25px;margin:0 0 6px;letter-spacing:.5px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:26px}
+  h2{font-size:18px;margin:38px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--line)}
+  h3{font-size:15px;margin:0 0 8px}
+  p{margin:8px 0}
+  .rule{background:var(--red-bg);border-left:5px solid var(--red);
+    padding:16px 20px;border-radius:0 8px 8px 0;margin:0 0 26px}
+  .rule b{color:var(--red)}
+  .rule .big{font-size:17px;display:block;margin-bottom:8px}
+  .card{border:1px solid var(--line);border-radius:10px;padding:18px 20px;margin:14px 0;break-inside:avoid}
+  .card .tag{display:inline-block;background:var(--red);color:#fff;font-size:12px;
+    padding:2px 9px;border-radius:20px;margin-right:8px;vertical-align:2px}
+  .card .tag.warn{background:var(--amber)}
+  .row{margin:7px 0;font-size:14px}
+  .row .k{display:inline-block;min-width:74px;color:var(--muted)}
+  .row code{background:#f1efe8;padding:1px 6px;border-radius:4px;font-size:13px}
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:13.5px}
+  th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+  th{background:#f1efe8;font-weight:600}
+  tr{break-inside:avoid}
+  .no{color:var(--red);font-weight:600}
+  .yes{color:var(--green);font-weight:600}
+  .mid{color:var(--amber);font-weight:600}
+  .box{background:#faf9f6;border:1px solid var(--line);border-radius:10px;padding:16px 20px;margin:14px 0}
+  .box h3{color:var(--blue)}
+  ol,ul{margin:8px 0;padding-left:22px}
+  li{margin:5px 0}
+  .foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:12.5px}
+  .kv{display:flex;gap:14px;flex-wrap:wrap;margin:10px 0}
+  .kv div{flex:1 1 200px;background:#faf9f6;border:1px solid var(--line);
+    border-radius:8px;padding:11px 14px;font-size:13.5px}
+  @media print{
+    body{background:#fff}
+    .page{max-width:none;padding:0 6mm}
+    h2{page-break-after:avoid}
+    .card,.box,table{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<h1>直尺禁用说明</h1>
+<div class="sub">哪些情况／对象不能用直尺测量，以及为什么 · 配套《01 测量结果总表》《02 回填数据》使用</div>
+
+<div class="rule">
+  <span class="big">一句话规则</span>
+  <b>直尺只能用来判断"量级对不对"，不能用来判断"公差过不过"。</b>
+  当公差或补偿量小于直尺自身的不确定度（±0.5～1mm）时，用它测出来的数字没有判据价值，
+  必须改用卡尺、塞针试配或直接试装。
+</div>
+
+<h2>一、直尺的误差到底有多大</h2>
+<table>
+  <tr><th>来源</th><th>量级</th><th>说明</th></tr>
+  <tr><td>最小刻度</td><td>1 mm</td><td>普通塑料／钢直尺都是 1mm 分度，没有更细的线可读</td></tr>
+  <tr><td>人眼估读</td><td>±0.5 mm</td><td>估读到半格，已经很勉强，光线不好时更差</td></tr>
+  <tr><td>零点对不准</td><td>±0.3 mm</td><td>直尺端头常有磨损／圆角，0 线不在物理端点</td></tr>
+  <tr><td>与被测面不垂直、有光隙</td><td>±0.5 mm 以上</td><td>曲面、台阶、圆角处最明显，读数一律偏大</td></tr>
+  <tr><td><b>合计（稳妥写法）</b></td><td><b>±1 mm</b></td><td>想好看点写 ±0.5mm，但必须注明是"估读"</td></tr>
+</table>
+
+<div class="box">
+  <h3>为什么这一点是致命的</h3>
+  <p>本项目的设计侧<strong>已经做过配合补偿</strong>：轴承座孔按 <code>42.3</code> 打（轴承标称外径 42），
+  转轴按 <code>Ø29.8</code> 做（轴承标称内径 30）。也就是说，<strong>真正要验证的那点差异只有 0.2～0.3mm</strong>。</p>
+  <p>用一把不确定度 ±1mm 的直尺去验证 0.3mm 的补偿，信噪比不到 1:3 ——
+  量出来的数字无论写多少，都不能作为"过／不过"的依据。这就是"未实测不填 PASS"的原因。</p>
+</div>
+
+<h2>二、六类不能用直尺的情况</h2>
+
+<div class="card">
+  <h3><span class="tag">第 1 类</span>公差小于直尺误差</h3>
+  <div class="row"><span class="k">典型项</span>B2 轴承 OD 42 / ID 30（补偿量仅 0.2～0.3）、B6 开关总高 5±0.5、B4 板厚 ≈1、B7 板厚 ≈1.6、C1 螺钉头高、C2 垫圈厚 0.3/0.5、C6 片材厚 1/2</div>
+  <div class="row"><span class="k">为什么不行</span>被测特征本身只有 0.2～0.5mm 的变化量，而工具误差 ±1mm，量出来的数落在哪一格都是噪声。</div>
+  <div class="row"><span class="k">替代做法</span>卡尺；或<strong>直接用打印样片／实物试配</strong>（例如拿 Ø29.8 样片套轴承内径，顺滑即合格）。试配直接对应判据本身，比读数更可靠。</div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">第 2 类</span>内径、孔内壁——直尺物理上够不到</h3>
+  <div class="row"><span class="k">典型项</span>B3 舵机耳孔 Ø≈2.2、B7 安装孔 Ø≈2.6、C2 垫圈内径、B2 内径</div>
+  <div class="row"><span class="k">为什么不行</span>孔径是<strong>内表面</strong>尺寸，直尺要伸进孔里才能量，而 1mm 分度的尺子根本塞不进 Ø2～3mm 的孔；从外面量到的只是外轮廓，不是孔径。</div>
+  <div class="row"><span class="k">替代做法</span><strong>塞针法</strong>：用已知直径的 M2 螺钉、钻头或打印样片去试。判据本来就是"螺钉能不能过"，试配直接给出答案（通／不通 → 记 ≈）。</div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">第 3 类</span>两点间中心距——误差在两端叠加</h3>
+  <div class="row"><span class="k">典型项</span>B4 焊孔中心距 7.62、B7 孔距 12.6、B3 耳孔距 27.7、LCD 安装孔距 77×45</div>
+  <div class="row"><span class="k">为什么不行</span>中心距要定位两个<strong>看不见的圆心</strong>。每个圆心的定位各有 ±0.5mm 误差，叠加后 ±1mm 以上；而且圆心没有实体边缘可以对齐。</div>
+  <div class="row"><span class="k">替代做法</span>
+    ① <strong>扎孔法</strong>：零件平放白纸、描出轮廓，用针尖在孔心戳孔，再量两个针孔的间距；<br>
+    ② <strong>换算公式</strong>：<code>中心距 = 两孔外边缘距 − 孔径</code>，量外缘再减去孔径（孔径仍需塞针法估）；<br>
+    ③ 只量"上下正对"的两孔，<strong>不要量斜对角</strong>（B4 的 7.62 是上下正对值）。
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">第 4 类</span>圆柱／曲面直径——尺子贴不到最宽处</h3>
+  <div class="row"><span class="k">典型项</span>B2 轴承 OD/ID、B5 扬声器外圈 Ø40、B4 麦克风圆板直径</div>
+  <div class="row"><span class="k">为什么不行</span>直径是<strong>过圆心的最大弦</strong>。直尺是直线，贴在圆柱面上只有一个切点接触，两端会"悬空"，所以读数<strong>系统性地偏大</strong>；而且是否正好切在最大直径处，肉眼无法判断。</div>
+  <div class="row"><span class="k">替代做法</span>
+    ① 卡尺（外测量爪是线接触，能对准直径）；<br>
+    ② <strong>平放量高法</strong>：圆件平放桌面，尺子竖贴桌面量顶端高度 —— 得到的是"高度"而不是"直径"，只能作上下界参考，不能直接当直径；<br>
+    ③ 软尺／细绳绕一圈量周长，再 ÷π。
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">第 5 类</span>软材料与易变形件</h3>
+  <div class="row"><span class="k">典型项</span>C6 硅胶／EPDM 片、C5 PET 编织护套、B1 GT2 同步带</div>
+  <div class="row"><span class="k">为什么不行</span>直尺一压上去，材料就<strong>变形</strong>，读数随手上的力度变化，不可重复；线束、护套这类本身形状不固定，外径随束扎松紧变化。</div>
+  <div class="row"><span class="k">替代做法</span>
+    ① 极轻接触，只贴不压，并<strong>重复 3 次取中间值</strong>（3 次差 >0.3mm 就写"未实测"）；<br>
+    ② <strong>叠加法</strong>：叠 10 片量总厚 ÷10，压力被摊薄、误差也被摊小；<br>
+    ③ 片材可放在两块平板之间量总厚；<br>
+    ④ 实测值偏小属正常现象，<strong>不要为了凑参考值使劲夹</strong>。
+  </div>
+</div>
+
+<div class="card">
+  <h3><span class="tag">第 6 类</span>深度、台阶、形位——没有基准面</h3>
+  <div class="row"><span class="k">典型项</span>B6 开关总高与 P20 口袋深、B7 托盘深度、C1 沉孔深度、C7 安装柱高、平面度／同轴度</div>
+  <div class="row"><span class="k">为什么不行</span>深度测量需要一把<strong>带基准面且垂直于被测面</strong>的量具。直尺没有测量爪，也无法保证与基准面贴合，稍一倾斜读数就偏大，"台阶差"更是完全测不出。</div>
+  <div class="row"><span class="k">替代做法</span>
+    ① 卡尺深度杆；<br>
+    ② <strong>平放量高法</strong>（把"量深度"变成"量高度"）；<br>
+    ③ 直接<strong>试装</strong>：零件塞进去不凸出即为合格 —— 判据往往本来就是"入沉孔不凸出"。
+  </div>
+</div>
+
+<h2>三、反过来说：哪些情况直尺可以用</h2>
+<table>
+  <tr><th>情况</th><th>本项目例子</th><th>前提</th></tr>
+  <tr><td>公差 ≥ 1mm 的大尺寸</td><td>B3 本体长 22.4×12.5、B3 含耳总长 31.8、B5 外径 Ø40、B7 板 17.7×19.1、扩展板 95×87×12（团队已有先例）</td><td>零件能平放、能描线；量 3 次取中间值</td></tr>
+  <tr><td>判据本身就是"不超过"</td><td>B5 总厚 ≤17、C5 线束 ≤ 线鞍槽</td><td>只需判断"超没超"，不需要精确值</td></tr>
+  <tr><td>纯目视项</td><td>B2 盖类型（金属盖／橡胶盖）、B4 底面小孔是否居中、C6 是否带背胶、C4 是否含螺母</td><td>看一眼即可，但必须拍照留证</td></tr>
+  <tr><td>叠加法能放大的小件</td><td>C1 螺钉杆长、C2 垫圈厚、C3 螺母厚</td><td>10 件叠齐量总长 ÷10，并在备注写清"总厚与件数"</td></tr>
+</table>
+
+<h2>四、直尺应急四法（附操作要点）</h2>
+<div class="kv">
+  <div><b>① 叠加法</b><br>同规格 10 件叠齐量总长 ÷10。精度可提到约 ±0.1mm。<br><i>备注必须写"总长 × mm／× 件"。</i></div>
+  <div><b>② 扎孔法</b><br>零件平放白纸描轮廓，针尖戳孔心，再量两针孔间距。<br>专治中心距（第 3 类）。</div>
+  <div><b>③ 塞针法</b><br>用已知直径的螺钉／钻头／打印样片去试配，记录"通／不通／刚好"。<br>专治孔径与内径（第 2 类），直接对应判据。</div>
+  <div><b>④ 平放量高法</b><br>零件平放桌面（不会倒）→ 尺子竖放旁边、0 端贴桌面 → <b>拍照后在手机上放大看刻度</b>。<br>把"立住零件＋悬空瞄准"换成"平放＋放大读数"。</div>
+</div>
+
+<h2>五、报数格式（仓库强制）</h2>
+<div class="rule" style="background:var(--blue-bg);border-left-color:var(--blue)">
+  <span class="big">三个东西必须一起写</span>
+  <b>实测值 + 误差 + 量具</b>，缺一不可。例：<code>40.5 ／ ±0.5 ／ 直尺</code>。<br>
+  团队先例写法：<code>用户实测（尺子，毫米级）</code>，状态记 <code>MEASURED_UNFITTED</code>。<br>
+  <b>不要往大估，也不要往小估</b> —— 量到多少写多少；拿不准就写"未实测"，不要填一个猜测值。
+</div>
+
+<div class="foot">
+  依据：EffMeet2 仓库 <code>MEASURE-TODO.md</code>（2026-10-15 v2）、<code>MEASUREMENTS.csv</code>、
+  <code>INTERFACE_GATES.md</code>（LCD-01：测量表填写实值和误差）。<br>
+  纪律：未实测不填 PASS；已测未装机只能写 MEASURED_UNFITTED。
+</div>
+
+</div>
+</body>
+</html>

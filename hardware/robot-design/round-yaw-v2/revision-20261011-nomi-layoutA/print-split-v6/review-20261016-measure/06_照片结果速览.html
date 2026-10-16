@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>照片整理结果 · 7 个零件</title>
+<style>
+  :root{--ink:#1a1a1a;--muted:#5f5e5a;--line:#dcdad3;--red:#b3261e;--green:#0f6e56;--amber:#8a5300;--blue:#14508f}
+  *{box-sizing:border-box}
+  body{margin:0;background:#f4f3f0;color:var(--ink);font:15px/1.7 -apple-system,"Segoe UI","Microsoft YaHei",sans-serif;-webkit-text-size-adjust:100%}
+  .wrap{max-width:720px;margin:0 auto;background:#fff;padding:22px 18px 48px}
+  h1{font-size:20px;margin:0 0 4px}
+  .sub{color:var(--muted);font-size:13px;margin-bottom:18px}
+  h2{font-size:16px;margin:26px 0 10px;padding-bottom:6px;border-bottom:2px solid var(--line)}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;margin:8px 0}
+  th,td{border:1px solid var(--line);padding:8px 9px;text-align:left;vertical-align:top}
+  th{background:#f1efe8;font-weight:600;font-size:13px}
+  td.n{white-space:nowrap;color:var(--blue);font-weight:600}
+  .big{font-weight:600}
+  .ok{color:var(--green);font-weight:600}
+  .warn{color:var(--amber);font-weight:600}
+  .no{color:var(--red);font-weight:600}
+  .card{border:1px solid var(--line);border-left:4px solid var(--amber);border-radius:0 8px 8px 0;
+        padding:12px 14px;margin:10px 0;background:#fdfaf3;font-size:14px}
+  .card b{display:block;margin-bottom:3px}
+  .note{background:#f6f5f2;border:1px solid var(--line);border-radius:8px;padding:14px;font-size:13.5px;margin:14px 0}
+  ul{margin:6px 0;padding-left:20px}
+  li{margin:4px 0}
+  .foot{margin-top:26px;padding-top:12px;border-top:1px solid var(--line);color:var(--muted);font-size:12.5px}
+  @media print{body{background:#fff}.wrap{max-width:none;padding:0 8mm}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>照片整理结果</h1>
+<div class="sub">来源：27 张现场照片（去重后 24 张独立画面）· 覆盖 6806 轴承、MG90S 舵机、INMP441 麦克风、扬声器 4 类零件 · 2026-10-16</div>
+
+<div class="note">
+  <b>先说清楚这份结果的性质</b><br>
+  照片能回答的问题分三种：<b class="ok">① 看一眼就能定</b>的、<b class="warn">② 只能核对量级（±2mm）</b>的、
+  <b class="no">③ 根本回答不了</b>的。下面按这三种分开列，不混在一起。
+</div>
+
+<h2>一、照片能定的（4 项，结论明确）</h2>
+<table>
+  <tr><th>零件</th><th>项目</th><th>结论</th></tr>
+  <tr><td>6806 轴承</td><td>盖类型</td><td class="ok">金属密封盖（ZZ）——外圈可见金属挡圈，无橡胶唇</td></tr>
+  <tr><td>MG90S 舵机</td><td>型号</td><td class="ok">TIANKONGRC · MG90S · Micro servo（标签清晰）</td></tr>
+  <tr><td>扬声器</td><td>规格</td><td class="ok">背面钢印规格与采购的 4Ω3W 相符</td></tr>
+  <tr><td>扬声器</td><td>接线</td><td class="ok">侧面 2 个焊片，非插针</td></tr>
+</table>
+
+<h2>二、量级核对（8 项，与标称一致，±2mm）</h2>
+<table>
+  <tr><th>零件</th><th>项目</th><th>标称</th><th>照片读数</th></tr>
+  <tr><td>6806 轴承</td><td>外径 OD</td><td>42</td><td class="warn">≈42</td></tr>
+  <tr><td>6806 轴承</td><td>内径 ID</td><td>30</td><td class="warn">≈30</td></tr>
+  <tr><td>MG90S</td><td>本体长</td><td>22.4</td><td class="warn">≈22</td></tr>
+  <tr><td>MG90S</td><td>本体宽</td><td>12.5</td><td class="warn">≈12</td></tr>
+  <tr><td>MG90S</td><td>含耳总长</td><td>31.8</td><td class="warn">≈31</td></tr>
+  <tr><td>麦克风</td><td>圆板直径</td><td>14</td><td class="warn">≈13~14</td></tr>
+  <tr><td>麦克风</td><td>含排针总高</td><td>≈11</td><td class="warn">≈11</td></tr>
+  <tr><td>扬声器</td><td>外圈直径</td><td>40</td><td class="warn">≈40</td></tr>
+  <tr><td>扬声器</td><td>总厚（含焊片）</td><td>≤17</td><td class="warn">≈15~16，<b>看起来未超 17</b></td></tr>
+</table>
+<div class="note" style="background:#fdfaf3;border-color:#e6d5a8">
+  这一档的用途是<b>确认零件没买错</b>。要判"座孔 42.3 能不能轻压入"这种 0.3mm 级的配合，照片读数不够，必须卡尺。
+</div>
+
+<h2>三、照片里发现的问题（3 项，采购页没写）</h2>
+<div class="card">
+  <b>1. 麦克风含焊盘总宽 ≈17~18mm，明显大于板径 ≈14mm</b>
+  实物是"圆板 + 两侧焊盘向外凸出"。如果 P21/P22 压圈按 Ø14 圆板设计，两侧凸出的焊盘可能压不进或被压坏 —— 建议结构侧按实测总宽复核压圈中心孔径。
+</div>
+<div class="card">
+  <b>2. 麦克风排针疑似"侧焊"，不是"穿孔插件"</b>
+  焊盘位于板的两侧边缘。若确实如此，仓库要求的"两排焊孔中心距 7.62"这一项在实物上可能根本不存在 —— 需要你回去确认一眼再决定是否作废。
+</div>
+<div class="card">
+  <b>3. 轴承确认是金属盖（ZZ），不是 2RS 橡胶盖</b>
+  与台账记录一致，无需再复核。
+</div>
+
+<h2>四、照片回答不了的</h2>
+<p style="font-size:14px;margin:6px 0"><b>完全没拍到的：</b></p>
+<ul>
+  <li><span class="no">B4 麦克风底面拾音孔</span> —— 判据"中心偏差 ≤0.5mm"的唯一依据，这次一张都没有</li>
+  <li>B6 6×6 轻触开关（长宽 / 总高 / 脚距）</li>
+  <li>B7 MAX98357A 功放板（板宽长 / 孔距 12.6 / 孔径 / 板厚 / 含针总高）</li>
+  <li>B1 GT2 188mm 同步带（带宽 / 齿距 / 节线长）</li>
+  <li>C1~C7 全部五金件（螺钉、垫圈、螺母、护套、硅胶、安装柱）</li>
+  <li>第二只轴承、第二只麦克风（仓库要求不能推定同批一致）</li>
+</ul>
+<p style="font-size:14px;margin:14px 0 6px"><b>拍了、但读不出的：</b></p>
+<ul>
+  <li>B2 轴承宽度 7 —— 没有轴向侧视</li>
+  <li>B3 耳孔 Ø2.2、耳孔中心距 27.7 —— 没有特写，直尺也够不到内孔</li>
+  <li>B3 底面到耳高 22.8 —— 拍摄角度不足</li>
+  <li>B4 板厚 ≈1 —— 0.5mm 级，直尺读不出</li>
+</ul>
+
+<h2>五、为什么"实测值"那一列是空的</h2>
+<div class="note">
+  <p style="margin-top:0"><b>不是漏做，是刻意留空。</b>三个原因：</p>
+  <ul>
+    <li><b>照片内部比例是变形的。</b>用程序对同一张照片的不同区域检测尺子刻度周期，得到 <b>17.7 px/mm 与 12.1 px/mm 两个互相矛盾</b>的值 —— 透视已经把图内比例破坏了，没有统一换算系数。</li>
+    <li><b>误差有方向且不可反推。</b>曲面件 + 尺子与零件不共面，读数一律偏大，偏大多少没有规律。</li>
+    <li><b>填错比留空更危险。</b>仓库写死"未实测不填 PASS"。设计侧已按座孔 <b>42.3</b>、转轴 <b>Ø29.8</b> 做过配合补偿 —— 实测值填错，学长会按错的值重建 P05/P06/P11，整批打印件报废。</li>
+  </ul>
+</div>
+
+<h2>六、下一步（按性价比排序）</h2>
+<ol>
+  <li>补拍 <b>B4 麦克风底面拾音孔特写</b> —— 一张照片解决一个判据</li>
+  <li>补拍 B6 / B7 / C1~C7 —— 这四组目前完全空白</li>
+  <li>借一把数显卡尺 —— B2 轴承 OD/ID、各孔径孔距、各板厚这 15 项左右，直尺永远做不了</li>
+  <li>补拍时：① 让尺子与零件<b>贴在同一平面</b>；② 画面里<b>放一张银行卡</b>（85.60×53.98mm）—— 可把照片读数精度提到 ±0.2mm</li>
+</ol>
+
+<div class="foot">
+  依据：EffMeet2 仓库 MEASURE-TODO.md（2026-10-15 v2）、MEASUREMENTS.csv、INTERFACE_GATES.md。<br>
+  纪律：未实测不填 PASS；已测未装机只能写 MEASURED_UNFITTED；照片估算值不得填入 actual_mm。
+</div>
+
+</div>
+</body>
+</html>

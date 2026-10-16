@@ -1,3 +1,5 @@
+> **⛔ 装配操作以 [print-split-v6/ASSEMBLY.md v2](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md) 为准（2026-10-16）。本文仅保留 10-10 外观/组装同步的决策记录，其中步骤不再执行。**
+
 > **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
 
 # v4 · 外观与安装接口同步

@@ -1,3 +1,15 @@
+# 2026-10-16 · 打印收尾+装配启动（湿黑料确认/减面整改/手册v3/学妹交付）
+
+**当前执行入口：[ASSEMBLY.md v3](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)（去抽象+测试用具+图鉴）＋ [PLATE-RUNBOOK §5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [MEASURE-TODO v3](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。**
+
+- **湿黑料确认**：BNIGHT2 再炒面+满床拉丝，灰卷不犯 → 黑卷受潮。处置：黑卷烘干45–60℃4–6h+拉丝测试；内部件全改灰（INTERN2）；黑只留外露 P14/P28（BVIS 直打版 + BVIS-TILT 斜打实验版，老师建议斜打试运气，需筏层+树支撑）。
+- **机房老师整改**：过密网格致切片周长路径过密/内部碎填充 → P02 平面融解 18134→13614 面（1.5°，vol d0.077%）、P04 4896→1266（5°，vol 0.000%）；新盘 G3p-DEC / INTERN2-DEC；已打 P01/P23（4.1万/6.0万面）返工时用减面版。澄清：截面≤2.5mm 的全墙件打实心是设计正确（P28/P27/P25/P13/P32壁/P14管壁/P20柱环）。
+- **学妹交付归档**：[review-20261016-measure/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261016-measure/)。直尺数字全废（±0.5 判不了公差，她也没填）；照片定性销账 3 项（ZZ盖/TIANKONGRC MG90S/4Ω3W钢印）+ 设计坑 1 个（**INMP441 含焊盘总宽17–18 > 板径14** → P21/P22 作废、P01 壁袋环弃用、新件 P32 胶座腔19）。待补：卡尺10组+补拍8组（★底面拾音孔特写）。
+- **装配启动（周末窗口）**：学校周末关门；宿舍 A1 打 PETG 替身颈/滑片（NECK-PETG-A1 盘）供合婚联调；供电走核心板 Type-C；缺件替代法见 ASSEMBLY §0 表。10-21 初赛前联调窗口=本周末。
+- **状态纪律不变**：stage=reversible_blockout；三放行布尔false；26项NOT_RUN；替身/容差件不构成放行。
+
+---
+
 # 2026-10-15 · 打印已开打（B方案：灰并行 / 黑单盘）＋待测清单
 
 **当前执行入口：[v6 PLATE-RUNBOOK §2026-10-15](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [待测清单](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md) ＋ [打印教训集](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md) ＋ [安装手册](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)。** 以下为本日事实记录。

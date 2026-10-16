@@ -19,7 +19,7 @@
 | **安装手册（2026-10-15 预写）** | [ASSEMBLY.md](ASSEMBLY.md) —— 按已打印件的六步安装：底座电子→传动轴承→头部→颈/合壳/穿线→上电前→26项验收 |
 | **新手测量指南（2026-10-15）** | [MEASURE-GUIDE.md](MEASURE-GUIDE.md) —— 卡尺教学+15张图文测量卡+记录表，交新手执行到货测量；图文PDF在outputs |
 | 盘文件（每盘一个 3MF＋俯视预览） | [plates/](plates/)（[排布记录](plates/plates.json)，256 起点排布，未切片） |
-| **可打印盘（2026-10-15 晚最新）** | [plates-merged/](plates-merged/) —— 有效8盘：SAFE / THINP25 / G3p / G1 / G2NIGHT(P01+P11重打) / BNIGHT2(黑7件质量档) / COUPON(样片) / B1p-v2(已打,P24/P27成功)；含 v6r2/v6r3 STL（P23/P24/P25/P01）；作废盘归档于 `_superseded/` |
+| **可打印盘（2026-10-16 最新）** | [plates-merged/](plates-merged/) —— 已打：SAFE/THINP25/G1/G2NIGHT/B1p-v2/NIGHT/BNIGHT2(停,湿黑料)/COUPON；待打：**G3p-DEC**(P02减面)/INTERN2-DEC(P04减面+P20/P18T/P32×2)/BVIS或BVIS-TILT(黑P14+P28,烘料后)/NECK-PETG-A1(PETG替身颈+滑片)/S1PETG-A1(可选备份)；减面STL在 `decimated/`；作废盘归档 `_superseded/` |
 | 渲染 | [00 v5/v6 对比](renders/00_compare_v5_v6.png)、[01 主视](renders/01_hero.png)、[02 正视](renders/02_front.png)、[03 侧视](renders/03_side.png)、[05 内部](renders/05_internal.png) |
 
 ## 尺寸（mm，名义）

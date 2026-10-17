@@ -32,4 +32,6 @@
 
 已验证真实网络 + 合成服务闭环，以及 Windows TTS 格式。真实 ASR、千问、音频设备、ESP32、LiveKit、AEC/双讲尚未验收。`--simulate` 是模拟音频汇，不发声。
 
+公网 LiveKit 部署骨架（token 服务/自托管栈/生产鉴权缝，NOT-VERIFIED）见 [deploy/livekit/](../../deploy/livekit/README.md)；它复用本目录的 `livekit_token.issue_token` 与 `livekit_bridge`，不重复 JWT 逻辑。
+
 完整命令、配置、接口表和复现方法见 [10 月 5 日交接记录](../../docs/handoff/2026-10-05.md)。

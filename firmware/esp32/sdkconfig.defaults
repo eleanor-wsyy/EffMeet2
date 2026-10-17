@@ -1,0 +1,28 @@
+# Baseline build for the EffMeet2 robot scaffold. Board is NOT finalized
+# (README: "ESP32-S3, specific model TBD"); pin map lives in main/app_config.h.
+# All values here are starting points, NOT hardware-validated.
+
+CONFIG_IDF_TARGET="esp32s3"
+
+# PSRAM: required headroom for ESP-SR AFE (AEC) buffers. Octal PSRAM assumed;
+# change to CONFIG_SPIRAM_MODE_QUAD if the final board uses quad PSRAM.
+CONFIG_SPIRAM=y
+CONFIG_SPIRAM_MODE_OCT=y
+CONFIG_SPIRAM_SPEED_80M=y
+
+# CPU 240 MHz for AFE + codec headroom.
+CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
+
+# Wi-Fi station + WebSocket TLS to the relay/controller.
+CONFIG_ESP_TLS_INSECURE_SKIP_VERIFY=n
+CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
+
+# Partition table with NVS for the pairing media_token (never hardcode secrets).
+CONFIG_PARTITION_TABLE_CUSTOM=y
+CONFIG_PARTITION_TABLE_CUSTOM_FILENAME="partitions.csv"
+
+# FreeRTOS / task watchdog: audio + servo tasks must not trip the WDT.
+CONFIG_ESP_TASK_WDT_TIMEOUT_S=10
+
+# Log level: INFO by default; raise to DEBUG only for bench bring-up.
+CONFIG_LOG_DEFAULT_LEVEL_INFO=y

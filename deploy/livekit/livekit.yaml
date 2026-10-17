@@ -1,0 +1,28 @@
+# livekit-server config template. NOT-VERIFIED — starting point only.
+# Secrets (keys) come from environment / a mounted secrets file, never inline here.
+# Docs: https://docs.livekit.io/home/self-hosting/deployment/
+
+port: 7880
+bind_addresses: [""]
+
+# TCP/UDP for media. Behind a reverse proxy / NAT, set rtc.use_external_ip and
+# configure node_ip or a TURN server (see docker-compose.yml).
+rtc:
+  port_range_start: 50000
+  port_range_end: 50100
+  use_external_ip: true
+
+redis:
+  address: redis:6379
+
+keys:
+  # Populated from LIVEKIT_API_KEY / LIVEKIT_API_SECRET at deploy time.
+  # Do not commit real keys. Example placeholder only:
+  ${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}
+
+logging:
+  level: info
+
+room:
+  auto_create: false
+  empty_timeout: 300

@@ -1,0 +1,37 @@
+# menuconfig entries. Secrets (Wi-Fi passphrase, media_token) are provisioned at
+# runtime into NVS, NOT baked here; these are non-secret defaults only.
+menu "EffMeet2 robot"
+
+    config EFFMEET_DEVICE_ID
+        string "Device id (matches ^[a-z][a-z0-9_]{0,63}$)"
+        default "robot_a"
+
+    config EFFMEET_WIFI_SSID
+        string "Wi-Fi SSID"
+        default ""
+
+    config EFFMEET_WIFI_PASS
+        string "Wi-Fi passphrase (prefer NVS provisioning at runtime)"
+        default ""
+
+    config EFFMEET_CONTROLLER_URL
+        string "Controller/relay base URL (http(s)://host:port)"
+        default "http://127.0.0.1:8768"
+
+    config EFFMEET_WS_SCHEME
+        string "WebSocket scheme for device endpoints (ws/wss)"
+        default "ws"
+
+    config EFFMEET_YAW_MIN_DEG
+        int "Yaw min (deg), reported in DeviceHello.limits"
+        default -45
+
+    config EFFMEET_YAW_MAX_DEG
+        int "Yaw max (deg), reported in DeviceHello.limits"
+        default 45
+
+    config EFFMEET_ENABLE_AFE
+        bool "Enable ESP-SR AFE/AEC front-end (route B; needs PSRAM)"
+        default n
+
+endmenu

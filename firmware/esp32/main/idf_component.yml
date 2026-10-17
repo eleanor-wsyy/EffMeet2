@@ -1,0 +1,13 @@
+## Managed component dependencies (idf_component_manager).
+## Versions are starting points; pin after first successful build (NOT-VERIFIED).
+dependencies:
+  idf: ">=5.1"
+  # WS2812 status LED driver.
+  espressif/led_strip: "^2.5.0"
+  # ESP-SR provides AFE (AEC/NS/VAD) for the route-B "listen while speaking" goal.
+  # Only pulled in when CONFIG_EFFMEET_ENABLE_AFE is set; see aec_afe.c.
+  espressif/esp-sr:
+    version: "^1.4.0"
+    rules:
+      - if: "idf_version >=5.1"
+      - if: "target in [esp32s3]"

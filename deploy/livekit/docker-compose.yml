@@ -1,0 +1,39 @@
+# LiveKit self-hosted stack skeleton. NOT-VERIFIED — never brought up here.
+# Brings up livekit-server + redis + TURN. The EffMeet token service and relay
+# run separately (they need the controller store + ASR); see README.md.
+#
+#   cp gateway.env.example .env   # fill secrets, never commit
+#   docker compose up -d livekit redis turn
+services:
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    command: redis-server --save "" --appendonly no
+
+  livekit:
+    image: livekit/livekit-server:latest
+    restart: unless-stopped
+    depends_on: [redis]
+    environment:
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+    command: --config /etc/livekit.yaml
+    volumes:
+      - ./livekit.yaml:/etc/livekit.yaml:ro
+    ports:
+      - "7880:7880"
+      - "7881:7881"
+      - "7882:7882/udp"
+    # use_external_ip needs the host's public IP reachable; on cloud VMs set
+    # node_ip or rely on the TURN fallback below.
+
+  turn:
+    image: livekit/turn:4
+    restart: unless-stopped
+    environment:
+      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
+      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+    ports:
+      - "3478:3478/udp"
+      - "5349:5349"
+    command: --domain turn.example.com --realm effmeet --tls-port 5349 --udp-port 3478

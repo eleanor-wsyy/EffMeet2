@@ -1,0 +1,46 @@
+{
+ "scope": "planar-dissolve decimation with self-check; NOT a slicer or print result",
+ "thresholds": {
+  "volume_delta_pct_max": 0.3,
+  "bbox_delta_mm_max": 0.0001
+ },
+ "dry_run": false,
+ "jobs": [
+  {
+   "id": "P04",
+   "stl": "P04_DRIVER_32T_UNVERIFIED.stl",
+   "angle_deg": 5.0,
+   "why": "实测 5.0°→1266 面、dVol 0.0002%、dBbox 0；5.7° 起外形被削 0.082mm 超差",
+   "faces_before": 4896,
+   "faces_after": 1266,
+   "faces_removed": 3630,
+   "reduction_pct": 74.14,
+   "volume_before": 4652.4893,
+   "volume_after": 4652.4996,
+   "volume_delta_pct": 0.0002,
+   "bbox_before": [
+    0.0,
+    0.0,
+    0.0,
+    34.0,
+    34.0,
+    12.5
+   ],
+   "bbox_after": [
+    0.0,
+    0.0,
+    0.0,
+    34.0,
+    34.0,
+    12.5
+   ],
+   "bbox_max_delta_mm": 0.0,
+   "status": "EXPORT_MISMATCH",
+   "detail": "导出面数 4896（写入 4896）≠ 减面后 1266；产物不可信，请检查导出路径",
+   "exported": "plates-merged\\decimated\\P04_decimated.stl",
+   "existing_faces": 4896,
+   "exported_bytes": 244884,
+   "exported_faces": 4896
+  }
+ ]
+}

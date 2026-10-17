@@ -1,9 +1,58 @@
+# 2026-10-17 · 读到实存预设：P20 病因定位收口（教训31 变铁证 / 墙层数彻底排除）
+
+**执行入口：[SLICE-CARD.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/SLICE-CARD.md)（已按本轮证据重写）＋ [PRINT-LESSONS 教训34–36](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。**
+
+- **发现本机装有 Bambu Studio 02.06.00.51**（`D:\Program Files\Bambu Studio`），此前"本机无 Bambu、无法切片"的边界**部分作废**：
+  - `--info` 可用，**独立印证 P20 几何无罪**：`manifold=yes`、`number_of_facets=1236`、`36.000×14.000×8.600002`、`volume=1752.106689`（与 manifold3d 的 1752.108 一致）。
+  - `--slice` **仍不可用**：H2S 与 A1 两种机型预设下均段错误 `0xC0000005`，崩在 `update_values_to_printer_extruders_for_multiple_filaments`（预切片之后、导出之前）→ **拿不到 G-code**。故"支撑是否真长进 P20 的孔"**仍无法离线证实**，只能靠 GUI 预览。
+- **读到用户实存预设（决定性证据）**：`%APPDATA%\BambuStudio\user\959069435\process\EffMeet2-v6 *.json`，沿 `inherits` 解析生效值：
+
+  | 预设 | 保存时间 | `wall_loops` | `enable_support` | `support_on_build_plate_only` |
+  |---|---|---|---|---|
+  | `EffMeet2-v6 0.20 H2S`（**INTERN2-DEC 用**） | **2026-10-15 16:06:23** | **6** | 1 | **0（未自设，继承默认）** |
+  | `EffMeet2-v6 0.12 H2S`（BNIGHT2 用） | **2026-10-16 09:13:26** | **4** | 1 | **1（已自设）** |
+
+  → **10-16 的对症修复只存进了 0.12 预设；0.20 H2S 预设此后从未重存**，至今 `wall_loops=6`+`sbpo=0`。P20 从黑盘(0.12)挪到灰盘(0.20)用的正是没被修过的那个。**教训31 由推断升级为文件级事实。**
+  其余生效值：`wall_generator=classic`（非 Arachne）、`detect_thin_wall=1`、`outer_wall_line_width=0.42`、**`inner_wall_line_width=0.45`**、`line_width=0.42`、`sparse_infill=gyroid 15%`、`support_top_z_distance=0.25`、`support_threshold_angle=35`。
+  **键名坑**：是 `enable_support` 而非 `support_enable`；写错会解析成 `None` 而误判"支撑没开"。
+- **墙层数彻底排除（我自己的工具也算错过一次）**：`thinwall_audit.py` 早先用**单一 E=0.42** 套 `(2k-1)E`，把 P20 的 2.20mm 环壁算成 `k_max=3`/残隙 0.0979mm/"4.3× 过挤"。但 Bambu classic 生成器**第1圈用外墙宽、第2圈起用内墙宽**：`d₁=0.5×外`、`d_k=外+(k-1.5)×内`。用真实双宽（0.42/0.45）重算 → **k_max=2、残隙 0.91mm（gap fill 接管）、CLEAN/OK**；第3圈 `d₃=1.095` > 半厚 1.10，只剩 0.005mm 退化脊线会被丢弃。
+  **故 wall_loops 设 6/4/2 对 P20 结果相同**（都只生成 2 圈）——这解释了用户"改成 4 也没用"：**不是预设没重存的问题，是墙层数根本不是病因**。工具已改 `--eouter/--einner` 双参数 + 退化脊线过滤，全 31 件重跑：**空层 0、FAIL_THIN 0**（P20=OK、P04=OK、P21/P22/P24=OK）。
+- **嫌疑重排**：①**挤出/耗材（首要）**——照片是"3 件停在互不相同高度＋断口粗糙"，任何切片设置都造不出这种形貌；灰卷含水**从未实测**，教训25 只证明了黑卷受潮。②**支撑范围 sbpo=0（确凿预设偏差，该修，但未必是缺孔主因）**——按几何 P20 的 6.4×6.4 口袋朝上开口、Ø2.6 是竖直通孔，**两者都不构成悬垂**，理论上不需要支撑。③墙层数/薄壁/建模：**已排除**。
+- **本轮未改任何几何**：`git status` 实测改动的 `.stl`/`.3mf`/`.blend` = **0 个**。Ø7→Ø6.8 的建模提议已撤回（无依据）。**要重打的就是原 `candidate-stl/P20_TACTILE_HOLDER_UNVERIFIED.stl`**（1236 面、36×14×8.6、已归零、朝向正确、@0.20 = 43 层）。
+- **状态纪律不变**：stage=reversible_blockout；三放行布尔 false；26 项 NOT_RUN；`slicer_status` 仍 **NOT_RUN**（CLI 切不出，未产生任何切片证据）。
+
+---
+
+# 2026-10-16 晚 · P20「圆孔打不出来」排查（结论：几何无罪，两次误判已更正）
+
+**执行入口：[SLICE-CARD.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/SLICE-CARD.md)（照着点的一页）＋ [PLATE-RUNBOOK §6 盘登记总表](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [PRINT-LESSONS 教训30–33](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。**
+
+- **症状**：INTERN2-DEC 盘（H2S-07，App 报 128/128 层「成功」）实物 5 件里 3 件只有下半截、断口粗糙、停在互不相同高度；P20 轻触托座两个 Ø7 柱的 Ø2.6 孔「永远打不出来」，已失败无数次。用户实证：**墙层数从 6 改成 4 后照样失败**。
+- **结论：模型/盘/朝向/壁厚全部无罪，不要改建模。** 实测（新工具 `tools/thinwall_audit.py`，manifold3d 逐层偏移腐蚀＋形态学开运算，E=0.42/lh=0.2）：
+  - P20：`genus=2`（两孔全程贯通）、**空层 0**、`k_max=3`、墙心残隙 **0.0979mm**、thin_frac **0.00%**、1236 三角面（盘内与 `candidate-stl/` 逐面一致）、朝向 36×14 面朝下柱朝上（正确）。3 圈墙＋0.098mm 残隙**接近理想**（两对面墙珠子搭接即填满，band<E 不产生空洞），**不足以让 Ø2.6 孔消失**。
+  - 全 31 件：空层 **0**、`k_max≤1` 的层 **0**、thin_frac 最大 **1.53%**（P28）、FAIL_THIN **0** 件 → 整套 v6 几何没有任何薄于一道挤出的特征。
+- **两次误判已更正（原文均保留＋更正并列）**：
+  1. **教训22/30 的「墙层数过多→整层丢弃」机制不成立**：墙层数设得比几何能容纳的圈数大，生成器只是**不生成多余圈**，不会丢层；且 `6×0.42=2.52` 只算单侧墙，环壁是内外两侧同时生成，k_max 由 `W=(2k-1)E` 决定（2.20→k=3）。**这就是「改 4 没用」的真正原因——墙层数从来不是病因。** 墙层数 4 保留（够用无害），但别再当病因调。
+  2. **教训26/HANDOFF 的「P04 4896→1266」量纲错误**：见下节更正。
+- **最强嫌疑（未证实，须现场预览确认）＝支撑长进孔/口袋**：RUNBOOK:85 早已诊断过同一个件——「NIGHT 四废（P04/**P20**/P21/P22）病根＝**支撑长进口袋/孔洞**＋压圈立打」，对症设置是「**支撑生成位置＝仅在打印板生成**」。但那条**只写在 BNIGHT2 一行**，§2 全局表与 §5 参数段都没有，而 **INTERN2-DEC 在 RUNBOOK 里根本没有条目** → P20 从黑盘挪到灰盘后修复就丢了，每次换盘都从零猜设置。**已修**：该设置上升到 §2 全局表，并补 §6 盘登记总表（17 盘全覆盖，「无条目不许上机」）。
+- **次强嫌疑＝挤出/耗材**：照片形貌是「断口粗糙＋多件停在不同高度」，属**挤出中断**（堵头/料尽/湿料气泡）而非切片缺层（后者断口平整、顶面规则层纹）。叠加教训25（黑卷受潮已确认）→ **灰卷也应复测含水**，别因「灰卷之前没犯」就排除。
+- **硬线索：实际工程 ≠ 仓库盘。** App 报 **128 层**，但 INTERN2-DEC 最高件 14.4mm／0.20 层高只有 **72 层**；`plate_registry.py --match 128` 反查**无任何盘×常用层高＝128**。**排查前必须先把 Bambu 里那个工程另存 3MF 入仓**，否则所有分析都对不上实物。
+- **新增可复现工具（本机离线核对，非切片器）**：`tools/thinwall_audit.py`（薄壁/空层，补既有三关盲区：delivery-validation 只查 closed+正体积、export-byte-audit 只查 watertight+零面积面、教训22 截面审计只查「该层面积是否为 0」，**都量不到「特征做不做得出来」**）；`tools/plate_registry.py`（盘内容＋层数指纹＋无源件检出）；`tools/decimate_planar.py` 重写（三角面自校验）。产物：`production/plate-registry.json`、`production/decimate-audit.json`。
+- **无源件立专账**：`P32_HOLDER_L/R`（麦胶座）与 `P18T_CRADLE`（USB-C 容差托架）**不在** build_v6.py／v6 blend（374 对象无匹配）／candidate-stl／PARTS.csv，只活在 3MF 内部 → 不可参数化重出、无法追溯。见 [UNREGISTERED-PARTS.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/UNREGISTERED-PARTS.md)（**不进 PARTS.csv**，因 finalize_exports.py 会重写它）。附带查出命名漂移：同一 224 面托架在三盘里叫三个名（`P18_TOLERANT_CRADLE`/`P18T_TOLERANT_CRADLE`/`P18T_CRADLE`）。
+- **未做（有意）**：①**不改 P20 建模**——曾提议柱 Ø7→Ø6.8 凑 2.10mm 阶梯，实测证明无依据，撤回；②**不擅自覆盖** `decimated/P02_decimated.stl`（13614 面，已用于打 G3p-DEC 盘，脚本默认拒绝覆盖，需 `--force`）；③**P04 真减面未做**——DISSOLVE 对其无效，须换能删内部顶点的方式（COLLAPSE/remesh）并重新过教训26 阈值，且 P04 是 GT2 带轮、齿形属功能面，改动需先确认；4896 三角面对 34mm 带轮是否真算「过密」也未验证。
+- **状态纪律不变**：stage=reversible_blockout；三放行布尔 false；26 项 NOT_RUN；本次新增工具与文档**不构成任何打印/制造放行**，`slicer_status` 仍 NOT_RUN（本机无 Bambu Studio，未实际切片）。
+
+---
+
 # 2026-10-16 · 打印收尾+装配启动（湿黑料确认/减面整改/手册v3/学妹交付）
 
 **当前执行入口：[ASSEMBLY.md v3](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)（去抽象+测试用具+图鉴）＋ [PLATE-RUNBOOK §5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md) ＋ [MEASURE-TODO v3](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。**
 
 - **湿黑料确认**：BNIGHT2 再炒面+满床拉丝，灰卷不犯 → 黑卷受潮。处置：黑卷烘干45–60℃4–6h+拉丝测试；内部件全改灰（INTERN2）；黑只留外露 P14/P28（BVIS 直打版 + BVIS-TILT 斜打实验版，老师建议斜打试运气，需筏层+树支撑）。
 - **机房老师整改**：过密网格致切片周长路径过密/内部碎填充 → P02 平面融解 18134→13614 面（1.5°，vol d0.077%）、P04 4896→1266（5°，vol 0.000%）；新盘 G3p-DEC / INTERN2-DEC；已打 P01/P23（4.1万/6.0万面）返工时用减面版。澄清：截面≤2.5mm 的全墙件打实心是设计正确（P28/P27/P25/P13/P32壁/P14管壁/P20柱环）。
+  > **⚠️ 2026-10-16 晚更正（原文保留）：P04 那条不成立。** 「4896→1266」是**拿 STL 三角面数比 Blender 多边形数**——DISSOLVE 只把共面三角形并成 n-gon（4896 三角面→1266 个多边形），而 **STL 只存三角形**，导出重新三角化后**仍是 4896**。实测（`tools/decimate_planar.py --dry-run`，Blender 4.5.3）：P04 @5.0° **三角面 4896→4896（0%）**、dVol 0.0002%、dBbox 0 → 判 `NO_TRI_REDUCTION`，**减面是彻底 no-op**；`decimated/P04_decimated.stl` 与 `candidate-stl/P04_DRIVER_32T_UNVERIFIED.stl` 逐面相同，INTERN2-DEC 盘内 `P04_DRIVER32T_dec` 也是 4896 面。**机房老师反映的「网格过密」对 P04 从未解决**（vol 0.000% 那半句是对的）。
+  > **P02 那条成立**：@1.5° 三角面 **18134→13614（−24.93%）**、dVol 0.0775%、dBbox 0，入仓产物可复现、正确。
+  > 另：旧 `decimate_planar.py` 的 OUT 指向已失效的会话临时目录，产物从未真正入仓；已改为 `plates-merged/decimated/` 并加三道自校验闸（三角面无下降／超阈／落盘面数不符 → 均不产出可信产物）。详见 [PRINT-LESSONS 教训26 更正](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。
 - **学妹交付归档**：[review-20261016-measure/](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/review-20261016-measure/)。直尺数字全废（±0.5 判不了公差，她也没填）；照片定性销账 3 项（ZZ盖/TIANKONGRC MG90S/4Ω3W钢印）+ 设计坑 1 个（**INMP441 含焊盘总宽17–18 > 板径14** → P21/P22 作废、P01 壁袋环弃用、新件 P32 胶座腔19）。待补：卡尺10组+补拍8组（★底面拾音孔特写）。
 - **装配启动（周末窗口）**：学校周末关门；宿舍 A1 打 PETG 替身颈/滑片（NECK-PETG-A1 盘）供合婚联调；供电走核心板 Type-C；缺件替代法见 ASSEMBLY §0 表。10-21 初赛前联调窗口=本周末。
 - **状态纪律不变**：stage=reversible_blockout；三放行布尔false；26项NOT_RUN；替身/容差件不构成放行。
@@ -19,8 +68,10 @@
 - **B方案（用户定）**：黑料仅1卷→只有外露件 B1p 用黑；机构/支架件按 RUNBOOK"可灰"改灰，用闲置第2卷灰并行。原 plates/ 的 G1/G2/B1/B2/B3 六盘被 plates-merged 取代（未删，仅取代）。
 - **薄壁发现（重要）**：切片报"空层无法打印"的 **P07–P10 层间支柱、P16 扬声器托架**，经逐Z三角面跨距验证**网格无真空层**；P07–P10 实为环状导出网格隐患，已用**解析干净管**（OD8.2/ID3.4/h11.4，体积497.7与理论吻合）替换；P16 改杯口朝上；THIN 与 P25 合并为 `TMP-THINP25_GREY_016`（小件层时变长反而更稳）。
 - **预设注入不可行**：外部写入 `%APPDATA%/BambuStudio/user/<id>/process/` 的预设 .json/.info 会被 Bambu 启动时删除。复用预设只能 UI「保存为预设」（已存 EffMeet2-v6 0.20 H2S / 0.16 H2D）。切片参数手设，简中标签：**墙层数**(=6)、**稀疏填充图案**(=螺旋体)、**开启支撑**、**顶部Z距离**(=0.25,需开支撑+高级才显示,可跳过)、**检查薄壁**、**床温**(在耗材·纹理PEI行·首层/其它层)。喷嘴须 **0.4**（H2S 默认0.2会隐藏0.4基预设）。
+  > ⚠️ **10-16 更正**：上行「墙层数(=6)」已过期，现行＝**4**；且实测证明墙层数设大**不会丢层**（生成器只是不生成多余圈），它不是缺特征/空层的病因。现行完整口径见 [v6 PLATE-RUNBOOK §2](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)（新增：墙生成器 Arachne、检查薄壁开、**支撑「仅在打印板生成」**）。
 - **待测**：全量见 [MEASURE-TODO.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-TODO.md)。A组（LCD四孔/Type-C/镜头）已测完回填；B/C组等到货。
 - **空层警告真凶更正（重要）**：墙层数6×0.42线宽=2.52mm 塞不进薄特征（2.4壁/2mm柱/1.6唇）→切片整层丢弃→上半悬空炒面。**全局墙层数改4**（或墙生成器Arachne+检查薄壁）。已存预设（0.20H2S/0.16H2D）内含6，改4后须UI重存覆盖。manifold3d 逐层截面审计全件 clean，历次警告均非网格病。
+  > ⚠️ **10-16 二次更正：本条的机制解释不成立**（原文保留）。用 `tools/thinwall_audit.py` 对全 31 件逐层实测：空层 **0**、`k_max≤1` 的层 **0**、thin_frac 最大仅 1.53%。①墙层数设得比几何容纳圈数大**不会丢层**；②`6×0.42` 只算单侧墙，环形壁由内外两侧同时生成，k_max 由 `W=(2k-1)E` 决定（2.20→3、2.40→3）。**仍成立的是**「空层警告≠网格坏」这个方向；真机制是**薄于一道挤出的薄鳍在「检查薄壁」关闭时被整片丢弃**（且 P07–P10/P16 已因 10-15 的修复而测不出薄特征）。详见 [PRINT-LESSONS 教训22 更正/教训30](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。
 - **今晚最终队列**：H2S-A=G2NIGHT(P01杯体v6r3+P11重打)→G3p；H2D=G1头壳→COUPON样片；H2S-B=NIGHT→**BNIGHT2（7件黑0.12质量档：P14翻面/P04/P20/P28/P21P22平躺/P18T容差托架）**。交接时 BNIGHT2 尚未开打。
 - **新手测量指南**：[MEASURE-GUIDE.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/MEASURE-GUIDE.md)（图文PDF在outputs）交大一学妹执行到货测量 B1–B7/C1–C7；回表后回填 MEASUREMENTS.csv 并触发对应件重建/试配判定。
 - **清理与可复现**：plates-merged 9 个作废盘移入 `_superseded/`（git 历史可溯，未硬删）；`build_v6.py` 参数同步 v6r3（lcd_boss_rect=77×45、后USB-C容差窗13.5×9.5），仓库源现可复现 v6r2/v6r3 全部 STL。

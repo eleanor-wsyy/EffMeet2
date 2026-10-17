@@ -1,0 +1,1049 @@
+{
+ "scope": "plate content + implied layer count from 3MF geometry; NOT a slicer result",
+ "note": "layers_at_named_lh 用文件名里的层高标记推算；Bambu 实际层数还受首层厚/支撑影响，仅用于与 App 显示层数做指纹比对",
+ "plates": [
+  {
+   "file": "TMP-B1p-v2_BLACK_016.3mf",
+   "bytes": 92159,
+   "layer_height": 0.16,
+   "objects": 4,
+   "max_height_mm": 23.1,
+   "layers_at_named_lh": 145,
+   "parts": [
+    {
+     "name": "P14_reuse",
+     "tris": 2036,
+     "size_mm": [
+      58.0,
+      58.0,
+      23.1
+     ],
+     "z_min": 0.0,
+     "z_max": 23.1,
+     "pid": "P14",
+     "has_stl_source": true
+    },
+    {
+     "name": "P27_reuse",
+     "tris": 744,
+     "size_mm": [
+      42.0,
+      12.0,
+      1.6
+     ],
+     "z_min": 0.0,
+     "z_max": 1.6,
+     "pid": "P27",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_reuse",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    },
+    {
+     "name": "P24_N6_FACE_PANEL_v6r2",
+     "tris": 4050,
+     "size_mm": [
+      106.0,
+      106.0,
+      5.3
+     ],
+     "z_min": 0.0,
+     "z_max": 5.3,
+     "pid": "P24",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-B23p-SAFE_GREY_020.3mf",
+   "bytes": 208992,
+   "layer_height": 0.2,
+   "objects": 11,
+   "max_height_mm": 60.0,
+   "layers_at_named_lh": 300,
+   "parts": [
+    {
+     "name": "P05_N6_BEARING_TOWER_LOWER_SEAT",
+     "tris": 3124,
+     "size_mm": [
+      64.0,
+      70.0,
+      36.2
+     ],
+     "z_min": 0.0,
+     "z_max": 36.2,
+     "pid": "P05",
+     "has_stl_source": true
+    },
+    {
+     "name": "P06_N6_UPPER_BEARING_SEAT",
+     "tris": 2464,
+     "size_mm": [
+      58.0,
+      64.0,
+      8.6
+     ],
+     "z_min": 0.0,
+     "z_max": 8.6,
+     "pid": "P06",
+     "has_stl_source": true
+    },
+    {
+     "name": "P11_N6_HOLLOW_LOAD_SHAFT",
+     "tris": 1068,
+     "size_mm": [
+      34.5,
+      34.5,
+      60.0
+     ],
+     "z_min": 0.0,
+     "z_max": 60.0,
+     "pid": "P11",
+     "has_stl_source": true
+    },
+    {
+     "name": "P12_N6_SHAFT_LOWER_LOCK_COLLAR",
+     "tris": 1084,
+     "size_mm": [
+      36.0,
+      42.5,
+      7.8
+     ],
+     "z_min": 0.0,
+     "z_max": 7.8,
+     "pid": "P12",
+     "has_stl_source": true
+    },
+    {
+     "name": "P13_N6_YAW_STOP_ARM",
+     "tris": 608,
+     "size_mm": [
+      51.0,
+      36.0,
+      1.8
+     ],
+     "z_min": 0.0,
+     "z_max": 1.8,
+     "pid": "P13",
+     "has_stl_source": true
+    },
+    {
+     "name": "P15_N6_SERVO_ADJUSTABLE_CRADLE",
+     "tris": 1088,
+     "size_mm": [
+      36.0,
+      24.0,
+      23.7
+     ],
+     "z_min": 0.0,
+     "z_max": 23.7,
+     "pid": "P15",
+     "has_stl_source": true
+    },
+    {
+     "name": "P17_N6_AMP_LOW_TRAY",
+     "tris": 472,
+     "size_mm": [
+      22.7,
+      24.1,
+      11.6
+     ],
+     "z_min": 0.0,
+     "z_max": 11.6,
+     "pid": "P17",
+     "has_stl_source": true
+    },
+    {
+     "name": "P26_N6_CAMERA_CRADLE",
+     "tris": 500,
+     "size_mm": [
+      13.0,
+      13.0,
+      10.1
+     ],
+     "z_min": 0.0,
+     "z_max": 10.1,
+     "pid": "P26",
+     "has_stl_source": true
+    },
+    {
+     "name": "P29_N6_CORE_BOARD_CRADLE",
+     "tris": 764,
+     "size_mm": [
+      36.3,
+      8.0,
+      46.1
+     ],
+     "z_min": 0.0,
+     "z_max": 46.1,
+     "pid": "P29",
+     "has_stl_source": true
+    },
+    {
+     "name": "P30_N6_CABLE_SADDLE_BASE",
+     "tris": 448,
+     "size_mm": [
+      14.0,
+      10.0,
+      5.0
+     ],
+     "z_min": 0.0,
+     "z_max": 5.0,
+     "pid": "P30",
+     "has_stl_source": true
+    },
+    {
+     "name": "P31_N6_CABLE_SADDLE_HEAD",
+     "tris": 492,
+     "size_mm": [
+      14.0,
+      10.0,
+      5.0
+     ],
+     "z_min": 0.0,
+     "z_max": 5.0,
+     "pid": "P31",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-BLACK-NIGHT_020.3mf",
+   "bytes": 271487,
+   "layer_height": 0.2,
+   "objects": 6,
+   "max_height_mm": 12.5,
+   "layers_at_named_lh": 63,
+   "parts": [
+    {
+     "name": "P03_v6",
+     "tris": 8354,
+     "size_mm": [
+      43.236,
+      43.236,
+      10.6
+     ],
+     "z_min": 0.0,
+     "z_max": 10.6,
+     "pid": "P03",
+     "has_stl_source": true
+    },
+    {
+     "name": "P04_v6",
+     "tris": 4896,
+     "size_mm": [
+      34.0,
+      34.0,
+      12.5
+     ],
+     "z_min": 0.0,
+     "z_max": 12.5,
+     "pid": "P04",
+     "has_stl_source": true
+    },
+    {
+     "name": "P20_v6",
+     "tris": 1236,
+     "size_mm": [
+      36.0,
+      14.0,
+      8.6
+     ],
+     "z_min": 0.0,
+     "z_max": 8.6,
+     "pid": "P20",
+     "has_stl_source": true
+    },
+    {
+     "name": "P19_v6",
+     "tris": 204,
+     "size_mm": [
+      15.0,
+      10.4,
+      6.3
+     ],
+     "z_min": 0.0,
+     "z_max": 6.3,
+     "pid": "P19",
+     "has_stl_source": true
+    },
+    {
+     "name": "P21_v6",
+     "tris": 512,
+     "size_mm": [
+      14.4,
+      14.4,
+      1.0
+     ],
+     "z_min": 0.0,
+     "z_max": 1.0,
+     "pid": "P21",
+     "has_stl_source": true
+    },
+    {
+     "name": "P22_v6",
+     "tris": 512,
+     "size_mm": [
+      14.4,
+      14.4,
+      1.0
+     ],
+     "z_min": 0.0,
+     "z_max": 1.0,
+     "pid": "P22",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-BNIGHT2-BLACK_012.3mf",
+   "bytes": 165755,
+   "layer_height": 0.12,
+   "objects": 7,
+   "max_height_mm": 23.1,
+   "layers_at_named_lh": 193,
+   "parts": [
+    {
+     "name": "P14_FLANGEDOWN_BAKED",
+     "tris": 2036,
+     "size_mm": [
+      58.0,
+      58.0,
+      23.1
+     ],
+     "z_min": 0.0,
+     "z_max": 23.1,
+     "pid": "P14",
+     "has_stl_source": true
+    },
+    {
+     "name": "P04_DRIVER32T_FLAT",
+     "tris": 4896,
+     "size_mm": [
+      34.0,
+      34.0,
+      12.5
+     ],
+     "z_min": 0.0,
+     "z_max": 12.5,
+     "pid": "P04",
+     "has_stl_source": true
+    },
+    {
+     "name": "P20_TACT_HOLDER_FLAT",
+     "tris": 1236,
+     "size_mm": [
+      36.0,
+      14.0,
+      8.6
+     ],
+     "z_min": 0.0,
+     "z_max": 8.6,
+     "pid": "P20",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_FLAT_BAKED",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    },
+    {
+     "name": "P21_FLAT_BAKED",
+     "tris": 512,
+     "size_mm": [
+      14.4,
+      14.4,
+      1.0
+     ],
+     "z_min": 0.0,
+     "z_max": 1.0,
+     "pid": "P21",
+     "has_stl_source": true
+    },
+    {
+     "name": "P22_FLAT_BAKED",
+     "tris": 512,
+     "size_mm": [
+      14.4,
+      14.4,
+      1.0
+     ],
+     "z_min": 0.0,
+     "z_max": 1.0,
+     "pid": "P22",
+     "has_stl_source": true
+    },
+    {
+     "name": "P18T_TOLERANT_CRADLE",
+     "tris": 224,
+     "size_mm": [
+      32.0,
+      24.0,
+      14.4
+     ],
+     "z_min": 0.0,
+     "z_max": 14.4,
+     "pid": "P18T",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "P18T"
+   ]
+  },
+  {
+   "file": "TMP-BVIS-BLACK_012.3mf",
+   "bytes": 40253,
+   "layer_height": 0.12,
+   "objects": 2,
+   "max_height_mm": 23.1,
+   "layers_at_named_lh": 193,
+   "parts": [
+    {
+     "name": "P14_FLANGEDOWN_BAKED",
+     "tris": 2036,
+     "size_mm": [
+      58.0,
+      58.0,
+      23.1
+     ],
+     "z_min": 0.0,
+     "z_max": 23.1,
+     "pid": "P14",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_FLAT_BAKED",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-BVIS-TILT-BLACK_012.3mf",
+   "bytes": 46057,
+   "layer_height": 0.12,
+   "objects": 2,
+   "max_height_mm": 50.982,
+   "layers_at_named_lh": 425,
+   "parts": [
+    {
+     "name": "P14_TILT45_BAKED",
+     "tris": 2036,
+     "size_mm": [
+      58.0,
+      50.982,
+      50.982
+     ],
+     "z_min": 0.0,
+     "z_max": 50.982,
+     "pid": "P14",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_FLAT_BAKED",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-COUPON_GREY_020.3mf",
+   "bytes": 58791,
+   "layer_height": 0.2,
+   "objects": 4,
+   "max_height_mm": 14.0,
+   "layers_at_named_lh": 70,
+   "parts": [
+    {
+     "name": "01_bearing_OD_ladder",
+     "tris": 1064,
+     "size_mm": [
+      188.0,
+      52.0,
+      7.0
+     ],
+     "z_min": 0.0,
+     "z_max": 7.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "02_bearing_ID_and_shaft_ladder",
+     "tris": 812,
+     "size_mm": [
+      208.0,
+      52.0,
+      7.0
+     ],
+     "z_min": 0.0,
+     "z_max": 7.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "03_servo_pocket_and_wall",
+     "tris": 898,
+     "size_mm": [
+      90.0,
+      70.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "04_shortneck_clearance",
+     "tris": 512,
+     "size_mm": [
+      58.0,
+      58.0,
+      14.0
+     ],
+     "z_min": 0.0,
+     "z_max": 14.0,
+     "pid": "?",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "?"
+   ]
+  },
+  {
+   "file": "TMP-G1p_GREY_016.3mf",
+   "bytes": 825602,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 110.042,
+   "layers_at_named_lh": 688,
+   "parts": [
+    {
+     "name": "P23_N6_HEAD_SHELL_v6r2",
+     "tris": 60328,
+     "size_mm": [
+      131.998,
+      120.472,
+      110.042
+     ],
+     "z_min": 0.0,
+     "z_max": 110.042,
+     "pid": "P23",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-G2NIGHT_GREY_020.3mf",
+   "bytes": 540942,
+   "layer_height": 0.2,
+   "objects": 2,
+   "max_height_mm": 60.0,
+   "layers_at_named_lh": 300,
+   "parts": [
+    {
+     "name": "P01_N6_BASE_CUP_v6r3",
+     "tris": 41528,
+     "size_mm": [
+      153.0,
+      139.4,
+      54.1
+     ],
+     "z_min": 0.0,
+     "z_max": 54.1,
+     "pid": "P01",
+     "has_stl_source": true
+    },
+    {
+     "name": "P11_N6_HOLLOW_SHAFT_reprint",
+     "tris": 1104,
+     "size_mm": [
+      34.5,
+      34.5,
+      60.0
+     ],
+     "z_min": 0.0,
+     "z_max": 60.0,
+     "pid": "P11",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-G3p-DEC_GREY_016.3mf",
+   "bytes": 372611,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 9.9,
+   "layers_at_named_lh": 62,
+   "parts": [
+    {
+     "name": "P02_BASE_LID_decimated",
+     "tris": 13614,
+     "size_mm": [
+      145.655,
+      132.708,
+      9.9
+     ],
+     "z_min": 0.0,
+     "z_max": 9.9,
+     "pid": "P02",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-INTERN2-DEC_GREY_020.3mf",
+   "bytes": 119585,
+   "layer_height": 0.2,
+   "objects": 5,
+   "max_height_mm": 14.4,
+   "layers_at_named_lh": 72,
+   "parts": [
+    {
+     "name": "P04_DRIVER32T_dec",
+     "tris": 4896,
+     "size_mm": [
+      34.0,
+      34.0,
+      12.5
+     ],
+     "z_min": 0.0,
+     "z_max": 12.5,
+     "pid": "P04",
+     "has_stl_source": true
+    },
+    {
+     "name": "P20_TACT_HOLDER",
+     "tris": 1236,
+     "size_mm": [
+      36.0,
+      14.0,
+      8.6
+     ],
+     "z_min": 0.0,
+     "z_max": 8.6,
+     "pid": "P20",
+     "has_stl_source": true
+    },
+    {
+     "name": "P18T_CRADLE",
+     "tris": 224,
+     "size_mm": [
+      32.0,
+      24.0,
+      14.4
+     ],
+     "z_min": 0.0,
+     "z_max": 14.4,
+     "pid": "P18T",
+     "has_stl_source": false
+    },
+    {
+     "name": "P32_HOLDER_L",
+     "tris": 168,
+     "size_mm": [
+      24.0,
+      24.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "P32",
+     "has_stl_source": false
+    },
+    {
+     "name": "P32_HOLDER_R",
+     "tris": 168,
+     "size_mm": [
+      24.0,
+      24.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "P32",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "P18T",
+    "P32"
+   ]
+  },
+  {
+   "file": "TMP-MICHOLDER-GREY_020.3mf",
+   "bytes": 2664,
+   "layer_height": 0.2,
+   "objects": 2,
+   "max_height_mm": 6.0,
+   "layers_at_named_lh": 30,
+   "parts": [
+    {
+     "name": "P32_MIC_HOLDER_GLUE_L",
+     "tris": 168,
+     "size_mm": [
+      24.0,
+      24.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "P32",
+     "has_stl_source": false
+    },
+    {
+     "name": "P32_MIC_HOLDER_GLUE_R",
+     "tris": 168,
+     "size_mm": [
+      24.0,
+      24.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "P32",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "P32"
+   ]
+  },
+  {
+   "file": "TMP-NECK-PETG-A1_020.3mf",
+   "bytes": 40333,
+   "layer_height": 0.2,
+   "objects": 2,
+   "max_height_mm": 23.1,
+   "layers_at_named_lh": 116,
+   "parts": [
+    {
+     "name": "P14_NECK_PETG_STANDIN",
+     "tris": 2036,
+     "size_mm": [
+      58.0,
+      58.0,
+      23.1
+     ],
+     "z_min": 0.0,
+     "z_max": 23.1,
+     "pid": "P14",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_BLADE_PETG_STANDIN",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-P18T_BLACK_020.3mf",
+   "bytes": 2871,
+   "layer_height": 0.2,
+   "objects": 1,
+   "max_height_mm": 14.4,
+   "layers_at_named_lh": 72,
+   "parts": [
+    {
+     "name": "P18_TOLERANT_CRADLE",
+     "tris": 224,
+     "size_mm": [
+      32.0,
+      24.0,
+      14.4
+     ],
+     "z_min": 0.0,
+     "z_max": 14.4,
+     "pid": "P18",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-S1PETG-A1_020.3mf",
+   "bytes": 58825,
+   "layer_height": 0.2,
+   "objects": 4,
+   "max_height_mm": 14.0,
+   "layers_at_named_lh": 70,
+   "parts": [
+    {
+     "name": "01_bearing_OD_ladder",
+     "tris": 1064,
+     "size_mm": [
+      188.0,
+      52.0,
+      7.0
+     ],
+     "z_min": 0.0,
+     "z_max": 7.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "02_bearing_ID_and_shaft_ladder",
+     "tris": 812,
+     "size_mm": [
+      208.0,
+      52.0,
+      7.0
+     ],
+     "z_min": 0.0,
+     "z_max": 7.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "03_servo_pocket_and_wall",
+     "tris": 898,
+     "size_mm": [
+      90.0,
+      70.0,
+      6.0
+     ],
+     "z_min": 0.0,
+     "z_max": 6.0,
+     "pid": "?",
+     "has_stl_source": false
+    },
+    {
+     "name": "04_shortneck_clearance",
+     "tris": 512,
+     "size_mm": [
+      58.0,
+      58.0,
+      14.0
+     ],
+     "z_min": 0.0,
+     "z_max": 14.0,
+     "pid": "?",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "?"
+   ]
+  },
+  {
+   "file": "TMP-SPARE-PETG-A1_020.3mf",
+   "bytes": 44175,
+   "layer_height": 0.2,
+   "objects": 5,
+   "max_height_mm": 12.0,
+   "layers_at_named_lh": 60,
+   "parts": [
+    {
+     "name": "P27_PRIVACY_GUIDE_PETG",
+     "tris": 744,
+     "size_mm": [
+      42.0,
+      1.6,
+      12.0
+     ],
+     "z_min": 0.0,
+     "z_max": 12.0,
+     "pid": "P27",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_PRIVACY_BLADE_PETG",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.2
+     ],
+     "z_min": 0.0,
+     "z_max": 2.2,
+     "pid": "P28",
+     "has_stl_source": true
+    },
+    {
+     "name": "P30_CABLE_SADDLE_BASE_PETG",
+     "tris": 448,
+     "size_mm": [
+      14.0,
+      10.0,
+      5.0
+     ],
+     "z_min": 0.0,
+     "z_max": 5.0,
+     "pid": "P30",
+     "has_stl_source": true
+    },
+    {
+     "name": "P31_CABLE_SADDLE_HEAD_PETG",
+     "tris": 492,
+     "size_mm": [
+      14.0,
+      10.0,
+      5.0
+     ],
+     "z_min": 0.0,
+     "z_max": 5.0,
+     "pid": "P31",
+     "has_stl_source": true
+    },
+    {
+     "name": "P13_YAW_STOP_ARM_PETG",
+     "tris": 608,
+     "size_mm": [
+      51.0,
+      36.0,
+      1.8
+     ],
+     "z_min": 0.0,
+     "z_max": 1.8,
+     "pid": "P13",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-THINP25_GREY_016.3mf",
+   "bytes": 36362,
+   "layer_height": 0.16,
+   "objects": 6,
+   "max_height_mm": 19.2,
+   "layers_at_named_lh": 120,
+   "parts": [
+    {
+     "name": "P16_v6r3",
+     "tris": 1822,
+     "size_mm": [
+      46.0,
+      48.6,
+      19.2
+     ],
+     "z_min": 0.0,
+     "z_max": 19.2,
+     "pid": "P16",
+     "has_stl_source": true
+    },
+    {
+     "name": "P25_v6r3",
+     "tris": 1420,
+     "size_mm": [
+      85.0,
+      53.0,
+      2.0
+     ],
+     "z_min": 0.0,
+     "z_max": 2.0,
+     "pid": "P25",
+     "has_stl_source": true
+    },
+    {
+     "name": "P07_v6r3",
+     "tris": 512,
+     "size_mm": [
+      8.2,
+      8.2,
+      11.4
+     ],
+     "z_min": 0.0,
+     "z_max": 11.4,
+     "pid": "P07",
+     "has_stl_source": true
+    },
+    {
+     "name": "P08_v6r3",
+     "tris": 512,
+     "size_mm": [
+      8.2,
+      8.2,
+      11.4
+     ],
+     "z_min": 0.0,
+     "z_max": 11.4,
+     "pid": "P08",
+     "has_stl_source": true
+    },
+    {
+     "name": "P09_v6r3",
+     "tris": 512,
+     "size_mm": [
+      8.2,
+      8.2,
+      11.4
+     ],
+     "z_min": 0.0,
+     "z_max": 11.4,
+     "pid": "P09",
+     "has_stl_source": true
+    },
+    {
+     "name": "P10_v6r3",
+     "tris": 512,
+     "size_mm": [
+      8.2,
+      8.2,
+      11.4
+     ],
+     "z_min": 0.0,
+     "z_max": 11.4,
+     "pid": "P10",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  }
+ ]
+}

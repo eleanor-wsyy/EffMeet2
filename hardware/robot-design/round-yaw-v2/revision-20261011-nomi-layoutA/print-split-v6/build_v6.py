@@ -16,14 +16,14 @@ PARAMS=dict(
  head_gap_above_lid=14,head_R=66,head_B=64,head_yc=-1,head_front_r=57,head_front_y=-47.0,head_junction_y=-31.0,
  head_trim_below_center=56,head_offset_y=20,head_flatten=.04,head_wall=2.4,head_floor=3.2,
  face_d=106,face_t=2.4,face_y=-46.2,lcd_window=(58.2,43.8),lcd_window_dz=-2,camera_above_window=17,glass_pocket=(71,1.4,51),backstop=(112,102,2),
- lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(77,45)  # 2026-10-15 measured (was 80x45 assumed),
- board=(28.3,1.6,62.6),board_comp=6,board_pins=8,camera_module=(8,4,8),camera_fpc=14,camera_recess=4.5,camera_fpc_max_span=11,usb_access=10,dupont_clear=12,
+ lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(77,45),  # 2026-10-15 measured (was 80x45 assumed)
+ board=(28.3,1.6,62.6),board_comp=6,board_pins=8,camera_module=(8,4,8),camera_fpc=14,camera_recess=4.5,camera_lens_d=6.5,camera_fpc_max_span=11,usb_access=10,dupont_clear=12,
  gt2_pitch=2.0,driver_T=32,driven_T=64,belt_candidates=(158,160,180,188,200),belt_w=6,
  bearing=(30,42,7),bearing_z=(36.5,56.5),lower_seat_z=(32,40.6),upper_seat_z=(52,60.6),pulley_z=46.4,pulley_h=8.4,flange_t=1.2,seat_h=7.6,seat_od=54,seat_bore=42.3,lip_id=38.5,bolt_xy=((26,22),(26,-22),(-22,27),(-22,-27)),
  shaft=(29.8,22),shaft_z=(26,86),shoulder=(34.5,60,61.4),collar=(36,30.15,27,32.8),neck_od=40,neck_spigot=35,neck_bottom=64.4,stop_arm_z=(61.8,63.6),flange_d=58,flange_h=4,neck_screw_x=24,lid_axis_hole=44,
  stop_soft=45,stop_contact=48,
  servo_body=(12.5,22.4,22.7),servo_ear_len=31.8,servo_ear_pitch=27.7,servo_ear_z=(19.8,22.8),servo_h_horn=32.9,servo_horn=(31.2,4.72),servo_shaft_from_end=6.0,servo_tension=2,
- mic_d=14,mic_h=12,mic_pitch=32.6,mic_z=46,mic_x=16.3,amp=(17.7,19.1),amp_xy=(50,0),amp_floor=14,power_z=30,vent_x=30,speaker=(40,17),speaker_z=30,speaker_front_y=-57,servo_base_z=8.3,
+ mic_d=14,mic_h=12,mic_pitch=32.6,mic_z=46,mic_x=16.3,amp=(17.7,19.1),amp_xy=(50,0),amp_floor=14,amp_hole_pitch=12.6,power_z=30,vent_x=30,speaker=(40,17),speaker_z=30,speaker_front_y=-57,servo_base_z=8.3,
  power_board=(20,15,6),key_xy=(0,-44),cable_keepout_d=10,
 )
 P=PARAMS
@@ -239,7 +239,7 @@ print('STAGE shaft neck hc=%.1f'%hc,flush=True)
 sb_=P['servo_body'];sbz=P['servo_base_z'];SCX=SX-(sb_[1]/2-P['servo_shaft_from_end']);P['servo_center_x']=SCX
 ez0=sbz+P['servo_ear_z'][0];ez1=sbz+P['servo_ear_z'][1];tn=P['servo_tension']
 sv=box('SERVO_ADJUSTABLE_CRADLE',(24,24,3),(SCX+5,0,fl+1.5),bevel=.5)
-wy=sb_[0]/2+.3+1.5
+wy=sb_[0]/2+.6+1.5
 for dy in (-1,1):
  unite(sv,box(f'SERVO_WALL_LOW_{dy}',(24,3,ez0-fl),(SCX+5,dy*wy,(ez0+fl)/2)))
  unite(sv,box(f'SERVO_WALL_HIGH_{dy}',(36,3,8),(SCX,dy*wy,ez0-4)))
@@ -247,7 +247,7 @@ for dx in (-1,1):
  rx=SCX+dx*P['servo_ear_pitch']/2
  unite(sv,box(f'SERVO_EAR_PAD_{dx}',(8,2*wy+3,3),(rx,0,ez0-1.5),bevel=.5))
  boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,8),(rx,0,ez0-1.5),bevel=.8))
-boolop(sv,box('SERVO_BODY_POCKET',(sb_[1]+.6,sb_[0]+.6,40),(SCX,0,sbz+20)))
+boolop(sv,box('SERVO_BODY_POCKET',(sb_[1]+1.2,sb_[0]+1.2,40),(SCX,0,sbz+20)))
 for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn)
 part(sv,'MG90S舵机可调耳架（±2张紧槽）')
 # ---------- speaker cradle (front), amp tray, power-input tray, mic pocket retainers ----------
@@ -255,9 +255,13 @@ spd,spl=P['speaker'];spz=P['speaker_z'];spy=P['speaker_front_y']+spl/2
 sp=ring('SPEAKER_CRADLE',46,40.6,spl+1,(0,spy,spz),'Y');unite(sp,ring('SPEAKER_REAR_LIP',45.2,36,1.6,(0,spy+spl/2+1.1-.2,spz),'Y'))
 for x in (-15,15):unite(sp,box(f'SPEAKER_LEG_{x}',(6,8,spz-20-fl+3),(x,spy,(spz-17+fl)/2)));floor_screw_up(sp,x,spy)
 part(sp,'扬声器圆筒托架（≤46宽）')
-ax,ay=P['amp_xy'];aw,ad=P['amp'];af=P['amp_floor']
+ax,ay=P['amp_xy'];aw,ad=P['amp'];af=P['amp_floor'];aph=P['amp_hole_pitch']
 amp_t=box('AMP_LOW_TRAY',(aw+5,ad+5,2),(ax,ay,af-1),bevel=.6);unite(amp_t,box('AMP_TRAY_WALL',(aw+5,ad+5,2.5),(ax,ay,af+.75)));unite(amp_t,box('AMP_PEDESTAL',(12,12,af-2-fl+.4),(ax,ay,(af-2+fl)/2+.2)))
-boolop(amp_t,box('AMP_BOARD_POCKET',(aw+.6,ad+.6,3),(ax,ay,af+1.5)));floor_screw_up(amp_t,ax,ay)
+boolop(amp_t,box('AMP_BOARD_POCKET',(aw+.6,ad+.6,3),(ax,ay,af+1.5)))
+for sx in (-1,1):
+ unite(amp_t,cylinder(f'AMP_POST_{sx}',4.5,2.9,(ax+sx*aph/2,ay,af+1.05)))
+ hole(amp_t,(ax+sx*aph/2,ay,af+1.2),1.7,6)
+floor_screw_up(amp_t,ax,ay)
 part(amp_t,'MAX98357A低托盘')
 pbw,pbd,pbh=PB;pby=wall_y(pbz)-pbd/2-1.5;P['power_board_y']=pby
 pt=pbz-pbh/2;pw=box('POWER_IN_TRAY',(pbw+5,pbd,3),(0,pby,pt-1.5),bevel=.6);unite(pw,box('POWER_PEDESTAL',(12,6,pt-3-fl+.4),(0,pby-5,(pt-3+fl)/2+.2)))
@@ -317,8 +321,8 @@ for x in (-LB[0]/2,LB[0]/2):
 boolop(lcdf,box('LCD_FRAME_HEADER_NOTCH',(8,6,22),(lp_x:=P['lcd_pcb'][0]/2-3,lback+1,wz)))
 part(lcdf,'LCD后压框（周边夹持，孔位UNVERIFIED）',motion=True)
 cm=P['camera_module'];crs=P['camera_recess'];cy=fb+cm[1]/2+.2+crs
-cc=box('CAMERA_CRADLE',(cm[0]+5,cm[1]+1.6+crs,cm[2]+5),(0,fb+(cm[1]+1.6+crs)/2,cz),bevel=.6);boolop(cc,box('CAMERA_POCKET',(cm[0]+.4,cm[1]+1.4,cm[2]+.4),(0,cy-.5,cz)));boolop(cc,box('CAMERA_FPC_EXIT',(6,10,8),(0,cy+3,cz-4)))
-boolop(cc,cylinder('CAM_CRADLE_LENS_TUBE',4.6,2*crs+2,(0,fb,cz),'Y'))
+cc=box('CAMERA_CRADLE',(cm[0]+5,cm[1]+1.6+crs,cm[2]+5),(0,fb+(cm[1]+1.6+crs)/2,cz),bevel=.6);boolop(cc,box('CAMERA_POCKET',(cm[0]+1.2,cm[1]+1.4,cm[2]+1.2),(0,cy-.5,cz)));boolop(cc,box('CAMERA_FPC_EXIT',(6,10,8),(0,cy+3,cz-4)))
+boolop(cc,cylinder('CAM_CRADLE_LENS_TUBE',P['camera_lens_d'],cm[1]+1.6+crs+2,(0,fb+(cm[1]+1.6+crs)/2,cz),'Y'))
 part(cc,'摄像头8×8托架（贴面板背面）',motion=True)
 pv=box('PRIVACY_GUIDE',(42,1.6,12),(8,fy0-ft_/2-.8,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,2,8.4),(8,fy0-ft_/2-.4,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
 for x in (-10,26):hole(pv,(x,fy0,cz),2.4,8,'Y')
@@ -327,9 +331,9 @@ bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-1.0,cz),bevel=.2);unite(bl,box('PR
 part(bl,'隐私滑片（打开位置在x=11+）',motion=True)
 bw,bt,bh=P['board'];pcy=lback+2.5+P['board_comp']+bt/2+.1;P['board_pcb_y']=pcy;btop=cz+3;bz=btop-bh/2;P['board_z']=(btop-bh,btop)
 P['camera_fpc_span_mm']=round(math.hypot((pcy-bt/2)-(cy+cm[1]/2),btop-6-(cz-cm[2]/2)),2);P['camera_fpc_slack_mm']=round(P['camera_fpc']-P['camera_fpc_span_mm'],2);assert P['camera_fpc_span_mm']<=P['camera_fpc_max_span'],P['camera_fpc_span_mm']
-cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.6,bt+.5,10),(0,pcy,cb0+7)))
+cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.6,bt+.2,10),(0,pcy,cb0+7)))
 for x in (-bw/2-2.5,bw/2+2.5):
- unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(3,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(2.2,bt+.5,60),(x-math.copysign(.9,x)*0+(-1 if x>0 else 1)*.5,pcy,hft+38)))
+ unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(3,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(2.2,bt+.2,60),(x-math.copysign(.9,x)*0+(-1 if x>0 else 1)*.5,pcy,hft+38)))
 for x in (-10,10):hole(neck,(x,pcy,cb0),2.4,5);hole(corecr,(x,pcy,cb0+2),3.4,10)
 part(corecr,'核心板竖直边缘托架（固定于头底）',motion=True)
 print('STAGE face/head parts',flush=True)
@@ -350,7 +354,7 @@ sbx=box('SERVO_MG90S',(sb_[1],sb_[0],sb_[2]),(SCX,0,sbz+sb_[2]/2));unite(sbx,box
 proxy(sbx,'MG90S',False,BLUE)
 proxy(cylinder('SPEAKER_40',spd,spl,(0,spy,spz),'Y'),'speaker 40x17',False,BLACK)
 for sx in (-1,1):proxy(cylinder(f'INMP441_{sx}',P['mic_d'],1.6,(sx*mx,mwy-2.8,mz),'Y'),'INMP441 Ø14',False)
-proxy(box('MAX98357A',(aw,ad,1.6),(ax,ay,af+.8+.05)),'amp 17.7x19.1',False)
+proxy(box('MAX98357A',(aw,ad,1.6),(ax,ay,af+2.5+.8+.05)),'amp 17.7x19.1',False)
 proxy(box('USBC_POWER_IN',PB,(0,pby,pbz)),'USB-C 5V input UNVERIFIED',False)
 proxy(box('TACT_SWITCH_6MM',(6,6,4.3),(kx,ky,lit-6.8+2.15)),'tact 6mm',False,BLACK)
 # Belt pitch path (fixed set) as visual proxy
@@ -482,7 +486,7 @@ R['overlap_method']='BVH overlap of evaluated meshes inset 0.05 mm along vertex 
 (PROD/'stage1-checks.json').write_text(json.dumps(R,ensure_ascii=False,indent=1,default=str),encoding='utf8')
 if os.environ.get('EFFMEET_SKIP_RENDER')!='1':
  def render(fn,cam):scene.camera=cams[cam];scene.render.filepath=str(REN/fn);bpy.ops.render.render(write_still=True);print('RENDERED',fn,flush=True)
- render('01_hero.png','HERO');render('02_front.png','FRONT');render('03_side.png','SIDE')
+ render('01_hero.png','HERO');render('02_front.png','FRONT');render('03_side.png','SIDE');render('04_top.png','TOP')
  for o in (cup,lid,head,face):o.hide_render=True
  for o in PROX.objects:o.hide_render=False
  render('05_internal.png','INTERNAL')

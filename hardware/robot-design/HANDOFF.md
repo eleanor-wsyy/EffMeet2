@@ -1,3 +1,12 @@
+# 2026-10-18 · P03/P05/P06/P28 重打成功 + 支撑方向收口
+
+- **实打成功配方**：P03 翻转（顶部减重孔朝下）；P05/P06 **保持原向**；树支撑 5% + 分支 2mm + 顶距 0.2 + 界面 1；P06 底部 38.5 孔加 **Ø34×1.0 支撑阻挡器**；P28 单盘 **10mm brim**、不支撑。文件 [reprint-20261018/](../../reprint-20261018/)，设置卡 [PRINT-CARD-REPRINT.md](../../reprint-20261018/PRINT-CARD-REPRINT.md)。
+- **P26 背后方孔 = `CAMERA_FPC_EXIT`（6×10×8）**，给 14mm 摄像头 FPC 出线；不是缺陷、不重打。镜头孔 Ø4.6 对 P24 的 Ø4.2。
+- **版本**：`candidate-stl/P24/P25` 是旧 **80×45**；补打只认 `plates-merged/P24_v6r2_77x45.stl` / `P25_v6r2_77x45.stl`；P01 只认 `P01_v6r3_tolerant_usbc.stl`。
+- **教训 37–47 已入 [PRINT-LESSONS.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)**：支撑方向、P02 接缝、P20 立柱、P28 brim、配合台账、打印前 60 秒自检。
+
+---
+
 # 2026-10-17 · 读到实存预设：P20 病因定位收口（教训31 变铁证 / 墙层数彻底排除）
 
 **执行入口：[SLICE-CARD.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/SLICE-CARD.md)（已按本轮证据重写）＋ [PRINT-LESSONS 教训34–36](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)。**

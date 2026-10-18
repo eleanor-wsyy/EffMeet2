@@ -15,14 +15,15 @@
 | 检查 | [production/stage1-checks.json](production/stage1-checks.json)、[production/export-byte-audit.json](production/export-byte-audit.json)、[production/decimate-audit.json](production/decimate-audit.json)（减面自校验）、[production/plate-registry.json](production/plate-registry.json)（盘内容+层数指纹） |
 | 实测表 / 打印手册 | [MEASUREMENTS.csv](MEASUREMENTS.csv) / [PLATE-RUNBOOK.md](PLATE-RUNBOOK.md) |
 | **待测清单（2026-10-15）** | [MEASURE-TODO.md](MEASURE-TODO.md) —— 全量缺测数据，A组中午可测（LCD四孔等） |
-| **打印教训集（2026-10-15/17）** | [PRINT-LESSONS.md](PRINT-LESSONS.md) —— 排机/耗材/预设/炒面/样片纪律 36 条。**教训22/26/30 均带实测更正**（墙层数不致丢层、减面须数三角面、P20 几何无罪），**教训34–36 是 10-17 读实存预设后的铁证**（0.20 H2S 预设 wall_loops=6+sbpo=0 从未重存／薄壁须用内外双墙宽／Bambu CLI 能 `--info` 不能 `--slice`）。原文保留+更正并列，勿只读原文 |
+| **打印教训集（2026-10-15/18）** | [PRINT-LESSONS.md](PRINT-LESSONS.md) —— 排机/耗材/预设/炒面/样片纪律 **47 条**。**37–47 是 10-18 实打成功配方**（P03 翻/P05P06 不翻/P06 阻挡器/P26 FPC 孔/P24P25 版本/P02 接缝/P20 立柱/P28 brim/配合台账/60 秒自检）。**教训22/26/30 均带实测更正**（墙层数不致丢层、减面须数三角面、P20 几何无罪），**教训34–36 是 10-17 读实存预设后的铁证**（0.20 H2S 预设 wall_loops=6+sbpo=0 从未重存／薄壁须用内外双墙宽／Bambu CLI 能 `--info` 不能 `--slice`）。原文保留+更正并列，勿只读原文 |
 | **切片设置卡（2026-10-16）** | [SLICE-CARD.md](SLICE-CARD.md) —— 小件缺特征/圆孔打不出来时照着点的一页：第0步工程核对（层数指纹）→支撑范围→检查薄壁→挤出/耗材，含重打前最小验证流程 |
 | **无源件专账（2026-10-16）** | [UNREGISTERED-PARTS.md](UNREGISTERED-PARTS.md) —— P32/P18T 只存在于 3MF 内部、无建模源不可复现；含 P04「假减面」实测证据。**不进 PARTS.csv**（会被 finalize_exports.py 重写冲掉） |
 | **审计工具（2026-10-16）** | [tools/thinwall_audit.py](tools/thinwall_audit.py) 逐层薄壁/空层审计（补既有三关的盲区）；[tools/plate_registry.py](tools/plate_registry.py) 盘内容+层数指纹登记；[tools/decimate_planar.py](tools/decimate_planar.py) 减面（已加三角面自校验，拒绝 no-op 产物） |
-| **安装手册（2026-10-15 预写）** | [ASSEMBLY.md](ASSEMBLY.md) —— 按已打印件的六步安装：底座电子→传动轴承→头部→颈/合壳/穿线→上电前→26项验收 |
+| **安装手册 v4（2026-10-18）** | [ASSEMBLY.md](ASSEMBLY.md) —— **顺序：线 → P02 → P14 → 头 → 最后 P24**；P24 无面板螺钉、P05/P06 一组 4×M3×55–60、P13 在 P03 下方 D 平面、P03/P04 M2 顶丝、P20 有件也要胶；含 §0.6 P02/P20 应急、§7 螺钉表、§8 版本陷阱、§9 时间盒 |
 | **新手测量指南（2026-10-15）** | [MEASURE-GUIDE.md](MEASURE-GUIDE.md) —— 卡尺教学+15张图文测量卡+记录表，交新手执行到货测量；图文PDF在outputs |
 | 盘文件（每盘一个 3MF＋俯视预览） | [plates/](plates/)（[排布记录](plates/plates.json)，256 起点排布，未切片） |
 | **可打印盘（2026-10-16 最新）** | [plates-merged/](plates-merged/) —— 已打：SAFE/THINP25/G1/G2NIGHT/B1p-v2/NIGHT/BNIGHT2(停,湿黑料)/COUPON；待打：**G3p-DEC**(P02减面13614,已验证)/INTERN2-DEC(P04+P20/P18T/P32×2)/BVIS或BVIS-TILT(黑P14+P28,烘料后)/NECK-PETG-A1(PETG替身颈+滑片)/S1PETG-A1(可选备份)；减面STL在 `decimated/`；作废盘归档 `_superseded/`。**每盘的件数/层高/隐含层数/无源件见 [PLATE-RUNBOOK §6 盘登记总表](PLATE-RUNBOOK.md)**（由 `tools/plate_registry.py` 实测生成）。⚠️ INTERN2-DEC 里的 `P04_DRIVER32T_dec` 名带 dec 实为**未减面** 4896 面（见 UNREGISTERED-PARTS.md） |
+| **重打盘（2026-10-18）** | [reprint-20261018/](../../../../../reprint-20261018/) —— **P03 翻转 + P05/P06 原向 + P28 独立盘**；**已实打成功**。设置卡 [PRINT-CARD-REPRINT.md](../../../../../reprint-20261018/PRINT-CARD-REPRINT.md)：P03 翻、P05/P06 不翻、P06 Ø34×1.0 阻挡器、P28 10mm brim |
 | 渲染 | [00 v5/v6 对比](renders/00_compare_v5_v6.png)、[01 主视](renders/01_hero.png)、[02 正视](renders/02_front.png)、[03 侧视](renders/03_side.png)、[05 内部](renders/05_internal.png) |
 
 ## 尺寸（mm，名义）

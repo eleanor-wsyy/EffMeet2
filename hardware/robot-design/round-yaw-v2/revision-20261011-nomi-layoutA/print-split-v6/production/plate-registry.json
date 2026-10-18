@@ -552,6 +552,106 @@
    ]
   },
   {
+   "file": "TMP-FIX-P02P20_GREY_016.3mf",
+   "bytes": 174565,
+   "layer_height": 0.16,
+   "objects": 2,
+   "max_height_mm": 9.9,
+   "layers_at_named_lh": 62,
+   "parts": [
+    {
+     "name": "P02_BASE_LID_decimated",
+     "tris": 13614,
+     "size_mm": [
+      145.655,
+      132.708,
+      9.9
+     ],
+     "z_min": 0.0,
+     "z_max": 9.9,
+     "pid": "P02",
+     "has_stl_source": true
+    },
+    {
+     "name": "P20_TACTILE_HOLDER",
+     "tris": 1236,
+     "size_mm": [
+      36.0,
+      14.0,
+      8.6
+     ],
+     "z_min": 0.0,
+     "z_max": 8.6,
+     "pid": "P20",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-FIX-P15P17P26P29_BLACK_016.3mf",
+   "bytes": 34460,
+   "layer_height": 0.16,
+   "objects": 4,
+   "max_height_mm": 46.1,
+   "layers_at_named_lh": 289,
+   "parts": [
+    {
+     "name": "P15_SERVO_ADJUSTABLE_CRADLE_FITFIX",
+     "tris": 1072,
+     "size_mm": [
+      36.0,
+      24.0,
+      23.7
+     ],
+     "z_min": 0.0,
+     "z_max": 23.7,
+     "pid": "P15",
+     "has_stl_source": true
+    },
+    {
+     "name": "P17_AMP_LOW_TRAY_FITFIX",
+     "tris": 1496,
+     "size_mm": [
+      22.7,
+      24.1,
+      12.1
+     ],
+     "z_min": 0.0,
+     "z_max": 12.1,
+     "pid": "P17",
+     "has_stl_source": true
+    },
+    {
+     "name": "P26_CAMERA_CRADLE_FITFIX_ROT90X",
+     "tris": 656,
+     "size_mm": [
+      13.0,
+      10.1,
+      13.0
+     ],
+     "z_min": 0.0,
+     "z_max": 13.0,
+     "pid": "P26",
+     "has_stl_source": true
+    },
+    {
+     "name": "P29_CORE_BOARD_CRADLE_FITFIX",
+     "tris": 764,
+     "size_mm": [
+      36.3,
+      8.0,
+      46.1
+     ],
+     "z_min": 0.0,
+     "z_max": 46.1,
+     "pid": "P29",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
    "file": "TMP-G1p_GREY_016.3mf",
    "bytes": 825602,
    "layer_height": 0.16,

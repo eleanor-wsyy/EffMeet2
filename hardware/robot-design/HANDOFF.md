@@ -1,3 +1,13 @@
+# 2026-10-19 · P15/P17/P26/P29 修复盘 v2 + P24 摄像孔 6.8
+
+- **返工原因**：P15 舵机口袋 12.5+0.6 太紧；P17 功放单柱/板低；P26 镜管 4.6 装不进 6.5 镜头；P29 核心板槽 2.1 太松。修复：P15 口袋 **13.7**；P17 两 M2 柱 **12.6**；P26 镜管 **6.5**；P29 槽 **1.8**。
+- **P24 漏改已补**：`CAMERA_APERTURE 4.2→6.8`（`camera_lens_d+.3`）；`candidate-stl/P24` 已重出 **v6r2 77×45 + Ø6.8**；**旧 P24 打印件钻 6.8**；`plates-merged/P24_v6r2_77x45.stl` / B1p-v2 仍是 4.2 旧版。
+- **盘 v2**：P26 已转 90°（镜管朝床）；P15/P17 **局部树支撑 5%**（P15 z15–16/20–21；P17 z7–8 托盘外沿）；P29 brim5/支撑关；黑料先烘干。盘卡 [PLATE-CARD-P15P17P26P29.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/plates-merged/PLATE-CARD-P15P17P26P29.md)。
+- **源→导出已同步**：`build_v6.py` + blend 重出；`candidate-stl` 31 件重导；`PARTS.csv`/`parts.json`/`export-byte-audit` 更新；P17 12.1、P24 6.8、P26 6.5、P15 13.7、P29 1.8；`verify_v6_delivery.py` **PASS**。
+- **仍差**：P24 旧打印件钻孔；P15/P17 支撑预览；黑料烘干；P24/P25 版本陷阱。
+
+---
+
 # 2026-10-18 · P03/P05/P06/P28 重打成功 + 支撑方向收口
 
 - **实打成功配方**：P03 翻转（顶部减重孔朝下）；P05/P06 **保持原向**；树支撑 5% + 分支 2mm + 顶距 0.2 + 界面 1；P06 底部 38.5 孔加 **Ø34×1.0 支撑阻挡器**；P28 单盘 **10mm brim**、不支撑。文件 [reprint-20261018/](../../reprint-20261018/)，设置卡 [PRINT-CARD-REPRINT.md](../../reprint-20261018/PRINT-CARD-REPRINT.md)。

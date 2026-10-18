@@ -53,7 +53,7 @@
    50
   ],
   "lcd_boss_rect": [
-   80,
+   77,
    45
   ],
   "board": [
@@ -70,6 +70,7 @@
   ],
   "camera_fpc": 14,
   "camera_recess": 4.5,
+  "camera_lens_d": 6.5,
   "camera_fpc_max_span": 11,
   "usb_access": 10,
   "dupont_clear": 12,
@@ -190,6 +191,7 @@
    0
   ],
   "amp_floor": 14,
+  "amp_hole_pitch": 12.6,
   "power_z": 30,
   "vent_x": 30,
   "speaker": [
@@ -482,7 +484,7 @@
    [
     61.35,
     12.05,
-    16.0
+    16.5
    ]
   ],
   "P18 POWER_IN_TRAY": [
@@ -571,12 +573,12 @@
   ],
   "P25 LCD_REAR_CLAMP_FRAME": [
    [
-    -44.0,
+    -42.5,
     -35.4,
     107.8
    ],
    [
-    44.0,
+    42.5,
     -33.4,
     160.8
    ]
@@ -675,11 +677,11 @@
    ]
   },
   "FACE_PANEL": {
-   "faces": 1064,
+   "faces": 1063,
    "nonmanifold_edges": 0,
    "boundary_edges": 0,
    "components": 1,
-   "volume_mm3": 13864.1,
+   "volume_mm3": 13810.3,
    "bbox": [
     [
      -53.0,
@@ -713,11 +715,11 @@
    ]
   },
   "BASE_CUP": {
-   "faces": 17894,
+   "faces": 17874,
    "nonmanifold_edges": 0,
    "boundary_edges": 0,
    "components": 1,
-   "volume_mm3": 91359.3,
+   "volume_mm3": 91533.3,
    "bbox": [
     [
      -76.5,

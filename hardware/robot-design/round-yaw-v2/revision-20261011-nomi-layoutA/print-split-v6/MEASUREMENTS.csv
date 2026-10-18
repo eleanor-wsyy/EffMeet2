@@ -1,4 +1,4 @@
-﻿id,measure,budget_note,actual_mm,evidence,measured_at,status
+id,measure,budget_note,actual_mm,evidence,measured_at,status
 MAINBOARD,PCB完整排针/USB/最高元件,v6：竖装头内，FPC/USB-C端朝上；USB-C插头留10mm头内调试空间；原：62.6x28.3为板体记录，装配空间未测,PCB上方最高元件6；PCB下排针8；两只Type-C与摄像头FPC座均在远离ESP32模组一端；Type-C母座未突出PCB边缘（2026-10-15实测，后部开口/供电走线无需额外凸出余量）,用户实测（卡尺）,2026-10-15,MEASURED_UNFITTED
 LCD,玻璃/PCB/厚度/J2朝向/元件,v6：横向贴面板；原4孔按80x45假定已被2026-10-15实测77x45取代；玻璃到PCB深度假定4mm已实测确认；原：窗口58.2x43.8、PCB85x55为预算,PCB85x50；最厚处总厚11；排针在屏FPC一侧短边；4安装孔孔径4；横孔距77；纵孔距45；玻璃到PCB4（2026-10-15卡尺实测，取代80x45假定）,用户实测（卡尺）,2026-10-15,MEASURED_UNFITTED
 CAMERA,模组/镜头凸高/FPC口,v6：贴面板背面，镜头中心=窗口上沿+17；FPC直线跨距9.55，余量4.45（目标≥3）；原：20x10x18预算,模组8x8x4；FPC长14（不可裁剪；不足以从底座跨轴到头部）；镜头凸出模组面4（2026-10-15卡尺实测）,用户实测（卡尺）,2026-10-15,MEASURED_UNFITTED
@@ -21,3 +21,8 @@ FACE_RETENTION,面板锁壳螺钉/螺母/拆装工具空间,R1三点M3x12及捕�
 FOOT_PAD,脚垫含胶厚度/压缩/贴合,C07约2mm硅胶片对应杯底z=2预留；不是已安装实物,,,,UNVERIFIED
 INMP441_PADW,含焊盘总宽(两侧凸出),P32腔19须≥实测总宽+0.5余量,"照片估17-18(±1-2,不可用)",学妹交付05报告C档1,2026-10-16,UNVERIFIED
 INMP441_BOTTOM,底面拾音孔中心偏差,≤0.5mm→P32声孔位置确认,缺照片(最重要一张未拍),学妹交付D档,2026-10-16,UNVERIFIED
+P24_CAMERA_APERTURE,面板摄像孔,6.8（P26镜管6.5+0.3）,6.8名义（build_v6 2026-10-19 FITFIX）；旧P24 4.2需钻6.8,build_v6,2026-10-19,UNVERIFIED
+P26_LENS_TUBE,摄像头托架镜管内径,6.5,6.5名义（build_v6 2026-10-19 FITFIX）；旧4.6,build_v6,2026-10-19,UNVERIFIED
+P15_SERVO_POCKET,舵机口袋宽,13.7（12.5+1.2）,13.7名义（build_v6 2026-10-19 FITFIX）；旧12.5+0.6,build_v6,2026-10-19,UNVERIFIED
+P17_AMP_POST_PITCH,功放M2柱距,12.6,12.6名义（两柱Ø4.5/孔Ø1.7；build_v6 2026-10-19 FITFIX）,build_v6,2026-10-19,UNVERIFIED
+P29_CORE_SLOT,核心板槽宽,1.8（1.6+0.2）,1.8名义（build_v6 2026-10-19 FITFIX）；旧2.1,build_v6,2026-10-19,UNVERIFIED

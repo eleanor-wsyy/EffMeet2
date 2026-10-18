@@ -309,7 +309,7 @@ print('STAGE head shell',flush=True)
 fb=fy0+ft_/2;wz=hc+P['lcd_window_dz'];ww,wh=P['lcd_window'];cz=wz+wh/2+P['camera_above_window'];P['camera_z']=cz
 face=cylinder('FACE_PANEL',P['face_d'],ft_,(0,fy0,hc),'Y',segments=128)
 boolop(face,box('LCD_WINDOW',(ww,12,wh),(0,fy0,wz),bevel=.8));gp=P['glass_pocket'];boolop(face,box('GLASS_POCKET',(gp[0],gp[1]*2,gp[2]),(0,fb,wz),bevel=.6))
-boolop(face,cylinder('CAMERA_APERTURE',4.2,12,(0,fy0,cz),'Y'))
+boolop(face,cylinder('CAMERA_APERTURE',P['camera_lens_d']+.3,12,(0,fy0,cz),'Y'))
 LB=P['lcd_boss_rect'];sy=P['lcd_stack'];lback=fb-gp[1]+sy;P['lcd_back_y']=lback;pcbf=fb-gp[1]+4;P['lcd_pcb_front_y_assumed']=pcbf
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):unite(face,cylinder(f'FACE_LCD_BOSS_{x}_{z}',6,pcbf-fb+.2,(x,(fb+pcbf)/2-.1,z),'Y'));hole(face,(x,pcbf,z),2.2,8,'Y')

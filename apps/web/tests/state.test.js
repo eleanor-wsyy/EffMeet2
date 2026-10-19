@@ -42,9 +42,15 @@ test('real receipt drives queued, broadcasting, completed or failed', () => {
   assert.equal(effectiveState(row({state:'dismissed'}),[],1000),'dismissed');
 });
 test('a different candidate receipt does not affect this row', () => assert.equal(effectiveState(row({state:'queued'}),[{command:{intervention_id:'other'},receipts:[{status:'completed'}]}],1000),'queued'));
-test('only three application screens; separate accessible sheet',async () => {
+test('four main pages plus focused subpages, with an accessible sheet',async () => {
   const html=await readFile(new URL('../index.html',import.meta.url),'utf8');
-  assert.deepEqual([...html.matchAll(/id="view-([a-z]+)"/g)].map(m=>m[1]),['join','live','map']);
+  assert.deepEqual(
+    [...html.matchAll(/data-page="([a-z]+)"/g)].map(m=>m[1]),
+    ['home','meeting','history','profile','join','schedule','map','detail','scan','settings']
+  );
+  for (const page of ['home','meeting','history','profile']) {
+    assert.match(html, new RegExp(`data-page="${page}"`));
+  }
   assert.match(html,/role="dialog" aria-modal="true"/); assert.match(html,/id="j-mid"[^>]*required/);
   assert.match(html,/id="j-name"[^>]*required/); assert.match(html,/id="j-submit" disabled/);
   assert.doesNotMatch(html,/src="https?:/); assert.doesNotMatch(html,/onclick=/);
@@ -77,19 +83,20 @@ test('status dialog keeps confirm available for active or expired candidates onl
     assert.equal(candidateActions(row({state}), [], 1000).confirmMode, null);
   }
 });
-test('status action uses owner recheck before decision rather than client-side deadline reset', async () => {
+test('expired candidate requires an explicit recheck before a new decision window', async () => {
   const js=await readFile(new URL('../app.js',import.meta.url),'utf8');
-  assert.match(js, /'查看状态'/);
-  assert.ok(js.includes("$('sh-actions').hidden = false"));
-  assert.ok(js.indexOf("+ '/recheck'") < js.indexOf("+ '/decision'"));
-  assert.ok(js.includes('Object.assign(row, renewed)'));
-  assert.ok(!js.includes('row.expires_at ='));
+  const expiredBranch = js.indexOf("if (state === 'expired')");
+  assert.ok(expiredBranch > -1);
+  assert.ok(js.indexOf("prompt.state = 'awaiting_confirmation'") > expiredBranch);
+  assert.ok(js.indexOf("prompt.expiresAt = Date.now() + 120000") > expiredBranch);
+  assert.match(js, /prompt\.state = 'dismissed'/);
+  assert.ok(!js.includes("prompt.expires_at"));
 });
 
-test('installable PWA assets have real PNG dimensions and remain scoped to /app/', async () => {
+test('installable PWA assets have real PNG dimensions and use a relative scope', async () => {
   const manifest = JSON.parse(await readFile(new URL('../manifest.json', import.meta.url), 'utf8'));
-  assert.equal(manifest.start_url, '/app/');
-  assert.equal(manifest.scope, '/app/');
+  assert.equal(manifest.start_url, './');
+  assert.equal(manifest.scope, './');
   assert.equal(manifest.display, 'standalone');
   for (const [size, path] of [[192,'icon-192.png'],[512,'icon-512.png'],[180,'apple-touch-icon.png']]) {
     const png = await readFile(new URL('../assets/' + path, import.meta.url));
@@ -99,18 +106,26 @@ test('installable PWA assets have real PNG dimensions and remain scoped to /app/
   }
   assert.ok(manifest.icons.every(icon => icon.purpose.includes('maskable')));
 });
-test('offline cache covers shell but never API, identities or evidence', async () => {
+test('offline cache covers the local shell and never stores API or evidence', async () => {
   const sw = await readFile(new URL('../sw.js', import.meta.url), 'utf8');
   const js = await readFile(new URL('../app.js', import.meta.url), 'utf8');
   const html = await readFile(new URL('../index.html', import.meta.url), 'utf8');
-  assert.match(sw, /const BASE = '\/app\/'/);
-  assert.match(sw, /req\.method !== 'GET' \|\| url\.origin !== self\.location\.origin \|\| !url\.pathname\.startsWith\(BASE\)/);
+  assert.match(sw, /const BASE = new URL\('\.\/', self\.location\)\.pathname/);
+  assert.match(sw, /request\.method !== 'GET' \|\| url\.origin !== self\.location\.origin \|\| !url\.pathname\.startsWith\(BASE\)/);
+  assert.match(sw, /store\.js/);
+  assert.match(sw, /capture-sketch\.svg/);
   assert.doesNotMatch(sw.match(/const SHELL = \[[^;]+/s)[0], /\/api\//);
-  assert.match(js, /serviceWorker\.register\('\/app\/sw\.js', \{scope:'\/app\/'\}\)/);
+  assert.match(js, /navigator\.serviceWorker\.register\(swUrl, \{scope\}\)/);
   assert.match(html, /rel="apple-touch-icon"/);
 });
-test('network return triggers a single existing poll instead of duplicate candidate decisions', async () => {
+test('meeting data is local-first and linked across minutes, notes and transcript', async () => {
+  const store = await readFile(new URL('../store.js', import.meta.url), 'utf8');
   const js = await readFile(new URL('../app.js', import.meta.url), 'utf8');
-  assert.match(js, /window\.addEventListener\('online', \(\) => \{\s*if \(model\.mid && !model\.polling\) startPolling\(\);/);
-  assert.match(js, /document\.addEventListener\('visibilitychange', \(\) => \{\s*if \(!document\.hidden && model\.mid && !model\.polling\) startPolling\(\);/);
+  assert.match(store, /export function loadDB/);
+  assert.match(store, /localStorage\.setItem\(STORAGE_KEY/);
+  assert.match(store, /export function endActiveMeeting/);
+  assert.match(store, /evidenceIds/);
+  assert.match(js, /renderMinutes/);
+  assert.match(js, /renderGraph/);
+  assert.match(js, /renderTranscript/);
 });

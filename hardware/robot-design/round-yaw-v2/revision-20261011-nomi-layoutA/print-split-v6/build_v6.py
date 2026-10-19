@@ -331,9 +331,9 @@ bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-1.0,cz),bevel=.2);unite(bl,box('PR
 part(bl,'隐私滑片（打开位置在x=11+）',motion=True)
 bw,bt,bh=P['board'];pcy=lback+2.5+P['board_comp']+bt/2+.1;P['board_pcb_y']=pcy;btop=cz+3;bz=btop-bh/2;P['board_z']=(btop-bh,btop)
 P['camera_fpc_span_mm']=round(math.hypot((pcy-bt/2)-(cy+cm[1]/2),btop-6-(cz-cm[2]/2)),2);P['camera_fpc_slack_mm']=round(P['camera_fpc']-P['camera_fpc_span_mm'],2);assert P['camera_fpc_span_mm']<=P['camera_fpc_max_span'],P['camera_fpc_span_mm']
-cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.6,bt+.2,10),(0,pcy,cb0+7)))
-for x in (-bw/2-2.5,bw/2+2.5):
- unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(3,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(2.2,bt+.2,60),(x-math.copysign(.9,x)*0+(-1 if x>0 else 1)*.5,pcy,hft+38)))
+cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.2,bt+.1,10),(0,pcy,cb0+7)))
+for x in (-(bw/2+1.7),bw/2+1.7):
+ unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(4.6,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(.7,bt+.1,62),((1 if x>0 else -1)*(bw/2-.25),pcy,hft+37)))
 for x in (-10,10):hole(neck,(x,pcy,cb0),2.4,5);hole(corecr,(x,pcy,cb0+2),3.4,10)
 part(corecr,'核心板竖直边缘托架（固定于头底）',motion=True)
 print('STAGE face/head parts',flush=True)

@@ -15,7 +15,8 @@ PARAMS=dict(
  cup_top_z=66*K,lid_top_z=78*K,lid_seam_z=66.3*K,
  head_gap_above_lid=14,head_R=66,head_B=64,head_yc=-1,head_front_r=57,head_front_y=-47.0,head_junction_y=-31.0,
  head_trim_below_center=56,head_offset_y=20,head_flatten=.04,head_wall=2.4,head_floor=3.2,
- face_d=106,face_t=2.4,face_y=-46.2,lcd_window=(58.2,43.8),lcd_window_dz=-2,camera_above_window=17,glass_pocket=(71,1.4,51),backstop=(112,102,2),
+ face_w=106,face_h=96,face_r=21,face_t=2.4,face_y=-46.2,lcd_window=(62,46),lcd_window_dz=-2,camera_above_window=15.9,glass_pocket=(71,1.4,51),backstop=(112,102,2),
+ bezel_w=116,bezel_h=116,bezel_r=40,bezel_t=5.0,face_open=(100,90,18),
  lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(77,45),  # 2026-10-15 measured (was 80x45 assumed)
  board=(28.3,1.6,62.6),board_comp=6,board_pins=8,camera_module=(8,4,8),camera_fpc=14,camera_recess=4.5,camera_lens_d=6.5,camera_fpc_max_span=11,usb_access=10,dupont_clear=12,
  gt2_pitch=2.0,driver_T=32,driven_T=64,belt_candidates=(158,160,180,188,200),belt_w=6,
@@ -73,6 +74,17 @@ def ring(n,od,idd,h,center,axis='Z',c=None,mat=None):
  o=cylinder(n,od,h,center,axis,c,mat);hole(o,center,idd,h+4,axis);return o
 def hexhole(host,center,flat=5.7,depth=2.6,axis='Z'):
  return boolop(host,cylinder(host.name[3:]+'_NUT_'+str(len(host.modifiers)),flat/math.cos(math.pi/6),depth,center,axis,segments=6))
+def rrect(n,w,h,r,t,center,axis='Y',c=None,mat=None,seg=16):
+ r=min(r,w/2,h/2);pts=[]
+ for cx,cy,a0 in ((w/2-r,h/2-r,0),(-w/2+r,h/2-r,90),(-w/2+r,-h/2+r,180),(w/2-r,-h/2+r,270)):
+  for i in range(seg+1):
+   a=math.radians(a0+90*i/seg);pts.append((cx+r*math.cos(a),cy+r*math.sin(a)))
+ nP=len(pts);v=[(x,y,-t/2) for x,y in pts]+[(x,y,t/2) for x,y in pts]
+ f=[tuple(range(nP-1,-1,-1)),tuple(range(nP,2*nP))]+[(i,(i+1)%nP,(i+1)%nP+nP,i+nP) for i in range(nP)]
+ o=obj(n,v,f,center,c,mat)
+ if axis=='Y':o.data.transform(Matrix.Rotation(math.pi/2,4,'X'))
+ if axis=='X':o.data.transform(Matrix.Rotation(math.pi/2,4,'Y'))
+ return o
 def part(o,cn,mat=BLACK,motion=False,function=''):
  link(o,PARTS);o.hide_render=False
  if mat and not o.data.materials:o.data.materials.append(mat)
@@ -297,24 +309,30 @@ trim=box('HEAD_BOTTOM_TRIM',(400,400,200),(0,0,hb-100));boolop(head,trim,solver=
 rec=box('HEAD_FLOOR_SLAB',(250,250,P['head_floor']),(0,0,hb+P['head_floor']/2));boolop(rec,full,'INTERSECT',solver=EX);boolop(head,rec,'UNION',solver=EX)
 boolop(head,cylinder('HEAD_NECK_HOLE',P['neck_od']+.6,12,(0,0,hb+1)),solver=EX)
 for x in (-P['neck_screw_x'],P['neck_screw_x']):hole(head,(x,0,hb+1),3.4,10,solver=EX)
-fy0=P['face_y'];ft_=P['face_t']
-boolop(head,cylinder('ROUND_FACE_RECEIVER',P['face_d']+.6,20,(0,fy0-8,hc),'Y'),solver=EX)
-lip=ring('FACE_RECEIVING_LIP',P['face_d']+8.4,P['face_d']+.6,2.4,(0,fy0+ft_/2+1.2,hc),'Y');boolop(lip,full,'INTERSECT');unite(head,lip,solver=EX)
-part(head,'头壳（原生Screw＋Lattice＋Solidify）',GREY,motion=True)
+fy0=P['face_y'];ft_=P['face_t'];fa_w,fa_h,fa_r=P['face_w'],P['face_h'],P['face_r']
+boolop(head,rrect('FACE_RECEIVER',fa_w+.6,fa_h+.6,fa_r+.3,20,(0,fy0-8,hc)),solver=EX)
+bw_,bh_,br_,bt_=P['bezel_w'],P['bezel_h'],P['bezel_r'],P['bezel_t']
+bez=rrect('FACE_BEZEL',bw_,bh_,br_,ft_+bt_,(0,fy0-ft_/2+(ft_+bt_)/2,hc))
+boolop(bez,rrect('BEZEL_PANEL_POCKET',fa_w+.6,fa_h+.6,fa_r+.3,ft_+.4,(0,fy0,hc)))
+fo=P['face_open'];boolop(bez,rrect('BEZEL_REAR_OPEN',fo[0],fo[1],fo[2],bt_+.4,(0,fy0+ft_/2+(bt_+.4)/2,hc)))
+boolop(bez,box('BEZEL_SADDLE_CLEAR',(16,14,10),(0,-36,hft+5.5)))
+boolop(bez,trim,'DIFFERENCE',solver=EX)
+unite(head,bez,solver=EX)
+part(head,'头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）',GREY,motion=True)
 # head cable saddle receiver boss on floor
 hsx,hsy=0,-36;unite(head,cylinder('HEAD_SADDLE_BOSS',8,3.6,(hsx,hsy,hft+1.2)),solver=EX);hole(head,(hsx,hsy,hft),2.6,12,solver=EX)
 print('STAGE head shell',flush=True)
 #@@FACE@@
 # ---------- FACE + LCD + CAMERA + CORE BOARD (all rotate) ----------
 fb=fy0+ft_/2;wz=hc+P['lcd_window_dz'];ww,wh=P['lcd_window'];cz=wz+wh/2+P['camera_above_window'];P['camera_z']=cz
-face=cylinder('FACE_PANEL',P['face_d'],ft_,(0,fy0,hc),'Y',segments=128)
+face=rrect('FACE_PANEL',fa_w,fa_h,fa_r,ft_,(0,fy0,hc))
 boolop(face,box('LCD_WINDOW',(ww,12,wh),(0,fy0,wz),bevel=.8));gp=P['glass_pocket'];boolop(face,box('GLASS_POCKET',(gp[0],gp[1]*2,gp[2]),(0,fb,wz),bevel=.6))
 boolop(face,cylinder('CAMERA_APERTURE',4.2,12,(0,fy0,cz),'Y'))
 LB=P['lcd_boss_rect'];sy=P['lcd_stack'];lback=fb-gp[1]+sy;P['lcd_back_y']=lback;pcbf=fb-gp[1]+4;P['lcd_pcb_front_y_assumed']=pcbf
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):unite(face,cylinder(f'FACE_LCD_BOSS_{x}_{z}',6,pcbf-fb+.2,(x,(fb+pcbf)/2-.1,z),'Y'));hole(face,(x,pcbf,z),2.2,8,'Y')
 for x in (-10,26):unite(face,cylinder(f'FACE_PRIV_BOSS_{x}',5,3,(x,fb+1.5-.1,cz),'Y'));hole(face,(x,fb+2,cz),2.0,6,'Y')
-part(face,'Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）',motion=True)
+part(face,'106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）',motion=True)
 lcdf=box('LCD_REAR_CLAMP_FRAME',(LB[0]+8,2,LB[1]+8),(0,lback+1,wz),bevel=2);boolop(lcdf,box('LCD_FRAME_OPEN',(LB[0]-14,6,LB[1]-12),(0,lback+1,wz),bevel=2))
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):hole(lcdf,(x,lback+1,z),2.8,6,'Y')

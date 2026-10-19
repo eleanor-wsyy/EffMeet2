@@ -5,6 +5,7 @@ import sqlite3
 import asyncio
 from contextlib import asynccontextmanager, suppress
 from pathlib import Path
+import re
 import secrets
 import time
 from typing import Literal
@@ -57,6 +58,10 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         try:
             yield
         finally:
+            for pending in list(relay_tasks):
+                pending.cancel()
+            if relay_tasks:
+                await asyncio.gather(*relay_tasks, return_exceptions=True)
             await livekit_bridge.close()
             if task:
                 task.cancel()
@@ -77,9 +82,15 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
             parsed = urlsplit(raw)
         except ValueError:
             return None
-        if parsed.scheme not in {"ws", "wss"} or not parsed.hostname:
+        if (parsed.scheme not in {"ws", "wss"} or not parsed.hostname
+                or parsed.username or parsed.password):
             return None
-        return f"{parsed.scheme}://{parsed.netloc}"
+        if not re.fullmatch(r"[A-Za-z0-9.\-:\[\]]+", parsed.netloc):
+            return None
+        # LiveKit's JS SDK also probes the HTTP(S) origin for /validate and
+        # connectivity, so connect-src must include both schemes.
+        http_scheme = "https" if parsed.scheme == "wss" else "http"
+        return f"{parsed.scheme}://{parsed.netloc} {http_scheme}://{parsed.netloc}"
 
     def error(status, code, message, *, retryable=False):
         body = {"error": {"code": code, "message": message, "retryable": retryable, "trace_id": str(uuid4())}}

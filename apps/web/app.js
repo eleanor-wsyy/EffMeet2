@@ -85,6 +85,7 @@ async function connectMedia() {
   const generation = model.generation;
   model.mediaBusy = true;
   let stage = 'token';
+  let session = null;
   renderMediaState({phase:MEDIA_PHASES.connecting});
   try {
     const credentials = await request(meetingPath('/livekit-token'), {method:'POST', body:{identity:model.actor}});
@@ -92,18 +93,19 @@ async function connectMedia() {
     if (generation !== model.generation) return;
     const sdk = await import('./vendor/livekit-client.esm.mjs');
     if (generation !== model.generation) return;
-    model.media = createMediaSession({Room:sdk.Room, RoomEvent:sdk.RoomEvent,
+    session = createMediaSession({Room:sdk.Room, RoomEvent:sdk.RoomEvent,
       onState:state => { if (generation === model.generation) renderMediaState(state); }});
-    await model.media.connect(credentials);
+    model.media = session;
+    await session.connect(credentials);
     if (generation !== model.generation) {
-      await model.media.disconnect();
-      model.media = null;
+      await session.disconnect();
+      if (model.media === session) model.media = null;
       return;
     }
     if (credentials.relay_ready === false) toast('音频已连接；本地 ASR 未就绪，远程发言暂不入账');
   } catch (error) {
     if (generation !== model.generation) return;
-    model.media = null;
+    if (session && model.media === session) model.media = null;
     const detail = error.code === 'LIVEKIT_NOT_CONFIGURED'
       ? '音频未配置：服务端未设置 LiveKit。'
       : stage === 'token' ? error.message : '音频服务器连接失败。';

@@ -86,7 +86,12 @@ def create_token_service(provider=None):
 
     @app.post("/rtc-token")
     async def rtc_token(request: Request):
-        body = await request.json()
+        try:
+            body = await request.json()
+        except Exception:
+            return JSONResponse({"error_code": "BAD_REQUEST"}, status_code=400)
+        if not isinstance(body, dict):
+            return JSONResponse({"error_code": "BAD_REQUEST"}, status_code=400)
         meeting_id = body.get("meeting_id")
         identity = body.get("identity")
         if not meeting_id or not identity:

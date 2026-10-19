@@ -105,6 +105,32 @@ test('connect failure reports an error and does not leave a connected room', asy
   assert.equal(states.at(-1).phase, MEDIA_PHASES.error);
 });
 
+test('a superseded connection failure does not emit an error or disconnect the new room', async () => {
+  let created = 0;
+  class RacingRoom extends FakeRoom {
+    constructor() {
+      super();
+      this.index = created++;
+    }
+    async connect() {
+      if (this.index === 0) {
+        await new Promise(resolve => setTimeout(resolve, 20));
+        throw new Error('stale attempt');
+      }
+      this.connectedWith = {url: 'ws://second', token: 'second'};
+    }
+  }
+  const states = [];
+  const media = createMediaSession({Room: RacingRoom, RoomEvent, onState:state => states.push(state)});
+  const first = media.connect({url:'ws://first', token:'first'});
+  const second = media.connect({url:'ws://second', token:'second'});
+  await second;
+  await first.catch(() => {});
+  assert.equal(media.connected, true);
+  assert.equal(states.some(state => state.phase === MEDIA_PHASES.error), false);
+  assert.equal(states.at(-1).phase, MEDIA_PHASES.connected);
+});
+
 test('microphone cannot be enabled before the room connects', async () => {
   const {media} = session();
   await assert.rejects(() => media.setMic(true), error => error.code === 'MEDIA_NOT_CONNECTED');

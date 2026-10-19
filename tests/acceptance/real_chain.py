@@ -156,7 +156,7 @@ def asr(context: dict) -> dict:
     try:
         evidence = transcribe_and_ingest(pcm, adapter)
     except Exception as exc:
-        raise RuntimeError("真实 ASR 链路失败：" + type(exc).__name__) from exc
+        raise RuntimeError(f"真实 ASR 链路失败：{type(exc).__name__}: {exc}") from exc
     if not evidence["text"].strip():
         raise RuntimeError("真实 ASR 返回空文本")
     return evidence

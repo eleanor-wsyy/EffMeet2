@@ -114,16 +114,32 @@
 - **边界**：候选分析用本地 stub，本人确认用 `remote_1` 测试身份；这不是完整
   真人/真实账号验收，证据里已明确标注。
 
+### 10. agy 审查修复
+
+agy staffer 对提交前 diff 给出 8 项发现，已修复主要项：
+
+- **CSP**：`connect-src` 同时放行 `ws(s)://` 与 `http(s)://`，否则 LiveKit JS SDK 的
+  `/validate`/连通性 HTTP 探测会被浏览器拦截；同时校验 `netloc` 只允许
+  `[A-Za-z0-9.:\[\]-]`，拒绝 `;` 等 CSP 注入字符（新增注入回归测试）。
+- **媒体会话竞态**：`connectMedia` 保留局部 `session` 引用，快速离开/重入时只断开
+  本次会话，不再误解散新会议；`media.js` 被取代的连接失败不再误报 `error`。
+- **token 服务**：非 JSON/非对象请求体返回 400，不再 500（新增测试）。
+- **lifespan**：关闭时取消并 `gather` 所有后台 relay 任务，再关闭 bridge。
+- **验收错误信息**：S2 真实 ASR 失败保留底层异常文本。
+
+仍未处理：`apps/web` 的 UI 级媒体集成测试（需要浏览器 DOM 环境），以及 agy 提到的
+少量“缺少测试”项；功能修复已有单元/回归覆盖。
+
 ## 验证证据
 
 - **联合验收（2026-10-19）**：同一个 real harness 同时设置 S1/S2/S3/S6 门槛，
   结果为 **S1 PASS、S2 PASS、S3 PASS、S6 PASS；S4/S5 NOT_RUN**
   （缺真实账号/机器人）。S3 真实千问返回 `uncertain` 且不生成候选；
   S6 现场 ASR + 回应核对 + 观点地图 `responded`。
-- Python 全量：**122 tests OK（skipped=1）**（原 106 + 3 项 LiveKit 服务端测试 +
-  6 项验收真实路径测试（S1/S2/S3/S6）+ 6 项部署 token 服务测试 +
+- Python 全量：**123 tests OK（skipped=1）**（原 106 + 3 项 LiveKit 服务端测试 +
+  6 项验收真实路径测试（S1/S2/S3/S6）+ 7 项部署 token 服务测试 +
   1 项 `/app-demo/` 静态路由测试）。
-- 前端 Node：**40 tests pass**（原 32 + 新增 8 项媒体会话测试）。
+- 前端 Node：**41 tests pass**（原 32 + 新增 9 项媒体会话测试，含竞态回归）。
 - EFMA 主机测试：`scripts/test_efma_host.py` → `EFMA host tests passed (protocol.py parity)`。
 - S1 真实验收：用 `data/acceptance_speech.wav`（Windows TTS 合成语音，5.72s、
   -25.6 dBFS、16k mono s16le）跑出 `S1_capture PASS`；这是格式/时长/电平证据。

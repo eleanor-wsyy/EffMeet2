@@ -27,7 +27,7 @@ python -m venv .venv
 
 - 目前只有本机 `remote_1`/`remote_2` 联调身份，昵称不是正式登录/鉴权；不能把本机预览称作公网产品。
 - 会中麦克风按钮已接 LiveKit 发布；但真实远程链路仍需可用的 LiveKit 服务、TLS、生产身份和两端实机验收。入会页的“允许麦克风”仍只做权限检查，不开始录音。
-- 服务端需配置 `LIVEKIT_URL` / `LIVEKIT_API_KEY` / `LIVEKIT_API_SECRET`；密钥只存服务端，前端只拿短期 token。CSP 会自动放行配置的 LiveKit `ws/wss` 源。
+- 服务端需配置 `LIVEKIT_URL` / `LIVEKIT_API_KEY` / `LIVEKIT_API_SECRET`；密钥只存服务端，前端只拿短期 token。CSP 会自动放行配置的 LiveKit `ws/wss` 及对应 `http(s)` 源（SDK 会探测 `/validate`）。
 - 现场 AI 描述接口未提供时保持“暂无已保存的 AI 描述”；不以文件名或编造文字替代。
 - 真实机器人播报、现场停顿安全、端到端音频链路，以及会议结束事件，必须由对应后端/设备接入并验证。本机模拟回执不代表现场播报。
 - 仍需 iOS Safari、Android Chrome 的主屏安装/麦克风权限与 4G/弱网重连实机验收；在本机不能冒充完成。

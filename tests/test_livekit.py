@@ -144,5 +144,11 @@ class LiveKitTests(unittest.TestCase):
             with patch.dict(os.environ, {'LIVEKIT_URL':'wss://livekit.example.test'}, clear=True):
                 with TestClient(create_app(db_path=Path(tmp)/'b.sqlite3')) as client:
                     csp = client.get('/healthz').headers['content-security-policy']
-                    self.assertIn("connect-src 'self' wss://livekit.example.test;", csp)
+                    self.assertIn("connect-src 'self' wss://livekit.example.test "
+                                  "https://livekit.example.test;", csp)
                     self.assertNotIn('livekit.example.test', client.get('/healthz').text)
+            with patch.dict(os.environ, {'LIVEKIT_URL':'wss://host.test; script-src evil'}, clear=True):
+                with TestClient(create_app(db_path=Path(tmp)/'c.sqlite3')) as client:
+                    csp = client.get('/healthz').headers['content-security-policy']
+                    self.assertIn("connect-src 'self';", csp)
+                    self.assertNotIn('script-src evil', csp)

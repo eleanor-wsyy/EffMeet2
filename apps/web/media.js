@@ -51,10 +51,12 @@ export function createMediaSession({Room, RoomEvent, onState = () => {}, roomOpt
       }
       emit(MEDIA_PHASES.connected);
     } catch (error) {
-      if (room === next) {
-        room = null;
-        micOn = false;
+      if (room !== next) {
+        await next.disconnect().catch(() => {});
+        return;
       }
+      room = null;
+      micOn = false;
       await next.disconnect().catch(() => {});
       emit(MEDIA_PHASES.error, '音频服务器连接失败。');
       throw error;

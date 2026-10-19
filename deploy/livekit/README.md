@@ -40,7 +40,8 @@
 - token 端点现在把“远程成员入会”和“relay 订阅转写”解耦：LiveKit 已配置但
   ASR 未就绪时仍返回 `201`，并带 `relay_ready=false`/`relay_pending=true`；
   relay 在后台尝试加入。参与者音频不再被 relay 的 ASR 状态阻塞。
-- CSP 会按 `LIVEKIT_URL` 的 `ws/wss` 源放行 `connect-src`；未配置时仍只允许同源。
+- CSP 会按 `LIVEKIT_URL` 放行 `connect-src` 的 `ws/wss` 及对应 `http(s)` 源
+  （LiveKit SDK 会探测 `/validate`）；`netloc` 经过字符校验，防 CSP 注入。
 - 前端 SDK 为本地 vendored `apps/web/vendor/livekit-client.esm.mjs`（2.23.0，Apache-2.0），
   不需要外部 CDN。
 

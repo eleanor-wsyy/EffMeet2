@@ -48,6 +48,15 @@ class TokenServiceTests(unittest.TestCase):
                 self.assertEqual(response.status_code, 400)
                 self.assertEqual(response.json()["error_code"], "BAD_REQUEST")
 
+    def test_malformed_json_body_is_400(self):
+        with patch.dict(os.environ, ENV, clear=True):
+            with self.client(MockIdentityProvider()) as client:
+                for body in ("not-json", "[]", "42"):
+                    response = client.post("/rtc-token", content=body,
+                                           headers={"Content-Type": "application/json"})
+                    self.assertEqual(response.status_code, 400, body)
+                    self.assertEqual(response.json()["error_code"], "BAD_REQUEST")
+
     def test_production_provider_stays_unavailable_until_wired(self):
         with patch.dict(os.environ, ENV, clear=True):
             with self.client(ProductionIdentityProvider()) as client:

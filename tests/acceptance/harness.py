@@ -109,6 +109,11 @@ class E2EAcceptanceHarness:
 
     # ---- real mode: gate each stage; never PASS without evidence ----
     def _run_real(self) -> None:
+        from . import real_chain
+        context: dict = {}
+        handlers = {"S1_capture": real_chain.capture, "S2_asr": real_chain.asr,
+                    "S3_analyze": real_chain.analyze,
+                    "S6_response_tracking": real_chain.response_tracking}
         for stage in STAGES:
             missing = None
             for dep in stage.requires:
@@ -118,9 +123,22 @@ class E2EAcceptanceHarness:
             if missing:
                 self.results.append(StageResult(stage.stage_id, NOT_RUN, reason=missing))
                 continue
-            # All gates present: a real run would execute the stage here and only
-            # then record PASS with evidence. The physical execution path is a
-            # NOT-VERIFIED bring-up task; until implemented we must not fake PASS.
-            self.results.append(StageResult(
-                stage.stage_id, NOT_RUN,
-                reason="NOT_RUN: 真实执行路径未实现（bring-up 任务）；门槛已满足但不得伪报 PASS"))
+            handler = handlers.get(stage.stage_id)
+            if handler is None:
+                self.results.append(StageResult(
+                    stage.stage_id, NOT_RUN,
+                    reason="NOT_RUN: 真实执行路径未实现（bring-up 任务）；门槛已满足但不得伪报 PASS"))
+                continue
+            try:
+                evidence = handler(context)
+            except real_chain.NotRun as exc:
+                self.results.append(StageResult(stage.stage_id, NOT_RUN,
+                                                reason=f"NOT_RUN: {exc}"))
+            except Exception as exc:
+                self.results.append(StageResult(
+                    stage.stage_id, FAIL,
+                    reason=f"FAIL: {type(exc).__name__}: {exc}"))
+            else:
+                self.results.append(StageResult(stage.stage_id, PASS,
+                                                reason="真实链路通过（证据见 evidence）",
+                                                evidence=evidence))

@@ -14,8 +14,11 @@ CONFIG_SPIRAM_SPEED_80M=y
 CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
 
 # Wi-Fi station + WebSocket TLS to the relay/controller.
-CONFIG_ESP_TLS_INSECURE_SKIP_VERIFY=n
+CONFIG_ESP_TLS_INSECURE=n
 CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
+
+# The sketch partition table needs ~3.1 MB; the board is assumed to have 8 MB flash.
+CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
 
 # Partition table with NVS for the pairing media_token (never hardcode secrets).
 CONFIG_PARTITION_TABLE_CUSTOM=y

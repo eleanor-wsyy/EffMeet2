@@ -30,7 +30,7 @@
 
 `protocol.py` 管帧格式；`asr.py` 对接 FunASR；`tts.py` / `synthesize.ps1` 生成 Windows PCM；`media.py` 负责受控收发与回执。配置缺失时明确报错。
 
-已验证真实网络 + 合成服务闭环，以及 Windows TTS 格式。真实 ASR、千问、音频设备、ESP32、LiveKit、AEC/双讲尚未验收。`--simulate` 是模拟音频汇，不发声。
+已验证真实网络 + 合成服务闭环、Windows TTS 格式、本地 SenseVoiceSmall 真实 ASR，以及本地 LiveKit 房间的 `remote_1` 音轨 → relay → 真实 ASR 入账（`scripts/smoke_livekit_remote_asr.py`）。仍未验收：千问、真实扬声器/麦克风设备、ESP32、AEC/双讲、公网/TURN。`--simulate` 是模拟音频汇，不发声。
 
 公网 LiveKit 部署骨架（token 服务/自托管栈/生产鉴权缝，NOT-VERIFIED）见 [deploy/livekit/](../../deploy/livekit/README.md)；它复用本目录的 `livekit_token.issue_token` 与 `livekit_bridge`，不重复 JWT 逻辑。
 

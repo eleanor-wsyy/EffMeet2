@@ -65,8 +65,8 @@ class RealChainTests(unittest.TestCase):
     def test_real_chain_never_fakes_pass(self):
         results = E2EAcceptanceHarness(mode="real").run()
         for r in results:
-            # Until the physical execution path is implemented, a gated real run
-            # still reports NOT_RUN; the invariant is that PASS requires evidence.
+            # S1/S2 have real execution paths; S3-S6 are still bring-up. In every
+            # case the invariant is that PASS requires evidence.
             if r.status == PASS:
                 self.assertTrue(r.evidence, f"{r.stage_id} reported PASS without evidence")
             else:

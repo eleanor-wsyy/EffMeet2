@@ -15,14 +15,14 @@ rtc:
 redis:
   address: redis:6379
 
-keys:
-  # Populated from LIVEKIT_API_KEY / LIVEKIT_API_SECRET at deploy time.
-  # Do not commit real keys. Example placeholder only:
-  ${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}
+# Keys are NOT read from this file: livekit-server does not expand ${...} here.
+# docker-compose.yml passes them as LIVEKIT_KEYS="<key>: <secret>" instead.
 
 logging:
   level: info
 
 room:
-  auto_create: false
+  # The controller does not pre-create rooms via the server API; participants
+  # and the relay join by meeting_id, so the server must create rooms on join.
+  auto_create: true
   empty_timeout: 300

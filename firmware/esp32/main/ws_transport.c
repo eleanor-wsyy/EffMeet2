@@ -117,7 +117,7 @@ ws_transport_t *ws_transport_create(const char *uri, const char *bearer_token,
         free(t);
         return NULL;
     }
-    esp_websocket_client_register_events(t->client, WEBSOCKET_EVENT_ANY, on_ws_event, t);
+    esp_websocket_register_events(t->client, WEBSOCKET_EVENT_ANY, on_ws_event, t);
     return t;
 }
 

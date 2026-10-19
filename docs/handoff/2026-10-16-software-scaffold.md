@@ -3,6 +3,11 @@
 > 本次只**搭框架**，不声称任何实机/公网/硬件已通。所有新增外设与部署路径均标注
 > NOT-VERIFIED / NOT_RUN，遵循"未验证项不得改写为 PASS/已完成"的纪律。
 > 硬件打印/装配进度以 [hardware/robot-design/HANDOFF.md](../../hardware/robot-design/HANDOFF.md) 为准，本文只记软件。
+>
+> **2026-10-19 更新**：EFMA 编解码已用 `ziglang` 在主机编译并通过
+> （`scripts/test_efma_host.py` → `EFMA host tests passed (protocol.py parity)`）；
+> ESP-IDF 工程仍未编译/烧录。远程音频 Web 客户端也已接入，见
+> [路线A远程音频链路](2026-10-19-software-route-a.md)。
 
 ## 背景：未完成软件项的终局目标
 

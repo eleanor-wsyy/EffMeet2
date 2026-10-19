@@ -17,6 +17,8 @@ python -m venv .venv
 ## 已接通
 
 - 入会表单、麦克风权限检查、会中原图与观点列表、底部候选确认、会中与观点地图横滑浏览、JSON 证据导出。
+- **远程成员音频**：入会后向服务端申请短期 LiveKit token，按需动态加载本地 `vendor/livekit-client.esm.mjs` 加入会议房间；会中麦克风按钮首次点击才发布麦克风轨，再点关闭，离开会议时断开。token 只经 `Authorization` 头申请、只存内存，不进 URL。
+- 服务端未配置 LiveKit 时，入会与文字/候选/观点地图功能不受影响，底部只显示“音频未配置：服务端未设置 LiveKit”；不会伪造已连接。
 - 候选确认/拒绝、过期后仅本人主动重新校验、服务器 120 秒时限与版本检查；状态由后端回执驱动，不用假的倒计时或机器人动画。
 - `/app/` 与 API 同源；原 `/` 工作台不改。刷新后可用邀请链接重新入会，已决定候选由服务端保持不可重复决定；短时断线保留最后画面，联网/回到前台后主动恢复现有单一轮询。
 - PWA manifest、192/512 像素图标、iOS 主屏图标与仅作用于 `/app/` 静态壳的 Service Worker。可以在支持的 HTTPS 或 localhost 浏览器中安装；离线**只显示上次缓存的界面**，不能离线入会、读取会议证据、操作候选或导出新记录。API、认证和原图永不缓存。真实手机需要可访问的 HTTPS 部署，`127.0.0.1` 只代表当前设备。
@@ -24,7 +26,8 @@ python -m venv .venv
 ## 需要独立联调和现场验收
 
 - 目前只有本机 `remote_1`/`remote_2` 联调身份，昵称不是正式登录/鉴权；不能把本机预览称作公网产品。
-- 麦克风按钮仅请求权限并立即停止轨道；LiveKit 发送、真实录音/上传和红点录音中状态未接通。
+- 会中麦克风按钮已接 LiveKit 发布；但真实远程链路仍需可用的 LiveKit 服务、TLS、生产身份和两端实机验收。入会页的“允许麦克风”仍只做权限检查，不开始录音。
+- 服务端需配置 `LIVEKIT_URL` / `LIVEKIT_API_KEY` / `LIVEKIT_API_SECRET`；密钥只存服务端，前端只拿短期 token。CSP 会自动放行配置的 LiveKit `ws/wss` 源。
 - 现场 AI 描述接口未提供时保持“暂无已保存的 AI 描述”；不以文件名或编造文字替代。
 - 真实机器人播报、现场停顿安全、端到端音频链路，以及会议结束事件，必须由对应后端/设备接入并验证。本机模拟回执不代表现场播报。
 - 仍需 iOS Safari、Android Chrome 的主屏安装/麦克风权限与 4G/弱网重连实机验收；在本机不能冒充完成。
@@ -33,8 +36,10 @@ python -m venv .venv
 
 ```powershell
 ./.venv/Scripts/python.exe -m unittest discover -s tests
-node --test apps/web/tests/state.test.js
+node --test apps/web/tests/*.test.js
 ```
+
+媒体会话（`media.js`）用注入的假 Room 做单测，不需要真实 LiveKit；第三方 SDK 版本与许可见 `vendor/README.md`。
 
 ## 临时 HTTPS 真机演示
 

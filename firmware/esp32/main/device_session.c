@@ -6,6 +6,7 @@
  */
 #include "device_session.h"
 
+#include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -87,9 +88,9 @@ static void make_boot_id(char out[37]) {
     b[6] = (b[6] & 0x0F) | 0x40; /* version 4 */
     b[8] = (b[8] & 0x3F) | 0x80; /* variant */
     snprintf(out, 37,
-             "%08x-%04x-%04x-%04x-%012llx",
+             "%08" PRIx32 "-%04" PRIx32 "-%04" PRIx32 "-%04" PRIx32 "-%012" PRIx64,
              w[0], w[1] >> 16, w[1] & 0xFFFF, w[2] >> 16,
-             (unsigned long long)(((uint64_t)(w[2] & 0xFFFF) << 32) | w[3]));
+             ((uint64_t)(w[2] & 0xFFFF) << 32) | w[3]);
 }
 
 esp_err_t device_session_load_identity(device_identity_t *ident) {

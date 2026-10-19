@@ -1,0 +1,3700 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F0522E">
+<title>EffMeet 2</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<style>
+:root{
+  --app-bg:#F7F4EC;
+  --paper:#FFFFFF;
+  --ink:#26241F;
+  --muted:#7C7569;
+  --line:#EAE4D8;
+  --line-strong:#DED6C6;
+  --brand:#F0522E;
+  --brand-dark:#B23A1E;
+  --brand-soft:#FFF0EA;
+  --green:#3F7D54;
+  --green-soft:#EEF5F0;
+  --amber:#9A6424;
+  --amber-soft:#FBF1E2;
+  --shadow:0 1px 2px rgba(45,38,26,.035),0 10px 30px rgba(45,38,26,.035);
+  --radius:18px;
+  --safe-top:env(safe-area-inset-top,0px);
+  --safe-bottom:env(safe-area-inset-bottom,0px);
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html,body{height:100%}
+body{
+  margin:0;
+  background:#E9E4D9;
+  color:var(--ink);
+  font:14px/1.5 -apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+  overflow:hidden;
+  display:grid;
+  place-items:center;
+  -webkit-font-smoothing:antialiased;
+}
+button,input,select,textarea{font:inherit;color:inherit}
+button,a{-webkit-tap-highlight-color:transparent}
+button{cursor:pointer;touch-action:manipulation;border:0;background:none;padding:0}
+button:disabled{cursor:not-allowed;opacity:.45}
+a{color:var(--brand)}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,summary:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+h1,h2,h3,p,blockquote,figure,dl,dd,dt{margin:0}
+h1{font-size:26px;line-height:34px;font-weight:650;letter-spacing:-.6px}
+h2{font-size:15px;line-height:22px;font-weight:650;letter-spacing:-.1px}
+h3{font-size:14px;line-height:21px;font-weight:650}
+p{overflow-wrap:anywhere}
+img{max-width:100%}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.icon{display:block;flex-shrink:0;object-fit:contain}
+
+/* ---------- 应用外壳 ---------- */
+.app-shell{
+  width:100%;
+  max-width:430px;
+  height:100dvh;
+  max-height:900px;
+  background:var(--app-bg);
+  display:flex;
+  flex-direction:column;
+  position:relative;
+  overflow:hidden;
+  isolation:isolate;
+}
+.app-frame{flex:1;min-height:0;position:relative}
+.page{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  background:var(--app-bg);
+  overflow:hidden;
+}
+.page-scroll{
+  flex:1;
+  min-height:0;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding:0 20px 28px;
+  scrollbar-width:thin;
+  overscroll-behavior-y:contain;
+  -webkit-overflow-scrolling:touch;
+}
+.page-scroll::-webkit-scrollbar{width:4px}
+.page-scroll::-webkit-scrollbar-thumb{background:#D7D0C2;border-radius:4px}
+
+/* ---------- 底部导航 ---------- */
+.bottom-nav{
+  flex-shrink:0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line);
+  padding:6px 8px calc(6px + var(--safe-bottom));
+  z-index:5;
+}
+.bottom-nav button{
+  min-height:52px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:3px;
+  color:#8B8477;
+  font-size:10.5px;
+  font-weight:550;
+  border-radius:12px;
+  transition:color .15s ease,background .15s ease;
+}
+.bottom-nav button svg{width:21px;height:21px}
+.bottom-nav button:hover{color:var(--ink);background:#FBF8F1}
+.bottom-nav button.active{color:var(--brand)}
+.bottom-nav button.active svg{stroke-width:2}
+
+/* ---------- 通用 ---------- */
+.wordmark{display:flex;align-items:center;gap:9px;font-size:15px;font-weight:700;letter-spacing:-.2px}
+.brand-badge{
+  width:32px;height:32px;border-radius:10px;display:grid;place-items:center;
+  background:var(--brand);box-shadow:0 3px 8px rgba(240,82,46,.18);flex-shrink:0;
+}
+.demo-tag{
+  font-size:10.5px;font-weight:600;color:#8C6636;background:#FBF0DC;
+  border:1px solid #F0E2C7;padding:3px 8px;border-radius:999px;white-space:nowrap;
+}
+.count{font-size:11.5px;color:var(--muted);white-space:nowrap}
+.mini-tag{
+  font-size:10px;color:var(--muted);background:#F2EEE5;border-radius:6px;
+  padding:2px 6px;white-space:nowrap;
+}
+.eyebrow{font-size:10.5px;font-weight:650;color:var(--muted);letter-spacing:.02em}
+.footnote{font-size:10.5px;line-height:1.7;color:#928A7C;margin-top:16px}
+.card{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.card-list{display:grid;gap:10px}
+.text-button{
+  min-height:40px;padding:6px 2px;font-size:12px;color:var(--muted);
+  display:inline-flex;align-items:center;gap:4px;white-space:nowrap;
+}
+.text-button:hover{color:var(--ink)}
+.text-link{
+  min-height:36px;padding:4px 0;font-size:11.5px;font-weight:600;color:var(--brand);
+  display:inline-flex;align-items:center;gap:2px;
+}
+.text-link:hover{color:var(--brand-dark)}
+.button{
+  min-height:48px;padding:11px 14px;border-radius:12px;border:1px solid transparent;
+  font-weight:600;font-size:13.5px;display:flex;align-items:center;justify-content:center;gap:7px;
+  width:100%;transition:background .15s ease,border-color .15s ease,transform .1s ease;
+}
+.button.primary{background:var(--brand);color:#fff;box-shadow:0 2px 5px rgba(178,58,30,.12)}
+.button.primary:hover:not(:disabled){background:#DD4524}
+.button.secondary{background:var(--paper);border-color:var(--line-strong);color:var(--ink)}
+.button.secondary:hover:not(:disabled){border-color:#CBBFA9;background:#FDFBF6}
+.button:active:not(:disabled){transform:translateY(1px)}
+.button.full{width:100%;margin-top:12px}
+.error{
+  font-size:12px;color:#A4321C;background:#FFF0ED;border-radius:10px;
+  padding:9px 11px;overflow-wrap:anywhere;
+}
+.section{margin-top:22px}
+.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.section-head h2{font-size:15px}
+.empty-state{
+  text-align:center;padding:34px 20px;background:var(--paper);border:1px solid var(--line);
+  border-radius:20px;margin-top:8px;
+}
+.empty-icon{
+  width:54px;height:54px;border-radius:16px;background:var(--brand-soft);color:var(--brand);
+  display:grid;place-items:center;margin:0 auto 14px;
+}
+.empty-state h2{font-size:16px;margin-bottom:7px}
+.empty-state p{font-size:12.5px;line-height:1.75;color:var(--muted);max-width:270px;margin:0 auto}
+.empty-actions{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:18px}
+
+/* ---------- 首页 ---------- */
+.home-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-top:max(18px,var(--safe-top));
+}
+.greeting{margin:18px 0 14px;font-size:25px;line-height:33px}
+.greeting span{color:var(--brand)}
+.hero{
+  position:relative;display:flex;align-items:center;gap:10px;
+  padding:17px 16px;background:#FFF8E9;border:1px solid #F0E4CC;border-radius:22px;
+  overflow:hidden;
+}
+.hero-copy{flex:1;min-width:0}
+.hero-kicker{font-size:10.5px;font-weight:650;color:#A07538;letter-spacing:.06em}
+.hero-title{font-size:18px;line-height:25px;font-weight:650;margin:3px 0 9px}
+.status-chips{display:flex;flex-wrap:wrap;gap:5px}
+.status-chip{
+  display:inline-flex;align-items:center;gap:5px;font-size:10px;color:#655D4F;
+  background:rgba(255,255,255,.72);border:1px solid #EEE2CB;border-radius:999px;
+  padding:4px 7px;white-space:nowrap;
+}
+.status-dot{width:6px;height:6px;border-radius:50%;background:#C7BEAC;flex-shrink:0}
+.status-dot.ok{background:var(--green)}
+.hero-note{font-size:9.5px;color:#9A8C73;margin-top:8px;line-height:1.5}
+.reconnect-button{
+  margin-top:7px;min-height:28px;display:inline-flex;align-items:center;gap:5px;
+  font-size:9.5px;font-weight:600;color:var(--brand-dark);background:rgba(255,255,255,.72);
+  border:1px solid #EFD9C7;border-radius:999px;padding:3px 8px;
+}
+.reconnect-button:hover{background:#FFFDF8;border-color:#E7C4B2}
+.reconnect-button:disabled{opacity:.6}
+.robot{
+  width:108px;height:108px;flex-shrink:0;object-fit:contain;
+  filter:drop-shadow(0 8px 12px rgba(118,92,50,.10));
+}
+.quick-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:13px 0 4px}
+.quick-action{
+  min-height:78px;border-radius:16px;background:var(--paper);border:1px solid var(--line);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;
+  font-size:11.5px;font-weight:600;color:var(--ink);padding:10px 4px;
+  box-shadow:var(--shadow);transition:transform .12s ease,border-color .15s ease;
+}
+.quick-action:hover{border-color:#D8CDB9}
+.quick-action:active{transform:translateY(1px)}
+.quick-action.primary{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 5px 14px rgba(240,82,46,.18)}
+.quick-icon{
+  width:34px;height:34px;border-radius:11px;display:grid;place-items:center;
+  background:#F7F2E7;color:var(--ink);
+}
+.quick-action.primary .quick-icon{background:rgba(255,255,255,.16);color:#fff}
+.scan-entry{
+  width:100%;display:flex;align-items:center;gap:10px;margin:10px 0 2px;
+  padding:10px 12px;background:var(--paper);border:1px solid var(--line);
+  border-radius:16px;text-align:left;box-shadow:var(--shadow);
+}
+.scan-entry:hover{border-color:#D8CDB9}
+.scan-entry-icon{
+  width:38px;height:38px;border-radius:12px;background:var(--brand-soft);color:var(--brand-dark);
+  display:grid;place-items:center;flex-shrink:0;
+}
+.scan-entry-copy{flex:1;min-width:0;display:grid;gap:1px}
+.scan-entry-copy b{font-size:12.5px;font-weight:600;color:var(--ink)}
+.scan-entry-copy small{font-size:9.5px;color:var(--muted);line-height:1.45}
+
+/* 会议记录列表 */
+.record-list{background:var(--paper);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.record-row{display:flex;align-items:stretch;border-top:1px solid #F2EDE3}
+.record-row:first-child{border-top:0}
+.record-hit{
+  flex:1;min-width:0;display:flex;align-items:flex-start;gap:12px;
+  padding:13px 12px 13px 14px;text-align:left;
+}
+.record-hit:hover{background:#FDFBF6}
+.record-date{
+  width:40px;flex-shrink:0;text-align:center;padding-top:1px;
+}
+.record-date strong{display:block;font-size:16px;line-height:19px;font-weight:650;letter-spacing:-.3px}
+.record-date span{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+.record-main{flex:1;min-width:0;display:block}
+.record-title{
+  display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden;
+  font-size:13.5px;line-height:19px;font-weight:600;color:var(--ink);
+}
+.record-meta{font-size:10.5px;color:var(--muted);margin-top:3px;display:flex;flex-wrap:wrap;gap:4px 8px}
+.record-summary{
+  font-size:11.5px;line-height:1.65;color:#6F685C;margin-top:5px;
+  display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;
+}
+.record-chev{color:#B7AE9D;flex-shrink:0;align-self:center;margin-right:10px}
+.record-actions{display:flex;gap:6px;align-items:center;padding:0 12px 0 0}
+.record-actions button{
+  font-size:10.5px;font-weight:600;color:var(--muted);
+  border:1px solid var(--line);border-radius:8px;padding:7px 8px;min-height:34px;background:#FCFAF5;
+}
+.record-actions button.start{color:var(--brand);border-color:#F4D2C7;background:#FFF6F2}
+.record-actions button:hover{border-color:#CFC4B0}
+.upcoming-row{padding:12px 14px;border-top:1px solid #F2EDE3}
+.upcoming-row:first-child{border-top:0}
+.upcoming-main{display:flex;align-items:flex-start;gap:10px}
+.upcoming-time{
+  flex-shrink:0;font-size:10.5px;font-weight:650;color:var(--brand);
+  background:var(--brand-soft);border-radius:8px;padding:5px 7px;white-space:nowrap;
+}
+.upcoming-copy{flex:1;min-width:0}
+.upcoming-copy h3{font-size:13px;line-height:19px;font-weight:600}
+.upcoming-copy p{font-size:10.5px;color:var(--muted);margin-top:2px}
+.upcoming-actions{display:flex;gap:6px;justify-content:flex-end;margin-top:8px}
+.upcoming-actions button{
+  font-size:10.5px;font-weight:600;min-height:32px;padding:6px 9px;border-radius:8px;
+  border:1px solid var(--line);background:#FCFAF5;color:var(--muted);
+}
+.upcoming-actions button.start{color:var(--brand);border-color:#F4D2C7;background:#FFF6F2}
+.empty-inline{
+  padding:22px 16px;text-align:center;font-size:12px;color:var(--muted);
+  background:var(--paper);border:1px dashed var(--line-strong);border-radius:16px;
+}
+
+/* ---------- 页面标题 ---------- */
+.page-head{
+  display:flex;align-items:flex-end;justify-content:space-between;gap:12px;
+  padding-top:max(20px,var(--safe-top));margin-bottom:14px;
+}
+.page-head h1{font-size:26px;line-height:34px}
+.page-subtitle{font-size:12px;line-height:1.7;color:var(--muted);margin:2px 0 16px}
+.subpage-head{
+  flex-shrink:0;display:flex;align-items:center;gap:4px;
+  padding:max(8px,var(--safe-top)) 12px 8px;
+  border-bottom:1px solid var(--line);
+  background:rgba(247,244,236,.96);
+}
+.subpage-head h1{font-size:16px;line-height:24px;font-weight:650;flex:1;text-align:center;letter-spacing:-.2px}
+.back-button{
+  width:42px;height:42px;border-radius:12px;display:grid;place-items:center;color:var(--ink);
+  flex-shrink:0;
+}
+.back-button:hover{background:#EFEADF}
+.head-spacer{width:42px;flex-shrink:0}
+.subpage-intro{padding:18px 2px 14px}
+.subpage-intro h2{font-size:19px;line-height:27px;letter-spacing:-.3px}
+.subpage-intro p{font-size:12px;line-height:1.7;color:var(--muted);margin-top:5px}
+
+/* ---------- 会议页 ---------- */
+.meeting-live{display:flex;flex-direction:column;height:100%;min-height:0}
+.meeting-head{
+  flex-shrink:0;padding:max(8px,var(--safe-top)) 20px 11px;
+  background:rgba(247,244,236,.97);border-bottom:1px solid var(--line);
+}
+.meeting-topline{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.live-pill{
+  display:inline-flex;align-items:center;gap:6px;font-size:10.5px;font-weight:600;
+  color:var(--brand-dark);background:var(--brand-soft);border:1px solid #F6D8CD;
+  border-radius:999px;padding:4px 9px;
+}
+.live-dot{width:6px;height:6px;border-radius:50%;background:var(--brand);animation:pulse 1.8s infinite}
+.pill-sep{color:#CF9C8A;margin:0 -2px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.35}}
+.danger-text{color:var(--brand-dark);font-size:11.5px}
+.meeting-title-row{display:flex;align-items:flex-start;gap:10px;margin-top:7px}
+.meeting-title-row h1{
+  flex:1;min-width:0;font-size:21px;line-height:29px;font-weight:650;letter-spacing:-.4px;
+  overflow-wrap:anywhere;
+}
+.map-entry{
+  flex-shrink:0;display:inline-flex;align-items:center;gap:5px;
+  background:var(--paper);border:1px solid var(--line-strong);border-radius:10px;
+  padding:8px 9px;font-size:11px;font-weight:600;color:var(--ink);margin-top:1px;
+}
+.map-entry:hover{border-color:#D1B7A8;color:var(--brand)}
+.meeting-meta{
+  display:flex;justify-content:space-between;gap:10px;font-size:10.5px;color:var(--muted);
+  margin-top:5px;font-variant-numeric:tabular-nums;
+}
+.demo-banner{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  background:#FFF6F2;border:1px solid #F4D8CE;border-radius:10px;
+  padding:7px 9px;margin-top:9px;font-size:10.5px;color:#8D4B37;
+}
+.demo-banner .text-button{min-height:28px;font-size:10.5px;color:var(--brand-dark)}
+.meeting-scroll{padding-top:13px;padding-bottom:20px}
+.meeting-stage{margin-bottom:12px}
+.stage-main{
+  position:relative;display:flex;align-items:flex-end;min-height:172px;padding:14px;
+  background:var(--stage-tint,#FFF8E9);border:1px solid #EFE3CB;border-radius:20px;
+  overflow:hidden;
+}
+.stage-visual{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none}
+.stage-avatar{
+  width:96px;height:96px;border-radius:50%;display:grid;place-items:center;
+  background:var(--stage-color,#6F8564);color:#fff;font-size:32px;font-weight:650;
+  box-shadow:0 0 0 4px rgba(255,255,255,.65),0 8px 20px rgba(60,47,28,.12);
+}
+.stage-preview{position:absolute;inset:0;background:#2E2A24}
+.stage-preview video{width:100%;height:100%;object-fit:cover;display:block}
+.preview-fallback{
+  position:absolute;inset:0;display:grid;place-content:center;gap:6px;
+  color:#FFE9CF;text-align:center;font-size:10px;
+}
+.preview-note{
+  position:absolute;top:11px;left:12px;z-index:2;font-size:8.5px;color:#F7E7CE;
+  background:rgba(24,22,19,.55);border-radius:5px;padding:2px 6px;
+}
+.stage-info{
+  position:relative;z-index:1;max-width:calc(100% - 20px);margin-top:auto;
+  background:rgba(255,255,255,.9);backdrop-filter:blur(6px);
+  border:1px solid rgba(70,60,45,.07);border-radius:12px;padding:8px 10px;
+}
+.stage-info h2{font-size:16px;line-height:22px}
+.stage-info p{font-size:10px;color:var(--muted);margin-top:1px}
+.stage-tag{
+  position:absolute;top:12px;right:12px;z-index:2;font-size:9px;font-weight:650;
+  color:var(--brand-dark);background:rgba(255,255,255,.84);border:1px solid #F0D8CC;
+  border-radius:999px;padding:3px 7px;
+}
+.filmstrip{
+  display:flex;gap:7px;overflow-x:auto;margin-top:8px;padding:2px 2px 4px;
+  scrollbar-width:none;
+}
+.filmstrip::-webkit-scrollbar{display:none}
+.filmstrip button{
+  flex-shrink:0;width:52px;display:flex;flex-direction:column;align-items:center;gap:3px;
+  padding:4px 2px;border-radius:12px;border:1px solid transparent;color:var(--muted);
+}
+.filmstrip button:hover{background:#FBF8F0}
+.filmstrip button.focused{border-color:#F0C9BC;background:#FFF7F3;color:var(--ink)}
+.filmstrip .participant-name{
+  font-size:8.5px;color:inherit;line-height:1.2;max-width:50px;
+  overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
+}
+.filmstrip button.speaking .avatar{box-shadow:0 0 0 2px var(--app-bg),0 0 0 4px var(--brand)}
+.filmstrip button.speaking .participant-name{color:var(--brand-dark);font-weight:650}
+.avatar{
+  border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:650;
+  letter-spacing:-.2px;flex-shrink:0;background:var(--avatar-bg,#8A8377);
+}
+.avatar-sm{width:30px;height:30px;font-size:11px}
+.avatar-md{width:36px;height:36px;font-size:12.5px}
+.avatar-lg{width:48px;height:48px;font-size:17px}
+#profile-avatar{--avatar-bg:#6F8564}
+.meeting-blocks{display:flex;flex-direction:column;gap:11px}
+.card-head{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.card-head h2{font-size:13.5px;line-height:20px}
+.card-head-actions{display:flex;align-items:center;gap:7px;flex-shrink:0}
+.shared-card,.transcript-card{padding:13px 14px}
+.capture-frame{
+  display:block;width:100%;padding:0;border:0;background:#F6F2E7;
+  border-radius:12px;overflow:hidden;margin:10px 0 11px;text-align:left;
+}
+.capture-frame img{display:block;width:100%;height:auto}
+.capture-frame:hover{filter:brightness(.99)}
+.capture-desc{display:flex;align-items:flex-start;gap:9px}
+.capture-desc p{font-size:11.5px;line-height:1.65;color:#5F584C}
+.capture-meta{font-size:9.5px;color:#9B9283;margin-top:6px}
+.live-indicator{display:inline-flex;align-items:center;gap:4px;font-size:9.5px;color:var(--green)}
+.live-indicator span{width:5px;height:5px;border-radius:50%;background:var(--green);animation:pulse 1.8s infinite}
+.transcript-list{list-style:none;padding:0;margin:10px 0 0;display:grid;gap:9px}
+.transcript-item{display:flex;gap:8px;align-items:flex-start}
+.transcript-time{
+  width:38px;flex-shrink:0;font-size:9.5px;color:#A09685;padding-top:2px;
+  font-variant-numeric:tabular-nums;
+}
+.transcript-copy{flex:1;min-width:0}
+.transcript-speaker{font-size:10px;font-weight:650;line-height:1.4}
+.transcript-copy p{font-size:12px;line-height:1.7;color:#3B3730;margin-top:1px}
+.transcript-item.latest{
+  background:#FCF8EE;border-radius:9px;padding:7px 8px;margin:-2px -2px -2px -2px;
+}
+.transcript-note{font-size:9.5px;color:#9B9283;margin-top:9px;line-height:1.6}
+.meeting-note{font-size:10px;line-height:1.7;color:#958C7D;margin-top:12px}
+
+.pending-card{padding:13px 14px}
+.pending-card h3{font-size:12.5px;line-height:18px;margin-bottom:5px}
+.pending-card>p{font-size:12px;line-height:1.7;color:#5B554A}
+.pending-bottom{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-top:10px;padding-top:9px;border-top:1px solid #F2EDE3;
+}
+.pending-status{font-size:10.5px;line-height:1.5;color:var(--muted)}
+.pending-status.expired{color:var(--amber)}
+.pending-status.done{color:var(--green)}
+.pending-bottom button{
+  flex-shrink:0;min-height:36px;padding:7px 10px;border-radius:8px;
+  font-size:10.5px;font-weight:600;color:var(--brand-dark);
+  background:#FFF6F2;border:1px solid #F4D2C7;
+}
+.pending-bottom button:hover{background:#FFF0EA}
+.pending-empty{font-size:11.5px;color:var(--muted);padding:14px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:14px}
+
+.meeting-bar{
+  flex-shrink:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;
+  background:#FFFBF4;border-top:1px solid #EADFD0;
+  box-shadow:0 -6px 18px rgba(120,80,50,.06);
+  padding:7px 6px calc(7px + var(--safe-bottom));z-index:4;
+}
+.bar-button{
+  min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;border-radius:10px;color:#6F6557;font-size:9.5px;font-weight:500;line-height:1.2;
+  transition:background .15s ease,color .15s ease;
+}
+.bar-button:hover{background:#FFF2E9}
+.bar-button:active{background:#FFE7DA}
+.bar-button span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-icon{position:relative;display:grid;place-items:center;width:24px;height:24px;flex-shrink:0}
+.bar-button svg{width:22px;height:22px}
+.bar-button.on{color:var(--brand);background:var(--brand-soft)}
+.bar-button.muted{color:#C0492B}
+.bar-button.muted .bar-icon::after{
+  content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;border-radius:2px;
+  background:#E05B45;transform:translate(-50%,-50%) rotate(-45deg);
+}
+.attendee-list{display:grid;gap:7px}
+.attendee-row{
+  display:flex;align-items:center;gap:9px;background:#FAF7F0;border:1px solid #EDE7DA;
+  border-radius:11px;padding:8px 9px;
+}
+.attendee-copy{flex:1;min-width:0}
+.attendee-copy b{display:block;font-size:11.5px;font-weight:600;overflow-wrap:anywhere}
+.attendee-copy small{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+.attendee-badge{font-size:8.5px;color:var(--brand-dark);background:var(--brand-soft);border-radius:5px;padding:2px 5px;white-space:nowrap}
+
+/* ---------- 搜索与历史 ---------- */
+.search-wrap{
+  display:flex;align-items:center;gap:8px;height:46px;padding:0 12px;
+  background:var(--paper);border:1px solid var(--line);border-radius:13px;color:#9B9283;
+}
+.search-wrap:focus-within{border-color:#D4B6A8}
+.search-wrap input{
+  flex:1;min-width:0;border:0;background:transparent;outline:0;font-size:16px;color:var(--ink);
+}
+.search-wrap input::placeholder{color:#A79E8F}
+.filter-row{display:flex;gap:7px;overflow-x:auto;padding:11px 0 13px;scrollbar-width:none}
+.filter-row::-webkit-scrollbar{display:none}
+.chip{
+  flex-shrink:0;min-height:32px;padding:0 12px;border-radius:999px;
+  border:1px solid var(--line);background:var(--paper);font-size:10.5px;font-weight:600;color:var(--muted);
+}
+.chip.active{background:var(--brand-soft);border-color:#F3CDBF;color:var(--brand-dark)}
+.history-empty{padding:36px 16px;text-align:center;background:var(--paper);border:1px solid var(--line);border-radius:18px}
+.history-empty p{font-size:12.5px;color:var(--muted);line-height:1.7}
+.history-empty button{margin-top:14px;min-height:38px;padding:8px 14px;border-radius:9px;background:var(--brand-soft);color:var(--brand-dark);font-size:11.5px;font-weight:600}
+
+/* ---------- 我的 ---------- */
+.user-card{
+  display:flex;align-items:center;gap:12px;padding:14px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.user-copy{flex:1;min-width:0}
+.user-copy h2{font-size:16px;line-height:23px}
+.user-copy p{font-size:10.5px;color:var(--muted);margin-top:2px}
+.quota-card{
+  margin-top:12px;padding:15px;background:#FFF8E9;border:1px solid #F0E4CC;border-radius:20px;
+}
+.quota-card .section-head{margin-bottom:8px}
+.badge{
+  font-size:10px;font-weight:650;color:#8C6636;background:#FBF0DC;
+  border:1px solid #F0E2C7;border-radius:999px;padding:2px 7px;
+}
+.quota-main{display:flex;align-items:baseline;gap:6px;margin:2px 0 10px}
+.quota-main strong{font-size:34px;line-height:38px;font-weight:650;letter-spacing:-1px;color:var(--brand-dark)}
+.quota-main span{font-size:10.5px;color:#8E826E}
+.quota-bar{height:8px;border-radius:999px;background:#EDE2CA;overflow:hidden}
+.quota-bar span{display:block;height:100%;background:var(--brand);border-radius:999px;transition:width .3s ease}
+.quota-meta{display:flex;flex-wrap:wrap;gap:3px 12px;margin-top:9px;font-size:9.5px;color:#8E826E}
+.quota-meta b{font-weight:650;color:#5F5749}
+.quota-card .footnote{margin-top:9px;color:#9B8E76}
+.plan-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.plan-card{
+  background:var(--paper);border:1px solid var(--line);border-radius:15px;padding:11px;
+}
+.plan-card.pro{background:#FFF9F6;border-color:#F4D8CD}
+.plan-head{display:flex;align-items:center;justify-content:space-between;gap:4px}
+.plan-head h3{font-size:12.5px}
+.plan-current{
+  display:none;font-size:8.5px;font-weight:650;color:var(--brand-dark);
+  background:var(--brand-soft);border-radius:5px;padding:1px 5px;
+}
+.plan-current.show{display:inline-block}
+.plan-rows{margin-top:9px;display:grid;gap:6px}
+.plan-rows>div{display:flex;justify-content:space-between;gap:6px;font-size:9.5px;line-height:1.4}
+.plan-rows dt{color:var(--muted)}
+.plan-rows dd{font-weight:650;color:var(--ink);text-align:right}
+.settings-card{
+  margin-top:20px;background:var(--paper);border:1px solid var(--line);
+  border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);
+}
+.settings-row{
+  width:100%;display:flex;align-items:center;gap:10px;text-align:left;
+  padding:12px 13px;border-top:1px solid #F2EDE3;min-height:56px;
+}
+.settings-row:first-child{border-top:0}
+.settings-row:hover{background:#FDFBF6}
+.settings-icon{
+  width:32px;height:32px;border-radius:10px;background:#F6F1E6;color:#6E6557;
+  display:grid;place-items:center;flex-shrink:0;
+}
+.settings-copy{flex:1;min-width:0;display:grid;gap:1px}
+.settings-copy b{font-size:12.5px;font-weight:600}
+.settings-copy small{font-size:9.5px;color:var(--muted);line-height:1.45}
+.soon-badge{
+  flex-shrink:0;font-size:9px;font-weight:600;color:#9A6424;background:#FBF1E2;
+  border:1px solid #F0DFC4;border-radius:999px;padding:2px 6px;white-space:nowrap;
+}
+.chev{color:#B3AA9B;flex-shrink:0}
+.settings-row.danger .settings-icon{background:#FFF0ED;color:#B23A1E}
+.settings-row.danger .settings-copy b{color:#A4321C}
+.settings-entry{
+  width:100%;display:flex;align-items:center;gap:10px;margin-top:12px;padding:12px 13px;
+  background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);text-align:left;
+}
+.settings-entry:hover{border-color:#D8CDB9}
+.settings-group{margin-top:18px}
+.settings-group>h2{font-size:10.5px;font-weight:650;color:var(--muted);margin:0 2px 7px;letter-spacing:.02em}
+.settings-group .settings-card{margin-top:0}
+.settings-row.static{cursor:default}
+.settings-row.static:hover{background:transparent}
+.switch{
+  width:40px;height:24px;border-radius:999px;background:#DCD5C7;padding:2px;
+  flex-shrink:0;transition:background .18s ease;
+}
+.switch span{
+  display:block;width:20px;height:20px;border-radius:50%;background:#fff;
+  box-shadow:0 1px 2px rgba(40,32,20,.16);transition:transform .18s ease;
+}
+.switch.on{background:var(--brand)}
+.switch.on span{transform:translateX(16px)}
+
+/* ---------- 加入会议 / 预定 ---------- */
+.join-form,.schedule-form{padding:17px 15px;display:grid;gap:18px}
+.field{display:grid;gap:9px}
+.step-title{display:flex;align-items:center;gap:8px;font-weight:600;font-size:13px;line-height:21px}
+.step-number{
+  width:22px;height:22px;display:grid;place-items:center;background:#F3EEE3;color:var(--muted);
+  border-radius:7px;font-size:11px;flex-shrink:0;
+}
+.input-wrap{
+  display:flex;align-items:center;gap:8px;padding:0 11px;
+  border:1px solid var(--line-strong);border-radius:11px;background:#FCFAF5;
+  min-width:0;transition:border-color .15s ease,background .15s ease;
+}
+.input-wrap:focus-within{border-color:var(--brand);background:#FFFDF9}
+.input-wrap input{
+  background:transparent;border:0;padding:12px 0;min-height:48px;width:100%;min-width:0;outline:0;
+  font-size:16px;
+}
+.input-wrap input:focus-visible{outline:0}
+.input-wrap input::placeholder{color:#A79E8F;font-size:14px}
+.input-wrap input[type="date"],.input-wrap input[type="time"]{font-size:15px;padding:12px 0}
+.select-wrap{padding:0 6px 0 11px}
+.select-wrap select{
+  width:100%;min-height:48px;border:0;background:transparent;outline:0;font-size:16px;
+  color:var(--ink);appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m6 9 6 6 6-6' stroke='%237C7569' stroke-width='1.8' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 8px center;
+}
+.field-hint{font-size:10.5px;color:var(--muted);line-height:1.65}
+.field>.field-hint{margin-top:-3px}
+.permission{
+  padding:12px;border:1px solid var(--line);border-radius:13px;background:#FCFAF5;
+  display:grid;gap:10px;
+}
+.permission-intro{display:flex;align-items:flex-start;gap:10px}
+.permission-intro p{font-size:12.5px;line-height:1.7}
+.permission-icon{
+  width:36px;height:36px;border-radius:10px;background:#F3EEE3;
+  display:grid;place-items:center;flex-shrink:0;
+}
+.permission .button{min-height:42px;font-size:12.5px;color:var(--brand);background:var(--paper)}
+.join-action{border-top:1px solid var(--line);padding-top:14px}
+.join-action .button{min-height:50px}
+#j-submit img{filter:brightness(0) invert(1);opacity:.92}
+.dev-identity{font-size:10.5px;color:var(--muted);margin-top:-4px}
+.dev-identity summary{cursor:pointer;min-height:30px;line-height:30px}
+.dev-identity select{
+  margin:7px 0;width:100%;min-height:42px;padding:8px;background:#FCFAF5;
+  border:1px solid var(--line);border-radius:9px;color:var(--ink);
+}
+.two-col{grid-template-columns:1fr 1fr;gap:9px}
+.two-col>div{display:grid;gap:9px;min-width:0}
+.two-col .step-number{width:21px;height:21px}
+
+/* ---------- 观点地图 ---------- */
+.map-subpage-head .text-button{min-height:40px;color:var(--brand);padding-right:4px}
+.stats{
+  display:grid;grid-template-columns:repeat(3,1fr);background:var(--paper);
+  border:1px solid var(--line);border-radius:16px;padding:12px 0;margin-bottom:13px;
+  box-shadow:var(--shadow);
+}
+.stats>div{display:flex;flex-direction:column;align-items:center;gap:3px}
+.stats>div+div{border-left:1px solid var(--line)}
+.stats strong{font-size:20px;line-height:26px;font-weight:650}
+.stats span{font-size:10px;color:var(--muted)}
+.stats>div:nth-child(2) strong{color:var(--green)}
+.stats>div:nth-child(3) strong{color:var(--amber)}
+.opinion-card{padding:13px 14px}
+.opinion-head{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px;font-size:10.5px;color:var(--muted)}
+.opinion-head strong{color:var(--ink);font-weight:600;font-size:11.5px}
+.tag{font-size:10px;font-weight:600;line-height:16px;white-space:normal;flex-shrink:0}
+.tag.ok{color:var(--green)}
+.tag.warn{color:var(--amber)}
+.opinion-text{font-size:12.5px;line-height:1.75;overflow-wrap:anywhere;white-space:pre-wrap}
+.reply{
+  background:#F6F3EA;border-radius:10px;padding:8px 9px;margin-top:9px;color:#6E675A;
+  font-size:11px;line-height:1.7;white-space:pre-wrap;overflow-wrap:anywhere;
+}
+.reply.ok{background:var(--green-soft)}
+.opinion-card details{margin-top:9px;border-top:1px solid var(--line);padding-top:3px}
+.opinion-card summary{
+  list-style:none;min-height:36px;display:flex;align-items:center;gap:4px;
+  font-size:11px;font-weight:600;color:var(--brand);cursor:pointer;
+}
+.opinion-card summary::-webkit-details-marker{display:none}
+.opinion-card summary::before{content:"›";font-size:15px;line-height:1;transform:translateY(-1px);display:inline-block}
+.opinion-card details[open] summary::before{transform:rotate(90deg) translateX(-1px)}
+.opinion-card details p{font-size:10.5px;line-height:1.7;color:var(--muted);padding:5px 0;white-space:pre-wrap;overflow-wrap:anywhere}
+.map-card .tag{display:block;padding:6px 8px;border-radius:8px;background:#F6F3EA;margin-bottom:8px;font-size:11.5px;font-weight:500}
+.map-card .tag.ok{background:var(--green-soft)}
+.map-card .tag.warn{background:var(--amber-soft)}
+.map-card .opinion-head{justify-content:flex-start;font-size:12px;margin-bottom:7px}
+
+/* ---------- 会议详情 ---------- */
+.detail-head{justify-content:space-between}
+.detail-title-block{padding:12px 20px 10px;flex-shrink:0}
+.detail-title-row{display:flex;align-items:center;gap:8px}
+.detail-title-row h1{font-size:22px;line-height:29px;flex:1;min-width:0;overflow-wrap:anywhere}
+.detail-meta{font-size:10.5px;color:var(--muted);margin-top:4px;line-height:1.6}
+.tabs{
+  flex-shrink:0;display:grid;grid-template-columns:repeat(3,1fr);
+  border-bottom:1px solid var(--line);padding:0 14px;background:var(--app-bg);
+}
+.tabs button{
+  min-height:42px;font-size:11.5px;font-weight:600;color:var(--muted);
+  position:relative;
+}
+.tabs button.active{color:var(--ink)}
+.tabs button.active::after{
+  content:"";position:absolute;left:22%;right:22%;bottom:-1px;height:2px;
+  border-radius:2px;background:var(--brand);
+}
+.detail-scroll{padding-top:14px;padding-bottom:30px}
+
+.summary-box{
+  background:#FFF8E9;border:1px solid #F0E4CC;border-radius:16px;padding:13px 14px;
+}
+.summary-box p{font-size:12.5px;line-height:1.8;color:#4E473B}
+.detail-section{margin-bottom:20px}
+.detail-section>h2{font-size:12px;color:var(--muted);font-weight:650;margin-bottom:8px}
+.conclusion-list,.todo-list{list-style:none;padding:0;margin:0;display:grid;gap:7px}
+.conclusion-list li{
+  display:flex;align-items:flex-start;gap:8px;background:var(--paper);
+  border:1px solid var(--line);border-radius:12px;padding:10px 11px;
+  font-size:12px;line-height:1.7;color:#3B3730;
+}
+.conclusion-list li::before{
+  content:"";width:14px;height:14px;border-radius:50%;flex-shrink:0;margin-top:2px;
+  background:var(--green-soft);
+  border:1px solid #CBE0D2;
+  box-shadow:inset 0 0 0 3px var(--green-soft);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='m5 12 5 5 9-10' stroke='%233F7D54' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:center;
+}
+.todo-item{
+  display:flex;align-items:flex-start;gap:9px;background:var(--paper);
+  border:1px solid var(--line);border-radius:12px;padding:10px 11px;
+}
+.todo-item input{
+  width:17px;height:17px;margin:2px 0 0;accent-color:var(--brand);flex-shrink:0;
+}
+.todo-item label{flex:1;min-width:0;font-size:12px;line-height:1.65;cursor:pointer}
+.todo-item.done label{color:#9A9285;text-decoration:line-through}
+.todo-owner{
+  display:inline-block;font-size:9px;color:var(--muted);background:#F4F0E7;
+  border-radius:4px;padding:1px 5px;margin-left:5px;vertical-align:1px;
+}
+.minutes-empty{font-size:11.5px;color:var(--muted);padding:12px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:12px}
+
+/* 观点图谱（Miro Affinity Diagram 风格） */
+.affinity-topic{margin-bottom:18px}
+.affinity-topic>header{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:0 2px 7px;border-bottom:1px solid var(--line);margin-bottom:8px;
+}
+.affinity-topic>header h3{font-size:12.5px;line-height:18px}
+.affinity-topic>header span{font-size:9.5px;color:var(--muted)}
+.note-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(148px,1fr));gap:8px;align-items:start}
+.note-grid>.opinion-note:only-child{grid-column:1/-1}
+.opinion-note{
+  display:flex;flex-direction:column;align-items:flex-start;gap:5px;text-align:left;
+  min-width:0;min-height:88px;padding:9px 10px 9px 11px;
+  background:var(--note-bg,#F5F1E8);
+  border:1px solid rgba(87,76,55,.08);
+  border-left:3px solid var(--note-color,#8A8377);
+  border-radius:10px;
+  box-shadow:0 1px 2px rgba(50,42,28,.05);
+  transition:transform .12s ease,box-shadow .12s ease;
+}
+.opinion-note:hover{transform:translateY(-1px);box-shadow:0 4px 10px rgba(50,42,28,.08)}
+.note-speaker{font-size:9.5px;font-weight:650;color:var(--note-color,#6E675A);line-height:1.3}
+.opinion-note p{
+  font-size:11.5px;line-height:1.7;color:#3B3730;white-space:normal;
+  overflow-wrap:anywhere;word-break:break-word;
+  display:block;overflow:visible;
+}
+.note-foot{display:flex;align-items:center;justify-content:space-between;gap:5px;width:100%;margin-top:auto}
+.note-status{font-size:9px;color:#7C7466;background:rgba(255,255,255,.55);border-radius:4px;padding:1px 4px}
+.note-hint{font-size:9px;color:#8E8576}
+
+/* 完整转写（按时间顺序） */
+.full-transcript{
+  background:var(--paper);border:1px solid var(--line);border-radius:16px;
+  padding:2px 14px;box-shadow:var(--shadow);
+}
+.full-transcript-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding:11px 0 9px;border-bottom:1px solid var(--line);
+}
+.full-transcript-head h2{font-size:12.5px}
+.full-transcript-head span{font-size:9.5px;color:var(--muted)}
+.full-transcript-list{list-style:none;padding:0;margin:0}
+.full-line{
+  display:grid;grid-template-columns:38px minmax(0,1fr);gap:8px;
+  padding:10px 0;border-bottom:1px solid #F3EEE4;
+}
+.full-line:last-child{border-bottom:0}
+.full-time{font-size:9px;color:#A09685;padding-top:2px;font-variant-numeric:tabular-nums}
+.full-body{min-width:0}
+.full-speaker{font-size:10px;font-weight:650;line-height:1.4}
+.full-body p{font-size:12px;line-height:1.75;color:#3B3730;margin-top:2px}
+.evidence-link{
+  display:inline-block;font-size:8.5px;color:var(--brand);background:var(--brand-soft);
+  border-radius:4px;padding:0 4px;margin-left:4px;vertical-align:1px;
+}
+
+/* ---------- 扫码 ---------- */
+.scan-view{
+  position:relative;height:310px;margin-top:14px;border-radius:20px;overflow:hidden;
+  background:#2E2A24;display:grid;place-items:center;
+}
+.scan-view video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.scan-placeholder{
+  position:relative;z-index:1;display:grid;justify-items:center;gap:7px;
+  color:#D9CFBF;text-align:center;padding:24px;
+}
+.scan-placeholder p{font-size:12px;line-height:1.6}
+.scan-placeholder small{font-size:9.5px;color:#9F9585}
+.scan-frame{
+  position:absolute;left:50%;top:50%;width:62%;aspect-ratio:1;transform:translate(-50%,-50%);
+  border:2px solid rgba(255,255,255,.72);border-radius:18px;
+  box-shadow:0 0 0 999px rgba(20,18,15,.24);
+}
+.scan-frame span{
+  position:absolute;left:8%;right:8%;top:18%;height:2px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,#FF8A66,transparent);
+  animation:scanMove 2.2s ease-in-out infinite;
+}
+@keyframes scanMove{0%,100%{top:18%}50%{top:80%}}
+.scan-hint{font-size:10px;color:var(--muted);text-align:center;margin:10px 6px 0;line-height:1.7}
+
+/* ---------- 弹层 ---------- */
+.overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:flex-end}
+.scrim{position:absolute;inset:0;background:rgba(35,31,24,.38);border:0;opacity:0;transition:opacity .22s ease}
+.sheet{
+  position:relative;width:100%;max-height:calc(100% - 34px);overflow-y:auto;
+  background:var(--paper);border:1px solid rgba(65,58,45,.08);border-bottom:0;
+  border-radius:24px 24px 0 0;padding:7px 20px calc(20px + var(--safe-bottom));
+  box-shadow:0 -10px 34px rgba(30,25,15,.10);
+  transform:translateY(100%);transition:transform .28s cubic-bezier(.22,.7,.22,1);
+  display:grid;gap:13px;overscroll-behavior:contain;
+  scrollbar-width:thin;
+}
+.overlay.open .scrim{opacity:1}
+.overlay.open .sheet{transform:translateY(0)}
+.sheet-top{height:30px;position:relative;display:flex;align-items:center;justify-content:center;margin-bottom:-6px}
+.handle,.handle-static{background:none;border:0;width:60px;height:30px;display:grid;place-items:center;touch-action:none}
+.handle span,.handle-static span{width:32px;height:4px;background:#DAD3C5;border-radius:4px;display:block}
+.sheet-top .text-button{position:absolute;right:0;font-size:10.5px;min-height:32px}
+.sheet h2{font-size:18px;line-height:27px;letter-spacing:-.3px;font-weight:650}
+.quote{padding:13px;background:#FAF7F0;border:1px solid #EDE7DA;border-radius:12px}
+.quote p{font-size:13px;line-height:1.8}
+.quote footer{margin-top:6px;font-size:10px;color:var(--muted)}
+.sheet-helper{font-size:11.5px;line-height:1.75;color:var(--muted)}
+.sheet-status{display:grid;gap:4px;border-top:1px solid var(--line);padding-top:12px}
+.sheet-state{font-size:12.5px;font-weight:650}
+.countdown{font-size:10.5px;color:var(--muted);line-height:1.65}
+.button-pair{display:grid;grid-template-columns:1.1fr 1fr;gap:9px}
+.button-pair .button{min-height:46px;font-size:12.5px}
+.button-pair .secondary{background:#F8F5EE}
+.button-pair.single{grid-template-columns:1fr}
+.dialog-sheet{gap:12px}
+.dialog-body{font-size:12px;line-height:1.8;color:#5A5348;display:grid;gap:9px}
+.dialog-body strong{color:var(--ink)}
+.dialog-subhead{font-size:10.5px;font-weight:650;color:var(--muted);margin-top:2px}
+.dialog-actions{display:flex;gap:9px;padding-top:2px}
+.dialog-actions .button{flex:1;min-height:46px;font-size:12.5px}
+.dialog-field{
+  width:100%;min-height:46px;border:1px solid var(--line-strong);border-radius:10px;
+  background:#FCFAF5;padding:10px 11px;font-size:16px;outline:0;
+}
+.dialog-field:focus{border-color:var(--brand)}
+.note-detail-meta{display:flex;flex-wrap:wrap;gap:5px 10px;font-size:10.5px;color:var(--muted)}
+.note-detail-text{font-size:13px;line-height:1.8;color:var(--ink)}
+.evidence-list{display:grid;gap:7px}
+.evidence-item{background:#FAF7F0;border:1px solid #EDE7DA;border-radius:9px;padding:8px 9px}
+.evidence-item header{display:flex;justify-content:space-between;gap:8px;font-size:9.5px;color:var(--muted);margin-bottom:3px}
+.evidence-item p{font-size:11px;line-height:1.7;color:#4E473B}
+.evidence-empty{font-size:11px;color:var(--muted);background:#FAF7F0;border:1px dashed var(--line-strong);border-radius:9px;padding:10px;text-align:center}
+
+/* ---------- 原图与提示 ---------- */
+.lightbox{position:absolute;inset:0;z-index:30;display:grid;place-items:center;padding:16px}
+.lightbox-scrim{position:absolute;inset:0;border:0;background:rgba(24,24,20,.72)}
+.lightbox-card{
+  position:relative;width:100%;background:var(--paper);border-radius:20px;padding:13px;
+  display:grid;gap:11px;box-shadow:0 20px 50px rgba(0,0,0,.3);
+}
+.lightbox-card img{display:block;width:100%;height:auto;border-radius:12px;background:#F6F2E7}
+.lightbox-card figcaption{font-size:10.5px;color:var(--muted);text-align:center}
+.lightbox-card .button{min-height:42px}
+.toast{
+  position:absolute;bottom:calc(78px + var(--safe-bottom));left:20px;right:20px;
+  background:rgba(38,34,28,.96);color:#fff;padding:11px 14px;border-radius:11px;
+  z-index:40;font-size:11.5px;pointer-events:none;text-align:center;line-height:1.5;
+}
+.toast:not([hidden]){animation:toastIn .2s ease}
+@keyframes toastIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* ---------- 响应式 ---------- */
+@media (min-width:460px){
+  .app-shell{
+    height:min(900px,calc(100dvh - 32px));
+    border-radius:28px;
+    box-shadow:0 28px 80px rgba(43,37,28,.20),0 2px 8px rgba(43,37,28,.08);
+  }
+}
+@media (max-width:430px){
+  .page-scroll{scrollbar-width:none}
+  .page-scroll::-webkit-scrollbar{display:none}
+  .app-shell{max-width:none;max-height:none}
+}
+@media (max-width:390px){
+  .page-scroll{padding-left:16px;padding-right:16px}
+  .meeting-head{padding-left:16px;padding-right:16px}
+  .robot{width:96px;height:96px}
+  .greeting{font-size:23px}
+  .quick-action{font-size:10.5px}
+  .note-grid{grid-template-columns:repeat(auto-fill,minmax(138px,1fr))}
+  .button-pair{grid-template-columns:1fr}
+}
+@media (max-width:340px){
+  .quick-actions{gap:6px}
+  .quick-action{min-height:72px;font-size:10px}
+  .status-chip{font-size:9px}
+  .plan-grid{grid-template-columns:1fr}
+  .stage-avatar{width:84px;height:84px;font-size:28px}
+  .bar-button{font-size:8.5px;min-height:48px}
+  .meeting-bar{padding-left:3px;padding-right:3px}
+  .scan-view{height:280px}
+}
+@media (max-height:680px){
+  .greeting{margin:12px 0 10px}
+  .hero{padding:13px}
+  .robot{width:86px;height:86px}
+  .quick-action{min-height:70px}
+}
+html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{
+  animation-duration:.001ms!important;
+  animation-iteration-count:1!important;
+  transition-duration:.001ms!important;
+  scroll-behavior:auto!important;
+}
+@media (prefers-reduced-motion:reduce){
+  .scrim,.sheet{transition:none}
+  .live-dot,.live-indicator span{animation:none}
+  .toast:not([hidden]){animation:none}
+}
+
+</style>
+
+</head>
+<body>
+<div class="app-shell" id="app-shell">
+  <div class="app-frame" id="app-frame">
+
+    <!-- ============ 首页 ============ -->
+    <section class="page" data-page="home" id="page-home" aria-labelledby="home-title">
+      <div class="page-scroll">
+        <header class="home-head">
+          <p class="wordmark"><span class="brand-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 10V13M6 6V17M10 3V21M14 8V15M18 5V18M22 10V13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>EffMeet 2</p>
+          <span class="demo-tag">演示数据</span>
+        </header>
+        <h1 class="greeting" id="home-title">下午好，<span id="home-name">林小满</span></h1>
+
+        <section class="hero" aria-label="机器人状态">
+          <div class="hero-copy">
+            <p class="hero-kicker">桌面会议伙伴</p>
+            <p class="hero-title">在线，也在场</p>
+            <div class="status-chips">
+              <span class="status-chip"><span class="status-dot ok" id="device-dot"></span><span id="device-status">设备已连接</span></span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M22 10.5v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="5" y="10" width="9" height="4" rx="1" fill="currentColor"/></svg>
+                <span id="device-battery">76%</span>
+              </span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="currentColor"/></svg>
+                AI 剩余 <span id="home-quota">82</span> 分钟
+              </span>
+            </div>
+            <button class="reconnect-button" id="reconnect-robot" type="button">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1 8.4A7 7 0 0 1 19.7 10M4.3 14A7 7 0 0 0 17.9 15.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span id="reconnect-label">重新连接机器人</span>
+            </button>
+            <p class="hero-note">演示数据 · 未连接真实设备</p>
+          </div>
+          <img class="robot" src="data:image/webp;base64,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" alt="EffMeet 2 桌面机器人渲染图" width="112" height="112">
+        </section>
+
+        <div class="quick-actions" aria-label="会议入口">
+          <button class="quick-action primary" id="act-join" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M18 7v6M15 10h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span>加入会议</span>
+          </button>
+          <button class="quick-action" id="act-quick" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <span>快速会议</span>
+          </button>
+          <button class="quick-action" id="act-schedule" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15.5" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3M13.5 14h2.5M8 17h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span>预定会议</span>
+          </button>
+        </div>
+
+        <button class="scan-entry" id="home-scan" type="button">
+          <span class="scan-entry-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </span>
+          <span class="scan-entry-copy"><b>扫码加入会议</b><small>扫描主持人分享的二维码，自动填入会议码</small></span>
+          <svg class="chev" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+
+        <section class="section" id="upcoming-section" hidden>
+          <div class="section-head"><h2>即将开始</h2><span class="count" id="upcoming-count"></span></div>
+          <div id="upcoming-list" class="record-list"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>最近会议</h2>
+            <button class="text-link" id="home-history" type="button">查看全部</button>
+          </div>
+          <div id="recent-list" class="record-list"></div>
+        </section>
+        <p class="footnote">所有会议、额度与设备信息均为本地演示数据，仅保存在当前浏览器。</p>
+      </div>
+    </section>
+
+    <!-- ============ 会议 ============ -->
+    <section class="page" data-page="meeting" id="page-meeting" aria-labelledby="meeting-title">
+      <div id="meeting-empty" class="page-scroll">
+        <header class="page-head"><h1>会议</h1><span class="demo-tag">模拟</span></header>
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <h2>还没有进行中的会议</h2>
+          <p>加入现有会议，或直接开一场示例会议。音视频与语音识别尚未接入。</p>
+          <div class="empty-actions">
+            <button class="button primary" id="empty-join" type="button">加入会议</button>
+            <button class="button secondary" id="empty-quick" type="button">快速会议</button>
+          </div>
+        </div>
+        <section class="section" id="meeting-upcoming-section" hidden>
+          <div class="section-head"><h2>已预定的会议</h2><span class="count" id="meeting-upcoming-count"></span></div>
+          <div id="meeting-upcoming-list" class="record-list"></div>
+        </section>
+        <p class="footnote">真实音视频、语音识别与机器人播报均未接入，本页为本地模拟。</p>
+      </div>
+
+      <div id="meeting-active" class="meeting-live" hidden>
+        <header class="meeting-head">
+          <div class="meeting-topline">
+            <span class="live-pill"><span class="live-dot"></span>进行中<span class="pill-sep">·</span>模拟</span>
+            <button class="text-button danger-text" id="end-meeting" type="button">结束会议</button>
+          </div>
+          <div class="meeting-title-row">
+            <h1 id="meeting-title">回收箱方案评审</h1>
+            <button class="map-entry" id="open-map" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="7" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="m8.4 6.3 7.1.5M7.2 8.2l3.5 7.4M16.8 9.2l-3.4 6.4" stroke="currentColor" stroke-width="1.5"/></svg>
+              观点地图
+            </button>
+          </div>
+          <div class="meeting-meta"><span id="meeting-meta">4 人 · 示例内容</span><span id="meeting-elapsed">42:18</span></div>
+          <div class="demo-banner" id="demo-banner" hidden>
+            <span>演示模式 · 本场记录不会写入正式历史</span>
+            <button class="text-button" id="exit-demo" type="button">退出演示</button>
+          </div>
+        </header>
+
+        <div class="page-scroll meeting-scroll">
+          <section class="meeting-stage" aria-label="参会者">
+            <div class="stage-main" id="stage-main">
+              <div class="stage-visual" id="stage-visual">
+                <span class="stage-avatar" id="stage-avatar">陈</span>
+                <div class="stage-preview" id="stage-preview" hidden>
+                  <video id="stage-video" autoplay muted playsinline></video>
+                  <div class="preview-fallback" id="preview-fallback">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    <span>模拟画面</span>
+                  </div>
+                  <span class="preview-note" id="preview-note">本机预览 · 未上传</span>
+                </div>
+              </div>
+              <div class="stage-info">
+                <h2 id="stage-name">陈可</h2>
+                <p id="stage-role">现场</p>
+              </div>
+              <span class="stage-tag" id="stage-tag">发言中</span>
+            </div>
+            <div class="filmstrip" id="filmstrip" aria-label="切换聚焦参会者"></div>
+          </section>
+
+          <div class="meeting-blocks" id="meeting-blocks">
+            <section class="card shared-card" id="shared-block" aria-labelledby="shared-title">
+              <div class="card-head">
+                <h2 id="shared-title">共享内容</h2>
+                <div class="card-head-actions"><span class="mini-tag">模拟</span><button class="text-link" id="view-capture" type="button">查看原图</button></div>
+              </div>
+              <button class="capture-frame" id="capture-button" type="button" aria-label="放大现场原图">
+                <img id="capture-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享的三格回收箱手绘草图">
+              </button>
+              <div class="capture-desc">
+                <span class="eyebrow">AI 描述</span>
+                <p id="capture-desc">三格回收箱正面，顶部投放口，右上「满溢检测？」</p>
+              </div>
+              <p class="capture-meta" id="capture-meta">共享于 41:24 · 原图由现场成员拍摄</p>
+            </section>
+
+            <section class="card transcript-card" id="transcript-block" aria-labelledby="transcript-title">
+              <div class="card-head">
+                <h2 id="transcript-title">实时转写</h2>
+                <div class="card-head-actions"><span class="mini-tag">模拟</span><span class="live-indicator"><span></span>接收中</span></div>
+              </div>
+              <ol class="transcript-list" id="live-transcript"></ol>
+              <p class="transcript-note">语音识别尚未接入；完整转写将在会议结束后归档。</p>
+            </section>
+          </div>
+
+          <section class="section" id="pending-section">
+            <div class="section-head"><h2>AI 介入提示</h2><span class="count" id="pending-count"></span></div>
+            <div id="pending-list"></div>
+          </section>
+          <p class="meeting-note">AI 只会在你确认后提醒现场；当前为本地模拟，不会播放声音或操作设备。</p>
+        </div>
+
+        <nav class="meeting-bar" aria-label="会议控制">
+          <button class="bar-button" id="live-mic" type="button" aria-label="静音" aria-pressed="false">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 15.83v2.5M4.17 8.33V10a5.83 5.83 0 1 0 11.66 0V8.33M10 1.67a2.5 2.5 0 0 1 2.5 2.5V10a2.5 2.5 0 0 1-5 0V4.17a2.5 2.5 0 0 1 2.5-2.5Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </span>
+            <span id="live-mic-label">静音</span>
+          </button>
+          <button class="bar-button" id="live-camera" type="button" aria-label="开启摄像头" aria-pressed="false">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+            </span>
+            <span id="live-camera-label">开启视频</span>
+          </button>
+          <button class="bar-button" id="live-share" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 20h8M12 17.5V20M12 8v5M9.5 10.5 12 8l2.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>共享</span>
+          </button>
+          <button class="bar-button" id="live-attendees" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M16 5.2a3.2 3.2 0 0 1 0 5.8M17.5 14.2c1.7.6 2.8 2.2 3.1 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <span>参会者 <span id="attendee-count">4</span></span>
+          </button>
+          <button class="bar-button" id="live-more" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="9" cy="7" r="1.7" fill="currentColor"/><circle cx="15" cy="12" r="1.7" fill="currentColor"/><circle cx="8" cy="17" r="1.7" fill="currentColor"/></svg>
+            </span>
+            <span>更多</span>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============ 历史 ============ -->
+    <section class="page" data-page="history" id="page-history" aria-labelledby="history-title">
+      <div class="page-scroll">
+        <header class="page-head"><h1 id="history-title">历史</h1><span class="count" id="history-count"></span></header>
+        <div class="search-wrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="history-search" type="search" placeholder="搜索会议主题" autocomplete="off" aria-label="搜索会议主题">
+        </div>
+        <div class="filter-row" id="history-filters" role="group" aria-label="筛选会议">
+          <button type="button" data-filter="all" class="chip active">全部</button>
+          <button type="button" data-filter="week" class="chip">近 7 天</button>
+          <button type="button" data-filter="todos" class="chip">有待办</button>
+        </div>
+        <div id="history-list" class="record-list"></div>
+        <p class="footnote">演示记录保存在本机浏览器；清除浏览器数据后会重新生成示例。</p>
+      </div>
+    </section>
+
+    <!-- ============ 我的 ============ -->
+    <section class="page" data-page="profile" id="page-profile" aria-labelledby="profile-title">
+      <div class="page-scroll">
+        <header class="page-head"><h1 id="profile-title">我的</h1><span class="demo-tag">演示数据</span></header>
+
+        <section class="user-card">
+          <span class="avatar avatar-lg" id="profile-avatar">林</span>
+          <div class="user-copy"><h2 id="profile-name">林小满</h2><p>EffMeet 2 桌面会议伙伴</p></div>
+          <button class="text-button" id="edit-name" type="button">编辑</button>
+        </section>
+
+        <section class="quota-card">
+          <div class="section-head"><h2>AI 额度</h2><span class="badge" id="plan-badge">免费版</span></div>
+          <div class="quota-main"><strong id="quota-remaining">82</strong><span>分钟可用</span></div>
+          <div class="quota-bar" role="progressbar" aria-label="额度使用进度" aria-valuemin="0" aria-valuemax="120" aria-valuenow="38"><span id="quota-bar"></span></div>
+          <div class="quota-meta">
+            <span>总额度 <b id="quota-total">120</b> 分钟</span>
+            <span>已用 <b id="quota-used">38</b></span>
+            <span id="quota-reset">11 月 1 日重置</span>
+          </div>
+          <p class="footnote">额度为本地演示值，不连接真实计费系统。</p>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>套餐对比</h2><span class="count">模拟</span></div>
+          <div class="plan-grid">
+            <article class="plan-card" id="plan-card-free">
+              <div class="plan-head"><h3>免费版</h3><span class="plan-current" data-plan-current="free">当前</span></div>
+              <dl class="plan-rows">
+                <div><dt>每月额度</dt><dd>120 分钟</dd></div>
+                <div><dt>单次会议</dt><dd>60 分钟</dd></div>
+                <div><dt>历史保存</dt><dd>30 天</dd></div>
+                <div><dt>高级分析</dt><dd>—</dd></div>
+              </dl>
+            </article>
+            <article class="plan-card pro" id="plan-card-pro">
+              <div class="plan-head"><h3>高级版</h3><span class="plan-current" data-plan-current="pro">当前</span></div>
+              <dl class="plan-rows">
+                <div><dt>每月额度</dt><dd>600 分钟</dd></div>
+                <div><dt>单次会议</dt><dd>180 分钟</dd></div>
+                <div><dt>历史保存</dt><dd>永久</dd></div>
+                <div><dt>高级分析</dt><dd>支持</dd></div>
+              </dl>
+            </article>
+          </div>
+          <button class="button secondary full" id="upgrade-plan" type="button">模拟升级到高级版</button>
+          <p class="footnote">升级流程为本地模拟，不接支付、不产生费用，也不展示正式价格。</p>
+        </section>
+
+        <section class="settings-card">
+          <button class="settings-row" id="open-contacts" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M17 8.5h4M19 6.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="settings-copy"><b>联系人</b><small>邀请同组成员加入讨论</small></span>
+            <span class="soon-badge">即将开放</span>
+          </button>
+          <button class="settings-row" id="open-demo" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <span class="settings-copy"><b>进入演示模式</b><small>直接打开示例会议，不写入正式历史</small></span>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <button class="settings-row danger" id="reset-demo" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="settings-copy"><b>重置演示数据</b><small>恢复示例会议、额度与提示状态</small></span>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </section>
+        <button class="settings-entry" id="open-settings" type="button">
+          <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.55V21h-4v-.08a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8.97 4.5 1.7 1.7 0 0 0 10 2.95V3h4v-.08A1.7 1.7 0 0 0 15.03 4.5a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8.9a1.7 1.7 0 0 0 1.55 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="settings-copy"><b>设置</b><small>通用、隐私与关于</small></span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <p class="footnote">所有数据仅保存在本机浏览器；不接云端数据库、硬件、联系人、支付或真实 AI。</p>
+      </div>
+    </section>
+
+    <!-- ============ 加入会议 ============ -->
+    <section class="page subpage" data-page="join" id="page-join" aria-labelledby="join-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="join-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="join-title">加入会议</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="subpage-intro">
+          <h2>连接现场，让你的观点被听到</h2>
+          <p>演示环境：任意有效会议号都会打开本地示例会议。</p>
+        </div>
+        <form id="join-form" class="card join-form" novalidate>
+          <div class="field">
+            <label for="j-mid" class="step-title"><span class="step-number">1</span>会议号</label>
+            <div class="input-wrap">
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsaW5rIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8xMCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNy41MDAxMiA5Ljc0OTk3QzcuODIyMjEgMTAuMTgwNiA4LjIzMzE0IDEwLjUzNjkgOC43MDUwMyAxMC43OTQ3QzkuMTc2OTMgMTEuMDUyNSA5LjY5ODc1IDExLjIwNTggMTAuMjM1MSAxMS4yNDQyQzEwLjc3MTUgMTEuMjgyNiAxMS4zMDk4IDExLjIwNTIgMTEuODEzNiAxMS4wMTczQzEyLjMxNzQgMTAuODI5NCAxMi43NzUgMTAuNTM1MyAxMy4xNTUxIDEwLjE1NUwxNS40MDUxIDcuOTA0OTdDMTYuMDg4MiA3LjE5NzcxIDE2LjQ2NjIgNi4yNTA0NSAxNi40NTc2IDUuMjY3MjFDMTYuNDQ5MSA0LjI4Mzk4IDE2LjA1NDcgMy4zNDM0MyAxNS4zNTk0IDIuNjQ4MTVDMTQuNjY0MiAxLjk1Mjg3IDEzLjcyMzYgMS41NTg0OSAxMi43NDA0IDEuNTQ5OTRDMTEuNzU3MSAxLjU0MTQgMTAuODA5OSAxLjkxOTM4IDEwLjEwMjYgMi42MDI0N0w4LjgxMjYyIDMuODg0OTdNMTAuNTAwMyA4LjI1MDE2QzEwLjE3ODIgNy44MTk1NyA5Ljc2NzI1IDcuNDYzMjggOS4yOTUzNiA3LjIwNTQ2QzguODIzNDYgNi45NDc2NCA4LjMwMTY0IDYuNzk0MzMgNy43NjUyOCA2Ljc1NTkxQzcuMjI4OTIgNi43MTc1IDYuNjkwNTggNi43OTQ4OSA2LjE4Njc2IDYuOTgyODNDNS42ODI5NCA3LjE3MDc3IDUuMjI1NDMgNy40NjQ4NiA0Ljg0NTI3IDcuODQ1MTZMMi41OTUyNyAxMC4wOTUyQzEuOTEyMTggMTAuODAyNCAxLjUzNDIgMTEuNzQ5NyAxLjU0Mjc0IDEyLjczMjlDMS41NTEyOSAxMy43MTYyIDEuOTQ1NjcgMTQuNjU2NyAyLjY0MDk1IDE1LjM1MkMzLjMzNjIzIDE2LjA0NzMgNC4yNzY3OCAxNi40NDE2IDUuMjYwMDEgMTYuNDUwMkM2LjI0MzI1IDE2LjQ1ODcgNy4xOTA1MSAxNi4wODA4IDcuODk3NzcgMTUuMzk3N0w5LjE4MDI3IDE0LjExNTIiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfMTAiPgo8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" width="18" height="18">
+              <input id="j-mid" name="meeting" value="recycle-review" placeholder="输入会议号" autocomplete="off" spellcheck="false" aria-describedby="meeting-help" required>
+            </div>
+            <p class="field-hint" id="meeting-help">填写主持人提供的会议号。</p>
+          </div>
+          <div class="field">
+            <label for="j-name" class="step-title"><span class="step-number">2</span>昵称</label>
+            <div class="input-wrap">
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJ1c2VyLXJvdW5kIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTkgOS43NUMxMS4wNzA5IDkuNzUgMTIuNzQ5NiA4LjA3MTA3IDEyLjc0OTYgNkMxMi43NDk2IDMuOTI4OTMgMTEuMDcwOSAyLjI1IDkgMi4yNUM2LjkyOTE0IDIuMjUgNS4yNTAzOCAzLjkyODkzIDUuMjUwMzggNkM1LjI1MDM4IDguMDcxMDcgNi45MjkxNCA5Ljc1IDkgOS43NVpNOSA5Ljc1QzEwLjU5MTEgOS43NSAxMi4xMTcxIDEwLjM4MjEgMTMuMjQyMiAxMS41MDc0QzE0LjM2NzMgMTIuNjMyNiAxNC45OTk0IDE0LjE1ODcgMTQuOTk5NCAxNS43NU05IDkuNzVDNy40MDg4NiA5Ljc1IDUuODgyODkgMTAuMzgyMSA0Ljc1Nzc4IDExLjUwNzRDMy42MzI2OCAxMi42MzI2IDMuMDAwNiAxNC4xNTg3IDMuMDAwNiAxNS43NSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==" alt="" width="18" height="18">
+              <input id="j-name" name="nickname" value="林小满" placeholder="输入你在会议中的名字" maxlength="32" autocomplete="nickname" required>
+            </div>
+          </div>
+          <div class="field">
+            <h2 class="step-title"><span class="step-number">3</span>麦克风权限</h2>
+            <div class="permission">
+              <div class="permission-intro">
+                <span class="permission-icon"><img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="22" height="22"></span>
+                <p id="mic-permission-status">允许使用麦克风，才能在会议中发言。</p>
+              </div>
+              <button type="button" class="button secondary" id="j-mic">
+                <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
+                <span id="j-mic-label">允许麦克风</span>
+              </button>
+              <p class="field-hint">本演示只模拟授权结果，不录音、不上传。</p>
+            </div>
+          </div>
+          <div class="field">
+            <h2 class="step-title"><span class="step-number">4</span>摄像头权限</h2>
+            <div class="permission">
+              <div class="permission-intro">
+                <span class="permission-icon"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
+                <p id="cam-permission-status">允许使用摄像头，才能在会议中开启画面。</p>
+              </div>
+              <button type="button" class="button secondary" id="j-cam">
+                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg>
+                <span id="j-cam-label">允许摄像头</span>
+              </button>
+              <p class="field-hint">仅检查本机授权，不会上传画面；不可用时会议内显示模拟画面。</p>
+            </div>
+          </div>
+          <details class="dev-identity">
+            <summary>本机联调身份</summary>
+            <label for="j-identity" class="sr-only">本机联调身份</label>
+            <select id="j-identity">
+              <option value="remote_1">线上成员 1</option>
+              <option value="remote_2">线上成员 2</option>
+            </select>
+            <p class="field-hint">昵称仅用于本机显示；当前没有正式账号体系。</p>
+          </details>
+          <p class="error" id="j-err" role="alert" hidden></p>
+          <div class="join-action">
+            <button type="submit" class="button primary" id="j-submit" disabled>
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsb2ctaW4iPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOC4zMzMzMyA1LjgzMzMzTDEyLjUgMTBMOC4zMzMzMyAxNC4xNjY3TTEyLjUgMTBIMi41TTEyLjUgMi41SDE1LjgzMzNDMTYuMjc1NCAyLjUgMTYuNjk5MyAyLjY3NTU5IDE3LjAxMTggMi45ODgxNkMxNy4zMjQ0IDMuMzAwNzIgMTcuNSAzLjcyNDY0IDE3LjUgNC4xNjY2N1YxNS44MzMzQzE3LjUgMTYuMjc1NCAxNy4zMjQ0IDE2LjY5OTMgMTcuMDExOCAxNy4wMTE4QzE2LjY5OTMgMTcuMzI0NCAxNi4yNzU0IDE3LjUgMTUuODMzMyAxNy41SDEyLjUiIHN0cm9rZT0iIzkyOThBMiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
+              <span id="j-submit-label">进入会议</span>
+            </button>
+          </div>
+        </form>
+        <p class="footnote">音视频、语音识别与机器人播报尚未接入，入会后为本地模拟状态。</p>
+      </div>
+    </section>
+
+    <!-- ============ 预定会议 ============ -->
+    <section class="page subpage" data-page="schedule" id="page-schedule" aria-labelledby="schedule-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="schedule-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="schedule-title">预定会议</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="subpage-intro">
+          <h2>给下一次讨论留个位置</h2>
+          <p>预约仅保存在本机，不会发送邀请或同步日历。</p>
+        </div>
+        <form id="schedule-form" class="card schedule-form" novalidate>
+          <div class="field">
+            <label class="step-title" for="s-title"><span class="step-number">1</span>会议主题</label>
+            <div class="input-wrap"><input id="s-title" maxlength="40" placeholder="例如：回收箱方案复盘" required></div>
+          </div>
+          <div class="field two-col">
+            <div>
+              <label class="step-title" for="s-date"><span class="step-number">2</span>日期</label>
+              <div class="input-wrap"><input id="s-date" type="date" required></div>
+            </div>
+            <div>
+              <label class="step-title" for="s-time"><span class="step-number">3</span>时间</label>
+              <div class="input-wrap"><input id="s-time" type="time" value="15:00" required></div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="step-title" for="s-duration"><span class="step-number">4</span>预计时长</label>
+            <div class="input-wrap select-wrap">
+              <select id="s-duration">
+                <option value="30">30 分钟</option>
+                <option value="45" selected>45 分钟</option>
+                <option value="60">60 分钟</option>
+                <option value="90">90 分钟</option>
+              </select>
+            </div>
+          </div>
+          <p class="error" id="s-err" role="alert" hidden></p>
+          <div class="join-action">
+            <button type="submit" class="button primary" id="s-submit">保存预约</button>
+          </div>
+        </form>
+        <p class="footnote">预约为本地记录，可随时取消；不会连接日历或发送通知。</p>
+      </div>
+    </section>
+
+    <!-- ============ 观点地图 ============ -->
+    <section class="page subpage" data-page="map" id="page-map" aria-labelledby="map-title" hidden>
+      <header class="subpage-head map-subpage-head">
+        <button class="back-button" id="map-back" type="button" aria-label="返回会议">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="map-title">观点地图</h1>
+        <button class="text-button" id="map-export" type="button">导出</button>
+      </header>
+      <div class="page-scroll">
+        <p class="page-subtitle">以原话为依据，回应关系仍需本人核对。</p>
+        <div class="stats" aria-label="观点统计">
+          <div><strong id="stat-all">0</strong><span>全部观点</span></div>
+          <div><strong id="stat-responded">0</strong><span>已回应</span></div>
+          <div><strong id="stat-review">0</strong><span>待核对</span></div>
+        </div>
+        <div class="card-list" id="map-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ 会议详情 ============ -->
+    <section class="page subpage" data-page="detail" id="page-detail" aria-labelledby="detail-title" hidden>
+      <header class="subpage-head detail-head">
+        <button class="back-button" id="detail-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="head-spacer"></span>
+        <button class="text-button" id="detail-export" type="button">导出 JSON</button>
+      </header>
+      <div class="detail-title-block">
+        <div class="detail-title-row"><h1 id="detail-title">会议详情</h1><span class="demo-tag" id="detail-demo" hidden>演示</span></div>
+        <p class="detail-meta" id="detail-meta"></p>
+      </div>
+      <div class="tabs" id="detail-tabs" role="tablist" aria-label="会议详情">
+        <button type="button" role="tab" data-tab="minutes" class="active" aria-selected="true">会议纪要</button>
+        <button type="button" role="tab" data-tab="graph" aria-selected="false">观点图谱</button>
+        <button type="button" role="tab" data-tab="transcript" aria-selected="false">完整转写</button>
+      </div>
+      <div class="page-scroll detail-scroll" id="detail-body"></div>
+    </section>
+
+    <!-- ============ 扫码加入 ============ -->
+    <section class="page subpage" data-page="scan" id="page-scan" aria-labelledby="scan-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="scan-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="scan-title">扫码加入</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="scan-view" id="scan-view">
+          <video id="scan-video" autoplay muted playsinline hidden></video>
+          <div class="scan-placeholder" id="scan-placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <p>将会议二维码放入取景框</p>
+            <small>请保持二维码完整、清晰</small>
+          </div>
+          <div class="scan-frame" aria-hidden="true"><span></span></div>
+        </div>
+        <p class="scan-hint" id="scan-hint">正在开启摄像头…</p>
+      </div>
+    </section>
+
+    <!-- ============ 设置 ============ -->
+    <section class="page subpage" data-page="settings" id="page-settings" aria-labelledby="settings-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="settings-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="settings-title">设置</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <section class="settings-group">
+          <h2>通用</h2>
+          <div class="settings-card">
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>会议提醒</b><small>演示环境不会发送系统通知</small></span>
+              <button class="switch on" id="set-reminders" type="button" role="switch" aria-checked="true" data-setting="reminders" aria-label="会议提醒"><span></span></button>
+            </div>
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 9v6h4l5 4V5L9 9H5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M17 9a4 4 0 0 1 0 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>提示音</b><small>演示环境不会播放真实音效</small></span>
+              <button class="switch on" id="set-sounds" type="button" role="switch" aria-checked="true" data-setting="sounds" aria-label="提示音"><span></span></button>
+            </div>
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>减少动画</b><small>关闭弹层与状态动画</small></span>
+              <button class="switch" id="set-motion" type="button" role="switch" aria-checked="false" data-setting="reduceMotion" aria-label="减少动画"><span></span></button>
+            </div>
+            <button class="settings-row" id="settings-language" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg></span>
+              <span class="settings-copy"><b>语言</b><small>简体中文</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h2>数据与隐私</h2>
+          <div class="settings-card">
+            <button class="settings-row" id="settings-privacy" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10" width="15" height="10" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>隐私与数据</b><small>所有记录仅保存在本机</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <button class="settings-row" id="settings-cache" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>清除离线缓存</b><small>不会删除会议记录</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h2>关于</h2>
+          <div class="settings-card">
+            <button class="settings-row" id="settings-about" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5M12 7.5v.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>关于 EffMeet 2</b><small>本地演示版 · v1.0.0</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+        <p class="footnote">设置只保存在本机浏览器。</p>
+      </div>
+    </section>
+
+  </div><!-- /.app-frame -->
+
+  <nav class="bottom-nav" id="bottom-nav" aria-label="主导航">
+    <button type="button" data-nav="home" class="active" aria-current="page">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>首页</span>
+    </button>
+    <button type="button" data-nav="meeting">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>会议</span>
+    </button>
+    <button type="button" data-nav="history">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>历史</span>
+    </button>
+    <button type="button" data-nav="profile">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 20c.5-4 3.2-6 6.5-6s6 2 6.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>我的</span>
+    </button>
+  </nav>
+
+  <!-- ============ 候选确认弹层 ============ -->
+  <div class="overlay" id="overlay" hidden>
+    <button class="scrim" id="scrim" type="button" aria-label="暂时收起候选确认卡" tabindex="-1"></button>
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
+      <div class="sheet-top">
+        <button class="handle" id="sheet-handle" aria-label="暂时收起候选确认卡" type="button"><span></span></button>
+        <button class="text-button" id="sheet-close" type="button">收起</button>
+      </div>
+      <h2 id="sheet-title">你的观点可能还没被现场听到</h2>
+      <blockquote class="quote">
+        <p id="sh-quote"></p>
+        <footer id="sh-meta"></footer>
+      </blockquote>
+      <p class="sheet-helper">机器人会在现场停顿时转述你的原话；提醒前会再确认一次现场是否已回应。</p>
+      <div class="sheet-status">
+        <p class="sheet-state" id="sh-state" role="status">等待你的决定</p>
+        <p class="countdown" id="sh-countdown"></p>
+      </div>
+      <div class="button-pair" id="sh-actions">
+        <button class="button primary" type="button" id="sh-confirm">请机器人提醒</button>
+        <button class="button secondary" type="button" id="sh-dismiss">不必提醒</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 通用弹层 ============ -->
+  <div class="overlay" id="dialog" hidden>
+    <button class="scrim" id="dialog-scrim" type="button" aria-label="关闭弹层" tabindex="-1"></button>
+    <section class="sheet dialog-sheet" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <div class="sheet-top">
+        <span class="handle-static" aria-hidden="true"><span></span></span>
+        <button class="text-button" id="dialog-close" type="button">关闭</button>
+      </div>
+      <h2 id="dialog-title">提示</h2>
+      <div class="dialog-body" id="dialog-body"></div>
+      <div class="dialog-actions" id="dialog-actions"></div>
+    </section>
+  </div>
+
+  <!-- ============ 原图 ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-scrim" id="lightbox-scrim" aria-label="关闭原图" type="button"></button>
+    <figure class="lightbox-card" role="dialog" aria-modal="true" aria-label="现场共享原图">
+      <img id="lightbox-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享原图">
+      <figcaption>现场共享原图 · 三格回收箱草图</figcaption>
+      <button class="button secondary" type="button" id="lightbox-close">关闭</button>
+    </figure>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+</div><!-- /.app-shell -->
+<script>
+(() => {
+'use strict';
+const { parseMeetingId, candidateLabels } = (() => {
+// Adapt the existing controller DTOs without inventing AI/device state.
+function parseMeetingId(raw) {
+  let value = String(raw ?? '').trim();
+  if (/^https?:\/\//i.test(value)) {
+    const url = new URL(value);
+    if (url.username || url.password) throw new Error('邀请链接不能包含账号密码。');
+    const hash = new URLSearchParams(url.hash.replace(/^#/, ''));
+    value = url.searchParams.get('meeting_id') || url.searchParams.get('meeting') || url.searchParams.get('mid') || hash.get('meeting_id') || '';
+    if (!value) {
+      value = decodeURIComponent(url.pathname.split('/').filter(Boolean).at(-1) || '');
+      if (['app', 'meetings', 'meeting', 'join'].includes(value)) value = '';
+    }
+  }
+  if (!/^[a-zA-Z0-9_-]{1,128}$/.test(value)) throw new Error('请填写有效的会议号，或包含会议号的邀请链接。');
+  return value;
+}
+function remainingSeconds(row, serverNow) {
+  if (!Number.isFinite(row?.expires_at) || !Number.isFinite(serverNow)) return null;
+  return Math.max(0, Math.ceil(row.expires_at - serverNow));
+}
+function receiptState(receipts = []) {
+  const status = receipts.at(-1)?.status;
+  if (status === 'started') return 'broadcasting';
+  if (['completed', 'failed', 'rejected'].includes(status)) return status;
+  return 'queued';
+}
+function effectiveState(row, commands = [], serverNow) {
+  if (row.state === 'awaiting_confirmation' && remainingSeconds(row, serverNow) === 0) return 'expired';
+  if (row.state !== 'queued') return row.state;
+  const command = commands.find(c => c.command.intervention_id === row.candidate.intervention_id);
+  return receiptState(command?.receipts);
+}
+function candidateKey(row) { return row.candidate.intervention_id; }
+function shouldAutoOpen(row, {actor, visible, live, seen, serverNow}) {
+  return visible && live && row.candidate.owner_speaker_id === actor &&
+    row.state === 'awaiting_confirmation' && remainingSeconds(row, serverNow) > 0 &&
+    !seen.has(candidateKey(row));
+}
+const candidateLabels = {
+  awaiting_confirmation: '等待你的决定',
+  queued: '好的，等现场说完这句话就提醒',
+  broadcasting: '正在提醒现场……',
+  completed: '已提醒，现场回应会关联到你的观点',
+  expired: '已过期，未打扰现场',
+  dismissed: '不必提醒',
+  responded: '现场已回应，不再提醒',
+  stale: '现场已有新发言，请等待重新核对',
+  failed: '提醒未完成，请核对现场情况',
+  rejected: '提醒未执行，请核对现场情况',
+};
+const viewpointLabels = {
+  responded: '已回应（AI 推测，待本人核对）',
+  possibly_unresponded: '可能未回应',
+  uncertain: '需人工核对',
+  no_analysis: '尚未核对',
+};
+
+// Horizontal navigation must not depend on arbitrary gesture speed.
+function swipeTarget(view, dx, dy) {
+  if (Math.abs(dx) <= 75 || Math.abs(dx) <= Math.abs(dy) * 1.6) return null;
+  if (view === "live" && dx < 0) return "map";
+  if (view === "map" && dx > 0) return "live";
+  return null;
+}
+
+// Status inspection keeps the action visible; expired candidates need server validation.
+function candidateActions(row, commands = [], serverNow) {
+  const state = effectiveState(row, commands, serverNow);
+  const seconds = remainingSeconds(row, serverNow);
+  return {
+    state,
+    confirmMode: state === 'awaiting_confirmation' && seconds > 0 ? 'decision' :
+      state === 'expired' ? 'recheck' : null,
+    canDismiss: state === 'awaiting_confirmation' && seconds > 0,
+  };
+}
+
+return { parseMeetingId, candidateLabels };
+})();
+
+const { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel } = (() => {
+// Local-first demo store. Every record is generated in this browser and
+// persisted to localStorage; no meeting, AI, device or payment service is used.
+const STORAGE_KEY = 'effmeet2.local.v1';
+const SCHEMA_VERSION = 3;
+
+const DEFAULT_SETTINGS = {
+  reminders:true,
+  sounds:true,
+  reduceMotion:false,
+  language:'zh'
+};
+
+const PLANS = {
+  free: {
+    key: 'free',
+    label: '免费版',
+    quotaTotal: 120,
+    maxMeeting: 60,
+    history: '30 天',
+    analysis: false,
+    rows: [
+      ['每月额度', '120 分钟'],
+      ['单次会议', '60 分钟'],
+      ['历史保存', '30 天'],
+      ['高级分析', '—']
+    ]
+  },
+  pro: {
+    key: 'pro',
+    label: '高级版',
+    quotaTotal: 600,
+    maxMeeting: 180,
+    history: '永久',
+    analysis: true,
+    rows: [
+      ['每月额度', '600 分钟'],
+      ['单次会议', '180 分钟'],
+      ['历史保存', '永久'],
+      ['高级分析', '支持']
+    ]
+  }
+};
+
+const PEOPLE = {
+  lin: {name:'林小满', role:'线上', color:'#6F8564', tint:'#EDF2EA'},
+  zhou:{name:'周航',   role:'现场', color:'#5F7396', tint:'#E9EEF5'},
+  chen:{name:'陈可',   role:'现场', color:'#A37462', tint:'#F6ECE7'},
+  xu:  {name:'许老师', role:'现场', color:'#816E96', tint:'#F1ECF5'},
+  wang:{name:'王助教', role:'现场', color:'#9A8455', tint:'#F5F0E4'}
+};
+
+function participant(key, nickname) {
+  const base = PEOPLE[key];
+  const name = key === 'lin' && nickname ? nickname : base.name;
+  return {id:'p-' + key, name, short:name.slice(0, 1), role:base.role, color:base.color, tint:base.tint};
+}
+
+function participants(keys, nickname) {
+  return keys.map(key => participant(key, nickname));
+}
+
+function daysAgo(days, hour, minute) {
+  const date = new Date();
+  date.setDate(date.getDate() - days);
+  date.setHours(hour, minute, 0, 0);
+  return date;
+}
+
+function resetDate() {
+  const date = new Date();
+  date.setMonth(date.getMonth() + 1, 1);
+  date.setHours(0, 0, 0, 0);
+  const pad = value => String(value).padStart(2, '0');
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function seedMeetings() {
+  const weeklyStart = daysAgo(1, 16, 12);
+  const weeklyEnd = daysAgo(1, 16, 40);
+  const purchaseStart = daysAgo(3, 10, 15);
+  const purchaseEnd = daysAgo(3, 10, 50);
+  const proposalStart = daysAgo(7, 15, 20);
+  const proposalEnd = daysAgo(7, 15, 56);
+
+  return [
+    {
+      id:'m-weekly',
+      title:'课程项目周会',
+      status:'ended',
+      isDemo:false,
+      source:'history',
+      startedAt:weeklyStart.toISOString(),
+      endedAt:weeklyEnd.toISOString(),
+      durationMin:28,
+      participants:participants(['lin','zhou','chen'], '林小满'),
+      summary:'本周完成回收箱结构草图与材料清单，确定下周制作手板；展示脚本和分工仍需补齐。',
+      conclusions:[
+        '结构草图已定稿，进入手板准备。',
+        '展示脚本按“问题—方案—验证”三段重写。',
+        '下周三前提交材料采购清单。'
+      ],
+      todos:[
+        {id:'wt1', text:'提交材料采购清单', owner:'陈可', done:false},
+        {id:'wt2', text:'重写展示脚本三段结构', owner:'林小满', done:true},
+        {id:'wt3', text:'预约创客空间打印手板', owner:'周航', done:false}
+      ],
+      viewpoints:[
+        {id:'wv1', topic:'进度安排', speakerId:'p-zhou', text:'手板最好下周中之前打出来，留出修改时间。', status:'responded', evidenceIds:['wu2'], responseEvidenceIds:['wu3']},
+        {id:'wv2', topic:'展示材料', speakerId:'p-lin', text:'展示脚本现在太像说明书，应该先讲问题再讲方案。', status:'responded', evidenceIds:['wu4'], responseEvidenceIds:['wu5']},
+        {id:'wv3', topic:'分工', speakerId:'p-chen', text:'采购清单和打印预约可以并行，不用等结构完全定稿。', status:'uncertain', evidenceIds:['wu6']}
+      ],
+      transcript:[
+        {id:'wu1', speakerId:'p-lin', at:'16:12', text:'今天主要对齐三件事：结构、展示材料、下周分工。'},
+        {id:'wu2', speakerId:'p-zhou', at:'16:18', text:'手板最好下周中之前打出来，留出修改时间。'},
+        {id:'wu3', speakerId:'p-lin', at:'16:21', text:'可以，打印预约我来跟进。'},
+        {id:'wu4', speakerId:'p-lin', at:'16:26', text:'展示脚本现在太像说明书，应该先讲问题再讲方案。'},
+        {id:'wu5', speakerId:'p-zhou', at:'16:29', text:'同意，按问题、方案、验证三段改。'},
+        {id:'wu6', speakerId:'p-chen', at:'16:34', text:'采购清单和打印预约可以并行，不用等结构完全定稿。'}
+      ],
+      capture:{src:'assets/capture-sketch.svg', description:'回收箱结构草图：折叠方式与三格分区。', at:'16:14'},
+      aiPrompt:null
+    },
+    {
+      id:'m-purchase',
+      title:'实验室设备采购',
+      status:'ended',
+      isDemo:false,
+      source:'history',
+      startedAt:purchaseStart.toISOString(),
+      endedAt:purchaseEnd.toISOString(),
+      durationMin:35,
+      participants:participants(['lin','xu','wang','chen'], '林小满'),
+      summary:'确认优先更换主控板，热成像仪先向学院借用；本周内完成下单，预算表同步更新。',
+      conclusions:[
+        '先更换主控板，热成像仪短期借用。',
+        '本周内完成主控板与传感器下单。',
+        '预算表由林小满更新后再确认。'
+      ],
+      todos:[
+        {id:'pt1', text:'本周内下单主控板', owner:'陈可', done:false},
+        {id:'pt2', text:'向学院申请借用热成像仪', owner:'王助教', done:true},
+        {id:'pt3', text:'更新设备预算表', owner:'林小满', done:false}
+      ],
+      viewpoints:[
+        {id:'pv1', topic:'采购顺序', speakerId:'p-lin', text:'主控板已经不够用了，先换主控。', status:'responded', evidenceIds:['pu2'], responseEvidenceIds:['pu4']},
+        {id:'pv2', topic:'预算', speakerId:'p-xu', text:'预算主要留给主控和传感器。', status:'responded', evidenceIds:['pu4'], responseEvidenceIds:['pu5']},
+        {id:'pv3', topic:'交期', speakerId:'p-chen', text:'供应商说主控要两周，最好这周下单。', status:'possibly_unresponded', evidenceIds:['pu5']},
+        {id:'pv4', topic:'预算', speakerId:'p-chen', text:'超支部分最好提前和老师确认。', status:'no_analysis', evidenceIds:[]}
+      ],
+      transcript:[
+        {id:'pu1', speakerId:'p-xu', at:'10:15', text:'这轮先买热成像仪还是先换主控板？'},
+        {id:'pu2', speakerId:'p-lin', at:'10:18', text:'主控板已经不够用了，先换主控。'},
+        {id:'pu3', speakerId:'p-wang', at:'10:22', text:'热成像仪可以借用学院的，短期不用买。'},
+        {id:'pu4', speakerId:'p-xu', at:'10:27', text:'那预算主要留给主控和传感器。'},
+        {id:'pu5', speakerId:'p-chen', at:'10:33', text:'供应商说主控要两周，最好这周下单。'}
+      ],
+      capture:null,
+      aiPrompt:null
+    },
+    {
+      id:'m-proposal',
+      title:'开题报告讨论',
+      status:'ended',
+      isDemo:false,
+      source:'history',
+      startedAt:proposalStart.toISOString(),
+      endedAt:proposalEnd.toISOString(),
+      durationMin:36,
+      participants:participants(['lin','zhou','xu'], '林小满'),
+      summary:'研究问题聚焦到“线上成员如何被现场听见”，方法以访谈和原型测试为主，时间线压缩到六周。',
+      conclusions:[
+        '研究问题收敛为一个核心问题。',
+        '方法采用半结构访谈 + 两轮原型测试。',
+        '六周内完成首轮访谈与测试。'
+      ],
+      todos:[
+        {id:'ot1', text:'整理首轮访谈提纲', owner:'林小满', done:false},
+        {id:'ot2', text:'联系两位远程成员参与测试', owner:'周航', done:false},
+        {id:'ot3', text:'更新六周时间线', owner:'许老师', done:true}
+      ],
+      viewpoints:[
+        {id:'ov1', topic:'研究问题', speakerId:'p-xu', text:'问题不要铺太大，先回答线上成员为什么插不上话。', status:'responded', evidenceIds:['ou2'], responseEvidenceIds:['ou3']},
+        {id:'ov2', topic:'研究方法', speakerId:'p-lin', text:'访谈和原型测试可以穿插做，不必等访谈全部结束。', status:'responded', evidenceIds:['ou4'], responseEvidenceIds:['ou5']},
+        {id:'ov3', topic:'时间线', speakerId:'p-zhou', text:'六周有点紧，测试至少留两周。', status:'uncertain', evidenceIds:['ou6']}
+      ],
+      transcript:[
+        {id:'ou1', speakerId:'p-lin', at:'15:20', text:'今天想把研究问题和六周安排定下来。'},
+        {id:'ou2', speakerId:'p-xu', at:'15:24', text:'问题不要铺太大，先回答线上成员为什么插不上话。'},
+        {id:'ou3', speakerId:'p-lin', at:'15:27', text:'同意，我把问题收敛到一个核心。'},
+        {id:'ou4', speakerId:'p-lin', at:'15:32', text:'访谈和原型测试可以穿插做，不必等访谈全部结束。'},
+        {id:'ou5', speakerId:'p-xu', at:'15:35', text:'可以，但每轮测试要有明确记录。'},
+        {id:'ou6', speakerId:'p-zhou', at:'15:40', text:'六周有点紧，测试至少留两周。'}
+      ],
+      capture:null,
+      aiPrompt:null
+    }
+  ];
+}
+
+function seedDB() {
+  return {
+    schemaVersion: SCHEMA_VERSION,
+    user: {
+      nickname:'林小满',
+      plan:'free',
+      quotaTotal:PLANS.free.quotaTotal,
+      quotaUsed:38,
+      quotaReset:resetDate()
+    },
+    device: {connected:true, battery:76},
+    settings: {...DEFAULT_SETTINGS},
+    meetings: seedMeetings(),
+    demoMeetings: [],
+    scheduled: [],
+    active: null
+  };
+}
+
+function loadDB() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if (raw) {
+      const parsed = JSON.parse(raw);
+      if (parsed && parsed.schemaVersion === SCHEMA_VERSION && Array.isArray(parsed.meetings)) {
+        parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
+        return parsed;
+      }
+      if (parsed && parsed.schemaVersion === 2 && Array.isArray(parsed.meetings)) {
+        parsed.schemaVersion = SCHEMA_VERSION;
+        parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
+        delete parsed.ui;
+        persist(parsed);
+        return parsed;
+      }
+    }
+  } catch {
+    // A malformed local record falls back to a fresh seed.
+  }
+  const db = seedDB();
+  persist(db);
+  return db;
+}
+
+function persist(db) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
+  } catch {
+    // Storage can be unavailable in private mode; the session still works.
+  }
+}
+
+function resetDB() {
+  try {
+    localStorage.removeItem(STORAGE_KEY);
+  } catch {
+    // Ignore unavailable storage.
+  }
+  const db = seedDB();
+  persist(db);
+  return db;
+}
+
+function remainingMinutes(db) {
+  return Math.max(0, db.user.quotaTotal - db.user.quotaUsed);
+}
+
+function setPlan(db, planKey) {
+  const plan = PLANS[planKey];
+  if (!plan) return db;
+  db.user.plan = planKey;
+  db.user.quotaTotal = plan.quotaTotal;
+  db.user.quotaUsed = Math.min(db.user.quotaUsed, plan.quotaTotal);
+  persist(db);
+  return db;
+}
+
+function activeMeeting(db, options = {}) {
+  const nickname = db.user.nickname;
+  const team = participants(['lin', 'zhou', 'chen', 'xu'], nickname);
+  const startedAt = new Date(Date.now() - 42 * 60000).toISOString();
+  const prompt = {
+    id:'c1',
+    viewpointId:'v1',
+    text:'满溢检测的话，用重量传感器比摄像头便宜很多，而且不用处理隐私问题。',
+    evidenceIds:['t2'],
+    state:'awaiting_confirmation',
+    expiresAt:Date.now() + 120000,
+    createdAt:Date.now()
+  };
+
+  const meeting = {
+    id:'m-live-' + Date.now(),
+    title:options.title || '回收箱方案评审',
+    status:'live',
+    isDemo:Boolean(options.isDemo),
+    source:options.source || 'quick',
+    code:options.code || '',
+    startedAt,
+    endedAt:null,
+    durationMin:0,
+    participants:team,
+    summary:'围绕三格回收箱的折叠结构、满溢检测与投放口高度展开。现场认可重量传感器方向，投放口高度需按低年级学生复核，结构与开模成本仍待确认。',
+    conclusions:[
+      '满溢检测采用重量传感器，不使用摄像头。',
+      '投放口高度按低年级平均身高重新测量。',
+      '先制作手板验证折叠结构，再决定是否开模。'
+    ],
+    todos:[
+      {id:'lt1', text:'测量一至三年级平均身高，更新投放口高度', owner:'周航', done:false},
+      {id:'lt2', text:'出重量传感器安装位置草图', owner:nickname, done:false},
+      {id:'lt3', text:'补充手板预算与开模费用', owner:'许老师', done:false}
+    ],
+    viewpoints:[
+      {id:'v1', topic:'满溢检测', speakerId:'p-lin', text:'满溢检测的话，用重量传感器比摄像头便宜很多，而且不用处理隐私问题。', status:'possibly_unresponded', evidenceIds:['t2']},
+      {id:'v2', topic:'结构强度', speakerId:'p-zhou', text:'折叠的结构强度够不够？回收箱会被撞变形。', status:'uncertain', evidenceIds:['t1']},
+      {id:'v3', topic:'投放口高度', speakerId:'p-lin', text:'投放口的高度要照顾小学生，别按成年人身高设计。', status:'responded', evidenceIds:['t4'], responseEvidenceIds:['t5']},
+      {id:'v4', topic:'连接件', speakerId:'p-chen', text:'折叠箱体的连接件可以用卡扣，拆装方便。', status:'possibly_unresponded', evidenceIds:['t3']},
+      {id:'v5', topic:'成本与开模', speakerId:'p-xu', text:'预算里还要留出模具修改的费用。', status:'responded', evidenceIds:['t6'], responseEvidenceIds:['t7']},
+      {id:'v6', topic:'成本与开模', speakerId:'p-chen', text:'那就先做一版手板，再决定开模。', status:'responded', evidenceIds:['t7']},
+      {id:'v7', topic:'状态提示', speakerId:'p-xu', text:'箱门上的屏幕可以显示是否满溢。', status:'no_analysis', evidenceIds:[]}
+    ],
+    transcript:[
+      {id:'t1', speakerId:'p-zhou', at:'38:12', text:'折叠的结构强度够不够？回收箱会被撞变形。'},
+      {id:'t2', speakerId:'p-lin', at:'38:48', text:'满溢检测的话，用重量传感器比摄像头便宜很多，而且不用处理隐私问题。'},
+      {id:'t3', speakerId:'p-chen', at:'39:35', text:'折叠箱体的连接件可以用卡扣，拆装方便。'},
+      {id:'t4', speakerId:'p-lin', at:'40:10', text:'投放口的高度要照顾小学生，别按成年人身高设计。'},
+      {id:'t5', speakerId:'p-zhou', at:'40:26', text:'这个我们量一下，按低年级平均身高来。'},
+      {id:'t6', speakerId:'p-xu', at:'41:02', text:'预算里还要留出模具修改的费用。'},
+      {id:'t7', speakerId:'p-chen', at:'41:20', text:'那就先做一版手板，再决定开模。'}
+    ],
+    capture:{src:'assets/capture-sketch.svg', description:'三格回收箱正面，顶部投放口，右上「满溢检测？」', at:'41:24'},
+    aiPrompt:prompt
+  };
+
+  db.active = meeting;
+  persist(db);
+  return meeting;
+}
+
+function endActiveMeeting(db) {
+  const active = db.active;
+  if (!active) return null;
+  const endedAt = new Date();
+  const durationMin = Math.max(1, Math.round((endedAt - new Date(active.startedAt)) / 60000));
+  const record = {
+    ...active,
+    status:'ended',
+    endedAt:endedAt.toISOString(),
+    durationMin,
+    aiPrompt:active.aiPrompt ? {...active.aiPrompt} : null
+  };
+  db.active = null;
+  if (record.isDemo) {
+    db.demoMeetings.unshift(record);
+  } else {
+    db.meetings.unshift(record);
+    db.user.quotaUsed = Math.min(db.user.quotaTotal, db.user.quotaUsed + durationMin);
+  }
+  persist(db);
+  return record;
+}
+
+function findMeeting(db, id) {
+  return db.meetings.find(item => item.id === id) || db.demoMeetings.find(item => item.id === id) || null;
+}
+
+function updateTodo(db, meetingId, todoId, done) {
+  const meeting = findMeeting(db, meetingId);
+  if (!meeting) return null;
+  const todo = meeting.todos.find(item => item.id === todoId);
+  if (!todo) return null;
+  todo.done = Boolean(done);
+  persist(db);
+  return todo;
+}
+
+function addScheduled(db, record) {
+  db.scheduled.push(record);
+  db.scheduled.sort((a, b) => (a.date + a.time).localeCompare(b.date + b.time));
+  persist(db);
+  return record;
+}
+
+function removeScheduled(db, id) {
+  db.scheduled = db.scheduled.filter(item => item.id !== id);
+  persist(db);
+}
+
+function speakerOf(meeting, speakerId) {
+  return meeting.participants.find(item => item.id === speakerId) || {
+    id:speakerId, name:'未知发言者', short:'?', role:'现场', color:'#8A8377', tint:'#F1EEE7'
+  };
+}
+
+function viewpointStateLabel(status) {
+  return {
+    responded:'已回应',
+    possibly_unresponded:'可能未回应',
+    uncertain:'需核对',
+    no_analysis:'未分析'
+  }[status] || '待核对';
+}
+
+return { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel };
+})();
+const buildActiveMeeting = activeMeeting;
+
+const $ = id => document.getElementById(id);
+const wait = ms => new Promise(resolve => setTimeout(resolve, ms));
+const MAIN_PAGES = ['home', 'meeting', 'history', 'profile'];
+const pad = value => String(value).padStart(2, '0');
+
+let db = loadDB();
+let currentPage = 'home';
+let joinReturn = 'home';
+let scheduleReturn = 'home';
+let detailMeeting = null;
+let detailTab = 'minutes';
+let detailReturn = 'history';
+let historyQuery = '';
+let historyFilter = 'all';
+let joinBusy = false;
+let joinCameraGranted = false;
+let autoPromptOpened = false;
+let autoPromptTimer = null;
+let promptOpen = false;
+let lastPromptState = '';
+let promptBusy = false;
+let dialogHandler = null;
+let dialogCloseTimer = null;
+let promptCloseTimer = null;
+let toastTimer = null;
+let promptTimers = [];
+let reconnecting = false;
+let stageId = null;
+let selfCameraOn = false;
+let selfCameraStream = null;
+let meetingMicMuted = false;
+let scanStream = null;
+let scanTimer = null;
+let scanBusy = false;
+
+/* ---------- 通用 ---------- */
+function esc(value) {
+  return String(value ?? '').replace(/[&<>"']/g, char => ({
+    '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+  }[char]));
+}
+
+function toast(text) {
+  clearTimeout(toastTimer);
+  const element = $('toast');
+  element.textContent = text;
+  element.hidden = false;
+  toastTimer = setTimeout(() => { element.hidden = true; }, 3200);
+}
+
+function clearPromptTimers() {
+  promptTimers.forEach(timer => clearTimeout(timer));
+  promptTimers = [];
+}
+
+function promptState(prompt) {
+  if (!prompt) return null;
+  if (prompt.state === 'awaiting_confirmation' && prompt.expiresAt <= Date.now()) return 'expired';
+  return prompt.state;
+}
+
+function promptLabel(state) {
+  return candidateLabels[state] || state || '等待你的决定';
+}
+
+function remainingSeconds(prompt) {
+  if (!prompt?.expiresAt) return 0;
+  return Math.max(0, Math.ceil((prompt.expiresAt - Date.now()) / 1000));
+}
+
+/* ---------- 日期与格式 ---------- */
+function timeOf(iso) {
+  const date = new Date(iso);
+  return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+}
+
+function dayLabel(iso) {
+  const date = new Date(iso);
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const target = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  const diff = Math.round((start - target) / 86400000);
+  if (diff === 0) return '今天';
+  if (diff === 1) return '昨天';
+  return `${date.getMonth() + 1}月${date.getDate()}日`;
+}
+
+function fullDate(iso) {
+  const date = new Date(iso);
+  return `${date.getMonth() + 1}月${date.getDate()}日 ${pad(date.getHours())}:${pad(date.getMinutes())}`;
+}
+
+function resetLabel(iso) {
+  const date = new Date(`${iso}T00:00:00`);
+  return `${date.getMonth() + 1} 月 ${date.getDate()} 日重置`;
+}
+
+function elapsedLabel(startedAt) {
+  const seconds = Math.max(0, Math.floor((Date.now() - new Date(startedAt).getTime()) / 1000));
+  return `${pad(Math.floor(seconds / 60))}:${pad(seconds % 60)}`;
+}
+
+function localDateInput(date) {
+  return `${date.getFullYear()}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`;
+}
+
+function scheduleLabel(schedule) {
+  const target = new Date(`${schedule.date}T${schedule.time}:00`);
+  const now = new Date();
+  const start = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  const day = new Date(target.getFullYear(), target.getMonth(), target.getDate());
+  const diff = Math.round((day - start) / 86400000);
+  const prefix = diff === 0 ? '今天' : diff === 1 ? '明天' : `${target.getMonth() + 1}月${target.getDate()}日`;
+  return `${prefix} ${schedule.time}`;
+}
+
+function initials(name) {
+  return String(name || '?').trim().slice(0, 1) || '?';
+}
+
+function avatar(speaker, size = 'avatar-sm') {
+  return `<span class="avatar ${size}" style="--avatar-bg:${esc(speaker.color)}">${esc(speaker.short || initials(speaker.name))}</span>`;
+}
+
+function applyReduceMotion() {
+  document.documentElement.classList.toggle('reduce-motion', Boolean(db.settings?.reduceMotion));
+}
+
+/* ---------- 页面切换 ---------- */
+function showPage(page) {
+  if (promptOpen) closePromptSheet();
+  if (!$('dialog').hidden) closeDialog();
+  if (page !== 'scan') stopScanner();
+  if (page !== 'meeting') stopSelfCamera(false);
+  currentPage = page;
+  document.querySelectorAll('.page').forEach(section => {
+    section.hidden = section.dataset.page !== page;
+  });
+  const nav = $('bottom-nav');
+  nav.hidden = !MAIN_PAGES.includes(page) || (page === 'meeting' && Boolean(db.active));
+  document.querySelectorAll('[data-nav]').forEach(button => {
+    const active = button.dataset.nav === page;
+    button.classList.toggle('active', active);
+    if (active) button.setAttribute('aria-current', 'page');
+    else button.removeAttribute('aria-current');
+  });
+  const scroll = document.querySelector(`.page[data-page="${page}"] .page-scroll`);
+  if (scroll) scroll.scrollTop = 0;
+
+  if (page === 'home') renderHome();
+  if (page === 'meeting') renderMeetingPage();
+  if (page === 'history') renderHistory();
+  if (page === 'profile') renderProfile();
+  if (page === 'settings') renderSettings();
+  if (page === 'scan') { resetScanPage(); startScanner(); }
+}
+
+/* ---------- 首页 ---------- */
+function renderHome() {
+  const greeting = new Date().getHours() < 12 ? '早上好' : new Date().getHours() < 18 ? '下午好' : '晚上好';
+  if ($('home-title').firstChild) $('home-title').firstChild.nodeValue = `${greeting}，`;
+  $('home-name').textContent = db.user.nickname;
+  $('device-status').textContent = db.device.connected ? '设备已连接' : '设备未连接';
+  $('device-dot').className = `status-dot ${db.device.connected ? 'ok' : ''}`;
+  $('device-battery').textContent = `${db.device.battery}%`;
+  $('home-quota').textContent = String(remainingMinutes(db));
+  if (!reconnecting) $('reconnect-label').textContent = '重新连接机器人';
+
+  const recent = [...db.meetings]
+    .sort((a, b) => new Date(b.endedAt) - new Date(a.endedAt))
+    .slice(0, 3);
+  $('recent-list').innerHTML = recent.length
+    ? recent.map(meetingRow).join('')
+    : '<div class="empty-inline">还没有会议记录。加入或快速开始一场会议。</div>';
+
+  renderUpcomingLists();
+}
+
+async function reconnectRobot() {
+  if (reconnecting) return;
+  reconnecting = true;
+  const button = $('reconnect-robot');
+  button.disabled = true;
+  $('reconnect-label').textContent = '正在重新连接…';
+  $('device-status').textContent = '正在重新连接…';
+  $('device-dot').className = 'status-dot';
+  await wait(1100);
+  db.device.connected = true;
+  persist(db);
+  reconnecting = false;
+  button.disabled = false;
+  renderHome();
+  toast('机器人已重新连接（演示）');
+}
+
+function meetingRow(meeting) {
+  const date = new Date(meeting.endedAt);
+  return `
+    <div class="record-row">
+      <button class="record-hit" type="button" data-meeting="${esc(meeting.id)}">
+        <span class="record-date"><strong>${date.getDate()}</strong><span>${date.getMonth() + 1}月</span></span>
+        <span class="record-main">
+          <span class="record-title">${esc(meeting.title)}</span>
+          <span class="record-meta">
+            <span>${meeting.durationMin} 分钟</span>
+            <span>${meeting.participants.length} 人</span>
+            <span>${dayLabel(meeting.endedAt)}</span>
+          </span>
+          <span class="record-summary">${esc(meeting.summary)}</span>
+        </span>
+        <svg class="record-chev" width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      </button>
+    </div>`;
+}
+
+function upcomingHTML() {
+  return db.scheduled.map(schedule => `
+    <article class="upcoming-row">
+      <div class="upcoming-main">
+        <span class="upcoming-time">${esc(scheduleLabel(schedule))}</span>
+        <div class="upcoming-copy">
+          <h3>${esc(schedule.title)}</h3>
+          <p>${schedule.duration} 分钟 · 本地预约</p>
+        </div>
+      </div>
+      <div class="upcoming-actions">
+        <button type="button" data-cancel-schedule="${esc(schedule.id)}">取消</button>
+        <button type="button" class="start" data-start-schedule="${esc(schedule.id)}">开始</button>
+      </div>
+    </article>`).join('');
+}
+
+function renderUpcomingLists() {
+  const has = db.scheduled.length > 0;
+  const html = upcomingHTML();
+  for (const [section, count, list] of [
+    ['upcoming-section', 'upcoming-count', 'upcoming-list'],
+    ['meeting-upcoming-section', 'meeting-upcoming-count', 'meeting-upcoming-list']
+  ]) {
+    $(section).hidden = !has;
+    $(count).textContent = has ? `${db.scheduled.length} 场` : '';
+    $(list).innerHTML = html;
+  }
+}
+
+/* ---------- 会议页 ---------- */
+function renderMeetingPage() {
+  const active = db.active;
+  $('meeting-empty').hidden = Boolean(active);
+  $('meeting-active').hidden = !active;
+  renderUpcomingLists();
+  if (!active) return;
+
+  $('meeting-title').textContent = active.title;
+  const source = {quick:'快速会议', join:'加入会议', scheduled:'预定会议', demo:'演示模式'}[active.source] || '示例会议';
+  $('meeting-meta').textContent = `${active.participants.length} 人 · ${source}`;
+  $('meeting-elapsed').textContent = elapsedLabel(active.startedAt);
+  $('demo-banner').hidden = !active.isDemo;
+  renderActiveMeeting();
+}
+
+function renderActiveMeeting() {
+  const active = db.active;
+  if (!active) return;
+  renderStage(active);
+  renderCapture(active);
+  renderLiveTranscript(active);
+  renderPending(active);
+  $('meeting-elapsed').textContent = elapsedLabel(active.startedAt);
+  if (promptOpen) renderPromptSheet();
+}
+
+function renderStage(meeting) {
+  const latest = meeting.transcript[meeting.transcript.length - 1];
+  const currentId = latest?.speakerId;
+  const self = meeting.participants.find(person => person.id === 'p-lin') || meeting.participants[0];
+  if (!stageId || !meeting.participants.some(person => person.id === stageId)) stageId = currentId || self.id;
+  if (selfCameraOn) stageId = self.id;
+  const person = speakerOf(meeting, stageId);
+  const isSelf = person.id === self.id;
+  const showPreview = selfCameraOn && isSelf;
+
+  $('stage-main').style.setProperty('--stage-tint', person.tint);
+  $('stage-avatar').style.setProperty('--stage-color', person.color);
+  $('stage-avatar').textContent = person.short || initials(person.name);
+  $('stage-avatar').hidden = showPreview;
+  $('stage-preview').hidden = !showPreview;
+  $('stage-name').textContent = person.name;
+  $('stage-role').textContent = `${person.role}${person.id === currentId ? ' · 发言中' : ''}${showPreview ? ' · 本机预览' : ''}`;
+  $('stage-tag').textContent = showPreview ? '摄像头' : person.id === currentId ? '发言中' : '参会者';
+  $('preview-fallback').hidden = Boolean(selfCameraStream);
+  $('stage-video').hidden = !selfCameraStream;
+
+  $('filmstrip').innerHTML = meeting.participants.map(participant => {
+    const classes = [
+      participant.id === stageId ? 'focused' : '',
+      participant.id === currentId ? 'speaking' : ''
+    ].filter(Boolean).join(' ');
+    return `<button type="button" class="${classes}" data-stage-id="${esc(participant.id)}" title="聚焦 ${esc(participant.name)}">
+      ${avatar(participant, 'avatar-md')}
+      <span class="participant-name">${esc(participant.name)}</span>
+    </button>`;
+  }).join('');
+  $('attendee-count').textContent = String(meeting.participants.length);
+  renderCameraButton();
+  renderMicButton();
+}
+
+function renderCameraButton() {
+  const button = $('live-camera');
+  if (!button) return;
+  button.setAttribute('aria-pressed', String(selfCameraOn));
+  button.setAttribute('aria-label', selfCameraOn ? '关闭摄像头' : '开启摄像头');
+  button.classList.toggle('on', selfCameraOn);
+  $('live-camera-label').textContent = selfCameraOn ? '关闭视频' : '开启视频';
+}
+
+function renderMicButton() {
+  const button = $('live-mic');
+  if (!button) return;
+  button.classList.toggle('muted', meetingMicMuted);
+  button.setAttribute('aria-pressed', String(meetingMicMuted));
+  button.setAttribute('aria-label', meetingMicMuted ? '解除静音' : '静音');
+  $('live-mic-label').textContent = meetingMicMuted ? '解除静音' : '静音';
+}
+
+function toggleMic() {
+  meetingMicMuted = !meetingMicMuted;
+  renderMicButton();
+  toast(meetingMicMuted ? '已静音（模拟）' : '已解除静音（模拟）');
+}
+
+async function toggleSelfCamera() {
+  const active = db.active;
+  if (!active) return;
+  if (selfCameraOn) {
+    stopSelfCamera();
+    return;
+  }
+  selfCameraOn = true;
+  stageId = 'p-lin';
+  renderStage(active);
+  try {
+    if (!navigator.mediaDevices?.getUserMedia) throw new Error('unsupported');
+    selfCameraStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'user'}});
+    const video = $('stage-video');
+    video.srcObject = selfCameraStream;
+    await video.play().catch(() => {});
+    renderStage(active);
+    toast('摄像头已开启 · 仅本机预览');
+  } catch {
+    selfCameraStream = null;
+    renderStage(active);
+    toast('摄像头不可用，已显示模拟画面');
+  }
+}
+
+function stopSelfCamera(render = true) {
+  if (selfCameraStream) {
+    selfCameraStream.getTracks().forEach(track => track.stop());
+    selfCameraStream = null;
+  }
+  selfCameraOn = false;
+  const video = $('stage-video');
+  if (video) { video.srcObject = null; video.hidden = true; }
+  if (render && currentPage === 'meeting' && db.active) renderStage(db.active);
+  else renderCameraButton();
+}
+
+function renderCapture(meeting) {
+  const capture = meeting.capture;
+  $('shared-block').hidden = !capture;
+  if (!capture) return;
+  $('capture-image').src = capture.src;
+  $('capture-image').alt = `现场共享内容：${capture.description}`;
+  $('capture-desc').textContent = capture.description;
+  $('capture-meta').textContent = `共享于 ${capture.at} · 原图由现场成员拍摄`;
+}
+
+function renderLiveTranscript(meeting) {
+  const list = $('live-transcript');
+  list.innerHTML = meeting.transcript.map((line, index) => {
+    const person = speakerOf(meeting, line.speakerId);
+    const latest = index === meeting.transcript.length - 1;
+    return `
+      <li class="transcript-item${latest ? ' latest' : ''}">
+        <span class="transcript-time">${esc(line.at)}</span>
+        <span class="transcript-copy">
+          <span class="transcript-speaker" style="color:${esc(person.color)}">${esc(person.name)}</span>
+          <p>${esc(line.text)}</p>
+        </span>
+      </li>`;
+  }).join('');
+  requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
+}
+
+function renderPending(meeting) {
+  const prompt = meeting.aiPrompt;
+  const state = promptState(prompt);
+  const pending = $('pending-list');
+  if (!prompt) {
+    $('pending-count').textContent = '0 条';
+    pending.innerHTML = '<div class="pending-empty">暂无需要确认的 AI 提示。</div>';
+    return;
+  }
+  $('pending-count').textContent = state === 'awaiting_confirmation' ? '1 条待确认' : '0 条待确认';
+  const tone = state === 'expired' ? ' expired' : state === 'completed' ? ' done' : '';
+  pending.innerHTML = `
+    <article class="card pending-card">
+      <h3>你的观点可能还没被现场听到</h3>
+      <p>${esc(prompt.text)}</p>
+      <div class="pending-bottom">
+        <span class="pending-status${tone}">${esc(promptLabel(state))}</span>
+        <button type="button" data-open-prompt>查看</button>
+      </div>
+    </article>`;
+}
+
+/* ---------- AI 候选弹层 ---------- */
+function openPromptSheet() {
+  const active = db.active;
+  if (!active?.aiPrompt || promptOpen) return;
+  if (!$('dialog').hidden) closeDialog();
+  promptOpen = true;
+  lastPromptState = promptState(active.aiPrompt);
+  renderPromptSheet();
+  $('overlay').hidden = false;
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    if (!promptOpen) return;
+    $('overlay').classList.add('open');
+    $('sheet').focus({preventScroll:true});
+  }));
+}
+
+function closePromptSheet() {
+  if (!promptOpen) return;
+  promptOpen = false;
+  $('overlay').classList.remove('open');
+  clearTimeout(promptCloseTimer);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  promptCloseTimer = setTimeout(() => {
+    if (promptOpen) return;
+    $('overlay').hidden = true;
+  }, reduced ? 0 : 280);
+}
+
+function renderPromptSheet() {
+  if (!promptOpen) return;
+  const prompt = db.active?.aiPrompt;
+  if (!prompt) { closePromptSheet(); return; }
+  const state = promptState(prompt);
+  const seconds = remainingSeconds(prompt);
+  $('sh-quote').textContent = prompt.text;
+  $('sh-meta').textContent = `你说的 · 原话证据 ${prompt.evidenceIds?.length || 0} 条`;
+  $('sh-state').textContent = promptLabel(state);
+  $('sh-countdown').textContent = state === 'awaiting_confirmation'
+    ? `${seconds} 秒内有效`
+    : state === 'expired'
+      ? '有效期已结束。点击「请机器人提醒」后会重新校验，仍满足条件才提交提醒。'
+      : '本机模拟回执，不代表真实机器人已播报。';
+
+  const actionable = state === 'awaiting_confirmation' || state === 'expired';
+  const confirm = $('sh-confirm');
+  const dismiss = $('sh-dismiss');
+  confirm.disabled = promptBusy || !actionable;
+  confirm.textContent = promptBusy ? (state === 'expired' ? '正在校验…' : '正在提交…') : '请机器人提醒';
+  dismiss.hidden = state !== 'awaiting_confirmation';
+  dismiss.disabled = promptBusy;
+  $('sh-actions').classList.toggle('single', state !== 'awaiting_confirmation');
+}
+
+async function decidePrompt(decision) {
+  const active = db.active;
+  const prompt = active?.aiPrompt;
+  if (!prompt || promptBusy) return;
+  const state = promptState(prompt);
+
+  if (decision === 'dismiss') {
+    if (state !== 'awaiting_confirmation') return;
+    prompt.state = 'dismissed';
+    persist(db);
+    closePromptSheet();
+    renderPending(active);
+    toast('已忽略本次 AI 提示');
+    return;
+  }
+
+  if (state === 'expired') {
+    promptBusy = true;
+    renderPromptSheet();
+    await wait(650);
+    promptBusy = false;
+    prompt.state = 'awaiting_confirmation';
+    prompt.expiresAt = Date.now() + 120000;
+    persist(db);
+    renderActiveMeeting();
+    toast('已重新校验，仍满足提醒条件');
+    return;
+  }
+
+  if (state !== 'awaiting_confirmation') return;
+  promptBusy = true;
+  renderPromptSheet();
+  await wait(700);
+  promptBusy = false;
+  prompt.state = 'queued';
+  persist(db);
+  renderActiveMeeting();
+
+  clearPromptTimers();
+  promptTimers.push(setTimeout(() => {
+    if (db.active?.aiPrompt?.state !== 'queued') return;
+    db.active.aiPrompt.state = 'broadcasting';
+    persist(db);
+    renderActiveMeeting();
+  }, 2100));
+  promptTimers.push(setTimeout(() => {
+    if (db.active?.aiPrompt?.state !== 'broadcasting') return;
+    db.active.aiPrompt.state = 'completed';
+    persist(db);
+    renderActiveMeeting();
+  }, 4500));
+}
+
+/* ---------- 通用弹层 ---------- */
+function openDialog({title, body, actions = [{label:'关闭', value:'close', style:'secondary'}], onAction}) {
+  if (promptOpen) closePromptSheet();
+  clearTimeout(dialogCloseTimer);
+  $('dialog-title').textContent = title;
+  $('dialog-body').innerHTML = body;
+  $('dialog-actions').innerHTML = actions.map(action =>
+    `<button type="button" class="button ${action.style || 'secondary'}" data-dialog-action="${esc(action.value)}">${esc(action.label)}</button>`
+  ).join('');
+  dialogHandler = onAction || null;
+  $('dialog').hidden = false;
+  requestAnimationFrame(() => $('dialog').classList.add('open'));
+}
+
+function closeDialog() {
+  if ($('dialog').hidden) return;
+  $('dialog').classList.remove('open');
+  clearTimeout(dialogCloseTimer);
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  dialogCloseTimer = setTimeout(() => {
+    if ($('dialog').classList.contains('open')) return;
+    $('dialog').hidden = true;
+    dialogHandler = null;
+  }, reduced ? 0 : 280);
+}
+
+/* ---------- 会议开始 / 结束 ---------- */
+function guardActive(action) {
+  if (!db.active) { action(); return; }
+  openDialog({
+    title:'已有进行中的会议',
+    body:`<p>「${esc(db.active.title)}」还未结束。先结束并保存这场会议，再开始新的会议？</p>`,
+    actions:[
+      {label:'返回当前会议', value:'back', style:'secondary'},
+      {label:'结束并开始', value:'end', style:'primary'}
+    ],
+    onAction: value => {
+      if (value === 'back') { closeDialog(); showPage('meeting'); return; }
+      if (value === 'end') {
+        stopSelfCamera(false);
+        const saved = endActiveMeeting(db);
+        closeDialog();
+        if (saved) toast('上一场会议已保存');
+        action();
+      }
+    }
+  });
+}
+
+function startTemplateMeeting({title, source, code = '', isDemo = false}) {
+  closeDialog();
+  closePromptSheet();
+  clearPromptTimers();
+  clearTimeout(autoPromptTimer);
+  stopSelfCamera(false);
+  stageId = null;
+  selfCameraOn = false;
+  meetingMicMuted = false;
+  buildActiveMeeting(db, {title, source, code, isDemo});
+  autoPromptOpened = false;
+  lastPromptState = '';
+  showPage('meeting');
+  autoPromptTimer = setTimeout(() => {
+    if (currentPage !== 'meeting' || !db.active || autoPromptOpened) return;
+    autoPromptOpened = true;
+    if (promptState(db.active.aiPrompt) === 'awaiting_confirmation') openPromptSheet();
+  }, 1600);
+}
+
+function requestEndMeeting() {
+  const active = db.active;
+  if (!active) return;
+  openDialog({
+    title:'结束会议并保存记录？',
+    body:`<p>结束后会保存<strong>会议纪要、观点图谱和完整转写</strong>，并可在历史中回看。</p>
+          <p>${active.isDemo ? '这是演示会议，记录不会写入正式历史。' : '本次会议时长会计入本地演示额度。'}</p>`,
+    actions:[
+      {label:'继续会议', value:'close', style:'secondary'},
+      {label:'结束会议', value:'end', style:'primary'}
+    ],
+    onAction: value => {
+      if (value !== 'end') return;
+      finishMeeting();
+    }
+  });
+}
+
+function finishMeeting() {
+  const record = endActiveMeeting(db);
+  stopSelfCamera(false);
+  clearPromptTimers();
+  clearTimeout(autoPromptTimer);
+  closePromptSheet();
+  closeDialog();
+  if (!record) { toast('没有进行中的会议'); return; }
+  detailMeeting = record;
+  detailTab = 'minutes';
+  detailReturn = record.isDemo ? 'profile' : 'history';
+  renderDetail();
+  showPage('detail');
+  toast(record.isDemo ? '演示记录已保存，不会写入正式历史' : '会议已保存到历史');
+}
+
+function exitDemo() {
+  openDialog({
+    title:'退出演示模式？',
+    body:'<p>本场演示内容不会保存到历史，也不会影响正式额度。</p>',
+    actions:[
+      {label:'继续演示', value:'close', style:'secondary'},
+      {label:'退出演示', value:'exit', style:'primary'}
+    ],
+    onAction: value => {
+      if (value !== 'exit') return;
+      stopSelfCamera(false);
+      db.active = null;
+      persist(db);
+      clearPromptTimers();
+      clearTimeout(autoPromptTimer);
+      closePromptSheet();
+      closeDialog();
+      showPage('home');
+      toast('已退出演示，未保存记录');
+    }
+  });
+}
+
+/* ---------- 加入会议 ---------- */
+function openJoin(returnPage = 'home', code = null) {
+  joinReturn = returnPage;
+  $('j-mid').value = code || 'recycle-review';
+  $('j-name').value = db.user.nickname;
+  $('j-err').hidden = true;
+  $('j-submit-label').textContent = '进入会议';
+  $('mic-permission-status').textContent = '允许使用麦克风，才能在会议中发言。';
+  $('j-mic-label').textContent = '允许麦克风';
+  $('cam-permission-status').textContent = '允许使用摄像头，才能在会议中开启画面。';
+  $('j-cam-label').textContent = '允许摄像头';
+  $('j-cam').disabled = false;
+  joinCameraGranted = false;
+  joinBusy = false;
+  updateJoinAvailability();
+  showPage('join');
+}
+
+async function authorizeJoinCamera() {
+  const button = $('j-cam');
+  button.disabled = true;
+  $('j-cam-label').textContent = '检查中…';
+  try {
+    if (!navigator.mediaDevices?.getUserMedia) throw new Error('unsupported');
+    const stream = await navigator.mediaDevices.getUserMedia({video:true});
+    stream.getTracks().forEach(track => track.stop());
+    joinCameraGranted = true;
+    $('cam-permission-status').textContent = '摄像头已授权；仅检查授权，不会上传画面。';
+  } catch (error) {
+    joinCameraGranted = false;
+    $('cam-permission-status').textContent = error.name === 'NotAllowedError'
+      ? '摄像头未获授权；会议中会显示模拟画面。'
+      : '无法访问摄像头；会议中会显示模拟画面。';
+  } finally {
+    button.disabled = false;
+    $('j-cam-label').textContent = '重新检查摄像头';
+  }
+}
+
+function updateJoinAvailability() {
+  let valid = false;
+  try {
+    valid = Boolean(parseMeetingId($('j-mid').value)) && Boolean($('j-name').value.trim());
+  } catch {
+    valid = false;
+  }
+  $('j-submit').disabled = joinBusy || !valid;
+}
+
+async function handleJoin(event) {
+  event.preventDefault();
+  if (joinBusy) return;
+  const error = $('j-err');
+  error.hidden = true;
+
+  let meetingId;
+  let nickname;
+  try {
+    meetingId = parseMeetingId($('j-mid').value);
+    nickname = $('j-name').value.trim();
+    if (!nickname) throw new Error('请填写你在会议中的名字。');
+  } catch (caught) {
+    error.textContent = caught.message;
+    error.hidden = false;
+    return;
+  }
+
+  joinBusy = true;
+  updateJoinAvailability();
+  $('j-submit-label').textContent = '正在连接…';
+  try {
+    await wait(700);
+    db.user.nickname = nickname;
+    persist(db);
+    guardActive(() => startTemplateMeeting({title:'回收箱方案评审', source:'join', code:meetingId}));
+  } finally {
+    joinBusy = false;
+    $('j-submit-label').textContent = '进入会议';
+    updateJoinAvailability();
+  }
+}
+
+/* ---------- 预定会议 ---------- */
+function openSchedule(returnPage = 'home') {
+  scheduleReturn = returnPage;
+  const tomorrow = new Date();
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  $('s-title').value = '';
+  $('s-date').min = localDateInput(new Date());
+  $('s-date').value = localDateInput(tomorrow);
+  $('s-time').value = '15:00';
+  $('s-duration').value = '45';
+  $('s-err').hidden = true;
+  showPage('schedule');
+}
+
+function handleSchedule(event) {
+  event.preventDefault();
+  const error = $('s-err');
+  error.hidden = true;
+  const title = $('s-title').value.trim();
+  const date = $('s-date').value;
+  const time = $('s-time').value;
+  const duration = Number($('s-duration').value);
+  if (!title) {
+    error.textContent = '请填写会议主题。';
+    error.hidden = false;
+    return;
+  }
+  if (!date || !time) {
+    error.textContent = '请选择日期和时间。';
+    error.hidden = false;
+    return;
+  }
+  const when = new Date(`${date}T${time}:00`);
+  if (Number.isNaN(when.getTime()) || when.getTime() < Date.now() - 60000) {
+    error.textContent = '请选择未来的时间。';
+    error.hidden = false;
+    return;
+  }
+  addScheduled(db, {
+    id:'s-' + Date.now(),
+    title,
+    date,
+    time,
+    duration,
+    createdAt:new Date().toISOString()
+  });
+  renderUpcomingLists();
+  showPage('home');
+  toast('已保存本地预约（演示）');
+}
+
+/* ---------- 历史 ---------- */
+function renderHistory() {
+  $('history-search').value = historyQuery;
+  document.querySelectorAll('#history-filters button').forEach(button => {
+    button.classList.toggle('active', button.dataset.filter === historyFilter);
+  });
+  renderHistoryList();
+}
+
+function renderHistoryList() {
+  const query = historyQuery.trim().toLowerCase();
+  let list = [...db.meetings].sort((a, b) => new Date(b.endedAt) - new Date(a.endedAt));
+  if (query) list = list.filter(meeting => meeting.title.toLowerCase().includes(query));
+  if (historyFilter === 'week') {
+    list = list.filter(meeting => Date.now() - new Date(meeting.endedAt).getTime() <= 7 * 86400000);
+  }
+  if (historyFilter === 'todos') {
+    list = list.filter(meeting => meeting.todos.some(todo => !todo.done));
+  }
+  $('history-count').textContent = `${list.length} 场`;
+  if (!list.length) {
+    const hasFilter = Boolean(query) || historyFilter !== 'all';
+    $('history-list').innerHTML = `
+      <div class="history-empty">
+        <p>${hasFilter ? '没有符合当前搜索或筛选条件的会议。' : '还没有保存的会议记录。'}</p>
+        <button type="button" data-history-empty="${hasFilter ? 'clear' : 'home'}">${hasFilter ? '清除筛选' : '去开一场会议'}</button>
+      </div>`;
+    return;
+  }
+  $('history-list').innerHTML = list.map(meetingRow).join('');
+}
+
+/* ---------- 会议详情 ---------- */
+function openDetail(meetingId, returnPage) {
+  const meeting = findMeeting(db, meetingId);
+  if (!meeting) { toast('找不到这场会议'); return; }
+  detailMeeting = meeting;
+  detailReturn = returnPage;
+  detailTab = 'minutes';
+  renderDetail();
+  showPage('detail');
+  $('detail-body').scrollTop = 0;
+}
+
+function renderDetail() {
+  const meeting = detailMeeting;
+  if (!meeting) return;
+  $('detail-title').textContent = meeting.title;
+  $('detail-meta').textContent = `${fullDate(meeting.startedAt)} · ${meeting.durationMin} 分钟 · ${meeting.participants.length} 人`;
+  $('detail-demo').hidden = !meeting.isDemo;
+  document.querySelectorAll('#detail-tabs button').forEach(button => {
+    const active = button.dataset.tab === detailTab;
+    button.classList.toggle('active', active);
+    button.setAttribute('aria-selected', String(active));
+  });
+  renderDetailBody();
+}
+
+function renderDetailBody() {
+  const meeting = detailMeeting;
+  if (!meeting) return;
+  const body = $('detail-body');
+  if (detailTab === 'minutes') body.innerHTML = renderMinutes(meeting);
+  if (detailTab === 'graph') body.innerHTML = renderGraph(meeting);
+  if (detailTab === 'transcript') body.innerHTML = renderTranscript(meeting);
+  body.scrollTop = 0;
+}
+
+function renderMinutes(meeting) {
+  const conclusions = meeting.conclusions.length
+    ? `<ul class="conclusion-list">${meeting.conclusions.map(item => `<li>${esc(item)}</li>`).join('')}</ul>`
+    : '<p class="minutes-empty">暂无关键结论。</p>';
+  const todos = meeting.todos.length
+    ? `<ul class="todo-list">${meeting.todos.map(todo => `
+        <li class="todo-item${todo.done ? ' done' : ''}">
+          <input type="checkbox" id="todo-${esc(todo.id)}" data-todo-id="${esc(todo.id)}" ${todo.done ? 'checked' : ''}>
+          <label for="todo-${esc(todo.id)}">${esc(todo.text)}<span class="todo-owner">${esc(todo.owner)}</span></label>
+        </li>`).join('')}</ul>`
+    : '<p class="minutes-empty">暂无待办事项。</p>';
+  const aiPrompt = meeting.aiPrompt;
+  const promptBlock = aiPrompt ? `
+    <section class="detail-section">
+      <h2>AI 提示</h2>
+      <div class="summary-box" style="background:#FFF6F2;border-color:#F4D8CE">
+        <p><strong>${esc(promptLabel(promptState(aiPrompt)))}</strong><br>${esc(aiPrompt.text)}</p>
+      </div>
+    </section>` : '';
+
+  return `
+    <section class="detail-section">
+      <h2>会议摘要</h2>
+      <div class="summary-box"><p>${esc(meeting.summary)}</p></div>
+    </section>
+    <section class="detail-section">
+      <h2>关键结论</h2>
+      ${conclusions}
+    </section>
+    <section class="detail-section">
+      <h2>待办事项</h2>
+      ${todos}
+    </section>
+    ${promptBlock}
+    <p class="footnote">待办勾选会保存在本机；本页为演示记录，不代表真实会议结论。</p>`;
+}
+
+function renderGraph(meeting) {
+  const topics = new Map();
+  for (const viewpoint of meeting.viewpoints) {
+    if (!topics.has(viewpoint.topic)) topics.set(viewpoint.topic, []);
+    topics.get(viewpoint.topic).push(viewpoint);
+  }
+  if (!topics.size) return '<p class="minutes-empty">暂无观点记录。</p>';
+  return [...topics.entries()].map(([topic, viewpoints]) => `
+    <section class="affinity-topic">
+      <header><h3>${esc(topic)}</h3><span>${viewpoints.length} 条观点</span></header>
+      <div class="note-grid">
+        ${viewpoints.map(viewpoint => {
+          const person = speakerOf(meeting, viewpoint.speakerId);
+          return `
+            <button class="opinion-note" type="button" data-note-id="${esc(viewpoint.id)}"
+              style="--note-bg:${esc(person.tint)};--note-color:${esc(person.color)}">
+              <span class="note-speaker">${esc(person.name)}</span>
+              <p>${esc(viewpoint.text)}</p>
+              <span class="note-foot">
+                <span class="note-status">${esc(viewpointStateLabel(viewpoint.status))}</span>
+                <span class="note-hint">查看原话</span>
+              </span>
+            </button>`;
+        }).join('')}
+      </div>
+    </section>`).join('') + '<p class="footnote">主题决定分组，颜色代表发言者。点击便签查看原话与证据。</p>';
+}
+
+function renderTranscript(meeting) {
+  const evidenceIds = new Set();
+  for (const viewpoint of meeting.viewpoints) {
+    (viewpoint.evidenceIds || []).forEach(id => evidenceIds.add(id));
+    (viewpoint.responseEvidenceIds || []).forEach(id => evidenceIds.add(id));
+  }
+  if (!meeting.transcript.length) return '<p class="minutes-empty">暂无转写记录。</p>';
+  return `
+    <section class="full-transcript">
+      <header class="full-transcript-head">
+        <h2>完整转写</h2>
+        <span>按时间顺序 · ${meeting.transcript.length} 条</span>
+      </header>
+      <ol class="full-transcript-list">
+        ${meeting.transcript.map(line => {
+          const person = speakerOf(meeting, line.speakerId);
+          return `
+            <li class="full-line">
+              <span class="full-time">${esc(line.at)}</span>
+              <div class="full-body">
+                <span class="full-speaker" style="color:${esc(person.color)}">${esc(person.name)} · ${esc(person.role)}</span>
+                <p>${esc(line.text)}${evidenceIds.has(line.id) ? '<span class="evidence-link">证据</span>' : ''}</p>
+              </div>
+            </li>`;
+        }).join('')}
+      </ol>
+    </section>
+    <p class="footnote">完整转写按时间顺序排列，标记“证据”的句子被观点引用。</p>`;
+}
+
+function openNoteDialog(meeting, viewpoint) {
+  const person = speakerOf(meeting, viewpoint.speakerId);
+  const evidence = (viewpoint.evidenceIds || [])
+    .map(id => meeting.transcript.find(line => line.id === id))
+    .filter(Boolean);
+  const responses = (viewpoint.responseEvidenceIds || [])
+    .map(id => meeting.transcript.find(line => line.id === id))
+    .filter(Boolean);
+
+  const evidenceHTML = evidence.length
+    ? `<div class="evidence-list">${evidence.map(line => {
+        const speaker = speakerOf(meeting, line.speakerId);
+        return `<article class="evidence-item">
+          <header><span>${esc(speaker.name)}</span><span>${esc(line.at)}</span></header>
+          <p>${esc(line.text)}</p>
+        </article>`;
+      }).join('')}</div>`
+    : '<p class="evidence-empty">暂无关联原话</p>';
+
+  const responseHTML = responses.length
+    ? `<p class="dialog-subhead">现场回应</p><div class="evidence-list">${responses.map(line => {
+        const speaker = speakerOf(meeting, line.speakerId);
+        return `<article class="evidence-item">
+          <header><span>${esc(speaker.name)}</span><span>${esc(line.at)}</span></header>
+          <p>${esc(line.text)}</p>
+        </article>`;
+      }).join('')}</div>`
+    : '';
+
+  openDialog({
+    title:'观点详情',
+    body:`
+      <div class="note-detail-meta">
+        <span>${esc(person.name)} · ${esc(person.role)}</span>
+        <span>${esc(viewpoint.topic)}</span>
+        <span>${esc(viewpointStateLabel(viewpoint.status))}</span>
+      </div>
+      <p class="note-detail-text">${esc(viewpoint.text)}</p>
+      <p class="dialog-subhead">原话证据</p>
+      ${evidenceHTML}
+      ${responseHTML}`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+}
+
+/* ---------- 扫码 ---------- */
+function resetScanPage() {
+  stopScanner();
+  scanBusy = false;
+  $('scan-video').hidden = true;
+  $('scan-placeholder').hidden = false;
+  $('scan-hint').textContent = '正在开启摄像头…';
+}
+
+function stopScanner() {
+  clearTimeout(scanTimer);
+  scanTimer = null;
+  if (scanStream) {
+    scanStream.getTracks().forEach(track => track.stop());
+    scanStream = null;
+  }
+  const video = $('scan-video');
+  if (video) { video.srcObject = null; video.hidden = true; }
+}
+
+async function startScanner() {
+  if (scanBusy || scanStream) return;
+  if (!navigator.mediaDevices?.getUserMedia) {
+    $('scan-hint').textContent = '当前浏览器无法使用摄像头扫描。';
+    return;
+  }
+  scanBusy = true;
+  try {
+    scanStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}});
+    if (currentPage !== 'scan') {
+      scanStream.getTracks().forEach(track => track.stop());
+      scanStream = null;
+      return;
+    }
+    const video = $('scan-video');
+    video.srcObject = scanStream;
+    await video.play().catch(() => {});
+    video.hidden = false;
+    $('scan-placeholder').hidden = true;
+    if ('BarcodeDetector' in window) {
+      $('scan-hint').textContent = '将二维码放入框内，识别后自动进入会议。';
+      detectScanCode();
+    } else {
+      $('scan-hint').textContent = '当前浏览器不支持自动识别二维码。';
+    }
+  } catch {
+    scanStream = null;
+    $('scan-hint').textContent = '无法使用摄像头，请检查浏览器权限后重新进入。';
+  } finally {
+    scanBusy = false;
+  }
+}
+
+async function detectScanCode() {
+  if (currentPage !== 'scan' || !scanStream || !('BarcodeDetector' in window)) return;
+  try {
+    const detector = new BarcodeDetector({formats:['qr_code']});
+    const codes = await detector.detect($('scan-video'));
+    if (codes.length) { handleScanValue(codes[0].rawValue); return; }
+  } catch {
+    // Keep the camera preview usable even if a frame cannot be decoded.
+  }
+  scanTimer = setTimeout(detectScanCode, 600);
+}
+
+function handleScanValue(raw) {
+  let code;
+  try {
+    code = parseMeetingId(raw);
+  } catch {
+    $('scan-hint').textContent = '未识别到有效会议码，请重新对准二维码。';
+    scanTimer = setTimeout(detectScanCode, 1200);
+    return;
+  }
+  stopScanner();
+  toast('已识别会议码 ' + code);
+  openJoin('home', code);
+}
+
+function openAttendeesDialog() {
+  const meeting = db.active;
+  if (!meeting) return;
+  const latest = meeting.transcript[meeting.transcript.length - 1];
+  const currentId = latest?.speakerId;
+  const rows = meeting.participants.map(person => {
+    const isSelf = person.id === 'p-lin';
+    const speaking = person.id === currentId;
+    return `<div class="attendee-row">
+      ${avatar(person, 'avatar-sm')}
+      <div class="attendee-copy">
+        <b>${esc(person.name)}${isSelf ? '（你）' : ''}</b>
+        <small>${esc(person.role)}${speaking ? ' · 发言中' : ''}</small>
+      </div>
+      ${speaking ? '<span class="attendee-badge">发言中</span>' : ''}
+    </div>`;
+  }).join('');
+  openDialog({
+    title:`参会者（${meeting.participants.length}）`,
+    body:`<div class="attendee-list">${rows}</div>`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+}
+
+function openMeetingMoreDialog() {
+  openDialog({
+    title:'更多',
+    body:'<p>当前为本地模拟会议；可从这里查看观点地图或结束会议。</p>',
+    actions:[
+      {label:'观点地图', value:'map', style:'secondary'},
+      {label:'结束会议', value:'end', style:'primary'}
+    ],
+    onAction: value => {
+      if (value === 'map') {
+        closeDialog();
+        renderMap();
+        showPage('map');
+      }
+      if (value === 'end') {
+        closeDialog();
+        requestEndMeeting();
+      }
+    }
+  });
+}
+
+function openShare() {
+  const active = db.active;
+  if (!active) return;
+  if (active.capture) {
+    openLightbox();
+    toast('共享内容 · 模拟画面');
+  } else {
+    toast('当前没有可共享的内容');
+  }
+}
+
+/* ---------- 我的 ---------- */
+function renderProfile() {
+  const plan = PLANS[db.user.plan] || PLANS.free;
+  $('profile-name').textContent = db.user.nickname;
+  $('profile-avatar').textContent = initials(db.user.nickname);
+  $('plan-badge').textContent = plan.label;
+  const remaining = remainingMinutes(db);
+  $('quota-remaining').textContent = String(remaining);
+  $('quota-total').textContent = String(db.user.quotaTotal);
+  $('quota-used').textContent = String(db.user.quotaUsed);
+  $('quota-reset').textContent = resetLabel(db.user.quotaReset);
+  const usedPercent = db.user.quotaTotal ? Math.min(100, Math.round(db.user.quotaUsed / db.user.quotaTotal * 100)) : 0;
+  $('quota-bar').style.width = `${usedPercent}%`;
+  $('quota-bar').parentElement.setAttribute('aria-valuemax', String(db.user.quotaTotal));
+  $('quota-bar').parentElement.setAttribute('aria-valuenow', String(db.user.quotaUsed));
+  document.querySelectorAll('[data-plan-current]').forEach(badge => {
+    badge.classList.toggle('show', badge.dataset.planCurrent === db.user.plan);
+  });
+  $('upgrade-plan').textContent = db.user.plan === 'free' ? '模拟升级到高级版' : '切换回免费版（模拟）';
+}
+
+function renderSettings() {
+  const settings = db.settings;
+  for (const [key, id] of [['reminders', 'set-reminders'], ['sounds', 'set-sounds'], ['reduceMotion', 'set-motion']]) {
+    const button = $(id);
+    const on = Boolean(settings[key]);
+    button.classList.toggle('on', on);
+    button.setAttribute('aria-checked', String(on));
+  }
+  applyReduceMotion();
+}
+
+async function clearShellCache() {
+  if (!('caches' in window)) { toast('当前环境没有离线缓存'); return; }
+  try {
+    const keys = await caches.keys();
+    await Promise.all(keys.map(key => caches.delete(key)));
+    toast('离线缓存已清除，会议记录未受影响');
+  } catch {
+    toast('缓存清除失败，请稍后重试');
+  }
+}
+
+/* ---------- 导出 ---------- */
+function exportMeeting(meeting) {
+  if (!meeting) { toast('没有可导出的会议'); return; }
+  const payload = {
+    format:'effmeet2-evidence-export-v1',
+    exported_at:new Date().toISOString(),
+    meeting_id:meeting.id,
+    title:meeting.title,
+    mode:'local-demo',
+    meeting,
+    notice:'本地演示数据；保留原话与证据引用，AI 推测不是本人核对结果。'
+  };
+  const blob = new Blob([JSON.stringify(payload, null, 2)], {type:'application/json;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const anchor = document.createElement('a');
+  anchor.href = url;
+  anchor.download = `EffMeet2-${meeting.id}.json`;
+  document.body.append(anchor);
+  anchor.click();
+  anchor.remove();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+  toast('已导出含原话证据的 JSON');
+}
+
+/* ---------- 图片 ---------- */
+function openLightbox() {
+  const capture = db.active?.capture;
+  if (!capture) { toast('当前没有共享原图'); return; }
+  $('lightbox-image').src = capture.src;
+  $('lightbox-image').alt = capture.description;
+  $('lightbox').hidden = false;
+  $('lightbox-close').focus({preventScroll:true});
+}
+
+function closeLightbox() {
+  $('lightbox').hidden = true;
+}
+
+/* ---------- 事件绑定 ---------- */
+$('bottom-nav').addEventListener('click', event => {
+  const button = event.target.closest('[data-nav]');
+  if (button) showPage(button.dataset.nav);
+});
+
+$('act-join').addEventListener('click', () => openJoin('home'));
+$('act-quick').addEventListener('click', () => guardActive(() => {
+  startTemplateMeeting({title:'回收箱方案评审', source:'quick'});
+  toast('已进入快速会议（模拟）');
+}));
+$('act-schedule').addEventListener('click', () => openSchedule('home'));
+$('home-history').addEventListener('click', () => showPage('history'));
+$('home-scan').addEventListener('click', () => showPage('scan'));
+$('reconnect-robot').addEventListener('click', reconnectRobot);
+
+$('empty-join').addEventListener('click', () => openJoin('meeting'));
+$('empty-quick').addEventListener('click', () => guardActive(() => {
+  startTemplateMeeting({title:'回收箱方案评审', source:'quick'});
+  toast('已进入快速会议（模拟）');
+}));
+
+$('join-back').addEventListener('click', () => showPage(joinReturn));
+$('schedule-back').addEventListener('click', () => showPage(scheduleReturn));
+$('map-back').addEventListener('click', () => showPage('meeting'));
+$('detail-back').addEventListener('click', () => showPage(detailReturn));
+
+$('join-form').addEventListener('submit', handleJoin);
+for (const id of ['j-mid', 'j-name']) {
+  $(id).addEventListener('input', () => {
+    $('j-err').hidden = true;
+    updateJoinAvailability();
+  });
+}
+$('j-mic').addEventListener('click', async () => {
+  const button = $('j-mic');
+  if (button.disabled) return;
+  button.disabled = true;
+  $('j-mic-label').textContent = '检查中…';
+  await wait(650);
+  $('mic-permission-status').textContent = '麦克风已授权（本机模拟）；不录音、不上传。';
+  $('j-mic-label').textContent = '重新检查麦克风';
+  button.disabled = false;
+});
+$('j-cam').addEventListener('click', authorizeJoinCamera);
+
+$('schedule-form').addEventListener('submit', handleSchedule);
+
+$('filmstrip').addEventListener('click', event => {
+  const button = event.target.closest('[data-stage-id]');
+  if (!button || !db.active) return;
+  stageId = button.dataset.stageId;
+  renderStage(db.active);
+});
+
+$('pending-list').addEventListener('click', event => {
+  if (event.target.closest('[data-open-prompt]')) openPromptSheet();
+});
+
+$('end-meeting').addEventListener('click', requestEndMeeting);
+$('exit-demo').addEventListener('click', exitDemo);
+$('open-map').addEventListener('click', () => {
+  if (!db.active) { toast('没有进行中的会议'); return; }
+  renderMap();
+  showPage('map');
+});
+$('map-export').addEventListener('click', () => exportMeeting(db.active));
+$('live-camera').addEventListener('click', toggleSelfCamera);
+$('live-mic').addEventListener('click', toggleMic);
+$('live-share').addEventListener('click', openShare);
+$('live-attendees').addEventListener('click', openAttendeesDialog);
+$('live-more').addEventListener('click', openMeetingMoreDialog);
+$('view-capture').addEventListener('click', openLightbox);
+$('capture-button').addEventListener('click', openLightbox);
+
+$('scrim').addEventListener('click', closePromptSheet);
+$('sheet-close').addEventListener('click', closePromptSheet);
+$('sheet-handle').addEventListener('click', closePromptSheet);
+$('sh-confirm').addEventListener('click', () => decidePrompt('confirm'));
+$('sh-dismiss').addEventListener('click', () => decidePrompt('dismiss'));
+
+$('dialog-scrim').addEventListener('click', closeDialog);
+$('dialog-close').addEventListener('click', closeDialog);
+$('dialog-actions').addEventListener('click', event => {
+  const button = event.target.closest('[data-dialog-action]');
+  if (!button) return;
+  const value = button.dataset.dialogAction;
+  if (value === 'close') { closeDialog(); return; }
+  if (dialogHandler) dialogHandler(value);
+});
+
+$('history-search').addEventListener('input', event => {
+  historyQuery = event.target.value;
+  renderHistoryList();
+});
+$('history-filters').addEventListener('click', event => {
+  const button = event.target.closest('[data-filter]');
+  if (!button) return;
+  historyFilter = button.dataset.filter;
+  document.querySelectorAll('#history-filters button').forEach(item => {
+    item.classList.toggle('active', item.dataset.filter === historyFilter);
+  });
+  renderHistoryList();
+});
+
+$('detail-tabs').addEventListener('click', event => {
+  const button = event.target.closest('[data-tab]');
+  if (!button) return;
+  detailTab = button.dataset.tab;
+  document.querySelectorAll('#detail-tabs button').forEach(item => {
+    const active = item.dataset.tab === detailTab;
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-selected', String(active));
+  });
+  renderDetailBody();
+});
+$('detail-export').addEventListener('click', () => exportMeeting(detailMeeting));
+$('detail-body').addEventListener('change', event => {
+  const input = event.target.closest('input[data-todo-id]');
+  if (!input || !detailMeeting) return;
+  updateTodo(db, detailMeeting.id, input.dataset.todoId, input.checked);
+  input.closest('.todo-item')?.classList.toggle('done', input.checked);
+});
+$('detail-body').addEventListener('click', event => {
+  const note = event.target.closest('[data-note-id]');
+  if (!note || !detailMeeting) return;
+  const viewpoint = detailMeeting.viewpoints.find(item => item.id === note.dataset.noteId);
+  if (viewpoint) openNoteDialog(detailMeeting, viewpoint);
+});
+
+/* 扫码 */
+$('scan-back').addEventListener('click', () => showPage('home'));
+
+/* 设置 */
+$('open-settings').addEventListener('click', () => showPage('settings'));
+$('settings-back').addEventListener('click', () => showPage('profile'));
+document.querySelectorAll('[data-setting]').forEach(button => {
+  button.addEventListener('click', () => {
+    const key = button.dataset.setting;
+    db.settings[key] = !db.settings[key];
+    persist(db);
+    renderSettings();
+    if (key === 'reduceMotion') applyReduceMotion();
+    const labels = {reminders:'会议提醒', sounds:'提示音', reduceMotion:'减少动画'};
+    const suffix = key === 'reduceMotion' ? '' : '（演示）';
+    toast(`${labels[key]}已${db.settings[key] ? '开启' : '关闭'}${suffix}`);
+  });
+});
+$('settings-language').addEventListener('click', () => {
+  openDialog({
+    title:'语言',
+    body:'<p>当前版本仅提供简体中文。演示版没有多语言资源。</p>',
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+});
+$('settings-privacy').addEventListener('click', () => {
+  openDialog({
+    title:'隐私与数据',
+    body:`<p>会议、观点、转写、AI 提示、额度与设置保存在当前浏览器的 <strong>localStorage</strong>（effmeet2.local.v1）。</p>
+          <p>摄像头画面仅在本机用于预览和扫码，不会上传；会议音视频、AI、机器人与联系人未接入。</p>
+          <p>清除浏览器数据或重置演示数据会删除本机记录。</p>`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+});
+$('settings-cache').addEventListener('click', clearShellCache);
+$('settings-about').addEventListener('click', () => {
+  openDialog({
+    title:'关于 EffMeet 2',
+    body:`<p><strong>EffMeet 2 手机端 · v1.0.0</strong><br>本地演示版</p>
+          <p>包含首页、会议、历史、我的四个主页面，以及扫码加入、会议纪要、观点图谱和完整转写。</p>
+          <p>所有会议与额度数据均为本地示例，不代表真实服务。</p>`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+});
+
+$('edit-name').addEventListener('click', () => {
+  openDialog({
+    title:'修改昵称',
+    body:`<input class="dialog-field" id="dialog-input" maxlength="16" value="${esc(db.user.nickname)}" aria-label="昵称">
+          <p class="field-hint">昵称只保存在本机，会同步到当前会议成员。</p>`,
+    actions:[
+      {label:'取消', value:'close', style:'secondary'},
+      {label:'保存', value:'save', style:'primary'}
+    ],
+    onAction: value => {
+      if (value !== 'save') return;
+      const next = $('dialog-input').value.trim();
+      if (!next) { toast('昵称不能为空'); return; }
+      db.user.nickname = next;
+      if (db.active) {
+        const self = db.active.participants.find(person => person.id === 'p-lin');
+        if (self) { self.name = next; self.short = initials(next); }
+      }
+      persist(db);
+      closeDialog();
+      renderProfile();
+      renderHome();
+      if (db.active && currentPage === 'meeting') renderActiveMeeting();
+      toast('昵称已更新');
+    }
+  });
+});
+
+$('upgrade-plan').addEventListener('click', () => {
+  const isFree = db.user.plan === 'free';
+  openDialog({
+    title: isFree ? '模拟升级到高级版' : '切换回免费版',
+    body: isFree
+      ? `<p>高级版演示套餐包含：每月 <strong>600 分钟</strong>、单次 <strong>180 分钟</strong>、历史<strong>永久保存</strong>与高级分析。</p>
+         <p>本次升级仅切换本机演示状态，<strong>不接支付、不产生费用</strong>，也不代表正式价格。</p>`
+      : `<p>切换回免费版后，本机额度恢复为 <strong>120 分钟</strong>，历史记录不会被删除。</p>
+         <p>该操作仅影响本地演示数据。</p>`,
+    actions:[
+      {label:'取消', value:'close', style:'secondary'},
+      {label:isFree ? '确认升级' : '切换回免费版', value:'change', style:'primary'}
+    ],
+    onAction: value => {
+      if (value !== 'change') return;
+      setPlan(db, isFree ? 'pro' : 'free');
+      closeDialog();
+      renderProfile();
+      renderHome();
+      toast(isFree ? '已切换为高级版演示套餐' : '已切换回免费版');
+    }
+  });
+});
+
+$('open-contacts').addEventListener('click', () => toast('联系人功能即将开放，敬请期待'));
+$('open-demo').addEventListener('click', () => guardActive(() => {
+  startTemplateMeeting({title:'演示 · 回收箱方案评审', source:'demo', isDemo:true});
+  toast('演示模式 · 记录不会写入正式历史');
+}));
+$('reset-demo').addEventListener('click', () => {
+  openDialog({
+    title:'重置演示数据？',
+    body:'<p>将清除本机保存的会议、预约、额度与提示状态，并恢复初始示例。该操作无法撤销。</p>',
+    actions:[
+      {label:'取消', value:'close', style:'secondary'},
+      {label:'重置', value:'reset', style:'primary'}
+    ],
+    onAction: value => {
+      if (value !== 'reset') return;
+      stopSelfCamera(false);
+      stopScanner();
+      clearPromptTimers();
+      clearTimeout(autoPromptTimer);
+      closePromptSheet();
+      db = resetDB();
+      detailMeeting = null;
+      historyQuery = '';
+      historyFilter = 'all';
+      applyReduceMotion();
+      closeDialog();
+      showPage('home');
+      toast('演示数据已重置');
+    }
+  });
+});
+
+$('lightbox-scrim').addEventListener('click', closeLightbox);
+$('lightbox-close').addEventListener('click', closeLightbox);
+
+/* 会议记录与预约的委托点击 */
+document.addEventListener('click', event => {
+  const meetingButton = event.target.closest('[data-meeting]');
+  if (meetingButton) {
+    openDetail(meetingButton.dataset.meeting, currentPage === 'home' ? 'home' : 'history');
+    return;
+  }
+
+  const startButton = event.target.closest('[data-start-schedule]');
+  if (startButton) {
+    const schedule = db.scheduled.find(item => item.id === startButton.dataset.startSchedule);
+    if (!schedule) return;
+    guardActive(() => {
+      removeScheduled(db, schedule.id);
+      startTemplateMeeting({title:schedule.title, source:'scheduled'});
+      toast('已开始预定会议（模拟）');
+    });
+    return;
+  }
+
+  const cancelButton = event.target.closest('[data-cancel-schedule]');
+  if (cancelButton) {
+    const schedule = db.scheduled.find(item => item.id === cancelButton.dataset.cancelSchedule);
+    if (!schedule) return;
+    openDialog({
+      title:'取消预约？',
+      body:`<p>将删除「${esc(schedule.title)}」的本地预约记录。</p>`,
+      actions:[
+        {label:'保留', value:'close', style:'secondary'},
+        {label:'取消预约', value:'cancel', style:'primary'}
+      ],
+      onAction: value => {
+        if (value !== 'cancel') return;
+        removeScheduled(db, schedule.id);
+        closeDialog();
+        renderUpcomingLists();
+        toast('预约已取消');
+      }
+    });
+    return;
+  }
+
+  const emptyButton = event.target.closest('[data-history-empty]');
+  if (emptyButton) {
+    if (emptyButton.dataset.historyEmpty === 'clear') {
+      historyQuery = '';
+      historyFilter = 'all';
+      renderHistory();
+    } else {
+      showPage('home');
+    }
+  }
+});
+
+/* 左右滑动保留原有的会议 / 观点地图切换 */
+let swipe = null;
+for (const page of ['meeting', 'map']) {
+  const element = document.querySelector(`.page[data-page="${page}"]`);
+  element.addEventListener('pointerdown', event => {
+    if (currentPage !== page) return;
+    if (event.target.closest('button,a,input,select,summary,details')) return;
+    swipe = {x:event.clientX, y:event.clientY};
+  });
+  element.addEventListener('pointerup', event => {
+    if (!swipe || currentPage !== page) { swipe = null; return; }
+    const dx = event.clientX - swipe.x;
+    const dy = event.clientY - swipe.y;
+    swipe = null;
+    if (Math.abs(dx) <= 75 || Math.abs(dx) <= Math.abs(dy) * 1.6) return;
+    if (page === 'meeting' && dx < 0 && db.active) {
+      renderMap();
+      showPage('map');
+    }
+    if (page === 'map' && dx > 0) showPage('meeting');
+  });
+  element.addEventListener('pointercancel', () => { swipe = null; });
+}
+
+function renderMap() {
+  const meeting = db.active;
+  if (!meeting) return;
+  const total = meeting.viewpoints.length;
+  const responded = meeting.viewpoints.filter(viewpoint => viewpoint.status === 'responded').length;
+  $('stat-all').textContent = String(total);
+  $('stat-responded').textContent = String(responded);
+  $('stat-review').textContent = String(total - responded);
+  $('map-list').innerHTML = meeting.viewpoints.map(viewpoint => {
+    const person = speakerOf(meeting, viewpoint.speakerId);
+    const tone = viewpoint.status === 'responded' ? 'ok' : ['uncertain', 'possibly_unresponded'].includes(viewpoint.status) ? 'warn' : '';
+    const evidence = (viewpoint.evidenceIds || [])
+      .map(id => meeting.transcript.find(line => line.id === id)).filter(Boolean);
+    const responses = (viewpoint.responseEvidenceIds || [])
+      .map(id => meeting.transcript.find(line => line.id === id)).filter(Boolean);
+    return `
+      <article class="card opinion-card map-card">
+        <div class="opinion-head"><strong>${esc(person.name)} · ${esc(person.role)}</strong></div>
+        <span class="tag ${tone}">${esc(viewpointStateLabel(viewpoint.status))}</span>
+        <p class="opinion-text">${esc(viewpoint.text)}</p>
+        ${responses.length ? `<p class="reply ok">${responses.map(line => `${esc(speakerOf(meeting, line.speakerId).name)}：${esc(line.text)}`).join('<br>')}</p>` : ''}
+        ${viewpoint.status === 'uncertain' ? '<p class="reply">这条关系不确定，请会后核对</p>' : ''}
+        <details>
+          <summary>查看原话</summary>
+          ${evidence.length ? evidence.map(line => `<p>${esc(speakerOf(meeting, line.speakerId).name)} · ${esc(line.at)}：${esc(line.text)}</p>`).join('') : '<p>暂无关联原话</p>'}
+          ${responses.map(line => `<p>现场回应 · ${esc(speakerOf(meeting, line.speakerId).name)}：${esc(line.text)}</p>`).join('')}
+        </details>
+      </article>`;
+  }).join('');
+}
+
+/* ---------- 计时与键盘 ---------- */
+setInterval(() => {
+  if (currentPage === 'meeting' && db.active) {
+    $('meeting-elapsed').textContent = elapsedLabel(db.active.startedAt);
+  }
+}, 1000);
+
+setInterval(() => {
+  const prompt = db.active?.aiPrompt;
+  if (!prompt) return;
+  const state = promptState(prompt);
+  if (state !== lastPromptState) {
+    lastPromptState = state;
+    if (currentPage === 'meeting') renderPending(db.active);
+    if (promptOpen) renderPromptSheet();
+  } else if (promptOpen) {
+    renderPromptSheet();
+  }
+}, 1000);
+
+document.addEventListener('keydown', event => {
+  if (event.key !== 'Escape') return;
+  if (!$('lightbox').hidden) { closeLightbox(); return; }
+  if (!$('dialog').hidden) { closeDialog(); return; }
+  if (promptOpen) closePromptSheet();
+});
+
+/* ---------- 初始化 ---------- */
+applyReduceMotion();
+showPage('home');
+renderUpcomingLists();
+updateJoinAvailability();
+
+})();
+
+</script>
+</body>
+</html>

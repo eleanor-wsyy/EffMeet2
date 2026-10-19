@@ -22,6 +22,12 @@ assets/enclosure/*.zip
 assets/enclosure/*.obj
 assets/enclosure/*.fbx
 
+# ESP-IDF generated build state and managed components
+firmware/esp32/sdkconfig
+firmware/esp32/sdkconfig.old
+firmware/esp32/build/
+firmware/esp32/managed_components/
+
 # 本地验证与建模临时产物
 model3d/
 shots/

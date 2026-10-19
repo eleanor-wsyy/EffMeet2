@@ -25,23 +25,50 @@
 | S5_playback | 机器人实播→completed 回执 | `EFFMEET_ACC_ROBOT` | 设备真实出声并回 completed；网络发完≠播完 |
 | S6_response_tracking | 现场回应跟踪→观点地图 | `EFFMEET_ACC_ONSITE_MIC` | 现场回应被采集核对，response_status 随之更新 |
 
+**2026-10-19 起，S1/S2 的真实执行路径已实现**（`real_chain.py`）：
+
+- S1：`EFFMEET_ACC_MIC` 设为真实 16 kHz mono WAV 路径，或设为 `1` 用
+  `sounddevice` 录默认麦克风（秒数由 `EFFMEET_ACC_MIC_SECONDS` 控制，默认 3 秒）。
+  只接受 0.2–30 秒、非静音（≥ -50 dBFS）的 PCM；失败记 `FAIL`，不是 `PASS`。
+- S2：把 S1 的 PCM 通过真实 `/device/v1/audio` WebSocket 送入真实控制器，
+  由真实 `FunASR` 转写并落账；返回 `utterance.final` 才算通过。
+- **S3 真实路径已实现**（`real_chain.analyze`）：真实 `qwen-plus`；2026-10-19 实测返回
+  `uncertain` 并正确不生成候选。Key 只从 `QWEN_API_KEY` 环境变量读取。
+- S4/S5 仍只报 `NOT_RUN`：S4 需要真实账号，S5 需要机器人。
+- **S6 真实路径已实现**（`real_chain.response_tracking`）：现场音频走真实 media WS +
+  真实 FunASR，回应核对与观点地图走真实控制器；候选分析用本地 stub、本人确认用
+  `remote_1` 测试身份，因此证据里明确标注“不是完整人工验收”。
+- 2026-10-19 联合运行：同一 real harness 设置 S1/S2/S3/S6 门槛，结果为
+  **S1/S2/S3/S6 PASS，S4/S5 NOT_RUN**（缺真实账号/机器人）。
+- **2026-10-19 实测**：本地 `.venv-asr` 的 SenseVoiceSmall 就绪后，
+  `EFFMEET_ACC_MIC=data/acceptance_speech.wav FUNASR_WS_URL=ws://127.0.0.1:10096`
+  跑出 `S1_capture PASS` + `S2_asr PASS`；转写文本非空并带 `utterance_id`。
+  输入是 TTS 合成语音，不是真人录音，因此“真人录音”验收项仍不勾选。
+- 远程音轨路径另见 `scripts/smoke_livekit_remote_asr.py`：`remote_1` 发布 TTS 音轨，
+  relay 订阅后由真实 SenseVoiceSmall 入账（`channel=remote`），2026-10-19 实测 PASS。
+
 ## 运行
 
 ```powershell
 # mock 接线证明（无需硬件/密钥）
 .\.venv\Scripts\python.exe -m unittest tests.acceptance.test_e2e_acceptance -v
 
-# 实机验收（备齐硬件+FunASR+qwen+LiveKit 后）
+# 只跑 S1/S2（不需要百炼 Key、不需要机器人）：
 $env:EFFMEET_ACCEPTANCE_REAL = "1"
-$env:EFFMEET_ACC_MIC = "1"; $env:FUNASR_WS_URL = "ws://127.0.0.1:10096"
+$env:EFFMEET_ACC_MIC = "C:\path\to\real-16k-mono.wav"  # 或 "1" 用默认麦克风
+$env:EFFMEET_ACC_MIC_SECONDS = "3"                     # 仅 EFFMEET_ACC_MIC=1 时生效
+$env:FUNASR_WS_URL = "ws://127.0.0.1:10096"
+.\.venv\Scripts\python.exe -m unittest tests.acceptance.test_e2e_acceptance -v
+
+# 备齐真实账号/模型/机器人后，再打开 S3–S6 的门槛：
 $env:QWEN_API_KEY = "sk-..."; $env:EFFMEET_ACC_WEB_OWNER = "1"
 $env:EFFMEET_ACC_ROBOT = "1"; $env:EFFMEET_ACC_ONSITE_MIC = "1"
-.\.venv\Scripts\python.exe -m unittest tests.acceptance.test_e2e_acceptance -v
 ```
 
 ## 纪律
 
 - `mock` 永远不产 `PASS`；`real` 没有证据不产 `PASS`。
-- 真实执行路径（S1 真麦、S5 真机器人出声等）目前是 **bring-up 任务**：门槛满足也只报
-  `NOT_RUN: 真实执行路径未实现`，不得伪报 PASS。逐项打勾见 [acceptance_checklist.md](acceptance_checklist.md)。
+- S1/S2 的真实执行路径已实现；没有真实麦克风/ASR 证据时仍只报 `NOT_RUN`/`FAIL`，不得伪报 PASS。
+- S4/S5 的真实执行路径仍是 **bring-up 任务**（真实账号/机器人）：门槛满足也只报
+  `NOT_RUN: 真实执行路径未实现`。逐项打勾见 [acceptance_checklist.md](acceptance_checklist.md)。
 - 密钥仅走环境变量，不入代码/日志/提交。

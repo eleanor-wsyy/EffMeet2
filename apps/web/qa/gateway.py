@@ -14,6 +14,7 @@ from fastapi.responses import HTMLResponse, JSONResponse, RedirectResponse, Resp
 
 STATIC = {
     "app/", "app/index.html", "app/styles.css", "app/app.js", "app/state.js",
+    "app/media.js", "app/vendor/livekit-client.esm.mjs",
     "app/manifest.json", "app/sw.js",
     *("app/assets/" + name for name in (
         "brand.svg", "enter.svg", "link.svg", "mic-white.svg", "mic.svg", "user.svg",
@@ -23,6 +24,7 @@ UUID_RE = r"[0-9a-fA-F]{8}-(?:[0-9a-fA-F]{4}-){3}[0-9a-fA-F]{12}"
 STATE_RE = re.compile(rf"api/demo/meetings/({UUID_RE})/state\Z")
 READ_RE = re.compile(rf"api/v1/meetings/({UUID_RE})/(?:viewpoint-map|captures(?:/({UUID_RE}))?)\Z")
 DECIDE_RE = re.compile(rf"api/v1/meetings/({UUID_RE})/interventions/({UUID_RE})/(?:decision|recheck)\Z")
+LIVEKIT_TOKEN_RE = re.compile(rf"api/v1/meetings/({UUID_RE})/livekit-token\Z")
 COOKIE = "effmeet_phone_qa"
 
 
@@ -143,7 +145,7 @@ button{border:0;border-radius:12px;background:#f0522e;color:white}</style>
             match = STATE_RE.fullmatch(path) or READ_RE.fullmatch(path)
             allowed = allowed or (match is not None and match.group(1) == meeting_id)
         elif method == "POST":
-            match = DECIDE_RE.fullmatch(path)
+            match = DECIDE_RE.fullmatch(path) or LIVEKIT_TOKEN_RE.fullmatch(path)
             allowed = match is not None and match.group(1) == meeting_id
         else:
             allowed = False

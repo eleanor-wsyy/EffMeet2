@@ -3,7 +3,7 @@ import unittest
 from uuid import uuid4
 
 import httpx
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, Response
 from fastapi.testclient import TestClient
 
 from apps.web.qa.gateway import COOKIE, create_gateway
@@ -34,6 +34,19 @@ def gateway_client():
     def decision(meeting_id: str, candidate_id: str, request: Request):
         received.append((meeting_id, request.headers.get("authorization")))
         return {"ok": True}
+
+    @upstream.post("/api/v1/meetings/{meeting_id}/livekit-token")
+    def livekit_token(meeting_id: str, request: Request):
+        received.append((meeting_id, request.headers.get("authorization")))
+        return {"token": "short-lived", "url": "wss://rtc.example", "room": meeting_id}
+
+    @upstream.get("/app/media.js")
+    def media_js():
+        return Response("export const x = 1;", media_type="text/javascript")
+
+    @upstream.get("/app/vendor/livekit-client.esm.mjs")
+    def livekit_sdk():
+        return Response("export const Room = 1;", media_type="text/javascript")
 
     app = create_gateway("http://upstream", MID, CODE,
                          transport=httpx.ASGITransport(app=upstream))
@@ -79,6 +92,14 @@ class PhoneGatewayTests(unittest.TestCase):
             assert received[-1] == (MID, "Bearer remote-secret")
             assert client.post(action, json={}, headers={"Authorization": "Bearer operator-secret"}).status_code == 401
             assert client.post(action, json={}, headers={"Authorization": "Bearer remote-secret", "Origin": "https://evil.example"}).status_code == 403
+            token_path = f"/api/v1/meetings/{MID}/livekit-token"
+            assert client.post(token_path, json={}, headers={"Authorization": "Bearer remote-secret"}).status_code == 200
+            assert received[-1] == (MID, "Bearer remote-secret")
+            assert client.post(token_path, json={}, headers={"Authorization": "Bearer operator-secret"}).status_code == 401
+            assert client.post(f"/api/v1/meetings/{OTHER}/livekit-token", json={},
+                               headers={"Authorization": "Bearer remote-secret"}).status_code == 404
+            assert client.get("/app/media.js").status_code == 200
+            assert client.get("/app/vendor/livekit-client.esm.mjs").status_code == 200
 
 
     def test_login_rate_limit_and_scope(self):

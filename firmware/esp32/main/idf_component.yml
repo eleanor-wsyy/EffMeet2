@@ -2,6 +2,8 @@
 ## Versions are starting points; pin after first successful build (NOT-VERIFIED).
 dependencies:
   idf: ">=5.1"
+  # WebSocket client used by ws_transport.c (not part of IDF core).
+  espressif/esp_websocket_client: "^1.2.0"
   # WS2812 status LED driver.
   espressif/led_strip: "^2.5.0"
   # ESP-SR provides AFE (AEC/NS/VAD) for the route-B "listen while speaking" goal.

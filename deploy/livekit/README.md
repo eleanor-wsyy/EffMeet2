@@ -16,18 +16,71 @@
 
 ## 组件
 
-- `token_service.py` — FastAPI，复用 `issue_token`，前置 `IdentityProvider` 鉴权缝。
-  - `MockIdentityProvider`：复刻台架行为（仅合成远程身份），**非生产鉴权**。
+- `token_service.py` — FastAPI，复用 `issue_token`，前置 `IdentityProvider` 鉴权缝；
+  可从任意目录以 `python deploy/livekit/token_service.py` 启动。
+  - `MockIdentityProvider`：复刻台架行为（仅合成远程身份），**非生产鉴权**；
+    没有调用方认证，因此脚本拒绝把它绑定到非回环地址。
   - `ProductionIdentityProvider`：**NOT-VERIFIED 桩**，未接真实账号系统前会抛 501。
 - `gateway.env.example` — 环境变量模板（无密钥）。复制为 `.env` 填密钥，**不提交**。
 - `livekit.yaml` — livekit-server 配置模板（密钥走环境变量，不内联）。
 - `docker-compose.yml` — livekit-server + redis + TURN 自托管栈骨架。
 
+## 已接上的客户端与接口
+
+- 用户端 `apps/web/` 已接最小 LiveKit 客户端：入会后向
+  `POST /api/v1/meetings/{meeting_id}/livekit-token` 申请短期 token，加入房间；
+  会中麦克风按钮按需发布/关闭麦克风轨，离开会议时断开。
+- 主持人台架页 `/` 新增“加入远程音频”：向
+  `POST /api/v1/meetings/{meeting_id}/livekit-host-token` 申请
+  `canPublish=false` 的 host token，订阅远程音轨并从本机扬声器播放，供现场拾取。
+  只订阅、不发布；无 LiveKit 配置时明确显示“音频未配置”。
+- 本机实测 `scripts/smoke_livekit_remote_asr.py`：`remote_1` 发布 TTS 音轨，
+  relay 订阅并由真实 SenseVoiceSmall 转写入账（`channel=remote`，`last_error=null`）。
+  同时修复了 relay `stream_id` 带连字符违反契约的 bug。
+- token 端点现在把“远程成员入会”和“relay 订阅转写”解耦：LiveKit 已配置但
+  ASR 未就绪时仍返回 `201`，并带 `relay_ready=false`/`relay_pending=true`；
+  relay 在后台尝试加入。参与者音频不再被 relay 的 ASR 状态阻塞。
+- CSP 会按 `LIVEKIT_URL` 的 `ws/wss` 源放行 `connect-src`；未配置时仍只允许同源。
+- 前端 SDK 为本地 vendored `apps/web/vendor/livekit-client.esm.mjs`（2.23.0，Apache-2.0），
+  不需要外部 CDN。
+
+### 本机无 Docker 时的 Windows 实跑（已验证可连接）
+
+```powershell
+# 下载到被 Git 忽略的 .local/tools（也可用任意 GitHub 镜像）
+curl -L -o .local/tools/livekit.zip https://github.com/livekit/livekit/releases/download/v1.13.10/livekit_1.13.10_windows_amd64.zip
+cd .local/tools; unzip livekit.zip; cd ../..
+$env:LIVEKIT_KEYS="devkey: secret"
+.\.local\tools\livekit-server.exe --dev --bind 127.0.0.1 --node-ip 127.0.0.1
+
+# 另开终端，控制器/台架使用同一组配置
+$env:LIVEKIT_URL="ws://127.0.0.1:7880"
+$env:LIVEKIT_API_KEY="devkey"
+$env:LIVEKIT_API_SECRET="secret"
+.\.venv\Scripts\python.exe scripts/run_bench.py --port 8768
+```
+
+- 用户端 `/app/` 已实际连上该本地房间，显示“音频已连接 · 点麦克风发言”。
+- 台架页 `/` 的“加入远程音频”已实际连上，显示“已加入远程音频”。
+- 同一台机器上两个页面需使用**同一个控制器端口/数据库**（例如都用 8768），
+  否则会议 ID 不在同一账本。
+- 浏览器首次发布麦克风会弹系统权限提示，必须由使用者本人允许；自动化测试
+  不能代替这一步。
+- `--dev` 与 `devkey/secret` 只用于本机验证，不能用于公网；公网仍须 TLS/TURN、
+  生产身份与真实密钥。
+
+以上仅代表客户端代码与接口接通；**本环境已起 Windows 本地服务器并验证两端入房，
+但真实公网/TLS/TURN 和两端实际音频仍未验收。**
+
 ## 部署步骤（bring-up，全部 NOT-VERIFIED）
 
 1. 准备域名 + TLS（LiveKit 需 wss/https；媒体走 UDP/TCP 端口段或 TURN）。
 2. `cp gateway.env.example .env`，填 `LIVEKIT_URL/API_KEY/API_SECRET` 等密钥。
+   注意 `livekit.yaml` **不会**展开 `${...}`：compose 用
+   `LIVEKIT_KEYS="<key>: <secret>"` 注入密钥，不要把密钥写进挂载的 YAML。
 3. `docker compose up -d livekit redis turn` 起自托管栈（或用 LiveKit Cloud）。
+   `room.auto_create` 必须为 `true`：控制器不通过 server API 预建房间，
+   参与者和 relay 按 `meeting_id` 直接加入。
 4. 实现 `ProductionIdentityProvider.authorize()`：校验调用者会话、确认其为该
    `meeting_id` 参与者、返回规范 identity、拒绝跨会议/冒名。
 5. 起 token 服务：`python deploy/livekit/token_service.py --provider production`

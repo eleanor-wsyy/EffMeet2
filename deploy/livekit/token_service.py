@@ -16,6 +16,13 @@ Run (loopback, mock identity, requires LIVEKIT_* env):
 """
 import argparse
 import os
+import sys
+from pathlib import Path
+
+# Runnable as `python deploy/livekit/token_service.py` from any directory.
+ROOT = Path(__file__).resolve().parents[2]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
 
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
@@ -106,6 +113,9 @@ if __name__ == "__main__":
     parser.add_argument("--port", type=int, default=8790)
     parser.add_argument("--provider", choices=["mock", "production"], default="mock")
     args = parser.parse_args()
+    if args.provider == "mock" and args.host not in {"127.0.0.1", "localhost", "::1"}:
+        parser.error("mock provider has no caller authentication and may only bind loopback; "
+                     "use --provider production after wiring real account auth")
     import uvicorn
     prov = ProductionIdentityProvider() if args.provider == "production" else MockIdentityProvider()
     uvicorn.run(create_token_service(prov), host=args.host, port=args.port,

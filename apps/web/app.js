@@ -1,7 +1,8 @@
 import {parseMeetingId, remainingSeconds, receiptState, effectiveState, shouldAutoOpen, candidateKey, candidateLabels, viewpointLabels, swipeTarget, candidateActions} from './state.js';
+import {createMediaSession, MEDIA_PHASES} from './media.js';
 
 const $ = id => document.getElementById(id);
-const model = {view:'join', mid:'', actor:'', nickname:'', token:'', snapshot:null, map:null, seen:new Set(), sheetId:null, busy:false, online:false, health:null, generation:0, timer:null, serverTime:0, observedAt:0, captureId:null, captureUrl:null, suppressNextAuto:false, polling:false, joining:false, decisionVersion:0, mapRevision:null, pendingSignature:"", opinionsSignature:"", mapSignature:""};
+const model = {view:'join', mid:'', actor:'', nickname:'', token:'', snapshot:null, map:null, seen:new Set(), sheetId:null, busy:false, online:false, health:null, generation:0, timer:null, serverTime:0, observedAt:0, captureId:null, captureUrl:null, suppressNextAuto:false, polling:false, joining:false, decisionVersion:0, mapRevision:null, pendingSignature:"", opinionsSignature:"", mapSignature:"", media:null, mediaPhase:MEDIA_PHASES.idle, mediaBusy:false};
 let focusBeforeSheet = null, closeTimer = null, toastTimer = null, mapFlight = null;
 const serverNow = () => model.serverTime + (performance.now() - model.observedAt) / 1000;
 const meetingPath = suffix => '/api/v1/meetings/' + encodeURIComponent(model.mid) + suffix;
@@ -52,12 +53,75 @@ async function authorizeMic() {
   try {
     if (!navigator.mediaDevices?.getUserMedia) throw new Error('当前浏览器不能访问麦克风，请使用 localhost 或 HTTPS。');
     const stream = await navigator.mediaDevices.getUserMedia({audio:true});
-    stream.getTracks().forEach(track => track.stop()); // Permission check only, no fake live microphone.
-    $('mic-permission-status').textContent = '麦克风已授权；本次检查已停止收音。音频传输需另外接通。';
+    stream.getTracks().forEach(track => track.stop()); // Permission check only; the live track is opened on demand after joining.
+    $('mic-permission-status').textContent = '麦克风已授权；入会后点麦克风按钮即可发言，首次发言时浏览器会再次请求授权。';
     $('j-mic-label').textContent = '重新检查麦克风';
   } catch (error) {
     $('mic-permission-status').textContent = error.name === 'NotAllowedError' ? '麦克风未获授权。仍可浏览会议，暂时不能发言。' : error.message;
   } finally { button.disabled = false; }
+}
+function renderMediaState({phase = MEDIA_PHASES.idle, detail = ''} = {}) {
+  model.mediaPhase = phase;
+  const labels = {
+    [MEDIA_PHASES.idle]: '音频未连接',
+    [MEDIA_PHASES.connecting]: '音频连接中…',
+    [MEDIA_PHASES.connected]: '音频已连接 · 点麦克风发言',
+    [MEDIA_PHASES.muted]: '麦克风已关闭',
+    [MEDIA_PHASES.live]: '麦克风已开 · 正在发送',
+    [MEDIA_PHASES.reconnecting]: '音频重连中…',
+    [MEDIA_PHASES.closed]: '音频已断开',
+    [MEDIA_PHASES.error]: detail || '音频连接失败'
+  };
+  const status = $('media-status'), button = $('live-mic');
+  status.textContent = labels[phase] || detail || '音频未连接';
+  button.disabled = phase === MEDIA_PHASES.connecting;
+  button.setAttribute('aria-pressed', phase === MEDIA_PHASES.live ? 'true' : 'false');
+  button.setAttribute('aria-label', phase === MEDIA_PHASES.live ? '关闭麦克风' : (phase === MEDIA_PHASES.connected || phase === MEDIA_PHASES.muted) ? '打开麦克风' : '连接音频');
+  button.classList.toggle('live', phase === MEDIA_PHASES.live);
+  if (phase === MEDIA_PHASES.error && detail) toast(detail);
+}
+async function connectMedia() {
+  if (!model.mid || !model.actor || model.mediaBusy) return;
+  const generation = model.generation;
+  model.mediaBusy = true;
+  let stage = 'token';
+  renderMediaState({phase:MEDIA_PHASES.connecting});
+  try {
+    const credentials = await request(meetingPath('/livekit-token'), {method:'POST', body:{identity:model.actor}});
+    stage = 'connect';
+    if (generation !== model.generation) return;
+    const sdk = await import('./vendor/livekit-client.esm.mjs');
+    if (generation !== model.generation) return;
+    model.media = createMediaSession({Room:sdk.Room, RoomEvent:sdk.RoomEvent,
+      onState:state => { if (generation === model.generation) renderMediaState(state); }});
+    await model.media.connect(credentials);
+    if (generation !== model.generation) {
+      await model.media.disconnect();
+      model.media = null;
+      return;
+    }
+    if (credentials.relay_ready === false) toast('音频已连接；本地 ASR 未就绪，远程发言暂不入账');
+  } catch (error) {
+    if (generation !== model.generation) return;
+    model.media = null;
+    const detail = error.code === 'LIVEKIT_NOT_CONFIGURED'
+      ? '音频未配置：服务端未设置 LiveKit。'
+      : stage === 'token' ? error.message : '音频服务器连接失败。';
+    renderMediaState({phase:MEDIA_PHASES.error, detail});
+  } finally {
+    if (generation === model.generation) model.mediaBusy = false;
+  }
+}
+async function toggleMic() {
+  if (!model.mid) return;
+  if (!model.media?.connected) {
+    await connectMedia();
+    if (!model.media?.connected || model.mediaBusy) return;
+  }
+  model.mediaBusy = true;
+  try { await model.media.setMic(!model.media.micOn); }
+  catch (error) { toast(error.message); }
+  finally { model.mediaBusy = false; }
 }
 function updateJoinAvailability() {
   let valid = false;
@@ -84,7 +148,7 @@ async function join(event) {
     try { const stored = JSON.parse(sessionStorage.getItem(sessionStorageKey()) || '[]'); if (Array.isArray(stored)) model.seen = new Set(stored); } catch { /* Memory-only suppression if storage is unavailable. */ }
     model.map = null; model.mapRevision = null; model.suppressNextAuto = false;
     model.pendingSignature = model.opinionsSignature = model.mapSignature = '';
-    receiveSnapshot(snapshot); showView('live'); updateEnvironment(health); startPolling();
+    receiveSnapshot(snapshot); showView('live'); updateEnvironment(health); startPolling(); renderMediaState({phase:MEDIA_PHASES.idle}); void connectMedia();
   } catch (error) { if (generation === model.generation) { model.token = ''; message('j-err', error.message); } }
   finally { if (generation === model.generation) { model.joining = false; updateJoinAvailability(); $('j-submit-label').textContent = '进入会议'; } }
 }
@@ -321,6 +385,11 @@ async function exportMap() {
   finally { button.disabled = false; }
 }
 function leave() {
+  const media = model.media;
+  model.media = null;
+  model.mediaBusy = false;
+  if (media) void media.disconnect();
+  renderMediaState({phase:MEDIA_PHASES.idle});
   model.generation++; clearTimeout(model.timer); clearTimeout(closeTimer);
   model.sheetId = null; $('overlay').classList.remove('open'); $('overlay').hidden = true; $('screens').inert = false;
   model.token = ''; model.mid = ''; model.actor = ''; model.snapshot = null; model.map = null;
@@ -334,7 +403,7 @@ $('join-form').addEventListener('submit',join); $('j-mic').addEventListener('cli
 $('open-map').addEventListener('click',() => showView('map')); $('back-live').addEventListener('click',() => showView('live'));
 $('leave-meeting').addEventListener('click',leave); $('refresh-state').addEventListener('click',() => { model.online = false; renderSheet(); startPolling(); });
 $('export-map').addEventListener('click',exportMap);
-$('live-mic').addEventListener('click',() => toast('音频传输尚未接通；麦克风授权不会开始录音或上传。'));
+$('live-mic').addEventListener('click',toggleMic);
 for (const id of ['j-mid','j-name']) $(id).addEventListener('input',updateJoinAvailability);
 for (const id of ['scrim','sheet-close','sheet-handle']) $(id).addEventListener('click',closeSheet);
 $('sh-confirm').addEventListener('click',() => decide('confirm')); $('sh-dismiss').addEventListener('click',() => decide('dismiss'));

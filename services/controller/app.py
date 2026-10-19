@@ -46,6 +46,7 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     tokens = {x["token"]: x["actor"] for x in profiles}
     from services.relay.livekit_bridge import LiveKitBridge
     livekit_bridge = LiveKitBridge(store, asr)
+    relay_tasks: set = set()
 
     @asynccontextmanager
     async def lifespan(app):
@@ -67,6 +68,18 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     app.state.robot = store.robot
     app.state.bench = runtime
     app.state.livekit_bridge = livekit_bridge
+
+    def livekit_connect_origin():
+        raw = os.environ.get("LIVEKIT_URL", "").strip()
+        if not raw:
+            return None
+        try:
+            parsed = urlsplit(raw)
+        except ValueError:
+            return None
+        if parsed.scheme not in {"ws", "wss"} or not parsed.hostname:
+            return None
+        return f"{parsed.scheme}://{parsed.netloc}"
 
     def error(status, code, message, *, retryable=False):
         body = {"error": {"code": code, "message": message, "retryable": retryable, "trace_id": str(uuid4())}}
@@ -100,7 +113,11 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         response.headers["X-Content-Type-Options"] = "nosniff"
         response.headers["Referrer-Policy"] = "no-referrer"
         response.headers["X-Frame-Options"] = "DENY"
-        response.headers["Content-Security-Policy"] = "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src 'self'; img-src 'self' blob:; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'"
+        connect_src = "'self'"
+        livekit_origin = livekit_connect_origin()
+        if livekit_origin:
+            connect_src += " " + livekit_origin
+        response.headers["Content-Security-Policy"] = f"default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; connect-src {connect_src}; img-src 'self' blob:; media-src 'self' blob:; frame-ancestors 'none'; base-uri 'none'"
         return response
 
     @app.exception_handler(DemoError)
@@ -150,8 +167,14 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
     def audio_script():
         return Response(Path(__file__).with_name("audio.js").read_text(encoding="utf-8"), media_type="text/javascript")
 
+    @app.get("/host-audio.js", include_in_schema=False)
+    def host_audio_script():
+        return Response(Path(__file__).with_name("host-audio.js").read_text(encoding="utf-8"),
+                        media_type="text/javascript")
+
     # Same-origin participant UI: keep the operator/bench console at /.
     app.mount("/app", StaticFiles(directory=ROOT / "apps/web", html=True), name="participant_ui")
+    app.mount("/app-demo", StaticFiles(directory=ROOT / "apps/web-demo", html=True), name="participant_demo_ui")
 
     @app.get("/healthz")
     def health():
@@ -274,8 +297,36 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         if identity not in {'remote_1', 'remote_2'}:
             raise DemoError(403, 'REMOTE_IDENTITY_REQUIRED', '仅供远程测试成员入会。')
         credentials = issue_token(meeting_id, requested)
-        await livekit_bridge.join(meeting_id)
-        return credentials
+        room = livekit_bridge.rooms.get(meeting_id)
+        relay_ready = bool(room and room.isconnected())
+        relay_pending = False
+        if not relay_ready:
+            # The participant's audio must not depend on the relay's ASR being ready.
+            async def start_relay():
+                try:
+                    await livekit_bridge.join(meeting_id)
+                except DemoError as exc:
+                    logging.getLogger(__name__).warning('LiveKit relay join unavailable: %s', exc.code)
+                except Exception:
+                    logging.getLogger(__name__).exception('LiveKit relay join failed')
+            task = asyncio.create_task(start_relay())
+            # asyncio keeps only weak references to tasks; hold it until done.
+            relay_tasks.add(task)
+            task.add_done_callback(relay_tasks.discard)
+            relay_pending = True
+        return {**credentials, 'relay_ready': relay_ready, 'relay_pending': relay_pending}
+
+    @app.post("/api/v1/meetings/{meeting_id}/livekit-host-token", status_code=201)
+    async def livekit_host_token(meeting_id: str, request: Request):
+        operator(request)
+        with store.db() as conn:
+            store.require_meeting(conn, meeting_id)
+        # The host page only subscribes and plays remote tracks through the room
+        # speaker; it must never publish audio or appear as a participant.
+        from services.relay.livekit_token import issue_token
+        credentials = issue_token(meeting_id, 'effmeet-host-' + meeting_id, relay=True)
+        room = livekit_bridge.rooms.get(meeting_id)
+        return {**credentials, 'relay_ready': bool(room and room.isconnected())}
 
     @app.get('/api/v1/meetings/{meeting_id}/livekit-status')
     def livekit_status(meeting_id: str, request: Request):

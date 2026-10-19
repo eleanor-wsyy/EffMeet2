@@ -19,7 +19,11 @@
 
 ## 产品方案与实施计划
 
-- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。单元测试 102 项全部通过。机器人实播、AEC、完整 LiveKit 和连续真人实机验收未完成。
+- **2026-10-19 真实链路补测：** 本机 LiveKit v1.13.10 房间两端入房；`remote_1` 音轨→relay→真实 SenseVoiceSmall 入账 PASS；S1 真实输入设备 1 秒 -40.7 dBFS；S2 真实 ASR PASS；S3 真实 `qwen-plus`（返回 uncertain、按规则不生成候选）；S6 真实现场回应链（真实 ASR + 回应核对 + 观点地图）；ESP-IDF v5.4.1 固件编译通过。证据与边界见 [路线A远程音频链路](docs/handoff/2026-10-19-software-route-a.md)。
+
+- **2026-10-19 GitHub 新版用户端审查：** 远端 `apps/web` 已重写为纯本地演示版（`localStorage`，不接后端/音视频/ASR/AI/硬件），视觉完整但会覆盖当前功能版；结论与建议见 [审查记录](docs/handoff/2026-10-19-github-app-review.md)。当前真实演示仍用功能版 `/app/`；新版已独立挂到 `/app-demo/`，不接后端。
+
+- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。单元测试 102 项全部通过。机器人实播、AEC、LiveKit 公网部署和连续真人实机验收当时未完成；远程音频 Web 客户端于 10-19 接入，见本页模块说明。
 
 - [论文依据与技术路径 HTML 报告](docs/product/EffMeet2_论文依据与技术路径.html)：产品形态、机内音频与 Wi-Fi、开源参考及改造映射、任务分工、实施步骤与参赛计划。
 - [v1 接口契约 JSON](docs/product/EffMeet2_contract_v1.json)：统一数据格式、业务接口、媒体契约与合成测试样例。
@@ -99,10 +103,12 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 - `services/controller/demo.html`：B暂代的调试页，原生HTML/JS，无前端构建或外部运行资源。含观点地图展示与图片共享。
 - `fixtures/demo/closed_loop.json`：合成发言材料，可供C/D/E复用。
 - `services/relay/`：EFMA 帧、FunASR、TTS 及受控媒体 WebSocket；目前与控制器共用统一台架进程。推荐 `scripts/run_bench.py`，不要为同一数据库另开 relay 进程，详见模块 README。
-- `firmware/esp32/`：ESP32-S3固件骨架（README），待实现。
+- `firmware/esp32/`：ESP32-S3 固件骨架。EFMA 编解码已用 `scripts/test_efma_host.py` 在主机编译并通过；ESP-IDF v5.4.1 工程已编译通过（`scripts/build_firmware.ps1`），**未烧录**；外设驱动仍为桩。
+- `apps/web/`：用户端已接 LiveKit 远程音频（入会、按需发布麦克风、静音、离开）；服务端 token 端点与 relay 订阅解耦。真实 LiveKit 服务器/TLS/两端实机音频仍未验收。
+- `apps/web-demo/`：GitHub 新版纯本地演示版（localStorage，不接后端/音视频/ASR/AI/硬件），挂载 `/app-demo/` 供视觉与视频素材；真实会议仍用 `/app/`。
 - `hardware/electronics/`：供电接线与BOM骨架（README），待填充。
 
-已实现的业务路由：创建会议、最终发言摄入、分析、本人决定、事件读取/after_seq恢复、生成/读取原文记录、上传/读取共享原图（capture）、生成/读取观点地图（viewpoint-map）、音频会话开/关（audio sessions）、设备配对与media-token签发。调试专用`/api/demo/*`和`mock_status`查询参数不属于正式产品协议。10 月 5 日新增事件 WebSocket 与台架媒体路由；bench 的 analysis 返回 job_id，需查询任务状态。设备路由及 `/api/bench/*` 的具体边界见交接记录，尚无公网 LiveKit 网关。
+已实现的业务路由：创建会议、最终发言摄入、分析、本人决定、事件读取/after_seq恢复、生成/读取原文记录、上传/读取共享原图（capture）、生成/读取观点地图（viewpoint-map）、音频会话开/关（audio sessions）、设备配对与media-token签发。调试专用`/api/demo/*`和`mock_status`查询参数不属于正式产品协议。10 月 5 日新增事件 WebSocket 与台架媒体路由；bench 的 analysis 返回 job_id，需查询任务状态。设备路由及 `/api/bench/*` 的具体边界见交接记录。远程成员音频 Web 客户端与短期 token 端点已于 10-19 接入；尚无公网 LiveKit 部署、生产身份和两端实机验收。
 
 参数边界：候选120秒有效，过期后重新分析会更新待确认版本，旧版本不能执行；新发言进入后确认须重新分析；同一ID不同内容返回409；same-context分析重试复用候选。修正发言、真实回应判断、冷却策略和人工决议核对留给后续模块，当前摘要均标unresolved。
 
@@ -124,7 +130,7 @@ C可先按UtteranceFinal和样例接真实ASR；真实模型先产出AnalysisRes
 - 已完成真实录音分段转写、千问判断、确认接口与命令排队的软件联调；完整连续真人实机验收未完成。
 - 已通过摄像头图片上传和 `qwen3-vl-plus` 视觉接口测试（HTTP 200）。
 - 单元测试结果为 `102/102 OK`。
-- 尚未完成机器人、ESP32、扬声器、AEC 实机效果和完整 LiveKit 链路验收。
+- 尚未完成机器人、ESP32、扬声器、AEC 实机效果和 LiveKit 公网/两端实机链路验收。
 - 台架启动：先运行本地 ASR，再配置密钥及模型变量，执行 `.\.venv\Scripts\python.exe scripts/run_bench.py`，打开 http://127.0.0.1:8768/ 。完整命令见 [最终交接记录](docs/handoff/2026-10-05-final-handoff.md)。
 
 - 模块按报告中的目录边界和统一接口契约开发，公共字段变更先协商再同步上下游。

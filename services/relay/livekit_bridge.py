@@ -78,7 +78,7 @@ class LiveKitBridge:
 
     async def consume(self, meeting, speaker, track):
         from livekit import rtc
-        stream_id = 'lk-' + str(uuid4())
+        stream_id = 'lk_' + uuid4().hex
         stream = rtc.AudioStream(track, sample_rate=16000, num_channels=1, capacity=50)
         queue = asyncio.Queue(maxsize=4)
         async def worker():

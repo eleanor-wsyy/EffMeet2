@@ -1,7 +1,7 @@
 // Offline shell only. Never intercept meeting APIs, tokens, or evidence exports.
-const CACHE = 'effmeet2-participant-shell-v1';
+const CACHE = 'effmeet2-participant-shell-v2';
 const BASE = '/app/';
-const SHELL = [BASE, BASE + 'index.html', BASE + 'styles.css', BASE + 'app.js', BASE + 'state.js', BASE + 'manifest.json', BASE + 'assets/brand.svg', BASE + 'assets/enter.svg', BASE + 'assets/link.svg', BASE + 'assets/mic-white.svg', BASE + 'assets/mic.svg', BASE + 'assets/user.svg', BASE + 'assets/icon-192.png', BASE + 'assets/icon-512.png', BASE + 'assets/apple-touch-icon.png'];
+const SHELL = [BASE, BASE + 'index.html', BASE + 'styles.css', BASE + 'app.js', BASE + 'state.js', BASE + 'media.js', BASE + 'manifest.json', BASE + 'assets/brand.svg', BASE + 'assets/enter.svg', BASE + 'assets/link.svg', BASE + 'assets/mic-white.svg', BASE + 'assets/mic.svg', BASE + 'assets/user.svg', BASE + 'assets/icon-192.png', BASE + 'assets/icon-512.png', BASE + 'assets/apple-touch-icon.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting()));
 });

@@ -1,10 +1,14 @@
 /* Host-side unit test for the EFMA codec. Pure C, no ESP-IDF.
  *
- * Build & run on a dev machine with a C compiler (NOT run in the scaffold env):
+ * Build & run on a dev machine with a C compiler:
  *   gcc -std=c11 -Wall -Wextra -I../main test_efma_host.c ../main/efma_codec.c -o test_efma
  *   ./test_efma
+ * Or from the repo root (no system compiler required):
+ *   python -m pip install ziglang
+ *   python scripts/test_efma_host.py
  *
- * Assertions mirror services/relay/protocol.py behaviour. NOT-VERIFIED on device.
+ * Assertions mirror services/relay/protocol.py behaviour. Passed on the host
+ * with ziglang on 2026-10-19; NOT verified on a device link.
  */
 #include <assert.h>
 #include <stdio.h>

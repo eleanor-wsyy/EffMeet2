@@ -65,6 +65,17 @@ class ParticipantTests(unittest.TestCase):
             self.assertEqual(response.headers["x-content-type-options"], "nosniff")
         self.assertIn("img-src 'self' blob:", response.headers["content-security-policy"])
 
+    def test_standalone_demo_is_served_separately(self):
+        response = self.client.get("/app-demo/")
+        self.assertEqual(response.status_code, 200)
+        self.assertIn("快速会议", response.text)
+        self.assertIn("演示数据", response.text)
+        for asset in ["app.js", "store.js", "styles.css", "manifest.json",
+                      "assets/robot.svg", "assets/robot-smile.webp"]:
+            self.assertEqual(self.client.get("/app-demo/" + asset).status_code, 200, asset)
+        self.assertNotEqual(self.client.get("/app-demo/").text, self.client.get("/app/").text)
+        self.assertEqual(self.client.get("/app-demo/../.env").status_code, 404)
+
     def test_participant_does_not_weaken_auth_or_local_only(self):
         self.assertEqual(self.client.get(f"/api/demo/meetings/{self.mid}/state").status_code, 401)
         self.assertEqual(self.client.get(f"/api/v1/meetings/{self.mid}/viewpoint-map").status_code, 401)

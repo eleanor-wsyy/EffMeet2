@@ -15,15 +15,17 @@ services:
     restart: unless-stopped
     depends_on: [redis]
     environment:
-      LIVEKIT_API_KEY: ${LIVEKIT_API_KEY}
-      LIVEKIT_API_SECRET: ${LIVEKIT_API_SECRET}
+      # livekit-server reads keys from this env var; the YAML template does not
+      # interpolate ${...}. Keep the secret out of the mounted file.
+      LIVEKIT_KEYS: "${LIVEKIT_API_KEY}: ${LIVEKIT_API_SECRET}"
     command: --config /etc/livekit.yaml
     volumes:
       - ./livekit.yaml:/etc/livekit.yaml:ro
     ports:
       - "7880:7880"
       - "7881:7881"
-      - "7882:7882/udp"
+      # Keep this range in sync with livekit.yaml rtc.port_range_*.
+      - "50000-50100:50000-50100/udp"
     # use_external_ip needs the host's public IP reachable; on cloud VMs set
     # node_ip or rely on the TURN fallback below.
 

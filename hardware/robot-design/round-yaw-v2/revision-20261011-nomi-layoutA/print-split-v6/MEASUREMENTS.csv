@@ -21,7 +21,7 @@ FACE_RETENTION,面板锁壳螺钉/螺母/拆装工具空间,R1三点M3x12及捕�
 FOOT_PAD,脚垫含胶厚度/压缩/贴合,C07约2mm硅胶片对应杯底z=2预留；不是已安装实物,,,,UNVERIFIED
 INMP441_PADW,含焊盘总宽(两侧凸出),P32腔19须≥实测总宽+0.5余量,"照片估17-18(±1-2,不可用)",学妹交付05报告C档1,2026-10-16,UNVERIFIED
 INMP441_BOTTOM,底面拾音孔中心偏差,≤0.5mm→P32声孔位置确认,缺照片(最重要一张未拍),学妹交付D档,2026-10-16,UNVERIFIED
-P24_CAMERA_APERTURE,面板摄像孔,6.8（P26镜管6.5+0.3）,6.8名义（build_v6 2026-10-19 FITFIX）；旧P24 4.2需钻6.8,build_v6,2026-10-19,UNVERIFIED
+P24_CAMERA_APERTURE,面板摄像孔,6.8（P26镜管6.5+0.3）,6.8名义（build_v6 2026-10-19 FITFIX）；旧P24 4.2需钻6.8；2d21bdc曾夹带回退4.2已改回，首批FACEFLAT盘（4.2）同规钻6.8,build_v6,2026-10-19,UNVERIFIED
 P26_LENS_TUBE,摄像头托架镜管内径,6.5,6.5名义（build_v6 2026-10-19 FITFIX）；旧4.6,build_v6,2026-10-19,UNVERIFIED
 P26_V6R3,摄像头托架夹持结构（v6r3）,前壁3.5（镜头凸4→入P24孔0.5~0.7导向）；背腔2.6供FPC折弯；2×M3自攻背柱（柱距13.9/导孔Ø2.5）,名义（build_v6 2026-10-19晚 v6r3）；旧版无保持结构（实打发现模组晃）,build_v6,2026-10-19,UNVERIFIED
 P33_BACK_PLATE,摄像头背板（新件P33）,FPC槽6.4×2.5；孔2×Ø3.4距13.9；压筋顶模组背面（名义零压）,名义（build_v6 2026-10-19晚 v6r3新增）,build_v6,2026-10-19,UNVERIFIED

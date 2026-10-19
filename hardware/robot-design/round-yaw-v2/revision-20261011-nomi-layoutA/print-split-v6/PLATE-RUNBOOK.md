@@ -69,6 +69,8 @@
 | `plates-merged/TMP-P25_GREY_020.3mf` | 灰 | 0.20 | 任一空档 | **P25 后压框(v6r2)**（1） | 85×53（原88）；小盘快 |
 
 **v6r2 重建（2026-10-15）**：LCD 四孔实测 77×45/孔径4（取代80×45假定）→ `build_v6.py` PARAMS `lcd_boss_rect=(77,45)`，在**隔离副本**用 Blender 4.5.3 重建；逐件 diff 确认其余 28 件体积/bbox 与 5.2 版 0.00% 漂移（4.5 复现无偏差）。新 P23/P24/P25 STL 在 `plates-merged/*_v6r2_77x45.stl`。仓库 `candidate-stl/` 未覆盖（仍为 80×45 版），以 plates-merged 的 v6r2 为准。
+
+**FACEFLAT 大平脸返修（2026-10-19，⚠️ 取代上段的 P23/P24）**：B 案大平脸——P24 改 106×96 R21 圆角矩形平脸（屏窗 62×46）、P23 前口 106.6×96.6＋116×116 R40 边框，LCD 四柱/玻璃槽/摄像头高度不动，P25–P28 沿用。**当前 P23 = `plates-merged/P23_HEAD_SHELL_FACEFLAT.stl`、P24 = `plates-merged/P24_FACE_PANEL_FACEFLAT.stl`**，打印盘 `TMP-FIX-P23_GREY_016`（灰）/`TMP-FIX-P24_BLACK_016`（黑），前脸朝下，盘卡 [PLATE-CARD-P23P24.md](plates-merged/PLATE-CARD-P23P24.md)。`P23_v6r2_77x45.stl` / `P24_v6r2_77x45.stl` / G1p / B1p-v2 内的 P23/P24 **全部作废**（P25_v6r2 仍有效）。
 **v6r3（2026-10-15）**：P01 后部 USB-C 开口改**容差窗 13.5×9.5**（SKU 未选不再阻塞杯体）；麦袋/声孔本就按 INMP441 中心孔承诺，非阻塞。`plates-merged/P01_v6r3_tolerant_usbc.stl` + `TMP-G2p_GREY_020.3mf`。
 **朝向坑（manifold3d 逐层截面扫描发现）**：plates.json 里 **P21/P22 麦压圈 euler90=立1mm边**（截面仅~2.3mm²，又晃又脆）应**平躺**；**P14 短颈须翻180°法兰贴床**（原细管朝下易脱板）。补打盘朝向已烤进网格（自动摆放只动XY，翻不回去）。
 

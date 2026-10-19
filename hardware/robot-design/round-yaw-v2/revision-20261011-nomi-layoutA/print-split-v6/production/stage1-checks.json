@@ -22,15 +22,17 @@
   "head_flatten": 0.04,
   "head_wall": 2.4,
   "head_floor": 3.2,
-  "face_d": 106,
+  "face_w": 106,
+  "face_h": 96,
+  "face_r": 21,
   "face_t": 2.4,
   "face_y": -46.2,
   "lcd_window": [
-   58.2,
-   43.8
+   62,
+   46
   ],
   "lcd_window_dz": -2,
-  "camera_above_window": 17,
+  "camera_above_window": 15.9,
   "glass_pocket": [
    71,
    1.4,
@@ -40,6 +42,15 @@
    112,
    102,
    2
+  ],
+  "bezel_w": 116,
+  "bezel_h": 116,
+  "bezel_r": 40,
+  "bezel_t": 5.0,
+  "face_open": [
+   100,
+   90,
+   18
   ],
   "lcd_pcb": [
    85,
@@ -550,7 +561,7 @@
   "P23 HEAD_SHELL": [
    [
     -66.0,
-    -47.04,
+    -47.4,
     80.3
    ],
    [
@@ -563,12 +574,12 @@
    [
     -53.0,
     -47.4,
-    83.3
+    88.3
    ],
    [
     53.0,
     -42.1,
-    189.3
+    184.3
    ]
   ],
   "P25 LCD_REAR_CLAMP_FRAME": [
@@ -598,7 +609,7 @@
   "P27 PRIVACY_GUIDE": [
    [
     -13.0,
-    -49.0,
+    -49.4,
     167.2
    ],
    [
@@ -610,12 +621,12 @@
   "P28 PRIVACY_BLADE": [
    [
     -5.0,
-    -50.2,
+    -50.4,
     169.2
    ],
    [
     5.0,
-    -48.0,
+    -47.6,
     177.2
    ]
   ],
@@ -670,15 +681,15 @@
  },
  "shell_stats": {
   "HEAD_SHELL": {
-   "faces": 29465,
+   "faces": 27767,
    "nonmanifold_edges": 0,
    "boundary_edges": 0,
    "components": 1,
-   "volume_mm3": 101980.9,
+   "volume_mm3": 117418.3,
    "bbox": [
     [
      -66.0,
-     -47.04,
+     -47.4,
      80.3
     ],
     [
@@ -689,21 +700,21 @@
    ]
   },
   "FACE_PANEL": {
-   "faces": 1063,
+   "faces": 1003,
    "nonmanifold_edges": 0,
    "boundary_edges": 0,
    "components": 1,
-   "volume_mm3": 13810.3,
+   "volume_mm3": 15845.1,
    "bbox": [
     [
      -53.0,
      -47.4,
-     83.3
+     88.3
     ],
     [
      53.0,
      -42.1,
-     189.3
+     184.3
     ]
    ]
   },

@@ -144,14 +144,14 @@
    "manifold_volume_mm3": 18359.06
   },
   {
-   "triangles": 960,
+   "triangles": 1092,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 5464.12,
+   "signed_volume_mm3": 5484.87,
    "id": "P15",
    "stl": "P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 5464.12
+   "manifold_volume_mm3": 5484.87
   },
   {
    "triangles": 1816,
@@ -224,24 +224,24 @@
    "manifold_volume_mm3": 84.18
   },
   {
-   "triangles": 58222,
+   "triangles": 55720,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 101981.09,
+   "signed_volume_mm3": 117418.36,
    "id": "P23",
    "stl": "P23_HEAD_SHELL_UNVERIFIED.stl",
-   "manifold_volume_mm3": 101981.09
+   "manifold_volume_mm3": 117418.36
   },
   {
-   "triangles": 4040,
+   "triangles": 3798,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 13810.3,
+   "signed_volume_mm3": 15845.13,
    "id": "P24",
    "stl": "P24_FACE_PANEL_UNVERIFIED.stl",
-   "manifold_volume_mm3": 13810.3
+   "manifold_volume_mm3": 15845.13
   },
   {
    "triangles": 1300,
@@ -268,30 +268,30 @@
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 444.92,
+   "signed_volume_mm3": 663.0,
    "id": "P27",
    "stl": "P27_PRIVACY_GUIDE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 444.92
+   "manifold_volume_mm3": 663.0
   },
   {
    "triangles": 204,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 71.33,
+   "signed_volume_mm3": 74.78,
    "id": "P28",
    "stl": "P28_PRIVACY_BLADE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 71.33
+   "manifold_volume_mm3": 74.78
   },
   {
-   "triangles": 764,
+   "triangles": 732,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 2881.7,
+   "signed_volume_mm3": 4164.38,
    "id": "P29",
    "stl": "P29_CORE_BOARD_CRADLE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 2881.7
+   "manifold_volume_mm3": 4164.38
   },
   {
    "triangles": 448,

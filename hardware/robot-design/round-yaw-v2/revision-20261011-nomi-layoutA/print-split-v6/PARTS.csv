@@ -21,12 +21,12 @@ P19,停止键帽＋键柱,1,PLA Matte,黑,unverified,15.0×10.4×6.3,180×0×0,�
 P20,轻触开关托座,1,PLA Matte,黑,unverified,36.0×14.0×8.6,0×0×0,底面朝下；局部支撑待切片,BLACK,True,candidate-stl/P20_TACTILE_HOLDER_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P21,麦克风压圈左（胶固定于壁袋）,1,PLA Matte,黑,unverified,14.4×14.4×1.0,90×0×0,平放，无支撑,BLACK,True,candidate-stl/P21_MIC_RETAINER_-1_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P22,麦克风压圈右（胶固定于壁袋）,1,PLA Matte,黑,unverified,14.4×14.4×1.0,90×0×0,平放，无支撑,BLACK,True,candidate-stl/P22_MIC_RETAINER_1_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
-P23,头壳（原生Screw＋Lattice＋Solidify）,1,PLA Matte,灰,unverified,132.0×120.47×110.04,90×0×0,前圈朝下；内底/接收座局部支撑，须试切片,GREY,True,candidate-stl/P23_HEAD_SHELL_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
-P24,Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）,1,PLA Matte,黑,unverified,106.0×106.0×5.3,90×0×0,面朝平台；后柱向上,BLACK,True,candidate-stl/P24_FACE_PANEL_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
+P23,头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）,1,PLA Matte,灰,unverified,132.0×120.47×110.4,90×0×0,前圈朝下；内底/接收座局部支撑，须试切片,GREY,True,candidate-stl/P23_HEAD_SHELL_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
+P24,106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）,1,PLA Matte,黑,unverified,106.0×96.0×5.3,90×0×0,面朝平台；后柱向上,BLACK,True,candidate-stl/P24_FACE_PANEL_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P25,LCD后压框（周边夹持，孔位UNVERIFIED）,1,PLA Matte,黑,unverified,85.0×53.0×2.0,90×0×0,框面平放,BLACK,True,candidate-stl/P25_LCD_REAR_CLAMP_FRAME_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P26,摄像头8×8托架v6r3（镜头导向＋P33背板夹持）,1,PLA Matte,黑,unverified,18.8×13.0×10.1,90×0×0,镜头管朝平台,BLACK,True,candidate-stl/P26_CAMERA_CRADLE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
-P27,隐私滑盖导轨（前贴面板）,1,PLA Matte,黑,unverified,42.0×12.0×1.6,90×0×0,平放，导槽向上,BLACK,True,candidate-stl/P27_PRIVACY_GUIDE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
-P28,隐私滑片（打开位置在x=11+）,1,PLA Matte,黑,unverified,10.0×8.0×2.2,90×0×0,平放；拨片局部支撑,BLACK,True,candidate-stl/P28_PRIVACY_BLADE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
+P27,隐私滑盖导轨（前贴面板）,1,PLA Matte,黑,unverified,42.0×12.0×2.0,90×0×0,平放，导槽向上,BLACK,True,candidate-stl/P27_PRIVACY_GUIDE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
+P28,隐私滑片（打开位置在x=11+）,1,PLA Matte,黑,unverified,10.0×8.0×2.8,90×0×0,平放；拨片局部支撑,BLACK,True,candidate-stl/P28_PRIVACY_BLADE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P29,核心板竖直边缘托架（固定于头底）,1,PLA Matte,黑,unverified,36.3×8.0×46.1,0×0×0,底面朝下；局部支撑待切片,BLACK,True,candidate-stl/P29_CORE_BOARD_CRADLE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P30,线束固定鞍（底座侧）,1,PLA Matte,黑,unverified,14.0×10.0×5.0,0×0×0,底面朝下；局部支撑待切片,BLACK,True,candidate-stl/P30_CABLE_SADDLE_BASE_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED
 P31,线束固定鞍（头侧）,1,PLA Matte,黑,unverified,14.0×10.0×5.0,0×0×0,底面朝下；局部支撑待切片,BLACK,True,candidate-stl/P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl,NOT_RUN,NOT_RUN,CANDIDATE_NOT_RELEASED

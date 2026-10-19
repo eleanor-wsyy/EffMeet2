@@ -7,7 +7,7 @@
   "manufacturing_ready": false,
   "hardware_validated": false,
   "plates_frozen": false,
-  "model_sha256": "372420a54a622abc6ccc3b7004ff6440ee7aa4dbf6da76842ce737b8695e47e6",
+  "model_sha256": "7611500fdc54839c17bbff122d6ba75d0eff25e402c3046d86483b8503d9548c",
   "parts": [
     {
       "id": "P01",
@@ -424,7 +424,7 @@
       "fits_256_bed": true,
       "rotating_with_head": false,
       "stl": "candidate-stl/P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
-      "stl_sha256": "35956bb998f45458573712f3fb600d836213b7473d2174f381745c2626c76da3",
+      "stl_sha256": "1a8b2817d86b2f677d82d9956b9b8e5d18751744bfc81b02b7a58429be35e623",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -627,7 +627,7 @@
     },
     {
       "id": "P23",
-      "name": "头壳（原生Screw＋Lattice＋Solidify）",
+      "name": "头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）",
       "object": "N6_HEAD_SHELL",
       "quantity": 1,
       "material": "PLA Matte",
@@ -636,7 +636,7 @@
       "size_mm": [
         132.0,
         120.47,
-        110.04
+        110.4
       ],
       "orientation_start_euler_deg": [
         90,
@@ -648,14 +648,14 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P23_HEAD_SHELL_UNVERIFIED.stl",
-      "stl_sha256": "c1dd6863db673ea9e744d366950ba314ef4e7fe2e1ea4fbd5e86387f8fa355b0",
+      "stl_sha256": "d75f3c16690ce1f9d8c377c2afd5b5b3c1bef1ddccb240667b137a068dba70b1",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
     },
     {
       "id": "P24",
-      "name": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）",
+      "name": "106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）",
       "object": "N6_FACE_PANEL",
       "quantity": 1,
       "material": "PLA Matte",
@@ -663,7 +663,7 @@
       "interface_status": "unverified",
       "size_mm": [
         106.0,
-        106.0,
+        96.0,
         5.3
       ],
       "orientation_start_euler_deg": [
@@ -676,7 +676,7 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P24_FACE_PANEL_UNVERIFIED.stl",
-      "stl_sha256": "3f53edcc3a04c974779349b1033cd37f7cf743d9eef6ff791c0758ab30da4905",
+      "stl_sha256": "4ba94f57d08cc807d910af3cd42376b94afcf203c109bbcf8aae74eb507ddf04",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -748,7 +748,7 @@
       "size_mm": [
         42.0,
         12.0,
-        1.6
+        2.0
       ],
       "orientation_start_euler_deg": [
         90,
@@ -760,7 +760,7 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P27_PRIVACY_GUIDE_UNVERIFIED.stl",
-      "stl_sha256": "3189eb66e248f508c817bbeeb8839a40bbaf13ffde313fa0a694d0687d86564a",
+      "stl_sha256": "3267263569b001218433cd8b0211fa8aeca08179df2a33632752feb9529d2a20",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -776,7 +776,7 @@
       "size_mm": [
         10.0,
         8.0,
-        2.2
+        2.8
       ],
       "orientation_start_euler_deg": [
         90,
@@ -788,7 +788,7 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P28_PRIVACY_BLADE_UNVERIFIED.stl",
-      "stl_sha256": "450754ceb99d27e72bee9b9ad8c4cd59d5f951e27562dd22dbdb72940379898b",
+      "stl_sha256": "7e30544935a76980e806a56bf18899007ad8aa00ec1927a3d49cbd6dea934c9b",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -816,7 +816,7 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P29_CORE_BOARD_CRADLE_UNVERIFIED.stl",
-      "stl_sha256": "c1126aac440db7e36ca672a9e493d304fa29777b01f9c83d621affb1daf0b245",
+      "stl_sha256": "2c57433b5c93987c96a7194d7e2158293f6bd787070beb2029db42035f0c006a",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"

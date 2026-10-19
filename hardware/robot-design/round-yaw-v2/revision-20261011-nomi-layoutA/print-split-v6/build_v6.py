@@ -15,7 +15,8 @@ PARAMS=dict(
  cup_top_z=66*K,lid_top_z=78*K,lid_seam_z=66.3*K,
  head_gap_above_lid=14,head_R=66,head_B=64,head_yc=-1,head_front_r=57,head_front_y=-47.0,head_junction_y=-31.0,
  head_trim_below_center=56,head_offset_y=20,head_flatten=.04,head_wall=2.4,head_floor=3.2,
- face_d=106,face_t=2.4,face_y=-46.2,lcd_window=(58.2,43.8),lcd_window_dz=-2,camera_above_window=17,glass_pocket=(71,1.4,51),backstop=(112,102,2),
+ face_w=106,face_h=96,face_r=21,face_t=2.4,face_y=-46.2,lcd_window=(62,46),lcd_window_dz=-2,camera_above_window=15.9,glass_pocket=(71,1.4,51),backstop=(112,102,2),
+ bezel_w=116,bezel_h=116,bezel_r=40,bezel_t=5.0,face_open=(100,90,18),
  lcd_pcb=(85,1.6,50),lcd_stack=11,lcd_glass=(69,.7,50),lcd_boss_rect=(77,45),  # 2026-10-15 measured (was 80x45 assumed)
  board=(28.3,1.6,62.6),board_comp=6,board_pins=8,camera_module=(8,4,8),camera_fpc=14,camera_recess=4.5,camera_lens_d=6.5,camera_fpc_max_span=11,usb_access=10,dupont_clear=12,
  gt2_pitch=2.0,driver_T=32,driven_T=64,belt_candidates=(158,160,180,188,200),belt_w=6,
@@ -73,6 +74,17 @@ def ring(n,od,idd,h,center,axis='Z',c=None,mat=None):
  o=cylinder(n,od,h,center,axis,c,mat);hole(o,center,idd,h+4,axis);return o
 def hexhole(host,center,flat=5.7,depth=2.6,axis='Z'):
  return boolop(host,cylinder(host.name[3:]+'_NUT_'+str(len(host.modifiers)),flat/math.cos(math.pi/6),depth,center,axis,segments=6))
+def rrect(n,w,h,r,t,center,axis='Y',c=None,mat=None,seg=16):
+ r=min(r,w/2,h/2);pts=[]
+ for cx,cy,a0 in ((w/2-r,h/2-r,0),(-w/2+r,h/2-r,90),(-w/2+r,-h/2+r,180),(w/2-r,-h/2+r,270)):
+  for i in range(seg+1):
+   a=math.radians(a0+90*i/seg);pts.append((cx+r*math.cos(a),cy+r*math.sin(a)))
+ nP=len(pts);v=[(x,y,-t/2) for x,y in pts]+[(x,y,t/2) for x,y in pts]
+ f=[tuple(range(nP-1,-1,-1)),tuple(range(nP,2*nP))]+[(i,(i+1)%nP,(i+1)%nP+nP,i+nP) for i in range(nP)]
+ o=obj(n,v,f,center,c,mat)
+ if axis=='Y':o.data.transform(Matrix.Rotation(math.pi/2,4,'X'))
+ if axis=='X':o.data.transform(Matrix.Rotation(math.pi/2,4,'Y'))
+ return o
 def part(o,cn,mat=BLACK,motion=False,function=''):
  link(o,PARTS);o.hide_render=False
  if mat and not o.data.materials:o.data.materials.append(mat)
@@ -147,10 +159,10 @@ for x,y in COVER:
 # Bearing-tower and servo-cradle floor fixings: M3 into captive nuts under cup floor.
 def floor_fix(x,y):
  hole(cup,(x,y,zb+W/2),3.4,10);hexhole(cup,(x,y,zb+1.0),5.7,2.0)
-def floor_screw_up(host,x,y,slot=0):
+def floor_screw_up(host,x,y,slot=0,pilot=10,pc=None):
  if slot:boolop(cup,box(f'CUP_SLOT_{x}_{y}',(3.4+2*slot,3.4,10),(x,y,zb+W/2),bevel=1.6));boolop(cup,box(f'CUP_SLOT_CB_{x}_{y}',(6.2+2*slot,6.2,1.2),(x,y,zb+.6),bevel=3))
  else:hole(cup,(x,y,zb+W/2),3.4,10);hole(cup,(x,y,zb+.6),6.2,1.2)
- hole(host,(x,y,fl+5),2.6,10)
+ hole(host,(x,y,fl+5 if pc is None else pc),2.6,pilot)
 # Mic wall pockets (fixed, rear-top) and two retainer bosses tied to wall.
 def wall_y(z,x=0):
  r=base_inner_r(z);return P['base_y_scale']*math.sqrt(max(0,r*r-x*x))
@@ -246,11 +258,11 @@ for dy in (-1,1):
 for dx in (-1,1):
  rx=SCX+dx*P['servo_ear_pitch']/2
  unite(sv,box(f'SERVO_EAR_PAD_{dx}',(8,2*wy+3,3),(rx,0,ez0-1.5),bevel=.5))
- boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,8),(rx,0,ez0-1.5),bevel=.8))
+ boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,2.5),(rx,0,ez0-0.75),bevel=.8))
 boolop(sv,box('SERVO_BODY_POCKET',(sb_[1]+1.2,sb_[0]+1.2,40),(SCX,0,sbz+20)))
-# 2026-10-19 v6r3：MG90S 尾端底角出线让位槽（实打发现线束被口袋尾端/底板/侧墙顶住）
+# 2026-10-19 v6r3：MG90S 尾端底角出线让位槽（实打发现线束被口袋尾端/底板/侧墙顶住）；叠加 main 的耳垫U槽孔底＋底板盲孔
 boolop(sv,box('SERVO_WIRE_RELIEF',(6.8,26,9.6),(SCX-8.4,0,fl+4.8)))
-for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn)
+for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn,pilot=3.6,pc=fl+1.3)
 part(sv,'MG90S舵机可调耳架（±2张紧槽＋尾端出线让位）')
 # ---------- speaker cradle (front), amp tray, power-input tray, mic pocket retainers ----------
 spd,spl=P['speaker'];spz=P['speaker_z'];spy=P['speaker_front_y']+spl/2
@@ -299,24 +311,30 @@ trim=box('HEAD_BOTTOM_TRIM',(400,400,200),(0,0,hb-100));boolop(head,trim,solver=
 rec=box('HEAD_FLOOR_SLAB',(250,250,P['head_floor']),(0,0,hb+P['head_floor']/2));boolop(rec,full,'INTERSECT',solver=EX);boolop(head,rec,'UNION',solver=EX)
 boolop(head,cylinder('HEAD_NECK_HOLE',P['neck_od']+.6,12,(0,0,hb+1)),solver=EX)
 for x in (-P['neck_screw_x'],P['neck_screw_x']):hole(head,(x,0,hb+1),3.4,10,solver=EX)
-fy0=P['face_y'];ft_=P['face_t']
-boolop(head,cylinder('ROUND_FACE_RECEIVER',P['face_d']+.6,20,(0,fy0-8,hc),'Y'),solver=EX)
-lip=ring('FACE_RECEIVING_LIP',P['face_d']+8.4,P['face_d']+.6,2.4,(0,fy0+ft_/2+1.2,hc),'Y');boolop(lip,full,'INTERSECT');unite(head,lip,solver=EX)
-part(head,'头壳（原生Screw＋Lattice＋Solidify）',GREY,motion=True)
+fy0=P['face_y'];ft_=P['face_t'];fa_w,fa_h,fa_r=P['face_w'],P['face_h'],P['face_r']
+boolop(head,rrect('FACE_RECEIVER',fa_w+.6,fa_h+.6,fa_r+.3,20,(0,fy0-8,hc)),solver=EX)
+bw_,bh_,br_,bt_=P['bezel_w'],P['bezel_h'],P['bezel_r'],P['bezel_t']
+bez=rrect('FACE_BEZEL',bw_,bh_,br_,ft_+bt_,(0,fy0-ft_/2+(ft_+bt_)/2,hc))
+boolop(bez,rrect('BEZEL_PANEL_POCKET',fa_w+.6,fa_h+.6,fa_r+.3,ft_+.4,(0,fy0,hc)))
+fo=P['face_open'];boolop(bez,rrect('BEZEL_REAR_OPEN',fo[0],fo[1],fo[2],bt_+.4,(0,fy0+ft_/2+(bt_+.4)/2,hc)))
+boolop(bez,box('BEZEL_SADDLE_CLEAR',(16,14,10),(0,-36,hft+5.5)))
+boolop(bez,trim,'DIFFERENCE',solver=EX)
+unite(head,bez,solver=EX)
+part(head,'头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）',GREY,motion=True)
 # head cable saddle receiver boss on floor
 hsx,hsy=0,-36;unite(head,cylinder('HEAD_SADDLE_BOSS',8,3.6,(hsx,hsy,hft+1.2)),solver=EX);hole(head,(hsx,hsy,hft),2.6,12,solver=EX)
 print('STAGE head shell',flush=True)
 #@@FACE@@
 # ---------- FACE + LCD + CAMERA + CORE BOARD (all rotate) ----------
 fb=fy0+ft_/2;wz=hc+P['lcd_window_dz'];ww,wh=P['lcd_window'];cz=wz+wh/2+P['camera_above_window'];P['camera_z']=cz
-face=cylinder('FACE_PANEL',P['face_d'],ft_,(0,fy0,hc),'Y',segments=128)
+face=rrect('FACE_PANEL',fa_w,fa_h,fa_r,ft_,(0,fy0,hc))
 boolop(face,box('LCD_WINDOW',(ww,12,wh),(0,fy0,wz),bevel=.8));gp=P['glass_pocket'];boolop(face,box('GLASS_POCKET',(gp[0],gp[1]*2,gp[2]),(0,fb,wz),bevel=.6))
-boolop(face,cylinder('CAMERA_APERTURE',P['camera_lens_d']+.3,12,(0,fy0,cz),'Y'))
+boolop(face,cylinder('CAMERA_APERTURE',P['camera_lens_d']+.3,12,(0,fy0,cz),'Y'))  # 6.8：v6r3 镜头导向/原定案；4.2 系 2d21bdc 夹带回退，FACEFLAT 已打件钻 6.8
 LB=P['lcd_boss_rect'];sy=P['lcd_stack'];lback=fb-gp[1]+sy;P['lcd_back_y']=lback;pcbf=fb-gp[1]+4;P['lcd_pcb_front_y_assumed']=pcbf
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):unite(face,cylinder(f'FACE_LCD_BOSS_{x}_{z}',6,pcbf-fb+.2,(x,(fb+pcbf)/2-.1,z),'Y'));hole(face,(x,pcbf,z),2.2,8,'Y')
 for x in (-10,26):unite(face,cylinder(f'FACE_PRIV_BOSS_{x}',5,3,(x,fb+1.5-.1,cz),'Y'));hole(face,(x,fb+2,cz),2.0,6,'Y')
-part(face,'Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）',motion=True)
+part(face,'106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）',motion=True)
 lcdf=box('LCD_REAR_CLAMP_FRAME',(LB[0]+8,2,LB[1]+8),(0,lback+1,wz),bevel=2);boolop(lcdf,box('LCD_FRAME_OPEN',(LB[0]-14,6,LB[1]-12),(0,lback+1,wz),bevel=2))
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):hole(lcdf,(x,lback+1,z),2.8,6,'Y')
@@ -335,16 +353,16 @@ cpl=box('CAMERA_BACK_PLATE',(17.4,1.6,11),(0,fb+10.9,cz),bevel=.3)
 unite(cpl,box('CAM_PLATE_PRESS_RIB',(7,2.6,2.4),(0,fb+8.9,cz+2.7),bevel=.3))
 boolop(cpl,box('CAM_PLATE_FPC_SLOT',(6.4,3,2.5),(0,fb+10.9,cz-4.25)))
 for sx in (-1,1):hole(cpl,(sx*6.95,fb+10.9,cz),3.4,6,'Y')
-pv=box('PRIVACY_GUIDE',(42,1.6,12),(8,fy0-ft_/2-.8,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,2,8.4),(8,fy0-ft_/2-.4,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
+pv=box('PRIVACY_GUIDE',(42,2,12),(8,fy0-ft_/2-1,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,1.5,8.4),(8,fy0-ft_/2-.45,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
 for x in (-10,26):hole(pv,(x,fy0,cz),2.4,8,'Y')
 part(pv,'隐私滑盖导轨（前贴面板）',motion=True)
-bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-1.0,cz),bevel=.2);unite(bl,box('PRIV_TAB',(2.4,1.6,2.4),(0,fy0-ft_/2-2.0,cz)))
+bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-.6,cz),bevel=.2);unite(bl,box('PRIV_TAB',(2.4,2.2,2.4),(0,fy0-ft_/2-1.9,cz)))
 part(bl,'隐私滑片（打开位置在x=11+）',motion=True)
 bw,bt,bh=P['board'];pcy=lback+2.5+P['board_comp']+bt/2+.1;P['board_pcb_y']=pcy;btop=cz+3;bz=btop-bh/2;P['board_z']=(btop-bh,btop)
 P['camera_fpc_span_mm']=round(math.hypot((pcy-bt/2)-(cy+cm[1]/2),btop-6-(cz-cm[2]/2)),2);P['camera_fpc_slack_mm']=round(P['camera_fpc']-P['camera_fpc_span_mm'],2);assert P['camera_fpc_span_mm']<=P['camera_fpc_max_span'],P['camera_fpc_span_mm']
-cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.6,bt+.2,10),(0,pcy,cb0+7)))
-for x in (-bw/2-2.5,bw/2+2.5):
- unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(3,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(2.2,bt+.2,60),(x-math.copysign(.9,x)*0+(-1 if x>0 else 1)*.5,pcy,hft+38)))
+cb0=hft+fh;corecr=box('CORE_BOARD_CRADLE',(bw+8,8,5),(0,pcy,cb0+2.5),bevel=.6);boolop(corecr,box('CORE_SLOT',(bw+.2,bt+.1,10),(0,pcy,cb0+7)))
+for x in (-(bw/2+1.7),bw/2+1.7):
+ unite(corecr,box(f'CORE_EDGE_RAIL_{x}',(4.6,8,btop-bh+20-cb0-.2),(x,pcy,(cb0+.2+btop-bh+20)/2)));boolop(corecr,box(f'CORE_RAIL_SLOT_{x}',(.7,bt+.1,62),((1 if x>0 else -1)*(bw/2-.25),pcy,hft+37)))
 for x in (-10,10):hole(neck,(x,pcy,cb0),2.4,5);hole(corecr,(x,pcy,cb0+2),3.4,10)
 part(corecr,'核心板竖直边缘托架（固定于头底）',motion=True)
 print('STAGE face/head parts',flush=True)

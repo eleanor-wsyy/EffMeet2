@@ -157,17 +157,17 @@
   },
   {
    "id": "P23",
-   "name": "头壳（原生Screw＋Lattice＋Solidify）",
+   "name": "头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）",
    "object": "N6_HEAD_SHELL",
    "rotating": true,
-   "function": "头壳（原生Screw＋Lattice＋Solidify）"
+   "function": "头壳（原生Screw＋Lattice＋Solidify＋大平脸边框116×116）"
   },
   {
    "id": "P24",
-   "name": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）",
+   "name": "106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）",
    "object": "N6_FACE_PANEL",
    "rotating": true,
-   "function": "Ø106黑色面板（LCD窗＋镜头孔＋LCD四柱UNVERIFIED）"
+   "function": "106×96圆角大平脸面板（屏窗62×46＋镜头孔＋LCD四柱77×45）"
   },
   {
    "id": "P25",

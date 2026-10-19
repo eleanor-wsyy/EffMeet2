@@ -16,6 +16,7 @@ const SHELL = [
   BASE + 'assets/mic.svg',
   BASE + 'assets/user.svg',
   BASE + 'assets/robot.svg',
+  BASE + 'assets/robot-v6.webp',
   BASE + 'assets/capture-sketch.svg',
   BASE + 'assets/icon-192.png',
   BASE + 'assets/icon-512.png',

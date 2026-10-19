@@ -204,7 +204,7 @@ img{max-width:100%}
 .reconnect-button:hover{background:#FFFDF8;border-color:#E7C4B2}
 .reconnect-button:disabled{opacity:.6}
 .robot{
-  width:108px;height:108px;flex-shrink:0;object-fit:contain;
+  width:108px;height:108px;flex-shrink:0;object-fit:cover;border-radius:20px;
   filter:drop-shadow(0 8px 12px rgba(118,92,50,.10));
 }
 .quick-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;margin:13px 0 4px}

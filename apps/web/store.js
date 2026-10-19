@@ -3,17 +3,10 @@
 export const STORAGE_KEY = 'effmeet2.local.v1';
 export const SCHEMA_VERSION = 3;
 
-export const DEVICES = [
-  {key:'phone', label:'本机手机', detail:'摄像头 + 麦克风', camera:true},
-  {key:'external', label:'外接摄像头', detail:'模拟设备', camera:true},
-  {key:'mic', label:'仅麦克风', detail:'无摄像头', camera:false}
-];
-
 export const DEFAULT_SETTINGS = {
   reminders:true,
   sounds:true,
   reduceMotion:false,
-  device:'phone',
   language:'zh'
 };
 
@@ -230,13 +223,11 @@ export function loadDB() {
       const parsed = JSON.parse(raw);
       if (parsed && parsed.schemaVersion === SCHEMA_VERSION && Array.isArray(parsed.meetings)) {
         parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
-        if (parsed.active && !parsed.active.device) parsed.active.device = parsed.settings.device;
         return parsed;
       }
       if (parsed && parsed.schemaVersion === 2 && Array.isArray(parsed.meetings)) {
         parsed.schemaVersion = SCHEMA_VERSION;
         parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
-        if (parsed.active && !parsed.active.device) parsed.active.device = parsed.settings.device;
         delete parsed.ui;
         persist(parsed);
         return parsed;
@@ -304,7 +295,6 @@ export function activeMeeting(db, options = {}) {
     isDemo:Boolean(options.isDemo),
     source:options.source || 'quick',
     code:options.code || '',
-    device:options.device || db.settings.device || 'phone',
     startedAt,
     endedAt:null,
     durationMin:0,

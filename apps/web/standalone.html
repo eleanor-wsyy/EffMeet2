@@ -468,25 +468,35 @@ img{max-width:100%}
 .pending-bottom button:hover{background:#FFF0EA}
 .pending-empty{font-size:11.5px;color:var(--muted);padding:14px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:14px}
 
-.meeting-footer{
-  flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:9px 20px calc(9px + var(--safe-bottom));
-  background:rgba(255,255,255,.97);border-top:1px solid var(--line);
+.meeting-bar{
+  flex-shrink:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;
+  background:#1F1F23;border-top:1px solid #2C2C31;
+  padding:7px 6px calc(7px + var(--safe-bottom));z-index:4;
 }
-.footer-status{font-size:9.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px;max-width:96px}
-.footer-status .status-dot{background:#C0392B;opacity:.55}
-.meeting-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.control-button,.mic-control{
-  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
-  transition:transform .12s ease,background .12s ease,color .12s ease,border-color .12s ease;
+.bar-button{
+  min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;border-radius:10px;color:#F4F4F5;font-size:9.5px;font-weight:500;line-height:1.2;
+  transition:background .15s ease,color .15s ease;
 }
-.control-button{background:#F4F0E6;color:#6C6457;border:1px solid var(--line-strong)}
-.control-button:hover{background:#EEE8DB}
-.control-button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 3px 9px rgba(240,82,46,.18)}
-.mic-control{background:var(--brand);color:#fff;box-shadow:0 3px 9px rgba(240,82,46,.18)}
-.mic-control:hover{background:#DD4524}
-.control-button:active,.mic-control:active{transform:scale(.96)}
-.footer-note{font-size:9.5px;color:#A2988A;text-align:right;max-width:82px}
+.bar-button:hover{background:rgba(255,255,255,.07)}
+.bar-button:active{background:rgba(255,255,255,.12)}
+.bar-button span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-icon{position:relative;display:grid;place-items:center;width:24px;height:24px;flex-shrink:0}
+.bar-button svg{width:22px;height:22px}
+.bar-button.on{color:#FF8A66}
+.bar-button.muted .bar-icon::after{
+  content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;border-radius:2px;
+  background:#F87171;transform:translate(-50%,-50%) rotate(-45deg);
+}
+.attendee-list{display:grid;gap:7px}
+.attendee-row{
+  display:flex;align-items:center;gap:9px;background:#FAF7F0;border:1px solid #EDE7DA;
+  border-radius:11px;padding:8px 9px;
+}
+.attendee-copy{flex:1;min-width:0}
+.attendee-copy b{display:block;font-size:11.5px;font-weight:600;overflow-wrap:anywhere}
+.attendee-copy small{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+.attendee-badge{font-size:8.5px;color:var(--brand-dark);background:var(--brand-soft);border-radius:5px;padding:2px 5px;white-space:nowrap}
 
 /* ---------- 搜索与历史 ---------- */
 .search-wrap{
@@ -595,11 +605,6 @@ img{max-width:100%}
 }
 .switch.on{background:var(--brand)}
 .switch.on span{transform:translateX(16px)}
-.inline-select{
-  max-width:142px;min-height:34px;border:1px solid var(--line);border-radius:8px;
-  background:#FCFAF5;font-size:10.5px;padding:4px 6px;color:var(--ink);outline:0;
-}
-.settings-copy .inline-select{width:100%;max-width:none;margin-top:5px}
 
 /* ---------- 加入会议 / 预定 ---------- */
 .join-form,.schedule-form{padding:17px 15px;display:grid;gap:18px}
@@ -830,27 +835,7 @@ img{max-width:100%}
   animation:scanMove 2.2s ease-in-out infinite;
 }
 @keyframes scanMove{0%,100%{top:18%}50%{top:80%}}
-.scan-hint{font-size:10px;color:var(--muted);text-align:center;margin:9px 0 12px;line-height:1.6}
-#scan-start{margin-bottom:8px}
-.scan-manual{display:flex;gap:8px;margin-top:10px}
-.scan-manual input{
-  flex:1;min-width:0;min-height:44px;border:1px solid var(--line-strong);border-radius:10px;
-  background:#FCFAF5;padding:10px 11px;font-size:16px;outline:0;
-}
-.scan-manual input:focus{border-color:var(--brand)}
-.scan-manual button{
-  min-width:62px;border-radius:10px;border:1px solid var(--line-strong);
-  background:var(--paper);font-size:11.5px;font-weight:600;color:var(--brand-dark);
-}
-.scan-manual button:hover{background:var(--brand-soft)}
-.scan-result{
-  margin-top:14px;padding:14px;border:1px solid #F0E4CC;border-radius:16px;
-  background:#FFF8E9;display:grid;gap:6px;
-}
-.scan-result h2{font-size:17px;letter-spacing:.02em;overflow-wrap:anywhere}
-.scan-result p{font-size:10px;color:var(--muted)}
-.scan-result-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.scan-result-actions .button{min-height:42px;font-size:12px}
+.scan-hint{font-size:10px;color:var(--muted);text-align:center;margin:10px 6px 0;line-height:1.7}
 
 /* ---------- 弹层 ---------- */
 .overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:flex-end}
@@ -935,7 +920,6 @@ img{max-width:100%}
 @media (max-width:390px){
   .page-scroll{padding-left:16px;padding-right:16px}
   .meeting-head{padding-left:16px;padding-right:16px}
-  .meeting-footer{padding-left:16px;padding-right:16px}
   .robot{width:96px;height:96px}
   .greeting{font-size:23px}
   .quick-action{font-size:10.5px}
@@ -948,10 +932,8 @@ img{max-width:100%}
   .status-chip{font-size:9px}
   .plan-grid{grid-template-columns:1fr}
   .stage-avatar{width:84px;height:84px;font-size:28px}
-  .footer-status{max-width:72px;font-size:8.5px}
-  .footer-note{max-width:60px;font-size:8.5px}
-  .meeting-controls{gap:6px}
-  .control-button,.mic-control{width:40px;height:40px}
+  .bar-button{font-size:8.5px;min-height:48px}
+  .meeting-bar{padding-left:3px;padding-right:3px}
   .scan-view{height:280px}
 }
 @media (max-height:680px){
@@ -959,7 +941,6 @@ img{max-width:100%}
   .hero{padding:13px}
   .robot{width:86px;height:86px}
   .quick-action{min-height:70px}
-  .meeting-footer{padding-top:6px;padding-bottom:calc(6px + var(--safe-bottom))}
 }
 html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{
   animation-duration:.001ms!important;
@@ -974,6 +955,638 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{
 }
 
 </style>
+
+</head>
+<body>
+<div class="app-shell" id="app-shell">
+  <div class="app-frame" id="app-frame">
+
+    <!-- ============ 首页 ============ -->
+    <section class="page" data-page="home" id="page-home" aria-labelledby="home-title">
+      <div class="page-scroll">
+        <header class="home-head">
+          <p class="wordmark"><span class="brand-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 10V13M6 6V17M10 3V21M14 8V15M18 5V18M22 10V13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>EffMeet 2</p>
+          <span class="demo-tag">演示数据</span>
+        </header>
+        <h1 class="greeting" id="home-title">下午好，<span id="home-name">林小满</span></h1>
+
+        <section class="hero" aria-label="机器人状态">
+          <div class="hero-copy">
+            <p class="hero-kicker">桌面会议伙伴</p>
+            <p class="hero-title">在线，也在场</p>
+            <div class="status-chips">
+              <span class="status-chip"><span class="status-dot ok" id="device-dot"></span><span id="device-status">设备已连接</span></span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M22 10.5v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="5" y="10" width="9" height="4" rx="1" fill="currentColor"/></svg>
+                <span id="device-battery">76%</span>
+              </span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="currentColor"/></svg>
+                AI 剩余 <span id="home-quota">82</span> 分钟
+              </span>
+            </div>
+            <button class="reconnect-button" id="reconnect-robot" type="button">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1 8.4A7 7 0 0 1 19.7 10M4.3 14A7 7 0 0 0 17.9 15.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span id="reconnect-label">重新连接机器人</span>
+            </button>
+            <p class="hero-note">演示数据 · 未连接真实设备</p>
+          </div>
+          <img class="robot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYwIDE2MCIgZmlsbD0ibm9uZSIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJFZmZNZWV0IDIg5qGM6Z2i5py65Zmo5Lq656S65oSP5Zu+Ij4KICA8ZWxsaXBzZSBjeD0iODAiIGN5PSIxNDYiIHJ4PSI0NCIgcnk9IjYiIGZpbGw9IiM2QjVCM0UiIG9wYWNpdHk9Ii4wOCIvPgogIDxwYXRoIGQ9Ik04MCAzMVYxOSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSIxNCIgcj0iNC4yIiBmaWxsPSIjRjA1MjJFIi8+CiAgPHJlY3QgeD0iMjEiIHk9IjU3IiB3aWR0aD0iMTAiIGhlaWdodD0iMjUiIHJ4PSI1IiBmaWxsPSIjRjVFQkQ5IiBzdHJva2U9IiMzQTM1MkMiIHN0cm9rZS13aWR0aD0iMi4yIi8+CiAgPHJlY3QgeD0iMTI5IiB5PSI1NyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjI1IiByeD0iNSIgZmlsbD0iI0Y1RUJEOSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuMiIvPgogIDxyZWN0IHg9IjMxIiB5PSIzMSIgd2lkdGg9Ijk4IiBoZWlnaHQ9Ijc3IiByeD0iMjciIGZpbGw9IiNGRkY5RUUiIHN0cm9rZT0iIzNBMzUyQyIgc3Ryb2tlLXdpZHRoPSIyLjQiLz4KICA8cmVjdCB4PSI0NSIgeT0iNDMiIHdpZHRoPSI3MCIgaGVpZ2h0PSI0OCIgcng9IjE2IiBmaWxsPSIjMkUyQTI0Ii8+CiAgPGNpcmNsZSBjeD0iNjUuNSIgY3k9IjYzIiByPSIzLjIiIGZpbGw9IiNGRkI1OUYiLz4KICA8Y2lyY2xlIGN4PSI5NC41IiBjeT0iNjMiIHI9IjMuMiIgZmlsbD0iI0ZGQjU5RiIvPgogIDxwYXRoIGQ9Ik03MCA3NnExMCA2IDIwIDAiIHN0cm9rZT0iI0ZGQjU5RiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNTAgMTA4aDYwYzYuNiAwIDEwIDQuMiAxMCAxMHYxMy41YzAgNS0zIDgtOCA4SDQ4Yy01IDAtOC0zLTgtOFYxMThjMC01LjggMy40LTEwIDEwLTEwWiIgZmlsbD0iI0ZGRjlFRSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuNCIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iMTI3IiByPSI2IiBmaWxsPSIjRjA1MjJFIi8+CiAgPHBhdGggZD0iTTQ5IDExN2MtNyAuOC0xMS41IDQuNi0xMy41IDEwIiBzdHJva2U9IiMzQTM1MkMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMTExIDExN2M3IC44IDExLjUgNC42IDEzLjUgMTAiIHN0cm9rZT0iIzNBMzUyQyIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="EffMeet 2 桌面机器人示意图" width="112" height="112">
+        </section>
+
+        <div class="quick-actions" aria-label="会议入口">
+          <button class="quick-action primary" id="act-join" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M18 7v6M15 10h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span>加入会议</span>
+          </button>
+          <button class="quick-action" id="act-quick" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <span>快速会议</span>
+          </button>
+          <button class="quick-action" id="act-schedule" type="button">
+            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15.5" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3M13.5 14h2.5M8 17h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span>预定会议</span>
+          </button>
+        </div>
+
+        <button class="scan-entry" id="home-scan" type="button">
+          <span class="scan-entry-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </span>
+          <span class="scan-entry-copy"><b>扫码加入会议</b><small>扫描主持人分享的二维码，自动填入会议码</small></span>
+          <svg class="chev" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+
+        <section class="section" id="upcoming-section" hidden>
+          <div class="section-head"><h2>即将开始</h2><span class="count" id="upcoming-count"></span></div>
+          <div id="upcoming-list" class="record-list"></div>
+        </section>
+
+        <section class="section">
+          <div class="section-head">
+            <h2>最近会议</h2>
+            <button class="text-link" id="home-history" type="button">查看全部</button>
+          </div>
+          <div id="recent-list" class="record-list"></div>
+        </section>
+        <p class="footnote">所有会议、额度与设备信息均为本地演示数据，仅保存在当前浏览器。</p>
+      </div>
+    </section>
+
+    <!-- ============ 会议 ============ -->
+    <section class="page" data-page="meeting" id="page-meeting" aria-labelledby="meeting-title">
+      <div id="meeting-empty" class="page-scroll">
+        <header class="page-head"><h1>会议</h1><span class="demo-tag">模拟</span></header>
+        <div class="empty-state">
+          <span class="empty-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+          <h2>还没有进行中的会议</h2>
+          <p>加入现有会议，或直接开一场示例会议。音视频与语音识别尚未接入。</p>
+          <div class="empty-actions">
+            <button class="button primary" id="empty-join" type="button">加入会议</button>
+            <button class="button secondary" id="empty-quick" type="button">快速会议</button>
+          </div>
+        </div>
+        <section class="section" id="meeting-upcoming-section" hidden>
+          <div class="section-head"><h2>已预定的会议</h2><span class="count" id="meeting-upcoming-count"></span></div>
+          <div id="meeting-upcoming-list" class="record-list"></div>
+        </section>
+        <p class="footnote">真实音视频、语音识别与机器人播报均未接入，本页为本地模拟。</p>
+      </div>
+
+      <div id="meeting-active" class="meeting-live" hidden>
+        <header class="meeting-head">
+          <div class="meeting-topline">
+            <span class="live-pill"><span class="live-dot"></span>进行中<span class="pill-sep">·</span>模拟</span>
+            <button class="text-button danger-text" id="end-meeting" type="button">结束会议</button>
+          </div>
+          <div class="meeting-title-row">
+            <h1 id="meeting-title">回收箱方案评审</h1>
+            <button class="map-entry" id="open-map" type="button">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="7" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="m8.4 6.3 7.1.5M7.2 8.2l3.5 7.4M16.8 9.2l-3.4 6.4" stroke="currentColor" stroke-width="1.5"/></svg>
+              观点地图
+            </button>
+          </div>
+          <div class="meeting-meta"><span id="meeting-meta">4 人 · 示例内容</span><span id="meeting-elapsed">42:18</span></div>
+          <div class="demo-banner" id="demo-banner" hidden>
+            <span>演示模式 · 本场记录不会写入正式历史</span>
+            <button class="text-button" id="exit-demo" type="button">退出演示</button>
+          </div>
+        </header>
+
+        <div class="page-scroll meeting-scroll">
+          <section class="meeting-stage" aria-label="参会者">
+            <div class="stage-main" id="stage-main">
+              <div class="stage-visual" id="stage-visual">
+                <span class="stage-avatar" id="stage-avatar">陈</span>
+                <div class="stage-preview" id="stage-preview" hidden>
+                  <video id="stage-video" autoplay muted playsinline></video>
+                  <div class="preview-fallback" id="preview-fallback">
+                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+                    <span>模拟画面</span>
+                  </div>
+                  <span class="preview-note" id="preview-note">本机预览 · 未上传</span>
+                </div>
+              </div>
+              <div class="stage-info">
+                <h2 id="stage-name">陈可</h2>
+                <p id="stage-role">现场</p>
+              </div>
+              <span class="stage-tag" id="stage-tag">发言中</span>
+            </div>
+            <div class="filmstrip" id="filmstrip" aria-label="切换聚焦参会者"></div>
+          </section>
+
+          <div class="meeting-blocks" id="meeting-blocks">
+            <section class="card shared-card" id="shared-block" aria-labelledby="shared-title">
+              <div class="card-head">
+                <h2 id="shared-title">共享内容</h2>
+                <div class="card-head-actions"><span class="mini-tag">模拟</span><button class="text-link" id="view-capture" type="button">查看原图</button></div>
+              </div>
+              <button class="capture-frame" id="capture-button" type="button" aria-label="放大现场原图">
+                <img id="capture-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享的三格回收箱手绘草图">
+              </button>
+              <div class="capture-desc">
+                <span class="eyebrow">AI 描述</span>
+                <p id="capture-desc">三格回收箱正面，顶部投放口，右上「满溢检测？」</p>
+              </div>
+              <p class="capture-meta" id="capture-meta">共享于 41:24 · 原图由现场成员拍摄</p>
+            </section>
+
+            <section class="card transcript-card" id="transcript-block" aria-labelledby="transcript-title">
+              <div class="card-head">
+                <h2 id="transcript-title">实时转写</h2>
+                <div class="card-head-actions"><span class="mini-tag">模拟</span><span class="live-indicator"><span></span>接收中</span></div>
+              </div>
+              <ol class="transcript-list" id="live-transcript"></ol>
+              <p class="transcript-note">语音识别尚未接入；完整转写将在会议结束后归档。</p>
+            </section>
+          </div>
+
+          <section class="section" id="pending-section">
+            <div class="section-head"><h2>AI 介入提示</h2><span class="count" id="pending-count"></span></div>
+            <div id="pending-list"></div>
+          </section>
+          <p class="meeting-note">AI 只会在你确认后提醒现场；当前为本地模拟，不会播放声音或操作设备。</p>
+        </div>
+
+        <nav class="meeting-bar" aria-label="会议控制">
+          <button class="bar-button" id="live-mic" type="button" aria-label="静音" aria-pressed="false">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 15.83v2.5M4.17 8.33V10a5.83 5.83 0 1 0 11.66 0V8.33M10 1.67a2.5 2.5 0 0 1 2.5 2.5V10a2.5 2.5 0 0 1-5 0V4.17a2.5 2.5 0 0 1 2.5-2.5Z" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+            </span>
+            <span id="live-mic-label">静音</span>
+          </button>
+          <button class="bar-button" id="live-camera" type="button" aria-label="开启摄像头" aria-pressed="false">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
+            </span>
+            <span id="live-camera-label">开启视频</span>
+          </button>
+          <button class="bar-button" id="live-share" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="4.5" width="18" height="13" rx="2.5" stroke="currentColor" stroke-width="1.8"/><path d="M8 20h8M12 17.5V20M12 8v5M9.5 10.5 12 8l2.5 2.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </span>
+            <span>共享</span>
+          </button>
+          <button class="bar-button" id="live-attendees" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M16 5.2a3.2 3.2 0 0 1 0 5.8M17.5 14.2c1.7.6 2.8 2.2 3.1 4.8" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </span>
+            <span>参会者 <span id="attendee-count">4</span></span>
+          </button>
+          <button class="bar-button" id="live-more" type="button">
+            <span class="bar-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><circle cx="9" cy="7" r="1.7" fill="currentColor"/><circle cx="15" cy="12" r="1.7" fill="currentColor"/><circle cx="8" cy="17" r="1.7" fill="currentColor"/></svg>
+            </span>
+            <span>更多</span>
+          </button>
+        </nav>
+      </div>
+    </section>
+
+    <!-- ============ 历史 ============ -->
+    <section class="page" data-page="history" id="page-history" aria-labelledby="history-title">
+      <div class="page-scroll">
+        <header class="page-head"><h1 id="history-title">历史</h1><span class="count" id="history-count"></span></header>
+        <div class="search-wrap">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          <input id="history-search" type="search" placeholder="搜索会议主题" autocomplete="off" aria-label="搜索会议主题">
+        </div>
+        <div class="filter-row" id="history-filters" role="group" aria-label="筛选会议">
+          <button type="button" data-filter="all" class="chip active">全部</button>
+          <button type="button" data-filter="week" class="chip">近 7 天</button>
+          <button type="button" data-filter="todos" class="chip">有待办</button>
+        </div>
+        <div id="history-list" class="record-list"></div>
+        <p class="footnote">演示记录保存在本机浏览器；清除浏览器数据后会重新生成示例。</p>
+      </div>
+    </section>
+
+    <!-- ============ 我的 ============ -->
+    <section class="page" data-page="profile" id="page-profile" aria-labelledby="profile-title">
+      <div class="page-scroll">
+        <header class="page-head"><h1 id="profile-title">我的</h1><span class="demo-tag">演示数据</span></header>
+
+        <section class="user-card">
+          <span class="avatar avatar-lg" id="profile-avatar">林</span>
+          <div class="user-copy"><h2 id="profile-name">林小满</h2><p>EffMeet 2 桌面会议伙伴</p></div>
+          <button class="text-button" id="edit-name" type="button">编辑</button>
+        </section>
+
+        <section class="quota-card">
+          <div class="section-head"><h2>AI 额度</h2><span class="badge" id="plan-badge">免费版</span></div>
+          <div class="quota-main"><strong id="quota-remaining">82</strong><span>分钟可用</span></div>
+          <div class="quota-bar" role="progressbar" aria-label="额度使用进度" aria-valuemin="0" aria-valuemax="120" aria-valuenow="38"><span id="quota-bar"></span></div>
+          <div class="quota-meta">
+            <span>总额度 <b id="quota-total">120</b> 分钟</span>
+            <span>已用 <b id="quota-used">38</b></span>
+            <span id="quota-reset">11 月 1 日重置</span>
+          </div>
+          <p class="footnote">额度为本地演示值，不连接真实计费系统。</p>
+        </section>
+
+        <section class="section">
+          <div class="section-head"><h2>套餐对比</h2><span class="count">模拟</span></div>
+          <div class="plan-grid">
+            <article class="plan-card" id="plan-card-free">
+              <div class="plan-head"><h3>免费版</h3><span class="plan-current" data-plan-current="free">当前</span></div>
+              <dl class="plan-rows">
+                <div><dt>每月额度</dt><dd>120 分钟</dd></div>
+                <div><dt>单次会议</dt><dd>60 分钟</dd></div>
+                <div><dt>历史保存</dt><dd>30 天</dd></div>
+                <div><dt>高级分析</dt><dd>—</dd></div>
+              </dl>
+            </article>
+            <article class="plan-card pro" id="plan-card-pro">
+              <div class="plan-head"><h3>高级版</h3><span class="plan-current" data-plan-current="pro">当前</span></div>
+              <dl class="plan-rows">
+                <div><dt>每月额度</dt><dd>600 分钟</dd></div>
+                <div><dt>单次会议</dt><dd>180 分钟</dd></div>
+                <div><dt>历史保存</dt><dd>永久</dd></div>
+                <div><dt>高级分析</dt><dd>支持</dd></div>
+              </dl>
+            </article>
+          </div>
+          <button class="button secondary full" id="upgrade-plan" type="button">模拟升级到高级版</button>
+          <p class="footnote">升级流程为本地模拟，不接支付、不产生费用，也不展示正式价格。</p>
+        </section>
+
+        <section class="settings-card">
+          <button class="settings-row" id="open-contacts" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M17 8.5h4M19 6.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <span class="settings-copy"><b>联系人</b><small>邀请同组成员加入讨论</small></span>
+            <span class="soon-badge">即将开放</span>
+          </button>
+          <button class="settings-row" id="open-demo" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
+            <span class="settings-copy"><b>进入演示模式</b><small>直接打开示例会议，不写入正式历史</small></span>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+          <button class="settings-row danger" id="reset-demo" type="button">
+            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+            <span class="settings-copy"><b>重置演示数据</b><small>恢复示例会议、额度与提示状态</small></span>
+            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+          </button>
+        </section>
+        <button class="settings-entry" id="open-settings" type="button">
+          <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.55V21h-4v-.08a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8.97 4.5 1.7 1.7 0 0 0 10 2.95V3h4v-.08A1.7 1.7 0 0 0 15.03 4.5a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8.9a1.7 1.7 0 0 0 1.55 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+          <span class="settings-copy"><b>设置</b><small>通用、隐私与关于</small></span>
+          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        <p class="footnote">所有数据仅保存在本机浏览器；不接云端数据库、硬件、联系人、支付或真实 AI。</p>
+      </div>
+    </section>
+
+    <!-- ============ 加入会议 ============ -->
+    <section class="page subpage" data-page="join" id="page-join" aria-labelledby="join-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="join-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="join-title">加入会议</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="subpage-intro">
+          <h2>连接现场，让你的观点被听到</h2>
+          <p>演示环境：任意有效会议 ID 都会打开本地示例会议。</p>
+        </div>
+        <form id="join-form" class="card join-form" novalidate>
+          <div class="field">
+            <label for="j-mid" class="step-title"><span class="step-number">1</span>会议链接</label>
+            <div class="input-wrap">
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsaW5rIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8xMCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNy41MDAxMiA5Ljc0OTk3QzcuODIyMjEgMTAuMTgwNiA4LjIzMzE0IDEwLjUzNjkgOC43MDUwMyAxMC43OTQ3QzkuMTc2OTMgMTEuMDUyNSA5LjY5ODc1IDExLjIwNTggMTAuMjM1MSAxMS4yNDQyQzEwLjc3MTUgMTEuMjgyNiAxMS4zMDk4IDExLjIwNTIgMTEuODEzNiAxMS4wMTczQzEyLjMxNzQgMTAuODI5NCAxMi43NzUgMTAuNTM1MyAxMy4xNTUxIDEwLjE1NUwxNS40MDUxIDcuOTA0OTdDMTYuMDg4MiA3LjE5NzcxIDE2LjQ2NjIgNi4yNTA0NSAxNi40NTc2IDUuMjY3MjFDMTYuNDQ5MSA0LjI4Mzk4IDE2LjA1NDcgMy4zNDM0MyAxNS4zNTk0IDIuNjQ4MTVDMTQuNjY0MiAxLjk1Mjg3IDEzLjcyMzYgMS41NTg0OSAxMi43NDA0IDEuNTQ5OTRDMTEuNzU3MSAxLjU0MTQgMTAuODA5OSAxLjkxOTM4IDEwLjEwMjYgMi42MDI0N0w4LjgxMjYyIDMuODg0OTdNMTAuNTAwMyA4LjI1MDE2QzEwLjE3ODIgNy44MTk1NyA5Ljc2NzI1IDcuNDYzMjggOS4yOTUzNiA3LjIwNTQ2QzguODIzNDYgNi45NDc2NCA4LjMwMTY0IDYuNzk0MzMgNy43NjUyOCA2Ljc1NTkxQzcuMjI4OTIgNi43MTc1IDYuNjkwNTggNi43OTQ4OSA2LjE4Njc2IDYuOTgyODNDNS42ODI5NCA3LjE3MDc3IDUuMjI1NDMgNy40NjQ4NiA0Ljg0NTI3IDcuODQ1MTZMMi41OTUyNyAxMC4wOTUyQzEuOTEyMTggMTAuODAyNCAxLjUzNDIgMTEuNzQ5NyAxLjU0Mjc0IDEyLjczMjlDMS41NTEyOSAxMy43MTYyIDEuOTQ1NjcgMTQuNjU2NyAyLjY0MDk1IDE1LjM1MkMzLjMzNjIzIDE2LjA0NzMgNC4yNzY3OCAxNi40NDE2IDUuMjYwMDEgMTYuNDUwMkM2LjI0MzI1IDE2LjQ1ODcgNy4xOTA1MSAxNi4wODA4IDcuODk3NzcgMTUuMzk3N0w5LjE4MDI3IDE0LjExNTIiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfMTAiPgo8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" width="18" height="18">
+              <input id="j-mid" name="meeting" value="recycle-review" placeholder="粘贴会议链接或邀请" autocomplete="off" spellcheck="false" aria-describedby="meeting-help" required>
+            </div>
+            <p class="field-hint" id="meeting-help">填写主持人提供的会议链接或会议 ID。</p>
+          </div>
+          <div class="field">
+            <label for="j-name" class="step-title"><span class="step-number">2</span>昵称</label>
+            <div class="input-wrap">
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJ1c2VyLXJvdW5kIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTkgOS43NUMxMS4wNzA5IDkuNzUgMTIuNzQ5NiA4LjA3MTA3IDEyLjc0OTYgNkMxMi43NDk2IDMuOTI4OTMgMTEuMDcwOSAyLjI1IDkgMi4yNUM2LjkyOTE0IDIuMjUgNS4yNTAzOCAzLjkyODkzIDUuMjUwMzggNkM1LjI1MDM4IDguMDcxMDcgNi45MjkxNCA5Ljc1IDkgOS43NVpNOSA5Ljc1QzEwLjU5MTEgOS43NSAxMi4xMTcxIDEwLjM4MjEgMTMuMjQyMiAxMS41MDc0QzE0LjM2NzMgMTIuNjMyNiAxNC45OTk0IDE0LjE1ODcgMTQuOTk5NCAxNS43NU05IDkuNzVDNy40MDg4NiA5Ljc1IDUuODgyODkgMTAuMzgyMSA0Ljc1Nzc4IDExLjUwNzRDMy42MzI2OCAxMi42MzI2IDMuMDAwNiAxNC4xNTg3IDMuMDAwNiAxNS43NSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==" alt="" width="18" height="18">
+              <input id="j-name" name="nickname" value="林小满" placeholder="输入你在会议中的名字" maxlength="32" autocomplete="nickname" required>
+            </div>
+          </div>
+          <div class="field">
+            <h2 class="step-title"><span class="step-number">3</span>麦克风权限</h2>
+            <div class="permission">
+              <div class="permission-intro">
+                <span class="permission-icon"><img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="22" height="22"></span>
+                <p id="mic-permission-status">允许使用麦克风，才能在会议中发言。</p>
+              </div>
+              <button type="button" class="button secondary" id="j-mic">
+                <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
+                <span id="j-mic-label">允许麦克风</span>
+              </button>
+              <p class="field-hint">本演示只模拟授权结果，不录音、不上传。</p>
+            </div>
+          </div>
+          <div class="field">
+            <h2 class="step-title"><span class="step-number">4</span>摄像头权限</h2>
+            <div class="permission">
+              <div class="permission-intro">
+                <span class="permission-icon"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
+                <p id="cam-permission-status">允许使用摄像头，才能在会议中开启画面。</p>
+              </div>
+              <button type="button" class="button secondary" id="j-cam">
+                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg>
+                <span id="j-cam-label">允许摄像头</span>
+              </button>
+              <p class="field-hint">仅检查本机授权，不会上传画面；不可用时会议内显示模拟画面。</p>
+            </div>
+          </div>
+          <details class="dev-identity">
+            <summary>本机联调身份</summary>
+            <label for="j-identity" class="sr-only">本机联调身份</label>
+            <select id="j-identity">
+              <option value="remote_1">线上成员 1</option>
+              <option value="remote_2">线上成员 2</option>
+            </select>
+            <p class="field-hint">昵称仅用于本机显示；当前没有正式账号体系。</p>
+          </details>
+          <p class="error" id="j-err" role="alert" hidden></p>
+          <div class="join-action">
+            <button type="submit" class="button primary" id="j-submit" disabled>
+              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsb2ctaW4iPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOC4zMzMzMyA1LjgzMzMzTDEyLjUgMTBMOC4zMzMzMyAxNC4xNjY3TTEyLjUgMTBIMi41TTEyLjUgMi41SDE1LjgzMzNDMTYuMjc1NCAyLjUgMTYuNjk5MyAyLjY3NTU5IDE3LjAxMTggMi45ODgxNkMxNy4zMjQ0IDMuMzAwNzIgMTcuNSAzLjcyNDY0IDE3LjUgNC4xNjY2N1YxNS44MzMzQzE3LjUgMTYuMjc1NCAxNy4zMjQ0IDE2LjY5OTMgMTcuMDExOCAxNy4wMTE4QzE2LjY5OTMgMTcuMzI0NCAxNi4yNzU0IDE3LjUgMTUuODMzMyAxNy41SDEyLjUiIHN0cm9rZT0iIzkyOThBMiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
+              <span id="j-submit-label">进入会议</span>
+            </button>
+          </div>
+        </form>
+        <p class="footnote">音视频、语音识别与机器人播报尚未接入，入会后为本地模拟状态。</p>
+      </div>
+    </section>
+
+    <!-- ============ 预定会议 ============ -->
+    <section class="page subpage" data-page="schedule" id="page-schedule" aria-labelledby="schedule-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="schedule-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="schedule-title">预定会议</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="subpage-intro">
+          <h2>给下一次讨论留个位置</h2>
+          <p>预约仅保存在本机，不会发送邀请或同步日历。</p>
+        </div>
+        <form id="schedule-form" class="card schedule-form" novalidate>
+          <div class="field">
+            <label class="step-title" for="s-title"><span class="step-number">1</span>会议主题</label>
+            <div class="input-wrap"><input id="s-title" maxlength="40" placeholder="例如：回收箱方案复盘" required></div>
+          </div>
+          <div class="field two-col">
+            <div>
+              <label class="step-title" for="s-date"><span class="step-number">2</span>日期</label>
+              <div class="input-wrap"><input id="s-date" type="date" required></div>
+            </div>
+            <div>
+              <label class="step-title" for="s-time"><span class="step-number">3</span>时间</label>
+              <div class="input-wrap"><input id="s-time" type="time" value="15:00" required></div>
+            </div>
+          </div>
+          <div class="field">
+            <label class="step-title" for="s-duration"><span class="step-number">4</span>预计时长</label>
+            <div class="input-wrap select-wrap">
+              <select id="s-duration">
+                <option value="30">30 分钟</option>
+                <option value="45" selected>45 分钟</option>
+                <option value="60">60 分钟</option>
+                <option value="90">90 分钟</option>
+              </select>
+            </div>
+          </div>
+          <p class="error" id="s-err" role="alert" hidden></p>
+          <div class="join-action">
+            <button type="submit" class="button primary" id="s-submit">保存预约</button>
+          </div>
+        </form>
+        <p class="footnote">预约为本地记录，可随时取消；不会连接日历或发送通知。</p>
+      </div>
+    </section>
+
+    <!-- ============ 观点地图 ============ -->
+    <section class="page subpage" data-page="map" id="page-map" aria-labelledby="map-title" hidden>
+      <header class="subpage-head map-subpage-head">
+        <button class="back-button" id="map-back" type="button" aria-label="返回会议">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="map-title">观点地图</h1>
+        <button class="text-button" id="map-export" type="button">导出</button>
+      </header>
+      <div class="page-scroll">
+        <p class="page-subtitle">以原话为依据，回应关系仍需本人核对。</p>
+        <div class="stats" aria-label="观点统计">
+          <div><strong id="stat-all">0</strong><span>全部观点</span></div>
+          <div><strong id="stat-responded">0</strong><span>已回应</span></div>
+          <div><strong id="stat-review">0</strong><span>待核对</span></div>
+        </div>
+        <div class="card-list" id="map-list"></div>
+      </div>
+    </section>
+
+    <!-- ============ 会议详情 ============ -->
+    <section class="page subpage" data-page="detail" id="page-detail" aria-labelledby="detail-title" hidden>
+      <header class="subpage-head detail-head">
+        <button class="back-button" id="detail-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <span class="head-spacer"></span>
+        <button class="text-button" id="detail-export" type="button">导出 JSON</button>
+      </header>
+      <div class="detail-title-block">
+        <div class="detail-title-row"><h1 id="detail-title">会议详情</h1><span class="demo-tag" id="detail-demo" hidden>演示</span></div>
+        <p class="detail-meta" id="detail-meta"></p>
+      </div>
+      <div class="tabs" id="detail-tabs" role="tablist" aria-label="会议详情">
+        <button type="button" role="tab" data-tab="minutes" class="active" aria-selected="true">会议纪要</button>
+        <button type="button" role="tab" data-tab="graph" aria-selected="false">观点图谱</button>
+        <button type="button" role="tab" data-tab="transcript" aria-selected="false">完整转写</button>
+      </div>
+      <div class="page-scroll detail-scroll" id="detail-body"></div>
+    </section>
+
+    <!-- ============ 扫码加入 ============ -->
+    <section class="page subpage" data-page="scan" id="page-scan" aria-labelledby="scan-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="scan-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="scan-title">扫码加入</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <div class="scan-view" id="scan-view">
+          <video id="scan-video" autoplay muted playsinline hidden></video>
+          <div class="scan-placeholder" id="scan-placeholder">
+            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+            <p>将会议二维码放入取景框</p>
+            <small>请保持二维码完整、清晰</small>
+          </div>
+          <div class="scan-frame" aria-hidden="true"><span></span></div>
+        </div>
+        <p class="scan-hint" id="scan-hint">正在开启摄像头…</p>
+      </div>
+    </section>
+
+    <!-- ============ 设置 ============ -->
+    <section class="page subpage" data-page="settings" id="page-settings" aria-labelledby="settings-title" hidden>
+      <header class="subpage-head">
+        <button class="back-button" id="settings-back" type="button" aria-label="返回">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <h1 id="settings-title">设置</h1>
+        <span class="head-spacer"></span>
+      </header>
+      <div class="page-scroll">
+        <section class="settings-group">
+          <h2>通用</h2>
+          <div class="settings-card">
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>会议提醒</b><small>演示环境不会发送系统通知</small></span>
+              <button class="switch on" id="set-reminders" type="button" role="switch" aria-checked="true" data-setting="reminders" aria-label="会议提醒"><span></span></button>
+            </div>
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 9v6h4l5 4V5L9 9H5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M17 9a4 4 0 0 1 0 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>提示音</b><small>演示环境不会播放真实音效</small></span>
+              <button class="switch on" id="set-sounds" type="button" role="switch" aria-checked="true" data-setting="sounds" aria-label="提示音"><span></span></button>
+            </div>
+            <div class="settings-row static">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>减少动画</b><small>关闭弹层与状态动画</small></span>
+              <button class="switch" id="set-motion" type="button" role="switch" aria-checked="false" data-setting="reduceMotion" aria-label="减少动画"><span></span></button>
+            </div>
+            <button class="settings-row" id="settings-language" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg></span>
+              <span class="settings-copy"><b>语言</b><small>简体中文</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h2>数据与隐私</h2>
+          <div class="settings-card">
+            <button class="settings-row" id="settings-privacy" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10" width="15" height="10" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>隐私与数据</b><small>所有记录仅保存在本机</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <button class="settings-row" id="settings-cache" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+              <span class="settings-copy"><b>清除离线缓存</b><small>不会删除会议记录</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+
+        <section class="settings-group">
+          <h2>关于</h2>
+          <div class="settings-card">
+            <button class="settings-row" id="settings-about" type="button">
+              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5M12 7.5v.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
+              <span class="settings-copy"><b>关于 EffMeet 2</b><small>本地演示版 · v1.0.0</small></span>
+              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+          </div>
+        </section>
+        <p class="footnote">设置只保存在本机浏览器。</p>
+      </div>
+    </section>
+
+  </div><!-- /.app-frame -->
+
+  <nav class="bottom-nav" id="bottom-nav" aria-label="主导航">
+    <button type="button" data-nav="home" class="active" aria-current="page">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>首页</span>
+    </button>
+    <button type="button" data-nav="meeting">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      <span>会议</span>
+    </button>
+    <button type="button" data-nav="history">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>历史</span>
+    </button>
+    <button type="button" data-nav="profile">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 20c.5-4 3.2-6 6.5-6s6 2 6.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+      <span>我的</span>
+    </button>
+  </nav>
+
+  <!-- ============ 候选确认弹层 ============ -->
+  <div class="overlay" id="overlay" hidden>
+    <button class="scrim" id="scrim" type="button" aria-label="暂时收起候选确认卡" tabindex="-1"></button>
+    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
+      <div class="sheet-top">
+        <button class="handle" id="sheet-handle" aria-label="暂时收起候选确认卡" type="button"><span></span></button>
+        <button class="text-button" id="sheet-close" type="button">收起</button>
+      </div>
+      <h2 id="sheet-title">你的观点可能还没被现场听到</h2>
+      <blockquote class="quote">
+        <p id="sh-quote"></p>
+        <footer id="sh-meta"></footer>
+      </blockquote>
+      <p class="sheet-helper">机器人会在现场停顿时转述你的原话；提醒前会再确认一次现场是否已回应。</p>
+      <div class="sheet-status">
+        <p class="sheet-state" id="sh-state" role="status">等待你的决定</p>
+        <p class="countdown" id="sh-countdown"></p>
+      </div>
+      <div class="button-pair" id="sh-actions">
+        <button class="button primary" type="button" id="sh-confirm">请机器人提醒</button>
+        <button class="button secondary" type="button" id="sh-dismiss">不必提醒</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 通用弹层 ============ -->
+  <div class="overlay" id="dialog" hidden>
+    <button class="scrim" id="dialog-scrim" type="button" aria-label="关闭弹层" tabindex="-1"></button>
+    <section class="sheet dialog-sheet" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
+      <div class="sheet-top">
+        <span class="handle-static" aria-hidden="true"><span></span></span>
+        <button class="text-button" id="dialog-close" type="button">关闭</button>
+      </div>
+      <h2 id="dialog-title">提示</h2>
+      <div class="dialog-body" id="dialog-body"></div>
+      <div class="dialog-actions" id="dialog-actions"></div>
+    </section>
+  </div>
+
+  <!-- ============ 原图 ============ -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox-scrim" id="lightbox-scrim" aria-label="关闭原图" type="button"></button>
+    <figure class="lightbox-card" role="dialog" aria-modal="true" aria-label="现场共享原图">
+      <img id="lightbox-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享原图">
+      <figcaption>现场共享原图 · 三格回收箱草图</figcaption>
+      <button class="button secondary" type="button" id="lightbox-close">关闭</button>
+    </figure>
+  </div>
+
+  <div class="toast" id="toast" role="status" hidden></div>
+</div><!-- /.app-shell -->
 <script>
 (() => {
 'use strict';
@@ -1058,23 +1671,16 @@ function candidateActions(row, commands = [], serverNow) {
 return { parseMeetingId, candidateLabels };
 })();
 
-const { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, DEVICES, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel } = (() => {
+const { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel } = (() => {
 // Local-first demo store. Every record is generated in this browser and
 // persisted to localStorage; no meeting, AI, device or payment service is used.
 const STORAGE_KEY = 'effmeet2.local.v1';
 const SCHEMA_VERSION = 3;
 
-const DEVICES = [
-  {key:'phone', label:'本机手机', detail:'摄像头 + 麦克风', camera:true},
-  {key:'external', label:'外接摄像头', detail:'模拟设备', camera:true},
-  {key:'mic', label:'仅麦克风', detail:'无摄像头', camera:false}
-];
-
 const DEFAULT_SETTINGS = {
   reminders:true,
   sounds:true,
   reduceMotion:false,
-  device:'phone',
   language:'zh'
 };
 
@@ -1291,13 +1897,11 @@ function loadDB() {
       const parsed = JSON.parse(raw);
       if (parsed && parsed.schemaVersion === SCHEMA_VERSION && Array.isArray(parsed.meetings)) {
         parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
-        if (parsed.active && !parsed.active.device) parsed.active.device = parsed.settings.device;
         return parsed;
       }
       if (parsed && parsed.schemaVersion === 2 && Array.isArray(parsed.meetings)) {
         parsed.schemaVersion = SCHEMA_VERSION;
         parsed.settings = {...DEFAULT_SETTINGS, ...(parsed.settings || {})};
-        if (parsed.active && !parsed.active.device) parsed.active.device = parsed.settings.device;
         delete parsed.ui;
         persist(parsed);
         return parsed;
@@ -1365,7 +1969,6 @@ function activeMeeting(db, options = {}) {
     isDemo:Boolean(options.isDemo),
     source:options.source || 'quick',
     code:options.code || '',
-    device:options.device || db.settings.device || 'phone',
     startedAt,
     endedAt:null,
     durationMin:0,
@@ -1472,7 +2075,7 @@ function viewpointStateLabel(status) {
   }[status] || '待核对';
 }
 
-return { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, DEVICES, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel };
+return { loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, activeMeeting, endActiveMeeting, findMeeting, updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel };
 })();
 const buildActiveMeeting = activeMeeting;
 
@@ -1506,10 +2109,10 @@ let reconnecting = false;
 let stageId = null;
 let selfCameraOn = false;
 let selfCameraStream = null;
+let meetingMicMuted = false;
 let scanStream = null;
 let scanTimer = null;
 let scanBusy = false;
-let scannedCode = '';
 
 /* ---------- 通用 ---------- */
 function esc(value) {
@@ -1600,15 +2203,6 @@ function avatar(speaker, size = 'avatar-sm') {
   return `<span class="avatar ${size}" style="--avatar-bg:${esc(speaker.color)}">${esc(speaker.short || initials(speaker.name))}</span>`;
 }
 
-function deviceOf(key) {
-  return DEVICES.find(device => device.key === key) || DEVICES[0];
-}
-
-function deviceLabel(key) {
-  const device = deviceOf(key);
-  return `${device.label} · ${device.detail}`;
-}
-
 function applyReduceMotion() {
   document.documentElement.classList.toggle('reduce-motion', Boolean(db.settings?.reduceMotion));
 }
@@ -1624,7 +2218,7 @@ function showPage(page) {
     section.hidden = section.dataset.page !== page;
   });
   const nav = $('bottom-nav');
-  nav.hidden = !MAIN_PAGES.includes(page);
+  nav.hidden = !MAIN_PAGES.includes(page) || (page === 'meeting' && Boolean(db.active));
   document.querySelectorAll('[data-nav]').forEach(button => {
     const active = button.dataset.nav === page;
     button.classList.toggle('active', active);
@@ -1639,7 +2233,7 @@ function showPage(page) {
   if (page === 'history') renderHistory();
   if (page === 'profile') renderProfile();
   if (page === 'settings') renderSettings();
-  if (page === 'scan') resetScanPage();
+  if (page === 'scan') { resetScanPage(); startScanner(); }
 }
 
 /* ---------- 首页 ---------- */
@@ -1740,7 +2334,7 @@ function renderMeetingPage() {
 
   $('meeting-title').textContent = active.title;
   const source = {quick:'快速会议', join:'加入会议', scheduled:'预定会议', demo:'演示模式'}[active.source] || '示例会议';
-  $('meeting-meta').textContent = `${active.participants.length} 人 · ${deviceOf(active.device).label} · ${source}`;
+  $('meeting-meta').textContent = `${active.participants.length} 人 · ${source}`;
   $('meeting-elapsed').textContent = elapsedLabel(active.startedAt);
   $('demo-banner').hidden = !active.isDemo;
   renderActiveMeeting();
@@ -1788,7 +2382,9 @@ function renderStage(meeting) {
       <span class="participant-name">${esc(participant.name)}</span>
     </button>`;
   }).join('');
+  $('attendee-count').textContent = String(meeting.participants.length);
   renderCameraButton();
+  renderMicButton();
 }
 
 function renderCameraButton() {
@@ -1796,15 +2392,28 @@ function renderCameraButton() {
   if (!button) return;
   button.setAttribute('aria-pressed', String(selfCameraOn));
   button.setAttribute('aria-label', selfCameraOn ? '关闭摄像头' : '开启摄像头');
+  button.classList.toggle('on', selfCameraOn);
+  $('live-camera-label').textContent = selfCameraOn ? '关闭视频' : '开启视频';
+}
+
+function renderMicButton() {
+  const button = $('live-mic');
+  if (!button) return;
+  button.classList.toggle('muted', meetingMicMuted);
+  button.setAttribute('aria-pressed', String(meetingMicMuted));
+  button.setAttribute('aria-label', meetingMicMuted ? '解除静音' : '静音');
+  $('live-mic-label').textContent = meetingMicMuted ? '解除静音' : '静音';
+}
+
+function toggleMic() {
+  meetingMicMuted = !meetingMicMuted;
+  renderMicButton();
+  toast(meetingMicMuted ? '已静音（模拟）' : '已解除静音（模拟）');
 }
 
 async function toggleSelfCamera() {
   const active = db.active;
   if (!active) return;
-  if (!deviceOf(active.device).camera) {
-    toast('当前设备仅麦克风，请在设置或加入会议页更换设备');
-    return;
-  }
   if (selfCameraOn) {
     stopSelfCamera();
     return;
@@ -2043,7 +2652,7 @@ function guardActive(action) {
   });
 }
 
-function startTemplateMeeting({title, source, code = '', isDemo = false, device = db.settings.device}) {
+function startTemplateMeeting({title, source, code = '', isDemo = false}) {
   closeDialog();
   closePromptSheet();
   clearPromptTimers();
@@ -2051,7 +2660,8 @@ function startTemplateMeeting({title, source, code = '', isDemo = false, device 
   stopSelfCamera(false);
   stageId = null;
   selfCameraOn = false;
-  buildActiveMeeting(db, {title, source, code, isDemo, device});
+  meetingMicMuted = false;
+  buildActiveMeeting(db, {title, source, code, isDemo});
   autoPromptOpened = false;
   lastPromptState = '';
   showPage('meeting');
@@ -2128,48 +2738,17 @@ function openJoin(returnPage = 'home', code = null) {
   $('j-submit-label').textContent = '进入会议';
   $('mic-permission-status').textContent = '允许使用麦克风，才能在会议中发言。';
   $('j-mic-label').textContent = '允许麦克风';
+  $('cam-permission-status').textContent = '允许使用摄像头，才能在会议中开启画面。';
+  $('j-cam-label').textContent = '允许摄像头';
+  $('j-cam').disabled = false;
   joinCameraGranted = false;
-  fillDeviceSelect($('j-device'), db.settings.device);
-  syncJoinCamera();
   joinBusy = false;
   updateJoinAvailability();
   showPage('join');
 }
 
-function fillDeviceSelect(select, selected) {
-  if (!select) return;
-  select.innerHTML = DEVICES.map(device =>
-    `<option value="${esc(device.key)}" ${device.key === selected ? 'selected' : ''}>${esc(device.label)} · ${esc(device.detail)}</option>`
-  ).join('');
-}
-
-function syncJoinCamera() {
-  const device = deviceOf($('j-device').value);
-  const button = $('j-cam');
-  if (!device.camera) {
-    joinCameraGranted = false;
-    button.disabled = true;
-    $('j-cam-label').textContent = '摄像头不可用';
-    $('cam-permission-status').textContent = '当前设备仅麦克风，无法开启摄像头。';
-    return;
-  }
-  button.disabled = false;
-  if (joinCameraGranted) {
-    $('j-cam-label').textContent = '重新检查摄像头';
-    $('cam-permission-status').textContent = '摄像头已授权；仅检查授权，不会上传画面。';
-  } else {
-    $('j-cam-label').textContent = '允许摄像头';
-    $('cam-permission-status').textContent = '允许使用摄像头，才能在会议中开启画面。';
-  }
-}
-
 async function authorizeJoinCamera() {
-  const device = deviceOf($('j-device').value);
   const button = $('j-cam');
-  if (!device.camera) {
-    toast('当前设备仅麦克风，无法开启摄像头');
-    return;
-  }
   button.disabled = true;
   $('j-cam-label').textContent = '检查中…';
   try {
@@ -2222,11 +2801,9 @@ async function handleJoin(event) {
   $('j-submit-label').textContent = '正在连接…';
   try {
     await wait(700);
-    const device = deviceOf($('j-device').value).key;
     db.user.nickname = nickname;
-    db.settings.device = device;
     persist(db);
-    guardActive(() => startTemplateMeeting({title:'回收箱方案评审', source:'join', code:meetingId, device}));
+    guardActive(() => startTemplateMeeting({title:'回收箱方案评审', source:'join', code:meetingId}));
   } finally {
     joinBusy = false;
     $('j-submit-label').textContent = '进入会议';
@@ -2497,17 +3074,9 @@ function openNoteDialog(meeting, viewpoint) {
 function resetScanPage() {
   stopScanner();
   scanBusy = false;
-  scannedCode = '';
   $('scan-video').hidden = true;
   $('scan-placeholder').hidden = false;
-  $('scan-result').hidden = true;
-  $('scan-error').hidden = true;
-  $('scan-code').value = '';
-  $('scan-hint').textContent = '摄像头仅用于本机识别，不会上传画面。';
-  $('scan-start').disabled = false;
-  $('scan-start').textContent = '开启摄像头扫描';
-  $('scan-sample').disabled = false;
-  $('scan-sample').textContent = '扫描示例二维码';
+  $('scan-hint').textContent = '正在开启摄像头…';
 }
 
 function stopScanner() {
@@ -2524,48 +3093,34 @@ function stopScanner() {
 async function startScanner() {
   if (scanBusy || scanStream) return;
   if (!navigator.mediaDevices?.getUserMedia) {
-    toast('当前环境不支持摄像头，请使用示例二维码或手动输入');
+    $('scan-hint').textContent = '当前浏览器无法使用摄像头扫描。';
     return;
   }
   scanBusy = true;
-  $('scan-start').disabled = true;
-  $('scan-hint').textContent = '正在请求摄像头…';
   try {
     scanStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}});
+    if (currentPage !== 'scan') {
+      scanStream.getTracks().forEach(track => track.stop());
+      scanStream = null;
+      return;
+    }
     const video = $('scan-video');
     video.srcObject = scanStream;
     await video.play().catch(() => {});
     video.hidden = false;
     $('scan-placeholder').hidden = true;
-    $('scan-start').disabled = false;
-    $('scan-start').textContent = '停止摄像头扫描';
     if ('BarcodeDetector' in window) {
-      $('scan-hint').textContent = '将二维码放入框内，识别后自动填入会议码。';
+      $('scan-hint').textContent = '将二维码放入框内，识别后自动进入会议。';
       detectScanCode();
     } else {
-      $('scan-hint').textContent = '摄像头已开启；当前浏览器不支持自动识别，请使用示例二维码或手动输入。';
+      $('scan-hint').textContent = '当前浏览器不支持自动识别二维码。';
     }
   } catch {
-    $('scan-hint').textContent = '无法使用摄像头；可使用示例二维码或手动输入。';
-    toast('摄像头不可用，请使用示例二维码');
     scanStream = null;
-    $('scan-start').disabled = false;
-    $('scan-start').textContent = '开启摄像头扫描';
+    $('scan-hint').textContent = '无法使用摄像头，请检查浏览器权限后重新进入。';
   } finally {
     scanBusy = false;
   }
-}
-
-function toggleScanCamera() {
-  if (!scanStream) {
-    startScanner();
-    return;
-  }
-  stopScanner();
-  $('scan-placeholder').hidden = false;
-  $('scan-hint').textContent = '摄像头已关闭，可使用示例二维码或手动输入。';
-  $('scan-start').textContent = '开启摄像头扫描';
-  $('scan-start').disabled = false;
 }
 
 async function detectScanCode() {
@@ -2585,33 +3140,70 @@ function handleScanValue(raw) {
   try {
     code = parseMeetingId(raw);
   } catch {
-    $('scan-error').textContent = '没有在二维码中找到有效的会议码，请重试或手动输入。';
-    $('scan-error').hidden = false;
+    $('scan-hint').textContent = '未识别到有效会议码，请重新对准二维码。';
+    scanTimer = setTimeout(detectScanCode, 1200);
     return;
   }
-  scannedCode = code;
-  $('scan-error').hidden = true;
-  $('scan-result-code').textContent = code;
-  $('scan-result').hidden = false;
-  $('scan-hint').textContent = '识别成功，可继续加入或重新扫描。';
   stopScanner();
-  $('scan-placeholder').hidden = false;
-  $('scan-start').disabled = false;
-  $('scan-start').textContent = '开启摄像头扫描';
+  toast('已识别会议码 ' + code);
+  openJoin('home', code);
 }
 
-function simulateScan() {
-  if (scanBusy) return;
-  scanBusy = true;
-  const button = $('scan-sample');
-  button.disabled = true;
-  button.textContent = '正在识别…';
-  setTimeout(() => {
-    scanBusy = false;
-    button.disabled = false;
-    button.textContent = '扫描示例二维码';
-    handleScanValue('https://meet.example/meetings/recycle-review');
-  }, 850);
+function openAttendeesDialog() {
+  const meeting = db.active;
+  if (!meeting) return;
+  const latest = meeting.transcript[meeting.transcript.length - 1];
+  const currentId = latest?.speakerId;
+  const rows = meeting.participants.map(person => {
+    const isSelf = person.id === 'p-lin';
+    const speaking = person.id === currentId;
+    return `<div class="attendee-row">
+      ${avatar(person, 'avatar-sm')}
+      <div class="attendee-copy">
+        <b>${esc(person.name)}${isSelf ? '（你）' : ''}</b>
+        <small>${esc(person.role)}${speaking ? ' · 发言中' : ''}</small>
+      </div>
+      ${speaking ? '<span class="attendee-badge">发言中</span>' : ''}
+    </div>`;
+  }).join('');
+  openDialog({
+    title:`参会者（${meeting.participants.length}）`,
+    body:`<div class="attendee-list">${rows}</div>`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+}
+
+function openMeetingMoreDialog() {
+  openDialog({
+    title:'更多',
+    body:'<p>当前为本地模拟会议；可从这里查看观点地图或结束会议。</p>',
+    actions:[
+      {label:'观点地图', value:'map', style:'secondary'},
+      {label:'结束会议', value:'end', style:'primary'}
+    ],
+    onAction: value => {
+      if (value === 'map') {
+        closeDialog();
+        renderMap();
+        showPage('map');
+      }
+      if (value === 'end') {
+        closeDialog();
+        requestEndMeeting();
+      }
+    }
+  });
+}
+
+function openShare() {
+  const active = db.active;
+  if (!active) return;
+  if (active.capture) {
+    openLightbox();
+    toast('共享内容 · 模拟画面');
+  } else {
+    toast('当前没有可共享的内容');
+  }
 }
 
 /* ---------- 我的 ---------- */
@@ -2637,7 +3229,6 @@ function renderProfile() {
 
 function renderSettings() {
   const settings = db.settings;
-  fillDeviceSelect($('setting-device'), settings.device);
   for (const [key, id] of [['reminders', 'set-reminders'], ['sounds', 'set-sounds'], ['reduceMotion', 'set-motion']]) {
     const button = $(id);
     const on = Boolean(settings[key]);
@@ -2741,11 +3332,6 @@ $('j-mic').addEventListener('click', async () => {
   button.disabled = false;
 });
 $('j-cam').addEventListener('click', authorizeJoinCamera);
-$('j-device').addEventListener('change', () => {
-  db.settings.device = $('j-device').value;
-  persist(db);
-  syncJoinCamera();
-});
 
 $('schedule-form').addEventListener('submit', handleSchedule);
 
@@ -2769,7 +3355,10 @@ $('open-map').addEventListener('click', () => {
 });
 $('map-export').addEventListener('click', () => exportMeeting(db.active));
 $('live-camera').addEventListener('click', toggleSelfCamera);
-$('live-mic').addEventListener('click', () => toast('麦克风仅作本机演示，不录音、不上传。'));
+$('live-mic').addEventListener('click', toggleMic);
+$('live-share').addEventListener('click', openShare);
+$('live-attendees').addEventListener('click', openAttendeesDialog);
+$('live-more').addEventListener('click', openMeetingMoreDialog);
 $('view-capture').addEventListener('click', openLightbox);
 $('capture-button').addEventListener('click', openLightbox);
 
@@ -2830,26 +3419,6 @@ $('detail-body').addEventListener('click', event => {
 
 /* 扫码 */
 $('scan-back').addEventListener('click', () => showPage('home'));
-$('scan-start').addEventListener('click', toggleScanCamera);
-$('scan-sample').addEventListener('click', simulateScan);
-$('scan-submit').addEventListener('click', () => {
-  const raw = $('scan-code').value.trim();
-  if (!raw) {
-    $('scan-error').textContent = '请输入会议码或邀请链接。';
-    $('scan-error').hidden = false;
-    return;
-  }
-  handleScanValue(raw);
-});
-$('scan-enter').addEventListener('click', () => {
-  if (!scannedCode) return;
-  stopScanner();
-  openJoin('home', scannedCode);
-});
-$('scan-again').addEventListener('click', () => {
-  resetScanPage();
-  startScanner();
-});
 
 /* 设置 */
 $('open-settings').addEventListener('click', () => showPage('settings'));
@@ -2865,13 +3434,6 @@ document.querySelectorAll('[data-setting]').forEach(button => {
     const suffix = key === 'reduceMotion' ? '' : '（演示）';
     toast(`${labels[key]}已${db.settings[key] ? '开启' : '关闭'}${suffix}`);
   });
-});
-$('setting-device').addEventListener('change', event => {
-  db.settings.device = event.target.value;
-  persist(db);
-  fillDeviceSelect($('j-device'), db.settings.device);
-  syncJoinCamera();
-  toast(`默认设备已设为${deviceOf(db.settings.device).label}`);
 });
 $('settings-language').addEventListener('click', () => {
   openDialog({
@@ -3124,8 +3686,6 @@ document.addEventListener('keydown', event => {
 });
 
 /* ---------- 初始化 ---------- */
-fillDeviceSelect($('j-device'), db.settings.device);
-fillDeviceSelect($('setting-device'), db.settings.device);
 applyReduceMotion();
 showPage('home');
 renderUpcomingLists();
@@ -3134,648 +3694,5 @@ updateJoinAvailability();
 })();
 
 </script>
-</head>
-<body>
-<div class="app-shell" id="app-shell">
-  <div class="app-frame" id="app-frame">
-
-    <!-- ============ 首页 ============ -->
-    <section class="page" data-page="home" id="page-home" aria-labelledby="home-title">
-      <div class="page-scroll">
-        <header class="home-head">
-          <p class="wordmark"><span class="brand-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 10V13M6 6V17M10 3V21M14 8V15M18 5V18M22 10V13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>EffMeet 2</p>
-          <span class="demo-tag">演示数据</span>
-        </header>
-        <h1 class="greeting" id="home-title">下午好，<span id="home-name">林小满</span></h1>
-
-        <section class="hero" aria-label="机器人状态">
-          <div class="hero-copy">
-            <p class="hero-kicker">桌面会议伙伴</p>
-            <p class="hero-title">在线，也在场</p>
-            <div class="status-chips">
-              <span class="status-chip"><span class="status-dot ok" id="device-dot"></span><span id="device-status">设备已连接</span></span>
-              <span class="status-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M22 10.5v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="5" y="10" width="9" height="4" rx="1" fill="currentColor"/></svg>
-                <span id="device-battery">76%</span>
-              </span>
-              <span class="status-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="currentColor"/></svg>
-                AI 剩余 <span id="home-quota">82</span> 分钟
-              </span>
-            </div>
-            <button class="reconnect-button" id="reconnect-robot" type="button">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1 8.4A7 7 0 0 1 19.7 10M4.3 14A7 7 0 0 0 17.9 15.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-              <span id="reconnect-label">重新连接机器人</span>
-            </button>
-            <p class="hero-note">演示数据 · 未连接真实设备</p>
-          </div>
-          <img class="robot" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIiB2aWV3Qm94PSIwIDAgMTYwIDE2MCIgZmlsbD0ibm9uZSIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSJFZmZNZWV0IDIg5qGM6Z2i5py65Zmo5Lq656S65oSP5Zu+Ij4KICA8ZWxsaXBzZSBjeD0iODAiIGN5PSIxNDYiIHJ4PSI0NCIgcnk9IjYiIGZpbGw9IiM2QjVCM0UiIG9wYWNpdHk9Ii4wOCIvPgogIDxwYXRoIGQ9Ik04MCAzMVYxOSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuNCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CiAgPGNpcmNsZSBjeD0iODAiIGN5PSIxNCIgcj0iNC4yIiBmaWxsPSIjRjA1MjJFIi8+CiAgPHJlY3QgeD0iMjEiIHk9IjU3IiB3aWR0aD0iMTAiIGhlaWdodD0iMjUiIHJ4PSI1IiBmaWxsPSIjRjVFQkQ5IiBzdHJva2U9IiMzQTM1MkMiIHN0cm9rZS13aWR0aD0iMi4yIi8+CiAgPHJlY3QgeD0iMTI5IiB5PSI1NyIgd2lkdGg9IjEwIiBoZWlnaHQ9IjI1IiByeD0iNSIgZmlsbD0iI0Y1RUJEOSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuMiIvPgogIDxyZWN0IHg9IjMxIiB5PSIzMSIgd2lkdGg9Ijk4IiBoZWlnaHQ9Ijc3IiByeD0iMjciIGZpbGw9IiNGRkY5RUUiIHN0cm9rZT0iIzNBMzUyQyIgc3Ryb2tlLXdpZHRoPSIyLjQiLz4KICA8cmVjdCB4PSI0NSIgeT0iNDMiIHdpZHRoPSI3MCIgaGVpZ2h0PSI0OCIgcng9IjE2IiBmaWxsPSIjMkUyQTI0Ii8+CiAgPGNpcmNsZSBjeD0iNjUuNSIgY3k9IjYzIiByPSIzLjIiIGZpbGw9IiNGRkI1OUYiLz4KICA8Y2lyY2xlIGN4PSI5NC41IiBjeT0iNjMiIHI9IjMuMiIgZmlsbD0iI0ZGQjU5RiIvPgogIDxwYXRoIGQ9Ik03MCA3NnExMCA2IDIwIDAiIHN0cm9rZT0iI0ZGQjU5RiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNNTAgMTA4aDYwYzYuNiAwIDEwIDQuMiAxMCAxMHYxMy41YzAgNS0zIDgtOCA4SDQ4Yy01IDAtOC0zLTgtOFYxMThjMC01LjggMy40LTEwIDEwLTEwWiIgZmlsbD0iI0ZGRjlFRSIgc3Ryb2tlPSIjM0EzNTJDIiBzdHJva2Utd2lkdGg9IjIuNCIvPgogIDxjaXJjbGUgY3g9IjgwIiBjeT0iMTI3IiByPSI2IiBmaWxsPSIjRjA1MjJFIi8+CiAgPHBhdGggZD0iTTQ5IDExN2MtNyAuOC0xMS41IDQuNi0xMy41IDEwIiBzdHJva2U9IiMzQTM1MkMiIHN0cm9rZS13aWR0aD0iMi40IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KICA8cGF0aCBkPSJNMTExIDExN2M3IC44IDExLjUgNC42IDEzLjUgMTAiIHN0cm9rZT0iIzNBMzUyQyIgc3Ryb2tlLXdpZHRoPSIyLjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L3N2Zz4K" alt="EffMeet 2 桌面机器人示意图" width="112" height="112">
-        </section>
-
-        <div class="quick-actions" aria-label="会议入口">
-          <button class="quick-action primary" id="act-join" type="button">
-            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M18 7v6M15 10h6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-            <span>加入会议</span>
-          </button>
-          <button class="quick-action" id="act-quick" type="button">
-            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M13 2 5 13h6l-1 9 8-11h-6l1-9Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-            <span>快速会议</span>
-          </button>
-          <button class="quick-action" id="act-schedule" type="button">
-            <span class="quick-icon" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="3.5" y="5" width="17" height="15.5" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="M8 3v4M16 3v4M3.5 10h17M8 14h3M13.5 14h2.5M8 17h2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-            <span>预定会议</span>
-          </button>
-        </div>
-
-        <button class="scan-entry" id="home-scan" type="button">
-          <span class="scan-entry-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
-          </span>
-          <span class="scan-entry-copy"><b>扫码加入会议</b><small>扫描主持人分享的二维码，自动填入会议码</small></span>
-          <svg class="chev" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-
-        <section class="section" id="upcoming-section" hidden>
-          <div class="section-head"><h2>即将开始</h2><span class="count" id="upcoming-count"></span></div>
-          <div id="upcoming-list" class="record-list"></div>
-        </section>
-
-        <section class="section">
-          <div class="section-head">
-            <h2>最近会议</h2>
-            <button class="text-link" id="home-history" type="button">查看全部</button>
-          </div>
-          <div id="recent-list" class="record-list"></div>
-        </section>
-        <p class="footnote">所有会议、额度与设备信息均为本地演示数据，仅保存在当前浏览器。</p>
-      </div>
-    </section>
-
-    <!-- ============ 会议 ============ -->
-    <section class="page" data-page="meeting" id="page-meeting" aria-labelledby="meeting-title">
-      <div id="meeting-empty" class="page-scroll">
-        <header class="page-head"><h1>会议</h1><span class="demo-tag">模拟</span></header>
-        <div class="empty-state">
-          <span class="empty-icon" aria-hidden="true"><svg width="30" height="30" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-          <h2>还没有进行中的会议</h2>
-          <p>加入现有会议，或直接开一场示例会议。音视频与语音识别尚未接入。</p>
-          <div class="empty-actions">
-            <button class="button primary" id="empty-join" type="button">加入会议</button>
-            <button class="button secondary" id="empty-quick" type="button">快速会议</button>
-          </div>
-        </div>
-        <section class="section" id="meeting-upcoming-section" hidden>
-          <div class="section-head"><h2>已预定的会议</h2><span class="count" id="meeting-upcoming-count"></span></div>
-          <div id="meeting-upcoming-list" class="record-list"></div>
-        </section>
-        <p class="footnote">真实音视频、语音识别与机器人播报均未接入，本页为本地模拟。</p>
-      </div>
-
-      <div id="meeting-active" class="meeting-live" hidden>
-        <header class="meeting-head">
-          <div class="meeting-topline">
-            <span class="live-pill"><span class="live-dot"></span>进行中<span class="pill-sep">·</span>模拟</span>
-            <button class="text-button danger-text" id="end-meeting" type="button">结束会议</button>
-          </div>
-          <div class="meeting-title-row">
-            <h1 id="meeting-title">回收箱方案评审</h1>
-            <button class="map-entry" id="open-map" type="button">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="6" cy="6" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="18" cy="7" r="2.5" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="18" r="2.5" stroke="currentColor" stroke-width="1.7"/><path d="m8.4 6.3 7.1.5M7.2 8.2l3.5 7.4M16.8 9.2l-3.4 6.4" stroke="currentColor" stroke-width="1.5"/></svg>
-              观点地图
-            </button>
-          </div>
-          <div class="meeting-meta"><span id="meeting-meta">4 人 · 示例内容</span><span id="meeting-elapsed">42:18</span></div>
-          <div class="demo-banner" id="demo-banner" hidden>
-            <span>演示模式 · 本场记录不会写入正式历史</span>
-            <button class="text-button" id="exit-demo" type="button">退出演示</button>
-          </div>
-        </header>
-
-        <div class="page-scroll meeting-scroll">
-          <section class="meeting-stage" aria-label="参会者">
-            <div class="stage-main" id="stage-main">
-              <div class="stage-visual" id="stage-visual">
-                <span class="stage-avatar" id="stage-avatar">陈</span>
-                <div class="stage-preview" id="stage-preview" hidden>
-                  <video id="stage-video" autoplay muted playsinline></video>
-                  <div class="preview-fallback" id="preview-fallback">
-                    <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-                    <span>模拟画面</span>
-                  </div>
-                  <span class="preview-note" id="preview-note">本机预览 · 未上传</span>
-                </div>
-              </div>
-              <div class="stage-info">
-                <h2 id="stage-name">陈可</h2>
-                <p id="stage-role">现场</p>
-              </div>
-              <span class="stage-tag" id="stage-tag">发言中</span>
-            </div>
-            <div class="filmstrip" id="filmstrip" aria-label="切换聚焦参会者"></div>
-          </section>
-
-          <div class="meeting-blocks" id="meeting-blocks">
-            <section class="card shared-card" id="shared-block" aria-labelledby="shared-title">
-              <div class="card-head">
-                <h2 id="shared-title">共享内容</h2>
-                <div class="card-head-actions"><span class="mini-tag">模拟</span><button class="text-link" id="view-capture" type="button">查看原图</button></div>
-              </div>
-              <button class="capture-frame" id="capture-button" type="button" aria-label="放大现场原图">
-                <img id="capture-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享的三格回收箱手绘草图">
-              </button>
-              <div class="capture-desc">
-                <span class="eyebrow">AI 描述</span>
-                <p id="capture-desc">三格回收箱正面，顶部投放口，右上「满溢检测？」</p>
-              </div>
-              <p class="capture-meta" id="capture-meta">共享于 41:24 · 原图由现场成员拍摄</p>
-            </section>
-
-            <section class="card transcript-card" id="transcript-block" aria-labelledby="transcript-title">
-              <div class="card-head">
-                <h2 id="transcript-title">实时转写</h2>
-                <div class="card-head-actions"><span class="mini-tag">模拟</span><span class="live-indicator"><span></span>接收中</span></div>
-              </div>
-              <ol class="transcript-list" id="live-transcript"></ol>
-              <p class="transcript-note">语音识别尚未接入；完整转写将在会议结束后归档。</p>
-            </section>
-          </div>
-
-          <section class="section" id="pending-section">
-            <div class="section-head"><h2>AI 介入提示</h2><span class="count" id="pending-count"></span></div>
-            <div id="pending-list"></div>
-          </section>
-          <p class="meeting-note">AI 只会在你确认后提醒现场；当前为本地模拟，不会播放声音或操作设备。</p>
-        </div>
-
-        <footer class="meeting-footer">
-          <span class="footer-status"><span class="status-dot"></span>麦克风未接入 · 模拟</span>
-          <div class="meeting-controls">
-            <button class="control-button" id="live-camera" type="button" aria-label="开启摄像头" aria-pressed="false">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round"/></svg>
-            </button>
-            <button class="mic-control" id="live-mic" type="button" aria-label="麦克风状态">
-              <svg width="24" height="24" viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 15.83v2.5M4.17 8.33V10a5.83 5.83 0 1 0 11.66 0V8.33M10 1.67a2.5 2.5 0 0 1 2.5 2.5V10a2.5 2.5 0 0 1-5 0V4.17a2.5 2.5 0 0 1 2.5-2.5Z" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-          <span class="footer-note">音视频不上传</span>
-        </footer>
-      </div>
-    </section>
-
-    <!-- ============ 历史 ============ -->
-    <section class="page" data-page="history" id="page-history" aria-labelledby="history-title">
-      <div class="page-scroll">
-        <header class="page-head"><h1 id="history-title">历史</h1><span class="count" id="history-count"></span></header>
-        <div class="search-wrap">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5" stroke="currentColor" stroke-width="1.8"/><path d="m15.5 15.5 5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          <input id="history-search" type="search" placeholder="搜索会议主题" autocomplete="off" aria-label="搜索会议主题">
-        </div>
-        <div class="filter-row" id="history-filters" role="group" aria-label="筛选会议">
-          <button type="button" data-filter="all" class="chip active">全部</button>
-          <button type="button" data-filter="week" class="chip">近 7 天</button>
-          <button type="button" data-filter="todos" class="chip">有待办</button>
-        </div>
-        <div id="history-list" class="record-list"></div>
-        <p class="footnote">演示记录保存在本机浏览器；清除浏览器数据后会重新生成示例。</p>
-      </div>
-    </section>
-
-    <!-- ============ 我的 ============ -->
-    <section class="page" data-page="profile" id="page-profile" aria-labelledby="profile-title">
-      <div class="page-scroll">
-        <header class="page-head"><h1 id="profile-title">我的</h1><span class="demo-tag">演示数据</span></header>
-
-        <section class="user-card">
-          <span class="avatar avatar-lg" id="profile-avatar">林</span>
-          <div class="user-copy"><h2 id="profile-name">林小满</h2><p>EffMeet 2 桌面会议伙伴</p></div>
-          <button class="text-button" id="edit-name" type="button">编辑</button>
-        </section>
-
-        <section class="quota-card">
-          <div class="section-head"><h2>AI 额度</h2><span class="badge" id="plan-badge">免费版</span></div>
-          <div class="quota-main"><strong id="quota-remaining">82</strong><span>分钟可用</span></div>
-          <div class="quota-bar" role="progressbar" aria-label="额度使用进度" aria-valuemin="0" aria-valuemax="120" aria-valuenow="38"><span id="quota-bar"></span></div>
-          <div class="quota-meta">
-            <span>总额度 <b id="quota-total">120</b> 分钟</span>
-            <span>已用 <b id="quota-used">38</b></span>
-            <span id="quota-reset">11 月 1 日重置</span>
-          </div>
-          <p class="footnote">额度为本地演示值，不连接真实计费系统。</p>
-        </section>
-
-        <section class="section">
-          <div class="section-head"><h2>套餐对比</h2><span class="count">模拟</span></div>
-          <div class="plan-grid">
-            <article class="plan-card" id="plan-card-free">
-              <div class="plan-head"><h3>免费版</h3><span class="plan-current" data-plan-current="free">当前</span></div>
-              <dl class="plan-rows">
-                <div><dt>每月额度</dt><dd>120 分钟</dd></div>
-                <div><dt>单次会议</dt><dd>60 分钟</dd></div>
-                <div><dt>历史保存</dt><dd>30 天</dd></div>
-                <div><dt>高级分析</dt><dd>—</dd></div>
-              </dl>
-            </article>
-            <article class="plan-card pro" id="plan-card-pro">
-              <div class="plan-head"><h3>高级版</h3><span class="plan-current" data-plan-current="pro">当前</span></div>
-              <dl class="plan-rows">
-                <div><dt>每月额度</dt><dd>600 分钟</dd></div>
-                <div><dt>单次会议</dt><dd>180 分钟</dd></div>
-                <div><dt>历史保存</dt><dd>永久</dd></div>
-                <div><dt>高级分析</dt><dd>支持</dd></div>
-              </dl>
-            </article>
-          </div>
-          <button class="button secondary full" id="upgrade-plan" type="button">模拟升级到高级版</button>
-          <p class="footnote">升级流程为本地模拟，不接支付、不产生费用，也不展示正式价格。</p>
-        </section>
-
-        <section class="settings-card">
-          <button class="settings-row" id="open-contacts" type="button">
-            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="9" cy="8" r="3.2" stroke="currentColor" stroke-width="1.8"/><path d="M3.8 19c.4-3.3 2.5-5 5.2-5s4.8 1.7 5.2 5M17 8.5h4M19 6.5v4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
-            <span class="settings-copy"><b>联系人</b><small>邀请同组成员加入讨论</small></span>
-            <span class="soon-badge">即将开放</span>
-          </button>
-          <button class="settings-row" id="open-demo" type="button">
-            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M8 5.5v13l11-6.5-11-6.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></span>
-            <span class="settings-copy"><b>进入演示模式</b><small>直接打开示例会议，不写入正式历史</small></span>
-            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-          <button class="settings-row danger" id="reset-demo" type="button">
-            <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7M10 11v6M14 11v6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            <span class="settings-copy"><b>重置演示数据</b><small>恢复示例会议、额度与提示状态</small></span>
-            <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-          </button>
-        </section>
-        <button class="settings-entry" id="open-settings" type="button">
-          <span class="settings-icon" aria-hidden="true"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="3.1" stroke="currentColor" stroke-width="1.8"/><path d="M19.4 15a1.7 1.7 0 0 0 .34 1.88l.06.06-2.83 2.83-.06-.06a1.7 1.7 0 0 0-1.88-.34 1.7 1.7 0 0 0-1.03 1.55V21h-4v-.08a1.7 1.7 0 0 0-1.1-1.55 1.7 1.7 0 0 0-1.88.34l-.06.06-2.83-2.83.06-.06A1.7 1.7 0 0 0 4.6 15a1.7 1.7 0 0 0-1.55-1.03H3v-4h.08A1.7 1.7 0 0 0 4.6 8.9a1.7 1.7 0 0 0-.34-1.88l-.06-.06 2.83-2.83.06.06A1.7 1.7 0 0 0 8.97 4.5 1.7 1.7 0 0 0 10 2.95V3h4v-.08A1.7 1.7 0 0 0 15.03 4.5a1.7 1.7 0 0 0 1.88-.34l.06-.06 2.83 2.83-.06.06A1.7 1.7 0 0 0 19.4 8.9a1.7 1.7 0 0 0 1.55 1.03H21v4h-.08A1.7 1.7 0 0 0 19.4 15Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-          <span class="settings-copy"><b>设置</b><small>通用、隐私与关于</small></span>
-          <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
-        <p class="footnote">所有数据仅保存在本机浏览器；不接云端数据库、硬件、联系人、支付或真实 AI。</p>
-      </div>
-    </section>
-
-    <!-- ============ 加入会议 ============ -->
-    <section class="page subpage" data-page="join" id="page-join" aria-labelledby="join-title" hidden>
-      <header class="subpage-head">
-        <button class="back-button" id="join-back" type="button" aria-label="返回">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <h1 id="join-title">加入会议</h1>
-        <span class="head-spacer"></span>
-      </header>
-      <div class="page-scroll">
-        <div class="subpage-intro">
-          <h2>连接现场，让你的观点被听到</h2>
-          <p>演示环境：任意有效会议 ID 都会打开本地示例会议。</p>
-        </div>
-        <form id="join-form" class="card join-form" novalidate>
-          <div class="field">
-            <label for="j-mid" class="step-title"><span class="step-number">1</span>会议链接</label>
-            <div class="input-wrap">
-              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsaW5rIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8xMCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNy41MDAxMiA5Ljc0OTk3QzcuODIyMjEgMTAuMTgwNiA4LjIzMzE0IDEwLjUzNjkgOC43MDUwMyAxMC43OTQ3QzkuMTc2OTMgMTEuMDUyNSA5LjY5ODc1IDExLjIwNTggMTAuMjM1MSAxMS4yNDQyQzEwLjc3MTUgMTEuMjgyNiAxMS4zMDk4IDExLjIwNTIgMTEuODEzNiAxMS4wMTczQzEyLjMxNzQgMTAuODI5NCAxMi43NzUgMTAuNTM1MyAxMy4xNTUxIDEwLjE1NUwxNS40MDUxIDcuOTA0OTdDMTYuMDg4MiA3LjE5NzcxIDE2LjQ2NjIgNi4yNTA0NSAxNi40NTc2IDUuMjY3MjFDMTYuNDQ5MSA0LjI4Mzk4IDE2LjA1NDcgMy4zNDM0MyAxNS4zNTk0IDIuNjQ4MTVDMTQuNjY0MiAxLjk1Mjg3IDEzLjcyMzYgMS41NTg0OSAxMi43NDA0IDEuNTQ5OTRDMTEuNzU3MSAxLjU0MTQgMTAuODA5OSAxLjkxOTM4IDEwLjEwMjYgMi42MDI0N0w4LjgxMjYyIDMuODg0OTdNMTAuNTAwMyA4LjI1MDE2QzEwLjE3ODIgNy44MTk1NyA5Ljc2NzI1IDcuNDYzMjggOS4yOTUzNiA3LjIwNTQ2QzguODIzNDYgNi45NDc2NCA4LjMwMTY0IDYuNzk0MzMgNy43NjUyOCA2Ljc1NTkxQzcuMjI4OTIgNi43MTc1IDYuNjkwNTggNi43OTQ4OSA2LjE4Njc2IDYuOTgyODNDNS42ODI5NCA3LjE3MDc3IDUuMjI1NDMgNy40NjQ4NiA0Ljg0NTI3IDcuODQ1MTZMMi41OTUyNyAxMC4wOTUyQzEuOTEyMTggMTAuODAyNCAxLjUzNDIgMTEuNzQ5NyAxLjU0Mjc0IDEyLjczMjlDMS41NTEyOSAxMy43MTYyIDEuOTQ1NjcgMTQuNjU2NyAyLjY0MDk1IDE1LjM1MkMzLjMzNjIzIDE2LjA0NzMgNC4yNzY3OCAxNi40NDE2IDUuMjYwMDEgMTYuNDUwMkM2LjI0MzI1IDE2LjQ1ODcgNy4xOTA1MSAxNi4wODA4IDcuODk3NzcgMTUuMzk3N0w5LjE4MDI3IDE0LjExNTIiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfMTAiPgo8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" width="18" height="18">
-              <input id="j-mid" name="meeting" value="recycle-review" placeholder="粘贴会议链接或邀请" autocomplete="off" spellcheck="false" aria-describedby="meeting-help" required>
-            </div>
-            <p class="field-hint" id="meeting-help">填写主持人提供的会议链接或会议 ID。</p>
-          </div>
-          <div class="field">
-            <label for="j-name" class="step-title"><span class="step-number">2</span>昵称</label>
-            <div class="input-wrap">
-              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJ1c2VyLXJvdW5kIj4KPHBhdGggaWQ9IlZlY3RvciIgZD0iTTkgOS43NUMxMS4wNzA5IDkuNzUgMTIuNzQ5NiA4LjA3MTA3IDEyLjc0OTYgNkMxMi43NDk2IDMuOTI4OTMgMTEuMDcwOSAyLjI1IDkgMi4yNUM2LjkyOTE0IDIuMjUgNS4yNTAzOCAzLjkyODkzIDUuMjUwMzggNkM1LjI1MDM4IDguMDcxMDcgNi45MjkxNCA5Ljc1IDkgOS43NVpNOSA5Ljc1QzEwLjU5MTEgOS43NSAxMi4xMTcxIDEwLjM4MjEgMTMuMjQyMiAxMS41MDc0QzE0LjM2NzMgMTIuNjMyNiAxNC45OTk0IDE0LjE1ODcgMTQuOTk5NCAxNS43NU05IDkuNzVDNy40MDg4NiA5Ljc1IDUuODgyODkgMTAuMzgyMSA0Ljc1Nzc4IDExLjUwNzRDMy42MzI2OCAxMi42MzI2IDMuMDAwNiAxNC4xNTg3IDMuMDAwNiAxNS43NSIgc3Ryb2tlPSIjNkI3MjgwIiBzdHJva2Utd2lkdGg9IjEuOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjwvZz4KPC9zdmc+Cg==" alt="" width="18" height="18">
-              <input id="j-name" name="nickname" value="林小满" placeholder="输入你在会议中的名字" maxlength="32" autocomplete="nickname" required>
-            </div>
-          </div>
-          <div class="field">
-            <h2 class="step-title"><span class="step-number">3</span>麦克风权限</h2>
-            <div class="permission">
-              <div class="permission-intro">
-                <span class="permission-icon"><img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="22" height="22"></span>
-                <p id="mic-permission-status">允许使用麦克风，才能在会议中发言。</p>
-              </div>
-              <button type="button" class="button secondary" id="j-mic">
-                <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiB2aWV3Qm94PSIwIDAgMjIgMjIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJtaWMiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNMTEgMTcuNDE3MlYyMC4xNjc0TTQuNTgyNiA5LjE2NjUyVjExQzQuNTgyNiAxMi43MDE5IDUuMjU4NzIgMTQuMzM0MiA2LjQ2MjIxIDE1LjUzNzZDNy42NjU3MSAxNi43NDExIDkuMjk4IDE3LjQxNzIgMTEgMTcuNDE3MkMxMi43MDIgMTcuNDE3MiAxNC4zMzQzIDE2Ljc0MTEgMTUuNTM3OCAxNS41Mzc2QzE2Ljc0MTMgMTQuMzM0MiAxNy40MTc0IDEyLjcwMTkgMTcuNDE3NCAxMVY5LjE2NjUyTTExIDEuODMyNkMxMi41MTkgMS44MzI2IDEzLjc1MDMgMy4wNjM5MiAxMy43NTAzIDQuNTgyODJWMTFDMTMuNzUwMyAxMi41MTg5IDEyLjUxOSAxMy43NTAyIDExIDEzLjc1MDJDOS40ODEwNCAxMy43NTAyIDguMjQ5NjkgMTIuNTE4OSA4LjI0OTY5IDExVjQuNTgyODJDOC4yNDk2OSAzLjA2MzkyIDkuNDgxMDQgMS44MzI2IDExIDEuODMyNloiIHN0cm9rZT0iI0YwNTIyRSIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
-                <span id="j-mic-label">允许麦克风</span>
-              </button>
-              <p class="field-hint">本演示只模拟授权结果，不录音、不上传。</p>
-            </div>
-          </div>
-          <div class="field">
-            <h2 class="step-title"><span class="step-number">4</span>摄像头权限</h2>
-            <div class="permission">
-              <div class="permission-intro">
-                <span class="permission-icon"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
-                <p id="cam-permission-status">允许使用摄像头，才能在会议中开启画面。</p>
-              </div>
-              <button type="button" class="button secondary" id="j-cam">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg>
-                <span id="j-cam-label">允许摄像头</span>
-              </button>
-              <p class="field-hint">仅检查本机授权，不会上传画面；不可用时会议内显示模拟画面。</p>
-            </div>
-          </div>
-          <div class="field">
-            <label for="j-device" class="step-title"><span class="step-number">5</span>使用设备</label>
-            <div class="input-wrap select-wrap">
-              <select id="j-device" aria-describedby="device-help"></select>
-            </div>
-            <p class="field-hint" id="device-help">设备仅用于本机演示；选择“仅麦克风”时摄像头不可用。</p>
-          </div>
-          <details class="dev-identity">
-            <summary>本机联调身份</summary>
-            <label for="j-identity" class="sr-only">本机联调身份</label>
-            <select id="j-identity">
-              <option value="remote_1">线上成员 1</option>
-              <option value="remote_2">线上成员 2</option>
-            </select>
-            <p class="field-hint">昵称仅用于本机显示；当前没有正式账号体系。</p>
-          </details>
-          <p class="error" id="j-err" role="alert" hidden></p>
-          <div class="join-action">
-            <button type="submit" class="button primary" id="j-submit" disabled>
-              <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjIwIiBoZWlnaHQ9IjIwIiB2aWV3Qm94PSIwIDAgMjAgMjAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsb2ctaW4iPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNOC4zMzMzMyA1LjgzMzMzTDEyLjUgMTBMOC4zMzMzMyAxNC4xNjY3TTEyLjUgMTBIMi41TTEyLjUgMi41SDE1LjgzMzNDMTYuMjc1NCAyLjUgMTYuNjk5MyAyLjY3NTU5IDE3LjAxMTggMi45ODgxNkMxNy4zMjQ0IDMuMzAwNzIgMTcuNSAzLjcyNDY0IDE3LjUgNC4xNjY2N1YxNS44MzMzQzE3LjUgMTYuMjc1NCAxNy4zMjQ0IDE2LjY5OTMgMTcuMDExOCAxNy4wMTE4QzE2LjY5OTMgMTcuMzI0NCAxNi4yNzU0IDE3LjUgMTUuODMzMyAxNy41SDEyLjUiIHN0cm9rZT0iIzkyOThBMiIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9nPgo8L3N2Zz4K" alt="" width="20" height="20">
-              <span id="j-submit-label">进入会议</span>
-            </button>
-          </div>
-        </form>
-        <p class="footnote">音视频、语音识别与机器人播报尚未接入，入会后为本地模拟状态。</p>
-      </div>
-    </section>
-
-    <!-- ============ 预定会议 ============ -->
-    <section class="page subpage" data-page="schedule" id="page-schedule" aria-labelledby="schedule-title" hidden>
-      <header class="subpage-head">
-        <button class="back-button" id="schedule-back" type="button" aria-label="返回">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <h1 id="schedule-title">预定会议</h1>
-        <span class="head-spacer"></span>
-      </header>
-      <div class="page-scroll">
-        <div class="subpage-intro">
-          <h2>给下一次讨论留个位置</h2>
-          <p>预约仅保存在本机，不会发送邀请或同步日历。</p>
-        </div>
-        <form id="schedule-form" class="card schedule-form" novalidate>
-          <div class="field">
-            <label class="step-title" for="s-title"><span class="step-number">1</span>会议主题</label>
-            <div class="input-wrap"><input id="s-title" maxlength="40" placeholder="例如：回收箱方案复盘" required></div>
-          </div>
-          <div class="field two-col">
-            <div>
-              <label class="step-title" for="s-date"><span class="step-number">2</span>日期</label>
-              <div class="input-wrap"><input id="s-date" type="date" required></div>
-            </div>
-            <div>
-              <label class="step-title" for="s-time"><span class="step-number">3</span>时间</label>
-              <div class="input-wrap"><input id="s-time" type="time" value="15:00" required></div>
-            </div>
-          </div>
-          <div class="field">
-            <label class="step-title" for="s-duration"><span class="step-number">4</span>预计时长</label>
-            <div class="input-wrap select-wrap">
-              <select id="s-duration">
-                <option value="30">30 分钟</option>
-                <option value="45" selected>45 分钟</option>
-                <option value="60">60 分钟</option>
-                <option value="90">90 分钟</option>
-              </select>
-            </div>
-          </div>
-          <p class="error" id="s-err" role="alert" hidden></p>
-          <div class="join-action">
-            <button type="submit" class="button primary" id="s-submit">保存预约</button>
-          </div>
-        </form>
-        <p class="footnote">预约为本地记录，可随时取消；不会连接日历或发送通知。</p>
-      </div>
-    </section>
-
-    <!-- ============ 观点地图 ============ -->
-    <section class="page subpage" data-page="map" id="page-map" aria-labelledby="map-title" hidden>
-      <header class="subpage-head map-subpage-head">
-        <button class="back-button" id="map-back" type="button" aria-label="返回会议">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <h1 id="map-title">观点地图</h1>
-        <button class="text-button" id="map-export" type="button">导出</button>
-      </header>
-      <div class="page-scroll">
-        <p class="page-subtitle">以原话为依据，回应关系仍需本人核对。</p>
-        <div class="stats" aria-label="观点统计">
-          <div><strong id="stat-all">0</strong><span>全部观点</span></div>
-          <div><strong id="stat-responded">0</strong><span>已回应</span></div>
-          <div><strong id="stat-review">0</strong><span>待核对</span></div>
-        </div>
-        <div class="card-list" id="map-list"></div>
-      </div>
-    </section>
-
-    <!-- ============ 会议详情 ============ -->
-    <section class="page subpage" data-page="detail" id="page-detail" aria-labelledby="detail-title" hidden>
-      <header class="subpage-head detail-head">
-        <button class="back-button" id="detail-back" type="button" aria-label="返回">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <span class="head-spacer"></span>
-        <button class="text-button" id="detail-export" type="button">导出 JSON</button>
-      </header>
-      <div class="detail-title-block">
-        <div class="detail-title-row"><h1 id="detail-title">会议详情</h1><span class="demo-tag" id="detail-demo" hidden>演示</span></div>
-        <p class="detail-meta" id="detail-meta"></p>
-      </div>
-      <div class="tabs" id="detail-tabs" role="tablist" aria-label="会议详情">
-        <button type="button" role="tab" data-tab="minutes" class="active" aria-selected="true">会议纪要</button>
-        <button type="button" role="tab" data-tab="graph" aria-selected="false">观点图谱</button>
-        <button type="button" role="tab" data-tab="transcript" aria-selected="false">完整转写</button>
-      </div>
-      <div class="page-scroll detail-scroll" id="detail-body"></div>
-    </section>
-
-    <!-- ============ 扫码加入 ============ -->
-    <section class="page subpage" data-page="scan" id="page-scan" aria-labelledby="scan-title" hidden>
-      <header class="subpage-head">
-        <button class="back-button" id="scan-back" type="button" aria-label="返回">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <h1 id="scan-title">扫码加入</h1>
-        <span class="head-spacer"></span>
-      </header>
-      <div class="page-scroll">
-        <div class="scan-view" id="scan-view">
-          <video id="scan-video" autoplay muted playsinline hidden></video>
-          <div class="scan-placeholder" id="scan-placeholder">
-            <svg width="42" height="42" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-            <p>将会议二维码放入取景框</p>
-            <small>也可以直接扫描示例二维码</small>
-          </div>
-          <div class="scan-frame" aria-hidden="true"><span></span></div>
-        </div>
-        <p class="scan-hint" id="scan-hint">摄像头仅用于本机识别，不会上传画面。</p>
-        <button class="button primary" id="scan-start" type="button">开启摄像头扫描</button>
-        <button class="button secondary" id="scan-sample" type="button">扫描示例二维码</button>
-        <div class="scan-manual">
-          <input id="scan-code" placeholder="或输入会议码" autocomplete="off" aria-label="输入会议码">
-          <button id="scan-submit" type="button">识别</button>
-        </div>
-        <p class="error" id="scan-error" role="alert" hidden></p>
-        <div class="scan-result" id="scan-result" hidden>
-          <p class="eyebrow">识别结果</p>
-          <h2 id="scan-result-code"></h2>
-          <p>本地示例会议 · 可继续加入</p>
-          <div class="scan-result-actions">
-            <button class="button primary" id="scan-enter" type="button">进入会议</button>
-            <button class="button secondary" id="scan-again" type="button">重新扫描</button>
-          </div>
-        </div>
-        <p class="footnote">摄像头不可用时可使用示例二维码或手动输入；本页不会上传画面。</p>
-      </div>
-    </section>
-
-    <!-- ============ 设置 ============ -->
-    <section class="page subpage" data-page="settings" id="page-settings" aria-labelledby="settings-title" hidden>
-      <header class="subpage-head">
-        <button class="back-button" id="settings-back" type="button" aria-label="返回">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 5-7 7 7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </button>
-        <h1 id="settings-title">设置</h1>
-        <span class="head-spacer"></span>
-      </header>
-      <div class="page-scroll">
-        <section class="settings-group">
-          <h2>通用</h2>
-          <div class="settings-card">
-            <div class="settings-row static">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="settings-copy"><b>会议提醒</b><small>演示环境不会发送系统通知</small></span>
-              <button class="switch on" id="set-reminders" type="button" role="switch" aria-checked="true" data-setting="reminders" aria-label="会议提醒"><span></span></button>
-            </div>
-            <div class="settings-row static">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M5 9v6h4l5 4V5L9 9H5Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="M17 9a4 4 0 0 1 0 6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <span class="settings-copy"><b>提示音</b><small>演示环境不会播放真实音效</small></span>
-              <button class="switch on" id="set-sounds" type="button" role="switch" aria-checked="true" data-setting="sounds" aria-label="提示音"><span></span></button>
-            </div>
-            <div class="settings-row static">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M13 3 5 14h6l-1 7 8-11h-6l1-7Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-              <span class="settings-copy"><b>减少动画</b><small>关闭弹层与状态动画</small></span>
-              <button class="switch" id="set-motion" type="button" role="switch" aria-checked="false" data-setting="reduceMotion" aria-label="减少动画"><span></span></button>
-            </div>
-            <div class="settings-row static">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
-              <span class="settings-copy">
-                <b>默认使用设备</b>
-                <small>入会时预选本机设备</small>
-                <select id="setting-device" class="inline-select" aria-label="默认使用设备"></select>
-              </span>
-            </div>
-            <button class="settings-row" id="settings-language" type="button">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" stroke="currentColor" stroke-width="1.5"/></svg></span>
-              <span class="settings-copy"><b>语言</b><small>简体中文</small></span>
-              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-        </section>
-
-        <section class="settings-group">
-          <h2>数据与隐私</h2>
-          <div class="settings-card">
-            <button class="settings-row" id="settings-privacy" type="button">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><rect x="4.5" y="10" width="15" height="10" rx="2.5" stroke="currentColor" stroke-width="1.7"/><path d="M8 10V7a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
-              <span class="settings-copy"><b>隐私与数据</b><small>所有记录仅保存在本机</small></span>
-              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-            <button class="settings-row" id="settings-cache" type="button">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l.8 12.2c.1 1 .9 1.8 1.9 1.8h5.6c1 0 1.8-.8 1.9-1.8L17.5 7" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              <span class="settings-copy"><b>清除离线缓存</b><small>不会删除会议记录</small></span>
-              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-        </section>
-
-        <section class="settings-group">
-          <h2>关于</h2>
-          <div class="settings-card">
-            <button class="settings-row" id="settings-about" type="button">
-              <span class="settings-icon" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 11v5M12 7.5v.5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg></span>
-              <span class="settings-copy"><b>关于 EffMeet 2</b><small>本地演示版 · v1.0.0</small></span>
-              <svg class="chev" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-            </button>
-          </div>
-        </section>
-        <p class="footnote">设置只保存在本机浏览器。</p>
-      </div>
-    </section>
-
-  </div><!-- /.app-frame -->
-
-  <nav class="bottom-nav" id="bottom-nav" aria-label="主导航">
-    <button type="button" data-nav="home" class="active" aria-current="page">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 10.5 12 4l8 6.5V20a1 1 0 0 1-1 1h-5v-6H10v6H5a1 1 0 0 1-1-1v-9.5Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      <span>首页</span>
-    </button>
-    <button type="button" data-nav="meeting">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="currentColor" stroke-width="1.8"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
-      <span>会议</span>
-    </button>
-    <button type="button" data-nav="history">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.8"/><path d="M12 7.5V12l3 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <span>历史</span>
-    </button>
-    <button type="button" data-nav="profile">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="8" r="3.5" stroke="currentColor" stroke-width="1.8"/><path d="M5.5 20c.5-4 3.2-6 6.5-6s6 2 6.5 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <span>我的</span>
-    </button>
-  </nav>
-
-  <!-- ============ 候选确认弹层 ============ -->
-  <div class="overlay" id="overlay" hidden>
-    <button class="scrim" id="scrim" type="button" aria-label="暂时收起候选确认卡" tabindex="-1"></button>
-    <section class="sheet" id="sheet" role="dialog" aria-modal="true" aria-labelledby="sheet-title" tabindex="-1">
-      <div class="sheet-top">
-        <button class="handle" id="sheet-handle" aria-label="暂时收起候选确认卡" type="button"><span></span></button>
-        <button class="text-button" id="sheet-close" type="button">收起</button>
-      </div>
-      <h2 id="sheet-title">你的观点可能还没被现场听到</h2>
-      <blockquote class="quote">
-        <p id="sh-quote"></p>
-        <footer id="sh-meta"></footer>
-      </blockquote>
-      <p class="sheet-helper">机器人会在现场停顿时转述你的原话；提醒前会再确认一次现场是否已回应。</p>
-      <div class="sheet-status">
-        <p class="sheet-state" id="sh-state" role="status">等待你的决定</p>
-        <p class="countdown" id="sh-countdown"></p>
-      </div>
-      <div class="button-pair" id="sh-actions">
-        <button class="button primary" type="button" id="sh-confirm">请机器人提醒</button>
-        <button class="button secondary" type="button" id="sh-dismiss">不必提醒</button>
-      </div>
-    </section>
-  </div>
-
-  <!-- ============ 通用弹层 ============ -->
-  <div class="overlay" id="dialog" hidden>
-    <button class="scrim" id="dialog-scrim" type="button" aria-label="关闭弹层" tabindex="-1"></button>
-    <section class="sheet dialog-sheet" role="dialog" aria-modal="true" aria-labelledby="dialog-title">
-      <div class="sheet-top">
-        <span class="handle-static" aria-hidden="true"><span></span></span>
-        <button class="text-button" id="dialog-close" type="button">关闭</button>
-      </div>
-      <h2 id="dialog-title">提示</h2>
-      <div class="dialog-body" id="dialog-body"></div>
-      <div class="dialog-actions" id="dialog-actions"></div>
-    </section>
-  </div>
-
-  <!-- ============ 原图 ============ -->
-  <div class="lightbox" id="lightbox" hidden>
-    <button class="lightbox-scrim" id="lightbox-scrim" aria-label="关闭原图" type="button"></button>
-    <figure class="lightbox-card" role="dialog" aria-modal="true" aria-label="现场共享原图">
-      <img id="lightbox-image" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzNjAiIGhlaWdodD0iMjEwIiB2aWV3Qm94PSIwIDAgMzYwIDIxMCIgcm9sZT0iaW1nIiBhcmlhLWxhYmVsPSLkuInmoLzlm57mlLbnrrHmiYvnu5jojYnlm77vvIzpobbpg6jmipXmlL7lj6PvvIzlj7PkuIrmoIfms6jmu6HmuqLmo4DmtYsiPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9InBhcGVyR3JpZCIgd2lkdGg9IjIyIiBoZWlnaHQ9IjIyIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIj4KICAgICAgPHBhdGggZD0iTTIyIDBIMFYyMiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjRTlFNUQ5IiBzdHJva2Utd2lkdGg9IjEiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjM2MCIgaGVpZ2h0PSIyMTAiIGZpbGw9IiNGQkZBRjUiLz4KICA8cmVjdCB3aWR0aD0iMzYwIiBoZWlnaHQ9IjIxMCIgZmlsbD0idXJsKCNwYXBlckdyaWQpIiBvcGFjaXR5PSIuNyIvPgogIDxlbGxpcHNlIGN4PSIxODAiIGN5PSIxOTIiIHJ4PSIxMTgiIHJ5PSI2IiBmaWxsPSIjMkUyQjIyIiBvcGFjaXR5PSIuMDciLz4KICA8ZyBmaWxsPSJub25lIiBzdHJva2U9IiMyQzJCMjciIHN0cm9rZS13aWR0aD0iMi4yIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPgogICAgPHBhdGggZD0iTTY0IDk2IEw3OCA1NyBRNzkgNTMgODQgNTMgTDE5NiA1MyBRMjAxIDUzIDIwMiA1NyBMMjE2IDk2Ii8+CiAgICA8cGF0aCBkPSJNMjAyIDU3IEwyODggNjAgUTI5MyA2MSAyOTQgNjYgTDI5OSA5NiIvPgogICAgPHBhdGggZD0iTTYyIDk2IEw2MiAxODEgUTYyIDE4NyA2OCAxODcgTDI5MiAxODcgUTI5OCAxODcgMjk4IDE4MSBMMjk4IDk2Ii8+CiAgICA8cGF0aCBkPSJNNTYgOTYgTDMwNCA5NiIvPgogICAgPHBhdGggZD0iTTE0MCAxMDAgTDE0MCAxODciLz4KICAgIDxwYXRoIGQ9Ik0yMjYgMTAwIEwyMjYgMTg3Ii8+CiAgICA8cmVjdCB4PSIxNTgiIHk9IjY0IiB3aWR0aD0iNTYiIGhlaWdodD0iMTEiIHJ4PSIzIi8+CiAgICA8cGF0aCBkPSJNNzQgOTYgUTcwIDg4IDc2IDg0IiBvcGFjaXR5PSIuNSIvPgogIDwvZz4KICA8ZyBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZpbGw9IiMyQzJCMjciIHRleHQtYW5jaG9yPSJtaWRkbGUiPgogICAgPHRleHQgeD0iMTAxIiB5PSIxNDYiIGZvbnQtc2l6ZT0iMjAiPuWPr+WbnuaUtjwvdGV4dD4KICAgIDx0ZXh0IHg9IjE4MyIgeT0iMTQ2IiBmb250LXNpemU9IjIwIj7ljqjkvZk8L3RleHQ+CiAgICA8dGV4dCB4PSIyNjIiIHk9IjE0NiIgZm9udC1zaXplPSIyMCI+5YW25LuWPC90ZXh0PgogIDwvZz4KICA8cmVjdCB4PSIxNjkiIHk9IjE1NiIgd2lkdGg9IjQ2IiBoZWlnaHQ9IjIyIiByeD0iMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMkMyQjI3IiBzdHJva2Utd2lkdGg9IjEuNiIvPgogIDx0ZXh0IHg9IjE5MiIgeT0iMTcxIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iJ0thaXRpIFNDJywnS2FpVGknLCdTVEthaXRpJywnWGluZ2thaSBTQycsc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZpbGw9IiMyQzJCMjciPuWxj+W5lTwvdGV4dD4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0yODYgMjYgcTE4IC04IDM0IDIgcTE0IDEwIDIgMjAgcS0xMiA4IC0yNiAyIHEtMTYgLTggLTEwIC0yNFoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjUiLz4KICAgIDx0ZXh0IHg9IjMwMSIgeT0iNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtc2l6ZT0iOS41IiBmaWxsPSIjMkMyQjI3Ij7mu6HmuqLmo4DmtYvvvJ88L3RleHQ+CiAgICA8cGF0aCBkPSJNMzA2IDQ5IEwzMDAgOTIiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiIHN0cm9rZS1kYXNoYXJyYXk9IjQgMyIvPgogICAgPHBhdGggZD0iTTI5NiA4NyBMMzAwIDk0IEwzMDQgODciIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzJDMkIyNyIgc3Ryb2tlLXdpZHRoPSIxLjMiLz4KICA8L2c+CiAgPGc+CiAgICA8dGV4dCB4PSIxMzIiIHk9IjQ2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LXNpemU9IjkuNSIgZmlsbD0iIzZCNjc1QyI+5oqV5pS+5Y+jPC90ZXh0PgogICAgPHBhdGggZD0iTTE0OCA0OSBMMTYyIDYyIiBzdHJva2U9IiM2QjY3NUMiIHN0cm9rZS13aWR0aD0iMS4yIi8+CiAgPC9nPgogIDxnIHN0cm9rZT0iIzhBODU3OCIgc3Ryb2tlLXdpZHRoPSIxLjEiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTYyIDIwMCBMMjk4IDIwMCIvPgogICAgPHBhdGggZD0iTTYyIDE5NiBMNjIgMjA0Ii8+CiAgICA8cGF0aCBkPSJNMjk4IDE5NiBMMjk4IDIwNCIvPgogIDwvZz4KICA8dGV4dCB4PSIxODAiIHk9IjIwNyIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1zaXplPSI5IiBmaWxsPSIjOEE4NTc4Ij7lsLrlr7jlvoXlrpo8L3RleHQ+Cjwvc3ZnPgo=" alt="现场共享原图">
-      <figcaption>现场共享原图 · 三格回收箱草图</figcaption>
-      <button class="button secondary" type="button" id="lightbox-close">关闭</button>
-    </figure>
-  </div>
-
-  <div class="toast" id="toast" role="status" hidden></div>
-</div><!-- /.app-shell -->
 </body>
 </html>

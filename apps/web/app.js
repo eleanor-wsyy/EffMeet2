@@ -1,6 +1,6 @@
 import { parseMeetingId, candidateLabels } from './state.js';
 import {
-  loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan, DEVICES,
+  loadDB, persist, resetDB, remainingMinutes, PLANS, setPlan,
   activeMeeting as buildActiveMeeting, endActiveMeeting, findMeeting,
   updateTodo, addScheduled, removeScheduled, speakerOf, viewpointStateLabel
 } from './store.js';
@@ -35,10 +35,10 @@ let reconnecting = false;
 let stageId = null;
 let selfCameraOn = false;
 let selfCameraStream = null;
+let meetingMicMuted = false;
 let scanStream = null;
 let scanTimer = null;
 let scanBusy = false;
-let scannedCode = '';
 
 /* ---------- 通用 ---------- */
 function esc(value) {
@@ -129,15 +129,6 @@ function avatar(speaker, size = 'avatar-sm') {
   return `<span class="avatar ${size}" style="--avatar-bg:${esc(speaker.color)}">${esc(speaker.short || initials(speaker.name))}</span>`;
 }
 
-function deviceOf(key) {
-  return DEVICES.find(device => device.key === key) || DEVICES[0];
-}
-
-function deviceLabel(key) {
-  const device = deviceOf(key);
-  return `${device.label} · ${device.detail}`;
-}
-
 function applyReduceMotion() {
   document.documentElement.classList.toggle('reduce-motion', Boolean(db.settings?.reduceMotion));
 }
@@ -153,7 +144,7 @@ function showPage(page) {
     section.hidden = section.dataset.page !== page;
   });
   const nav = $('bottom-nav');
-  nav.hidden = !MAIN_PAGES.includes(page);
+  nav.hidden = !MAIN_PAGES.includes(page) || (page === 'meeting' && Boolean(db.active));
   document.querySelectorAll('[data-nav]').forEach(button => {
     const active = button.dataset.nav === page;
     button.classList.toggle('active', active);
@@ -168,7 +159,7 @@ function showPage(page) {
   if (page === 'history') renderHistory();
   if (page === 'profile') renderProfile();
   if (page === 'settings') renderSettings();
-  if (page === 'scan') resetScanPage();
+  if (page === 'scan') { resetScanPage(); startScanner(); }
 }
 
 /* ---------- 首页 ---------- */
@@ -269,7 +260,7 @@ function renderMeetingPage() {
 
   $('meeting-title').textContent = active.title;
   const source = {quick:'快速会议', join:'加入会议', scheduled:'预定会议', demo:'演示模式'}[active.source] || '示例会议';
-  $('meeting-meta').textContent = `${active.participants.length} 人 · ${deviceOf(active.device).label} · ${source}`;
+  $('meeting-meta').textContent = `${active.participants.length} 人 · ${source}`;
   $('meeting-elapsed').textContent = elapsedLabel(active.startedAt);
   $('demo-banner').hidden = !active.isDemo;
   renderActiveMeeting();
@@ -317,7 +308,9 @@ function renderStage(meeting) {
       <span class="participant-name">${esc(participant.name)}</span>
     </button>`;
   }).join('');
+  $('attendee-count').textContent = String(meeting.participants.length);
   renderCameraButton();
+  renderMicButton();
 }
 
 function renderCameraButton() {
@@ -325,15 +318,28 @@ function renderCameraButton() {
   if (!button) return;
   button.setAttribute('aria-pressed', String(selfCameraOn));
   button.setAttribute('aria-label', selfCameraOn ? '关闭摄像头' : '开启摄像头');
+  button.classList.toggle('on', selfCameraOn);
+  $('live-camera-label').textContent = selfCameraOn ? '关闭视频' : '开启视频';
+}
+
+function renderMicButton() {
+  const button = $('live-mic');
+  if (!button) return;
+  button.classList.toggle('muted', meetingMicMuted);
+  button.setAttribute('aria-pressed', String(meetingMicMuted));
+  button.setAttribute('aria-label', meetingMicMuted ? '解除静音' : '静音');
+  $('live-mic-label').textContent = meetingMicMuted ? '解除静音' : '静音';
+}
+
+function toggleMic() {
+  meetingMicMuted = !meetingMicMuted;
+  renderMicButton();
+  toast(meetingMicMuted ? '已静音（模拟）' : '已解除静音（模拟）');
 }
 
 async function toggleSelfCamera() {
   const active = db.active;
   if (!active) return;
-  if (!deviceOf(active.device).camera) {
-    toast('当前设备仅麦克风，请在设置或加入会议页更换设备');
-    return;
-  }
   if (selfCameraOn) {
     stopSelfCamera();
     return;
@@ -572,7 +578,7 @@ function guardActive(action) {
   });
 }
 
-function startTemplateMeeting({title, source, code = '', isDemo = false, device = db.settings.device}) {
+function startTemplateMeeting({title, source, code = '', isDemo = false}) {
   closeDialog();
   closePromptSheet();
   clearPromptTimers();
@@ -580,7 +586,8 @@ function startTemplateMeeting({title, source, code = '', isDemo = false, device 
   stopSelfCamera(false);
   stageId = null;
   selfCameraOn = false;
-  buildActiveMeeting(db, {title, source, code, isDemo, device});
+  meetingMicMuted = false;
+  buildActiveMeeting(db, {title, source, code, isDemo});
   autoPromptOpened = false;
   lastPromptState = '';
   showPage('meeting');
@@ -657,48 +664,17 @@ function openJoin(returnPage = 'home', code = null) {
   $('j-submit-label').textContent = '进入会议';
   $('mic-permission-status').textContent = '允许使用麦克风，才能在会议中发言。';
   $('j-mic-label').textContent = '允许麦克风';
+  $('cam-permission-status').textContent = '允许使用摄像头，才能在会议中开启画面。';
+  $('j-cam-label').textContent = '允许摄像头';
+  $('j-cam').disabled = false;
   joinCameraGranted = false;
-  fillDeviceSelect($('j-device'), db.settings.device);
-  syncJoinCamera();
   joinBusy = false;
   updateJoinAvailability();
   showPage('join');
 }
 
-function fillDeviceSelect(select, selected) {
-  if (!select) return;
-  select.innerHTML = DEVICES.map(device =>
-    `<option value="${esc(device.key)}" ${device.key === selected ? 'selected' : ''}>${esc(device.label)} · ${esc(device.detail)}</option>`
-  ).join('');
-}
-
-function syncJoinCamera() {
-  const device = deviceOf($('j-device').value);
-  const button = $('j-cam');
-  if (!device.camera) {
-    joinCameraGranted = false;
-    button.disabled = true;
-    $('j-cam-label').textContent = '摄像头不可用';
-    $('cam-permission-status').textContent = '当前设备仅麦克风，无法开启摄像头。';
-    return;
-  }
-  button.disabled = false;
-  if (joinCameraGranted) {
-    $('j-cam-label').textContent = '重新检查摄像头';
-    $('cam-permission-status').textContent = '摄像头已授权；仅检查授权，不会上传画面。';
-  } else {
-    $('j-cam-label').textContent = '允许摄像头';
-    $('cam-permission-status').textContent = '允许使用摄像头，才能在会议中开启画面。';
-  }
-}
-
 async function authorizeJoinCamera() {
-  const device = deviceOf($('j-device').value);
   const button = $('j-cam');
-  if (!device.camera) {
-    toast('当前设备仅麦克风，无法开启摄像头');
-    return;
-  }
   button.disabled = true;
   $('j-cam-label').textContent = '检查中…';
   try {
@@ -751,11 +727,9 @@ async function handleJoin(event) {
   $('j-submit-label').textContent = '正在连接…';
   try {
     await wait(700);
-    const device = deviceOf($('j-device').value).key;
     db.user.nickname = nickname;
-    db.settings.device = device;
     persist(db);
-    guardActive(() => startTemplateMeeting({title:'回收箱方案评审', source:'join', code:meetingId, device}));
+    guardActive(() => startTemplateMeeting({title:'回收箱方案评审', source:'join', code:meetingId}));
   } finally {
     joinBusy = false;
     $('j-submit-label').textContent = '进入会议';
@@ -1026,17 +1000,9 @@ function openNoteDialog(meeting, viewpoint) {
 function resetScanPage() {
   stopScanner();
   scanBusy = false;
-  scannedCode = '';
   $('scan-video').hidden = true;
   $('scan-placeholder').hidden = false;
-  $('scan-result').hidden = true;
-  $('scan-error').hidden = true;
-  $('scan-code').value = '';
-  $('scan-hint').textContent = '摄像头仅用于本机识别，不会上传画面。';
-  $('scan-start').disabled = false;
-  $('scan-start').textContent = '开启摄像头扫描';
-  $('scan-sample').disabled = false;
-  $('scan-sample').textContent = '扫描示例二维码';
+  $('scan-hint').textContent = '正在开启摄像头…';
 }
 
 function stopScanner() {
@@ -1053,48 +1019,34 @@ function stopScanner() {
 async function startScanner() {
   if (scanBusy || scanStream) return;
   if (!navigator.mediaDevices?.getUserMedia) {
-    toast('当前环境不支持摄像头，请使用示例二维码或手动输入');
+    $('scan-hint').textContent = '当前浏览器无法使用摄像头扫描。';
     return;
   }
   scanBusy = true;
-  $('scan-start').disabled = true;
-  $('scan-hint').textContent = '正在请求摄像头…';
   try {
     scanStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:{ideal:'environment'}}});
+    if (currentPage !== 'scan') {
+      scanStream.getTracks().forEach(track => track.stop());
+      scanStream = null;
+      return;
+    }
     const video = $('scan-video');
     video.srcObject = scanStream;
     await video.play().catch(() => {});
     video.hidden = false;
     $('scan-placeholder').hidden = true;
-    $('scan-start').disabled = false;
-    $('scan-start').textContent = '停止摄像头扫描';
     if ('BarcodeDetector' in window) {
-      $('scan-hint').textContent = '将二维码放入框内，识别后自动填入会议码。';
+      $('scan-hint').textContent = '将二维码放入框内，识别后自动进入会议。';
       detectScanCode();
     } else {
-      $('scan-hint').textContent = '摄像头已开启；当前浏览器不支持自动识别，请使用示例二维码或手动输入。';
+      $('scan-hint').textContent = '当前浏览器不支持自动识别二维码。';
     }
   } catch {
-    $('scan-hint').textContent = '无法使用摄像头；可使用示例二维码或手动输入。';
-    toast('摄像头不可用，请使用示例二维码');
     scanStream = null;
-    $('scan-start').disabled = false;
-    $('scan-start').textContent = '开启摄像头扫描';
+    $('scan-hint').textContent = '无法使用摄像头，请检查浏览器权限后重新进入。';
   } finally {
     scanBusy = false;
   }
-}
-
-function toggleScanCamera() {
-  if (!scanStream) {
-    startScanner();
-    return;
-  }
-  stopScanner();
-  $('scan-placeholder').hidden = false;
-  $('scan-hint').textContent = '摄像头已关闭，可使用示例二维码或手动输入。';
-  $('scan-start').textContent = '开启摄像头扫描';
-  $('scan-start').disabled = false;
 }
 
 async function detectScanCode() {
@@ -1114,33 +1066,70 @@ function handleScanValue(raw) {
   try {
     code = parseMeetingId(raw);
   } catch {
-    $('scan-error').textContent = '没有在二维码中找到有效的会议码，请重试或手动输入。';
-    $('scan-error').hidden = false;
+    $('scan-hint').textContent = '未识别到有效会议码，请重新对准二维码。';
+    scanTimer = setTimeout(detectScanCode, 1200);
     return;
   }
-  scannedCode = code;
-  $('scan-error').hidden = true;
-  $('scan-result-code').textContent = code;
-  $('scan-result').hidden = false;
-  $('scan-hint').textContent = '识别成功，可继续加入或重新扫描。';
   stopScanner();
-  $('scan-placeholder').hidden = false;
-  $('scan-start').disabled = false;
-  $('scan-start').textContent = '开启摄像头扫描';
+  toast('已识别会议码 ' + code);
+  openJoin('home', code);
 }
 
-function simulateScan() {
-  if (scanBusy) return;
-  scanBusy = true;
-  const button = $('scan-sample');
-  button.disabled = true;
-  button.textContent = '正在识别…';
-  setTimeout(() => {
-    scanBusy = false;
-    button.disabled = false;
-    button.textContent = '扫描示例二维码';
-    handleScanValue('https://meet.example/meetings/recycle-review');
-  }, 850);
+function openAttendeesDialog() {
+  const meeting = db.active;
+  if (!meeting) return;
+  const latest = meeting.transcript[meeting.transcript.length - 1];
+  const currentId = latest?.speakerId;
+  const rows = meeting.participants.map(person => {
+    const isSelf = person.id === 'p-lin';
+    const speaking = person.id === currentId;
+    return `<div class="attendee-row">
+      ${avatar(person, 'avatar-sm')}
+      <div class="attendee-copy">
+        <b>${esc(person.name)}${isSelf ? '（你）' : ''}</b>
+        <small>${esc(person.role)}${speaking ? ' · 发言中' : ''}</small>
+      </div>
+      ${speaking ? '<span class="attendee-badge">发言中</span>' : ''}
+    </div>`;
+  }).join('');
+  openDialog({
+    title:`参会者（${meeting.participants.length}）`,
+    body:`<div class="attendee-list">${rows}</div>`,
+    actions:[{label:'关闭', value:'close', style:'secondary'}]
+  });
+}
+
+function openMeetingMoreDialog() {
+  openDialog({
+    title:'更多',
+    body:'<p>当前为本地模拟会议；可从这里查看观点地图或结束会议。</p>',
+    actions:[
+      {label:'观点地图', value:'map', style:'secondary'},
+      {label:'结束会议', value:'end', style:'primary'}
+    ],
+    onAction: value => {
+      if (value === 'map') {
+        closeDialog();
+        renderMap();
+        showPage('map');
+      }
+      if (value === 'end') {
+        closeDialog();
+        requestEndMeeting();
+      }
+    }
+  });
+}
+
+function openShare() {
+  const active = db.active;
+  if (!active) return;
+  if (active.capture) {
+    openLightbox();
+    toast('共享内容 · 模拟画面');
+  } else {
+    toast('当前没有可共享的内容');
+  }
 }
 
 /* ---------- 我的 ---------- */
@@ -1166,7 +1155,6 @@ function renderProfile() {
 
 function renderSettings() {
   const settings = db.settings;
-  fillDeviceSelect($('setting-device'), settings.device);
   for (const [key, id] of [['reminders', 'set-reminders'], ['sounds', 'set-sounds'], ['reduceMotion', 'set-motion']]) {
     const button = $(id);
     const on = Boolean(settings[key]);
@@ -1270,11 +1258,6 @@ $('j-mic').addEventListener('click', async () => {
   button.disabled = false;
 });
 $('j-cam').addEventListener('click', authorizeJoinCamera);
-$('j-device').addEventListener('change', () => {
-  db.settings.device = $('j-device').value;
-  persist(db);
-  syncJoinCamera();
-});
 
 $('schedule-form').addEventListener('submit', handleSchedule);
 
@@ -1298,7 +1281,10 @@ $('open-map').addEventListener('click', () => {
 });
 $('map-export').addEventListener('click', () => exportMeeting(db.active));
 $('live-camera').addEventListener('click', toggleSelfCamera);
-$('live-mic').addEventListener('click', () => toast('麦克风仅作本机演示，不录音、不上传。'));
+$('live-mic').addEventListener('click', toggleMic);
+$('live-share').addEventListener('click', openShare);
+$('live-attendees').addEventListener('click', openAttendeesDialog);
+$('live-more').addEventListener('click', openMeetingMoreDialog);
 $('view-capture').addEventListener('click', openLightbox);
 $('capture-button').addEventListener('click', openLightbox);
 
@@ -1359,26 +1345,6 @@ $('detail-body').addEventListener('click', event => {
 
 /* 扫码 */
 $('scan-back').addEventListener('click', () => showPage('home'));
-$('scan-start').addEventListener('click', toggleScanCamera);
-$('scan-sample').addEventListener('click', simulateScan);
-$('scan-submit').addEventListener('click', () => {
-  const raw = $('scan-code').value.trim();
-  if (!raw) {
-    $('scan-error').textContent = '请输入会议码或邀请链接。';
-    $('scan-error').hidden = false;
-    return;
-  }
-  handleScanValue(raw);
-});
-$('scan-enter').addEventListener('click', () => {
-  if (!scannedCode) return;
-  stopScanner();
-  openJoin('home', scannedCode);
-});
-$('scan-again').addEventListener('click', () => {
-  resetScanPage();
-  startScanner();
-});
 
 /* 设置 */
 $('open-settings').addEventListener('click', () => showPage('settings'));
@@ -1394,13 +1360,6 @@ document.querySelectorAll('[data-setting]').forEach(button => {
     const suffix = key === 'reduceMotion' ? '' : '（演示）';
     toast(`${labels[key]}已${db.settings[key] ? '开启' : '关闭'}${suffix}`);
   });
-});
-$('setting-device').addEventListener('change', event => {
-  db.settings.device = event.target.value;
-  persist(db);
-  fillDeviceSelect($('j-device'), db.settings.device);
-  syncJoinCamera();
-  toast(`默认设备已设为${deviceOf(db.settings.device).label}`);
 });
 $('settings-language').addEventListener('click', () => {
   openDialog({
@@ -1653,8 +1612,6 @@ document.addEventListener('keydown', event => {
 });
 
 /* ---------- 初始化 ---------- */
-fillDeviceSelect($('j-device'), db.settings.device);
-fillDeviceSelect($('setting-device'), db.settings.device);
 applyReduceMotion();
 showPage('home');
 renderUpcomingLists();

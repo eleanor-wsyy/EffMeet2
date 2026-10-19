@@ -459,25 +459,35 @@ img{max-width:100%}
 .pending-bottom button:hover{background:#FFF0EA}
 .pending-empty{font-size:11.5px;color:var(--muted);padding:14px;background:var(--paper);border:1px dashed var(--line-strong);border-radius:14px}
 
-.meeting-footer{
-  flex-shrink:0;display:flex;align-items:center;justify-content:space-between;gap:10px;
-  padding:9px 20px calc(9px + var(--safe-bottom));
-  background:rgba(255,255,255,.97);border-top:1px solid var(--line);
+.meeting-bar{
+  flex-shrink:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;
+  background:#1F1F23;border-top:1px solid #2C2C31;
+  padding:7px 6px calc(7px + var(--safe-bottom));z-index:4;
 }
-.footer-status{font-size:9.5px;color:var(--muted);display:inline-flex;align-items:center;gap:5px;max-width:96px}
-.footer-status .status-dot{background:#C0392B;opacity:.55}
-.meeting-controls{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.control-button,.mic-control{
-  width:46px;height:46px;border-radius:50%;display:grid;place-items:center;flex-shrink:0;
-  transition:transform .12s ease,background .12s ease,color .12s ease,border-color .12s ease;
+.bar-button{
+  min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:4px;border-radius:10px;color:#F4F4F5;font-size:9.5px;font-weight:500;line-height:1.2;
+  transition:background .15s ease,color .15s ease;
 }
-.control-button{background:#F4F0E6;color:#6C6457;border:1px solid var(--line-strong)}
-.control-button:hover{background:#EEE8DB}
-.control-button[aria-pressed="true"]{background:var(--brand);border-color:var(--brand);color:#fff;box-shadow:0 3px 9px rgba(240,82,46,.18)}
-.mic-control{background:var(--brand);color:#fff;box-shadow:0 3px 9px rgba(240,82,46,.18)}
-.mic-control:hover{background:#DD4524}
-.control-button:active,.mic-control:active{transform:scale(.96)}
-.footer-note{font-size:9.5px;color:#A2988A;text-align:right;max-width:82px}
+.bar-button:hover{background:rgba(255,255,255,.07)}
+.bar-button:active{background:rgba(255,255,255,.12)}
+.bar-button span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bar-icon{position:relative;display:grid;place-items:center;width:24px;height:24px;flex-shrink:0}
+.bar-button svg{width:22px;height:22px}
+.bar-button.on{color:#FF8A66}
+.bar-button.muted .bar-icon::after{
+  content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;border-radius:2px;
+  background:#F87171;transform:translate(-50%,-50%) rotate(-45deg);
+}
+.attendee-list{display:grid;gap:7px}
+.attendee-row{
+  display:flex;align-items:center;gap:9px;background:#FAF7F0;border:1px solid #EDE7DA;
+  border-radius:11px;padding:8px 9px;
+}
+.attendee-copy{flex:1;min-width:0}
+.attendee-copy b{display:block;font-size:11.5px;font-weight:600;overflow-wrap:anywhere}
+.attendee-copy small{display:block;font-size:9.5px;color:var(--muted);margin-top:1px}
+.attendee-badge{font-size:8.5px;color:var(--brand-dark);background:var(--brand-soft);border-radius:5px;padding:2px 5px;white-space:nowrap}
 
 /* ---------- 搜索与历史 ---------- */
 .search-wrap{
@@ -586,11 +596,6 @@ img{max-width:100%}
 }
 .switch.on{background:var(--brand)}
 .switch.on span{transform:translateX(16px)}
-.inline-select{
-  max-width:142px;min-height:34px;border:1px solid var(--line);border-radius:8px;
-  background:#FCFAF5;font-size:10.5px;padding:4px 6px;color:var(--ink);outline:0;
-}
-.settings-copy .inline-select{width:100%;max-width:none;margin-top:5px}
 
 /* ---------- 加入会议 / 预定 ---------- */
 .join-form,.schedule-form{padding:17px 15px;display:grid;gap:18px}
@@ -821,27 +826,7 @@ img{max-width:100%}
   animation:scanMove 2.2s ease-in-out infinite;
 }
 @keyframes scanMove{0%,100%{top:18%}50%{top:80%}}
-.scan-hint{font-size:10px;color:var(--muted);text-align:center;margin:9px 0 12px;line-height:1.6}
-#scan-start{margin-bottom:8px}
-.scan-manual{display:flex;gap:8px;margin-top:10px}
-.scan-manual input{
-  flex:1;min-width:0;min-height:44px;border:1px solid var(--line-strong);border-radius:10px;
-  background:#FCFAF5;padding:10px 11px;font-size:16px;outline:0;
-}
-.scan-manual input:focus{border-color:var(--brand)}
-.scan-manual button{
-  min-width:62px;border-radius:10px;border:1px solid var(--line-strong);
-  background:var(--paper);font-size:11.5px;font-weight:600;color:var(--brand-dark);
-}
-.scan-manual button:hover{background:var(--brand-soft)}
-.scan-result{
-  margin-top:14px;padding:14px;border:1px solid #F0E4CC;border-radius:16px;
-  background:#FFF8E9;display:grid;gap:6px;
-}
-.scan-result h2{font-size:17px;letter-spacing:.02em;overflow-wrap:anywhere}
-.scan-result p{font-size:10px;color:var(--muted)}
-.scan-result-actions{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px}
-.scan-result-actions .button{min-height:42px;font-size:12px}
+.scan-hint{font-size:10px;color:var(--muted);text-align:center;margin:10px 6px 0;line-height:1.7}
 
 /* ---------- 弹层 ---------- */
 .overlay{position:absolute;inset:0;z-index:20;display:flex;align-items:flex-end}
@@ -926,7 +911,6 @@ img{max-width:100%}
 @media (max-width:390px){
   .page-scroll{padding-left:16px;padding-right:16px}
   .meeting-head{padding-left:16px;padding-right:16px}
-  .meeting-footer{padding-left:16px;padding-right:16px}
   .robot{width:96px;height:96px}
   .greeting{font-size:23px}
   .quick-action{font-size:10.5px}
@@ -939,10 +923,8 @@ img{max-width:100%}
   .status-chip{font-size:9px}
   .plan-grid{grid-template-columns:1fr}
   .stage-avatar{width:84px;height:84px;font-size:28px}
-  .footer-status{max-width:72px;font-size:8.5px}
-  .footer-note{max-width:60px;font-size:8.5px}
-  .meeting-controls{gap:6px}
-  .control-button,.mic-control{width:40px;height:40px}
+  .bar-button{font-size:8.5px;min-height:48px}
+  .meeting-bar{padding-left:3px;padding-right:3px}
   .scan-view{height:280px}
 }
 @media (max-height:680px){
@@ -950,7 +932,6 @@ img{max-width:100%}
   .hero{padding:13px}
   .robot{width:86px;height:86px}
   .quick-action{min-height:70px}
-  .meeting-footer{padding-top:6px;padding-bottom:calc(6px + var(--safe-bottom))}
 }
 html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{
   animation-duration:.001ms!important;

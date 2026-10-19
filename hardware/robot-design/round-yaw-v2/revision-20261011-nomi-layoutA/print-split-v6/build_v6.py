@@ -324,10 +324,10 @@ cm=P['camera_module'];crs=P['camera_recess'];cy=fb+cm[1]/2+.2+crs
 cc=box('CAMERA_CRADLE',(cm[0]+5,cm[1]+1.6+crs,cm[2]+5),(0,fb+(cm[1]+1.6+crs)/2,cz),bevel=.6);boolop(cc,box('CAMERA_POCKET',(cm[0]+1.2,cm[1]+1.4,cm[2]+1.2),(0,cy-.5,cz)));boolop(cc,box('CAMERA_FPC_EXIT',(6,10,8),(0,cy+3,cz-4)))
 boolop(cc,cylinder('CAM_CRADLE_LENS_TUBE',P['camera_lens_d'],cm[1]+1.6+crs+2,(0,fb+(cm[1]+1.6+crs)/2,cz),'Y'))
 part(cc,'摄像头8×8托架（贴面板背面）',motion=True)
-pv=box('PRIVACY_GUIDE',(42,1.6,12),(8,fy0-ft_/2-.8,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,2,8.4),(8,fy0-ft_/2-.4,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
+pv=box('PRIVACY_GUIDE',(42,2,12),(8,fy0-ft_/2-1,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,1.5,8.4),(8,fy0-ft_/2-.45,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
 for x in (-10,26):hole(pv,(x,fy0,cz),2.4,8,'Y')
 part(pv,'隐私滑盖导轨（前贴面板）',motion=True)
-bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-1.0,cz),bevel=.2);unite(bl,box('PRIV_TAB',(2.4,1.6,2.4),(0,fy0-ft_/2-2.0,cz)))
+bl=box('PRIVACY_BLADE',(10,.8,8),(0,fy0-ft_/2-.6,cz),bevel=.2);unite(bl,box('PRIV_TAB',(2.4,2.2,2.4),(0,fy0-ft_/2-1.9,cz)))
 part(bl,'隐私滑片（打开位置在x=11+）',motion=True)
 bw,bt,bh=P['board'];pcy=lback+2.5+P['board_comp']+bt/2+.1;P['board_pcb_y']=pcy;btop=cz+3;bz=btop-bh/2;P['board_z']=(btop-bh,btop)
 P['camera_fpc_span_mm']=round(math.hypot((pcy-bt/2)-(cy+cm[1]/2),btop-6-(cz-cm[2]/2)),2);P['camera_fpc_slack_mm']=round(P['camera_fpc']-P['camera_fpc_span_mm'],2);assert P['camera_fpc_span_mm']<=P['camera_fpc_max_span'],P['camera_fpc_span_mm']

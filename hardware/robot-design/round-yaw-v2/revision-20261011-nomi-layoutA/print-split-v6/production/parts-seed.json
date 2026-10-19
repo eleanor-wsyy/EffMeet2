@@ -101,10 +101,10 @@
   },
   {
    "id": "P15",
-   "name": "MG90S舵机可调耳架（±2张紧槽）",
+   "name": "MG90S舵机可调耳架（±2张紧槽＋尾端出线让位）",
    "object": "N6_SERVO_ADJUSTABLE_CRADLE",
    "rotating": false,
-   "function": "MG90S舵机可调耳架（±2张紧槽）"
+   "function": "MG90S舵机可调耳架（±2张紧槽＋尾端出线让位）"
   },
   {
    "id": "P16",
@@ -178,10 +178,10 @@
   },
   {
    "id": "P26",
-   "name": "摄像头8×8托架（贴面板背面）",
+   "name": "摄像头8×8托架v6r3（镜头导向＋P33背板夹持）",
    "object": "N6_CAMERA_CRADLE",
    "rotating": true,
-   "function": "摄像头8×8托架（贴面板背面）"
+   "function": "摄像头8×8托架v6r3（镜头导向＋P33背板夹持）"
   },
   {
    "id": "P27",
@@ -217,6 +217,13 @@
    "object": "N6_CABLE_SADDLE_HEAD",
    "rotating": true,
    "function": "线束固定鞍（头侧）"
+  },
+  {
+   "id": "P33",
+   "name": "摄像头背板（2×M3自攻夹持＋FPC槽＋压筋）",
+   "object": "N6_CAMERA_BACK_PLATE",
+   "rotating": true,
+   "function": "摄像头背板（2×M3自攻夹持＋FPC槽＋压筋）"
   }
  ]
 }

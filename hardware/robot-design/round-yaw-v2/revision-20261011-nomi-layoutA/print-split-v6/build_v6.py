@@ -248,8 +248,10 @@ for dx in (-1,1):
  unite(sv,box(f'SERVO_EAR_PAD_{dx}',(8,2*wy+3,3),(rx,0,ez0-1.5),bevel=.5))
  boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,8),(rx,0,ez0-1.5),bevel=.8))
 boolop(sv,box('SERVO_BODY_POCKET',(sb_[1]+1.2,sb_[0]+1.2,40),(SCX,0,sbz+20)))
+# 2026-10-19 v6r3：MG90S 尾端底角出线让位槽（实打发现线束被口袋尾端/底板/侧墙顶住）
+boolop(sv,box('SERVO_WIRE_RELIEF',(6.8,26,9.6),(SCX-8.4,0,fl+4.8)))
 for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn)
-part(sv,'MG90S舵机可调耳架（±2张紧槽）')
+part(sv,'MG90S舵机可调耳架（±2张紧槽＋尾端出线让位）')
 # ---------- speaker cradle (front), amp tray, power-input tray, mic pocket retainers ----------
 spd,spl=P['speaker'];spz=P['speaker_z'];spy=P['speaker_front_y']+spl/2
 sp=ring('SPEAKER_CRADLE',46,40.6,spl+1,(0,spy,spz),'Y');unite(sp,ring('SPEAKER_REAR_LIP',45.2,36,1.6,(0,spy+spl/2+1.1-.2,spz),'Y'))
@@ -320,10 +322,19 @@ for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):hole(lcdf,(x,lback+1,z),2.8,6,'Y')
 boolop(lcdf,box('LCD_FRAME_HEADER_NOTCH',(8,6,22),(lp_x:=P['lcd_pcb'][0]/2-3,lback+1,wz)))
 part(lcdf,'LCD后压框（周边夹持，孔位UNVERIFIED）',motion=True)
-cm=P['camera_module'];crs=P['camera_recess'];cy=fb+cm[1]/2+.2+crs
-cc=box('CAMERA_CRADLE',(cm[0]+5,cm[1]+1.6+crs,cm[2]+5),(0,fb+(cm[1]+1.6+crs)/2,cz),bevel=.6);boolop(cc,box('CAMERA_POCKET',(cm[0]+1.2,cm[1]+1.4,cm[2]+1.2),(0,cy-.5,cz)));boolop(cc,box('CAMERA_FPC_EXIT',(6,10,8),(0,cy+3,cz-4)))
-boolop(cc,cylinder('CAM_CRADLE_LENS_TUBE',P['camera_lens_d'],cm[1]+1.6+crs+2,(0,fb+(cm[1]+1.6+crs)/2,cz),'Y'))
-part(cc,'摄像头8×8托架（贴面板背面）',motion=True)
+# 2026-10-19 v6r3：模组前壁3.5（镜头凸4→尖入P24孔0.5~0.7导向），背腔2.6供FPC折弯，P33背板夹持
+cm=P['camera_module'];cy=fb+3.5+cm[1]/2
+cc=box('CAMERA_CRADLE',(14.8,10.1,13),(0,fb+5.05,cz),bevel=.6)
+for sx in (-1,1):unite(cc,box(f'CAM_CLAMP_BOSS_{sx}',(2.2,5.1,5),(sx*8.3,fb+7.55,cz),bevel=.4))
+boolop(cc,box('CAMERA_POCKET',(cm[0]+.6,6.6,cm[2]+.6),(0,fb+6.8,cz)))
+boolop(cc,cylinder('CAM_CRADLE_LENS_TUBE',P['camera_lens_d'],6,(0,fb+1.75,cz),'Y'))
+for sx in (-1,1):hole(cc,(sx*6.95,fb+7.5,cz),2.5,7,'Y')
+part(cc,'摄像头8×8托架v6r3（镜头导向＋P33背板夹持）',motion=True)
+# P33 背板：对象在此创建，注册放到最后一个 part() 之后，避免 31 件编号位移（P32 编号保留给无源麦胶座）
+cpl=box('CAMERA_BACK_PLATE',(17.4,1.6,11),(0,fb+10.9,cz),bevel=.3)
+unite(cpl,box('CAM_PLATE_PRESS_RIB',(7,2.6,2.4),(0,fb+8.9,cz+2.7),bevel=.3))
+boolop(cpl,box('CAM_PLATE_FPC_SLOT',(6.4,3,2.5),(0,fb+10.9,cz-4.25)))
+for sx in (-1,1):hole(cpl,(sx*6.95,fb+10.9,cz),3.4,6,'Y')
 pv=box('PRIVACY_GUIDE',(42,1.6,12),(8,fy0-ft_/2-.8,cz),bevel=.4);boolop(pv,box('PRIV_TRACK',(28,2,8.4),(8,fy0-ft_/2-.4,cz)));boolop(pv,box('PRIV_TAB_SLOT',(14,4,3.2),(5.5,fy0-ft_/2-1,cz)))
 for x in (-10,26):hole(pv,(x,fy0,cz),2.4,8,'Y')
 part(pv,'隐私滑盖导轨（前贴面板）',motion=True)
@@ -352,6 +363,7 @@ proxy(box('USB_PLUG_ACCESS',(bw-6,10,P['usb_access']),(0,pcy,btop+P['usb_access'
 proxy(ring('BEARING_LOWER',42,30,7,(0,0,bz0)),'6806',False,METAL);proxy(ring('BEARING_UPPER',42,30,7,(0,0,bz1)),'6806',False,METAL)
 sbx=box('SERVO_MG90S',(sb_[1],sb_[0],sb_[2]),(SCX,0,sbz+sb_[2]/2));unite(sbx,box('SERVO_EARS',(P['servo_ear_len'],sb_[0],2.5),(SCX,0,ez0+1.25)));unite(sbx,cylinder('SERVO_SPLINE',5,hz-2-(sbz+sb_[2])+.01,(SX,0,(hz-2+sbz+sb_[2])/2)))
 proxy(sbx,'MG90S',False,BLUE)
+proxy(box('SERVO_WIRE_STUB',(3.5,3.5,7.5),(SCX-9.5,0,sbz+.25)),'MG90S尾端出线段（落在P15让位槽，预算）',False,CABLE)  # v6r3：独立代理，避免撑大舵机bbox
 proxy(cylinder('SPEAKER_40',spd,spl,(0,spy,spz),'Y'),'speaker 40x17',False,BLACK)
 for sx in (-1,1):proxy(cylinder(f'INMP441_{sx}',P['mic_d'],1.6,(sx*mx,mwy-2.8,mz),'Y'),'INMP441 Ø14',False)
 proxy(box('MAX98357A',(aw,ad,1.6),(ax,ay,af+2.5+.8+.05)),'amp 17.7x19.1',False)
@@ -371,6 +383,7 @@ hole(sd1,(-20,4,fl+2),2.6,8)
 part(sd1,'线束固定鞍（底座侧）')
 sd2=box('CABLE_SADDLE_HEAD',(14,10,5),(hsx,hsy,hft+3+2.5),bevel=.6);boolop(sd2,box('SADDLE2_SLOT',(16,4,3),(hsx,hsy+2,hft+3+3.6)));hole(sd2,(hsx,hsy,hft+5),3.0,8)
 part(sd2,'线束固定鞍（头侧）',motion=True)
+part(cpl,'摄像头背板（2×M3自攻夹持＋FPC槽＋压筋）',motion=True);parts[-1]['id']='P33'  # P32 编号保留给无源麦胶座（见 UNREGISTERED-PARTS.md）
 # ---------- yaw parenting: everything rotating + their control objects ----------
 def deps(o,acc):
  for m in o.modifiers:

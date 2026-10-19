@@ -10,7 +10,7 @@
 |---|---|
 | 模型（场景 `N6_COMPACT_CANDIDATE`） | [EffMeet2_NOMI_布局A_v6_紧凑候选.blend](EffMeet2_NOMI_布局A_v6_紧凑候选.blend) |
 | 生成源（尺寸全在 `PARAMS`） | [build_v6.py](build_v6.py) |
-| 件表 | [parts.json](parts.json) / [PARTS.csv](PARTS.csv)（31 件） |
+| 件表 | [parts.json](parts.json) / [PARTS.csv](PARTS.csv)（32 件；v6r3 新增 P33 摄像头背板，P32 编号保留给无源麦胶座） |
 | 候选 STL | `candidate-stl/Pxx_*_UNVERIFIED.stl` |
 | 检查 | [production/stage1-checks.json](production/stage1-checks.json)、[production/export-byte-audit.json](production/export-byte-audit.json)、[production/decimate-audit.json](production/decimate-audit.json)（减面自校验）、[production/plate-registry.json](production/plate-registry.json)（盘内容+层数指纹） |
 | 实测表 / 打印手册 | [MEASUREMENTS.csv](MEASUREMENTS.csv) / [PLATE-RUNBOOK.md](PLATE-RUNBOOK.md) |
@@ -25,6 +25,7 @@
 | **可打印盘（2026-10-16 最新）** | [plates-merged/](plates-merged/) —— 已打：SAFE/THINP25/G1/G2NIGHT/B1p-v2/NIGHT/BNIGHT2(停,湿黑料)/COUPON；待打：**G3p-DEC**(P02减面13614,已验证)/INTERN2-DEC(P04+P20/P18T/P32×2)/BVIS或BVIS-TILT(黑P14+P28,烘料后)/NECK-PETG-A1(PETG替身颈+滑片)/S1PETG-A1(可选备份)；减面STL在 `decimated/`；作废盘归档 `_superseded/`。**每盘的件数/层高/隐含层数/无源件见 [PLATE-RUNBOOK §6 盘登记总表](PLATE-RUNBOOK.md)**（由 `tools/plate_registry.py` 实测生成）。⚠️ INTERN2-DEC 里的 `P04_DRIVER32T_dec` 名带 dec 实为**未减面** 4896 面（见 UNREGISTERED-PARTS.md） |
 | **重打盘（2026-10-18）** | [reprint-20261018/](../../../../../reprint-20261018/) —— **P03 翻转 + P05/P06 原向 + P28 独立盘**；**已实打成功**。设置卡 [PRINT-CARD-REPRINT.md](../../../../../reprint-20261018/PRINT-CARD-REPRINT.md)：P03 翻、P05/P06 不翻、P06 Ø34×1.0 阻挡器、P28 10mm brim |
 | **P15/P17/P26/P29 修复盘（2026-10-19）** | [TMP-FIX-P15P17P26P29_BLACK_016.3mf](plates-merged/TMP-FIX-P15P17P26P29_BLACK_016.3mf) + [盘卡](plates-merged/PLATE-CARD-P15P17P26P29.md) —— **P26 已转 90°（镜管朝床）**；P15/P17 **局部树支撑 5%**（P15 z15–16/20–21；P17 z7–8 托盘外沿）；P29 仅 brim5/支撑关；**P24 摄像孔另钻 6.8**；盘卡含返工原因/P24 补改 |
+| **v6r3 修复（2026-10-19 晚，实打发现）** | [reprint-20261019-v6r3/](../../../../../reprint-20261019-v6r3/) —— **P15 尾端出线让位槽**（MG90S 线被顶住塞不进）、**P26 重设计＋新增 P33 背板**（模组无保持结构；镜头入 P24 孔导向、2×M3×8 自攻夹持、FPC 槽）；盘卡含 30 秒检查；**其余 29 件 STL 字节不变**（逐件 diff 0 漂移） |
 | 渲染 | [00 v5/v6 对比](renders/00_compare_v5_v6.png)、[01 主视](renders/01_hero.png)、[02 正视](renders/02_front.png)、[03 侧视](renders/03_side.png)、[05 内部](renders/05_internal.png) |
 
 ## 尺寸（mm，名义）

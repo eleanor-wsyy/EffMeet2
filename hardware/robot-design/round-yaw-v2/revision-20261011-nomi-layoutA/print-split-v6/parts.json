@@ -7,7 +7,7 @@
   "manufacturing_ready": false,
   "hardware_validated": false,
   "plates_frozen": false,
-  "model_sha256": "e77810ee3072eb8d41ff5f51be9965e7037bd9b1053d7db4bfe20cfc7553b84e",
+  "model_sha256": "372420a54a622abc6ccc3b7004ff6440ee7aa4dbf6da76842ce737b8695e47e6",
   "parts": [
     {
       "id": "P01",
@@ -403,7 +403,7 @@
     },
     {
       "id": "P15",
-      "name": "MG90S舵机可调耳架（±2张紧槽）",
+      "name": "MG90S舵机可调耳架（±2张紧槽＋尾端出线让位）",
       "object": "N6_SERVO_ADJUSTABLE_CRADLE",
       "quantity": 1,
       "material": "PLA Matte",
@@ -424,7 +424,7 @@
       "fits_256_bed": true,
       "rotating_with_head": false,
       "stl": "candidate-stl/P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
-      "stl_sha256": "6b079c23b5031dec7592d7dea15062b9f468f2c809bc2cd896447a933f8c945c",
+      "stl_sha256": "35956bb998f45458573712f3fb600d836213b7473d2174f381745c2626c76da3",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -711,14 +711,14 @@
     },
     {
       "id": "P26",
-      "name": "摄像头8×8托架（贴面板背面）",
+      "name": "摄像头8×8托架v6r3（镜头导向＋P33背板夹持）",
       "object": "N6_CAMERA_CRADLE",
       "quantity": 1,
       "material": "PLA Matte",
       "color": "黑",
       "interface_status": "unverified",
       "size_mm": [
-        13.0,
+        18.8,
         13.0,
         10.1
       ],
@@ -732,7 +732,7 @@
       "fits_256_bed": true,
       "rotating_with_head": true,
       "stl": "candidate-stl/P26_CAMERA_CRADLE_UNVERIFIED.stl",
-      "stl_sha256": "e1a472b26ac3419956885369f56e8ab5ec113d97e5a202c98608e2b3c287fca4",
+      "stl_sha256": "57e578b5bb848fa9de7787f238ad2b4e53999d6fd7e5d6a95db69bfb92f2d219",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"
@@ -873,6 +873,34 @@
       "rotating_with_head": true,
       "stl": "candidate-stl/P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl",
       "stl_sha256": "260d74c67d3ddd72cd53f61fab2ca0ed54413ee8ff56241420a207ae24257666",
+      "slicer_status": "NOT_RUN",
+      "sample_print_status": "NOT_RUN",
+      "release_status": "CANDIDATE_NOT_RELEASED"
+    },
+    {
+      "id": "P33",
+      "name": "摄像头背板（2×M3自攻夹持＋FPC槽＋压筋）",
+      "object": "N6_CAMERA_BACK_PLATE",
+      "quantity": 1,
+      "material": "PLA Matte",
+      "color": "黑",
+      "interface_status": "unverified",
+      "size_mm": [
+        17.4,
+        11.0,
+        4.1
+      ],
+      "orientation_start_euler_deg": [
+        -90,
+        0,
+        0
+      ],
+      "support_start": "板面平放；压筋/FPC槽向上，无支撑",
+      "plate_start": "BLACK",
+      "fits_256_bed": true,
+      "rotating_with_head": true,
+      "stl": "candidate-stl/P33_CAMERA_BACK_PLATE_UNVERIFIED.stl",
+      "stl_sha256": "b6a10bbcf4043c9c8b0c633acaa076d410c37dea95ebb8d33b9bfef991ced604",
       "slicer_status": "NOT_RUN",
       "sample_print_status": "NOT_RUN",
       "release_status": "CANDIDATE_NOT_RELEASED"

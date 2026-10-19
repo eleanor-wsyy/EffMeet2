@@ -4,7 +4,7 @@ import json,hashlib,struct,csv,ast,re
 ROOT=Path(__file__).resolve().parent;PJ=(ROOT/'../../parameters.json').resolve();P=json.loads(PJ.read_text(encoding='utf8'))
 d=json.loads((ROOT/'parts.json').read_text(encoding='utf8'));rows=d['parts'];checks=[];N=len(rows)
 assert d['revision']=='v6' and d['layout']=='A2' and not d['manufacturing_ready'] and not d['hardware_validated'] and not d['plates_frozen']
-assert N==31 and len({r['id'] for r in rows})==N
+assert N==32 and len({r['id'] for r in rows})==N  # v6r3 新增 P33 摄像头背板（P32 编号保留给无源麦胶座）
 blend=ROOT/'EffMeet2_NOMI_布局A_v6_紧凑候选.blend';assert d['model_sha256']==hashlib.sha256(blend.read_bytes()).hexdigest(),'STLs not exported from current blend'
 for r in rows:
  assert r['quantity']==1 and r['interface_status']=='unverified' and r['release_status']=='CANDIDATE_NOT_RELEASED' and r['slicer_status']==r['sample_print_status']=='NOT_RUN'

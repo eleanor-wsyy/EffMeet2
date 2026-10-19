@@ -1,6 +1,6 @@
 {
  "status": "PASS",
- "count": 31,
+ "count": 32,
  "scope": "re-read float32 binary STL bytes; candidate only",
  "parts": [
   {
@@ -144,14 +144,14 @@
    "manifold_volume_mm3": 18359.06
   },
   {
-   "triangles": 1072,
+   "triangles": 960,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 5684.3,
+   "signed_volume_mm3": 5464.12,
    "id": "P15",
    "stl": "P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 5684.3
+   "manifold_volume_mm3": 5464.12
   },
   {
    "triangles": 1816,
@@ -254,14 +254,14 @@
    "manifold_volume_mm3": 4375.52
   },
   {
-   "triangles": 656,
+   "triangles": 1472,
    "watertight": true,
    "collapsed": 0,
    "zero_area": 0,
-   "signed_volume_mm3": 1006.75,
+   "signed_volume_mm3": 1369.08,
    "id": "P26",
    "stl": "P26_CAMERA_CRADLE_UNVERIFIED.stl",
-   "manifold_volume_mm3": 1006.75
+   "manifold_volume_mm3": 1369.08
   },
   {
    "triangles": 744,
@@ -312,6 +312,16 @@
    "id": "P31",
    "stl": "P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl",
    "manifold_volume_mm3": 503.19
+  },
+  {
+   "triangles": 972,
+   "watertight": true,
+   "collapsed": 0,
+   "zero_area": 0,
+   "signed_volume_mm3": 290.57,
+   "id": "P33",
+   "stl": "P33_CAMERA_BACK_PLATE_UNVERIFIED.stl",
+   "manifold_volume_mm3": 290.57
   }
  ]
 }

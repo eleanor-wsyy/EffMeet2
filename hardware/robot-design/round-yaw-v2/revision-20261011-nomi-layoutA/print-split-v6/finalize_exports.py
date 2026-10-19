@@ -13,7 +13,7 @@ GREY={'N6_HEAD_SHELL','N6_BASE_CUP','N6_BASE_LID'};BED=256
 # start orientation (deg XYZ) + support hint; Y-axis cylindrical/face parts lie flat with front down.
 ORIENT={'N6_HEAD_SHELL':((90,0,0),'前圈朝下；内底/接收座局部支撑，须试切片'),'N6_FACE_PANEL':((90,0,0),'面朝平台；后柱向上'),
  'N6_BASE_CUP':((0,0,0),'底面朝下；肩部圆弧/声槽支撑待预览'),'N6_BASE_LID':((0,0,0),'接缝圈朝下；顶面悬空需树支撑'),
- 'N6_LCD_REAR_CLAMP_FRAME':((90,0,0),'框面平放'),'N6_CAMERA_CRADLE':((90,0,0),'镜头管朝平台'),'N6_PRIVACY_GUIDE':((90,0,0),'平放，导槽向上'),
+ 'N6_LCD_REAR_CLAMP_FRAME':((90,0,0),'框面平放'),'N6_CAMERA_CRADLE':((90,0,0),'镜头管朝平台'),'N6_CAMERA_BACK_PLATE':((-90,0,0),'板面平放；压筋/FPC槽向上，无支撑'),'N6_PRIVACY_GUIDE':((90,0,0),'平放，导槽向上'),
  'N6_PRIVACY_BLADE':((90,0,0),'平放；拨片局部支撑'),'N6_SPEAKER_CRADLE':((90,0,0),'圆筒轴竖直；腿部支撑待预览'),
  'N6_MIC_RETAINER_-1':((90,0,0),'平放，无支撑'),'N6_MIC_RETAINER_1':((90,0,0),'平放，无支撑'),'N6_STOP_KEY_CAP':((180,0,0),'键面朝平台')}
 def rot(deg):

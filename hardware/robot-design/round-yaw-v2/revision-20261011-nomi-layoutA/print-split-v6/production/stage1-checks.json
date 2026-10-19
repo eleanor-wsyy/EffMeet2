@@ -267,8 +267,8 @@
    113.60000000000002,
    176.20000000000002
   ],
-  "camera_fpc_span_mm": 9.55,
-  "camera_fpc_slack_mm": 4.45
+  "camera_fpc_span_mm": 10.75,
+  "camera_fpc_slack_mm": 3.25
  },
  "overall_bbox_mm": [
   [
@@ -585,12 +585,12 @@
   ],
   "P26 CAMERA_CRADLE": [
    [
-    -6.5,
+    -9.4,
     -45.0,
     166.7
    ],
    [
-    6.5,
+    9.4,
     -34.9,
     179.7
    ]
@@ -653,6 +653,18 @@
     7.0,
     -31.0,
     91.5
+   ]
+  ],
+  "P33 CAMERA_BACK_PLATE": [
+   [
+    -8.7,
+    -37.4,
+    167.7
+   ],
+   [
+    8.7,
+    -33.3,
+    178.7
    ]
   ]
  },
@@ -877,6 +889,10 @@
   "CABLE_SADDLE_HEAD": {
    "nonmanifold_edges": 0,
    "components": 1
+  },
+  "CAMERA_BACK_PLATE": {
+   "nonmanifold_edges": 0,
+   "components": 1
   }
  },
  "overlap_part_part": [],
@@ -939,6 +955,11 @@
   },
   {
    "proxy": "SERVO_MG90S",
+   "shell": "base",
+   "inside": true
+  },
+  {
+   "proxy": "SERVO_WIRE_STUB",
    "shell": "base",
    "inside": true
   },

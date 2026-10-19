@@ -23,6 +23,9 @@ INMP441_PADW,含焊盘总宽(两侧凸出),P32腔19须≥实测总宽+0.5余量,
 INMP441_BOTTOM,底面拾音孔中心偏差,≤0.5mm→P32声孔位置确认,缺照片(最重要一张未拍),学妹交付D档,2026-10-16,UNVERIFIED
 P24_CAMERA_APERTURE,面板摄像孔,6.8（P26镜管6.5+0.3）,6.8名义（build_v6 2026-10-19 FITFIX）；旧P24 4.2需钻6.8,build_v6,2026-10-19,UNVERIFIED
 P26_LENS_TUBE,摄像头托架镜管内径,6.5,6.5名义（build_v6 2026-10-19 FITFIX）；旧4.6,build_v6,2026-10-19,UNVERIFIED
+P26_V6R3,摄像头托架夹持结构（v6r3）,前壁3.5（镜头凸4→入P24孔0.5~0.7导向）；背腔2.6供FPC折弯；2×M3自攻背柱（柱距13.9/导孔Ø2.5）,名义（build_v6 2026-10-19晚 v6r3）；旧版无保持结构（实打发现模组晃）,build_v6,2026-10-19,UNVERIFIED
+P33_BACK_PLATE,摄像头背板（新件P33）,FPC槽6.4×2.5；孔2×Ø3.4距13.9；压筋顶模组背面（名义零压）,名义（build_v6 2026-10-19晚 v6r3新增）,build_v6,2026-10-19,UNVERIFIED
 P15_SERVO_POCKET,舵机口袋宽,13.7（12.5+1.2）,13.7名义（build_v6 2026-10-19 FITFIX）；旧12.5+0.6,build_v6,2026-10-19,UNVERIFIED
+P15_WIRE_RELIEF,舵机尾端出线让位槽,槽宽6.8/通高9.6（尾端底角出线，实打发现线被顶住后v6r3补）,6.8名义（build_v6 2026-10-19晚 v6r3）；旧版无槽,build_v6,2026-10-19,UNVERIFIED
 P17_AMP_POST_PITCH,功放M2柱距,12.6,12.6名义（两柱Ø4.5/孔Ø1.7；build_v6 2026-10-19 FITFIX）,build_v6,2026-10-19,UNVERIFIED
 P29_CORE_SLOT,核心板槽宽,1.8（1.6+0.2）,1.8名义（build_v6 2026-10-19 FITFIX）；旧2.1,build_v6,2026-10-19,UNVERIFIED

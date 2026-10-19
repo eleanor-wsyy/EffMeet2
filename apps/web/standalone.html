@@ -470,23 +470,25 @@ img{max-width:100%}
 
 .meeting-bar{
   flex-shrink:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:2px;
-  background:#1F1F23;border-top:1px solid #2C2C31;
+  background:#FFFBF4;border-top:1px solid #EADFD0;
+  box-shadow:0 -6px 18px rgba(120,80,50,.06);
   padding:7px 6px calc(7px + var(--safe-bottom));z-index:4;
 }
 .bar-button{
   min-width:0;min-height:52px;display:flex;flex-direction:column;align-items:center;justify-content:center;
-  gap:4px;border-radius:10px;color:#F4F4F5;font-size:9.5px;font-weight:500;line-height:1.2;
+  gap:4px;border-radius:10px;color:#6F6557;font-size:9.5px;font-weight:500;line-height:1.2;
   transition:background .15s ease,color .15s ease;
 }
-.bar-button:hover{background:rgba(255,255,255,.07)}
-.bar-button:active{background:rgba(255,255,255,.12)}
+.bar-button:hover{background:#FFF2E9}
+.bar-button:active{background:#FFE7DA}
 .bar-button span{max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .bar-icon{position:relative;display:grid;place-items:center;width:24px;height:24px;flex-shrink:0}
 .bar-button svg{width:22px;height:22px}
-.bar-button.on{color:#FF8A66}
+.bar-button.on{color:var(--brand);background:var(--brand-soft)}
+.bar-button.muted{color:#C0492B}
 .bar-button.muted .bar-icon::after{
   content:"";position:absolute;left:50%;top:50%;width:24px;height:2px;border-radius:2px;
-  background:#F87171;transform:translate(-50%,-50%) rotate(-45deg);
+  background:#E05B45;transform:translate(-50%,-50%) rotate(-45deg);
 }
 .attendee-list{display:grid;gap:7px}
 .attendee-row{
@@ -1269,16 +1271,16 @@ html.reduce-motion *,html.reduce-motion *::before,html.reduce-motion *::after{
       <div class="page-scroll">
         <div class="subpage-intro">
           <h2>连接现场，让你的观点被听到</h2>
-          <p>演示环境：任意有效会议 ID 都会打开本地示例会议。</p>
+          <p>演示环境：任意有效会议号都会打开本地示例会议。</p>
         </div>
         <form id="join-form" class="card join-form" novalidate>
           <div class="field">
-            <label for="j-mid" class="step-title"><span class="step-number">1</span>会议链接</label>
+            <label for="j-mid" class="step-title"><span class="step-number">1</span>会议号</label>
             <div class="input-wrap">
               <img class="icon" src="data:image/svg+xml;base64,PHN2ZyBwcmVzZXJ2ZUFzcGVjdFJhdGlvPSJub25lIiBvdmVyZmxvdz0idmlzaWJsZSIgc3R5bGU9ImRpc3BsYXk6IGJsb2NrOyIgd2lkdGg9IjE4IiBoZWlnaHQ9IjE4IiB2aWV3Qm94PSIwIDAgMTggMTgiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxnIGlkPSJsaW5rIiBjbGlwLXBhdGg9InVybCgjY2xpcDBfMF8xMCkiPgo8cGF0aCBpZD0iVmVjdG9yIiBkPSJNNy41MDAxMiA5Ljc0OTk3QzcuODIyMjEgMTAuMTgwNiA4LjIzMzE0IDEwLjUzNjkgOC43MDUwMyAxMC43OTQ3QzkuMTc2OTMgMTEuMDUyNSA5LjY5ODc1IDExLjIwNTggMTAuMjM1MSAxMS4yNDQyQzEwLjc3MTUgMTEuMjgyNiAxMS4zMDk4IDExLjIwNTIgMTEuODEzNiAxMS4wMTczQzEyLjMxNzQgMTAuODI5NCAxMi43NzUgMTAuNTM1MyAxMy4xNTUxIDEwLjE1NUwxNS40MDUxIDcuOTA0OTdDMTYuMDg4MiA3LjE5NzcxIDE2LjQ2NjIgNi4yNTA0NSAxNi40NTc2IDUuMjY3MjFDMTYuNDQ5MSA0LjI4Mzk4IDE2LjA1NDcgMy4zNDM0MyAxNS4zNTk0IDIuNjQ4MTVDMTQuNjY0MiAxLjk1Mjg3IDEzLjcyMzYgMS41NTg0OSAxMi43NDA0IDEuNTQ5OTRDMTEuNzU3MSAxLjU0MTQgMTAuODA5OSAxLjkxOTM4IDEwLjEwMjYgMi42MDI0N0w4LjgxMjYyIDMuODg0OTdNMTAuNTAwMyA4LjI1MDE2QzEwLjE3ODIgNy44MTk1NyA5Ljc2NzI1IDcuNDYzMjggOS4yOTUzNiA3LjIwNTQ2QzguODIzNDYgNi45NDc2NCA4LjMwMTY0IDYuNzk0MzMgNy43NjUyOCA2Ljc1NTkxQzcuMjI4OTIgNi43MTc1IDYuNjkwNTggNi43OTQ4OSA2LjE4Njc2IDYuOTgyODNDNS42ODI5NCA3LjE3MDc3IDUuMjI1NDMgNy40NjQ4NiA0Ljg0NTI3IDcuODQ1MTZMMi41OTUyNyAxMC4wOTUyQzEuOTEyMTggMTAuODAyNCAxLjUzNDIgMTEuNzQ5NyAxLjU0Mjc0IDEyLjczMjlDMS41NTEyOSAxMy43MTYyIDEuOTQ1NjcgMTQuNjU2NyAyLjY0MDk1IDE1LjM1MkMzLjMzNjIzIDE2LjA0NzMgNC4yNzY3OCAxNi40NDE2IDUuMjYwMDEgMTYuNDUwMkM2LjI0MzI1IDE2LjQ1ODcgNy4xOTA1MSAxNi4wODA4IDcuODk3NzcgMTUuMzk3N0w5LjE4MDI3IDE0LjExNTIiIHN0cm9rZT0iIzZCNzI4MCIgc3Ryb2tlLXdpZHRoPSIxLjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8L2c+CjxkZWZzPgo8Y2xpcFBhdGggaWQ9ImNsaXAwXzBfMTAiPgo8cmVjdCB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIGZpbGw9IndoaXRlIi8+CjwvY2xpcFBhdGg+CjwvZGVmcz4KPC9zdmc+Cg==" alt="" width="18" height="18">
-              <input id="j-mid" name="meeting" value="recycle-review" placeholder="粘贴会议链接或邀请" autocomplete="off" spellcheck="false" aria-describedby="meeting-help" required>
+              <input id="j-mid" name="meeting" value="recycle-review" placeholder="输入会议号" autocomplete="off" spellcheck="false" aria-describedby="meeting-help" required>
             </div>
-            <p class="field-hint" id="meeting-help">填写主持人提供的会议链接或会议 ID。</p>
+            <p class="field-hint" id="meeting-help">填写主持人提供的会议号。</p>
           </div>
           <div class="field">
             <label for="j-name" class="step-title"><span class="step-number">2</span>昵称</label>
@@ -1604,7 +1606,7 @@ function parseMeetingId(raw) {
       if (['app', 'meetings', 'meeting', 'join'].includes(value)) value = '';
     }
   }
-  if (!/^[a-zA-Z0-9_-]{1,128}$/.test(value)) throw new Error('请填写有效的会议 ID，或包含会议 ID 的邀请链接。');
+  if (!/^[a-zA-Z0-9_-]{1,128}$/.test(value)) throw new Error('请填写有效的会议号，或包含会议号的邀请链接。');
   return value;
 }
 function remainingSeconds(row, serverNow) {

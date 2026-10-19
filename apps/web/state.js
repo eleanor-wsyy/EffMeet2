@@ -11,7 +11,7 @@ export function parseMeetingId(raw) {
       if (['app', 'meetings', 'meeting', 'join'].includes(value)) value = '';
     }
   }
-  if (!/^[a-zA-Z0-9_-]{1,128}$/.test(value)) throw new Error('请填写有效的会议 ID，或包含会议 ID 的邀请链接。');
+  if (!/^[a-zA-Z0-9_-]{1,128}$/.test(value)) throw new Error('请填写有效的会议号，或包含会议号的邀请链接。');
   return value;
 }
 export function remainingSeconds(row, serverNow) {

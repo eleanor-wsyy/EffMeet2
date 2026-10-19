@@ -147,10 +147,10 @@ for x,y in COVER:
 # Bearing-tower and servo-cradle floor fixings: M3 into captive nuts under cup floor.
 def floor_fix(x,y):
  hole(cup,(x,y,zb+W/2),3.4,10);hexhole(cup,(x,y,zb+1.0),5.7,2.0)
-def floor_screw_up(host,x,y,slot=0):
+def floor_screw_up(host,x,y,slot=0,pilot=10,pc=None):
  if slot:boolop(cup,box(f'CUP_SLOT_{x}_{y}',(3.4+2*slot,3.4,10),(x,y,zb+W/2),bevel=1.6));boolop(cup,box(f'CUP_SLOT_CB_{x}_{y}',(6.2+2*slot,6.2,1.2),(x,y,zb+.6),bevel=3))
  else:hole(cup,(x,y,zb+W/2),3.4,10);hole(cup,(x,y,zb+.6),6.2,1.2)
- hole(host,(x,y,fl+5),2.6,10)
+ hole(host,(x,y,fl+5 if pc is None else pc),2.6,pilot)
 # Mic wall pockets (fixed, rear-top) and two retainer bosses tied to wall.
 def wall_y(z,x=0):
  r=base_inner_r(z);return P['base_y_scale']*math.sqrt(max(0,r*r-x*x))
@@ -246,9 +246,9 @@ for dy in (-1,1):
 for dx in (-1,1):
  rx=SCX+dx*P['servo_ear_pitch']/2
  unite(sv,box(f'SERVO_EAR_PAD_{dx}',(8,2*wy+3,3),(rx,0,ez0-1.5),bevel=.5))
- boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,8),(rx,0,ez0-1.5),bevel=.8))
+ boolop(sv,box(f'SERVO_EAR_PILOT_SLOT_{dx}',(1.8+2*tn,1.8,2.5),(rx,0,ez0-0.75),bevel=.8))
 boolop(sv,box('SERVO_BODY_POCKET',(sb_[1]+1.2,sb_[0]+1.2,40),(SCX,0,sbz+20)))
-for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn)
+for x in (SCX+5-8,SCX+5+8):floor_screw_up(sv,x,0,slot=tn,pilot=3.6,pc=fl+1.3)
 part(sv,'MG90S舵机可调耳架（±2张紧槽）')
 # ---------- speaker cradle (front), amp tray, power-input tray, mic pocket retainers ----------
 spd,spl=P['speaker'];spz=P['speaker_z'];spy=P['speaker_front_y']+spl/2
@@ -309,7 +309,7 @@ print('STAGE head shell',flush=True)
 fb=fy0+ft_/2;wz=hc+P['lcd_window_dz'];ww,wh=P['lcd_window'];cz=wz+wh/2+P['camera_above_window'];P['camera_z']=cz
 face=cylinder('FACE_PANEL',P['face_d'],ft_,(0,fy0,hc),'Y',segments=128)
 boolop(face,box('LCD_WINDOW',(ww,12,wh),(0,fy0,wz),bevel=.8));gp=P['glass_pocket'];boolop(face,box('GLASS_POCKET',(gp[0],gp[1]*2,gp[2]),(0,fb,wz),bevel=.6))
-boolop(face,cylinder('CAMERA_APERTURE',P['camera_lens_d']+.3,12,(0,fy0,cz),'Y'))
+boolop(face,cylinder('CAMERA_APERTURE',4.2,12,(0,fy0,cz),'Y'))
 LB=P['lcd_boss_rect'];sy=P['lcd_stack'];lback=fb-gp[1]+sy;P['lcd_back_y']=lback;pcbf=fb-gp[1]+4;P['lcd_pcb_front_y_assumed']=pcbf
 for x in (-LB[0]/2,LB[0]/2):
  for z in (wz-LB[1]/2,wz+LB[1]/2):unite(face,cylinder(f'FACE_LCD_BOSS_{x}_{z}',6,pcbf-fb+.2,(x,(fb+pcbf)/2-.1,z),'Y'));hole(face,(x,pcbf,z),2.2,8,'Y')

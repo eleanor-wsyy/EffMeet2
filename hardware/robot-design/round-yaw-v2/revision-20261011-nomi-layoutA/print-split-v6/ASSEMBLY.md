@@ -37,12 +37,12 @@
 | P18T | ![P18T](parts_img/P18T.png) | USB-C 输入板容差托架 | 灰 | ✅ INTERN2（10-18 实况） | E17 缺→线引到头部 |
 | P19 | ![P19](parts_img/P19.png) | 停止键帽 | 黑 | ✅ NIGHT | — |
 | P20 | ![P20](parts_img/P20.png) | 轻触开关托座 | 灰 | ⏳ INTERN2 **立柱断** → 见 §0.6 | 底座+开关热熔胶点固 |
-| P23 | ![P23](parts_img/P23.png) | 头壳 | 灰 | ✅ G1（v6r2） | — |
-| P24 | ![P24](parts_img/P24.png) | Ø106 面板（77×45 四柱） | 黑 | ✅ B1p-v2（v6r2；**孔 4.2 旧 → 钻 6.8**；新 candidate 6.8） | — |
+| P23 | ![P23](parts_img/P23.png) | 头壳（大平脸前口） | 灰 | ✅ **TMP-FIX-P23_GREY（FACEFLAT 10-19）** | — |
+| P24 | ![P24](parts_img/P24.png) | 大平脸面板 106×96 R21（77×45 四柱、屏窗 62×46） | 黑 | ✅ **TMP-FIX-P24_BLACK（FACEFLAT 10-19）** | — |
 | P25 | ![P25](parts_img/P25.png) | LCD 后压框 | 灰 | ✅ THINP25（v6r2 77×45） | — |
 | P26 | ![P26](parts_img/P26.png) | 摄像头托架 | 灰 | ✅ SAFE（旧）→ ⏳ FITFIX 黑盘（镜管 6.5，盘内转 90°） | 双面胶贴 P24 |
-| P27 | ![P27](parts_img/P27.png) | 隐私滑盖导轨 | 黑 | ✅ B1p-v2 | 轨空着 |
-| P28 | ![P28](parts_img/P28.png) | 隐私滑片 | 黑 | ✅ BVIS（端部瘤，修平） | 轨空着 |
+| P27 | ![P27](parts_img/P27.png) | 隐私滑盖导轨（挡墙 0.8/滑槽 1.2） | 黑 | ✅ **TMP-FIX-P27P28（RETAINFIX）** | 轨空着 |
+| P28 | ![P28](parts_img/P28.png) | 隐私滑片（拨片 2.2 穿出挡墙 1.0） | 黑 | ✅ **TMP-FIX-P27P28（RETAINFIX）** | 轨空着 |
 | P29 | ![P29](parts_img/P29.png) | 核心板竖直托架 | 灰 | ✅ SAFE（旧）→ ⏳ FITFIX 黑盘（槽 1.8） | — |
 | P30 | ![P30](parts_img/P30.png) | 线鞍 底座侧/头侧 ×2 | 灰 | ✅ SAFE | — |
 | P32 | ![P32](parts_img/P32.png) | 麦克风胶座 ×2 | 灰 | ✅ INTERN2（10-18 实况） | 麦双面胶贴壁对声孔 |
@@ -137,7 +137,7 @@
 2. LCD 放 P24 背面：四孔对四柱（**先量柱距 77×45**）→ P25 压框从后盖 **4×M2.5×16/18**：**拧到框贴板即停**（过拧压碎玻璃）。判据：屏面与窗口同心、排针朝 FPC 侧短边。
 3. 摄像头入 P26（**镜管 Ø6.5**）：镜头对 P24 的 **6.8mm 孔**（旧 P24 是 4.2，需钻到 6.8；窗口上沿+17）；P26 双面胶/点胶贴 P24 背面；**FPC 14mm 禁裁禁折死**，弯半径≥5mm。
 4. **P24+P25+LCD+P26 组成“前脸组件”，先不压进 P23。**
-   - P27 双面胶贴 P24 前面；**P28 盖在 P27 上面滑动，不是塞进 1.6mm 板内**；端部瘤先修平。
+   - P27 贴 P24 前面；**P28 先放进 P27 的导槽（滑槽 1.2、前挡墙 0.8）再上胶/螺钉**：滑片＋拨片从导轨背面（敞口面）放入、拨片穿过拨槽窗，面板把导轨背面封住后滑片前后都脱不出（关 0 ↔ 开 11+）。旧说法「P28 盖在 P27 上面滑动」已过时——现在就是槽内滑动。
    - P19 按在 6×6 开关柄上；松了点胶。
 5. 排线走头内 12mm 净空，弯半径≥5mm。
 
@@ -208,16 +208,17 @@
 
 | 件 | 不要用 | 用这个 |
 |---|---|---|
-| **P24 面板** | `plates-merged/P24_v6r2_77x45.stl`（旧 4.2 孔）/ B1p-v2 旧盘（4.2） | `candidate-stl/P24`（**v6r2 77×45 + Ø6.8**，10-19 重出）；旧 P24 打印件钻到 6.8 |
+| **P23 头壳 / P24 面板** | `P23_v6r2_77x45.stl`、`P24_v6r2_77x45.stl`、B1p-v2/G1p 旧盘、`candidate-stl/P23、P24`（**全部为圆脸旧版**） | **`plates-merged/P23_HEAD_SHELL_FACEFLAT.stl` + `P24_FACE_PANEL_FACEFLAT.stl`**（10-19 大平脸）；打印盘 `TMP-FIX-P23_GREY_016`（灰）/`TMP-FIX-P24_BLACK_016`（黑），前脸朝下。旧 P24 摄像孔 4.2 才需钻 6.8，FACEFLAT 新件按图开孔 |
 | **P25 压框** | 旧 80×45（历史） | `candidate-stl/P25`（v6r2 85×53）或 `plates-merged/P25_v6r2_77x45.stl` |
 | **P01 底座** | 旧 v6（历史） | `candidate-stl/P01`（**v6r3**，10-19 重导）或 `plates-merged/P01_v6r3_tolerant_usbc.stl` |
 | **P02 上盖** | `candidate-stl/P02`（18134 面，未减面） | `plates-merged/decimated/P02_decimated.stl` |
 | **P04** | — | candidate 即 decimated（减面 no-op，4896 面） |
-| **P07–P10 / P16 / P11 / P23** | — | candidate 与已打盘一致 |
+| **P07–P10 / P16 / P11** | — | candidate 与已打盘一致 |
 | **P18T / P32** | — | 只在 `TMP-INTERN2-DEC` / `TMP-P18T_BLACK` / `TMP-MICHOLDER` 3MF 内，无独立 STL |
+| **P27/P28** | 旧 B1p-v2/BVIS 件（挡墙 0.2 打不出、滑片会掉） | `plates-merged/P27_PRIVACY_GUIDE_RETAINFIX.stl` + `P28_PRIVACY_BLADE_RETAINFIX.stl`（挡墙 0.8/槽 1.2）；打印盘 `TMP-FIX-P27P28_BLACK_016` |
 | **P21/P22** | 已作废 | 不打印，麦走 P32 |
 
-**装前 30 秒**：量 P24/P25 四柱距是不是 **77**（不是 80）；P24 摄像孔 **6.8**（旧件钻）、P26 镜管 **6.5**、P15 口袋 **13.7**、P17 总高 **12.1**、P29 槽 **1.8**；P02 中心孔 **44**。
+**装前 30 秒**：P23/P24 认准 **FACEFLAT**（大平脸 106×96，不要 v6r2 圆脸件）；量 P24/P25 四柱距是不是 **77**（不是 80）；旧 P24 摄像孔才需钻 **6.8**、P26 镜管 **6.5**、P15 口袋 **13.7**、P17 总高 **12.1**、P29 槽 **1.8**；P02 中心孔 **44**。
 
 ---
 

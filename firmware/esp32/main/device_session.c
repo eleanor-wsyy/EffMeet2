@@ -7,6 +7,7 @@
 #include "device_session.h"
 
 #include <inttypes.h>
+#include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -473,6 +474,8 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
     bool dup = false, gap = false;
     int64_t prev_frame_us = 0, sum_gap_us = 0, sum_write_us = 0, sum_ack_us = 0;
     uint32_t n_frames = 0;
+    int32_t pcm_peak = 0;
+    double pcm_energy = 0;
     for (;;) {
         m = recv_msg(s);
         if (!m) {
@@ -487,6 +490,14 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
             prev_frame_us = t_recv;
             if (efma_decode_frame(&dec, m->buf, m->len, pcm, sizeof(pcm),
                                   &pcm_len, &dup, &gap) == EFMA_OK && !dup) {
+                for (size_t i = 0; i + 1 < pcm_len; i += 2) {
+                    int16_t v = (int16_t)(pcm[i] | (pcm[i + 1] << 8));
+                    int32_t a = v < 0 ? -v : v;
+                    if (a > pcm_peak) {
+                        pcm_peak = a;
+                    }
+                    pcm_energy += (double)v * v;
+                }
                 int64_t t0 = esp_timer_get_time();
                 audio_playback_write(pcm, pcm_len); /* drops the frame on DMA backpressure */
                 int64_t t1 = esp_timer_get_time();
@@ -537,6 +548,12 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
 
     /* Drain until playback.closed, then attest completion. */
     audio_playback_end();
+    {
+        double samples = (double)n_frames * EFMA_SAMPLES_PER_FRAME;
+        double rms = samples > 0 ? sqrt(pcm_energy / samples) : 0;
+        ESP_LOGI(TAG, "playback done: frames=%lu pcm_peak=%ld rms=%.1f",
+                 (unsigned long)n_frames, (long)pcm_peak, rms);
+    }
     device_session_send_receipt(s, command_id, RECEIPT_COMPLETED, NULL);
     status_led_set_pattern(LED_PATTERN_IDLE);
     {

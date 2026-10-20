@@ -67,7 +67,7 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 | 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | **真接线拾音验证通过（2026-10-21）** | 16 kHz 单声道，32-bit slot 截 s16（>>16）；按 wiring-bench.md 接线后 `mic` 实测安静 rms=65 / 蜂鸣 rms=394，空气拾音有效；增益可再调 |
 | 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 持有"播完"边界，gate `RobotReceipt(completed)`；AMP_ENABLE(GPIO18) 门控；引脚占位待核对，`tone` 复测 |
 | AEC/AFE | `main/aec_afe.{h,c}` | 桩 NOT_SUPPORTED | ESP-SR AFE 接入点；`quiet_moment()` 当前仅软件互斥代理，**非校准 VAD/AEC** |
-| 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | 已实现 LEDC，未实机验证 | 2:1 减速→头±45°；限位/减速比未确认 |
+| 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | **实机验证（2026-10-21）**：REPL `servo <deg>` 0/+45/-45/0 全 ESP_OK、无掉电复位 | 2:1 减速→头±45°；限位/减速比未确认；独立 5V 供电方案见 wiring-bench.md |
 | 状态灯(WS2812) | `main/status_led.{h,c}` | 已实现 led_strip，未实机验证 | pattern=idle/notice/error/off；色序未确认 |
 | 摄像头抓拍 | `main/camera_capture.{h,c}` | 桩 NOT_SUPPORTED | 型号/引脚 TBD |
 | 启动序列 | `main/main.c` | 编译通过，未在设备链路验证 | NVS→Wi-Fi→载配对身份→外设 init→会话任务 |

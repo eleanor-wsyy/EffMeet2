@@ -18,6 +18,7 @@
 #include "math.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "servo_yaw.h"
 #include "status_led.h"
 
 static const char *TAG = "provision";
@@ -106,10 +107,27 @@ static int cmd_mic(int argc, char **argv) {
     return ESP_OK;
 }
 
+/* Move the yaw servo: servo <head_deg> — head range is clamped to the
+ * DeviceHello limits (±45 deg; the 2:1 belt maps to ±90 deg servo travel). */
+static int cmd_servo(int argc, char **argv) {
+    if (argc != 2) {
+        printf("usage: servo <head_deg -45..45>\n");
+        return ESP_ERR_INVALID_ARG;
+    }
+    char *end = NULL;
+    float deg = strtof(argv[1], &end);
+    if (!end || *end != '\0') {
+        printf("usage: servo <head_deg -45..45>\n");
+        return ESP_ERR_INVALID_ARG;
+    }
+    esp_err_t rc = servo_yaw_move_to(deg, 0);
+    printf("servo: head %.1f deg -> rc=%s\n", (double)deg, esp_err_to_name(rc));
+    return rc;
+}
+
 /* Measure I2S DMA completion rate: expect ~50 descriptors/s on each channel
  * (20 ms per descriptor at 16 kHz). Much lower = clock misconfigured. */
-static int cmd_i2srate(int argc, char **argv) {
-    (void)argc; (void)argv;
+static int cmd_i2srate(int argc, char **argv) {    (void)argc; (void)argv;
     uint32_t rx0 = audio_capture_debug_isr_count();
     uint32_t tx0 = audio_playback_debug_isr_count();
     vTaskDelay(pdMS_TO_TICKS(1000));
@@ -238,6 +256,11 @@ esp_err_t provision_start(void) {
         .help = "uplink <session_id> <stream_id> <stream_key> - stream mic to relay (bench)",
         .func = &cmd_uplink,
     };
+    static const esp_console_cmd_t servo_cmd = {
+        .command = "servo",
+        .help = "servo <head_deg -45..45> - move the yaw head",
+        .func = &cmd_servo,
+    };
     esp_console_cmd_register(&provision_cmd);
     esp_console_cmd_register(&status_cmd);
     esp_console_cmd_register(&led_cmd);
@@ -245,6 +268,7 @@ esp_err_t provision_start(void) {
     esp_console_cmd_register(&tone_cmd);
     esp_console_cmd_register(&rate_cmd);
     esp_console_cmd_register(&uplink_cmd);
+    esp_console_cmd_register(&servo_cmd);
     rc = esp_console_start_repl(repl);
     if (rc != ESP_OK) {
         return rc;

@@ -23,7 +23,8 @@
   误传 `pdMS_TO_TICKS()` 会导致超时缩短 10 倍（FreeRTOS_HZ=100），表现为
   周期性 ESP_ERR_TIMEOUT。
 - REPL 诊断命令：`mic`（采 1s 打印 RMS/peak/ISR 计数）、`tone [freq] [ms]`
-  （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）。ISR/溢出计数器保留在
+  （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）、`uplink <session_id> <stream_id>
+  <stream_key>`（触发上行 EFMA 流，须先 bench 绑定会话）。ISR/溢出计数器保留在
   `audio_capture`/`audio_playback` 里作 bench 诊断。
 - **Wi-Fi + 命令链路边端验证（2026-10-20 下午）**：校园网 GAFA_Stu 有客户端隔离
   （板 10.15.120.x / PC 10.15.155.x 互不可达），改用 **PC 移动热点**（WinRT
@@ -111,6 +112,8 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 - EFMA 编解码已用可选 `ziglang` 编译器主机编译并通过：`scripts/test_efma_host.py` 输出
   `EFMA host tests passed (protocol.py parity)`，覆盖重复帧/错流/间隙隐藏/间隙过大/序列非法/短头。
   这是**主机逻辑验证**，不是设备链路验证。
-- 上行 EFMA 音频流（设备→控制器→ASR）尚未端到端联调；speak 播放因 TTS 未配置
-  未走通音频内容，只验证了命令触发与播放 WS 建立。
+- 上行 EFMA 音频流（设备→网关→控制器解码/入账/会话生命周期）已实机验证
+  （2026-10-20，REPL `uplink` 触发 + bench 绑定）；因麦克风未接线，内容为零声。
+  ASR 未启动故无转写（可选：起 `scripts/run_local_asr.py` 后重测）。
+- speak 播放因 TTS 未配置未走通音频内容，只验证了命令触发与播放 WS 建立。
 - AFE/AEC 与摄像头仍为桩，未验收。

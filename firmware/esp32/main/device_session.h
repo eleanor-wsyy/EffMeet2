@@ -75,6 +75,10 @@ esp_err_t device_session_run_uplink(device_session_t *s, const char *session_id,
                                     const char *stream_id, uint32_t stream_key,
                                     const char *end_reason);
 
+/* The single live session (set by device_session_create), for the REPL
+ * `uplink` bench command. NULL before the session task starts. */
+device_session_t *device_session_active(void);
+
 /* Run the playback handshake for a queued command_id (speak action).
  * safe_pause must be true only when the device has attested a quiet moment
  * (media.py SAFE_PAUSE_REQUIRED). NOT-VERIFIED end to end. */

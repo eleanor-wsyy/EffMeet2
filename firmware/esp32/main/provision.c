@@ -120,6 +120,50 @@ static int cmd_i2srate(int argc, char **argv) {
     return ESP_OK;
 }
 
+/* Bench uplink: stream mic frames to the relay until the server closes the
+ * session (~40 s cap in media.py). The session must be bound first:
+ *   POST /api/bench/meetings/{mid}/audio/bind  (operator, same config JSON)
+ * then:  uplink <session_id> <stream_id> <stream_key>                        */
+typedef struct {
+    char session_id[40];
+    char stream_id[132];
+    uint32_t stream_key;
+} uplink_args_t;
+
+static void uplink_task(void *arg) {
+    uplink_args_t *a = (uplink_args_t *)arg;
+    device_session_t *s = device_session_active();
+    if (!s) {
+        printf("uplink: no active device session (not paired / no network?)\n");
+    } else {
+        esp_err_t rc = device_session_run_uplink(s, a->session_id, a->stream_id,
+                                                 a->stream_key, "completed");
+        printf("uplink: session ended, rc=%s\n", esp_err_to_name(rc));
+    }
+    free(a);
+    vTaskDelete(NULL);
+}
+
+static int cmd_uplink(int argc, char **argv) {
+    if (argc != 4) {
+        printf("usage: uplink <session_id> <stream_id> <stream_key>\n");
+        return ESP_ERR_INVALID_ARG;
+    }
+    uplink_args_t *a = calloc(1, sizeof(*a));
+    if (!a) {
+        return ESP_ERR_NO_MEM;
+    }
+    strncpy(a->session_id, argv[1], sizeof(a->session_id) - 1);
+    strncpy(a->stream_id, argv[2], sizeof(a->stream_id) - 1);
+    a->stream_key = (uint32_t)strtoul(argv[3], NULL, 10);
+    if (xTaskCreate(uplink_task, "uplink", 8192, a, 4, NULL) != pdTRUE) {
+        free(a);
+        return ESP_ERR_NO_MEM;
+    }
+    printf("uplink: started (runs until the server closes, ~40 s max)\n");
+    return ESP_OK;
+}
+
 /* Bench check for the MAX98357A: play a sine beep. */static int cmd_tone(int argc, char **argv) {
     int freq = (argc > 1) ? atoi(argv[1]) : 880;
     int ms = (argc > 2) ? atoi(argv[2]) : 500;
@@ -189,12 +233,18 @@ esp_err_t provision_start(void) {
         .help = "measure I2S DMA completion rate over 1 s",
         .func = &cmd_i2srate,
     };
+    static const esp_console_cmd_t uplink_cmd = {
+        .command = "uplink",
+        .help = "uplink <session_id> <stream_id> <stream_key> - stream mic to relay (bench)",
+        .func = &cmd_uplink,
+    };
     esp_console_cmd_register(&provision_cmd);
     esp_console_cmd_register(&status_cmd);
     esp_console_cmd_register(&led_cmd);
     esp_console_cmd_register(&mic_cmd);
     esp_console_cmd_register(&tone_cmd);
     esp_console_cmd_register(&rate_cmd);
+    esp_console_cmd_register(&uplink_cmd);
     rc = esp_console_start_repl(repl);
     if (rc != ESP_OK) {
         return rc;

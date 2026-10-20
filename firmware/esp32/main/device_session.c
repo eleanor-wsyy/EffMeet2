@@ -34,6 +34,9 @@ static const char *TAG = "device_session";
 #define RX_QUEUE_LEN 8
 #define RX_TIMEOUT_MS 8000
 
+/* Single active session for the REPL `uplink` bench command. */
+static device_session_t *s_active;
+
 struct device_session {
     device_identity_t ident;
     ws_transport_t *tx;        /* active transport for the current flow */
@@ -149,7 +152,12 @@ device_session_t *device_session_create(const device_identity_t *ident) {
         free(s);
         return NULL;
     }
+    s_active = s;
     return s;
+}
+
+device_session_t *device_session_active(void) {
+    return s_active;
 }
 
 void device_session_destroy(device_session_t *s) {
@@ -173,6 +181,9 @@ void device_session_destroy(device_session_t *s) {
             rx_free(m);
         }
         vQueueDelete(s->rx);
+    }
+    if (s_active == s) {
+        s_active = NULL;
     }
     free(s);
 }

@@ -13,7 +13,7 @@ OUTNAME=sys.argv[3] if len(sys.argv)>3 else None
 EDGE=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 if not Path(EDGE).exists():EDGE=r'C:\Program Files\Microsoft\Edge\Application\msedge.exe'
 
-md=markdown.Markdown(extensions=['tables','fenced_code','sane_lists'])
+md=markdown.Markdown(extensions=['tables','fenced_code','sane_lists','md_in_html'])
 body=md.convert(SRC.read_text(encoding='utf8'))
 # 修正框（首个 blockquote）染色：v4 风格浅青底
 body=body.replace('<blockquote>','<blockquote class="fixbox">',1)
@@ -40,6 +40,17 @@ ul,ol{margin:3px 0 8px 16px;padding:0}
 li{margin:1.5px 0}
 blockquote{margin:6px 0;padding:4px 10px;border-left:3px solid #b85237;background:#fff8ec}
 p{margin:3px 0}
+h4{font-family:"Microsoft YaHei";font-size:11.5px;font-weight:700;color:#1a3a4a;margin:0 0 5px;padding:0}
+.leadbox{background:#e8f4f0;border-radius:6px;padding:8px 12px;margin:0 0 10px;font-size:9.5px;line-height:1.6;color:#1a3a4a}
+.stage{background:#1a3a4a;color:#fff;border-radius:6px;padding:7px 12px;margin:16px 0 8px}
+.stage h3{color:#fff;font-size:12.5px;margin:0 0 2px}
+.stage p{margin:2px 0 0;color:#cfe4e3;font-size:9.5px}
+.stage strong{color:#ffd9a0}
+.step{border:1px solid #c9d2d6;border-left:4px solid #0e7c7b;border-radius:6px;padding:8px 12px;margin:8px 0;background:#fff;page-break-inside:avoid}
+.step img{max-width:230px;max-height:170px;border:1px solid #ddd;border-radius:5px;margin:4px 6px 2px 0;display:inline-block;vertical-align:top;background:#fafafa}
+.check{background:#e8f4f0;border-radius:4px;padding:4px 9px;margin:5px 0 2px;font-size:9.2px;line-height:1.55;color:#14483f}
+.warn{background:#fff3e6;border-left:3px solid #b85237;border-radius:0 4px 4px 0;padding:4px 9px;margin:5px 0 2px;font-size:9.2px;line-height:1.55;color:#7a2f12}
+.step h4 + p{margin-top:0}
 '''
 html=f'<!doctype html><meta charset="utf-8"><style>{css}</style><body>{body}</body>'
 html_path=ROOT/'_assembly_v5.html'
@@ -61,5 +72,11 @@ for i,page in enumerate(doc):
     t=f'第 {i+1} 页'
     tw=fitz.get_text_length(t,fontname='china-s',fontsize=7.2)
     page.insert_text((w-36-tw,h-22),t,fontsize=7.2,fontname='china-s',color=(0.45,0.45,0.45))
-doc.save(out);doc.close();raw.unlink(missing_ok=True)
+doc.save(str(out)+'.tmp');doc.close();raw.unlink(missing_ok=True)
+try:
+    os.replace(str(out)+'.tmp',out)
+except PermissionError:
+    # 目标被占用（多半是 PDF 阅读器开着）：落 -new 文件名
+    alt=ROOT/((OUTNAME or f'EffMeet2-安装手册v5-{date}.pdf').replace('.pdf','-new.pdf'))
+    os.replace(str(out)+'.tmp',alt);out=alt
 print('PDF:',out,'pages=',fitz.open(out).page_count,'size=',out.stat().st_size)

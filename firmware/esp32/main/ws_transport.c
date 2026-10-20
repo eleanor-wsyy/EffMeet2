@@ -9,16 +9,44 @@
 #include <string.h>
 
 #include "esp_log.h"
+#include "esp_transport.h"
+#include "esp_transport_tcp.h"
+#include "esp_transport_ws.h"
 #include "esp_websocket_client.h"
+#include "lwip/sockets.h"
 
 static const char *TAG = "ws_transport";
 
+/* Declared in tcp_transport's private header; the IDF test app re-declares it
+ * the same way. Needed to reach the socket fd for TCP_NODELAY. */
+int esp_transport_get_socket(esp_transport_handle_t t);
+
 struct ws_transport {
     esp_websocket_client_handle_t client;
+    esp_transport_handle_t ws;  /* WS framing over our tcp transport */
+    esp_transport_handle_t tcp; /* owned ext transport: lets us set TCP_NODELAY */
     ws_event_cb_t cb;
     void *ctx;
     char *auth_header; /* persists for client lifetime */
+    char *ws_path;     /* persists: ws config is used on every reconnect */
 };
+
+/* Nagle + delayed-ACK turns the one-outstanding EFMA frame/ack exchange into a
+ * ~175 ms per frame crawl. Disable Nagle on the device socket right after the
+ * handshake; the socket fd is only reachable through our ext transport. */
+static void enable_tcp_nodelay(ws_transport_t *t) {
+    if (!t || !t->tcp) {
+        return;
+    }
+    int fd = esp_transport_get_socket(t->tcp);
+    if (fd < 0) {
+        return;
+    }
+    int one = 1;
+    if (setsockopt(fd, IPPROTO_TCP, TCP_NODELAY, &one, sizeof(one)) != 0) {
+        ESP_LOGW(TAG, "TCP_NODELAY setsockopt failed on fd=%d", fd);
+    }
+}
 
 esp_err_t ws_build_uri(const char *scheme, const char *base_url, const char *path,
                        char *out, size_t out_cap) {
@@ -48,6 +76,7 @@ static void on_ws_event(void *arg, esp_event_base_t base, int32_t event_id, void
     ws_event_t evt = {0};
     switch (event_id) {
         case WEBSOCKET_EVENT_CONNECTED:
+            enable_tcp_nodelay(t);
             evt.type = WS_EVT_CONNECTED;
             t->cb(t->ctx, &evt);
             break;
@@ -111,8 +140,38 @@ ws_transport_t *ws_transport_create(const char *uri, const char *bearer_token,
     cfg.headers = t->auth_header; /* NULL is allowed by the client */
     cfg.buffer_size = 8192;       /* >= EFMA_MAX_DECODED control + frame headroom */
     cfg.network_timeout_ms = 10000;
+    t->tcp = esp_transport_tcp_init();
+    if (t->tcp) {
+        /* ext_transport must carry WS framing itself: the client uses it as-is.
+         * That also means the client skips its own ws config (path/headers/
+         * control frames) — we must apply those here. */
+        t->ws = esp_transport_ws_init(t->tcp);
+    }
+    if (t->ws) {
+        const char *scheme_end = strstr(uri, "://");
+        const char *path = scheme_end ? strchr(scheme_end + 3, '/') : NULL;
+        t->ws_path = strdup(path ? path : "/");
+        const esp_transport_ws_config_t wcfg = {
+            .ws_path = t->ws_path ? t->ws_path : "/",
+            .sub_protocol = NULL,
+            .user_agent = NULL,
+            .headers = t->auth_header,
+            .auth = NULL,
+            .propagate_control_frames = true,
+        };
+        esp_transport_ws_set_config(t->ws, &wcfg);
+        esp_transport_set_default_port(t->ws, 80);
+    }
+    cfg.ext_transport = t->ws; /* NULL falls back to the client's own transport */
     t->client = esp_websocket_client_init(&cfg);
     if (!t->client) {
+        if (t->ws) {
+            esp_transport_destroy(t->ws);
+        }
+        if (t->tcp) {
+            esp_transport_destroy(t->tcp);
+        }
+        free(t->ws_path);
         free(t->auth_header);
         free(t);
         return NULL;
@@ -136,8 +195,8 @@ esp_err_t ws_transport_send_text(ws_transport_t *t, const char *json) {
     if (!t || !t->client || !json) {
         return ESP_ERR_INVALID_ARG;
     }
-    int sent = esp_websocket_client_send_text(t->client, json, (int)strlen(json),
-                                              pdMS_TO_TICKS(5000));
+    /* NOTE: esp_websocket_client_send_* takes milliseconds, NOT FreeRTOS ticks. */
+    int sent = esp_websocket_client_send_text(t->client, json, (int)strlen(json), 5000);
     return sent >= 0 ? ESP_OK : ESP_FAIL;
 }
 
@@ -145,8 +204,7 @@ esp_err_t ws_transport_send_bin(ws_transport_t *t, const uint8_t *data, size_t l
     if (!t || !t->client || !data || len == 0) {
         return ESP_ERR_INVALID_ARG;
     }
-    int sent = esp_websocket_client_send_bin(t->client, (const char *)data, (int)len,
-                                             pdMS_TO_TICKS(5000));
+    int sent = esp_websocket_client_send_bin(t->client, (const char *)data, (int)len, 5000);
     return sent >= 0 ? ESP_OK : ESP_FAIL;
 }
 
@@ -163,6 +221,13 @@ void ws_transport_destroy(ws_transport_t *t) {
     if (t->client) {
         esp_websocket_client_destroy(t->client);
     }
+    if (t->ws) {
+        esp_transport_destroy(t->ws);
+    }
+    if (t->tcp) {
+        esp_transport_destroy(t->tcp);
+    }
+    free(t->ws_path);
     free(t->auth_header);
     free(t);
 }

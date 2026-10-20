@@ -1,6 +1,7 @@
 """Local bench media routes; shared controller store, no public listener."""
 import asyncio
 import json
+import logging
 import struct
 import time
 from uuid import uuid4, uuid5, NAMESPACE_URL
@@ -8,6 +9,8 @@ from uuid import uuid4, uuid5, NAMESPACE_URL
 from fastapi import WebSocket, WebSocketDisconnect
 from services.controller.contracts import DemoError, validate
 from .protocol import Decoder, ProtocolError, encode_frame
+
+logger = logging.getLogger(__name__)
 
 
 def bearer(ws):
@@ -162,7 +165,11 @@ def install_media(app, bench, asr=None):
                 dispatch = conn.execute("SELECT expires FROM bench_dispatch WHERE id=?", (cid,)).fetchone()
             if time.time() >= dispatch["expires"]:
                 raise ProtocolError("COMMAND_EXPIRED")
-            deadline = time.monotonic() + len(pcm) / 32000 + 10
+            # One outstanding frame at real-time playback: the device cannot
+            # consume faster than 20 ms/frame, and each frame costs an ack
+            # round-trip through the gateway. Allow the PCM duration plus
+            # 50 ms per frame plus slack before declaring the device stuck.
+            deadline = time.monotonic() + len(pcm) / 32000 + (len(pcm) // 640) * 0.05 + 15
             # One 20ms outstanding frame: bounded well below the 200ms playback queue limit.
             for seq, offset in enumerate(range(0, len(pcm), 640)):
                 if cancel.is_set():
@@ -195,6 +202,7 @@ def install_media(app, bench, asr=None):
             await ws.send_json({"type": "playback.closed", "command_id": cid})
         except Exception as exc:
             code = str(exc) if isinstance(exc, ProtocolError) else exc.code if isinstance(exc, DemoError) else "PLAYBACK_FAILED"
+            logger.exception("playback flow failed for command %s: %s", cid, code)
             if claimed:
                 bench.fail_command(cid, code)
             try:

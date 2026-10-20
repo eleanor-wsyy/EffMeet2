@@ -32,6 +32,9 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         from services.relay.asr import FunASR
         from services.relay.tts import WindowsTTS
         store = Store(configured, robot=DeferredRobot(), clock=clock, candidate_ttl=candidate_ttl, bench=True)
+        # DeferredRobot targets the bench host speaker by default (tests pin this).
+        # Point it at a real paired robot with EFFMEET_ROBOT_ID=robot_a.
+        store.robot.device_id = os.getenv("EFFMEET_ROBOT_ID", "host_speaker_test")
         if asr is None and os.getenv("FUNASR_WS_URL"):
             asr = FunASR(os.environ["FUNASR_WS_URL"])
         if tts is None and os.getenv("EFFMEET_TTS") == "windows":

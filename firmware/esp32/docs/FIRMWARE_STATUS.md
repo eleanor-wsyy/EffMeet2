@@ -26,6 +26,12 @@
   （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）、`uplink <session_id> <stream_id>
   <stream_key>`（触发上行 EFMA 流，须先 bench 绑定会话）。ISR/溢出计数器保留在
   `audio_capture`/`audio_playback` 里作 bench 诊断。
+- **speak 全链路验收（2026-10-20 傍晚）**：决定 → robot.command → 板子接收 →
+  Windows TTS → EFMA 下行 → 逐帧 ack → 播放排空 → **RobotReceipt completed**
+  （回执 accepted/started/completed 完整入账）。TCP_NODELAY 修复后帧间隔从
+  ~175ms 降到 **22-28ms**（实时期 20ms），700+ 帧稳定传输。
+  注意：media_token 有 **1 小时 TTL**（`bench.authenticate`），过期表现为
+  playback 报 `INVALID_MEDIA_TOKEN`（events WS 仍能连），需重新 pair + provision。
 - **Wi-Fi + 命令链路边端验证（2026-10-20 下午）**：校园网 GAFA_Stu 有客户端隔离
   （板 10.15.120.x / PC 10.15.155.x 互不可达），改用 **PC 移动热点**（WinRT
   `NetworkOperatorTetheringManager` 可编程开关；热点默认 5GHz 须强制 2.4GHz，
@@ -115,5 +121,6 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 - 上行 EFMA 音频流（设备→网关→控制器解码/入账/会话生命周期）已实机验证
   （2026-10-20，REPL `uplink` 触发 + bench 绑定）；因麦克风未接线，内容为零声。
   ASR 未启动故无转写（可选：起 `scripts/run_local_asr.py` 后重测）。
-- speak 播放因 TTS 未配置未走通音频内容，只验证了命令触发与播放 WS 建立。
+- speak 播放链路已实机验收：Windows TTS → EFMA 下行 → 板子实播（功放未接线，
+  无声）→ 播放排空 → `RobotReceipt(completed)`。真声音待 MAX98357A 接线后复测。
 - AFE/AEC 与摄像头仍为桩，未验收。

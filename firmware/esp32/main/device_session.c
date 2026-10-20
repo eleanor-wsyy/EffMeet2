@@ -14,6 +14,7 @@
 #include "cJSON.h"
 #include "esp_log.h"
 #include "esp_random.h"
+#include "esp_timer.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
 #include "freertos/task.h"
@@ -42,6 +43,7 @@ struct device_session {
     ws_transport_t *tx;        /* active transport for the current flow */
     ws_transport_t *events;    /* command subscription transport */
     QueueHandle_t rx;          /* rx_msg_t* from the WS callback */
+    QueueHandle_t cmdq;        /* char* robot.command payloads to dispatch */
     char playback_cmd[37];     /* command_id bound to the open playback WS */
     uint32_t after_seq;        /* last controller event seq seen */
     TaskHandle_t command_task;
@@ -148,7 +150,10 @@ device_session_t *device_session_create(const device_identity_t *ident) {
     }
     s->ident = *ident;
     s->rx = xQueueCreate(RX_QUEUE_LEN, sizeof(rx_msg_t *));
-    if (!s->rx) {
+    s->cmdq = xQueueCreate(4, sizeof(char *));
+    if (!s->rx || !s->cmdq) {
+        if (s->rx) vQueueDelete(s->rx);
+        if (s->cmdq) vQueueDelete(s->cmdq);
         free(s);
         return NULL;
     }
@@ -181,6 +186,13 @@ void device_session_destroy(device_session_t *s) {
             rx_free(m);
         }
         vQueueDelete(s->rx);
+    }
+    if (s->cmdq) {
+        char *c;
+        while (xQueueReceive(s->cmdq, &c, 0) == pdTRUE) {
+            free(c);
+        }
+        vQueueDelete(s->cmdq);
     }
     if (s_active == s) {
         s_active = NULL;
@@ -459,6 +471,8 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
     uint8_t pcm[EFMA_MAX_DECODED];
     size_t pcm_len = 0;
     bool dup = false, gap = false;
+    int64_t prev_frame_us = 0, sum_gap_us = 0, sum_write_us = 0, sum_ack_us = 0;
+    uint32_t n_frames = 0;
     for (;;) {
         m = recv_msg(s);
         if (!m) {
@@ -466,16 +480,39 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
             break;
         }
         if (m->type == WS_EVT_BINARY) {
+            int64_t t_recv = esp_timer_get_time();
+            if (prev_frame_us) {
+                sum_gap_us += t_recv - prev_frame_us;
+            }
+            prev_frame_us = t_recv;
             if (efma_decode_frame(&dec, m->buf, m->len, pcm, sizeof(pcm),
                                   &pcm_len, &dup, &gap) == EFMA_OK && !dup) {
+                int64_t t0 = esp_timer_get_time();
                 audio_playback_write(pcm, pcm_len); /* drops the frame on DMA backpressure */
+                int64_t t1 = esp_timer_get_time();
+                sum_write_us += t1 - t0;
                 cJSON *ack = cJSON_CreateObject();
                 cJSON_AddStringToObject(ack, "type", "audio.ack");
                 cJSON_AddNumberToObject(ack, "sample_end", dec.samples);
                 char *ack_txt = cJSON_PrintUnformatted(ack);
                 cJSON_Delete(ack);
-                ws_transport_send_text(s->tx, ack_txt);
+                esp_err_t arc = ws_transport_send_text(s->tx, ack_txt);
                 cJSON_free(ack_txt);
+                sum_ack_us += esp_timer_get_time() - t1;
+                if (arc != ESP_OK) {
+                    ESP_LOGW(TAG, "audio.ack send failed: %s", esp_err_to_name(arc));
+                }
+                n_frames++;
+                if (dec.samples <= EFMA_SAMPLES_PER_FRAME) {
+                    ESP_LOGI(TAG, "playback first frame acked (samples=%lu)",
+                             (unsigned long)dec.samples);
+                } else if (dec.samples % (EFMA_SAMPLES_PER_FRAME * 50) == 0) {
+                    ESP_LOGI(TAG, "frames=%lu gap=%lldus write=%lldus ack=%lldus",
+                             (unsigned long)n_frames,
+                             (long long)(sum_gap_us / n_frames),
+                             (long long)(sum_write_us / n_frames),
+                             (long long)(sum_ack_us / n_frames));
+                }
             }
             rx_free(m);
             continue;
@@ -528,6 +565,7 @@ esp_err_t device_session_on_command(device_session_t *s, const char *command_jso
         cJSON_Delete(root);
         return ESP_ERR_INVALID_ARG;
     }
+    ESP_LOGI(TAG, "dispatch robot.command action=%s", action->valuestring);
     esp_err_t rc = ESP_OK;
     if (strcmp(action->valuestring, "orient") == 0) {
         cJSON *yaw = args ? cJSON_GetObjectItem(args, "yaw_deg") : NULL;
@@ -606,8 +644,12 @@ static void on_events_ws(void *ctx, const ws_event_t *evt) {
                 && strcmp(target->valuestring, s->ident.device_id) == 0) {
             char *cmd = cJSON_PrintUnformatted(payload);
             if (cmd) {
-                device_session_on_command(s, cmd);
-                cJSON_free(cmd);
+                /* Never dispatch here: this callback runs in the WS client task,
+                 * and speak blocks for seconds. Hand off to command_task. */
+                if (xQueueSend(s->cmdq, &cmd, 0) != pdTRUE) {
+                    ESP_LOGW(TAG, "command queue full; dropping robot.command");
+                    cJSON_free(cmd);
+                }
             }
         }
     }
@@ -635,7 +677,11 @@ static void command_task(void *arg) {
                     vTaskDelay(pdMS_TO_TICKS(250));
                 }
                 while (ws_transport_is_connected(s->events)) {
-                    vTaskDelay(pdMS_TO_TICKS(500));
+                    char *cmd = NULL;
+                    if (xQueueReceive(s->cmdq, &cmd, pdMS_TO_TICKS(500)) == pdTRUE && cmd) {
+                        device_session_on_command(s, cmd);
+                        free(cmd);
+                    }
                 }
             }
             ws_transport_destroy(s->events);

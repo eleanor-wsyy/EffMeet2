@@ -25,6 +25,17 @@
 - REPL 诊断命令：`mic`（采 1s 打印 RMS/peak/ISR 计数）、`tone [freq] [ms]`
   （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）。ISR/溢出计数器保留在
   `audio_capture`/`audio_playback` 里作 bench 诊断。
+- **Wi-Fi + 命令链路边端验证（2026-10-20 下午）**：校园网 GAFA_Stu 有客户端隔离
+  （板 10.15.120.x / PC 10.15.155.x 互不可达），改用 **PC 移动热点**（WinRT
+  `NetworkOperatorTetheringManager` 可编程开关；热点默认 5GHz 须强制 2.4GHz，
+  ESP32-S3 不支持 5GHz）。热点 `EffMeet-Link`/`effmeet88`，PC 为网关
+  192.168.137.1，板得 192.168.137.167。bench(8768)+device_gateway(8799) 起在本机，
+  板配对后事件 WS 长连成功；注入 `robot.command`（light/speak/stop）后板子
+  随即发起 `/device/v1/playback` 连接——**命令下发链路全通**。
+- 固件修复：`command_task` 原先把异步 `ws_transport_start` 当同步用，
+  start 后立即判 `is_connected` 导致反复销毁重连（2.3s 循环），已加 5s 握手等待；
+  `wifi_init_sta` 现在等 DHCP 拿到 IP 再开 socket；REPL 改为配对后也常驻，
+  重新配网不再需要擦 NVS（0x9000 区）。
 
 ## 终局目标（路线B）
 
@@ -38,7 +49,7 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 |---|---|---|---|
 | EFMA 帧编解码 | `main/efma_codec.{h,c}` | **主机测试通过（2026-10-19）**，未在设备链路验证 | `protocol.py` 的逐字段 C 移植；纯 C 无 ESP 依赖。`scripts/test_efma_host.py` 用 ziglang 编译并运行 `test/test_efma_host.c`，全部断言通过 |
 | WebSocket 传输 | `main/ws_transport.{h,c}` | 编译通过，未在设备链路验证 | `esp_websocket_client` 封装；Bearer 头鉴权（不走 URL/Origin，对齐 `media.py`） |
-| 设备会话/协议状态机 | `main/device_session.{h,c}` | 编译通过，未在设备链路验证 | 配对/Hello、上行流、播放握手、回执状态机、命令分发 |
+| 设备会话/协议状态机 | `main/device_session.{h,c}` | **实机链路验证（2026-10-20）**：事件 WS 长连 + robot.command 下发触发播放流 | 配对/Hello、上行流、播放握手、回执状态机、命令分发 |
 | 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 16 kHz 单声道，32-bit slot 截 s16（>>16）；引脚为占位，须与 `hardware/electronics` 接线核对后用 REPL `mic` 复测 |
 | 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 持有"播完"边界，gate `RobotReceipt(completed)`；AMP_ENABLE(GPIO18) 门控；引脚占位待核对，`tone` 复测 |
 | AEC/AFE | `main/aec_afe.{h,c}` | 桩 NOT_SUPPORTED | ESP-SR AFE 接入点；`quiet_moment()` 当前仅软件互斥代理，**非校准 VAD/AEC** |
@@ -93,9 +104,13 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 
 ## 验证边界
 
-- ESP-IDF v5.4.1 工程已在本机**编译通过**（`scripts/build_firmware.ps1`）；未烧录、
-  未连接设备，外设桩与外设链路仍未验证。
+- ESP-IDF v5.4.1 工程已编译并烧录实机（COM3），启动通过，Wi-Fi/事件 WS/命令
+  下发已实机验证（经 PC 热点 + LAN 网关，2026-10-20）。
+- I2S 音频驱动 DMA/时钟实机验证通过；**真实声音未验证**（INMP441/MAX98357A
+  尚未接到占位引脚）。
 - EFMA 编解码已用可选 `ziglang` 编译器主机编译并通过：`scripts/test_efma_host.py` 输出
   `EFMA host tests passed (protocol.py parity)`，覆盖重复帧/错流/间隙隐藏/间隙过大/序列非法/短头。
   这是**主机逻辑验证**，不是设备链路验证。
-- 其余模块的"完成"仅指接口与协议形状对齐，**不代表任何硬件或链路已验收**。
+- 上行 EFMA 音频流（设备→控制器→ASR）尚未端到端联调；speak 播放因 TTS 未配置
+  未走通音频内容，只验证了命令触发与播放 WS 建立。
+- AFE/AEC 与摄像头仍为桩，未验收。

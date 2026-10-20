@@ -44,6 +44,19 @@ static void wifi_init_sta(const device_identity_t *ident) {
     esp_wifi_start();
     esp_wifi_connect();
     ESP_LOGW(TAG, "Wi-Fi STA start requested (SSID=%s)", ident->wifi_ssid);
+
+    /* Wait for DHCP before opening sockets; the first WS attempt otherwise
+     * races the link and fails with "host unreachable". */
+    esp_netif_t *netif = esp_netif_get_handle_from_ifkey("WIFI_STA_DEF");
+    for (int i = 0; i < 40; i++) {
+        esp_netif_ip_info_t ip;
+        if (netif && esp_netif_get_ip_info(netif, &ip) == ESP_OK && ip.ip.addr != 0) {
+            ESP_LOGW(TAG, "Wi-Fi up, ip=" IPSTR, IP2STR(&ip.ip));
+            return;
+        }
+        vTaskDelay(pdMS_TO_TICKS(250));
+    }
+    ESP_LOGE(TAG, "Wi-Fi connect timeout (10 s); continuing anyway");
 }
 
 static void session_task(void *arg) {
@@ -83,9 +96,11 @@ void app_main(void) {
     aec_afe_init();
     camera_capture_init();
 
+    /* The REPL runs in both modes so re-provisioning never needs an NVS erase. */
+    provision_start();
+
     if (!ident.paired) {
-        ESP_LOGW(TAG, "device not paired; starting UART provisioning REPL");
-        provision_start();
+        ESP_LOGW(TAG, "device not paired; use 'provision' to write Wi-Fi/controller/token");
         return;
     }
 

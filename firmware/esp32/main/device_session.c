@@ -617,6 +617,12 @@ static void command_task(void *arg) {
         s->events = ws_transport_create(uri, NULL, on_events_ws, s);
         if (s->events) {
             if (ws_transport_start(s->events) == ESP_OK) {
+                /* esp_websocket_client_start is async: give the handshake up to
+                 * 5 s before judging the connection. Checking is_connected
+                 * immediately would destroy a still-connecting client. */
+                for (int i = 0; i < 20 && !ws_transport_is_connected(s->events); i++) {
+                    vTaskDelay(pdMS_TO_TICKS(250));
+                }
                 while (ws_transport_is_connected(s->events)) {
                     vTaskDelay(pdMS_TO_TICKS(500));
                 }

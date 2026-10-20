@@ -50,7 +50,7 @@
 
 ## 4. 状态
 
-31 件全部 `CANDIDATE_NOT_RELEASED`；`slicer_status` / `sample_print_status` = `NOT_RUN`。
+32 件全部 `CANDIDATE_NOT_RELEASED`（v6r3 新增 P33；P32 编号保留给无源麦胶座）；`slicer_status` / `sample_print_status` = `NOT_RUN`。
 3MF 是几何起点排布，不含机型/材料/支撑配置，**不叫"已切片"**；切片确认后把最终朝向/支撑/机时回填，没有证据的字段保持空。
 
 ---
@@ -130,6 +130,13 @@
 | `TMP-COUPON_GREY_020` | 灰 0.20 | 4 | 14.00mm | 70 | S2 样片 | 正式料样片 |
 | `TMP-BLACK-NIGHT_020` | 黑 0.20 | 6 | 12.50mm | 63 | （P04,P20,P21,P22 等） | **已作废**：四废盘，病根见 :85；由 BNIGHT2 取代 |
 | `TMP-FIX-P15P17P26P29_BLACK_016` | 黑 0.16 | 4 | 46.10mm | 288 | P15,P17,P26(ROT90X),P29 | **P26 已转 90°镜管朝床**；P15/P17 **局部树支撑 5%**（P15 z15–16/20–21；P17 z7–8 托盘外沿）；P29 brim5/支撑关；**P24 摄像孔另钻 6.8**；黑料先烘干 |
+| `TMP-FIX-P23_GREY_016` | 灰 0.16 | 1 | 110.40mm | 690 | **P23 FACEFLAT 头壳** | 前圈朝下、支撑关、brim 仅外 5mm 可不加；**当前头壳版次**（取代 G1p 的 v6r2 圆脸）；卡 [PLATE-CARD-P23P24](plates-merged/PLATE-CARD-P23P24.md) |
+| ~~`TMP-FIX-P24_BLACK_016`~~ | ~~黑 0.16~~ | ~~1~~ | ~~5.30mm~~ | ~~34~~ | ~~P24 FACEFLAT~~ | **已作废（镜头孔 4.2 系夹带回退）→ `.SUPERSEDED-by-CAM68`**；用 `candidate-stl/P24`（FACEFLAT＋6.8）或已打件钻 6.8 |
+| `TMP-FIX-P27P28_BLACK_016` | 黑 0.16 | 2 | 2.80mm | 18 | P27,P28 RETAINFIX | brim 外侧 10mm（P28 首层 5.76mm²）；支撑关；挡墙 0.8 完整；卡 [PLATE-CARD-P27P28](plates-merged/PLATE-CARD-P27P28.md) |
+| `TMP-FIX-P29B_BLACK_016` | 黑 0.16 | 1 | 46.10mm | 289 | P29 EDGEGRIP | brim 5–10mm；无支撑；耳槽 0.7 通缝；对象名=盘名（命名漂移，源=`candidate-stl/P29`）；卡 [PLATE-CARD-P29B](plates-merged/PLATE-CARD-P29B.md) |
+| ~~`TMP-FIX-P15B_BLACK_016`~~ | ~~黑 0.16~~ | ~~1~~ | — | — | ~~P15 WIREFIX~~ | **已被合并版 P15 取代**（U 槽孔底/盲孔＋尾端让位槽双修）→ `.SUPERSEDED-by-V6R3MERGED`；用 `reprint-20261019-v6r3/` |
+| `FIX2_P15P26P33_BLACK_016`（STL·reprint-20261019-v6r3） | 黑 0.16 | 3 | 23.70mm | ~148 | **P15 合并版,P26 v6r3,P33 新增** | P15 局部树 5%＋U 槽孔底成实底；P26 镜管朝床 brim5；P33 支撑关；卡 [PRINT-CARD-V6R3](../../../../../reprint-20261019-v6r3/PRINT-CARD-V6R3.md) |
+| `TMP-FIX2-ALL_BLACK_016`（STL·today-20261020） | 黑 0.16 | 7 | 46.10mm | ~289 | P24,P15,P26,P33,P29B,P27,P28 | 10-20 早合一盘；逐件 brim/支撑设置见 `today-20261020/MORNING-PLAN.md` |
 
 **层数指纹用法**：打完看 App 报的总层数，与本表"隐含层数"对不上 → 说明 Bambu 里的工程
 不是仓库这盘（层高/朝向/内容被改过）。2026-10-16 的 P20 排查正是靠这条发现

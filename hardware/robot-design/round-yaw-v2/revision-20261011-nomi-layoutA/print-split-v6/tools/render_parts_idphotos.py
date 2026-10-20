@@ -22,11 +22,12 @@ PATHS["P18T"]=r"C:\Users\94823\.qwenworkcn\workspace\mv8u5q649860hdr0\v6rebuild\
 PATHS.pop("P18",None)
 PATHS["P19"]=os.path.join(CS,"P19_STOP_KEY_CAP_UNVERIFIED.stl");PATHS["P20"]=os.path.join(CS,"P20_TACTILE_HOLDER_UNVERIFIED.stl")
 PATHS["P21"]=os.path.join(CS,"P21_MIC_RETAINER_-1_UNVERIFIED.stl");PATHS["P22"]=os.path.join(CS,"P22_MIC_RETAINER_1_UNVERIFIED.stl")
-PATHS["P23"]=os.path.join(PM,"P23_v6r2_77x45.stl");PATHS["P24"]=os.path.join(PM,"P24_v6r2_77x45.stl");PATHS["P25"]=os.path.join(PM,"P25_v6r2_77x45.stl")
+PATHS["P23"]=os.path.join(CS,"P23_HEAD_SHELL_UNVERIFIED.stl");PATHS["P24"]=os.path.join(CS,"P24_FACE_PANEL_UNVERIFIED.stl");PATHS["P25"]=os.path.join(PM,"P25_v6r2_77x45.stl")  # 10-20: P23/P24 改指 candidate（FACEFLAT）
 PATHS["P26"]=os.path.join(CS,"P26_CAMERA_CRADLE_UNVERIFIED.stl");PATHS["P27"]=os.path.join(CS,"P27_PRIVACY_GUIDE_UNVERIFIED.stl")
 PATHS["P28"]=os.path.join(CS,"P28_PRIVACY_BLADE_UNVERIFIED.stl");PATHS["P29"]=os.path.join(CS,"P29_CORE_BOARD_CRADLE_UNVERIFIED.stl")
 PATHS["P30"]=os.path.join(CS,"P30_CABLE_SADDLE_BASE_UNVERIFIED.stl");PATHS["P31"]=os.path.join(CS,"P31_CABLE_SADDLE_HEAD_UNVERIFIED.stl")
 PATHS["P32"]=os.path.join(NS,"P32_MIC_HOLDER_GLUE.stl")
+PATHS["P33"]=os.path.join(CS,"P33_CAMERA_BACK_PLATE_UNVERIFIED.stl")  # v6r3 新增摄像头背板
 PATHS.pop("P18T",None); PATHS.pop("P21",None); PATHS.pop("P22",None)  # P21/P22 scrapped, P18 replaced by P18T->render P32 only; add P18T from micholder? use same P32 geometry label
 scene=bpy.data.scenes.new("IDSHOTS"); bpy.context.window.scene=scene
 scene.render.engine='BLENDER_WORKBENCH'

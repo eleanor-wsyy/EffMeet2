@@ -1,0 +1,6156 @@
+{
+ "e_outer": 0.42,
+ "e_inner": 0.45,
+ "lh": 0.16,
+ "step": 1,
+ "scope": "per-layer thin-wall printability; NOT a slicer run",
+ "parts": [
+  {
+   "label": "P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED",
+   "stl": "candidate-stl\\P15_SERVO_ADJUSTABLE_CRADLE_UNVERIFIED.stl",
+   "tris": 1092,
+   "genus": 4,
+   "volume_mm3": 5484.871,
+   "size_mm": [
+    36.0,
+    24.0,
+    23.7
+   ],
+   "height_mm": 23.7,
+   "layers": 148,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 502.7554,
+     "k_max": 8,
+     "band_mm": 5.3025,
+     "over_extrude": 0.08,
+     "thin_frac": 0.00022,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 512.5367,
+     "k_max": 8,
+     "band_mm": 5.3946,
+     "over_extrude": 0.08,
+     "thin_frac": 8e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 515.6306,
+     "k_max": 8,
+     "band_mm": 5.4208,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 517.2735,
+     "k_max": 8,
+     "band_mm": 5.434,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 514.9738,
+     "k_max": 8,
+     "band_mm": 5.4154,
+     "over_extrude": 0.08,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 17,
+     "z": 2.8,
+     "a_net": 510.0914,
+     "k_max": 8,
+     "band_mm": 5.3728,
+     "over_extrude": 0.08,
+     "thin_frac": 0.0001,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 18,
+     "z": 2.96,
+     "a_net": 495.8914,
+     "k_max": 8,
+     "band_mm": 5.2332,
+     "over_extrude": 0.09,
+     "thin_frac": 0.00026,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 19,
+     "z": 3.12,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 20,
+     "z": 3.28,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 21,
+     "z": 3.44,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 22,
+     "z": 3.6,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 23,
+     "z": 3.76,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 24,
+     "z": 3.92,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 25,
+     "z": 4.08,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 26,
+     "z": 4.24,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 27,
+     "z": 4.4,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 28,
+     "z": 4.56,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 29,
+     "z": 4.72,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 30,
+     "z": 4.88,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 31,
+     "z": 5.04,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 32,
+     "z": 5.2,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 33,
+     "z": 5.36,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 34,
+     "z": 5.52,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 35,
+     "z": 5.68,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 36,
+     "z": 5.84,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 37,
+     "z": 6.0,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 38,
+     "z": 6.16,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 39,
+     "z": 6.32,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 40,
+     "z": 6.48,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 41,
+     "z": 6.64,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 42,
+     "z": 6.8,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 43,
+     "z": 6.96,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 44,
+     "z": 7.12,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 45,
+     "z": 7.28,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 46,
+     "z": 7.44,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 47,
+     "z": 7.6,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 48,
+     "z": 7.76,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 49,
+     "z": 7.92,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 50,
+     "z": 8.08,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 51,
+     "z": 8.24,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 52,
+     "z": 8.4,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 53,
+     "z": 8.56,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 54,
+     "z": 8.72,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 55,
+     "z": 8.88,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 56,
+     "z": 9.04,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 57,
+     "z": 9.2,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 58,
+     "z": 9.36,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 59,
+     "z": 9.52,
+     "a_net": 132.0001,
+     "k_max": 3,
+     "band_mm": 0.7782,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00134,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 60,
+     "z": 9.68,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 61,
+     "z": 9.84,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 62,
+     "z": 10.0,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 63,
+     "z": 10.16,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 64,
+     "z": 10.32,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 65,
+     "z": 10.48,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 66,
+     "z": 10.64,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 67,
+     "z": 10.8,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 68,
+     "z": 10.96,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 69,
+     "z": 11.12,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 70,
+     "z": 11.28,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 71,
+     "z": 11.44,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 72,
+     "z": 11.6,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 73,
+     "z": 11.76,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 74,
+     "z": 11.92,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 75,
+     "z": 12.08,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 76,
+     "z": 12.24,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 77,
+     "z": 12.4,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 78,
+     "z": 12.56,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 79,
+     "z": 12.72,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 80,
+     "z": 12.88,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 81,
+     "z": 13.04,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 82,
+     "z": 13.2,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 83,
+     "z": 13.36,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 84,
+     "z": 13.52,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 85,
+     "z": 13.68,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 86,
+     "z": 13.84,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 87,
+     "z": 14.0,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 88,
+     "z": 14.16,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 89,
+     "z": 14.32,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 90,
+     "z": 14.48,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 91,
+     "z": 14.64,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 92,
+     "z": 14.8,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 93,
+     "z": 14.96,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 94,
+     "z": 15.12,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 95,
+     "z": 15.28,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 96,
+     "z": 15.44,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 97,
+     "z": 15.6,
+     "a_net": 144.0,
+     "k_max": 3,
+     "band_mm": 0.781,
+     "over_extrude": 0.58,
+     "thin_frac": 0.00122,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 98,
+     "z": 15.76,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 99,
+     "z": 15.92,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 100,
+     "z": 16.08,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 101,
+     "z": 16.24,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 102,
+     "z": 16.4,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 103,
+     "z": 16.56,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 104,
+     "z": 16.72,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 105,
+     "z": 16.88,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 106,
+     "z": 17.04,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 107,
+     "z": 17.2,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 108,
+     "z": 17.36,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 109,
+     "z": 17.52,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 110,
+     "z": 17.68,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 111,
+     "z": 17.84,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 112,
+     "z": 18.0,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 113,
+     "z": 18.16,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 114,
+     "z": 18.32,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 115,
+     "z": 18.48,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 116,
+     "z": 18.64,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 117,
+     "z": 18.8,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 118,
+     "z": 18.96,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 119,
+     "z": 19.12,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 120,
+     "z": 19.28,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 121,
+     "z": 19.44,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 122,
+     "z": 19.6,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 123,
+     "z": 19.76,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 124,
+     "z": 19.92,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 125,
+     "z": 20.08,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 126,
+     "z": 20.24,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 127,
+     "z": 20.4,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 128,
+     "z": 20.56,
+     "a_net": 216.0001,
+     "k_max": 3,
+     "band_mm": 0.791,
+     "over_extrude": 0.57,
+     "thin_frac": 0.00082,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 129,
+     "z": 20.72,
+     "a_net": 370.1184,
+     "k_max": 6,
+     "band_mm": 0.697,
+     "over_extrude": 0.65,
+     "thin_frac": 0.00039,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 130,
+     "z": 20.88,
+     "a_net": 378.013,
+     "k_max": 7,
+     "band_mm": 0.1217,
+     "over_extrude": 3.7,
+     "thin_frac": 0.00038,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 131,
+     "z": 21.04,
+     "a_net": 380.5973,
+     "k_max": 7,
+     "band_mm": 0.2136,
+     "over_extrude": 2.11,
+     "thin_frac": 0.00024,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 132,
+     "z": 21.2,
+     "a_net": 381.7702,
+     "k_max": 7,
+     "band_mm": 0.2548,
+     "over_extrude": 1.77,
+     "thin_frac": 0.0002,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 133,
+     "z": 21.36,
+     "a_net": 381.7702,
+     "k_max": 7,
+     "band_mm": 0.2548,
+     "over_extrude": 1.77,
+     "thin_frac": 0.0002,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 134,
+     "z": 21.52,
+     "a_net": 381.7702,
+     "k_max": 7,
+     "band_mm": 0.2548,
+     "over_extrude": 1.77,
+     "thin_frac": 0.0002,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 135,
+     "z": 21.68,
+     "a_net": 381.7702,
+     "k_max": 7,
+     "band_mm": 0.2548,
+     "over_extrude": 1.77,
+     "thin_frac": 0.0002,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 136,
+     "z": 21.84,
+     "a_net": 372.264,
+     "k_max": 7,
+     "band_mm": 0.2415,
+     "over_extrude": 1.86,
+     "thin_frac": 0.00044,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 137,
+     "z": 22.0,
+     "a_net": 368.9766,
+     "k_max": 7,
+     "band_mm": 0.2407,
+     "over_extrude": 1.87,
+     "thin_frac": 0.00044,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 138,
+     "z": 22.16,
+     "a_net": 366.5385,
+     "k_max": 7,
+     "band_mm": 0.24,
+     "over_extrude": 1.87,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 139,
+     "z": 22.32,
+     "a_net": 365.6254,
+     "k_max": 7,
+     "band_mm": 0.2398,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 140,
+     "z": 22.48,
+     "a_net": 364.7056,
+     "k_max": 7,
+     "band_mm": 0.2395,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 141,
+     "z": 22.64,
+     "a_net": 364.5902,
+     "k_max": 7,
+     "band_mm": 0.2395,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 142,
+     "z": 22.8,
+     "a_net": 364.5902,
+     "k_max": 7,
+     "band_mm": 0.2395,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 143,
+     "z": 22.96,
+     "a_net": 364.5902,
+     "k_max": 7,
+     "band_mm": 0.2395,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 144,
+     "z": 23.12,
+     "a_net": 364.5902,
+     "k_max": 7,
+     "band_mm": 0.2395,
+     "over_extrude": 1.88,
+     "thin_frac": 0.00045,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 145,
+     "z": 23.28,
+     "a_net": 364.0038,
+     "k_max": 7,
+     "band_mm": 0.2212,
+     "over_extrude": 2.03,
+     "thin_frac": 0.00047,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 146,
+     "z": 23.44,
+     "a_net": 363.0621,
+     "k_max": 7,
+     "band_mm": 0.1839,
+     "over_extrude": 2.45,
+     "thin_frac": 0.00057,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 147,
+     "z": 23.6,
+     "a_net": 359.7925,
+     "k_max": 7,
+     "band_mm": 0.0426,
+     "over_extrude": 10.56,
+     "thin_frac": 0.00065,
+     "class": "EXACTLY_SOLID"
+    }
+   ],
+   "k_max_hist": {
+    "3": 110,
+    "6": 1,
+    "7": 18,
+    "8": 19
+   },
+   "worst": {
+    "layer": 130,
+    "z": 20.88,
+    "a_net": 378.013,
+    "k_max": 7,
+    "band_mm": 0.1217,
+    "over_extrude": 3.7,
+    "thin_frac": 0.00038,
+    "class": "TIGHT"
+   },
+   "thin_frac_max": 0.00134,
+   "thin_frac_layer": 22,
+   "required_wall_loops": 7,
+   "verdict": "WARN_TIGHT"
+  },
+  {
+   "label": "P26_CAMERA_CRADLE_UNVERIFIED",
+   "stl": "candidate-stl\\P26_CAMERA_CRADLE_UNVERIFIED.stl",
+   "tris": 1472,
+   "genus": 3,
+   "volume_mm3": 1369.076,
+   "size_mm": [
+    18.8,
+    13.0,
+    10.1
+   ],
+   "height_mm": 10.1,
+   "layers": 63,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 142.72,
+     "k_max": 6,
+     "band_mm": 0.1183,
+     "over_extrude": 3.81,
+     "thin_frac": 0.00015,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 151.3251,
+     "k_max": 6,
+     "band_mm": 0.209,
+     "over_extrude": 2.15,
+     "thin_frac": 4e-05,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 156.0132,
+     "k_max": 6,
+     "band_mm": 0.2569,
+     "over_extrude": 1.75,
+     "thin_frac": 4e-05,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 158.33,
+     "k_max": 6,
+     "band_mm": 0.2807,
+     "over_extrude": 1.6,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 17,
+     "z": 2.8,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 18,
+     "z": 2.96,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 19,
+     "z": 3.12,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 20,
+     "z": 3.28,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 21,
+     "z": 3.44,
+     "a_net": 158.9102,
+     "k_max": 6,
+     "band_mm": 0.2867,
+     "over_extrude": 1.57,
+     "thin_frac": 4e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 22,
+     "z": 3.6,
+     "a_net": 118.08,
+     "k_max": 3,
+     "band_mm": 0.4843,
+     "over_extrude": 0.93,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 23,
+     "z": 3.76,
+     "a_net": 118.08,
+     "k_max": 3,
+     "band_mm": 0.4843,
+     "over_extrude": 0.93,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 24,
+     "z": 3.92,
+     "a_net": 118.08,
+     "k_max": 3,
+     "band_mm": 0.4843,
+     "over_extrude": 0.93,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 25,
+     "z": 4.08,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 26,
+     "z": 4.24,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 27,
+     "z": 4.4,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 28,
+     "z": 4.56,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 29,
+     "z": 4.72,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 30,
+     "z": 4.88,
+     "a_net": 110.9806,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00095,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 31,
+     "z": 5.04,
+     "a_net": 123.7104,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.00141,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 32,
+     "z": 5.2,
+     "a_net": 127.1735,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 33,
+     "z": 5.36,
+     "a_net": 127.9141,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 34,
+     "z": 5.52,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 35,
+     "z": 5.68,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 36,
+     "z": 5.84,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 37,
+     "z": 6.0,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 38,
+     "z": 6.16,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 39,
+     "z": 6.32,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 40,
+     "z": 6.48,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 41,
+     "z": 6.64,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 42,
+     "z": 6.8,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 43,
+     "z": 6.96,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 44,
+     "z": 7.12,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 45,
+     "z": 7.28,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 46,
+     "z": 7.44,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 47,
+     "z": 7.6,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 48,
+     "z": 7.76,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 49,
+     "z": 7.92,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 50,
+     "z": 8.08,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 51,
+     "z": 8.24,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 52,
+     "z": 8.4,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 53,
+     "z": 8.56,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 54,
+     "z": 8.72,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 55,
+     "z": 8.88,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 56,
+     "z": 9.04,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 57,
+     "z": 9.2,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 58,
+     "z": 9.36,
+     "a_net": 128.0968,
+     "k_max": 4,
+     "band_mm": 0.0326,
+     "over_extrude": 13.81,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 59,
+     "z": 9.52,
+     "a_net": 127.8589,
+     "k_max": 4,
+     "band_mm": 0.0272,
+     "over_extrude": 16.55,
+     "thin_frac": 0.0,
+     "class": "EXACTLY_SOLID"
+    },
+    {
+     "layer": 60,
+     "z": 9.68,
+     "a_net": 125.9556,
+     "k_max": 4,
+     "band_mm": 0.054,
+     "over_extrude": 8.33,
+     "thin_frac": 0.0,
+     "class": "SLIVER"
+    },
+    {
+     "layer": 61,
+     "z": 9.84,
+     "a_net": 122.071,
+     "k_max": 3,
+     "band_mm": 0.5911,
+     "over_extrude": 0.76,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 62,
+     "z": 10.0,
+     "a_net": 111.987,
+     "k_max": 3,
+     "band_mm": 0.5115,
+     "over_extrude": 0.88,
+     "thin_frac": 0.00144,
+     "class": "CLEAN"
+    }
+   ],
+   "k_max_hist": {
+    "3": 5,
+    "4": 36,
+    "6": 22
+   },
+   "worst": {
+    "layer": 60,
+    "z": 9.68,
+    "a_net": 125.9556,
+    "k_max": 4,
+    "band_mm": 0.054,
+    "over_extrude": 8.33,
+    "thin_frac": 0.0,
+    "class": "SLIVER"
+   },
+   "thin_frac_max": 0.00144,
+   "thin_frac_layer": 62,
+   "required_wall_loops": 4,
+   "verdict": "WARN_SLIVER"
+  },
+  {
+   "label": "P33_CAMERA_BACK_PLATE_UNVERIFIED",
+   "stl": "candidate-stl\\P33_CAMERA_BACK_PLATE_UNVERIFIED.stl",
+   "tris": 972,
+   "genus": 2,
+   "volume_mm3": 290.569,
+   "size_mm": [
+    17.4,
+    11.0,
+    4.1
+   ],
+   "height_mm": 4.1,
+   "layers": 26,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 151.7968,
+     "k_max": 8,
+     "band_mm": 1.1733,
+     "over_extrude": 0.38,
+     "thin_frac": 0.0031,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 156.3831,
+     "k_max": 8,
+     "band_mm": 1.2177,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00398,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 157.1807,
+     "k_max": 8,
+     "band_mm": 1.2251,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00417,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 156.383,
+     "k_max": 8,
+     "band_mm": 1.2177,
+     "over_extrude": 0.37,
+     "thin_frac": 0.00398,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 151.7964,
+     "k_max": 8,
+     "band_mm": 1.1733,
+     "over_extrude": 0.38,
+     "thin_frac": 0.0031,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 16.1302,
+     "k_max": 3,
+     "band_mm": 0.1414,
+     "over_extrude": 3.18,
+     "thin_frac": 0.00041,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 17,
+     "z": 2.8,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 18,
+     "z": 2.96,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00042,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 19,
+     "z": 3.12,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 20,
+     "z": 3.28,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 21,
+     "z": 3.44,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 22,
+     "z": 3.6,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 23,
+     "z": 3.76,
+     "a_net": 16.7101,
+     "k_max": 3,
+     "band_mm": 0.2012,
+     "over_extrude": 2.24,
+     "thin_frac": 0.00043,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 24,
+     "z": 3.92,
+     "a_net": 16.1301,
+     "k_max": 3,
+     "band_mm": 0.1414,
+     "over_extrude": 3.18,
+     "thin_frac": 0.00041,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 25,
+     "z": 4.08,
+     "a_net": 12.7571,
+     "k_max": 2,
+     "band_mm": 0.586,
+     "over_extrude": 0.77,
+     "thin_frac": 0.00604,
+     "class": "CLEAN"
+    }
+   ],
+   "k_max_hist": {
+    "2": 1,
+    "3": 15,
+    "8": 10
+   },
+   "worst": {
+    "layer": 10,
+    "z": 1.68,
+    "a_net": 16.1302,
+    "k_max": 3,
+    "band_mm": 0.1414,
+    "over_extrude": 3.18,
+    "thin_frac": 0.00041,
+    "class": "TIGHT"
+   },
+   "thin_frac_max": 0.00604,
+   "thin_frac_layer": 25,
+   "required_wall_loops": 3,
+   "verdict": "WARN_TIGHT"
+  },
+  {
+   "label": "P24_FACE_PANEL_UNVERIFIED",
+   "stl": "candidate-stl\\P24_FACE_PANEL_UNVERIFIED.stl",
+   "tris": 3798,
+   "genus": 2,
+   "volume_mm3": 15845.127,
+   "size_mm": [
+    106.0,
+    96.0,
+    5.3
+   ],
+   "height_mm": 5.3,
+   "layers": 33,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 6907.5987,
+     "k_max": 8,
+     "band_mm": 15.5363,
+     "over_extrude": 0.03,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 6231.9376,
+     "k_max": 8,
+     "band_mm": 11.8075,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 6166.8748,
+     "k_max": 8,
+     "band_mm": 11.6381,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 6138.7112,
+     "k_max": 8,
+     "band_mm": 11.5648,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 6122.0583,
+     "k_max": 8,
+     "band_mm": 10.4941,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 6116.8653,
+     "k_max": 8,
+     "band_mm": 10.4812,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 6116.8653,
+     "k_max": 8,
+     "band_mm": 10.4812,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 6116.8652,
+     "k_max": 8,
+     "band_mm": 10.4812,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 6116.8652,
+     "k_max": 8,
+     "band_mm": 10.4812,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 6116.8651,
+     "k_max": 8,
+     "band_mm": 10.4812,
+     "over_extrude": 0.04,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 17,
+     "z": 2.8,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 18,
+     "z": 2.96,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 19,
+     "z": 3.12,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 20,
+     "z": 3.28,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 21,
+     "z": 3.44,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 22,
+     "z": 3.6,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 23,
+     "z": 3.76,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 24,
+     "z": 3.92,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 25,
+     "z": 4.08,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 26,
+     "z": 4.24,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 27,
+     "z": 4.4,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 28,
+     "z": 4.56,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 29,
+     "z": 4.72,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 30,
+     "z": 4.88,
+     "a_net": 130.6685,
+     "k_max": 2,
+     "band_mm": 0.4886,
+     "over_extrude": 0.92,
+     "thin_frac": 1e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 31,
+     "z": 5.04,
+     "a_net": 32.9337,
+     "k_max": 2,
+     "band_mm": 0.2085,
+     "over_extrude": 2.16,
+     "thin_frac": 2e-05,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 32,
+     "z": 5.2,
+     "a_net": 32.9337,
+     "k_max": 2,
+     "band_mm": 0.2085,
+     "over_extrude": 2.16,
+     "thin_frac": 2e-05,
+     "class": "TIGHT"
+    }
+   ],
+   "k_max_hist": {
+    "2": 18,
+    "8": 15
+   },
+   "worst": {
+    "layer": 31,
+    "z": 5.04,
+    "a_net": 32.9337,
+    "k_max": 2,
+    "band_mm": 0.2085,
+    "over_extrude": 2.16,
+    "thin_frac": 2e-05,
+    "class": "TIGHT"
+   },
+   "thin_frac_max": 2e-05,
+   "thin_frac_layer": 31,
+   "required_wall_loops": 2,
+   "verdict": "WARN_TIGHT"
+  },
+  {
+   "label": "P27_PRIVACY_GUIDE_UNVERIFIED",
+   "stl": "candidate-stl\\P27_PRIVACY_GUIDE_UNVERIFIED.stl",
+   "tris": 744,
+   "genus": 3,
+   "volume_mm3": 663.002,
+   "size_mm": [
+    42.0,
+    12.0,
+    2.0
+   ],
+   "height_mm": 2.0,
+   "layers": 12,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 431.4697,
+     "k_max": 8,
+     "band_mm": 1.8404,
+     "over_extrude": 0.24,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 445.4263,
+     "k_max": 8,
+     "band_mm": 1.8664,
+     "over_extrude": 0.24,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 450.007,
+     "k_max": 8,
+     "band_mm": 1.8752,
+     "over_extrude": 0.24,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 450.007,
+     "k_max": 8,
+     "band_mm": 1.8752,
+     "over_extrude": 0.24,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 450.007,
+     "k_max": 8,
+     "band_mm": 1.8752,
+     "over_extrude": 0.24,
+     "thin_frac": 0.0,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 259.6069,
+     "k_max": 6,
+     "band_mm": 0.0954,
+     "over_extrude": 4.72,
+     "thin_frac": 0.0,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 259.6069,
+     "k_max": 6,
+     "band_mm": 0.0954,
+     "over_extrude": 4.72,
+     "thin_frac": 0.0,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 259.6069,
+     "k_max": 6,
+     "band_mm": 0.0954,
+     "over_extrude": 4.72,
+     "thin_frac": 0.0,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 259.6069,
+     "k_max": 6,
+     "band_mm": 0.0954,
+     "over_extrude": 4.72,
+     "thin_frac": 0.0,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 259.6069,
+     "k_max": 6,
+     "band_mm": 0.0954,
+     "over_extrude": 4.72,
+     "thin_frac": 0.0,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 257.3156,
+     "k_max": 6,
+     "band_mm": 0.0889,
+     "over_extrude": 5.06,
+     "thin_frac": 0.0,
+     "class": "SLIVER"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 249.5893,
+     "k_max": 6,
+     "band_mm": 0.0633,
+     "over_extrude": 7.11,
+     "thin_frac": 1e-05,
+     "class": "SLIVER"
+    }
+   ],
+   "k_max_hist": {
+    "6": 7,
+    "8": 5
+   },
+   "worst": {
+    "layer": 11,
+    "z": 1.84,
+    "a_net": 249.5893,
+    "k_max": 6,
+    "band_mm": 0.0633,
+    "over_extrude": 7.11,
+    "thin_frac": 1e-05,
+    "class": "SLIVER"
+   },
+   "thin_frac_max": 1e-05,
+   "thin_frac_layer": 11,
+   "required_wall_loops": 6,
+   "verdict": "WARN_SLIVER"
+  },
+  {
+   "label": "P28_PRIVACY_BLADE_UNVERIFIED",
+   "stl": "candidate-stl\\P28_PRIVACY_BLADE_UNVERIFIED.stl",
+   "tris": 204,
+   "genus": 0,
+   "volume_mm3": 74.782,
+   "size_mm": [
+    10.0,
+    8.0,
+    2.8
+   ],
+   "height_mm": 2.8,
+   "layers": 17,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 5.76,
+     "k_max": 3,
+     "band_mm": 0.105,
+     "over_extrude": 4.29,
+     "thin_frac": 0.01531,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 72.96,
+     "k_max": 8,
+     "band_mm": 0.6932,
+     "over_extrude": 0.65,
+     "thin_frac": 0.00121,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 79.5797,
+     "k_max": 8,
+     "band_mm": 0.9258,
+     "over_extrude": 0.49,
+     "thin_frac": 0.00027,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 79.9599,
+     "k_max": 8,
+     "band_mm": 0.9385,
+     "over_extrude": 0.48,
+     "thin_frac": 0.00025,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 79.9599,
+     "k_max": 8,
+     "band_mm": 0.9385,
+     "over_extrude": 0.48,
+     "thin_frac": 0.00024,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 79.5797,
+     "k_max": 8,
+     "band_mm": 0.9258,
+     "over_extrude": 0.49,
+     "thin_frac": 0.00027,
+     "class": "CLEAN"
+    }
+   ],
+   "k_max_hist": {
+    "3": 12,
+    "8": 5
+   },
+   "worst": {
+    "layer": 0,
+    "z": 0.08,
+    "a_net": 5.76,
+    "k_max": 3,
+    "band_mm": 0.105,
+    "over_extrude": 4.29,
+    "thin_frac": 0.01531,
+    "class": "TIGHT"
+   },
+   "thin_frac_max": 0.01531,
+   "thin_frac_layer": 0,
+   "required_wall_loops": 3,
+   "verdict": "WARN_TIGHT"
+  },
+  {
+   "label": "P29_CORE_BOARD_CRADLE_UNVERIFIED",
+   "stl": "candidate-stl\\P29_CORE_BOARD_CRADLE_UNVERIFIED.stl",
+   "tris": 732,
+   "genus": 2,
+   "volume_mm3": 4164.376,
+   "size_mm": [
+    36.3,
+    8.0,
+    46.1
+   ],
+   "height_mm": 46.1,
+   "layers": 288,
+   "manifold_status": "Error.NoError",
+   "e_outer": 0.42,
+   "e_inner": 0.45,
+   "lh": 0.16,
+   "empty_layers": [],
+   "rows": [
+    {
+     "layer": 0,
+     "z": 0.08,
+     "a_net": 245.7883,
+     "k_max": 8,
+     "band_mm": 0.6599,
+     "over_extrude": 0.68,
+     "thin_frac": 9e-05,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 1,
+     "z": 0.24,
+     "a_net": 264.653,
+     "k_max": 8,
+     "band_mm": 0.929,
+     "over_extrude": 0.48,
+     "thin_frac": 0.00034,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 2,
+     "z": 0.4,
+     "a_net": 269.3707,
+     "k_max": 8,
+     "band_mm": 1.0682,
+     "over_extrude": 0.42,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 3,
+     "z": 0.56,
+     "a_net": 271.6909,
+     "k_max": 8,
+     "band_mm": 1.1351,
+     "over_extrude": 0.4,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 4,
+     "z": 0.72,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 5,
+     "z": 0.88,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 6,
+     "z": 1.04,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 7,
+     "z": 1.2,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 8,
+     "z": 1.36,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 9,
+     "z": 1.52,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 10,
+     "z": 1.68,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 11,
+     "z": 1.84,
+     "a_net": 272.2708,
+     "k_max": 8,
+     "band_mm": 1.1516,
+     "over_extrude": 0.39,
+     "thin_frac": 0.00032,
+     "class": "CLEAN"
+    },
+    {
+     "layer": 12,
+     "z": 2.0,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 13,
+     "z": 2.16,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 14,
+     "z": 2.32,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 15,
+     "z": 2.48,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 16,
+     "z": 2.64,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 17,
+     "z": 2.8,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 18,
+     "z": 2.96,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 19,
+     "z": 3.12,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 20,
+     "z": 3.28,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 21,
+     "z": 3.44,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 22,
+     "z": 3.6,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 23,
+     "z": 3.76,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 24,
+     "z": 3.92,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 25,
+     "z": 4.08,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 26,
+     "z": 4.24,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 27,
+     "z": 4.4,
+     "a_net": 234.8697,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 28,
+     "z": 4.56,
+     "a_net": 232.5495,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0005,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 29,
+     "z": 4.72,
+     "a_net": 229.4194,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.00049,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 30,
+     "z": 4.88,
+     "a_net": 220.7475,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.00081,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 31,
+     "z": 5.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 32,
+     "z": 5.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 33,
+     "z": 5.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 34,
+     "z": 5.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 35,
+     "z": 5.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 36,
+     "z": 5.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 37,
+     "z": 6.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 38,
+     "z": 6.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 39,
+     "z": 6.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 40,
+     "z": 6.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 41,
+     "z": 6.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 42,
+     "z": 6.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 43,
+     "z": 6.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 44,
+     "z": 7.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 45,
+     "z": 7.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 46,
+     "z": 7.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 47,
+     "z": 7.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 48,
+     "z": 7.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 49,
+     "z": 7.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 50,
+     "z": 8.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 51,
+     "z": 8.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 52,
+     "z": 8.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 53,
+     "z": 8.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 54,
+     "z": 8.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 55,
+     "z": 8.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 56,
+     "z": 9.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 57,
+     "z": 9.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 58,
+     "z": 9.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 59,
+     "z": 9.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 60,
+     "z": 9.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 61,
+     "z": 9.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 62,
+     "z": 10.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 63,
+     "z": 10.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 64,
+     "z": 10.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 65,
+     "z": 10.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 66,
+     "z": 10.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 67,
+     "z": 10.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 68,
+     "z": 10.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 69,
+     "z": 11.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 70,
+     "z": 11.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 71,
+     "z": 11.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 72,
+     "z": 11.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 73,
+     "z": 11.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 74,
+     "z": 11.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 75,
+     "z": 12.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 76,
+     "z": 12.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 77,
+     "z": 12.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 78,
+     "z": 12.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 79,
+     "z": 12.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 80,
+     "z": 12.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 81,
+     "z": 13.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 82,
+     "z": 13.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 83,
+     "z": 13.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 84,
+     "z": 13.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 85,
+     "z": 13.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 86,
+     "z": 13.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 87,
+     "z": 14.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 88,
+     "z": 14.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 89,
+     "z": 14.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 90,
+     "z": 14.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 91,
+     "z": 14.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 92,
+     "z": 14.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 93,
+     "z": 14.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 94,
+     "z": 15.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 95,
+     "z": 15.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 96,
+     "z": 15.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 97,
+     "z": 15.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 98,
+     "z": 15.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 99,
+     "z": 15.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 100,
+     "z": 16.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 101,
+     "z": 16.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 102,
+     "z": 16.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 103,
+     "z": 16.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 104,
+     "z": 16.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 105,
+     "z": 16.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 106,
+     "z": 17.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 107,
+     "z": 17.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 108,
+     "z": 17.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 109,
+     "z": 17.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 110,
+     "z": 17.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 111,
+     "z": 17.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 112,
+     "z": 18.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 113,
+     "z": 18.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 114,
+     "z": 18.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 115,
+     "z": 18.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 116,
+     "z": 18.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 117,
+     "z": 18.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 118,
+     "z": 18.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 119,
+     "z": 19.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 120,
+     "z": 19.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 121,
+     "z": 19.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 122,
+     "z": 19.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 123,
+     "z": 19.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 124,
+     "z": 19.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 125,
+     "z": 20.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 126,
+     "z": 20.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 127,
+     "z": 20.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 128,
+     "z": 20.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 129,
+     "z": 20.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 130,
+     "z": 20.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 131,
+     "z": 21.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 132,
+     "z": 21.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 133,
+     "z": 21.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 134,
+     "z": 21.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 135,
+     "z": 21.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 136,
+     "z": 21.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 137,
+     "z": 22.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 138,
+     "z": 22.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 139,
+     "z": 22.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 140,
+     "z": 22.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 141,
+     "z": 22.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 142,
+     "z": 22.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 143,
+     "z": 22.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 144,
+     "z": 23.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 145,
+     "z": 23.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 146,
+     "z": 23.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 147,
+     "z": 23.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 148,
+     "z": 23.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 149,
+     "z": 23.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 150,
+     "z": 24.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 151,
+     "z": 24.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 152,
+     "z": 24.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 153,
+     "z": 24.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 154,
+     "z": 24.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 155,
+     "z": 24.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 156,
+     "z": 25.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 157,
+     "z": 25.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 158,
+     "z": 25.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 159,
+     "z": 25.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 160,
+     "z": 25.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 161,
+     "z": 25.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 162,
+     "z": 26.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 163,
+     "z": 26.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 164,
+     "z": 26.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 165,
+     "z": 26.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 166,
+     "z": 26.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 167,
+     "z": 26.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 168,
+     "z": 26.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 169,
+     "z": 27.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 170,
+     "z": 27.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 171,
+     "z": 27.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 172,
+     "z": 27.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 173,
+     "z": 27.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 174,
+     "z": 27.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 175,
+     "z": 28.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 176,
+     "z": 28.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 177,
+     "z": 28.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 178,
+     "z": 28.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 179,
+     "z": 28.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 180,
+     "z": 28.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 181,
+     "z": 29.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 182,
+     "z": 29.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 183,
+     "z": 29.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 184,
+     "z": 29.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 185,
+     "z": 29.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 186,
+     "z": 29.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 187,
+     "z": 30.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 188,
+     "z": 30.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 189,
+     "z": 30.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 190,
+     "z": 30.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 191,
+     "z": 30.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 192,
+     "z": 30.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 193,
+     "z": 30.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 194,
+     "z": 31.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 195,
+     "z": 31.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 196,
+     "z": 31.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 197,
+     "z": 31.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 198,
+     "z": 31.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 199,
+     "z": 31.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 200,
+     "z": 32.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 201,
+     "z": 32.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 202,
+     "z": 32.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 203,
+     "z": 32.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 204,
+     "z": 32.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 205,
+     "z": 32.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 206,
+     "z": 33.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 207,
+     "z": 33.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 208,
+     "z": 33.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 209,
+     "z": 33.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 210,
+     "z": 33.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 211,
+     "z": 33.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 212,
+     "z": 34.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 213,
+     "z": 34.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 214,
+     "z": 34.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 215,
+     "z": 34.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 216,
+     "z": 34.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 217,
+     "z": 34.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 218,
+     "z": 34.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 219,
+     "z": 35.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 220,
+     "z": 35.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 221,
+     "z": 35.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 222,
+     "z": 35.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 223,
+     "z": 35.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 224,
+     "z": 35.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 225,
+     "z": 36.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 226,
+     "z": 36.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 227,
+     "z": 36.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 228,
+     "z": 36.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 229,
+     "z": 36.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 230,
+     "z": 36.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 231,
+     "z": 37.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 232,
+     "z": 37.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 233,
+     "z": 37.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 234,
+     "z": 37.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 235,
+     "z": 37.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 236,
+     "z": 37.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 237,
+     "z": 38.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 238,
+     "z": 38.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 239,
+     "z": 38.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 240,
+     "z": 38.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 241,
+     "z": 38.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 242,
+     "z": 38.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 243,
+     "z": 38.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 244,
+     "z": 39.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 245,
+     "z": 39.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 246,
+     "z": 39.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 247,
+     "z": 39.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 248,
+     "z": 39.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 249,
+     "z": 39.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 250,
+     "z": 40.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 251,
+     "z": 40.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 252,
+     "z": 40.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 253,
+     "z": 40.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 254,
+     "z": 40.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 255,
+     "z": 40.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 256,
+     "z": 41.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 257,
+     "z": 41.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 258,
+     "z": 41.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 259,
+     "z": 41.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 260,
+     "z": 41.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 261,
+     "z": 41.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 262,
+     "z": 42.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 263,
+     "z": 42.16,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 264,
+     "z": 42.32,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 265,
+     "z": 42.48,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 266,
+     "z": 42.64,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 267,
+     "z": 42.8,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 268,
+     "z": 42.96,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 269,
+     "z": 43.12,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 270,
+     "z": 43.28,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 271,
+     "z": 43.44,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 272,
+     "z": 43.6,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 273,
+     "z": 43.76,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 274,
+     "z": 43.92,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 275,
+     "z": 44.08,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 276,
+     "z": 44.24,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 277,
+     "z": 44.4,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 278,
+     "z": 44.56,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 279,
+     "z": 44.72,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 280,
+     "z": 44.88,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 281,
+     "z": 45.04,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 282,
+     "z": 45.2,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 283,
+     "z": 45.36,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 284,
+     "z": 45.52,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 285,
+     "z": 45.68,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 286,
+     "z": 45.84,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    },
+    {
+     "layer": 287,
+     "z": 46.0,
+     "a_net": 71.22,
+     "k_max": 5,
+     "band_mm": 0.096,
+     "over_extrude": 4.69,
+     "thin_frac": 0.0035,
+     "class": "TIGHT"
+    }
+   ],
+   "k_max_hist": {
+    "5": 276,
+    "8": 12
+   },
+   "worst": {
+    "layer": 12,
+    "z": 2.0,
+    "a_net": 234.8697,
+    "k_max": 5,
+    "band_mm": 0.096,
+    "over_extrude": 4.69,
+    "thin_frac": 0.0005,
+    "class": "TIGHT"
+   },
+   "thin_frac_max": 0.0035,
+   "thin_frac_layer": 233,
+   "required_wall_loops": 5,
+   "verdict": "WARN_TIGHT"
+  }
+ ]
+}

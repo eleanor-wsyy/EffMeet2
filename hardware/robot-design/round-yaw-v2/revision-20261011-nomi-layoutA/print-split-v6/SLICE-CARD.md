@@ -196,3 +196,10 @@ thin_frac **0.00%**、1236 三角面（盘内与 `candidate-stl/` 逐面一致�
 - **首要嫌疑是挤出/耗材**（第 1 步）：多件停在互不相同高度＋断口粗糙，
   这是任何切片设置都造不出来的形貌。
 
+
+---
+
+## 2026-10-20 补：v6r3/FACEFLAT 改动件审计（`production/thinwall-v6r3.json`）
+
+P15（合并版）/P23 见头壳盘卡/P24/P26/P27/P28/P29/P33 七件重测：**FAIL_THIN 0**；P26/P27 为 WARN_SLIVER（切片预览勾「检查薄壁」即可），其余 WARN_TIGHT 与既有 P28 同级（≤1.53%，可接受）。
+新增件 **P33 已入薄壁审计与 candidate 链**（对照：P32/P18T 仍无源，见 UNREGISTERED-PARTS）。

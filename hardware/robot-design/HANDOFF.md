@@ -1,3 +1,18 @@
+# 2026-10-20 · v6r3（P15/P26/P33）× FACEFLAT 合并落地 + 全仓同步
+
+- **起因（10-19 晚实打）**：MG90S 塞不进 P15（尾端出线无让位）；摄像模组在 P26 里无保持结构。
+- **v6r3 修复**（提交 `a3f4025`）：P15 尾端让位槽 6.8×9.6；**P26 重设计**（前壁 3.5、镜头入 P24 孔 0.5~0.7 导向、两 M3 背柱距 13.9）；**新增 P33 背板**（FPC 槽 6.4×2.5、压筋、2×M3×8 自攻）；FPC 跨距 10.75/余量 3.25。修复盘 `reprint-20261019-v6r3/`。
+- **合并 origin/main**（`5471204`）：P23/P24 **FACEFLAT 大平脸**（106×96 R21、屏窗 62×46、116×116 R40 边框）＋ P15B（耳垫U槽孔底/底板盲孔）＋ P27/P28 RETAINFIX ＋ P29B EDGEGRIP 全部并入；**P15 双修合一**（让位槽＋U槽孔底/盲孔）。
+- **摄像孔 4.2 风波**：`2d21bdc` 在 P15 提交里夹带把 6.8 改回 4.2（无设计说明），已**改回 6.8**；4.2 版 P24 盘件全部改名作废：`.SUPERSEDED-by-CAM68`（TMP-FIX-P24_BLACK_016 3MF/STL、P24_FACE_PANEL_FACEFLAT.stl）；**已打 FACEFLAT P24 钻 6.8**。P15B 盘件改名 `.SUPERSEDED-by-V6R3MERGED`（被合并版取代）。
+- **件数 31→32**：P33 入 candidate 链（P32 编号保留给无源麦胶座，见 UNREGISTERED-PARTS）；`verify_v6_delivery.py` 已改 32。
+- **同步动作**：parameters.json（FACEFLAT/6.8/跨距/32 件）、plate-registry 重生成＋RUNBOOK §6 新盘行、parts_img 全量重出（含 P33）、INTERFACE_GATES 状态刷新（LCD-01 已实测、FACE-01 压配定案、CAM-01 v6r3）、thinwall 审计七件改动件 **FAIL_THIN 0**（`production/thinwall-v6r3.json`）、SLICE-CARD/UNREGISTERED/MEASUREMENTS/ASSEMBLY §1.4/§3.3/§7/§8 同步。
+- **重建校验**：32 件 overlap 0、containment 全过、yaw 三姿态 0、`verify_v6_delivery.py` **PASS**；改动 STL 恰好 P15/P23/P24/P26/P27/P28/P29＋新增 P33，其余字节不变。
+- **apps/web 保持功能版**：main 的 `apps/web` 即 `apps/web-demo`（演示版）内容，合并时功能版未动。
+- **⚠️ 待办**：队友的 `EffMeet2-重打件检验单-…-20261019.docx/pdf` 里 P15(WIREFIX)/P26 节已过时（被合并版/v6r3 取代），需要按 `reprint-20261019-v6r3/PRINT-CARD-V6R3.md` 重出检验单；10-20 打印包 `today-20261020/`（P23 灰＋七合一黑盘）。
+- **固件（他人提交）**：`dfe7f27…3161d0b` 五个提交——串口检测/烧录脚本、LAN 网关+设备 token+UART 配网、WS2812 状态灯、MG90S 舵机驱动、INMP441/MAX98357A I2S 驱动（REPL 台架命令）、WS 握手/DHCP 修复。**实机烧录与拾音/播放回执验收仍 NOT_RUN**。
+
+---
+
 # 2026-10-19 · P15/P17/P26/P29 修复盘 v2 + P24 摄像孔 6.8
 
 - **返工原因**：P15 舵机口袋 12.5+0.6 太紧；P17 功放单柱/板低；P26 镜管 4.6 装不进 6.5 镜头；P29 核心板槽 2.1 太松。修复：P15 口袋 **13.7**；P17 两 M2 柱 **12.6**；P26 镜管 **6.5**；P29 槽 **1.8**。

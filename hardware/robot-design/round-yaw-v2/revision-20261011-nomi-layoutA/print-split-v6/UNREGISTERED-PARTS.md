@@ -10,16 +10,16 @@
 
 ## 为什么单独立账
 
-`build_v6.py` 生成 31 件（P01–P31），存进 v6 blend 的 `N6_COMPACT_CANDIDATE` 场景，
+`build_v6.py` 生成 32 件（P01–P31＋v6r3 新增 P33 摄像头背板；P32 编号特意跳过、保留给本账的麦胶座），存进 v6 blend 的 `N6_COMPACT_CANDIDATE` 场景，
 再由 `extract_export_meshes.py` → `finalize_exports.py` 导出 `candidate-stl/` 并写 PARTS.csv。
-**P32 与 P18T 完全不在这条链上**：
+**P32 与 P18T 完全不在这条链上**（P33 相反：从第一天起就在链上，正是吸取教训 33 的做法）：
 
 | 检查项 | P32 | P18T |
 |---|---|---|
 | 在 `build_v6.py` 里 | ❌ 无 | ❌ 无 |
 | 在 v6 blend（374 个对象）里 | ❌ 无匹配 | ❌ 无匹配 |
 | 在 `candidate-stl/` 里 | ❌ 无 STL | ❌ 无 STL |
-| 在 `PARTS.csv`（31 件）里 | ❌ 无 | ❌ 无 |
+| 在 `PARTS.csv`（32 件）里 | ❌ 无 | ❌ 无 |
 | 只存在于 | 3MF 盘内部 | 3MF 盘内部 |
 
 后果：无法改参数重出、无法独立审计、无法追溯是谁按什么尺寸建的。

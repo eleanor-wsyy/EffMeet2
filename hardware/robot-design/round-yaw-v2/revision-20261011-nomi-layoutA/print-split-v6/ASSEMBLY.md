@@ -211,7 +211,7 @@
 |---|---|---|
 | **P15 舵机座** | 10-19 修复盘版 P15（无出线让位，线顶住进不去） | `candidate-stl/P15`（**v6r3 尾端让位槽＋main 的耳垫U槽孔底/底板盲孔**）；旧件可锉/钻尾端槽救场 |
 | **P26 摄像托架** | 10-19 修复盘版 P26（无保持结构，模组晃） | `candidate-stl/P26`＋新增 **P33 背板**（**v6r3**）；配套 2×M3×8 自攻 |
-| **P23 头壳 / P24 面板** | `P23_v6r2_77x45.stl`、`P24_v6r2_77x45.stl`、B1p-v2/G1p 旧盘（**全部为圆脸旧版**） | **`plates-merged/P23_HEAD_SHELL_FACEFLAT.stl` + `P24_FACE_PANEL_FACEFLAT.stl`**（10-19 大平脸）；打印盘 `TMP-FIX-P23_GREY_016`（灰）/`TMP-FIX-P24_BLACK_016`（黑），前脸朝下。**摄像孔定案 6.8**：`2d21bdc` 夹带回退的 4.2 已改回；**首批 FACEFLAT 盘（4.2 孔版）已打件钻到 6.8**，重切盘用 `candidate-stl/P24`（6.8） |
+| **P23 头壳 / P24 面板** | `P23_v6r2_77x45.stl`、`P24_v6r2_77x45.stl`、B1p-v2/G1p 旧盘（**全部为圆脸旧版**） | **P23** 用 `plates-merged/P23_HEAD_SHELL_FACEFLAT.stl`（或打印盘 `TMP-FIX-P23_GREY_016`，灰，前脸朝下）；**P24** 用 `candidate-stl/P24_FACE_PANEL_UNVERIFIED.stl`（**FACEFLAT＋6.8**，黑，面朝下）。**摄像孔定案 6.8**：`2d21bdc` 夹带回退的 4.2 已改回；首批 P24 盘件（`TMP-FIX-P24_BLACK_016` / `P24_FACE_PANEL_FACEFLAT.stl`，4.2 孔）**已作废改名 `.SUPERSEDED-by-CAM68`，已打件钻到 6.8** |
 | **P25 压框** | 旧 80×45（历史） | `candidate-stl/P25`（v6r2 85×53）或 `plates-merged/P25_v6r2_77x45.stl` |
 | **P01 底座** | 旧 v6（历史） | `candidate-stl/P01`（**v6r3**，10-19 重导）或 `plates-merged/P01_v6r3_tolerant_usbc.stl` |
 | **P02 上盖** | `candidate-stl/P02`（18134 面，未减面） | `plates-merged/decimated/P02_decimated.stl` |

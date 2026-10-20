@@ -13,9 +13,9 @@ assert P['hardware_platform'].startswith('GOOUU') and P['layout']=='A2' and 'PLA
 checks.append('GOOUU/layoutA2/PLA source parameters and unreleased stage agree')
 B=(ROOT/M['canonical_files']['bom']).read_text(encoding='utf-8');S=B.split('## 12.',1)[1].split('## 官方来源',1)[0]
 ids=re.findall(r'^\| \*\*([EMC]\d\d)\*\* \|',S,re.M)
-assert len(ids)==33 and len(set(ids))==33
+assert len(ids)==34 and len(set(ids))==34  # E01–E17(含E17输入板)+M01–M09+C01–C08
 assert all(s in S for s in ['GOOUU','HSD028309','INMP441','MAX98357','TP4056','禁止裁剪FPC','188mm'])
-checks.append('33 canonical BOM IDs include current board/display/v6 2:1 drive and safe FPC handling')
+checks.append('34 canonical BOM IDs include current board/display/v6 2:1 drive and safe FPC handling')
 REV=ROOT/'round-yaw-v2/revision-20261011-nomi-layoutA'
 mesh=json.loads((REV/'production/evaluated-shells.json').read_text(encoding='utf-8'))
 assert len(mesh)==5
@@ -51,5 +51,5 @@ assert binding['generator_sha256']==hashlib.sha256((REV/'update_nomi_layoutA.py'
 checks.append('helpers parse and artifact hashes match; historical v4 binding uses frozen parameters')
 import subprocess,sys
 subprocess.run([sys.executable,str(REV/'print-split-v6/verify_v6_delivery.py')],check=True)
-checks.append('current v6 31-part candidate delivery checks passed; no slice/print/hardware tests implied')
+checks.append('current v6 32-part candidate delivery checks passed; no slice/print/hardware tests implied')
 print(json.dumps({'status':'PASS','checks':checks,'scope':'offline current design delivery only','firmware_tests_run':False,'hardware_tests_run':False,'manufacturing_release':False},ensure_ascii=False,indent=2))

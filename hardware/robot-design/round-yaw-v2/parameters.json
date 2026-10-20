@@ -26,6 +26,17 @@
     "gap_above_lid_mm": 14,
     "face_cut_y": -47.0,
     "front_profile_radius": 57,
+    "face_panel_facemode": "FACEFLAT 2026-10-19: rounded-rect flat face replaces round Ø106 panel (round-face version superseded)",
+    "face_panel_size_mm": [
+      106,
+      96
+    ],
+    "face_panel_corner_r": 21,
+    "face_bezel_size_mm": [
+      116,
+      116
+    ],
+    "face_bezel_corner_r": 40,
     "face_panel_diameter": 106,
     "face_panel_center": [
       0,
@@ -33,8 +44,8 @@
       136.3
     ],
     "lcd_window_mm": [
-      58.2,
-      43.8
+      62,
+      46
     ],
     "lcd_window_center": [
       0,
@@ -46,9 +57,11 @@
       -46.2,
       173.2
     ],
+    "camera_aperture_mm": 6.8,
     "camera_fpc_mm": 14,
-    "camera_fpc_span_mm": 9.55,
-    "camera_fpc_slack_mm": 4.45,
+    "camera_fpc_span_mm": 10.75,
+    "camera_fpc_slack_mm": 3.25,
+    "camera_retention": "v6r3: P26 front wall 3.5 lens pilots 0.5-0.7 into P24 6.8 aperture; P33 back plate 2xM3x8 self-tap clamp (was tape-only)",
     "actual_camera_module_measured": true,
     "contains": "LCD module, GOOUU core board (vertical, FPC/USB-C end up), camera module",
     "construction": "single Y-axis Screw profile, Lattice 4% flatten, Solidify 2.4, bottom trim, floor slab; native modifiers kept"
@@ -567,7 +580,7 @@
     },
     "revision": "v6",
     "root": "revision-20261011-nomi-layoutA/print-split-v6",
-    "assembly_parts": 31
+    "assembly_parts": 32
   },
   "layout_description": "A2: core board + camera + LCD in head (camera FPC 14 mm measured, cannot cross yaw); mics/amp/speaker/servo/stop key fixed in base (mics never rotate); extension board not installed"
 }

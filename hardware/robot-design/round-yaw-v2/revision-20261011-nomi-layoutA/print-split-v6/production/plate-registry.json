@@ -589,6 +589,30 @@
    "no_source_parts": []
   },
   {
+   "file": "TMP-FIX-P15B_BLACK_016.3mf",
+   "bytes": 11787,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 23.7,
+   "layers_at_named_lh": 149,
+   "parts": [
+    {
+     "name": "P15_SERVO_CRADLE_WIRE_FIX",
+     "tris": 1268,
+     "size_mm": [
+      36.0,
+      24.0,
+      23.7
+     ],
+     "z_min": 0.0,
+     "z_max": 23.7,
+     "pid": "P15",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
    "file": "TMP-FIX-P15P17P26P29_BLACK_016.3mf",
    "bytes": 34460,
    "layer_height": 0.16,
@@ -650,6 +674,117 @@
     }
    ],
    "no_source_parts": []
+  },
+  {
+   "file": "TMP-FIX-P23_GREY_016.3mf",
+   "bytes": 573248,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 110.4,
+   "layers_at_named_lh": 690,
+   "parts": [
+    {
+     "name": "P23_HEAD_SHELL_FACEFLAT",
+     "tris": 57514,
+     "size_mm": [
+      131.998,
+      120.472,
+      110.4
+     ],
+     "z_min": 0.0,
+     "z_max": 110.4,
+     "pid": "P23",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-FIX-P24_BLACK_016.3mf",
+   "bytes": 34728,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 5.3,
+   "layers_at_named_lh": 34,
+   "parts": [
+    {
+     "name": "P24_FACE_PANEL_FACEFLAT",
+     "tris": 3804,
+     "size_mm": [
+      106.0,
+      96.0,
+      5.3
+     ],
+     "z_min": 0.0,
+     "z_max": 5.3,
+     "pid": "P24",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-FIX-P27P28_BLACK_016.3mf",
+   "bytes": 8509,
+   "layer_height": 0.16,
+   "objects": 2,
+   "max_height_mm": 2.8,
+   "layers_at_named_lh": 18,
+   "parts": [
+    {
+     "name": "P27_PRIVACY_GUIDE_RETAINFIX",
+     "tris": 744,
+     "size_mm": [
+      42.0,
+      12.0,
+      2.0
+     ],
+     "z_min": 0.0,
+     "z_max": 2.0,
+     "pid": "P27",
+     "has_stl_source": true
+    },
+    {
+     "name": "P28_PRIVACY_BLADE_RETAINFIX",
+     "tris": 204,
+     "size_mm": [
+      10.0,
+      8.0,
+      2.8
+     ],
+     "z_min": 0.0,
+     "z_max": 2.8,
+     "pid": "P28",
+     "has_stl_source": true
+    }
+   ],
+   "no_source_parts": []
+  },
+  {
+   "file": "TMP-FIX-P29B_BLACK_016.3mf",
+   "bytes": 7122,
+   "layer_height": 0.16,
+   "objects": 1,
+   "max_height_mm": 46.1,
+   "layers_at_named_lh": 289,
+   "parts": [
+    {
+     "name": "TMP-FIX-P29B_BLACK_016",
+     "tris": 750,
+     "size_mm": [
+      36.3,
+      8.0,
+      46.1
+     ],
+     "z_min": 0.0,
+     "z_max": 46.1,
+     "pid": "?",
+     "has_stl_source": false
+    }
+   ],
+   "no_source_parts": [
+    "?"
+   ]
   },
   {
    "file": "TMP-G1p_GREY_016.3mf",

@@ -32,6 +32,8 @@
 
 已验证真实网络 + 合成服务闭环、Windows TTS 格式、本地 SenseVoiceSmall 真实 ASR，以及本地 LiveKit 房间的 `remote_1` 音轨 → relay → 真实 ASR 入账（`scripts/smoke_livekit_remote_asr.py`）。仍未验收：千问、真实扬声器/麦克风设备、ESP32、AEC/双讲、公网/TURN。`--simulate` 是模拟音频汇，不发声。
 
+设备命令下发：事件 WS（`/api/v1/meetings/{id}/events`）支持 `device_id` + `media_token`（会议绑定）。局域网设备访问用 `scripts/run_device_gateway.py`；控制器保持 `127.0.0.1`。
+
 公网 LiveKit 部署骨架（token 服务/自托管栈/生产鉴权缝，NOT-VERIFIED）见 [deploy/livekit/](../../deploy/livekit/README.md)；它复用本目录的 `livekit_token.issue_token` 与 `livekit_bridge`，不重复 JWT 逻辑。
 
 完整命令、配置、接口表和复现方法见 [10 月 5 日交接记录](../../docs/handoff/2026-10-05.md)。

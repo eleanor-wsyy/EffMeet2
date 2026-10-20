@@ -455,7 +455,12 @@ def create_app(db_path=None, *, analyzer=None, robot=None, clock=time.time, cand
         await ws.accept()
         try:
             hello = await asyncio.wait_for(ws.receive_json(), 5)
-            if hello.get("token") not in tokens:
+            token = hello.get("token")
+            device_id = hello.get("device_id")
+            authorized = token in tokens
+            if not authorized and device_id and token:
+                authorized = store.verify_device_token(device_id, token, meeting_id)
+            if not authorized:
                 await ws.close(code=4401)
                 return
             seq = hello.get("after_seq", 0)

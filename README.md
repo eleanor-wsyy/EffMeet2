@@ -103,7 +103,7 @@ HTTP脚本会建立新的合成测试会议，覆盖等待确认、确认及重�
 - `services/controller/demo.html`：B暂代的调试页，原生HTML/JS，无前端构建或外部运行资源。含观点地图展示与图片共享。
 - `fixtures/demo/closed_loop.json`：合成发言材料，可供C/D/E复用。
 - `services/relay/`：EFMA 帧、FunASR、TTS 及受控媒体 WebSocket；目前与控制器共用统一台架进程。推荐 `scripts/run_bench.py`，不要为同一数据库另开 relay 进程，详见模块 README。
-- `firmware/esp32/`：ESP32-S3 固件骨架。EFMA 编解码已用 `scripts/test_efma_host.py` 在主机编译并通过；ESP-IDF v5.4.1 工程已编译通过（`scripts/build_firmware.ps1`），**未烧录**；外设驱动仍为桩。
+- `firmware/esp32/`：ESP32-S3 固件骨架。EFMA 编解码主机测试通过；ESP-IDF v5.4.1 已编译并烧录到实机启动（16MB Flash + 8MB PSRAM），未配对时进入串口配网 REPL；外设驱动仍为桩。
 - `apps/web/`：用户端已接 LiveKit 远程音频（入会、按需发布麦克风、静音、离开）；服务端 token 端点与 relay 订阅解耦。真实 LiveKit 服务器/TLS/两端实机音频仍未验收。
 - `apps/web-demo/`：GitHub 新版纯本地演示版（localStorage，不接后端/音视频/ASR/AI/硬件），挂载 `/app-demo/` 供视觉与视频素材；真实会议仍用 `/app/`。
 - `hardware/electronics/`：供电接线与BOM骨架（README），待填充。

@@ -16,6 +16,7 @@
 #include "esp_random.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/queue.h"
+#include "freertos/task.h"
 #include "nvs.h"
 #include "nvs_flash.h"
 
@@ -29,15 +30,18 @@
 #include "ws_transport.h"
 
 static const char *TAG = "device_session";
-#define NVS_NAMESPACE "effmeet"
+#define NVS_NAMESPACE EFFMEET_NVS_NAMESPACE
 #define RX_QUEUE_LEN 8
 #define RX_TIMEOUT_MS 8000
 
 struct device_session {
     device_identity_t ident;
     ws_transport_t *tx;        /* active transport for the current flow */
+    ws_transport_t *events;    /* command subscription transport */
     QueueHandle_t rx;          /* rx_msg_t* from the WS callback */
     char playback_cmd[37];     /* command_id bound to the open playback WS */
+    uint32_t after_seq;        /* last controller event seq seen */
+    TaskHandle_t command_task;
 };
 
 typedef struct {
@@ -102,24 +106,31 @@ esp_err_t device_session_load_identity(device_identity_t *ident) {
     strncpy(ident->device_id, EFFMEET_DEVICE_ID, sizeof(ident->device_id) - 1);
     strncpy(ident->controller_url, EFFMEET_CONTROLLER_URL, sizeof(ident->controller_url) - 1);
     strncpy(ident->ws_scheme, EFFMEET_WS_SCHEME, sizeof(ident->ws_scheme) - 1);
+    strncpy(ident->wifi_ssid, EFFMEET_WIFI_SSID, sizeof(ident->wifi_ssid) - 1);
+    strncpy(ident->wifi_pass, EFFMEET_WIFI_PASS, sizeof(ident->wifi_pass) - 1);
     ident->yaw_min_deg = EFFMEET_YAW_MIN_DEG;
     ident->yaw_max_deg = EFFMEET_YAW_MAX_DEG;
 
     nvs_handle_t h;
     if (nvs_open(NVS_NAMESPACE, NVS_READONLY, &h) != ESP_OK) {
-        ESP_LOGW(TAG, "NVS namespace '%s' absent; device not paired yet", NVS_NAMESPACE);
-        return ESP_ERR_NOT_FOUND;
+        ESP_LOGW(TAG, "NVS namespace '%s' absent; using compile-time defaults", NVS_NAMESPACE);
+        return ESP_OK;
     }
     size_t n;
-    /* meeting_id + media_token are provisioned after operator pairing. */
+    n = sizeof(ident->wifi_ssid);
+    nvs_get_str(h, "wifi_ssid", ident->wifi_ssid, &n);
+    n = sizeof(ident->wifi_pass);
+    nvs_get_str(h, "wifi_pass", ident->wifi_pass, &n);
+    n = sizeof(ident->controller_url);
+    nvs_get_str(h, "controller_url", ident->controller_url, &n);
     n = sizeof(ident->meeting_id);
     esp_err_t e1 = nvs_get_str(h, "meeting_id", ident->meeting_id, &n);
     n = sizeof(ident->media_token);
     esp_err_t e2 = nvs_get_str(h, "media_token", ident->media_token, &n);
     nvs_close(h);
-    if (e1 != ESP_OK || e2 != ESP_OK || ident->media_token[0] == '\0') {
+    ident->paired = (e1 == ESP_OK && e2 == ESP_OK && ident->media_token[0] != '\0');
+    if (!ident->paired) {
         ESP_LOGW(TAG, "no paired media_token in NVS; run operator pairing first");
-        return ESP_ERR_NOT_FOUND;
     }
     return ESP_OK;
 }
@@ -144,6 +155,14 @@ device_session_t *device_session_create(const device_identity_t *ident) {
 void device_session_destroy(device_session_t *s) {
     if (!s) {
         return;
+    }
+    if (s->command_task) {
+        vTaskDelete(s->command_task);
+        s->command_task = NULL;
+    }
+    if (s->events) {
+        ws_transport_destroy(s->events);
+        s->events = NULL;
     }
     if (s->tx) {
         ws_transport_destroy(s->tx);
@@ -527,4 +546,98 @@ esp_err_t device_session_on_command(device_session_t *s, const char *command_jso
     }
     cJSON_Delete(root);
     return rc;
+}
+
+
+/* ---- command subscription over the controller events WS ---- */
+
+static void events_send_hello(device_session_t *s) {
+    if (!s || !s->events) {
+        return;
+    }
+    cJSON *hello = cJSON_CreateObject();
+    cJSON_AddStringToObject(hello, "device_id", s->ident.device_id);
+    cJSON_AddStringToObject(hello, "token", s->ident.media_token);
+    cJSON_AddNumberToObject(hello, "after_seq", (double)s->after_seq);
+    char *txt = cJSON_PrintUnformatted(hello);
+    cJSON_Delete(hello);
+    if (txt) {
+        ws_transport_send_text(s->events, txt);
+        cJSON_free(txt);
+    }
+}
+
+static void on_events_ws(void *ctx, const ws_event_t *evt) {
+    device_session_t *s = (device_session_t *)ctx;
+    if (!s || !evt) {
+        return;
+    }
+    if (evt->type == WS_EVT_CONNECTED) {
+        events_send_hello(s);
+        return;
+    }
+    if (evt->type != WS_EVT_TEXT || !evt->text) {
+        return;
+    }
+    cJSON *root = cJSON_Parse(evt->text);
+    if (!root) {
+        return;
+    }
+    cJSON *seq = cJSON_GetObjectItem(root, "seq");
+    if (cJSON_IsNumber(seq) && seq->valuedouble > 0) {
+        s->after_seq = (uint32_t)seq->valuedouble;
+    }
+    cJSON *type = cJSON_GetObjectItem(root, "event_type");
+    cJSON *payload = cJSON_GetObjectItem(root, "payload");
+    if (cJSON_IsString(type) && cJSON_IsObject(payload)
+            && strcmp(type->valuestring, "robot.command") == 0) {
+        cJSON *target = cJSON_GetObjectItem(payload, "target_device_id");
+        if (cJSON_IsString(target)
+                && strcmp(target->valuestring, s->ident.device_id) == 0) {
+            char *cmd = cJSON_PrintUnformatted(payload);
+            if (cmd) {
+                device_session_on_command(s, cmd);
+                cJSON_free(cmd);
+            }
+        }
+    }
+    cJSON_Delete(root);
+}
+
+static void command_task(void *arg) {
+    device_session_t *s = (device_session_t *)arg;
+    char uri[512];
+    char path[96];
+    for (;;) {
+        snprintf(path, sizeof(path), "/api/v1/meetings/%s/events", s->ident.meeting_id);
+        if (ws_build_uri(s->ident.ws_scheme, s->ident.controller_url, path, uri,
+                         sizeof(uri)) != ESP_OK) {
+            vTaskDelay(pdMS_TO_TICKS(2000));
+            continue;
+        }
+        s->events = ws_transport_create(uri, NULL, on_events_ws, s);
+        if (s->events) {
+            if (ws_transport_start(s->events) == ESP_OK) {
+                while (ws_transport_is_connected(s->events)) {
+                    vTaskDelay(pdMS_TO_TICKS(500));
+                }
+            }
+            ws_transport_destroy(s->events);
+            s->events = NULL;
+        }
+        vTaskDelay(pdMS_TO_TICKS(2000));
+    }
+}
+
+esp_err_t device_session_subscribe_commands(device_session_t *s) {
+    if (!s) {
+        return ESP_ERR_INVALID_ARG;
+    }
+    if (!s->ident.meeting_id[0] || !s->ident.media_token[0]) {
+        return ESP_ERR_INVALID_STATE;
+    }
+    if (xTaskCreate(command_task, "cmd", 4096, s, 4, &s->command_task) != pdTRUE) {
+        return ESP_FAIL;
+    }
+    return ESP_OK;
 }

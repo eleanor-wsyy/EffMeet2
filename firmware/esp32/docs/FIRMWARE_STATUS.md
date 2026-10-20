@@ -1,9 +1,9 @@
-# ESP32-S3 固件骨架状态（ESP-IDF 已编译，未烧录）
+# ESP32-S3 固件骨架状态（已烧录并启动，外设仍桩）
 
 > 本目录是 2026-10-16 搭出的**可编译目标工程骨架**，用于把仓库里已有的精确契约
 > （EFMA 帧格式、RobotCommand/RobotReceipt、AudioStreamConfig/Ready/End、DeviceHello、
-> 设备配对/media_token）落到固件侧。**2026-10-19 已用 ESP-IDF v5.4.1 编译通过；
-> 未烧录、未上硬件。**
+> 设备配对/media_token）落到固件侧。**2026-10-20 已用 ESP-IDF v5.4.1 编译并烧录到
+> 实机，启动通过；未配对、未驱动外设。**
 > 所有外设路径均为清晰标注的桩，返回 `ESP_ERR_NOT_SUPPORTED`，不得据此声称任何硬件已通。
 
 ## 终局目标（路线B）
@@ -35,26 +35,25 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 - 生成物 `firmware/esp32/sdkconfig`、`build/`、`managed_components/` 已加入 `.gitignore`。
 - 构建脚本：`scripts/build_firmware.ps1`（清除 `MSYSTEM`、固定 ESP-IDF Python 3.12
   环境、加载 `export.ps1`、`idf.py set-target esp32s3 build`）。只编译，不烧录。
-- `sdkconfig.defaults` 假定 **8MB flash**（原 2MB 默认放不下 3.1MB 分区表）；
-  最终板型/Flash 容量仍需以实物为准。
-- **2026-10-19 编译结果**：`Project build complete`；
-  `effmeet2_robot.bin` = 0xbfbf0（约 767KB），app 分区 3MB，剩余 75%；
-  bootloader = 0x5220（36% free）。
-- `idf.py size`：Flash Code 562,650 B + Flash Data 107,060 B；DIRAM 114,751/341,760 B
-  （33.6%）；**IRAM 16,383/16,384 B（99.99%，仅剩 1 B）**。当前链接通过，但后续
-  新增 IRAM 代码/中断会很容易溢出，需优先放 flash 或调整配置。
+- **实测板卡（2026-10-20）**：ESP32-S3 rev v0.2，**16MB Flash + 8MB PSRAM**，
+  MAC `1c:29:04:31:1c:58`；`sdkconfig.defaults` 已改为 16MB Flash。
+- **2026-10-20 实机烧录/启动**：`effmeet2_robot.bin` = 954,880 B（含 esp-sr 与
+  provisioning），app 分区 3MB 剩余 70%；CH340 COM3，`flash` 成功、Hash 校验通过，
+  正常启动并进入 provisioning REPL。
 - 编译期修正：`esp_websocket_register_events`（1.8.0 API）、`PRIx32` 格式符、
-  8MB flash、补 `esp_websocket_client` 组件依赖。
+  16MB flash、补 `esp_websocket_client` 组件依赖。
 - `dependencies.lock` 已生成（esp-sr 1.9.5 / esp_websocket_client 1.8.0 /
   led_strip 2.5.5 / esp-dsp 1.4.12）。
-- **未烧录、未上硬件**；外设仍为桩。
+- **已烧录并启动**；外设仍为桩，未配对时进入串口配网 REPL。
 
 ## 已知开放集成点（bring-up 必做）
 
-1. **命令下发通道**：本地台架由主机侧驱动播放器；真机器人需要一条把 `queued` 的
-   `command_id` 送到设备的通道（建议订阅控制器 events WS，过滤本 device_id 的
-   `robot command.queued`）。`device_session_on_command()` 是接入缝，传输未接。
-2. **Wi-Fi 配网**：当前用 Kconfig 编译期 SSID/口令，应改为 softAP/blufi/NVS 运行时配网。
+1. **命令下发通道**：已实现——`device_session_subscribe_commands` 订阅控制器事件 WS，
+   过滤 `robot.command` 并按 `target_device_id` 分发；使用 `device_id` + `media_token`
+   （会议绑定）。需要设备先通过 LAN 网关或公网到达控制器。
+2. **Wi-Fi 配网**：已实现串口 REPL——未配对时进入 `provision` REPL，
+   `provision <ssid> <pass> <controller_url> <meeting_id> <media_token>` 写 NVS 后重启；
+   `provision_status` 不打印密钥。也可继续用 Kconfig 默认值。
 3. **media_token 入 NVS**：operator 先 `POST /api/v1/meetings/{mid}/devices/{device_id}/pair`
    拿到 token，再provision 进设备 NVS（命名空间 `effmeet`，键 `meeting_id`/`media_token`）。
    token 有效期 1 小时（`bench.authenticate`），过期需重新配对。**密钥不入库、不打日志。**

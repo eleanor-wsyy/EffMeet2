@@ -14,8 +14,10 @@ idf_component_register(
         "servo_yaw.c"
         "status_led.c"
         "camera_capture.c"
+        "provision.c"
     INCLUDE_DIRS "."
     REQUIRES
+        console
         nvs_flash
         esp_wifi
         esp_netif

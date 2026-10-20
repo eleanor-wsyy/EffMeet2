@@ -3,6 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 import unittest
 from uuid import uuid4
+from fastapi import WebSocketDisconnect
 from fastapi.testclient import TestClient
 from services.controller.app import create_app
 from services.controller.contracts import ROOT
@@ -75,6 +76,35 @@ class ParticipantTests(unittest.TestCase):
             self.assertEqual(self.client.get("/app-demo/" + asset).status_code, 200, asset)
         self.assertNotEqual(self.client.get("/app-demo/").text, self.client.get("/app/").text)
         self.assertEqual(self.client.get("/app-demo/../.env").status_code, 404)
+
+    def test_events_ws_accepts_paired_device_token(self):
+        u = self.utterance()
+        pair = self.post(f"/api/v1/meetings/{self.mid}/devices/robot_a/pair", {}, expected=201)
+        with self.client.websocket_connect(f"/api/v1/meetings/{self.mid}/events") as ws:
+            ws.send_json({"device_id": "robot_a", "token": pair["media_token"], "after_seq": 0})
+            event = ws.receive_json()
+            if event["event_type"] != "utterance.final":
+                event = ws.receive_json()
+            self.assertEqual(event["event_type"], "utterance.final")
+            self.assertEqual(event["payload"]["utterance_id"], u["utterance_id"])
+
+    def test_events_ws_rejects_wrong_device_token(self):
+        self.utterance()
+        self.post(f"/api/v1/meetings/{self.mid}/devices/robot_a/pair", {}, expected=201)
+        with self.client.websocket_connect(f"/api/v1/meetings/{self.mid}/events") as ws:
+            ws.send_json({"device_id": "robot_a", "token": "wrong", "after_seq": 0})
+            with self.assertRaises(WebSocketDisconnect) as raised:
+                ws.receive_json()
+            self.assertEqual(raised.exception.code, 4401)
+
+    def test_events_ws_rejects_device_from_another_meeting(self):
+        other = self.post("/api/v1/meetings", {"title": "another"}, expected=201)["meeting_id"]
+        pair = self.post(f"/api/v1/meetings/{other}/devices/robot_a/pair", {}, expected=201)
+        with self.client.websocket_connect(f"/api/v1/meetings/{self.mid}/events") as ws:
+            ws.send_json({"device_id": "robot_a", "token": pair["media_token"], "after_seq": 0})
+            with self.assertRaises(WebSocketDisconnect) as raised:
+                ws.receive_json()
+            self.assertEqual(raised.exception.code, 4401)
 
     def test_participant_does_not_weaken_auth_or_local_only(self):
         self.assertEqual(self.client.get(f"/api/demo/meetings/{self.mid}/state").status_code, 401)

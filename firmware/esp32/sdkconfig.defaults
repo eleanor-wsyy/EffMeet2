@@ -17,8 +17,8 @@ CONFIG_ESP_DEFAULT_CPU_FREQ_MHZ_240=y
 CONFIG_ESP_TLS_INSECURE=n
 CONFIG_MBEDTLS_DYNAMIC_BUFFER=y
 
-# The sketch partition table needs ~3.1 MB; the board is assumed to have 8 MB flash.
-CONFIG_ESPTOOLPY_FLASHSIZE_8MB=y
+# Measured board: ESP32-S3 N16R8 (16 MB flash, 8 MB PSRAM).
+CONFIG_ESPTOOLPY_FLASHSIZE_16MB=y
 
 # Partition table with NVS for the pairing media_token (never hardcode secrets).
 CONFIG_PARTITION_TABLE_CUSTOM=y

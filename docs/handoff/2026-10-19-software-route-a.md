@@ -130,15 +130,35 @@ agy staffer 对提交前 diff 给出 8 项发现，已修复主要项：
 仍未处理：`apps/web` 的 UI 级媒体集成测试（需要浏览器 DOM 环境），以及 agy 提到的
 少量“缺少测试”项；功能修复已有单元/回归覆盖。
 
+### 11. 设备 LAN 网关与事件 WS 设备 token
+
+- 事件 WS（`/api/v1/meetings/{id}/events`）现在支持
+  `{"device_id", "token", "after_seq"}`：`store.verify_device_token` 校验设备 token
+  且必须绑定到当前会议；会话 token 仍兼容。
+- `services/device_gateway.py` + `scripts/run_device_gateway.py`：控制器继续绑
+  `127.0.0.1`；网关只放行 `GET /healthz`、`WS /device/v1/audio`、`WS /device/v1/playback`
+  与 `WS /api/v1/meetings/{id}/events`，绑定 `0.0.0.0`，供局域网设备访问；
+  HTTP/WS 双向中继，不暴露 operator 路由。
+
+### 12. 固件命令下发与串口配网（2026-10-20）
+
+- `device_session_subscribe_commands`：订阅控制器事件 WS，过滤 `robot.command`，
+  按 `target_device_id` 分发；hello 用 `device_id` + `media_token`，会议绑定。
+- `provision.c`：未配对时进入串口 REPL；`provision <ssid> <pass> <controller_url>
+  <meeting_id> <media_token>` 写 NVS 后重启；`provision_status` 不打印密钥。
+- 实机：ESP32-S3 N16R8（16MB Flash + 8MB PSRAM），COM3 烧录 954,880 B，
+  Hash verified；启动日志正常；未配对时进入 REPL，`provision_status` 返回
+  “nothing provisioned”。Wi-Fi 与控制器连通需要 Wi-Fi 凭据 + LAN 网关。
+
 ## 验证证据
 
 - **联合验收（2026-10-19）**：同一个 real harness 同时设置 S1/S2/S3/S6 门槛，
   结果为 **S1 PASS、S2 PASS、S3 PASS、S6 PASS；S4/S5 NOT_RUN**
   （缺真实账号/机器人）。S3 真实千问返回 `uncertain` 且不生成候选；
   S6 现场 ASR + 回应核对 + 观点地图 `responded`。
-- Python 全量：**123 tests OK（skipped=1）**（原 106 + 3 项 LiveKit 服务端测试 +
+- Python 全量：**129 tests OK（skipped=1）**（原 106 + 3 项 LiveKit 服务端测试 +
   6 项验收真实路径测试（S1/S2/S3/S6）+ 7 项部署 token 服务测试 +
-  1 项 `/app-demo/` 静态路由测试）。
+  1 项 `/app-demo/` 静态路由测试 + 3 项设备事件 WS 测试 + 3 项设备网关测试）。
 - 前端 Node：**41 tests pass**（原 32 + 新增 9 项媒体会话测试，含竞态回归）。
 - EFMA 主机测试：`scripts/test_efma_host.py` → `EFMA host tests passed (protocol.py parity)`。
 - S1 真实验收：用 `data/acceptance_speech.wav`（Windows TTS 合成语音，5.72s、

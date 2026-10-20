@@ -26,6 +26,9 @@
 
 #include "esp_err.h"
 
+/* NVS namespace for device identity and provisioning. */
+#define EFFMEET_NVS_NAMESPACE "effmeet"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -46,6 +49,9 @@ typedef struct {
     char media_token[64];  /* from NVS; Bearer credential, never logged */
     char controller_url[128];
     char ws_scheme[8];     /* "ws" or "wss" */
+    char wifi_ssid[64];    /* NVS first, Kconfig fallback; never log the pass */
+    char wifi_pass[64];
+    bool paired;           /* media_token present and bound */
     int  yaw_min_deg;
     int  yaw_max_deg;
 } device_identity_t;
@@ -74,6 +80,11 @@ esp_err_t device_session_run_uplink(device_session_t *s, const char *session_id,
  * (media.py SAFE_PAUSE_REQUIRED). NOT-VERIFIED end to end. */
 esp_err_t device_session_run_playback(device_session_t *s, const char *command_id,
                                       bool safe_pause, const char *sink_mode);
+
+/* Subscribe to the controller events WS and dispatch robot commands for this
+ * device. Uses the events WS hello {device_id,token,after_seq}; reconnects on
+ * disconnect. NOT-VERIFIED until a real room is used. */
+esp_err_t device_session_subscribe_commands(device_session_t *s);
 
 /* Command intake seam: parse a RobotCommand JSON and dispatch orient/light/stop
  * directly, or trigger playback for speak. Returns ESP_OK if handled. */

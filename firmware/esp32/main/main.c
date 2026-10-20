@@ -23,43 +23,35 @@
 #include "audio_playback.h"
 #include "camera_capture.h"
 #include "device_session.h"
+#include "provision.h"
 #include "servo_yaw.h"
 #include "status_led.h"
 
 static const char *TAG = "app_main";
 
-static void wifi_init_sta(void) {
-    /* TODO(bring-up): real Wi-Fi provisioning (softAP/blufi/NVS) instead of
-     * compile-time SSID/pass. Blocks until connected; retries on disconnect. */
+static void wifi_init_sta(const device_identity_t *ident) {
+    if (!ident->wifi_ssid[0]) {
+        ESP_LOGW(TAG, "no Wi-Fi SSID provisioned; skipping station start");
+        return;
+    }
     esp_netif_init();
     esp_event_loop_create_default();
     esp_netif_create_default_wifi_sta();
     wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
     esp_wifi_init(&cfg);
     wifi_config_t wc = {0};
-    strncpy((char *)wc.sta.ssid, CONFIG_EFFMEET_WIFI_SSID, sizeof(wc.sta.ssid) - 1);
-    strncpy((char *)wc.sta.password, CONFIG_EFFMEET_WIFI_PASS, sizeof(wc.sta.password) - 1);
+    strncpy((char *)wc.sta.ssid, ident->wifi_ssid, sizeof(wc.sta.ssid) - 1);
+    strncpy((char *)wc.sta.password, ident->wifi_pass, sizeof(wc.sta.password) - 1);
     esp_wifi_set_mode(WIFI_MODE_STA);
     esp_wifi_set_config(WIFI_IF_STA, &wc);
     esp_wifi_start();
     esp_wifi_connect();
-    ESP_LOGW(TAG, "Wi-Fi STA start requested (SSID from Kconfig; provisioning TBD)");
+    ESP_LOGW(TAG, "Wi-Fi STA start requested (SSID=%s)", ident->wifi_ssid);
 }
 
-/* Session task: waits for a paired identity, then idles until a command-delivery
- * channel feeds RobotCommands to device_session_on_command(). The delivery
- * transport is an OPEN INTEGRATION POINT (see device_session.h). */
 static void session_task(void *arg) {
-    (void)arg;
-    device_identity_t ident;
-    for (;;) {
-        if (device_session_load_identity(&ident) == ESP_OK) {
-            break;
-        }
-        ESP_LOGW(TAG, "not paired yet; retrying in 5s (operator must pair device)");
-        vTaskDelay(pdMS_TO_TICKS(5000));
-    }
-    device_session_t *s = device_session_create(&ident);
+    device_identity_t *ident = (device_identity_t *)arg;
+    device_session_t *s = device_session_create(ident);
     if (!s) {
         ESP_LOGE(TAG, "could not create device session");
         vTaskDelete(NULL);
@@ -69,9 +61,7 @@ static void session_task(void *arg) {
     if (device_session_hello_json(s, hello, sizeof(hello)) == ESP_OK) {
         ESP_LOGI(TAG, "DeviceHello: %s", hello);
     }
-    ESP_LOGW(TAG, "session ready; command-delivery channel not wired (NOT-VERIFIED)");
-    /* TODO(bring-up): subscribe to the controller events WS, filter robot
-     * command.queued for this device_id, then call device_session_on_command(). */
+    device_session_subscribe_commands(s);
     for (;;) {
         vTaskDelay(pdMS_TO_TICKS(1000));
     }
@@ -84,7 +74,8 @@ void app_main(void) {
         nvs_flash_init();
     }
 
-    wifi_init_sta();
+    static device_identity_t ident;
+    device_session_load_identity(&ident);
 
     /* Peripheral init: all stubs return ESP_ERR_NOT_SUPPORTED for now. */
     status_led_init();
@@ -95,6 +86,13 @@ void app_main(void) {
     aec_afe_init();
     camera_capture_init();
 
-    xTaskCreatePinnedToCore(session_task, "session", 8192, NULL, 5, NULL, 1);
-    ESP_LOGW(TAG, "EffMeet2 robot scaffold booted (NOT-VERIFIED; no hardware driven)");
+    if (!ident.paired) {
+        ESP_LOGW(TAG, "device not paired; starting UART provisioning REPL");
+        provision_start();
+        return;
+    }
+
+    wifi_init_sta(&ident);
+    xTaskCreatePinnedToCore(session_task, "session", 8192, &ident, 5, NULL, 1);
+    ESP_LOGW(TAG, "EffMeet2 robot scaffold booted (paired; hardware drivers still stubs)");
 }

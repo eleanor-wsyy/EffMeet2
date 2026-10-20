@@ -13,6 +13,8 @@
 #define EFFMEET_DEVICE_ID        CONFIG_EFFMEET_DEVICE_ID
 #define EFFMEET_CONTROLLER_URL   CONFIG_EFFMEET_CONTROLLER_URL
 #define EFFMEET_WS_SCHEME        CONFIG_EFFMEET_WS_SCHEME
+#define EFFMEET_WIFI_SSID        CONFIG_EFFMEET_WIFI_SSID
+#define EFFMEET_WIFI_PASS        CONFIG_EFFMEET_WIFI_PASS
 
 /* Device endpoints, matching services/relay/media.py exactly. */
 #define EFFMEET_WS_UPLINK_PATH   "/device/v1/audio"

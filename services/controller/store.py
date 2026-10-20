@@ -6,6 +6,7 @@ import json
 import logging
 import os
 from pathlib import Path
+import secrets
 import sqlite3
 import time
 import threading
@@ -552,12 +553,15 @@ class Store(ResponseTracking):
             )
         return {"device_id": device_id, "media_token": token, "paired_at": now}
 
-    def verify_device_token(self, device_id, token):
+    def verify_device_token(self, device_id, token, meeting_id=None):
         with self.db() as conn:
             row = conn.execute(
-                "SELECT * FROM device_tokens WHERE device_id=? AND token=?", (device_id, token)
+                "SELECT * FROM device_tokens WHERE device_id=?", (device_id,)
             ).fetchone()
-            return row is not None
+        if (not row or not token or not secrets.compare_digest(row["token"], token)
+                or (meeting_id is not None and row["meeting_id"] != meeting_id)):
+            return False
+        return True
 
     def build_viewpoint_map(self, meeting_id):
         with self.db(write=True) as conn:

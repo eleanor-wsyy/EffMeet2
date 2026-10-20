@@ -1,11 +1,8 @@
 /* app_main — boot sequence for the EffMeet2 robot scaffold.
  *
  * Order: NVS -> Wi-Fi station -> load paired identity -> init peripherals ->
- * start the device session task. Every peripheral init currently returns
- * ESP_ERR_NOT_SUPPORTED (NOT-VERIFIED stubs), so this boots to "connected but
- * idle" without driving hardware.
- *
- * NOT-VERIFIED: never compiled or flashed in the scaffold environment.
+ * start the device session task. status LED, yaw servo, I2S mic and I2S amp are
+ * real drivers; AFE/AEC and the camera are still stubs (NOT-VERIFIED).
  */
 #include <string.h>
 
@@ -77,7 +74,7 @@ void app_main(void) {
     static device_identity_t ident;
     device_session_load_identity(&ident);
 
-    /* Peripheral init: all stubs return ESP_ERR_NOT_SUPPORTED for now. */
+    /* Peripheral init: AFE and camera remain stubs; the rest are real drivers. */
     status_led_init();
     status_led_set_pattern(LED_PATTERN_IDLE);
     servo_yaw_init();
@@ -94,5 +91,5 @@ void app_main(void) {
 
     wifi_init_sta(&ident);
     xTaskCreatePinnedToCore(session_task, "session", 8192, &ident, 5, NULL, 1);
-    ESP_LOGW(TAG, "EffMeet2 robot scaffold booted (paired; hardware drivers still stubs)");
+    ESP_LOGW(TAG, "EffMeet2 robot booted (paired; AFE/camera still stubs)");
 }

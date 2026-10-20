@@ -1,20 +1,30 @@
-# ESP32-S3 固件骨架状态（已烧录并启动，外设仍桩）
+# ESP32-S3 固件骨架状态（已烧录并启动，灯/舵机/I2S 音频已实现）
 
 > 本目录是 2026-10-16 搭出的**可编译目标工程骨架**，用于把仓库里已有的精确契约
 > （EFMA 帧格式、RobotCommand/RobotReceipt、AudioStreamConfig/Ready/End、DeviceHello、
 > 设备配对/media_token）落到固件侧。**2026-10-20 已用 ESP-IDF v5.4.1 编译并烧录到
-> 实机，启动通过；未配对、未驱动外设。**
-> 所有外设路径均为清晰标注的桩，返回 `ESP_ERR_NOT_SUPPORTED`，不得据此声称任何硬件已通。
-> 除 WS2812 状态灯（GPIO48）与 MG90S 舵机（GPIO38 LEDC）外，其余外设仍为桩。
+> 实机，启动通过；未配对时进入串口配网 REPL。**
+> 已实现外设：WS2812 状态灯（GPIO48）、MG90S 舵机（GPIO38 LEDC）、
+> I2S 拾音（INMP441）与 I2S 播放（MAX98357A）。**I2S 引脚仍为占位，须用 REPL
+> `mic` / `tone` 命令对实机接线核对**；AFE/AEC 与摄像头仍为桩。
 
 ## 实机验证（2026-10-20）
 
 - ESP32-S3 N16R8（16MB Flash + 8MB PSRAM），CH340 COM3。
-- 烧录 954,880 B → 954,720 B（视版本），Hash verified。
+- 烧录 954,880 B → 1,007,4xx B（视版本），Hash verified。
 - 启动正常；未配对进入 `effmeet>` 配网 REPL。
 - `provision_status` 返回“NVS namespace not found”（证明 NVS/REPL 可用）。
 - `led notice/error/idle/off` 通过 REPL 切换，无错误。
 - 舵机 LEDC 初始化无错误；未执行转头动作。
+- **I2S 链路 DMA/时钟已验证**：`i2srate` 实测 rx=49/s、tx=50/s 描述符完成率
+  （理论 50/s）；`mic` 50/50 帧读通（rms=0，因 INMP441 未接到占位引脚）；
+  `tone 880 500` 25 帧全部写入无丢帧（MAX98357A 未接，无声属预期）。
+  踩坑记录：`i2s_channel_read/write` 的 timeout 参数是**毫秒**不是 ticks，
+  误传 `pdMS_TO_TICKS()` 会导致超时缩短 10 倍（FreeRTOS_HZ=100），表现为
+  周期性 ESP_ERR_TIMEOUT。
+- REPL 诊断命令：`mic`（采 1s 打印 RMS/peak/ISR 计数）、`tone [freq] [ms]`
+  （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）。ISR/溢出计数器保留在
+  `audio_capture`/`audio_playback` 里作 bench 诊断。
 
 ## 终局目标（路线B）
 
@@ -29,8 +39,8 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 | EFMA 帧编解码 | `main/efma_codec.{h,c}` | **主机测试通过（2026-10-19）**，未在设备链路验证 | `protocol.py` 的逐字段 C 移植；纯 C 无 ESP 依赖。`scripts/test_efma_host.py` 用 ziglang 编译并运行 `test/test_efma_host.c`，全部断言通过 |
 | WebSocket 传输 | `main/ws_transport.{h,c}` | 编译通过，未在设备链路验证 | `esp_websocket_client` 封装；Bearer 头鉴权（不走 URL/Origin，对齐 `media.py`） |
 | 设备会话/协议状态机 | `main/device_session.{h,c}` | 编译通过，未在设备链路验证 | 配对/Hello、上行流、播放握手、回执状态机、命令分发 |
-| 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | 桩 NOT_SUPPORTED | 引脚为占位，须与 `hardware/electronics` 接线核对 |
-| 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | 桩 NOT_SUPPORTED | 持有"播完"边界，gate `RobotReceipt(completed)` |
+| 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 16 kHz 单声道，32-bit slot 截 s16（>>16）；引脚为占位，须与 `hardware/electronics` 接线核对后用 REPL `mic` 复测 |
+| 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 持有"播完"边界，gate `RobotReceipt(completed)`；AMP_ENABLE(GPIO18) 门控；引脚占位待核对，`tone` 复测 |
 | AEC/AFE | `main/aec_afe.{h,c}` | 桩 NOT_SUPPORTED | ESP-SR AFE 接入点；`quiet_moment()` 当前仅软件互斥代理，**非校准 VAD/AEC** |
 | 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | 已实现 LEDC，未实机验证 | 2:1 减速→头±45°；限位/减速比未确认 |
 | 状态灯(WS2812) | `main/status_led.{h,c}` | 已实现 led_strip，未实机验证 | pattern=idle/notice/error/off；色序未确认 |
@@ -68,7 +78,11 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
    拿到 token，再provision 进设备 NVS（命名空间 `effmeet`，键 `meeting_id`/`media_token`）。
    token 有效期 1 小时（`bench.authenticate`），过期需重新配对。**密钥不入库、不打日志。**
 4. **真 AEC**：`aec_afe` 需接 ESP-SR AFE 的回声参考通道 + 延迟对齐 + 双讲，替换软件互斥代理。
-5. **引脚/电气核对**：`app_config.h` 全部 GPIO 为占位，须与最终板型和电气 BOM 对齐。
+5. **引脚/电气核对**：`app_config.h` 的 I2S/摄像头 GPIO 为占位，须与最终板型和电气
+   BOM 对齐（LED GPIO48、舵机 GPIO38 已实机可用）。I2S 链路本身（时钟/DMA/驱动）已验证，
+   只差把 INMP441/MAX98357A 接到核对后的引脚。
+6. **音频链路联调**：设备配网后跑 `scripts/run_bench.py` + `run_device_gateway.py`，
+   验证上行 EFMA 流与 `speak` 播放到 `RobotReceipt(completed)` 全链路。
 
 ## 契约对齐参照（仓库内真源）
 

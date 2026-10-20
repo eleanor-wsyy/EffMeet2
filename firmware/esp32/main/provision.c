@@ -3,14 +3,19 @@
 #include "provision.h"
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <string.h>
 
+#include "app_config.h"
+#include "audio_capture.h"
+#include "audio_playback.h"
 #include "device_session.h"
 #include "esp_console.h"
 #include "esp_log.h"
 #include "esp_system.h"
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "math.h"
 #include "nvs.h"
 #include "nvs_flash.h"
 #include "status_led.h"
@@ -68,6 +73,81 @@ static int cmd_led(int argc, char **argv) {
     return status_led_set_pattern_name(argv[1]);
 }
 
+/* Bench check for the INMP441: capture ~1 s and print RMS / peak. A quiet room
+ * should show a small non-zero RMS; clap near the mic and peak should jump. */
+static int cmd_mic(int argc, char **argv) {
+    (void)argc; (void)argv;
+    static uint8_t frame[EFMA_BYTES_PER_FRAME];
+    double sum_sq = 0;
+    int peak = 0;
+    const int frames = 50; /* 50 x 20 ms = 1 s */
+    int got = 0;
+    for (int i = 0; i < frames; i++) {
+        if (audio_capture_read_frame(frame, sizeof(frame)) != ESP_OK) {
+            continue;
+        }
+        got++;
+        const int16_t *s = (const int16_t *)frame;
+        for (int j = 0; j < EFMA_SAMPLES_PER_FRAME; j++) {
+            int v = s[j];
+            sum_sq += (double)v * v;
+            if (v < 0) v = -v;
+            if (v > peak) peak = v;
+        }
+    }
+    if (got == 0) {
+        printf("mic: capture failed (driver not ready?)\n");
+        return ESP_FAIL;
+    }
+    double rms = sqrt(sum_sq / (got * EFMA_SAMPLES_PER_FRAME));
+    printf("mic: %d/%d frames, rms=%.1f peak=%d (s16 full scale 32767), rx_isr=%lu ovf=%lu\n",
+           got, frames, rms, peak, (unsigned long)audio_capture_debug_isr_count(),
+           (unsigned long)audio_capture_debug_ovf_count());
+    return ESP_OK;
+}
+
+/* Measure I2S DMA completion rate: expect ~50 descriptors/s on each channel
+ * (20 ms per descriptor at 16 kHz). Much lower = clock misconfigured. */
+static int cmd_i2srate(int argc, char **argv) {
+    (void)argc; (void)argv;
+    uint32_t rx0 = audio_capture_debug_isr_count();
+    uint32_t tx0 = audio_playback_debug_isr_count();
+    vTaskDelay(pdMS_TO_TICKS(1000));
+    uint32_t rx1 = audio_capture_debug_isr_count();
+    uint32_t tx1 = audio_playback_debug_isr_count();
+    printf("i2srate: rx=%lu/s tx=%lu/s (expect ~50/s each)\n",
+           (unsigned long)(rx1 - rx0), (unsigned long)(tx1 - tx0));
+    return ESP_OK;
+}
+
+/* Bench check for the MAX98357A: play a sine beep. */static int cmd_tone(int argc, char **argv) {
+    int freq = (argc > 1) ? atoi(argv[1]) : 880;
+    int ms = (argc > 2) ? atoi(argv[2]) : 500;
+    if (freq <= 0 || freq > 8000 || ms <= 0 || ms > 5000) {
+        printf("usage: tone [freq_hz 1-8000] [ms 1-5000]\n");
+        return ESP_ERR_INVALID_ARG;
+    }
+    static uint8_t frame[EFMA_BYTES_PER_FRAME];
+    if (audio_playback_begin() != ESP_OK) {
+        printf("tone: playback driver not ready\n");
+        return ESP_FAIL;
+    }
+    int total = EFMA_SAMPLE_RATE_HZ * ms / 1000;
+    for (int done = 0; done < total; done += EFMA_SAMPLES_PER_FRAME) {
+        int16_t *s = (int16_t *)frame;
+        for (int j = 0; j < EFMA_SAMPLES_PER_FRAME; j++) {
+            float t = (float)(done + j) / EFMA_SAMPLE_RATE_HZ;
+            s[j] = (int16_t)(sinf(2.0f * (float)M_PI * freq * t) * 12000.0f);
+        }
+        audio_playback_write(frame, sizeof(frame));
+    }
+    audio_playback_end();
+    printf("tone: %d Hz %d ms done, tx_isr=%lu ovf=%lu\n", freq, ms,
+           (unsigned long)audio_playback_debug_isr_count(),
+           (unsigned long)audio_playback_debug_ovf_count());
+    return ESP_OK;
+}
+
 esp_err_t provision_start(void) {
     esp_console_repl_t *repl = NULL;
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();
@@ -94,9 +174,27 @@ esp_err_t provision_start(void) {
         .help = "led <idle|notice|error|off>",
         .func = &cmd_led,
     };
+    static const esp_console_cmd_t mic_cmd = {
+        .command = "mic",
+        .help = "capture 1 s from the mic, print RMS/peak",
+        .func = &cmd_mic,
+    };
+    static const esp_console_cmd_t tone_cmd = {
+        .command = "tone",
+        .help = "tone [freq_hz] [ms] - play a sine beep on the amp",
+        .func = &cmd_tone,
+    };
+    static const esp_console_cmd_t rate_cmd = {
+        .command = "i2srate",
+        .help = "measure I2S DMA completion rate over 1 s",
+        .func = &cmd_i2srate,
+    };
     esp_console_cmd_register(&provision_cmd);
     esp_console_cmd_register(&status_cmd);
     esp_console_cmd_register(&led_cmd);
+    esp_console_cmd_register(&mic_cmd);
+    esp_console_cmd_register(&tone_cmd);
+    esp_console_cmd_register(&rate_cmd);
     rc = esp_console_start_repl(repl);
     if (rc != ESP_OK) {
         return rc;

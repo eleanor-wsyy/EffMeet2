@@ -28,7 +28,7 @@
   WebSocket 传输（`main/ws_transport.c`）、设备会话/命令/回执状态机（`main/device_session.c`）。
 - 未配对时进入串口配网 REPL：`provision <ssid> <pass> <controller_url> <meeting_id> <media_token>`
   写入 NVS 后重启；配对后订阅控制器事件 WS，按 `target_device_id` 分发 `robot.command`。
-- 已实现外设：状态灯（WS2812，GPIO48）、舵机（MG90S，GPIO38 LEDC）。仍桩：I2S 拾音/播放、AFE/AEC、摄像头。
+- 已实现外设：状态灯（WS2812，GPIO48）、舵机（MG90S，GPIO38 LEDC）、I2S 拾音（INMP441）与 I2S 播放（MAX98357A，I2S 引脚仍为占位，REPL `mic`/`tone` 可实测）。仍桩：AFE/AEC、摄像头。
 - **EFMA 编解码已主机编译并通过测试（2026-10-19）**：`scripts/test_efma_host.py` 用可选的
   `ziglang` 编译器构建 `test/test_efma_host.c`，输出 `EFMA host tests passed (protocol.py parity)`。
 - **ESP-IDF 工程已编译并烧录启动**：`effmeet2_robot.bin` 约 955KB（含 esp-sr 与配网），app 分区 3MB 剩余约 69%；

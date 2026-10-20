@@ -306,9 +306,8 @@ esp_err_t device_session_run_uplink(device_session_t *s, const char *session_id,
         return ESP_FAIL;
     }
 
-    /* Stream mic frames. audio_capture_read_frame() is a NOT-VERIFIED stub that
-     * returns ESP_ERR_NOT_SUPPORTED until the I2S/AFE path is brought up, so this
-     * loop currently exits immediately without sending audio. */
+    /* Stream mic frames from the INMP441 (audio_capture.c). Exits on I2S read
+     * failure or WS send failure. */
     uint8_t pcm[EFMA_BYTES_PER_FRAME];
     uint8_t frame[EFMA_HEADER_SIZE + EFMA_BYTES_PER_FRAME];
     size_t frame_len = 0;
@@ -458,7 +457,7 @@ esp_err_t device_session_run_playback(device_session_t *s, const char *command_i
         if (m->type == WS_EVT_BINARY) {
             if (efma_decode_frame(&dec, m->buf, m->len, pcm, sizeof(pcm),
                                   &pcm_len, &dup, &gap) == EFMA_OK && !dup) {
-                audio_playback_write(pcm, pcm_len); /* NOT-VERIFIED stub */
+                audio_playback_write(pcm, pcm_len); /* drops the frame on DMA backpressure */
                 cJSON *ack = cJSON_CreateObject();
                 cJSON_AddStringToObject(ack, "type", "audio.ack");
                 cJSON_AddNumberToObject(ack, "sample_end", dec.samples);

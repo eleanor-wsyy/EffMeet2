@@ -6,11 +6,12 @@ from pathlib import Path
 import markdown
 
 ROOT=Path(__file__).resolve().parents[1]
-SRC=ROOT/'ASSEMBLY.md'
-OUTDIR=ROOT
+import sys
+SRC=ROOT/(sys.argv[1] if len(sys.argv)>1 else 'ASSEMBLY.md')
+FOOTER_LEFT=sys.argv[2] if len(sys.argv)>2 else 'EffMeet2 v6 · 安装手册 v5 · 2026-10-20'
+OUTNAME=sys.argv[3] if len(sys.argv)>3 else None
 EDGE=r'C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe'
 if not Path(EDGE).exists():EDGE=r'C:\Program Files\Microsoft\Edge\Application\msedge.exe'
-FOOTER_LEFT='EffMeet2 v6 · 安装手册 v5 · 2026-10-20'
 
 md=markdown.Markdown(extensions=['tables','fenced_code','sane_lists'])
 body=md.convert(SRC.read_text(encoding='utf8'))
@@ -30,6 +31,7 @@ th{background:#1a3a4a;color:#fff;font-weight:600;padding:4px 5px;border:1px soli
 td{border:1px solid #c9d2d6;padding:3.5px 5px;vertical-align:middle}
 tr:nth-child(even) td{background:#f5f7fa}
 td img{width:46px;height:46px;object-fit:contain;background:#f5f7fa;border-radius:4px;display:block}
+p img{max-width:300px;max-height:210px;border:1px solid #ddd;border-radius:6px;margin:4px 8px 4px 0;display:inline-block;vertical-align:top;background:#fafafa}
 strong{color:#111;font-weight:700}
 code{background:#f1f3f5;padding:0 3px;border-radius:3px;font-family:Consolas,monospace;font-size:8.6px}
 a{color:#0e7c7b;text-decoration:none}
@@ -44,7 +46,7 @@ html_path=ROOT/'_assembly_v5.html'
 html_path.write_text(html,encoding='utf8')
 date=datetime.date.today().strftime('%Y%m%d')
 raw=ROOT/f'_assembly_v5_raw.pdf'
-out=ROOT/f'EffMeet2-安装手册v5-{date}.pdf'
+out=ROOT/(OUTNAME or f'EffMeet2-安装手册v5-{date}.pdf')
 cmd=[EDGE,'--headless','--disable-gpu',f'--print-to-pdf={raw}','--no-pdf-header-footer',
      '--run-all-compositor-stages-before-draw','--virtual-time-budget=8000',f'file://{html_path}']
 r=subprocess.run(cmd,capture_output=True,text=True,timeout=180)

@@ -18,7 +18,7 @@
 
 ## 状态
 
-**2026-10-20：已用 ESP-IDF v5.4.1 编译并烧录到实机（ESP32-S3 N16R8，16MB Flash + 8MB PSRAM），启动通过；未配对时进入串口配网 REPL；外设仍为桩。**
+**2026-10-20：已用 ESP-IDF v5.4.1 编译并烧录到实机（ESP32-S3 N16R8，16MB Flash + 8MB PSRAM），启动通过；未配对时进入串口配网 REPL；状态灯/舵机已实现，其余外设仍为桩。**
 **2026-10-19：ESP-IDF v5.4.1 编译通过（`Project build complete`）。**
 **2026-10-16：已搭出 ESP-IDF 工程骨架（当时未编译）。**
 模块状态表、开放集成点与契约对齐参照见 [docs/FIRMWARE_STATUS.md](docs/FIRMWARE_STATUS.md)。
@@ -28,11 +28,11 @@
   WebSocket 传输（`main/ws_transport.c`）、设备会话/命令/回执状态机（`main/device_session.c`）。
 - 未配对时进入串口配网 REPL：`provision <ssid> <pass> <controller_url> <meeting_id> <media_token>`
   写入 NVS 后重启；配对后订阅控制器事件 WS，按 `target_device_id` 分发 `robot.command`。
-- 外设（I2S 拾音/播放、AFE/AEC、舵机、状态灯、摄像头）均为标注 `NOT_SUPPORTED` 的桩，引脚为占位。
+- 已实现外设：状态灯（WS2812，GPIO48）、舵机（MG90S，GPIO38 LEDC）。仍桩：I2S 拾音/播放、AFE/AEC、摄像头。
 - **EFMA 编解码已主机编译并通过测试（2026-10-19）**：`scripts/test_efma_host.py` 用可选的
   `ziglang` 编译器构建 `test/test_efma_host.c`，输出 `EFMA host tests passed (protocol.py parity)`。
-- **ESP-IDF 工程已编译通过**：`effmeet2_robot.bin` 约 767KB，app 分区 3MB 剩余 75%；
-  工具链在 `.local/esp-idf`（Git 忽略），构建脚本见下。**未烧录、未上硬件。**
+- **ESP-IDF 工程已编译并烧录启动**：`effmeet2_robot.bin` 约 955KB（含 esp-sr 与配网），app 分区 3MB 剩余约 69%；
+  工具链在 `.local/esp-idf`（Git 忽略），构建脚本见下。**已烧录并启动，未配对。**
   主机测试只证明材料帧编解码与 `protocol.py` 一致，不代表设备链路。
 
 当前 Demo 阶段音频走电脑伴侣应用（路线A），固件为最终形态（路线B）的核心。

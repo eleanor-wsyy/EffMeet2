@@ -1,39 +1,76 @@
 #include "servo_yaw.h"
 
 #include "app_config.h"
+#include "driver/ledc.h"
 #include "esp_log.h"
 
 static const char *TAG = "servo_yaw";
+static bool s_ready = false;
 
 static float clampf(float v, float lo, float hi) {
     return v < lo ? lo : (v > hi ? hi : v);
 }
 
+static uint32_t us_to_duty(float us) {
+    const float period_us = 1000000.0f / SERVO_FREQ_HZ;
+    return (uint32_t)(us / period_us * ((1 << 13) - 1));
+}
+
 esp_err_t servo_yaw_init(void) {
-    /* TODO(bring-up): ledc_timer_config(SERVO_LEDC_TIMER, SERVO_FREQ_HZ) +
-     * ledc_channel_config(SERVO_LEDC_CHANNEL, SERVO_PWM_GPIO). Verify MG90S
-     * 500-2500us pulse range and that motion does not brown-out/reset the board
-     * (firmware README constraint: servo motion must not trigger a reset). */
-    ESP_LOGW(TAG, "servo_yaw_init: NOT-VERIFIED stub, no PWM configured");
-    return ESP_ERR_NOT_SUPPORTED;
+    ledc_timer_config_t timer = {
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .timer_num = SERVO_LEDC_TIMER,
+        .duty_resolution = LEDC_TIMER_13_BIT,
+        .freq_hz = SERVO_FREQ_HZ,
+        .clk_cfg = LEDC_AUTO_CLK,
+    };
+    esp_err_t rc = ledc_timer_config(&timer);
+    if (rc != ESP_OK) {
+        ESP_LOGW(TAG, "ledc_timer_config failed: %s", esp_err_to_name(rc));
+        return rc;
+    }
+    ledc_channel_config_t channel = {
+        .gpio_num = SERVO_PWM_GPIO,
+        .speed_mode = LEDC_LOW_SPEED_MODE,
+        .channel = SERVO_LEDC_CHANNEL,
+        .timer_sel = SERVO_LEDC_TIMER,
+        .duty = 0,
+        .hpoint = 0,
+    };
+    rc = ledc_channel_config(&channel);
+    if (rc != ESP_OK) {
+        ESP_LOGW(TAG, "ledc_channel_config failed: %s", esp_err_to_name(rc));
+        return rc;
+    }
+    s_ready = true;
+    return servo_yaw_move_to(0, 0);
 }
 
 esp_err_t servo_yaw_move_to(float yaw_deg, int duration_ms) {
-    (void)duration_ms;
+    (void)duration_ms;  /* ramp control is a later refinement; set position now */
+    if (!s_ready) {
+        return ESP_ERR_INVALID_STATE;
+    }
     float head = clampf(yaw_deg, (float)EFFMEET_YAW_MIN_DEG, (float)EFFMEET_YAW_MAX_DEG);
-    float servo_deg = head * SERVO_RATIO; /* 2:1 reduction -> servo travel */
-    /* Map servo_deg (-90..90) to pulse width (SERVO_MIN_US..SERVO_MAX_US). */
+    float servo_deg = head * SERVO_RATIO;  /* 2:1 GT2 reduction */
     float us = SERVO_MIN_US + (servo_deg + 90.0f) / 180.0f * (SERVO_MAX_US - SERVO_MIN_US);
-    ESP_LOGI(TAG, "move head=%.1f deg -> servo=%.1f deg (%.0f us) [stub]", head, servo_deg, us);
-    /* TODO(bring-up): ledc_set_duty from us, ramp over duration_ms, ledc_update_duty. */
-    return ESP_ERR_NOT_SUPPORTED;
+    uint32_t duty = us_to_duty(us);
+    esp_err_t rc = ledc_set_duty(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CHANNEL, duty);
+    if (rc == ESP_OK) {
+        rc = ledc_update_duty(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CHANNEL);
+    }
+    return rc;
 }
 
 void servo_yaw_stop(void) {
-    /* TODO(bring-up): halt any ramp and hold current position. */
-    ESP_LOGI(TAG, "servo_yaw_stop: stub");
+    if (s_ready) {
+        ledc_stop(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CHANNEL, 0);
+    }
 }
 
 void servo_yaw_deinit(void) {
-    /* TODO(bring-up): ledc_stop + detach channel. */
+    if (s_ready) {
+        ledc_stop(LEDC_LOW_SPEED_MODE, SERVO_LEDC_CHANNEL, 0);
+        s_ready = false;
+    }
 }

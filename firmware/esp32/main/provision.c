@@ -13,6 +13,7 @@
 #include "freertos/task.h"
 #include "nvs.h"
 #include "nvs_flash.h"
+#include "status_led.h"
 
 static const char *TAG = "provision";
 
@@ -59,6 +60,14 @@ static int cmd_provision_status(int argc, char **argv) {
     return ESP_OK;
 }
 
+static int cmd_led(int argc, char **argv) {
+    if (argc != 2) {
+        printf("usage: led <idle|notice|error|off>\n");
+        return ESP_ERR_INVALID_ARG;
+    }
+    return status_led_set_pattern_name(argv[1]);
+}
+
 esp_err_t provision_start(void) {
     esp_console_repl_t *repl = NULL;
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();
@@ -80,8 +89,14 @@ esp_err_t provision_start(void) {
         .help = "show provisioned fields (no secrets)",
         .func = &cmd_provision_status,
     };
+    static const esp_console_cmd_t led_cmd = {
+        .command = "led",
+        .help = "led <idle|notice|error|off>",
+        .func = &cmd_led,
+    };
     esp_console_cmd_register(&provision_cmd);
     esp_console_cmd_register(&status_cmd);
+    esp_console_cmd_register(&led_cmd);
     rc = esp_console_start_repl(repl);
     if (rc != ESP_OK) {
         return rc;

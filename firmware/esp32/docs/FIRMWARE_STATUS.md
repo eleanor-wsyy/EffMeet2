@@ -5,6 +5,16 @@
 > 设备配对/media_token）落到固件侧。**2026-10-20 已用 ESP-IDF v5.4.1 编译并烧录到
 > 实机，启动通过；未配对、未驱动外设。**
 > 所有外设路径均为清晰标注的桩，返回 `ESP_ERR_NOT_SUPPORTED`，不得据此声称任何硬件已通。
+> 除 WS2812 状态灯（GPIO48）与 MG90S 舵机（GPIO38 LEDC）外，其余外设仍为桩。
+
+## 实机验证（2026-10-20）
+
+- ESP32-S3 N16R8（16MB Flash + 8MB PSRAM），CH340 COM3。
+- 烧录 954,880 B → 954,720 B（视版本），Hash verified。
+- 启动正常；未配对进入 `effmeet>` 配网 REPL。
+- `provision_status` 返回“NVS namespace not found”（证明 NVS/REPL 可用）。
+- `led notice/error/idle/off` 通过 REPL 切换，无错误。
+- 舵机 LEDC 初始化无错误；未执行转头动作。
 
 ## 终局目标（路线B）
 
@@ -22,8 +32,8 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 | 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | 桩 NOT_SUPPORTED | 引脚为占位，须与 `hardware/electronics` 接线核对 |
 | 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | 桩 NOT_SUPPORTED | 持有"播完"边界，gate `RobotReceipt(completed)` |
 | AEC/AFE | `main/aec_afe.{h,c}` | 桩 NOT_SUPPORTED | ESP-SR AFE 接入点；`quiet_moment()` 当前仅软件互斥代理，**非校准 VAD/AEC** |
-| 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | 桩 NOT_SUPPORTED | 2:1 减速→头±45°；限位/减速比未确认 |
-| 状态灯(WS2812) | `main/status_led.{h,c}` | 桩 NOT_SUPPORTED | pattern=idle/notice/error/off；色序未确认 |
+| 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | 已实现 LEDC，未实机验证 | 2:1 减速→头±45°；限位/减速比未确认 |
+| 状态灯(WS2812) | `main/status_led.{h,c}` | 已实现 led_strip，未实机验证 | pattern=idle/notice/error/off；色序未确认 |
 | 摄像头抓拍 | `main/camera_capture.{h,c}` | 桩 NOT_SUPPORTED | 型号/引脚 TBD |
 | 启动序列 | `main/main.c` | 编译通过，未在设备链路验证 | NVS→Wi-Fi→载配对身份→外设 init→会话任务 |
 

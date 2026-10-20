@@ -149,6 +149,8 @@ agy staffer 对提交前 diff 给出 8 项发现，已修复主要项：
 - 实机：ESP32-S3 N16R8（16MB Flash + 8MB PSRAM），COM3 烧录 954,880 B，
   Hash verified；启动日志正常；未配对时进入 REPL，`provision_status` 返回
   “nothing provisioned”。Wi-Fi 与控制器连通需要 Wi-Fi 凭据 + LAN 网关。
+- 状态灯：WS2812（GPIO48）已实现，REPL `led <idle|notice|error|off>` 可切换；
+  舵机：MG90S（GPIO38）已实现 LEDC 驱动，当前仅初始化，未执行转头动作。
 
 ## 验证证据
 

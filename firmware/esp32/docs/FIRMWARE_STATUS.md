@@ -17,11 +17,15 @@
 - `led notice/error/idle/off` 通过 REPL 切换，无错误。
 - 舵机 LEDC 初始化无错误；未执行转头动作。
 - **I2S 链路 DMA/时钟已验证**：`i2srate` 实测 rx=49/s、tx=50/s 描述符完成率
-  （理论 50/s）；`mic` 50/50 帧读通（rms=0，因 INMP441 未接到占位引脚）；
-  `tone 880 500` 25 帧全部写入无丢帧（MAX98357A 未接，无声属预期）。
+  （理论 50/s）；`mic` 50/50 帧读通；`tone 880 500` 写入无丢帧。
   踩坑记录：`i2s_channel_read/write` 的 timeout 参数是**毫秒**不是 ticks，
   误传 `pdMS_TO_TICKS()` 会导致超时缩短 10 倍（FreeRTOS_HZ=100），表现为
   周期性 ESP_ERR_TIMEOUT。
+- **INMP441 实接线真拾音验证（2026-10-21）**：按 `hardware/electronics/wiring-bench.md`
+  接线（VDD=3V3、L/R=GND、BCLK=4/WS=5/DIN=6）。安静 rms=65/peak=264；
+  PC 喇叭 1kHz 蜂鸣贴近时 rms=394/peak=3301（6×/12× 跳变），确认空气拾音真实有效。
+  灵敏度偏保守（响音峰值约 -20dBFS），如需更响可把 `>>16` 截位改为 `>>14`+钳位。
+  MAX98357A 数字链路无丢帧，模拟出声待喇叭接上后 `tone` 复测。
 - REPL 诊断命令：`mic`（采 1s 打印 RMS/peak/ISR 计数）、`tone [freq] [ms]`
   （正弦试音）、`i2srate`（测 1s 内 DMA 完成率）、`uplink <session_id> <stream_id>
   <stream_key>`（触发上行 EFMA 流，须先 bench 绑定会话）。ISR/溢出计数器保留在
@@ -60,7 +64,7 @@ Wi-Fi 推 PCM（EFMA 帧）→ 收 `speak` 命令实播并回**播放完成回�
 | EFMA 帧编解码 | `main/efma_codec.{h,c}` | **主机测试通过（2026-10-19）**，未在设备链路验证 | `protocol.py` 的逐字段 C 移植；纯 C 无 ESP 依赖。`scripts/test_efma_host.py` 用 ziglang 编译并运行 `test/test_efma_host.c`，全部断言通过 |
 | WebSocket 传输 | `main/ws_transport.{h,c}` | 编译通过，未在设备链路验证 | `esp_websocket_client` 封装；Bearer 头鉴权（不走 URL/Origin，对齐 `media.py`） |
 | 设备会话/协议状态机 | `main/device_session.{h,c}` | **实机链路验证（2026-10-20）**：事件 WS 长连 + robot.command 下发触发播放流 | 配对/Hello、上行流、播放握手、回执状态机、命令分发 |
-| 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 16 kHz 单声道，32-bit slot 截 s16（>>16）；引脚为占位，须与 `hardware/electronics` 接线核对后用 REPL `mic` 复测 |
+| 拾音 I2S(INMP441) | `main/audio_capture.{h,c}` | **真接线拾音验证通过（2026-10-21）** | 16 kHz 单声道，32-bit slot 截 s16（>>16）；按 wiring-bench.md 接线后 `mic` 实测安静 rms=65 / 蜂鸣 rms=394，空气拾音有效；增益可再调 |
 | 播放 I2S(MAX98357A) | `main/audio_playback.{h,c}` | **已实现，DMA/时钟实机验证（2026-10-20）** | 持有"播完"边界，gate `RobotReceipt(completed)`；AMP_ENABLE(GPIO18) 门控；引脚占位待核对，`tone` 复测 |
 | AEC/AFE | `main/aec_afe.{h,c}` | 桩 NOT_SUPPORTED | ESP-SR AFE 接入点；`quiet_moment()` 当前仅软件互斥代理，**非校准 VAD/AEC** |
 | 转头舵机(MG90S) | `main/servo_yaw.{h,c}` | 已实现 LEDC，未实机验证 | 2:1 减速→头±45°；限位/减速比未确认 |

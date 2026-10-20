@@ -30,8 +30,11 @@
   Windows TTS → EFMA 下行 → 逐帧 ack → 播放排空 → **RobotReceipt completed**
   （回执 accepted/started/completed 完整入账）。TCP_NODELAY 修复后帧间隔从
   ~175ms 降到 **22-28ms**（实时期 20ms），700+ 帧稳定传输。
+  **播放内容数值验证**：解码 PCM `frames=711 pcm_peak=30173 rms=2441`
+  （满幅 32767）——真实 TTS 语音波形，非静音。
   注意：media_token 有 **1 小时 TTL**（`bench.authenticate`），过期表现为
-  playback 报 `INVALID_MEDIA_TOKEN`（events WS 仍能连），需重新 pair + provision。
+  playback 报 `INVALID_MEDIA_TOKEN`（events WS 仍能连）；用
+  `scripts/reprovision_board.py --meeting <id>` 一条命令重新配对+写 NVS。
 - **Wi-Fi + 命令链路边端验证（2026-10-20 下午）**：校园网 GAFA_Stu 有客户端隔离
   （板 10.15.120.x / PC 10.15.155.x 互不可达），改用 **PC 移动热点**（WinRT
   `NetworkOperatorTetheringManager` 可编程开关；热点默认 5GHz 须强制 2.4GHz，

@@ -5,6 +5,7 @@
 - **少焊设计**（写进图解版「11 根跨轴线的焊接方案」）：**唯一必焊 = 喇叭 2 点**；**麦克风可全杜邦免焊**——P32 的 4.2mm 是腔深，带排针时排针/杜邦朝碗内凸出是允许的（凸出朝底座内、不顶杯壁）；3V3/GND/BCLK/WS/SD 用杜邦"一分二"线分给两只麦，L/R 一左一右跳线。将来换正式线束（28AWG）时才焊麦。头端 11 根母头直插排针、功放母对母＋SD→VIN 跳线、停止键母头直插、舵机公对母。**第 29 步不焊。**
 - **文档同步**：`ASSEMBLY-图解版.md`、`ASSEMBLY.md`、`AGENTS.md`、v6 `README.md`、`BOM.md`（§12 多行）、`INTERFACE_GATES.md`（WIRE-01）、`MEASURE-GUIDE.md`、`print-split-v6/PRINT-PLAN.md`、`wiring-bench.md`。
 - **待办/边界**：①固件仍单声道，双麦只取一个槽（双麦全用需改立体声/双通道）；②杜邦非最终动态线束（WIRE-01 仍未冻结，正式件换 28AWG 硅胶线）；③摄像头驱动仍 NOT_SUPPORTED；④功放声学输出（接喇叭后）未验。
+- **连接口径统一（10-21 晚）**：装配默认**全杜邦**；**唯一焊点=喇叭端 2 点**（功放端焊盘则 +2）；麦用 P32（针朝碗内凸出允许）；按键母头直插＋热熔胶；供电用成品 USB-C 5V 转接线（E17 不装）。图解/手册/接线表/README/BOM 已同步。
 - **LCD 初版驱动（10-21 午）**：照片确认 2.8″ 屏针序为标准 ILI9341 14P（VCC/GND/CS/RESET/DC/SDI/SCK/LED/SDO/T_CLK/T_CS/T_DIN/T_DO/T_IRQ）；新增 `firmware/esp32/main/lcd_ili9341.c`（SPI2 20MHz，CS=10 DC=9 RST=14 MOSI=11 SCK=12 BL=47），开机画七色彩条，REPL `lcd [bars|on|off|fill r g b]`；`idf.py build` 通过。**实机点亮未验**，待接线烧录。
 
 ---

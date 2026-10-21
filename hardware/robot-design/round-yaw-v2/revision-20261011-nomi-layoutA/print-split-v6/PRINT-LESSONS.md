@@ -1,7 +1,7 @@
 # 3D 打印教训集（2026-10-15 实战沉淀）
 
 > 目的：把本轮开打踩过的坑记下来，**后面的人别重复犯**。每条=现象→真相→正确做法。
-> 适用：EffMeet2 v6 打印执行（Bambu Studio + 学校 H2S/H2D/P2S + 自有 A1，PLA Matte 灰/黑）。
+> 适用：在议 v6 打印执行（Bambu Studio + 学校 H2S/H2D/P2S + 自有 A1，PLA Matte 灰/黑）。
 > 相关：[PLATE-RUNBOOK.md](PLATE-RUNBOOK.md) §5/§6、[SLICE-CARD.md](SLICE-CARD.md)、[MEASURE-TODO.md](MEASURE-TODO.md)、[HANDOFF](../../../HANDOFF.md) 顶部各节。
 > ⚠️ **教训22/26/30 均带 2026-10-16 实测更正**（原文保留、更正并列）。只读原文会拿到已被推翻的机制解释，务必连更正一起读。
 

@@ -2,7 +2,7 @@
 >
 > 历史：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)，41件独立候选。
 
-# EffMeet2 · 机器人设计与采购统一入口
+# 在议 · 机器人设计与采购统一入口
 
 **当前：NOMI方向／GOOUU核心板／**布局A2（v6 紧凑候选）**／灰黑PLA Matte。** 电脑伴侣路线A不变。板＋屏＋摄像头在头，麦/功放/扬声器/舵机在底座（旧"布局A=板在底座"已作废，v4/v5 仅作历史）。
 

@@ -1,6 +1,6 @@
 {
-  "name": "EffMeet 2",
-  "short_name": "EffMeet 2",
+  "name": "在议",
+  "short_name": "在议",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",

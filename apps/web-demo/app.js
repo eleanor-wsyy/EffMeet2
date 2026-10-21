@@ -1191,7 +1191,7 @@ function exportMeeting(meeting) {
   const url = URL.createObjectURL(blob);
   const anchor = document.createElement('a');
   anchor.href = url;
-  anchor.download = `EffMeet2-${meeting.id}.json`;
+  anchor.download = `在议-${meeting.id}.json`;
   document.body.append(anchor);
   anchor.click();
   anchor.remove();
@@ -1380,8 +1380,8 @@ $('settings-privacy').addEventListener('click', () => {
 $('settings-cache').addEventListener('click', clearShellCache);
 $('settings-about').addEventListener('click', () => {
   openDialog({
-    title:'关于 EffMeet 2',
-    body:`<p><strong>EffMeet 2 手机端 · v1.0.0</strong><br>本地演示版</p>
+    title:'关于 在议',
+    body:`<p><strong>在议 手机端 · v1.0.0</strong><br>本地演示版</p>
           <p>包含首页、会议、历史、我的四个主页面，以及扫码加入、会议纪要、观点图谱和完整转写。</p>
           <p>所有会议与额度数据均为本地示例，不代表真实服务。</p>`,
     actions:[{label:'关闭', value:'close', style:'secondary'}]

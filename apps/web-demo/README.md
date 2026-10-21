@@ -1,4 +1,4 @@
-# EffMeet2 手机用户端（本地演示版）
+# 在议 手机用户端（本地演示版）
 
 > **本目录是 GitHub 新版独立演示版**：数据全在 `localStorage`，不连接控制器、
 > LiveKit、ASR、AI 或硬件。真实会议演示用 `apps/web/`（`/app/`）。
@@ -9,7 +9,7 @@
 
 
 
-`apps/web/` 现在是一个可以独立运行的单页 PWA，包含首页、会议、历史、我的四个主页面，以及加入会议、快速会议、预定会议、观点地图和会议详情。所有会议、观点、转写、AI 提示、额度与用户数据都由 `store.js` 在本地生成并写入 `localStorage`；不连接真实后端、音视频、语音识别、AI 服务、硬件、联系人、支付或云数据库。
+`apps/web-demo/` 是一个可以独立运行的单页 PWA，包含首页、会议、历史、我的四个主页面，以及加入会议、快速会议、预定会议、观点地图和会议详情。所有会议、观点、转写、AI 提示、额度与用户数据都由 `store.js` 在本地生成并写入 `localStorage`；不连接真实后端、音视频、语音识别、AI 服务、硬件、联系人、支付或云数据库。
 
 ## 运行
 
@@ -19,18 +19,18 @@
 python -m http.server 8000
 ```
 
-打开 `http://127.0.0.1:8000/apps/web/`。
+打开 `http://127.0.0.1:8000/apps/web-demo/`。
 
-方式二（只运行用户端）：
+方式二（只运行演示端）：
 
 ```bash
-cd apps/web
+cd apps/web-demo
 python -m http.server 8000
 ```
 
 打开 `http://127.0.0.1:8000/`。
 
-不要直接双击 `index.html`：ES module 和 Service Worker 需要 `http`/`https` 环境。支持安装到手机主屏；离线时只缓存静态界面，会议数据仍只在本机 `localStorage`。
+官网部署使用的是本目录的副本 `site/demo/`；`standalone.html` 是内联 CSS/JS 的单文件版本，可脱离目录直接托管。不要直接双击 `index.html`：ES module 和 Service Worker 需要 `http`/`https` 环境。支持安装到手机主屏；离线时只缓存静态界面，会议数据仍只在本机 `localStorage`。重置入口在「我的 → 重置演示数据」。
 
 ## 页面与交互
 

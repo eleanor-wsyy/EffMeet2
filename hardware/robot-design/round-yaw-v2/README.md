@@ -1,15 +1,15 @@
-> **2026-10-13：当前为[v6紧凑候选·布局A2](revision-20261011-nomi-layoutA/print-split-v6/README.md)，优先于v5/v4。** 以下为历史。
+> **2026-10-13 起当前为 [v6 紧凑候选·布局A2](revision-20261011-nomi-layoutA/print-split-v6/README.md)，优先于 v5/v4；v5 亦为历史。** 现行安装顺序 = print-split-v6/ASSEMBLY.md（附图解版）；打印执行 = PLATE-RUNBOOK。
 >
-> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+> 以下 v4 内容仅作历史与追溯：旧"布局A=板在底座"、Ø106 圆脸、1:1 传动均作废，不得作为当前接口/尺寸依据。
 
 # 圆润转头方案 · 当前模型与资料索引
 
-**当前模型是v4 NOMI／GOOUU布局A／灰黑PLA Matte候选**，不是旧Korvo-v2，也不是上轮AI效果图。
+**当前模型是 v6 紧凑候选（布局A2）**，见 [print-split-v6](revision-20261011-nomi-layoutA/print-split-v6/README.md)；v4/v5 与旧 Korvo-v2 均仅作历史。
 
-- [当前v4模型、主视觉、三视图和内舱／分解图](revision-20261011-nomi-layoutA/README.md)
+- [当前入口 v6（模型/状态图/打印/安装）](revision-20261011-nomi-layoutA/print-split-v6/README.md)
 - [唯一几何参数源](parameters.json)
 - [唯一采购清单第12节](BOM.md#final-purchase-decision)
-- [安装指南](ASSEMBLY_GUIDE.md)／[打印方案](PRINT_PLAN.md)／[测试指南](TEST_GUIDE.md)／[记录模板](TEST_RECORD_TEMPLATE.csv)
+- [现行安装手册](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)（图解版同目录）／[打印执行](revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)／[测试指南](TEST_GUIDE.md)／[记录模板](TEST_RECORD_TEMPLATE.csv)
 - [外观／安装接口同步](EXTERIOR_ASSEMBLY_REVISION.md)／[建模任务书](MODELING_BRIEF.md)
 - [统一HANDOFF](../HANDOFF.md)
 

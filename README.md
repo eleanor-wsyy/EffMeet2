@@ -1,4 +1,4 @@
-> **硬件最新交付（2026-10-13）：[NOMI布局A2-v6紧凑打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。整机153×139.4×200.8，31件清单、每盘一个3MF与打印总表在同一目录；实测接口、切片、样片仍待验。**
+> **硬件最新交付（2026-10-13，10-21 补注）：[NOMI布局A2-v6紧凑打印候选](hardware/robot-design/round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。整机153×139.4×200.8，32 件清单（28 行；P07–P10 算 4、P32 算 2），每盘一个3MF与打印总表在同一目录；实测接口、切片、样片仍待验。10-21 模型＋打印件实测发现 P03 装配门（决策门见该目录 ASSEMBLY.md §2-7）。**
 
 # EffMeet 2
 

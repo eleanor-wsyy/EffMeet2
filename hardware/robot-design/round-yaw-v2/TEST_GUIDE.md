@@ -2,7 +2,7 @@
 
 > **2026-10-11 v4优先补充：** 测试基线改为GOOUU套装／布局A／PLA Matte及[v4工程复核](revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md)。旧微雪／Korvo和ABS-GF叙述不作为本轮电气／材料依据。新增头颈接收面／D接收、套装2.8屏窗预算／14针真实接线、后部固定板、外接双麦／功放、显示线束／摄像FPC、真实状态引出必须按T04–T17/T23–T25复测；表格和空白记录模板仍全部未实测。
 
-更新：2026-10-10（北京时间）。与[安装指南](ASSEMBLY_GUIDE.md)、[当前BOM](BOM.md#final-purchase-decision)、[打印方案](PRINT_PLAN.md)配套。**本指南定义待执行测试，不是测试报告。** 当前固件与可打印机构尚未完整落实，未做的测试必须记录为NOT_RUN或BLOCKED；本次文档不升级硬件/制造状态。
+更新：2026-10-10（北京时间；2026-10-21 修链）。与[现行安装手册](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)、[当前BOM](BOM.md#final-purchase-decision)、[打印执行手册](revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)配套（旧 ASSEMBLY_GUIDE/PRINT_PLAN 已删除）。**本指南定义待执行测试，不是测试报告。** 当前固件与可打印机构尚未完整落实，未做的测试必须记录为NOT_RUN或BLOCKED；本次文档不升级硬件/制造状态。
 
 ## NOMI方向的同步复测
 

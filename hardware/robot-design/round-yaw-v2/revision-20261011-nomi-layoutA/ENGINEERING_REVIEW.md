@@ -1,5 +1,7 @@
 # v4 · GOOUU布局A工程复核
 
+> **⛔ 历史文档（v4，2026-10-11）。** 现行接口门槛与状态见 [print-split-v6/INTERFACE_GATES.md](print-split-v6/INTERFACE_GATES.md)；本文的 180×164×222、Ø106 圆脸、TP4056 预留等均为旧口径，勿作当前依据。
+
 当前采购定案与下单记录见 [GOOUU-BOARD-SPEC](../GOOUU-BOARD-SPEC.md) 和唯一 [BOM§12](../BOM.md#final-purchase-decision)。此前微雪原型已被当前方案替代；不复用其麦克风／功放／屏接口结论。
 
 ## 外观不变量和实际改造

@@ -1,30 +1,29 @@
-> **当前入口（2026-10-13）：[v6紧凑候选·布局A2](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 153×139.4×200.8，核心板＋摄像头＋屏进头，麦/功放/扬声器/舵机固定底座；31件候选，未切片、未制造放行。v5（G1/G2已停打作废）及v4保留为历史。
+> **当前入口（2026-10-13 起）：[v6紧凑候选·布局A2](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 153×139.4×200.8，核心板＋摄像头＋屏进头，麦/功放/扬声器/舵机固定底座；**32 件候选（28 行）**，未切片、未制造放行。v5（G1/G2已停打作废）及v4保留为历史。10-21 实测新增 **P03 装配门**（见同目录 ASSEMBLY.md §2-7）。
 >
 > 历史：[NOMI布局A v5](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/README.md)，41件独立候选。
 
 # EffMeet2 · 机器人设计与采购统一入口
 
-**当前：NOMI方向／GOOUU核心板／布局A／灰黑PLA Matte，v4工程候选。** 电脑伴侣路线A不变。当前模型已改，不再是仅AI效果图。
+**当前：NOMI方向／GOOUU核心板／**布局A2（v6 紧凑候选）**／灰黑PLA Matte。** 电脑伴侣路线A不变。板＋屏＋摄像头在头，麦/功放/扬声器/舵机在底座（旧"布局A=板在底座"已作废，v4/v5 仅作历史）。
 
 ## 从这里开始
 
 | 内容 | 当前入口 |
 |---|---|
-| **接手第一入口：当前状态与下一步** | [**HANDOFF**](HANDOFF.md)（顶部「2026-10-12 会话收尾」节） |
-| 可编辑模型、10张实渲、3张说明图纸 | [NOMI布局A-v4](round-yaw-v2/revision-20261011-nomi-layoutA/README.md) |
-| **打印件拆分任务书（交接管方执行）** | [**SPLIT_PLAN**](round-yaw-v2/revision-20261011-nomi-layoutA/SPLIT_PLAN.md) |
+| **接手第一入口：当前状态与下一步** | [**HANDOFF**](HANDOFF.md)（顶部「2026-10-20 晚」节） |
+| 可编辑模型与当前入口 | [v6 紧凑候选](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/README.md)（模型/blend、状态图、打印与安装文档总入口） |
+| **打印件拆分任务书（交接管方执行）** | [**SPLIT_PLAN**](round-yaw-v2/revision-20261011-nomi-layoutA/SPLIT_PLAN.md)（v4 时代拆件任务书，仅作历史；现行见 PLATE-RUNBOOK） |
 | **打印执行：盘×机器×特殊设置** | [**v6 PLATE-RUNBOOK**](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)（v5 [旧手册](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PLATE-RUNBOOK.md)；G1/G2已停打作废） |
 | 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
 | 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
-| 安装顺序 | [ASSEMBLY_GUIDE](round-yaw-v2/ASSEMBLY_GUIDE.md) |
-| 少操作打印与放行条件 | [PRINT_PLAN](round-yaw-v2/PRINT_PLAN.md) |
+| 安装顺序（唯一现行） | [print-split-v6/ASSEMBLY.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)＋[图解版](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY-图解版.md)（旧 ASSEMBLY_GUIDE/PRINT_PLAN 已删除） |
 | 功能与实机验收 | [TEST_GUIDE](round-yaw-v2/TEST_GUIDE.md)／[空白记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv) |
-| 已实现／未锁定工程接口 | [ENGINEERING_REVIEW](round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md) |
+| 已实现／未锁定工程接口 | [print-split-v6/INTERFACE_GATES.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)（v4 [ENGINEERING_REVIEW](round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md) 仅作历史） |
 | 机器可读入口 | [manifest.json](manifest.json) |
 
-套装已含屏和OV3660，不重复采购；新增外置INMP441×2／MAX98357A／TP4056必须纳入底座。扩展板未实测，不宣称完整套装都能装入。
+套装已含屏和 OV3660，不重复采购；底座外接 **INMP441×2＋MAX98357A**（必须）。**TP4056/电池推迟（路线B/决赛）不装**；**扩展板实测 95×87×12 放不下，v6 不装**。核心板在头部，不是"底座直供"。
 
-**采购状态**（执行表见 [BOM §12.0](round-yaw-v2/BOM.md#final-purchase-decision)）：✅ 已下单——GOOUU 套装（¥86.5）；PLA Matte 灰×2（**已到货**）、黑×1（**已下单未到货，勿重复下单**）。🔴 待下单——INMP441×2、MAX98357、TP4056（必买）；扬声器、6806×2、MG90S、五金线材（要买）。🟡 先翻库存——Type-C 线×2、5V 电源、舵机稳压、轻触开关。🟡 第二批——E04/E05 跨轴线束、GT2 带、3.7V 锂电。
+**采购状态**（执行表见 [BOM §12.0](round-yaw-v2/BOM.md#final-purchase-decision)）：✅ 已下单——GOOUU 套装（¥86.5）；PLA Matte 灰×2（**已到货**）、黑×1（**已下单未到货，勿重复下单**）。🔴 待下单——INMP441×2、MAX98357（必买）；扬声器、6806×2、MG90S、五金线材（要买）。🟡 先翻库存——Type-C 线×2、5V 电源、舵机稳压、轻触开关。🟡 第二批——E04/E05 跨轴线束、GT2 带。**电池/TP4056 不在本轮采购。**
 
 **打印工作室**：学校 = 广美实验教学中心模型实验室（P2S×8 + H2S×10 + H2D×10 = 28 台，⚠️ **通风禁 ABS/ASA**，0.4 喷嘴＝**硬化钢**，需预约）；自有 = A1（256³）。分工：A1 打样片与黑料小件，学校打三件灰料大壳。**进度：G1 头壳（H2S）、G2 杯体（H2D）已上机（2026-10-12）；其余盘见 PLATE-RUNBOOK。**
 

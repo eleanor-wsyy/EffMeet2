@@ -1,4 +1,4 @@
-> **v4已冻结为输入与历史证据。当前独立打印候选和安装顺序进入 [print-split-v5](print-split-v5/README.md)，不得用v4报告给v5接口背书。**
+> **v4 已冻结为输入与历史证据；v5 亦为历史。当前独立打印候选与安装顺序在 [print-split-v6](print-split-v6/README.md)（布局A2，2026-10-13 起）。不得用 v4 报告给 v5/v6 接口背书。**
 
 # EffMeet2 · NOMI／布局A · v4工程候选
 

@@ -1,15 +1,15 @@
-> **⛔ 装配操作以 [print-split-v6/ASSEMBLY.md v2](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md) 为准（2026-10-16）。本文仅保留 10-10 外观/组装同步的决策记录，其中步骤不再执行。**
-
-> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+> **⛔ 历史决策记录（v4，2026-10-11）。装配操作只认 [print-split-v6/ASSEMBLY.md](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)（附图解版，2026-10-21 修订）。**
+>
+> **v5/v4 均已冻结为历史；当前是 v6 布局A2（板/屏/摄像头在头部）。** 本文所述 Ø106 圆脸、1:1 传动、板在底座、TP4056/电池预留等均已作废，不得作为当前接口依据。
 
 # v4 · 外观与安装接口同步
 
-更新：2026-10-11。**NOMI圆头＋圆黑脸的造型方向保留，工程基线改为GOOUU／布局A／灰黑PLA Matte。** 本轮已生成真实模型候选及实渲图，不能再用“仅AI效果图、CAD未改”描述。
+更新：2026-10-11（历史）。**NOMI圆头＋圆黑脸方向保留；工程基线已从本文的"布局 A／板在底座"演进到 v6 布局A2。**
 
-- [当前模型和图纸](revision-20261011-nomi-layoutA/README.md)
-- [完整工程复核和未验证接口](revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md)
-- [更新后的安装指南](ASSEMBLY_GUIDE.md)
-- [低工序打印方案](PRINT_PLAN.md)
+- [v4 模型和图纸（历史）](revision-20261011-nomi-layoutA/README.md)
+- [v4 工程复核（历史）](revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md)
+- [现行安装手册](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)
+- [现行打印执行](revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)
 - [唯一采购清单第12节](BOM.md#final-purchase-decision)
 
 ## 已同步到模型

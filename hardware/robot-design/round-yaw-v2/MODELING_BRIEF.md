@@ -1,8 +1,8 @@
-> **v5拆件更新优先于下文v4历史细节。** 当前逐件模型/件表/接收界面见 [v5交付](revision-20261011-nomi-layoutA/print-split-v5/README.md)，安装顺序见其ASSEMBLY.md，朝向/支撑回填见PRINTING.md。实物验收及制造状态未放行。
+> **v5/v4 均为历史；当前见 [v6](revision-20261011-nomi-layoutA/print-split-v6/README.md)。** 本文以下为 v4 建模任务书，仅作追溯。
 
 # 建模更新任务书 · 美学锁死 / 工程重做（2026-10-11 · 布局 A 已定案）
 
-> **v4当前执行：** 以GOOUU已下单套装＋布局A＋外置INMP441×2／MAX98357A／TP4056为基线，结果见[v4](revision-20261011-nomi-layoutA/README.md)。完整套装扩展板未测，不在容纳结论内；屏J2真实针序／尺寸需到货。以下旧板／旧尺寸仅供追溯，当前以parameters.json和v4工程复核为准。
+> **⛔ 历史建模任务书（v4，2026-10-11）。** 现行执行是 v6 布局A2（板/屏/摄像头在头部）、32 件；**TP4056/电池推迟、扩展板不装**。尺寸以 parameters.json 与 [v6 README](revision-20261011-nomi-layoutA/print-split-v6/README.md) 为准；下文的 180×164×222、Ø106、1:1 传动与 TP4056 预留仅供追溯。
 
 > **原则：上一版（NOMI 方向）的审美模式原样保留；只换工程实现。**
 > 来源：`round-yaw-v2/concept/nomi-aligned-20261010/prompt.txt`（审美契约原文）+ `round-yaw-v2/EXTERIOR_ASSEMBLY_REVISION.md`（组装接口）。

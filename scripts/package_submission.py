@@ -60,6 +60,7 @@ def main() -> None:
     shutil.copy2(ROOT / "docs" / "product" / "EffMeet2_论文依据与技术路径.html", STAGE / "docs" / "技术路径.html")
     shutil.copy2(ROOT / "dist" / "submission" / "EffMeet2_论文依据与技术路径.pdf", STAGE / "docs" / "技术资料.pdf")
     shutil.copy2(ROOT / "docs" / "product" / "参赛提交文案_2026-10-21.md", STAGE / "docs" / "参赛提交文案.md")
+    shutil.copy2(ROOT / "docs" / "handoff" / "2026-10-21-submission-validation.md", STAGE / "docs" / "验证记录.md")
     (STAGE / "README.md").write_text(README, encoding="utf-8")
 
     with zipfile.ZipFile(OUT, "w", zipfile.ZIP_DEFLATED) as archive:

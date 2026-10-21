@@ -11,6 +11,12 @@
 - **路线 A（当前参赛 Demo）**：电脑伴侣应用承载本地 AI（FunASR 转写 + 千问候选判断 + SQLite 事件账本）
 - **路线 B（最终形态）**：去除电脑依赖，机器人经 Wi-Fi 直连云端，手机/平板即可完整使用
 
+## 在线访问
+
+- **产品官网**：https://www.modelscope.cn/studios/CodyNing/effmeetbot
+- **AI 判断实验台**：https://www.modelscope.cn/studios/CodyNing/effmeetbot-ai
+- **交互 Demo**：官网内 `/demo/`，无需登录
+
 ## 三个入口
 
 | 入口 | 内容 | 位置 |

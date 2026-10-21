@@ -9,6 +9,15 @@ license: Apache-2.0
 
 这是「在议」的静态产品官网，可直接作为魔搭创空间（ModelScope Studio）的 `static` 应用发布：仓库根目录即本目录，入口为 `index.html`。
 
+## 在线入口
+
+- 产品官网：https://www.modelscope.cn/studios/CodyNing/effmeetbot
+- AI 判断实验台：https://www.modelscope.cn/studios/CodyNing/effmeetbot-ai
+- 产品交互 Demo：https://codyning-effmeetbot.ms.show/demo/
+- 手机端界面全景：https://codyning-effmeetbot.ms.show/mobile-ui.html
+- 主视频（74 秒 / 1080p）：https://codyning-effmeetbot.ms.show/assets/film/effmeetbot-film-1080p.mp4
+- 项目图文：https://codyning-effmeetbot.ms.show/spotlight/
+
 ## 目录
 
 ```

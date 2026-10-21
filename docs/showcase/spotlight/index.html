@@ -1,0 +1,136 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>在议：让线上成员的观点真正进入讨论</title>
+<style>
+:root{--paper:#f7f6f2;--ink:#1f201f;--grey:#6b6b66;--orange:#e8502d;--line:rgba(31,32,31,.14)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Inter","PingFang SC","HarmonyOS Sans SC","Microsoft YaHei",sans-serif;line-height:1.85;font-size:17px}
+article{max-width:820px;margin:0 auto;padding:72px 24px 96px}
+h1{font-size:clamp(34px,5vw,58px);line-height:1.12;letter-spacing:-.03em;margin:0 0 28px}
+h2{font-size:clamp(24px,3vw,34px);line-height:1.25;letter-spacing:-.02em;margin:64px 0 20px;padding-top:24px;border-top:1px solid var(--line)}
+h3{font-size:20px;margin:34px 0 10px}
+p{margin:0 0 18px;color:#33342f}
+strong{font-weight:650}
+img{max-height:640px;width:auto;max-width:100%;display:block;margin:22px auto 8px;border:1px solid var(--line);background:#fff}
+blockquote{margin:26px 0;padding:18px 22px;border-left:3px solid var(--orange);background:rgba(232,80,45,.07);font-size:19px;color:var(--ink)}
+blockquote p{margin:0}
+code{font-family:"Cascadia Mono",Consolas,monospace;font-size:.88em;background:rgba(31,32,31,.06);padding:.12em .36em;border-radius:3px}
+pre{background:#1b1c1b;color:#f7f6f2;padding:18px 20px;overflow:auto;border-radius:2px}
+pre code{background:none;color:inherit;padding:0}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px}
+th,td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-weight:600;background:rgba(31,32,31,.04)}
+a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--orange)}
+hr{border:none;border-top:1px solid var(--line);margin:56px 0}
+ul,ol{padding-left:1.3em}
+li{margin:8px 0}
+@media(max-width:560px){article{padding:40px 18px 64px}body{font-size:16px}}
+</style></head><body><article><h1>在议：让线上成员的观点真正进入讨论</h1>
+<p><strong>在线，不等于在场。</strong></p>
+<p><img alt="在议整机渲染" src="https://codyning-effmeetbot.ms.show/assets/img/hero.png" /></p>
+<p>混合会议里，远程成员常常“在场”了，却没有真正进入讨论。话被扬声器播出来，现场继续聊别的；会后记录里有一句话，但没有人回应过它。</p>
+<p>在议是一台守在会议桌边的 AI 桌面伙伴。它不替人喊话，而是先判断“这条观点是否已经得到现场回应”，再把决定权交还给观点本人。</p>
+<hr />
+<h2>一个常见的会议瞬间</h2>
+<p>回收箱方案评审，线上丙说：</p>
+<blockquote>
+<p>满溢检测的话，用重量传感器比摄像头便宜很多，而且不用处理隐私问题。</p>
+</blockquote>
+<p>接下来的四十秒，现场甲和乙继续争论折叠结构的强度、卡扣和开模成本。没有人提到重量传感器。</p>
+<p>这不是注意力问题，是结构问题：发言被记录了，观点却没有进入讨论。</p>
+<p><strong>被听见，不等于被回应。</strong></p>
+<hr />
+<h2>五个动作，一条证据链</h2>
+<h3>01 提出观点</h3>
+<p>线上成员在客户端发言。转写结果带上 <code>utterance_id</code> 与说话人归属，实时写入本地事件账本。</p>
+<p><img alt="会中界面" src="https://codyning-effmeetbot.ms.show/assets/img/screens/screen-live.png" /></p>
+<h3>02 识别遗漏</h3>
+<p>千问对照观点之后的现场窗口，只回答一个问题：有没有可关联的回应。证据不足、说话人不明，就弃权。</p>
+<pre><code>possibly_unresponded   观点明确，窗口内无关联回应
+responded              时间邻近，语义明确承接
+uncertain              证据不足，交人工核对
+</code></pre>
+<h3>03 私人确认</h3>
+<p>候选只发给观点本人。卡片里是原话与倒计时，不是系统替人写好的结论。120 秒未确认自动取消。</p>
+<p><img alt="本人确认" src="https://codyning-effmeetbot.ms.show/assets/img/screens/screen-confirm.png" /></p>
+<h3>04 现场发声</h3>
+<p>确认后，机器人转向现场，在停顿处复述观点要点。它复述原话，不替人下结论，也不参与争论。</p>
+<p><strong>当前为模拟回执</strong>：实体整机的连续会议播报仍在装配与联调，不宣称已完成。</p>
+<h3>05 回到地图</h3>
+<p>散会后打开观点地图：聊了什么、谁持什么观点、哪些问题仍未回应。每条记录都能回到当时那句原话。</p>
+<p><img alt="观点地图" src="https://codyning-effmeetbot.ms.show/assets/img/screens/screen-map.png" /></p>
+<hr />
+<h2>给观点一副身体</h2>
+<p>200 毫米高，一只手掌的占地。头与底座之间只有一圈短颈：转头时，麦克风留在桌面，声音不跟着晃。</p>
+<p><img alt="正面渲染" src="https://codyning-effmeetbot.ms.show/assets/img/front.png" /></p>
+<ul>
+<li>整机包络：153 × 139 × 201 mm</li>
+<li>打印件：32 件</li>
+<li>跨轴走线：11 根</li>
+<li>焊接：仅喇叭 2–4 处</li>
+</ul>
+<p>核心板、摄像头与屏在头部；双麦、功放、喇叭、舵机与停止键在底座。PLA Matte 分段打印，螺纹与卡扣保留在模型原生几何里。</p>
+<p><img alt="内部结构" src="https://codyning-effmeetbot.ms.show/assets/img/internal.png" /></p>
+<p>以上为 v6 工程模型渲染，不是实机照片。装配与连续会议验收进行中。</p>
+<hr />
+<h2>你不点头，它不开口</h2>
+<ol>
+<li><strong>本人确认</strong>：只有观点所有者能授权提醒。120 秒未确认，候选自动取消。</li>
+<li><strong>不确定则弃权</strong>：证据不足、说话人不明、多人混说，一律输出 <code>uncertain</code>。宁可不问。</li>
+<li><strong>原文可追溯</strong>：每条提醒绑定原始 <code>utterance_id</code>，点一下回到当时那句原话。</li>
+<li><strong>人保留最终控制权</strong>：AI 只产出候选与证据，不生成动作指令，不评价观点对错。</li>
+</ol>
+<hr />
+<h2>AI 只提出候选</h2>
+<p>技术链路：语音输入 → FunASR 转写 → SQLite 事件账本 → 千问三态判断 → 服务端校验 → 本人确认门控 → 机器人 / 观点地图。</p>
+<p>实验台使用真实 <code>qwen-plus</code>，结果经 <code>AnalysisResult</code> 契约校验。三组预设的真实结果：</p>
+<table>
+<thead>
+<tr>
+<th>预设</th>
+<th>真实状态</th>
+<th>耗时</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A 可能未回应</td>
+<td><code>uncertain</code></td>
+<td>5.5 s</td>
+<td>模型认为现场只讨论折叠结构，证据不足，弃权</td>
+</tr>
+<tr>
+<td>B 已回应</td>
+<td><code>responded</code></td>
+<td>7.6 s</td>
+<td>现场发言明确承接观点，回应证据成立</td>
+</tr>
+<tr>
+<td>C 不确定</td>
+<td><code>uncertain</code></td>
+<td>7.3 s</td>
+<td>转写破碎、多人抢话，无法确认回应关系</td>
+</tr>
+</tbody>
+</table>
+<p>A 的预设名称与真实结果不一致，这是有意保留的事实：模型在证据不足时弃权，没有为了演示效果改成正向候选。</p>
+<p><img alt="AI 判断实验台" src="https://codyning-effmeetbot.ms.show/assets/img/ai-demo.png" /></p>
+<hr />
+<h2>现在可以体验</h2>
+<ul>
+<li><strong>产品官网</strong>：https://www.modelscope.cn/studios/CodyNing/effmeetbot</li>
+<li><strong>AI 判断实验台</strong>：https://www.modelscope.cn/studios/CodyNing/effmeetbot-ai</li>
+<li><strong>主视频（74 秒）</strong>：https://codyning-effmeetbot.ms.show/assets/film/effmeetbot-film-1080p.mp4</li>
+<li><strong>GitHub</strong>：https://github.com/eleanor-wsyy/EffMeet2</li>
+</ul>
+<p>软件闭环可以完整演示：新建会议、加入发言、以线上成员身份收到候选、确认后看到模拟播报、回到观点地图。整机装配与连续会议验收仍在进行，未完成的部分不写成已完成。</p>
+<hr />
+<h2>边界</h2>
+<ul>
+<li>机器人播报与转头为模拟回执；整机装配中。</li>
+<li>官网机器人图为工程渲染，不是实机照片。</li>
+<li>公共 Demo 使用免费 CPU，冷启动可能需要数十秒。</li>
+<li>原始音频与会议记录留在本机；云端只接收必要的发言文本用于判断。</li>
+</ul>
+<p><strong>AI 提出候选，人保留决定权。</strong></p></article></body></html>

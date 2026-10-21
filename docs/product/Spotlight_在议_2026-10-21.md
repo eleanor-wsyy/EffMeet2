@@ -112,7 +112,7 @@ A 的预设名称与真实结果不一致，这是有意保留的事实：模型
 
 - **产品官网**：https://www.modelscope.cn/studios/CodyNing/effmeetbot
 - **AI 判断实验台**：https://www.modelscope.cn/studios/CodyNing/effmeetbot-ai
-- **主视频（92 秒）**：https://codyning-effmeetbot.ms.show/assets/film/effmeetbot-film-1080p.mp4
+- **主视频（74 秒）**：https://codyning-effmeetbot.ms.show/assets/film/effmeetbot-film-1080p.mp4
 - **GitHub**：https://github.com/eleanor-wsyy/EffMeet2
 
 软件闭环可以完整演示：新建会议、加入发言、以线上成员身份收到候选、确认后看到模拟播报、回到观点地图。整机装配与连续会议验收仍在进行，未完成的部分不写成已完成。

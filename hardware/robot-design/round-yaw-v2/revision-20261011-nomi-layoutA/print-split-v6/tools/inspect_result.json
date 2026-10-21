@@ -1,0 +1,8467 @@
+{
+ "scenes": [
+  "EFFMEET2_PACKAGING_V1",
+  "N6_COMPACT_CANDIDATE",
+  "R2_ROUND_YAW_BLOCKOUT",
+  "Scene"
+ ],
+ "active_scene": "N6_COMPACT_CANDIDATE",
+ "object_count": 316,
+ "objects": [
+  {
+   "name": "N6_YAW_LAYOUT_ANCHOR",
+   "type": "EMPTY",
+   "colls": [
+    "N6_SHELLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     0.0,
+     0.0,
+     0.0
+    ],
+    [
+     0.0,
+     0.0,
+     0.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     -76.5,
+     -69.7,
+     2.0
+    ],
+    [
+     76.5,
+     69.7,
+     56.1
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     -72.8,
+     -66.4,
+     56.4
+    ],
+    [
+     72.8,
+     66.4,
+     66.3
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVEN_64T",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -21.6,
+     -21.6,
+     41.1
+    ],
+    [
+     21.6,
+     21.6,
+     51.7
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVER_32T",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -61.8,
+     -17.0,
+     39.2
+    ],
+    [
+     -27.8,
+     17.0,
+     51.7
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     -30.0,
+     -35.0,
+     4.4
+    ],
+    [
+     34.0,
+     35.0,
+     40.6
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -32.0,
+     52.0
+    ],
+    [
+     31.0,
+     32.0,
+     60.6
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_0",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     21.9,
+     17.9,
+     40.6
+    ],
+    [
+     30.1,
+     26.1,
+     52.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_1",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     21.9,
+     -26.1,
+     40.6
+    ],
+    [
+     30.1,
+     -17.9,
+     52.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_2",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     -26.1,
+     22.9,
+     40.6
+    ],
+    [
+     -17.9,
+     31.1,
+     52.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_3",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     -26.1,
+     -31.1,
+     40.6
+    ],
+    [
+     -17.9,
+     -22.9,
+     52.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_HOLLOW_LOAD_SHAFT",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.056
+   ],
+   "bbox_mm": [
+    [
+     -17.2,
+     -17.2,
+     26.0
+    ],
+    [
+     17.2,
+     17.2,
+     86.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_LOWER_LOCK_COLLAR",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0299
+   ],
+   "bbox_mm": [
+    [
+     -18.0,
+     -24.5,
+     25.0
+    ],
+    [
+     18.0,
+     18.0,
+     32.8
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_YAW_STOP_ARM",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0627
+   ],
+   "bbox_mm": [
+    [
+     -18.0,
+     -18.0,
+     61.8
+    ],
+    [
+     33.0,
+     18.0,
+     63.6
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0745
+   ],
+   "bbox_mm": [
+    [
+     -29.0,
+     -29.0,
+     64.4
+    ],
+    [
+     29.0,
+     29.0,
+     87.5
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SERVO_ADJUSTABLE_CRADLE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.045,
+    0.0,
+    0.0059
+   ],
+   "bbox_mm": [
+    [
+     -68.0,
+     -12.0,
+     4.4
+    ],
+    [
+     -32.0,
+     12.0,
+     28.1
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_CRADLE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.0485,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -23.0,
+     -57.5,
+     4.4
+    ],
+    [
+     23.0,
+     -38.3,
+     53.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_LOW_TRAY",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.013
+   ],
+   "bbox_mm": [
+    [
+     38.6,
+     -12.1,
+     4.4
+    ],
+    [
+     61.4,
+     12.1,
+     16.5
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_POWER_IN_TRAY",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0585,
+    0.0255
+   ],
+   "bbox_mm": [
+    [
+     -12.5,
+     50.5,
+     4.4
+    ],
+    [
+     12.5,
+     66.0,
+     33.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_STOP_KEY_CAP",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.0669
+   ],
+   "bbox_mm": [
+    [
+     -7.5,
+     -49.2,
+     61.6
+    ],
+    [
+     7.5,
+     -38.8,
+     67.9
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_TACTILE_HOLDER",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.0556
+   ],
+   "bbox_mm": [
+    [
+     -18.0,
+     -51.0,
+     54.1
+    ],
+    [
+     18.0,
+     -37.0,
+     62.7
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_RETAINER_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.0163,
+    0.0579,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -23.5,
+     57.4,
+     38.8
+    ],
+    [
+     -9.1,
+     58.4,
+     53.2
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_RETAINER_1",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0163,
+    0.0579,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     9.1,
+     57.4,
+     38.8
+    ],
+    [
+     23.5,
+     58.4,
+     53.2
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_HEAD_SHELL",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -66.0,
+     -47.4,
+     80.3
+    ],
+    [
+     66.0,
+     63.0,
+     200.8
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.0462,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -53.0,
+     -47.4,
+     88.3
+    ],
+    [
+     53.0,
+     -42.1,
+     184.3
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_REAR_CLAMP_FRAME",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.0344,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -42.5,
+     -35.4,
+     107.8
+    ],
+    [
+     42.5,
+     -33.4,
+     160.8
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_CRADLE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.04,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -9.4,
+     -45.0,
+     166.7
+    ],
+    [
+     9.4,
+     -34.9,
+     179.7
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIVACY_GUIDE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.008,
+    -0.0484,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -13.0,
+     -49.4,
+     167.2
+    ],
+    [
+     29.0,
+     -47.4,
+     179.2
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIVACY_BLADE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.048,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -5.0,
+     -50.4,
+     169.2
+    ],
+    [
+     5.0,
+     -47.6,
+     177.2
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_CRADLE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.026,
+    0.09
+   ],
+   "bbox_mm": [
+    [
+     -18.2,
+     -30.0,
+     87.5
+    ],
+    [
+     18.2,
+     -22.0,
+     133.6
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CABLE_SADDLE_BASE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    -0.02,
+    0.0,
+    0.0069
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -5.0,
+     4.4
+    ],
+    [
+     -13.0,
+     5.0,
+     9.4
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_CABLE_SADDLE_HEAD",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.036,
+    0.089
+   ],
+   "bbox_mm": [
+    [
+     -7.0,
+     -41.0,
+     86.5
+    ],
+    [
+     7.0,
+     -31.0,
+     91.5
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_BACK_PLATE",
+   "type": "MESH",
+   "colls": [
+    "N6_PRINTED_PARTS"
+   ],
+   "loc": [
+    0.0,
+    -0.0341,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -8.7,
+     -37.4,
+     167.7
+    ],
+    [
+     8.7,
+     -33.3,
+     178.7
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CUP_OUTER_CLIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     -76.5,
+     -69.7,
+     2.0
+    ],
+    [
+     76.5,
+     69.7,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LID_OUTER_CLIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     -72.8,
+     -66.4,
+     56.4
+    ],
+    [
+     72.8,
+     66.4,
+     66.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_SLOT_SOURCE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.07,
+    0.0195
+   ],
+   "bbox_mm": [
+    [
+     -15.0,
+     -87.0,
+     18.2
+    ],
+    [
+     15.0,
+     -53.0,
+     41.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_REAR_VENT_SOURCE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.03,
+    0.062,
+    0.024
+   ],
+   "bbox_mm": [
+    [
+     20.0,
+     45.0,
+     23.1
+    ],
+    [
+     40.0,
+     79.0,
+     33.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_REAR_USBC_POWER_OPENING",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.07,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -6.8,
+     55.0,
+     25.3
+    ],
+    [
+     6.8,
+     85.0,
+     34.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_PORT_SOURCE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0163,
+    0.07,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -17.5,
+     55.0,
+     44.8
+    ],
+    [
+     17.5,
+     85.0,
+     47.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STATUS_APERTURE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.07,
+    0.0521
+   ],
+   "bbox_mm": [
+    [
+     -3.5,
+     -87.0,
+     51.3
+    ],
+    [
+     3.5,
+     -53.0,
+     52.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LID_AXIS_OPENING",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0663
+   ],
+   "bbox_mm": [
+    [
+     -22.0,
+     -22.0,
+     51.3
+    ],
+    [
+     22.0,
+     22.0,
+     81.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STOP_BUTTON_OPENING",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.0663
+   ],
+   "bbox_mm": [
+    [
+     -6.5,
+     -48.5,
+     60.3
+    ],
+    [
+     6.5,
+     -39.5,
+     72.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_BOSS_-48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    -0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -57.6,
+     -51.2,
+     46.1
+    ],
+    [
+     -43.0,
+     -37.0,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_RIB_-48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0516,
+    -0.0455,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -58.7,
+     -52.5,
+     46.1
+    ],
+    [
+     -44.5,
+     -38.4,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    -0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -49.2,
+     -43.3,
+     44.1
+    ],
+    [
+     -46.8,
+     -40.8,
+     58.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_LID_RECEIVER_-48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    -0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     -52.0,
+     -46.0,
+     56.4
+    ],
+    [
+     -44.0,
+     -38.0,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    -0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     -49.7,
+     -43.7,
+     50.4
+    ],
+    [
+     -46.3,
+     -40.3,
+     70.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_BOSS_-48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -57.6,
+     37.0,
+     46.1
+    ],
+    [
+     -43.0,
+     51.2,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_RIB_-48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0516,
+    0.0455,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -58.7,
+     38.4,
+     46.1
+    ],
+    [
+     -44.5,
+     52.5,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -49.2,
+     40.8,
+     44.1
+    ],
+    [
+     -46.8,
+     43.3,
+     58.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_LID_RECEIVER_-48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     -52.0,
+     38.0,
+     56.4
+    ],
+    [
+     -44.0,
+     46.0,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.048,
+    0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     -49.7,
+     40.3,
+     50.4
+    ],
+    [
+     -46.3,
+     43.7,
+     70.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_BOSS_48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    -0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     43.0,
+     -51.2,
+     46.1
+    ],
+    [
+     57.6,
+     -37.0,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_RIB_48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0516,
+    -0.0455,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     44.5,
+     -52.5,
+     46.1
+    ],
+    [
+     58.7,
+     -38.4,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_10",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    -0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     46.8,
+     -43.3,
+     44.1
+    ],
+    [
+     49.2,
+     -40.8,
+     58.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_LID_RECEIVER_48_-42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    -0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     44.0,
+     -46.0,
+     56.4
+    ],
+    [
+     52.0,
+     -38.0,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    -0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     46.3,
+     -43.7,
+     50.4
+    ],
+    [
+     49.7,
+     -40.3,
+     70.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_BOSS_48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     43.0,
+     37.0,
+     46.1
+    ],
+    [
+     57.6,
+     51.2,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_CUP_RIB_48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0516,
+    0.0455,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     44.5,
+     38.4,
+     46.1
+    ],
+    [
+     58.7,
+     52.5,
+     56.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_12",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    0.042,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     46.8,
+     40.8,
+     44.1
+    ],
+    [
+     49.2,
+     43.3,
+     58.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_COVER_LID_RECEIVER_48_42",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     44.0,
+     38.0,
+     56.4
+    ],
+    [
+     52.0,
+     46.0,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_10",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.048,
+    0.042,
+    0.0604
+   ],
+   "bbox_mm": [
+    [
+     46.3,
+     40.3,
+     50.4
+    ],
+    [
+     49.7,
+     43.7,
+     70.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_WALL_POCKET_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0163,
+    0.0611,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -25.3,
+     53.1,
+     37.0
+    ],
+    [
+     -7.3,
+     69.1,
+     55.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_WALL_POCKET_-1_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0163,
+    0.0611,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -23.6,
+     51.1,
+     38.7
+    ],
+    [
+     -9.0,
+     71.1,
+     53.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_WALL_POCKET_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0163,
+    0.0611,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     7.3,
+     53.1,
+     37.0
+    ],
+    [
+     25.3,
+     69.1,
+     55.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_WALL_POCKET_1_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0163,
+    0.0611,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     9.0,
+     51.1,
+     38.7
+    ],
+    [
+     23.6,
+     71.1,
+     53.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVEN_64T_FLANGE_41.7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0417
+   ],
+   "bbox_mm": [
+    [
+     -21.6,
+     -21.6,
+     41.1
+    ],
+    [
+     21.6,
+     21.6,
+     42.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_FLANGE_51.1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -21.6,
+     -21.6,
+     50.5
+    ],
+    [
+     21.6,
+     21.6,
+     51.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_GROOVE_SOURCE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -20.9,
+     -20.9,
+     42.0
+    ],
+    [
+     20.9,
+     20.9,
+     50.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_RADIAL_ARRAY_CONTROL",
+   "type": "EMPTY",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     0.0,
+     0.0,
+     46.4
+    ],
+    [
+     0.0,
+     0.0,
+     46.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -15.1,
+     -15.1,
+     36.4
+    ],
+    [
+     15.1,
+     15.1,
+     56.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     6.0,
+     -1.4,
+     45.0
+    ],
+    [
+     22.0,
+     1.4,
+     47.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_NUT_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0156,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     14.4,
+     -2.9,
+     43.1
+    ],
+    [
+     16.9,
+     2.9,
+     49.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVER_32T_FLANGE_41.7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0417
+   ],
+   "bbox_mm": [
+    [
+     -56.3,
+     -11.4,
+     41.1
+    ],
+    [
+     -33.4,
+     11.4,
+     42.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_32T_FLANGE_51.1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0511
+   ],
+   "bbox_mm": [
+    [
+     -56.3,
+     -11.4,
+     50.5
+    ],
+    [
+     -33.4,
+     11.4,
+     51.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_32T_GROOVE_SOURCE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -55.5,
+     -10.7,
+     42.0
+    ],
+    [
+     -34.2,
+     10.7,
+     50.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_32T_RADIAL_ARRAY_CONTROL",
+   "type": "EMPTY",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -44.8,
+     0.0,
+     46.4
+    ],
+    [
+     -44.8,
+     0.0,
+     46.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_HORN_HUB",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0404
+   ],
+   "bbox_mm": [
+    [
+     -61.8,
+     -17.0,
+     39.2
+    ],
+    [
+     -27.8,
+     17.0,
+     41.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_HORN_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0402
+   ],
+   "bbox_mm": [
+    [
+     -47.5,
+     -15.9,
+     39.0
+    ],
+    [
+     -42.2,
+     15.9,
+     41.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_DRIVER_32T_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -47.6,
+     -2.8,
+     31.4
+    ],
+    [
+     -42.0,
+     2.8,
+     61.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     -21.2,
+     -21.2,
+     30.0
+    ],
+    [
+     21.2,
+     21.2,
+     42.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_SEAT_LIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0325
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -27.0,
+     32.0
+    ],
+    [
+     27.0,
+     27.0,
+     33.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_SEAT_LIP_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0325
+   ],
+   "bbox_mm": [
+    [
+     -19.2,
+     -19.2,
+     30.0
+    ],
+    [
+     19.2,
+     19.2,
+     35.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_EAR_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.021,
+    0.0178,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     12.8,
+     9.7,
+     32.0
+    ],
+    [
+     29.2,
+     25.8,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_COLUMN_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0225
+   ],
+   "bbox_mm": [
+    [
+     21.0,
+     17.0,
+     4.4
+    ],
+    [
+     31.0,
+     27.0,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_FOOT_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0059
+   ],
+   "bbox_mm": [
+    [
+     18.0,
+     14.0,
+     4.4
+    ],
+    [
+     34.0,
+     30.0,
+     7.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     20.3,
+     -10.0
+    ],
+    [
+     27.7,
+     23.7,
+     70.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_15",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     20.3,
+     -1.8
+    ],
+    [
+     27.7,
+     23.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_NUT_16",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.003
+   ],
+   "bbox_mm": [
+    [
+     22.7,
+     19.2,
+     2.0
+    ],
+    [
+     29.3,
+     24.9,
+     4.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_EAR_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.021,
+    -0.0178,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     12.8,
+     -25.8,
+     32.0
+    ],
+    [
+     29.2,
+     -9.7,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_COLUMN_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0225
+   ],
+   "bbox_mm": [
+    [
+     21.0,
+     -27.0,
+     4.4
+    ],
+    [
+     31.0,
+     -17.0,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_FOOT_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0059
+   ],
+   "bbox_mm": [
+    [
+     18.0,
+     -30.0,
+     4.4
+    ],
+    [
+     34.0,
+     -14.0,
+     7.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT_HOLE_9",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     -23.7,
+     -10.0
+    ],
+    [
+     27.7,
+     -20.3,
+     70.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_17",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     -23.7,
+     -1.8
+    ],
+    [
+     27.7,
+     -20.3,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_NUT_18",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.003
+   ],
+   "bbox_mm": [
+    [
+     22.7,
+     -24.9,
+     2.0
+    ],
+    [
+     29.3,
+     -19.2,
+     4.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_EAR_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0176,
+    0.0216,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     -25.9,
+     13.1,
+     32.0
+    ],
+    [
+     -9.4,
+     30.2,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_COLUMN_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0225
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     22.0,
+     4.4
+    ],
+    [
+     -17.0,
+     32.0,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_FOOT_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0059
+   ],
+   "bbox_mm": [
+    [
+     -30.0,
+     19.0,
+     4.4
+    ],
+    [
+     -14.0,
+     35.0,
+     7.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT_HOLE_13",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     25.3,
+     -10.0
+    ],
+    [
+     -20.3,
+     28.7,
+     70.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_19",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     25.3,
+     -1.8
+    ],
+    [
+     -20.3,
+     28.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_NUT_20",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.003
+   ],
+   "bbox_mm": [
+    [
+     -25.3,
+     24.2,
+     2.0
+    ],
+    [
+     -18.7,
+     29.9,
+     4.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_LOWER_EAR_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0176,
+    -0.0216,
+    0.0363
+   ],
+   "bbox_mm": [
+    [
+     -25.9,
+     -30.2,
+     32.0
+    ],
+    [
+     -9.4,
+     -13.1,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_COLUMN_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0225
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -32.0,
+     4.4
+    ],
+    [
+     -17.0,
+     -22.0,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_FOOT_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0059
+   ],
+   "bbox_mm": [
+    [
+     -30.0,
+     -35.0,
+     4.4
+    ],
+    [
+     -14.0,
+     -19.0,
+     7.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_TOWER_LOWER_SEAT_HOLE_17",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     -28.7,
+     -10.0
+    ],
+    [
+     -20.3,
+     -25.3,
+     70.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_21",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     -28.7,
+     -1.8
+    ],
+    [
+     -20.3,
+     -25.3,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_NUT_22",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.003
+   ],
+   "bbox_mm": [
+    [
+     -25.3,
+     -29.9,
+     2.0
+    ],
+    [
+     -18.7,
+     -24.2,
+     4.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TOWER_SEAT_INNER_CLEAR",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0368
+   ],
+   "bbox_mm": [
+    [
+     -21.2,
+     -21.2,
+     33.0
+    ],
+    [
+     21.2,
+     21.2,
+     40.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -21.2,
+     -21.2,
+     50.0
+    ],
+    [
+     21.2,
+     21.2,
+     62.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_SEAT_LIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0525
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -27.0,
+     52.0
+    ],
+    [
+     27.0,
+     27.0,
+     53.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_SEAT_LIP_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0525
+   ],
+   "bbox_mm": [
+    [
+     -19.2,
+     -19.2,
+     50.0
+    ],
+    [
+     19.2,
+     19.2,
+     55.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.021,
+    0.0178,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     12.8,
+     9.7,
+     52.0
+    ],
+    [
+     29.2,
+     25.8,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_PAD_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     21.0,
+     17.0,
+     52.0
+    ],
+    [
+     31.0,
+     27.0,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.052
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     20.3,
+     32.0
+    ],
+    [
+     27.7,
+     23.7,
+     72.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_NUT_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0594
+   ],
+   "bbox_mm": [
+    [
+     22.7,
+     19.2,
+     58.1
+    ],
+    [
+     29.3,
+     24.9,
+     60.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.021,
+    -0.0178,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     12.8,
+     -25.8,
+     52.0
+    ],
+    [
+     29.2,
+     -9.7,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_PAD_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     21.0,
+     -27.0,
+     52.0
+    ],
+    [
+     31.0,
+     -17.0,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.052
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     -23.7,
+     32.0
+    ],
+    [
+     27.7,
+     -20.3,
+     72.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_NUT_9",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0594
+   ],
+   "bbox_mm": [
+    [
+     22.7,
+     -24.9,
+     58.1
+    ],
+    [
+     29.3,
+     -19.2,
+     60.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0176,
+    0.0216,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -25.9,
+     13.1,
+     52.0
+    ],
+    [
+     -9.4,
+     30.2,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_PAD_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     22.0,
+     52.0
+    ],
+    [
+     -17.0,
+     32.0,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_HOLE_12",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.052
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     25.3,
+     32.0
+    ],
+    [
+     -20.3,
+     28.7,
+     72.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_NUT_13",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0594
+   ],
+   "bbox_mm": [
+    [
+     -25.3,
+     24.2,
+     58.1
+    ],
+    [
+     -18.7,
+     29.9,
+     60.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0176,
+    -0.0216,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -25.9,
+     -30.2,
+     52.0
+    ],
+    [
+     -9.4,
+     -13.1,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_EAR_PAD_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0563
+   ],
+   "bbox_mm": [
+    [
+     -27.0,
+     -32.0,
+     52.0
+    ],
+    [
+     -17.0,
+     -22.0,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_HOLE_16",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.052
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     -28.7,
+     32.0
+    ],
+    [
+     -20.3,
+     -25.3,
+     72.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_BEARING_SEAT_NUT_17",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0594
+   ],
+   "bbox_mm": [
+    [
+     -25.3,
+     -29.9,
+     58.1
+    ],
+    [
+     -18.7,
+     -24.2,
+     60.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_UPPER_SEAT_INNER_CLEAR",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0568
+   ],
+   "bbox_mm": [
+    [
+     -21.2,
+     -21.2,
+     53.0
+    ],
+    [
+     21.2,
+     21.2,
+     60.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_0_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    0.022,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     20.3,
+     38.6
+    ],
+    [
+     27.7,
+     23.7,
+     54.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_1_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.022,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     24.3,
+     -23.7,
+     38.6
+    ],
+    [
+     27.7,
+     -20.3,
+     54.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_2_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    0.027,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     25.3,
+     38.6
+    ],
+    [
+     -20.3,
+     28.7,
+     54.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STACK_SPACER_3_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.022,
+    -0.027,
+    0.0463
+   ],
+   "bbox_mm": [
+    [
+     -23.7,
+     -28.7,
+     38.6
+    ],
+    [
+     -20.3,
+     -25.3,
+     54.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_HOLLOW_LOAD_SHAFT_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.056
+   ],
+   "bbox_mm": [
+    [
+     -11.0,
+     -11.0,
+     24.0
+    ],
+    [
+     11.0,
+     11.0,
+     88.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_SHOULDER",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0607
+   ],
+   "bbox_mm": [
+    [
+     -17.2,
+     -17.2,
+     60.0
+    ],
+    [
+     17.2,
+     17.2,
+     61.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_SHOULDER_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0607
+   ],
+   "bbox_mm": [
+    [
+     -11.0,
+     -11.0,
+     58.0
+    ],
+    [
+     11.0,
+     11.0,
+     63.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_DRIVE_D",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0292,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     14.2,
+     -20.0,
+     42.2
+    ],
+    [
+     44.2,
+     20.0,
+     50.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_UPPER_D",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.029,
+    0.0,
+    0.0744
+   ],
+   "bbox_mm": [
+    [
+     14.0,
+     -20.0,
+     61.8
+    ],
+    [
+     44.0,
+     20.0,
+     87.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_D_FLAT_FILL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0152,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     14.3,
+     -5.5,
+     42.2
+    ],
+    [
+     15.3,
+     5.5,
+     50.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_D_FILL_CLIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     -15.3,
+     -15.3,
+     41.7
+    ],
+    [
+     15.3,
+     15.3,
+     51.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_DRIVEN_64T_HOLE_7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    0.0,
+    0.0464
+   ],
+   "bbox_mm": [
+    [
+     6.0,
+     -1.4,
+     45.0
+    ],
+    [
+     22.0,
+     1.4,
+     47.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_LOWER_LOCK_COLLAR_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0299
+   ],
+   "bbox_mm": [
+    [
+     -15.1,
+     -15.1,
+     25.0
+    ],
+    [
+     15.1,
+     15.1,
+     34.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_COLLAR_EAR_-4.5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0045,
+    -0.02,
+    0.0283
+   ],
+   "bbox_mm": [
+    [
+     -7.5,
+     -24.5,
+     25.0
+    ],
+    [
+     -1.5,
+     -15.5,
+     31.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_COLLAR_EAR_4.5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0045,
+    -0.02,
+    0.0283
+   ],
+   "bbox_mm": [
+    [
+     1.5,
+     -24.5,
+     25.0
+    ],
+    [
+     7.5,
+     -15.5,
+     31.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_COLLAR_SPLIT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.022,
+    0.0299
+   ],
+   "bbox_mm": [
+    [
+     -0.4,
+     -37.0,
+     24.9
+    ],
+    [
+     0.4,
+     -7.0,
+     34.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHAFT_LOWER_LOCK_COLLAR_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.021,
+    0.0283
+   ],
+   "bbox_mm": [
+    [
+     -10.0,
+     -22.2,
+     27.0
+    ],
+    [
+     10.0,
+     -19.8,
+     29.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_YAW_STOP_ARM_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0627
+   ],
+   "bbox_mm": [
+    [
+     -15.1,
+     -15.1,
+     59.8
+    ],
+    [
+     15.1,
+     15.1,
+     65.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_YAW_STOP_LUG",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.025,
+    0.0,
+    0.0627
+   ],
+   "bbox_mm": [
+    [
+     17.0,
+     -3.0,
+     61.8
+    ],
+    [
+     33.0,
+     3.0,
+     63.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_STOP_ARM_D_FILL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.015,
+    0.0,
+    0.0627
+   ],
+   "bbox_mm": [
+    [
+     14.1,
+     -6.0,
+     61.8
+    ],
+    [
+     15.3,
+     6.0,
+     63.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_STOP_ARM_D_CLIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0627
+   ],
+   "bbox_mm": [
+    [
+     -15.3,
+     -15.3,
+     60.7
+    ],
+    [
+     15.3,
+     15.3,
+     64.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FIXED_YAW_STOP_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0146,
+    -0.0251,
+    0.063
+   ],
+   "bbox_mm": [
+    [
+     9.5,
+     -30.9,
+     61.5
+    ],
+    [
+     19.7,
+     -19.3,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_FIXED_YAW_STOP_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0146,
+    0.0251,
+    0.063
+   ],
+   "bbox_mm": [
+    [
+     9.5,
+     19.3,
+     61.5
+    ],
+    [
+     19.7,
+     30.9,
+     64.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0745
+   ],
+   "bbox_mm": [
+    [
+     -11.0,
+     -11.0,
+     62.4
+    ],
+    [
+     11.0,
+     11.0,
+     86.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_NECK_FLANGE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0855
+   ],
+   "bbox_mm": [
+    [
+     -29.0,
+     -29.0,
+     83.5
+    ],
+    [
+     29.0,
+     29.0,
+     87.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_NECK_FLANGE_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0855
+   ],
+   "bbox_mm": [
+    [
+     -11.0,
+     -11.0,
+     81.5
+    ],
+    [
+     11.0,
+     11.0,
+     89.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_NECK_D_SOCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0752
+   ],
+   "bbox_mm": [
+    [
+     -15.2,
+     -15.2,
+     64.4
+    ],
+    [
+     14.2,
+     15.2,
+     86.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_NECK_SOCKET_FLAT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0292,
+    0.0,
+    0.0752
+   ],
+   "bbox_mm": [
+    [
+     14.2,
+     -20.0,
+     55.2
+    ],
+    [
+     44.2,
+     20.0,
+     95.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.024,
+    0.0,
+    0.0835
+   ],
+   "bbox_mm": [
+    [
+     -25.7,
+     -1.7,
+     68.5
+    ],
+    [
+     -22.3,
+     1.7,
+     98.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_NUT_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.024,
+    0.0,
+    0.0863
+   ],
+   "bbox_mm": [
+    [
+     -27.3,
+     -2.9,
+     85.0
+    ],
+    [
+     -20.7,
+     2.9,
+     87.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.024,
+    0.0,
+    0.0835
+   ],
+   "bbox_mm": [
+    [
+     22.3,
+     -1.7,
+     68.5
+    ],
+    [
+     25.7,
+     1.7,
+     98.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_NUT_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.024,
+    0.0,
+    0.0863
+   ],
+   "bbox_mm": [
+    [
+     20.7,
+     -2.9,
+     85.0
+    ],
+    [
+     27.3,
+     2.9,
+     87.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SERVO_WALL_LOW_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.045,
+    -0.0084,
+    0.0163
+   ],
+   "bbox_mm": [
+    [
+     -57.0,
+     -9.9,
+     4.4
+    ],
+    [
+     -33.0,
+     -6.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_WALL_HIGH_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.05,
+    -0.0084,
+    0.0241
+   ],
+   "bbox_mm": [
+    [
+     -68.0,
+     -9.9,
+     20.1
+    ],
+    [
+     -32.0,
+     -6.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_WALL_LOW_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.045,
+    0.0084,
+    0.0163
+   ],
+   "bbox_mm": [
+    [
+     -57.0,
+     6.9,
+     4.4
+    ],
+    [
+     -33.0,
+     9.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_WALL_HIGH_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.05,
+    0.0084,
+    0.0241
+   ],
+   "bbox_mm": [
+    [
+     -68.0,
+     6.9,
+     20.1
+    ],
+    [
+     -32.0,
+     9.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_EAR_PAD_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0639,
+    0.0,
+    0.0266
+   ],
+   "bbox_mm": [
+    [
+     -67.9,
+     -9.9,
+     25.1
+    ],
+    [
+     -59.9,
+     9.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_EAR_PILOT_SLOT_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0639,
+    0.0,
+    0.0274
+   ],
+   "bbox_mm": [
+    [
+     -66.8,
+     -0.9,
+     26.1
+    ],
+    [
+     -61.0,
+     0.9,
+     28.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_EAR_PAD_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0362,
+    0.0,
+    0.0266
+   ],
+   "bbox_mm": [
+    [
+     -40.2,
+     -9.9,
+     25.1
+    ],
+    [
+     -32.2,
+     9.9,
+     28.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_EAR_PILOT_SLOT_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0362,
+    0.0,
+    0.0274
+   ],
+   "bbox_mm": [
+    [
+     -39.1,
+     -0.9,
+     26.1
+    ],
+    [
+     -33.3,
+     0.9,
+     28.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_BODY_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.05,
+    0.0,
+    0.0283
+   ],
+   "bbox_mm": [
+    [
+     -61.8,
+     -6.9,
+     8.3
+    ],
+    [
+     -38.2,
+     6.9,
+     48.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_WIRE_RELIEF",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0584,
+    0.0,
+    0.0092
+   ],
+   "bbox_mm": [
+    [
+     -61.8,
+     -13.0,
+     4.4
+    ],
+    [
+     -55.0,
+     13.0,
+     14.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CUP_SLOT_-53.043000000000006_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.053,
+    0.0,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -56.7,
+     -1.7,
+     -1.8
+    ],
+    [
+     -49.3,
+     1.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CUP_SLOT_CB_-53.043000000000006_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.053,
+    0.0,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     -58.1,
+     -3.1,
+     2.0
+    ],
+    [
+     -47.9,
+     3.1,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_ADJUSTABLE_CRADLE_HOLE_11",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.053,
+    0.0,
+    0.0057
+   ],
+   "bbox_mm": [
+    [
+     -54.3,
+     -1.3,
+     3.9
+    ],
+    [
+     -51.7,
+     1.3,
+     7.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CUP_SLOT_-37.043000000000006_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.037,
+    0.0,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -40.7,
+     -1.7,
+     -1.8
+    ],
+    [
+     -33.3,
+     1.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CUP_SLOT_CB_-37.043000000000006_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.037,
+    0.0,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     -42.1,
+     -3.1,
+     2.0
+    ],
+    [
+     -31.9,
+     3.1,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_ADJUSTABLE_CRADLE_HOLE_12",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.037,
+    0.0,
+    0.0057
+   ],
+   "bbox_mm": [
+    [
+     -38.3,
+     -1.3,
+     3.9
+    ],
+    [
+     -35.7,
+     1.3,
+     7.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_CRADLE_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0485,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -20.3,
+     -59.5,
+     9.7
+    ],
+    [
+     20.3,
+     -37.5,
+     50.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_REAR_LIP",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0391,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -22.6,
+     -39.9,
+     7.4
+    ],
+    [
+     22.6,
+     -38.3,
+     52.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_REAR_LIP_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0391,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -18.0,
+     -41.9,
+     12.0
+    ],
+    [
+     18.0,
+     -36.3,
+     48.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_LEG_-15",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.015,
+    -0.0485,
+    0.0087
+   ],
+   "bbox_mm": [
+    [
+     -18.0,
+     -52.5,
+     4.4
+    ],
+    [
+     -12.0,
+     -44.5,
+     13.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_27",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.015,
+    -0.0485,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -16.7,
+     -50.2,
+     -1.8
+    ],
+    [
+     -13.3,
+     -46.8,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_28",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.015,
+    -0.0485,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     -18.1,
+     -51.6,
+     2.0
+    ],
+    [
+     -11.9,
+     -45.4,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_CRADLE_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.015,
+    -0.0485,
+    0.0094
+   ],
+   "bbox_mm": [
+    [
+     -16.3,
+     -49.8,
+     4.4
+    ],
+    [
+     -13.7,
+     -47.2,
+     14.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_LEG_15",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.015,
+    -0.0485,
+    0.0087
+   ],
+   "bbox_mm": [
+    [
+     12.0,
+     -52.5,
+     4.4
+    ],
+    [
+     18.0,
+     -44.5,
+     13.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_29",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.015,
+    -0.0485,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     13.3,
+     -50.2,
+     -1.8
+    ],
+    [
+     16.7,
+     -46.8,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_30",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.015,
+    -0.0485,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     11.9,
+     -51.6,
+     2.0
+    ],
+    [
+     18.1,
+     -45.4,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_CRADLE_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.015,
+    -0.0485,
+    0.0094
+   ],
+   "bbox_mm": [
+    [
+     13.7,
+     -49.8,
+     4.4
+    ],
+    [
+     16.3,
+     -47.2,
+     14.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_TRAY_WALL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0148
+   ],
+   "bbox_mm": [
+    [
+     38.6,
+     -12.1,
+     13.5
+    ],
+    [
+     61.4,
+     12.1,
+     16.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_PEDESTAL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0084
+   ],
+   "bbox_mm": [
+    [
+     44.0,
+     -6.0,
+     4.4
+    ],
+    [
+     56.0,
+     6.0,
+     12.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_BOARD_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0155
+   ],
+   "bbox_mm": [
+    [
+     40.8,
+     -9.9,
+     14.0
+    ],
+    [
+     59.2,
+     9.9,
+     17.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_POST_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0437,
+    0.0,
+    0.0151
+   ],
+   "bbox_mm": [
+    [
+     41.5,
+     -2.2,
+     13.6
+    ],
+    [
+     46.0,
+     2.2,
+     16.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_LOW_TRAY_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0437,
+    0.0,
+    0.0152
+   ],
+   "bbox_mm": [
+    [
+     42.9,
+     -0.9,
+     12.2
+    ],
+    [
+     44.6,
+     0.9,
+     18.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_POST_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0563,
+    0.0,
+    0.0151
+   ],
+   "bbox_mm": [
+    [
+     54.1,
+     -2.2,
+     13.6
+    ],
+    [
+     58.6,
+     2.2,
+     16.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_LOW_TRAY_HOLE_7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0563,
+    0.0,
+    0.0152
+   ],
+   "bbox_mm": [
+    [
+     55.5,
+     -0.9,
+     12.2
+    ],
+    [
+     57.2,
+     0.9,
+     18.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_31",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     48.3,
+     -1.7,
+     -1.8
+    ],
+    [
+     51.7,
+     1.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_32",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     46.9,
+     -3.1,
+     2.0
+    ],
+    [
+     53.1,
+     3.1,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_AMP_LOW_TRAY_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0094
+   ],
+   "bbox_mm": [
+    [
+     48.7,
+     -1.3,
+     4.4
+    ],
+    [
+     51.3,
+     1.3,
+     14.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_POWER_PEDESTAL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0535,
+    0.0144
+   ],
+   "bbox_mm": [
+    [
+     -6.0,
+     50.5,
+     4.4
+    ],
+    [
+     6.0,
+     56.5,
+     24.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_POWER_SIDE_-11.5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0115,
+    0.0585,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -12.5,
+     51.0,
+     27.0
+    ],
+    [
+     -10.5,
+     66.0,
+     33.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_POWER_SIDE_11.5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0115,
+    0.0585,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     10.5,
+     51.0,
+     27.0
+    ],
+    [
+     12.5,
+     66.0,
+     33.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_33",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0535,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -1.7,
+     51.8,
+     -1.8
+    ],
+    [
+     1.7,
+     55.2,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_34",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0535,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     -3.1,
+     50.4,
+     2.0
+    ],
+    [
+     3.1,
+     56.6,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_POWER_IN_TRAY_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0535,
+    0.0094
+   ],
+   "bbox_mm": [
+    [
+     -1.3,
+     52.2,
+     4.4
+    ],
+    [
+     1.3,
+     54.8,
+     14.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STOP_KEY_STEM",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.064
+   ],
+   "bbox_mm": [
+    [
+     -2.0,
+     -46.0,
+     61.6
+    ],
+    [
+     2.0,
+     -42.0,
+     66.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_STOP_KEY_FOOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.0633
+   ],
+   "bbox_mm": [
+    [
+     -7.5,
+     -49.2,
+     62.7
+    ],
+    [
+     7.5,
+     -38.8,
+     63.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TACT_6MM_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.057
+   ],
+   "bbox_mm": [
+    [
+     -3.2,
+     -47.2,
+     55.0
+    ],
+    [
+     3.2,
+     -40.8,
+     59.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_KEY_STANDOFF_-14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.014,
+    -0.044,
+    0.0598
+   ],
+   "bbox_mm": [
+    [
+     -17.5,
+     -47.5,
+     56.9
+    ],
+    [
+     -10.5,
+     -40.5,
+     62.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_KEY_RECEIVER_-14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.014,
+    -0.044,
+    0.0633
+   ],
+   "bbox_mm": [
+    [
+     -17.5,
+     -47.5,
+     62.7
+    ],
+    [
+     -10.5,
+     -40.5,
+     63.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TACTILE_HOLDER_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.014,
+    -0.044,
+    0.0599
+   ],
+   "bbox_mm": [
+    [
+     -15.3,
+     -45.3,
+     53.9
+    ],
+    [
+     -12.7,
+     -42.7,
+     65.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.014,
+    -0.044,
+    0.0639
+   ],
+   "bbox_mm": [
+    [
+     -15.3,
+     -45.3,
+     61.9
+    ],
+    [
+     -12.7,
+     -42.7,
+     65.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_KEY_STANDOFF_14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    -0.044,
+    0.0598
+   ],
+   "bbox_mm": [
+    [
+     10.5,
+     -47.5,
+     56.9
+    ],
+    [
+     17.5,
+     -40.5,
+     62.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_KEY_RECEIVER_14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    -0.044,
+    0.0633
+   ],
+   "bbox_mm": [
+    [
+     10.5,
+     -47.5,
+     62.7
+    ],
+    [
+     17.5,
+     -40.5,
+     63.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TACTILE_HOLDER_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    -0.044,
+    0.0599
+   ],
+   "bbox_mm": [
+    [
+     12.7,
+     -45.3,
+     53.9
+    ],
+    [
+     15.3,
+     -42.7,
+     65.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_LID_HOLE_16",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.014,
+    -0.044,
+    0.0639
+   ],
+   "bbox_mm": [
+    [
+     12.7,
+     -45.3,
+     61.9
+    ],
+    [
+     15.3,
+     -42.7,
+     65.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_RETAINER_-1_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0163,
+    0.0579,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -21.3,
+     55.4,
+     41.0
+    ],
+    [
+     -11.3,
+     60.4,
+     51.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MIC_RETAINER_1_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0163,
+    0.0579,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     11.3,
+     55.4,
+     41.0
+    ],
+    [
+     21.3,
+     60.4,
+     51.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_HEAD_LATTICE",
+   "type": "LATTICE",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.001,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     0.0,
+     -1.0,
+     136.3
+    ],
+    [
+     0.0,
+     -1.0,
+     136.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_OUTER_CONTROL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -65.9,
+     -47.0,
+     71.9
+    ],
+    [
+     65.9,
+     63.0,
+     200.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_BOTTOM_TRIM",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    -0.0197
+   ],
+   "bbox_mm": [
+    [
+     -200.0,
+     -200.0,
+     -119.7
+    ],
+    [
+     200.0,
+     200.0,
+     80.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_FLOOR_SLAB",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0819
+   ],
+   "bbox_mm": [
+    [
+     -37.7,
+     -47.0,
+     80.3
+    ],
+    [
+     37.7,
+     35.4,
+     83.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_NECK_HOLE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0813
+   ],
+   "bbox_mm": [
+    [
+     -20.3,
+     -20.3,
+     75.3
+    ],
+    [
+     20.3,
+     20.3,
+     87.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_SHELL_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.024,
+    0.0,
+    0.0813
+   ],
+   "bbox_mm": [
+    [
+     -25.7,
+     -1.7,
+     76.3
+    ],
+    [
+     -22.3,
+     1.7,
+     86.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_SHELL_HOLE_7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.024,
+    0.0,
+    0.0813
+   ],
+   "bbox_mm": [
+    [
+     22.3,
+     -1.7,
+     76.3
+    ],
+    [
+     25.7,
+     1.7,
+     86.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_RECEIVER",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0542,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -53.3,
+     -64.2,
+     88.0
+    ],
+    [
+     53.3,
+     -44.2,
+     184.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_BEZEL",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0437,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -58.0,
+     -47.4,
+     80.3
+    ],
+    [
+     58.0,
+     -40.0,
+     194.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_BEZEL_PANEL_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0462,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -53.3,
+     -47.6,
+     88.0
+    ],
+    [
+     53.3,
+     -44.8,
+     184.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_BEZEL_REAR_OPEN",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0423,
+    0.1363
+   ],
+   "bbox_mm": [
+    [
+     -50.0,
+     -45.0,
+     91.3
+    ],
+    [
+     50.0,
+     -39.6,
+     181.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_BEZEL_SADDLE_CLEAR",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.036,
+    0.089
+   ],
+   "bbox_mm": [
+    [
+     -8.0,
+     -43.0,
+     84.0
+    ],
+    [
+     8.0,
+     -29.0,
+     94.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_SADDLE_BOSS",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.036,
+    0.0847
+   ],
+   "bbox_mm": [
+    [
+     -4.0,
+     -40.0,
+     82.9
+    ],
+    [
+     4.0,
+     -32.0,
+     86.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_HEAD_SHELL_HOLE_11",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.036,
+    0.0835
+   ],
+   "bbox_mm": [
+    [
+     -1.3,
+     -37.3,
+     77.5
+    ],
+    [
+     1.3,
+     -34.7,
+     89.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_WINDOW",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0462,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -31.0,
+     -52.2,
+     111.3
+    ],
+    [
+     31.0,
+     -40.2,
+     157.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_GLASS_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.045,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -35.5,
+     -46.4,
+     108.8
+    ],
+    [
+     35.5,
+     -43.6,
+     159.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_APERTURE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0462,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -3.4,
+     -52.2,
+     169.8
+    ],
+    [
+     3.4,
+     -40.2,
+     176.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_LCD_BOSS_-38.5_111.80000000000001",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0438,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     -41.5,
+     -45.2,
+     108.8
+    ],
+    [
+     -35.5,
+     -42.4,
+     114.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0424,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     -39.6,
+     -46.4,
+     110.7
+    ],
+    [
+     -37.4,
+     -38.4,
+     112.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_LCD_BOSS_-38.5_156.8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0438,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     -41.5,
+     -45.2,
+     153.8
+    ],
+    [
+     -35.5,
+     -42.4,
+     159.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0424,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     -39.6,
+     -46.4,
+     155.7
+    ],
+    [
+     -37.4,
+     -38.4,
+     157.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_LCD_BOSS_38.5_111.80000000000001",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0438,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     35.5,
+     -45.2,
+     108.8
+    ],
+    [
+     41.5,
+     -42.4,
+     114.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0424,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     37.4,
+     -46.4,
+     110.7
+    ],
+    [
+     39.6,
+     -38.4,
+     112.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_LCD_BOSS_38.5_156.8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0438,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     35.5,
+     -45.2,
+     153.8
+    ],
+    [
+     41.5,
+     -42.4,
+     159.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_10",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0424,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     37.4,
+     -46.4,
+     155.7
+    ],
+    [
+     39.6,
+     -38.4,
+     157.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PRIV_BOSS_-10",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.01,
+    -0.0436,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -12.5,
+     -45.1,
+     170.7
+    ],
+    [
+     -7.5,
+     -42.1,
+     175.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_12",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.01,
+    -0.043,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -11.0,
+     -46.0,
+     172.2
+    ],
+    [
+     -9.0,
+     -40.0,
+     174.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PRIV_BOSS_26",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.0436,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     23.5,
+     -45.1,
+     170.7
+    ],
+    [
+     28.5,
+     -42.1,
+     175.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_FACE_PANEL_HOLE_14",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.043,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     25.0,
+     -46.0,
+     172.2
+    ],
+    [
+     27.0,
+     -40.0,
+     174.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_FRAME_OPEN",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0344,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -31.5,
+     -37.4,
+     117.8
+    ],
+    [
+     31.5,
+     -31.4,
+     150.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_REAR_CLAMP_FRAME_HOLE_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0344,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     -39.9,
+     -37.4,
+     110.4
+    ],
+    [
+     -37.1,
+     -31.4,
+     113.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_REAR_CLAMP_FRAME_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0385,
+    -0.0344,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     -39.9,
+     -37.4,
+     155.4
+    ],
+    [
+     -37.1,
+     -31.4,
+     158.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_REAR_CLAMP_FRAME_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0344,
+    0.1118
+   ],
+   "bbox_mm": [
+    [
+     37.1,
+     -37.4,
+     110.4
+    ],
+    [
+     39.9,
+     -31.4,
+     113.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_REAR_CLAMP_FRAME_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0385,
+    -0.0344,
+    0.1568
+   ],
+   "bbox_mm": [
+    [
+     37.1,
+     -37.4,
+     155.4
+    ],
+    [
+     39.9,
+     -31.4,
+     158.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_FRAME_HEADER_NOTCH",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0395,
+    -0.0344,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     35.5,
+     -37.4,
+     123.3
+    ],
+    [
+     43.5,
+     -31.4,
+     145.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_CLAMP_BOSS_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0083,
+    -0.0375,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -9.4,
+     -40.0,
+     170.7
+    ],
+    [
+     -7.2,
+     -34.9,
+     175.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_CLAMP_BOSS_1",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0083,
+    -0.0375,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     7.2,
+     -40.0,
+     170.7
+    ],
+    [
+     9.4,
+     -34.9,
+     175.7
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_POCKET",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0382,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -4.3,
+     -41.5,
+     168.9
+    ],
+    [
+     4.3,
+     -34.9,
+     177.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_CRADLE_LENS_TUBE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0433,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -3.3,
+     -46.3,
+     170.0
+    ],
+    [
+     3.3,
+     -40.3,
+     176.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_CRADLE_HOLE_5",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.007,
+    -0.0375,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -8.2,
+     -41.0,
+     172.0
+    ],
+    [
+     -5.7,
+     -34.0,
+     174.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_CRADLE_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.007,
+    -0.0375,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     5.7,
+     -41.0,
+     172.0
+    ],
+    [
+     8.2,
+     -34.0,
+     174.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_PLATE_PRESS_RIB",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0361,
+    0.1759
+   ],
+   "bbox_mm": [
+    [
+     -3.5,
+     -37.4,
+     174.7
+    ],
+    [
+     3.5,
+     -34.8,
+     177.1
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_PLATE_FPC_SLOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0341,
+    0.169
+   ],
+   "bbox_mm": [
+    [
+     -3.2,
+     -35.6,
+     167.7
+    ],
+    [
+     3.2,
+     -32.6,
+     170.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_BACK_PLATE_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.007,
+    -0.0341,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -8.7,
+     -37.1,
+     171.5
+    ],
+    [
+     -5.3,
+     -31.1,
+     174.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_BACK_PLATE_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.007,
+    -0.0341,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     5.3,
+     -37.1,
+     171.5
+    ],
+    [
+     8.7,
+     -31.1,
+     174.9
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIV_TRACK",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.008,
+    -0.0479,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -6.0,
+     -48.6,
+     169.0
+    ],
+    [
+     22.0,
+     -47.1,
+     177.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIV_TAB_SLOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0055,
+    -0.0484,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -1.5,
+     -50.4,
+     171.6
+    ],
+    [
+     12.5,
+     -46.4,
+     174.8
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIVACY_GUIDE_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.01,
+    -0.0462,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -11.2,
+     -50.2,
+     172.0
+    ],
+    [
+     -8.8,
+     -42.2,
+     174.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIVACY_GUIDE_HOLE_4",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.026,
+    -0.0462,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     24.8,
+     -50.2,
+     172.0
+    ],
+    [
+     27.2,
+     -42.2,
+     174.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_PRIV_TAB",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.0493,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -1.2,
+     -50.4,
+     172.0
+    ],
+    [
+     1.2,
+     -48.2,
+     174.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_SLOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.026,
+    0.0945
+   ],
+   "bbox_mm": [
+    [
+     -14.3,
+     -26.9,
+     89.5
+    ],
+    [
+     14.3,
+     -25.2,
+     99.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_EDGE_RAIL_-15.85",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0159,
+    -0.026,
+    0.1107
+   ],
+   "bbox_mm": [
+    [
+     -18.2,
+     -30.0,
+     87.7
+    ],
+    [
+     -13.6,
+     -22.0,
+     133.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_RAIL_SLOT_-15.85",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0139,
+    -0.026,
+    0.1205
+   ],
+   "bbox_mm": [
+    [
+     -14.3,
+     -26.9,
+     89.5
+    ],
+    [
+     -13.6,
+     -25.2,
+     151.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_EDGE_RAIL_15.85",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0159,
+    -0.026,
+    0.1107
+   ],
+   "bbox_mm": [
+    [
+     13.6,
+     -30.0,
+     87.7
+    ],
+    [
+     18.2,
+     -22.0,
+     133.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_RAIL_SLOT_15.85",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0139,
+    -0.026,
+    0.1205
+   ],
+   "bbox_mm": [
+    [
+     13.6,
+     -26.9,
+     89.5
+    ],
+    [
+     14.3,
+     -25.2,
+     151.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_HOLE_7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.01,
+    -0.026,
+    0.0875
+   ],
+   "bbox_mm": [
+    [
+     -11.2,
+     -27.2,
+     85.0
+    ],
+    [
+     -8.8,
+     -24.8,
+     90.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_CRADLE_HOLE_6",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.01,
+    -0.026,
+    0.0895
+   ],
+   "bbox_mm": [
+    [
+     -11.7,
+     -27.7,
+     84.5
+    ],
+    [
+     -8.3,
+     -24.3,
+     94.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_SHORT_YAW_NECK_HOLE_8",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.01,
+    -0.026,
+    0.0875
+   ],
+   "bbox_mm": [
+    [
+     8.8,
+     -27.2,
+     85.0
+    ],
+    [
+     11.2,
+     -24.8,
+     90.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_CRADLE_HOLE_7",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.01,
+    -0.026,
+    0.0895
+   ],
+   "bbox_mm": [
+    [
+     8.3,
+     -27.7,
+     84.5
+    ],
+    [
+     11.7,
+     -24.3,
+     94.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_BEARING_LOWER_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0365
+   ],
+   "bbox_mm": [
+    [
+     -15.0,
+     -15.0,
+     31.0
+    ],
+    [
+     15.0,
+     15.0,
+     42.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_UPPER_HOLE_0",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0565
+   ],
+   "bbox_mm": [
+    [
+     -15.0,
+     -15.0,
+     51.0
+    ],
+    [
+     15.0,
+     15.0,
+     62.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_EARS",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.05,
+    0.0,
+    0.0294
+   ],
+   "bbox_mm": [
+    [
+     -65.9,
+     -6.3,
+     28.1
+    ],
+    [
+     -34.1,
+     6.3,
+     30.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_SPLINE",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.0448,
+    0.0,
+    0.0351
+   ],
+   "bbox_mm": [
+    [
+     -47.3,
+     -2.5,
+     31.0
+    ],
+    [
+     -42.3,
+     2.5,
+     39.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SADDLE1_SLOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.02,
+    0.0,
+    0.008
+   ],
+   "bbox_mm": [
+    [
+     -28.0,
+     -2.0,
+     6.5
+    ],
+    [
+     -12.0,
+     2.0,
+     9.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_35",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.02,
+    0.004,
+    0.0032
+   ],
+   "bbox_mm": [
+    [
+     -21.7,
+     2.3,
+     -1.8
+    ],
+    [
+     -18.3,
+     5.7,
+     8.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BASE_CUP_HOLE_36",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.02,
+    0.004,
+    0.0026
+   ],
+   "bbox_mm": [
+    [
+     -23.1,
+     0.9,
+     2.0
+    ],
+    [
+     -16.9,
+     7.1,
+     3.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CABLE_SADDLE_BASE_HOLE_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.02,
+    0.004,
+    0.0094
+   ],
+   "bbox_mm": [
+    [
+     -21.3,
+     2.7,
+     4.4
+    ],
+    [
+     -18.7,
+     5.3,
+     14.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CABLE_SADDLE_BASE_HOLE_3",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    -0.02,
+    0.004,
+    0.0064
+   ],
+   "bbox_mm": [
+    [
+     -21.3,
+     2.7,
+     2.4
+    ],
+    [
+     -18.7,
+     5.3,
+     10.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SADDLE2_SLOT",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.034,
+    0.0901
+   ],
+   "bbox_mm": [
+    [
+     -8.0,
+     -36.0,
+     88.6
+    ],
+    [
+     8.0,
+     -32.0,
+     91.6
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CABLE_SADDLE_HEAD_HOLE_2",
+   "type": "MESH",
+   "colls": [
+    "N6_NATIVE_CONTROLS"
+   ],
+   "loc": [
+    0.0,
+    -0.036,
+    0.0885
+   ],
+   "bbox_mm": [
+    [
+     -1.5,
+     -37.5,
+     84.5
+    ],
+    [
+     1.5,
+     -34.5,
+     92.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_GLASS_PROXY",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.046,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -34.5,
+     -46.4,
+     109.3
+    ],
+    [
+     34.5,
+     -45.7,
+     159.3
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_MODULE_PROXY",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -34.5,
+     -45.6,
+     109.3
+    ],
+    [
+     34.5,
+     -42.4,
+     159.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_PCB_STACK_PROXY",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.039,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     -42.5,
+     -42.4,
+     109.3
+    ],
+    [
+     42.5,
+     -35.5,
+     159.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_LCD_HEADER_KEEPOUT",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0395,
+    -0.0293,
+    0.1343
+   ],
+   "bbox_mm": [
+    [
+     37.5,
+     -35.3,
+     124.3
+    ],
+    [
+     41.5,
+     -23.3,
+     144.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAMERA_MODULE_PROXY",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.0395,
+    0.1732
+   ],
+   "bbox_mm": [
+    [
+     -4.0,
+     -41.5,
+     169.2
+    ],
+    [
+     4.0,
+     -37.5,
+     177.2
+    ]
+   ],
+   "hide_render": false,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_PCB",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.026,
+    0.1449
+   ],
+   "bbox_mm": [
+    [
+     -14.2,
+     -26.8,
+     113.6
+    ],
+    [
+     14.2,
+     -25.2,
+     176.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_COMPONENTS",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.0299,
+    0.1449
+   ],
+   "bbox_mm": [
+    [
+     -13.2,
+     -32.9,
+     115.6
+    ],
+    [
+     13.2,
+     -26.9,
+     174.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CORE_BOARD_PINS",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.0212,
+    0.1429
+   ],
+   "bbox_mm": [
+    [
+     -12.1,
+     -25.2,
+     116.6
+    ],
+    [
+     12.1,
+     -17.1,
+     169.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_USB_PLUG_ACCESS",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.026,
+    0.1814
+   ],
+   "bbox_mm": [
+    [
+     -11.1,
+     -31.0,
+     176.4
+    ],
+    [
+     11.1,
+     -21.0,
+     186.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_BEARING_LOWER",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0365
+   ],
+   "bbox_mm": [
+    [
+     -21.0,
+     -21.0,
+     33.0
+    ],
+    [
+     21.0,
+     21.0,
+     40.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BEARING_UPPER",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0565
+   ],
+   "bbox_mm": [
+    [
+     -21.0,
+     -21.0,
+     53.0
+    ],
+    [
+     21.0,
+     21.0,
+     60.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_MG90S",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    -0.05,
+    0.0,
+    0.0197
+   ],
+   "bbox_mm": [
+    [
+     -65.9,
+     -6.3,
+     8.3
+    ],
+    [
+     -34.1,
+     6.3,
+     39.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SERVO_WIRE_STUB",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    -0.0595,
+    0.0,
+    0.0086
+   ],
+   "bbox_mm": [
+    [
+     -61.3,
+     -1.8,
+     4.8
+    ],
+    [
+     -57.8,
+     1.8,
+     12.3
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_SPEAKER_40",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.0485,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -20.0,
+     -57.0,
+     10.0
+    ],
+    [
+     20.0,
+     -40.0,
+     50.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_INMP441_-1",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    -0.0163,
+    0.0593,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     -23.3,
+     58.5,
+     39.0
+    ],
+    [
+     -9.3,
+     60.1,
+     53.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_INMP441_1",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0163,
+    0.0593,
+    0.046
+   ],
+   "bbox_mm": [
+    [
+     9.3,
+     58.5,
+     39.0
+    ],
+    [
+     23.3,
+     60.1,
+     53.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_MAX98357A",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.05,
+    0.0,
+    0.0174
+   ],
+   "bbox_mm": [
+    [
+     41.1,
+     -9.5,
+     16.6
+    ],
+    [
+     58.9,
+     9.5,
+     18.2
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_USBC_POWER_IN",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    0.0585,
+    0.03
+   ],
+   "bbox_mm": [
+    [
+     -10.0,
+     51.0,
+     27.0
+    ],
+    [
+     10.0,
+     66.0,
+     33.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_TACT_SWITCH_6MM",
+   "type": "MESH",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    -0.044,
+    0.0593
+   ],
+   "bbox_mm": [
+    [
+     -3.0,
+     -47.0,
+     57.1
+    ],
+    [
+     3.0,
+     -41.0,
+     61.4
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_BELT_PITCH_PROXY",
+   "type": "CURVE",
+   "colls": [
+    "N6_COMPONENT_PROXIES"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0
+   ],
+   "bbox_mm": [
+    [
+     -55.6,
+     -21.0,
+     45.8
+    ],
+    [
+     21.0,
+     21.0,
+     47.0
+    ]
+   ],
+   "hide_render": true,
+   "parent": null
+  },
+  {
+   "name": "N6_CABLE_BORE_KEEPOUT",
+   "type": "MESH",
+   "colls": [
+    "N6_KEEP_OUTS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.0558
+   ],
+   "bbox_mm": [
+    [
+     -5.0,
+     -5.0,
+     20.0
+    ],
+    [
+     5.0,
+     5.0,
+     91.5
+    ]
+   ],
+   "hide_render": true,
+   "parent": "N6_YAW_LAYOUT_ANCHOR"
+  },
+  {
+   "name": "N6_CAM_HERO",
+   "type": "CAMERA",
+   "colls": [
+    "N6_CAMERAS"
+   ],
+   "loc": [
+    0.33,
+    -0.6,
+    0.28
+   ],
+   "bbox_mm": [
+    [
+     330.0,
+     -600.0,
+     280.0
+    ],
+    [
+     330.0,
+     -600.0,
+     280.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_CAM_FRONT",
+   "type": "CAMERA",
+   "colls": [
+    "N6_CAMERAS"
+   ],
+   "loc": [
+    0.0,
+    -0.65,
+    0.105
+   ],
+   "bbox_mm": [
+    [
+     0.0,
+     -650.0,
+     105.0
+    ],
+    [
+     0.0,
+     -650.0,
+     105.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_CAM_SIDE",
+   "type": "CAMERA",
+   "colls": [
+    "N6_CAMERAS"
+   ],
+   "loc": [
+    0.65,
+    0.0,
+    0.105
+   ],
+   "bbox_mm": [
+    [
+     650.0,
+     0.0,
+     105.0
+    ],
+    [
+     650.0,
+     0.0,
+     105.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_CAM_TOP",
+   "type": "CAMERA",
+   "colls": [
+    "N6_CAMERAS"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    0.65
+   ],
+   "bbox_mm": [
+    [
+     0.0,
+     0.0,
+     650.0
+    ],
+    [
+     0.0,
+     0.0,
+     650.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_CAM_INTERNAL",
+   "type": "CAMERA",
+   "colls": [
+    "N6_CAMERAS"
+   ],
+   "loc": [
+    0.35,
+    -0.6,
+    0.34
+   ],
+   "bbox_mm": [
+    [
+     350.0,
+     -600.0,
+     340.0
+    ],
+    [
+     350.0,
+     -600.0,
+     340.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_KEY",
+   "type": "LIGHT",
+   "colls": [
+    "N6_REVIEW_ONLY"
+   ],
+   "loc": [
+    -0.32,
+    -0.38,
+    0.5
+   ],
+   "bbox_mm": [
+    [
+     -320.0,
+     -380.0,
+     500.0
+    ],
+    [
+     -320.0,
+     -380.0,
+     500.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_FILL",
+   "type": "LIGHT",
+   "colls": [
+    "N6_REVIEW_ONLY"
+   ],
+   "loc": [
+    0.26,
+    -0.08,
+    0.27
+   ],
+   "bbox_mm": [
+    [
+     260.0,
+     -80.0,
+     270.0
+    ],
+    [
+     260.0,
+     -80.0,
+     270.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_REAR",
+   "type": "LIGHT",
+   "colls": [
+    "N6_REVIEW_ONLY"
+   ],
+   "loc": [
+    0.1,
+    0.22,
+    0.33
+   ],
+   "bbox_mm": [
+    [
+     100.0,
+     220.0,
+     330.0
+    ],
+    [
+     100.0,
+     220.0,
+     330.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  },
+  {
+   "name": "N6_GROUND",
+   "type": "MESH",
+   "colls": [
+    "N6_REVIEW_ONLY"
+   ],
+   "loc": [
+    0.0,
+    0.0,
+    -0.001
+   ],
+   "bbox_mm": [
+    [
+     -3000.0,
+     -3000.0,
+     -2.0
+    ],
+    [
+     3000.0,
+     3000.0,
+     0.0
+    ]
+   ],
+   "hide_render": false,
+   "parent": null
+  }
+ ],
+ "by_collection": {
+  "N6_SHELLS": 1,
+  "N6_PRINTED_PARTS": 32,
+  "N6_NATIVE_CONTROLS": 253,
+  "N6_COMPONENT_PROXIES": 20,
+  "N6_KEEP_OUTS": 1,
+  "N6_CAMERAS": 5,
+  "N6_REVIEW_ONLY": 4
+ },
+ "measure_P13_P12": {
+  "bboxes": {
+   "P13": {
+    "name": "N6_YAW_STOP_ARM",
+    "bbox_min_mm": [
+     -18.0,
+     -18.0,
+     61.8
+    ],
+    "bbox_max_mm": [
+     33.0,
+     18.0,
+     63.6
+    ],
+    "z_range": [
+     61.8,
+     63.6
+    ]
+   },
+   "P12": {
+    "name": "N6_SHAFT_LOWER_LOCK_COLLAR",
+    "bbox_min_mm": [
+     -18.0,
+     -24.5,
+     25.0
+    ],
+    "bbox_max_mm": [
+     18.0,
+     18.0,
+     32.8
+    ],
+    "z_range": [
+     25.0,
+     32.8
+    ]
+   },
+   "P11": {
+    "name": "N6_HOLLOW_LOAD_SHAFT",
+    "bbox_min_mm": [
+     -17.25,
+     -17.25,
+     26.0
+    ],
+    "bbox_max_mm": [
+     17.25,
+     17.25,
+     86.0
+    ],
+    "z_range": [
+     26.0,
+     86.0
+    ]
+   },
+   "P03": {
+    "name": "N6_DRIVEN_64T",
+    "bbox_min_mm": [
+     -21.62,
+     -21.62,
+     41.1
+    ],
+    "bbox_max_mm": [
+     21.62,
+     21.62,
+     51.7
+    ],
+    "z_range": [
+     41.1,
+     51.7
+    ]
+   }
+  },
+  "features": {
+   "P13_modifiers": [
+    [
+     "DIFFERENCE N6_YAW_STOP_ARM_HOLE_0",
+     "BOOLEAN",
+     "DIFFERENCE"
+    ],
+    [
+     "UNION N6_YAW_STOP_LUG",
+     "BOOLEAN",
+     "UNION"
+    ],
+    [
+     "UNION N6_STOP_ARM_D_FILL",
+     "BOOLEAN",
+     "UNION"
+    ]
+   ],
+   "P13_radii_mm": [
+    15.1,
+    18.0,
+    32.5,
+    32.8,
+    33.0,
+    33.1
+   ],
+   "P13_vert_count": 324,
+   "P13_face_count": 184,
+   "P13_z_levels": [
+    61.8,
+    61.9,
+    62.0,
+    62.1,
+    62.4,
+    63.0,
+    63.3,
+    63.4,
+    63.5,
+    63.6
+   ],
+   "P12_modifiers": [
+    [
+     "DIFFERENCE N6_SHAFT_LOWER_LOCK_COLLAR_HOLE_0",
+     "BOOLEAN",
+     "DIFFERENCE"
+    ],
+    [
+     "UNION N6_COLLAR_EAR_-4.5",
+     "BOOLEAN",
+     "UNION"
+    ],
+    [
+     "UNION N6_COLLAR_EAR_4.5",
+     "BOOLEAN",
+     "UNION"
+    ],
+    [
+     "DIFFERENCE N6_COLLAR_SPLIT",
+     "BOOLEAN",
+     "DIFFERENCE"
+    ],
+    [
+     "DIFFERENCE N6_SHAFT_LOWER_LOCK_COLLAR_HOLE_4",
+     "BOOLEAN",
+     "DIFFERENCE"
+    ]
+   ],
+   "P12_radii_mm": [
+    15.1,
+    15.6,
+    17.2,
+    18.0,
+    19.9,
+    20.0,
+    20.1,
+    20.2,
+    20.3,
+    20.4,
+    20.5,
+    20.6,
+    20.7,
+    20.8,
+    20.9,
+    21.1,
+    21.2,
+    21.3,
+    21.4,
+    21.5,
+    21.6,
+    21.7,
+    21.8,
+    21.9
+   ],
+   "P12_z_levels": [
+    25.0,
+    27.0,
+    27.1,
+    27.2,
+    27.3,
+    27.4,
+    27.5,
+    27.6,
+    27.7,
+    27.8,
+    27.9,
+    28.0,
+    28.1,
+    28.3,
+    28.4,
+    28.5,
+    28.6,
+    28.7,
+    28.8,
+    28.9,
+    29.0,
+    29.1,
+    29.2,
+    29.3,
+    29.4,
+    29.5,
+    31.5,
+    32.8
+   ],
+   "P12_pinch_region_x_extent": [
+    -7.5,
+    7.5
+   ],
+   "P12_pinch_hole_radii": [
+    1.2
+   ],
+   "P11_bands": {
+    "P12_band": {
+     "xmin": -14.9,
+     "xmax": 14.9,
+     "rmin": 11.0,
+     "rmax": 14.9
+    },
+    "DRIVE_D_band": {
+     "xmin": 14.2,
+     "xmax": 14.9,
+     "rmin": 14.89,
+     "rmax": 14.9
+    },
+    "P13_band": {
+     "xmin": -17.25,
+     "xmax": 17.25,
+     "rmin": 10.99,
+     "rmax": 17.25
+    },
+    "upper": {
+     "xmin": -14.9,
+     "xmax": 14.0,
+     "rmin": 11.0,
+     "rmax": 14.9
+    }
+   }
+  }
+ },
+ "bolt_like": []
+}

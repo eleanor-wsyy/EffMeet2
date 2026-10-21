@@ -19,6 +19,7 @@ let detailTab = 'minutes';
 let detailReturn = 'history';
 let historyQuery = '';
 let historyFilter = 'all';
+let mapFilter = 'all';
 let joinBusy = false;
 let joinCameraGranted = false;
 let autoPromptOpened = false;
@@ -167,11 +168,13 @@ function renderHome() {
   const greeting = new Date().getHours() < 12 ? '早上好' : new Date().getHours() < 18 ? '下午好' : '晚上好';
   if ($('home-title').firstChild) $('home-title').firstChild.nodeValue = `${greeting}，`;
   $('home-name').textContent = db.user.nickname;
-  $('device-status').textContent = db.device.connected ? '设备已连接' : '设备未连接';
-  $('device-dot').className = `status-dot ${db.device.connected ? 'ok' : ''}`;
-  $('device-battery').textContent = `${db.device.battery}%`;
+  const virtualDevice = db.device.virtual !== false;
+  const connected = Boolean(db.device.connected && !virtualDevice);
+  $('device-status').textContent = connected ? '设备已连接' : virtualDevice ? '演示机器人 · 虚拟设备' : '设备未连接';
+  $('device-dot').className = `status-dot ${connected ? 'ok' : 'idle'}`;
+  $('device-battery').textContent = connected ? `${db.device.battery}%` : `${db.device.battery}% · 示意`;
   $('home-quota').textContent = String(remainingMinutes(db));
-  if (!reconnecting) $('reconnect-label').textContent = '重新连接机器人';
+  if (!reconnecting) $('reconnect-label').textContent = '设备说明';
 
   const recent = [...db.meetings]
     .sort((a, b) => new Date(b.endedAt) - new Date(a.endedAt))
@@ -184,20 +187,7 @@ function renderHome() {
 }
 
 async function reconnectRobot() {
-  if (reconnecting) return;
-  reconnecting = true;
-  const button = $('reconnect-robot');
-  button.disabled = true;
-  $('reconnect-label').textContent = '正在重新连接…';
-  $('device-status').textContent = '正在重新连接…';
-  $('device-dot').className = 'status-dot';
-  await wait(1100);
-  db.device.connected = true;
-  persist(db);
-  reconnecting = false;
-  button.disabled = false;
-  renderHome();
-  toast('机器人已重新连接（演示）');
+  dialog('设备说明', '<p>当前为本地演示环境，<strong>不连接实体机器人</strong>。演示中的设备状态、电量与播报回执均为本地模拟值；真实连接状态由设备网关提供。</p>', [{label:'知道了', value:'close', primary:true}]);
 }
 
 function meetingRow(meeting) {
@@ -401,9 +391,22 @@ function renderLiveTranscript(meeting) {
   requestAnimationFrame(() => { list.scrollTop = list.scrollHeight; });
 }
 
+function renderParticipation(meeting, state) {
+  const label = !meeting.aiPrompt ? '我的参与 · 线上成员'
+    : state === 'awaiting_confirmation' ? '我的参与 · 1 条观点待确认'
+    : ['queued','broadcasting'].includes(state) ? '我的参与 · 已请求提醒'
+    : state === 'completed' ? '我的参与 · 提醒回执已记录'
+    : state === 'dismissed' ? '我的参与 · 已暂不提醒'
+    : state === 'expired' ? '我的参与 · 候选已过期'
+    : '我的参与 · 线上成员';
+  const el = $('my-participation');
+  if (el) el.textContent = label;
+}
+
 function renderPending(meeting) {
   const prompt = meeting.aiPrompt;
   const state = promptState(prompt);
+  renderParticipation(meeting, state);
   const pending = $('pending-list');
   if (!prompt) {
     $('pending-count').textContent = '0 条';
@@ -414,7 +417,7 @@ function renderPending(meeting) {
   const tone = state === 'expired' ? ' expired' : state === 'completed' ? ' done' : '';
   pending.innerHTML = `
     <article class="card pending-card">
-      <h3>你的观点可能还没被现场听到</h3>
+      <h3>你的观点可能尚未得到现场回应。</h3>
       <p>${esc(prompt.text)}</p>
       <div class="pending-bottom">
         <span class="pending-status${tone}">${esc(promptLabel(state))}</span>
@@ -453,27 +456,61 @@ function closePromptSheet() {
 
 function renderPromptSheet() {
   if (!promptOpen) return;
-  const prompt = db.active?.aiPrompt;
+  const meeting = db.active;
+  const prompt = meeting?.aiPrompt;
   if (!prompt) { closePromptSheet(); return; }
   const state = promptState(prompt);
   const seconds = remainingSeconds(prompt);
+  const viewpoint = meeting.viewpoints?.find(item => item.id === prompt.viewpointId);
+  const evidenceLine = (prompt.evidenceIds || [])
+    .map(id => meeting.transcript?.find(line => line.id === id)).find(Boolean);
+  const owner = viewpoint ? speakerOf(meeting, viewpoint.speakerId) : null;
   $('sh-quote').textContent = prompt.text;
-  $('sh-meta').textContent = `你说的 · 原话证据 ${prompt.evidenceIds?.length || 0} 条`;
+  $('sh-meta').textContent = `${owner ? owner.name + ' · ' : ''}${evidenceLine ? evidenceLine.at + ' · ' : ''}原话证据 ${prompt.evidenceIds?.length || 0} 条`;
   $('sh-state').textContent = promptLabel(state);
-  $('sh-countdown').textContent = state === 'awaiting_confirmation'
-    ? `${seconds} 秒内有效`
-    : state === 'expired'
-      ? '有效期已结束。点击「请机器人提醒」后会重新校验，仍满足条件才提交提醒。'
-      : '本机模拟回执，不代表真实机器人已播报。';
+
+  const copy = {
+    awaiting_confirmation: `${seconds} 秒内有效`,
+    expired: '有效期已结束。点击后会重新校验；通过后开始新的 120 秒窗口。',
+    queued: '已记录你的确认，正在生成本地模拟命令。',
+    broadcasting: '本地模拟执行中，未连接真实机器人。',
+    completed: '本地演示已生成模拟播报回执，未连接真实机器人。',
+    dismissed: '你已选择暂不提醒，未生成播报命令。',
+    failed: '模拟执行失败，未生成播报回执。',
+    rejected: '提醒未执行，未生成播报回执。',
+  };
+  $('sh-countdown').textContent = copy[state] || '本机模拟回执，不代表真实机器人已播报。';
 
   const actionable = state === 'awaiting_confirmation' || state === 'expired';
   const confirm = $('sh-confirm');
   const dismiss = $('sh-dismiss');
+  const label = {
+    awaiting_confirmation: '请机器人提醒',
+    expired: '重新校验并提醒',
+    queued: '已确认 · 等待处理',
+    broadcasting: '本地模拟执行中…',
+    completed: '已确认',
+    dismissed: '已暂不提醒',
+    failed: '执行失败',
+  };
   confirm.disabled = promptBusy || !actionable;
-  confirm.textContent = promptBusy ? (state === 'expired' ? '正在校验…' : '正在提交…') : '请机器人提醒';
+  confirm.textContent = promptBusy ? (state === 'expired' ? '正在校验…' : '正在提交…') : (label[state] || '请机器人提醒');
   dismiss.hidden = state !== 'awaiting_confirmation';
   dismiss.disabled = promptBusy;
   $('sh-actions').classList.toggle('single', state !== 'awaiting_confirmation');
+
+  const timeline = $('sh-timeline');
+  const showTimeline = ['queued','broadcasting','completed','failed'].includes(state);
+  timeline.hidden = !showTimeline;
+  timeline.querySelectorAll('li').forEach(item => {
+    const step = item.dataset.step;
+    item.classList.remove('done','active','error');
+    if (step === 'confirmed') item.classList.add('done');
+    if (step === 'queued') item.classList.toggle('done', ['broadcasting','completed'].includes(state));
+    if (step === 'queued') item.classList.toggle('active', state === 'queued');
+    if (step === 'completed') item.classList.toggle('active', ['broadcasting','completed'].includes(state));
+    if (state === 'failed') item.classList.add('error');
+  });
 }
 
 async function decidePrompt(decision) {
@@ -488,7 +525,7 @@ async function decidePrompt(decision) {
     persist(db);
     closePromptSheet();
     renderPending(active);
-    toast('已忽略本次 AI 提示');
+    toast('已选择暂不提醒，未生成播报命令');
     return;
   }
 
@@ -501,7 +538,7 @@ async function decidePrompt(decision) {
     prompt.expiresAt = Date.now() + 120000;
     persist(db);
     renderActiveMeeting();
-    toast('已重新校验，仍满足提醒条件');
+    toast('已重新校验，开始新的 120 秒窗口');
     return;
   }
 
@@ -1288,6 +1325,14 @@ $('live-more').addEventListener('click', openMeetingMoreDialog);
 $('view-capture').addEventListener('click', openLightbox);
 $('capture-button').addEventListener('click', openLightbox);
 
+$('map-filters').addEventListener('click', event => {
+  const button = event.target.closest('[data-map-filter]');
+  if (!button) return;
+  mapFilter = button.dataset.mapFilter;
+  $('map-filters').querySelectorAll('[data-map-filter]').forEach(item => item.classList.toggle('active', item === button));
+  renderMap();
+});
+
 $('scrim').addEventListener('click', closePromptSheet);
 $('sheet-close').addEventListener('click', closePromptSheet);
 $('sheet-handle').addEventListener('click', closePromptSheet);
@@ -1561,18 +1606,27 @@ function renderMap() {
   $('stat-all').textContent = String(total);
   $('stat-responded').textContent = String(responded);
   $('stat-review').textContent = String(total - responded);
-  $('map-list').innerHTML = meeting.viewpoints.map(viewpoint => {
+  const visible = meeting.viewpoints.filter(viewpoint => {
+    if (mapFilter === 'responded') return viewpoint.status === 'responded';
+    if (mapFilter === 'review') return viewpoint.status !== 'responded';
+    return true;
+  });
+  $('map-list').innerHTML = visible.length ? visible.map(viewpoint => {
     const person = speakerOf(meeting, viewpoint.speakerId);
     const tone = viewpoint.status === 'responded' ? 'ok' : ['uncertain', 'possibly_unresponded'].includes(viewpoint.status) ? 'warn' : '';
     const evidence = (viewpoint.evidenceIds || [])
       .map(id => meeting.transcript.find(line => line.id === id)).filter(Boolean);
     const responses = (viewpoint.responseEvidenceIds || [])
       .map(id => meeting.transcript.find(line => line.id === id)).filter(Boolean);
+    const relation = viewpoint.status === 'responded'
+      ? '<p class="relation ok">原始观点 → 现场回应</p>'
+      : '<p class="relation">原始观点 → 尚待核对</p>';
     return `
       <article class="card opinion-card map-card">
         <div class="opinion-head"><strong>${esc(person.name)} · ${esc(person.role)}</strong></div>
         <span class="tag ${tone}">${esc(viewpointStateLabel(viewpoint.status))}</span>
         <p class="opinion-text">${esc(viewpoint.text)}</p>
+        ${relation}
         ${responses.length ? `<p class="reply ok">${responses.map(line => `${esc(speakerOf(meeting, line.speakerId).name)}：${esc(line.text)}`).join('<br>')}</p>` : ''}
         ${viewpoint.status === 'uncertain' ? '<p class="reply">这条关系不确定，请会后核对</p>' : ''}
         <details>
@@ -1581,7 +1635,7 @@ function renderMap() {
           ${responses.map(line => `<p>现场回应 · ${esc(speakerOf(meeting, line.speakerId).name)}：${esc(line.text)}</p>`).join('')}
         </details>
       </article>`;
-  }).join('');
+  }).join('') : '<div class="pending-empty">当前筛选下没有观点。</div>';
 }
 
 /* ---------- 计时与键盘 ---------- */

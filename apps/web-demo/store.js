@@ -207,7 +207,7 @@ export function seedDB() {
       quotaUsed:38,
       quotaReset:resetDate()
     },
-    device: {connected:true, battery:76},
+    device: {connected:false, virtual:true, battery:76},
     settings: {...DEFAULT_SETTINGS},
     meetings: seedMeetings(),
     demoMeetings: [],

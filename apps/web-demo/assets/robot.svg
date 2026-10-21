@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160" viewBox="0 0 160 160" fill="none" role="img" aria-label="EffMeet 2 桌面机器人示意图">
   <ellipse cx="80" cy="146" rx="44" ry="6" fill="#6B5B3E" opacity=".08"/>
   <path d="M80 31V19" stroke="#3A352C" stroke-width="2.4" stroke-linecap="round"/>
-  <circle cx="80" cy="14" r="4.2" fill="#F0522E"/>
+  <circle cx="80" cy="14" r="4.2" fill="#2857F3"/>
   <rect x="21" y="57" width="10" height="25" rx="5" fill="#F5EBD9" stroke="#3A352C" stroke-width="2.2"/>
   <rect x="129" y="57" width="10" height="25" rx="5" fill="#F5EBD9" stroke="#3A352C" stroke-width="2.2"/>
   <rect x="31" y="31" width="98" height="77" rx="27" fill="#FFF9EE" stroke="#3A352C" stroke-width="2.4"/>
@@ -10,7 +10,7 @@
   <circle cx="94.5" cy="63" r="3.2" fill="#FFB59F"/>
   <path d="M70 76q10 6 20 0" stroke="#FFB59F" stroke-width="2" stroke-linecap="round"/>
   <path d="M50 108h60c6.6 0 10 4.2 10 10v13.5c0 5-3 8-8 8H48c-5 0-8-3-8-8V118c0-5.8 3.4-10 10-10Z" fill="#FFF9EE" stroke="#3A352C" stroke-width="2.4"/>
-  <circle cx="80" cy="127" r="6" fill="#F0522E"/>
+  <circle cx="80" cy="127" r="6" fill="#2857F3"/>
   <path d="M49 117c-7 .8-11.5 4.6-13.5 10" stroke="#3A352C" stroke-width="2.4" stroke-linecap="round"/>
   <path d="M111 117c7 .8 11.5 4.6 13.5 10" stroke="#3A352C" stroke-width="2.4" stroke-linecap="round"/>
 </svg>

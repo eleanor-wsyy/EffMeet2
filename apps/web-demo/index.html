@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#F0522E">
+<meta name="theme-color" content="#F7F6F2">
 <title>在议</title>
 <link rel="manifest" href="manifest.json">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
@@ -19,34 +19,10 @@
     <section class="page" data-page="home" id="page-home" aria-labelledby="home-title">
       <div class="page-scroll">
         <header class="home-head">
-          <p class="wordmark"><span class="brand-badge" aria-hidden="true"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M2 10V13M6 6V17M10 3V21M14 8V15M18 5V18M22 10V13" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>在议</p>
+          <p class="wordmark"><img class="brand-logo" src="assets/effmeetbot-logo.png" alt="effmeetbot"><span class="brand-cn">在议</span></p>
           <span class="demo-tag">演示数据</span>
         </header>
         <h1 class="greeting" id="home-title">下午好，<span id="home-name">林小满</span></h1>
-
-        <section class="hero" aria-label="机器人状态">
-          <div class="hero-copy">
-            <p class="hero-kicker">桌面会议伙伴</p>
-            <p class="hero-title">在线，不等于在场</p>
-            <div class="status-chips">
-              <span class="status-chip"><span class="status-dot ok" id="device-dot"></span><span id="device-status">设备已连接</span></span>
-              <span class="status-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M22 10.5v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="5" y="10" width="9" height="4" rx="1" fill="currentColor"/></svg>
-                <span id="device-battery">76%</span>
-              </span>
-              <span class="status-chip">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="currentColor"/></svg>
-                AI 剩余 <span id="home-quota">82</span> 分钟
-              </span>
-            </div>
-            <button class="reconnect-button" id="reconnect-robot" type="button">
-              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1 8.4A7 7 0 0 1 19.7 10M4.3 14A7 7 0 0 0 17.9 15.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
-              <span id="reconnect-label">重新连接机器人</span>
-            </button>
-            <p class="hero-note">演示数据 · 未连接真实设备</p>
-          </div>
-          <img class="robot" src="assets/robot-smile.webp" alt="在议 桌面机器人渲染图" width="112" height="112">
-        </section>
 
         <div class="quick-actions" aria-label="会议入口">
           <button class="quick-action primary" id="act-join" type="button">
@@ -63,13 +39,32 @@
           </button>
         </div>
 
-        <button class="scan-entry" id="home-scan" type="button">
-          <span class="scan-entry-icon" aria-hidden="true">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
-          </span>
-          <span class="scan-entry-copy"><b>扫码加入会议</b><small>扫描主持人分享的二维码，自动填入会议码</small></span>
-          <svg class="chev" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
-        </button>
+        <section class="hero" aria-label="机器人状态">
+          <div class="hero-copy">
+            <p class="hero-kicker">桌面会议伙伴</p>
+            <p class="hero-title">在线，不等于在场</p>
+            <div class="status-chips">
+              <span class="status-chip"><span class="status-dot idle" id="device-dot"></span><span id="device-status">演示机器人 · 虚拟设备</span></span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="3" stroke="currentColor" stroke-width="1.7"/><path d="M22 10.5v3" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/><rect x="5" y="10" width="9" height="4" rx="1" fill="currentColor"/></svg>
+                <span id="device-battery">76% · 示意</span>
+              </span>
+              <span class="status-chip">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l1.9 4.6L18.5 9.5l-4.6 1.9L12 16l-1.9-4.6L5.5 9.5l4.6-1.9L12 3Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M18.5 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8.8-2Z" fill="currentColor"/></svg>
+                AI 剩余 <span id="home-quota">82</span> 分钟
+              </span>
+            </div>
+            <button class="reconnect-button" id="reconnect-robot" type="button">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 7v5h-5M4 17v-5h5" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/><path d="M6.1 8.4A7 7 0 0 1 19.7 10M4.3 14A7 7 0 0 0 17.9 15.6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+              <span id="reconnect-label">设备说明</span>
+            </button>
+            <p class="hero-note">演示环境 · 不连接实体机器人</p>
+          </div>
+          <img class="robot" src="assets/robot-smile.webp" alt="在议 桌面机器人渲染图" width="112" height="112">
+        </section>
+
+
+
 
         <section class="section" id="upcoming-section" hidden>
           <div class="section-head"><h2>即将开始</h2><span class="count" id="upcoming-count"></span></div>
@@ -83,6 +78,18 @@
           </div>
           <div id="recent-list" class="record-list"></div>
         </section>
+
+        <section class="section home-more">
+          <div class="section-head"><h2>更多</h2><span class="count">演示</span></div>
+        <button class="scan-entry" id="home-scan" type="button">
+          <span class="scan-entry-icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M4 9V6a2 2 0 0 1 2-2h3M15 4h3a2 2 0 0 1 2 2v3M20 15v3a2 2 0 0 1-2 2h-3M9 20H6a2 2 0 0 1-2-2v-3" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/><path d="M8 12h8" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          </span>
+          <span class="scan-entry-copy"><b>扫码加入会议</b><small>扫描主持人分享的二维码，自动填入会议码</small></span>
+          <svg class="chev" width="17" height="17" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9 6 6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </button>
+        </section>
+
         <p class="footnote">所有会议、额度与设备信息均为本地演示数据，仅保存在当前浏览器。</p>
       </div>
     </section>
@@ -121,6 +128,7 @@
             </button>
           </div>
           <div class="meeting-meta"><span id="meeting-meta">4 人 · 示例内容</span><span id="meeting-elapsed">42:18</span></div>
+          <p class="my-participation" id="my-participation">我的参与 · 线上成员</p>
           <div class="demo-banner" id="demo-banner" hidden>
             <span>演示模式 · 本场记录不会写入正式历史</span>
             <button class="text-button" id="exit-demo" type="button">退出演示</button>
@@ -259,8 +267,8 @@
           <p class="footnote">额度为本地演示值，不连接真实计费系统。</p>
         </section>
 
-        <section class="section">
-          <div class="section-head"><h2>套餐对比</h2><span class="count">模拟</span></div>
+        <details class="section plan-details">
+          <summary class="section-head"><h2>套餐与额度</h2><span class="count">演示 · 点击展开</span></summary>
           <div class="plan-grid">
             <article class="plan-card" id="plan-card-free">
               <div class="plan-head"><h3>免费版</h3><span class="plan-current" data-plan-current="free">当前</span></div>
@@ -283,7 +291,7 @@
           </div>
           <button class="button secondary full" id="upgrade-plan" type="button">模拟升级到高级版</button>
           <p class="footnote">升级流程为本地模拟，不接支付、不产生费用，也不展示正式价格。</p>
-        </section>
+        </details>
 
         <section class="settings-card">
           <button class="settings-row" id="open-contacts" type="button">
@@ -322,7 +330,7 @@
       </header>
       <div class="page-scroll">
         <div class="subpage-intro">
-          <h2>连接现场，让你的观点被听到</h2>
+          <h2>连接现场，让你的观点进入讨论</h2>
           <p>演示环境：任意有效会议号都会打开本地示例会议。</p>
         </div>
         <form id="join-form" class="card join-form" novalidate>
@@ -359,11 +367,11 @@
             <h2 class="step-title"><span class="step-number">4</span>摄像头权限</h2>
             <div class="permission">
               <div class="permission-intro">
-                <span class="permission-icon"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
+                <span class="permission-icon"><svg class="icon" width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#2857F3" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#2857F3" stroke-width="1.9" stroke-linejoin="round"/></svg></span>
                 <p id="cam-permission-status">允许使用摄像头，才能在会议中开启画面。</p>
               </div>
               <button type="button" class="button secondary" id="j-cam">
-                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#F0522E" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#F0522E" stroke-width="1.9" stroke-linejoin="round"/></svg>
+                <svg class="icon" width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3" y="6" width="13" height="12" rx="3" stroke="#2857F3" stroke-width="1.9"/><path d="m16 10 4.2-2.2v8.4L16 14" stroke="#2857F3" stroke-width="1.9" stroke-linejoin="round"/></svg>
                 <span id="j-cam-label">允许摄像头</span>
               </button>
               <p class="field-hint">仅检查本机授权，不会上传画面；不可用时会议内显示模拟画面。</p>
@@ -454,6 +462,11 @@
           <div><strong id="stat-all">0</strong><span>全部观点</span></div>
           <div><strong id="stat-responded">0</strong><span>已回应</span></div>
           <div><strong id="stat-review">0</strong><span>待核对</span></div>
+        </div>
+        <div class="map-filters" id="map-filters" role="group" aria-label="观点筛选">
+          <button type="button" class="chip active" data-map-filter="all">全部</button>
+          <button type="button" class="chip" data-map-filter="responded">已回应</button>
+          <button type="button" class="chip" data-map-filter="review">待核对</button>
         </div>
         <div class="card-list" id="map-list"></div>
       </div>
@@ -598,19 +611,24 @@
         <button class="handle" id="sheet-handle" aria-label="暂时收起候选确认卡" type="button"><span></span></button>
         <button class="text-button" id="sheet-close" type="button">收起</button>
       </div>
-      <h2 id="sheet-title">你的观点可能还没被现场听到</h2>
+      <h2 id="sheet-title">你的观点可能尚未得到现场回应。</h2>
       <blockquote class="quote">
         <p id="sh-quote"></p>
         <footer id="sh-meta"></footer>
       </blockquote>
-      <p class="sheet-helper">机器人会在现场停顿时转述你的原话；提醒前会再确认一次现场是否已回应。</p>
+      <p class="sheet-helper">只有你确认后，才会请求机器人介入现场。它会在停顿处复述原话，不替人下结论。</p>
       <div class="sheet-status">
         <p class="sheet-state" id="sh-state" role="status">等待你的决定</p>
         <p class="countdown" id="sh-countdown"></p>
       </div>
+      <ol class="state-timeline" id="sh-timeline" hidden>
+        <li data-step="confirmed"><b>本人确认</b><span>已确认提醒请求</span></li>
+        <li data-step="queued"><b>命令生成</b><span>等待本地模拟执行</span></li>
+        <li data-step="completed"><b>回执记录</b><span>未连接真实机器人</span></li>
+      </ol>
       <div class="button-pair" id="sh-actions">
         <button class="button primary" type="button" id="sh-confirm">请机器人提醒</button>
-        <button class="button secondary" type="button" id="sh-dismiss">不必提醒</button>
+        <button class="button secondary" type="button" id="sh-dismiss">暂不提醒</button>
       </div>
     </section>
   </div>

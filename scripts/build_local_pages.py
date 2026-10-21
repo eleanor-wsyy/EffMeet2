@@ -66,6 +66,8 @@ SCREENS = {
     "09-history": data_uri(ROOT / "dist/review/screens/09-history.png", max_width=780, quality=82),
     "11-profile": data_uri(ROOT / "dist/review/screens/11-profile.png", max_width=780, quality=82),
     "12-settings": data_uri(ROOT / "dist/review/screens/12-settings.png", max_width=780, quality=82),
+    "13-refused": data_uri(ROOT / "dist/review/screens/13-refused.png", max_width=780, quality=82),
+    "14-expired": data_uri(ROOT / "dist/review/screens/14-expired.png", max_width=780, quality=82),
 }
 
 font_bytes = (ROOT / "site/assets/fonts/inter-var.woff2").read_bytes()

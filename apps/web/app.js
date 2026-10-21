@@ -234,7 +234,7 @@ function renderPending() {
   $('pending-count').textContent = rows.filter(r => effectiveState(r, model.snapshot.commands, serverNow()) === 'awaiting_confirmation').length + ' 条待决定';
   $('pending-list').replaceChildren(...rows.map(row => {
     const card = node('article','card pending-card');
-    card.append(node('h3','', '你的观点可能还没被现场听到'), node('p','',row.candidate.proposed_text));
+    card.append(node('h3','', '你的观点可能尚未得到现场回应。'), node('p','',row.candidate.proposed_text));
     const bottom = node('div','pending-bottom');
     const state = effectiveState(row, model.snapshot.commands, serverNow());
     const status = node('span','', candidateLabels[state] || state); status.dataset.candidateStatus = row.candidate.intervention_id;
@@ -324,10 +324,21 @@ function renderSheet() {
   $('sh-quote').textContent = row.candidate.proposed_text;
   $('sh-meta').textContent = '你说的 · 原话证据 ' + row.candidate.evidence_ids.length + ' 条';
   $('sh-state').textContent = candidateLabels[state] || state;
-  $('sh-countdown').textContent = state === 'awaiting_confirmation' ? (seconds === null ? '截止时间暂不可用，请刷新后再决定。' : seconds + ' 秒内有效') : state === 'expired' ? '有效期已结束。点击「请机器人提醒」后会重新校验，仍满足条件才提交提醒。' : model.snapshot.mode === 'mock' ? '本机模拟回执，不代表真实机器人已播报。' : '';
+  const stateCopy = {
+    awaiting_confirmation: seconds === null ? '截止时间暂不可用，请刷新后再决定。' : seconds + ' 秒内有效',
+    expired: '有效期已结束。点击「重新校验并提醒」后重新校验；通过后开始新的有效期。',
+    queued: '已记录你的确认，等待现场执行。',
+    broadcasting: '正在提醒现场…',
+    completed: model.snapshot.mode === 'mock' ? '本机模拟回执，不代表真实机器人已播报。' : '已记录提醒回执；现场回应会关联到你的观点。',
+    dismissed: '你已选择暂不提醒，未提交提醒。',
+    failed: '提醒未完成，请核对现场情况。',
+    rejected: '提醒未执行，请核对现场情况。',
+  };
+  $('sh-countdown').textContent = stateCopy[state] || '';
   $('sh-actions').hidden = false;
   $('sh-confirm').disabled = model.busy || !model.online || !actions.confirmMode;
-  $('sh-confirm').textContent = model.busy ? '正在提交…' : '请机器人提醒';
+  const stateLabel = { awaiting_confirmation:'请机器人提醒', expired:'重新校验并提醒', queued:'已确认 · 等待处理', broadcasting:'正在提醒现场…', completed:'已确认', failed:'执行失败', rejected:'执行失败', dismissed:'已暂不提醒' };
+  $('sh-confirm').textContent = model.busy ? '正在提交…' : (stateLabel[state] || '请机器人提醒');
   $('sh-dismiss').hidden = !actions.canDismiss;
   $('sh-actions').classList.toggle('single', !actions.canDismiss);
   $('sh-dismiss').disabled = model.busy || !model.online || !actions.canDismiss;

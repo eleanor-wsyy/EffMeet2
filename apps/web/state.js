@@ -38,11 +38,11 @@ export function shouldAutoOpen(row, {actor, visible, live, seen, serverNow}) {
 }
 export const candidateLabels = {
   awaiting_confirmation: '等待你的决定',
-  queued: '好的，等现场说完这句话就提醒',
+  queued: '已确认提醒请求 · 等待处理',
   broadcasting: '正在提醒现场……',
-  completed: '已提醒，现场回应会关联到你的观点',
-  expired: '已过期，未打扰现场',
-  dismissed: '不必提醒',
+  completed: '已提醒 · 回应会关联到你的观点',
+  expired: '已过期 · 未提交提醒',
+  dismissed: '已暂不提醒',
   responded: '现场已回应，不再提醒',
   stale: '现场已有新发言，请等待重新核对',
   failed: '提醒未完成，请核对现场情况',

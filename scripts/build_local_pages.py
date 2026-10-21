@@ -106,6 +106,8 @@ def build_official() -> str:
 .brand-lockup{display:flex;align-items:center;gap:13px}
 .brand-lockup img{height:19px;width:auto;display:block}
 .brand-lockup .cn{font-size:21px;font-weight:650;letter-spacing:.06em;white-space:nowrap}
+.cn-mark{display:inline-block;width:8px;height:8px;background:var(--blue);margin-left:3px;position:relative;vertical-align:.55em}
+.cn-mark::after{content:"";position:absolute;left:0;bottom:0;width:4px;height:4px;background:var(--paper)}
 .hero-action-note{margin-top:14px;font-size:11px;line-height:1.7;color:var(--grey-2);max-width:34em}
 .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,3vw,48px)}
 .value-item{padding-top:18px;border-top:1px solid var(--line-strong)}
@@ -141,7 +143,7 @@ def build_official() -> str:
       <span class="wordmark">effmeetbot<span class="wordmark-dots" aria-hidden="true"><i></i><i></i></span></span>
     </a>"""
     lockup_new = f"""    <a class="brand-lockup" href="#top" aria-label="在议 effmeetbot 首页">
-      <span class="cn">在议</span>
+      <span class="cn">在议<i class="cn-mark" aria-hidden="true"></i></span>
       <img src="{LOGO}" alt="effmeetbot">
     </a>"""
     assert lockup_old in html
@@ -234,7 +236,7 @@ def build_official() -> str:
     html = html.replace(f'<a class="entry entry--ai" href="{AI_URL}" target="_blank" rel="noopener" id="ai-demo-link">', f'<a class="entry entry--ai" href="{AI_URL}" target="_blank" rel="noopener" id="ai-demo-link">')
     html = html.replace('href="docs/EffMeet2_论文依据与技术路径.pdf"', f'href="{PDF_URL}"')
     html = html.replace('href="assets/film/effmeetbot-film-1080p.mp4"', f'href="{SITE_URL}assets/film/effmeetbot-film-1080p.mp4"')
-    html = html.replace('<a href="demo/">产品 Demo</a>', f'<a href="{DEMO_URL}" target="_blank" rel="noopener">产品 Demo</a>')
+    html = html.replace('<a href="demo/">产品 Demo</a>', f'<a href="{DEMO_URL}" target="_blank" rel="noopener">产品 Demo</a>\n      <a href="mobile-ui.html">手机端界面全景</a>')
 
     # footer brand
     footer_old = """    <div class="footer-brand">
@@ -243,11 +245,11 @@ def build_official() -> str:
       <p>在线，不等于在场。</p>
     </div>"""
     footer_new = f"""    <div class="footer-brand">
-      <div class="logo-plate"><img src="{LOGO}" alt="effmeetbot"><span class="cn">在议</span></div>
+      <div class="logo-plate"><img src="{LOGO}" alt="effmeetbot"><span class="cn">在议<i class="cn-mark" aria-hidden="true"></i></span></div>
       <p>在线，不等于在场。</p>
       <div class="isgba-plate">{ISGBA}<span>广州美术学院 湾区创新学院（ISGBA）<br>团队所属机构署名</span></div>
       <p class="footer-fine">机构标识仅用于团队署名，不代表学校主办、认证或联合研发。</p>
-      <p class="snapshot-note">本页为本地展示快照 · 在线应用以链接为准</p>
+      <p class="snapshot-note">在线应用以链接为准</p>
     </div>"""
     assert footer_old in html
     html = html.replace(footer_old, footer_new)
@@ -306,6 +308,8 @@ header{{border-bottom:1px solid var(--line)}}
 .brand{{display:flex;align-items:center;gap:12px;white-space:nowrap}}
 .brand img{{height:20px;width:auto}}
 .brand b{{font-size:19px;letter-spacing:.06em}}
+.cn-mark{{display:inline-block;width:8px;height:8px;background:var(--blue);margin-left:3px;position:relative;vertical-align:.55em}}
+.cn-mark::after{{content:"";position:absolute;left:0;bottom:0;width:4px;height:4px;background:var(--paper)}}
 .bar .right{{margin-left:auto;display:flex;gap:18px;font-size:13px;color:var(--grey)}}
 .bar .right a:hover{{color:var(--blue)}}
 .hero{{padding:56px 0 28px;display:grid;grid-template-columns:1.6fr 1fr;gap:40px;align-items:end}}
@@ -344,8 +348,8 @@ footer{{margin-top:50px;border-top:1px solid var(--line);padding:26px 0 50px;fon
 @media(max-width:900px){{.hero{{grid-template-columns:1fr}}.results{{grid-template-columns:1fr}}.why{{grid-template-columns:1fr}}.bar{{flex-wrap:wrap;gap:10px}}.bar .right{{margin-left:0;gap:14px}}}}
 </style></head><body>
 <header><div class="wrap bar">
-  <a class="brand" href="在议-官网.html"><b>在议</b><img src="{LOGO}" alt="effmeetbot"></a>
-  <div class="right"><a href="在议-官网.html">返回产品官网</a><a href="{AI_URL}" target="_blank" rel="noopener">在线实验台 ↗</a></div>
+  <a class="brand" href="在议-官网.html"><b>在议<i class="cn-mark" aria-hidden="true"></i></b><img src="{LOGO}" alt="effmeetbot"></a>
+  <div class="right"><a href="在议-官网.html">返回产品官网</a><a href="mobile-ui.html">手机端界面</a><a href="{AI_URL}" target="_blank" rel="noopener">在线实验台 ↗</a></div>
 </div></header>
 <main class="wrap">
   <div class="hero">
@@ -375,7 +379,7 @@ def build_mobile() -> str:
     old_header = """    <div class="brand"><b>在议</b><span>effmeetbot</span></div>
     <div class="mono">Mobile UI / 2026-10-21</div>
     <a href="http://127.0.0.1:8780/" target="_blank" rel="noopener">打开可交互 Demo ↗</a>"""
-    new_header = f"""    <div class="brand"><b>在议</b><img src="{LOGO}" alt="effmeetbot"></div>
+    new_header = f"""    <div class="brand"><b>在议<i class="cn-mark" aria-hidden="true"></i></b><img src="{LOGO}" alt="effmeetbot"></div>
     <nav class="chapters" aria-label="界面章节">
       <a href="#core">核心交互</a><a href="#confirm">候选确认</a><a href="#map">观点地图</a><a href="#other">其他界面</a>
     </nav>
@@ -395,6 +399,8 @@ def build_mobile() -> str:
     base = base.replace("footer { padding: 32px 0 56px;", """footer { padding: 32px 0 56px;""")
     base = base.replace("</style>", f"""
   .top-inner {{ padding: 22px clamp(20px, 4vw, 64px); }}
+  .cn-mark {{ display:inline-block; width:8px; height:8px; background:var(--blue); margin-left:3px; position:relative; vertical-align:.55em; }}
+  .cn-mark::after {{ content:""; position:absolute; left:0; bottom:0; width:4px; height:4px; background:var(--paper); }}
   .brand img {{ height: 18px; width: auto; display: block; }}
   .brand b {{ white-space: nowrap; font-size: 18px; }}
   .chapters {{ display: flex; gap: 16px; margin-left: auto; font-size: 11px; color: var(--grey); }}
@@ -418,7 +424,7 @@ def build_mobile() -> str:
     base = base.replace('<a href="https://www.modelscope.cn/studios/CodyNing/effmeetbot" target="_blank" rel="noopener">打开可交互 Demo ↗</a>',
                         f'<a href="{DEMO_URL}" target="_blank" rel="noopener">打开可交互 Demo ↗</a>')
     base = base.replace('<footer>\n    <span>在议 · effmeetbot / 手机端界面全景</span>',
-                        f'<footer>\n    <span>在议 · effmeetbot / 手机端界面全景 · <a class="back" href="在议-官网.html">返回产品官网</a></span>')
+                        f'<footer>\n    <span>在议 · effmeetbot / 手机端界面全景 · <a class="back" href="在议-官网.html">返回产品官网</a> · <a class="back" href="{AI_URL}" target="_blank" rel="noopener">AI 实验台</a></span>')
     (OUT / "在议-手机端界面全景.html").write_text(base, encoding="utf-8")
     return base
 

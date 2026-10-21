@@ -16,7 +16,7 @@
 | **打印执行：盘×机器×特殊设置** | [**v6 PLATE-RUNBOOK**](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)（v5 [旧手册](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v5/PLATE-RUNBOOK.md)；G1/G2已停打作废） |
 | 唯一几何／位置参数 | [parameters.json](round-yaw-v2/parameters.json) |
 | 唯一当前采购明细 | [BOM第12节](round-yaw-v2/BOM.md#final-purchase-decision) |
-| 安装顺序（唯一现行） | [print-split-v6/ASSEMBLY.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)＋[图解版](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY-图解版.md)（旧 ASSEMBLY_GUIDE/PRINT_PLAN 已删除） |
+| 安装顺序（唯一现行） | [print-split-v6/ASSEMBLY.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)＋[图解版](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY-图解版.md)（旧 ASSEMBLY_GUIDE/PRINT_PLAN 仍在库，仅作历史保留，不作现行依据） |
 | 功能与实机验收 | [TEST_GUIDE](round-yaw-v2/TEST_GUIDE.md)／[空白记录模板](round-yaw-v2/TEST_RECORD_TEMPLATE.csv) |
 | 已实现／未锁定工程接口 | [print-split-v6/INTERFACE_GATES.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/INTERFACE_GATES.md)（v4 [ENGINEERING_REVIEW](round-yaw-v2/revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md) 仅作历史） |
 | 机器可读入口 | [manifest.json](manifest.json) |

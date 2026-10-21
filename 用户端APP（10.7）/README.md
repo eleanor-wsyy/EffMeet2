@@ -4,7 +4,7 @@
 
 - [用户端代码及运行说明](../apps/web/README.md)
 - [临时 HTTPS 手机验收说明](../apps/web/qa/README.md)
-- [总体整改核实与实施记录](../docs/product/EffMeet2_整改核实记录_2026-10-09.md)
+- [总体整改核实与实施记录](../docs/archive/product/EffMeet2_整改核实记录_2026-10-09.md)（已归档）
 
 ## 启动方法
 

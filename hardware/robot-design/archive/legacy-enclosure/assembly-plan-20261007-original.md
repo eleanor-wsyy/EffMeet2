@@ -4,7 +4,7 @@
 
 ## 0. 前置
 
-- 硬件采购到位（清单见 `docs/handoff/2026-10-05-hardware-purchase-list.md`）
+- 硬件采购到位（清单见 `hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md`）
 - 外壳按 `hardware/enclosure/EffMeet2_外壳说明_v1.md` 意图执行；概念图见 `assets/enclosure/`
 - 外观概念图上的尺寸标注是示意，**实际尺寸以外壳说明为准**（90×90×110mm）
 

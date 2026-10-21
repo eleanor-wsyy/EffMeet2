@@ -1,7 +1,7 @@
 """LiveKit token 签发（服务端持有密钥，前端只拿一次性 token）。
 
 由小W（A 侧助手）代做 2026-10-06，配合 LiveKit 最小实现任务
-（docs/handoff/2026-10-06-livekit最小实现任务.md）。房间名 = meeting_id；
+（docs/archive/handoff/2026-10-06-livekit最小实现任务.md）。房间名 = meeting_id；
 远程成员只能发布自己的麦克风轨，token 与身份绑定。
 """
 import os

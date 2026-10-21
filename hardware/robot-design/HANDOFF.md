@@ -519,5 +519,5 @@ bottom_z=2不是2mm底厚、0.2喷嘴不能盲用于玻纤料、单喷嘴支撑�
 - [10月9日用户原始分享清单](archive/procurement/2026-10-09-original-shared-list.md)：原文副本，未改动来源。
 - [10月5日通用采购清单](archive/procurement/2026-10-05-hardware-purchase-list.md)：历史规划。
 - [席位牌v1](archive/seat-card-v1/README.md)、[旧外壳说明](archive/legacy-enclosure/EffMeet2_外壳说明_v2.md)：不作为当前外观规格。
-- docs/handoff/2026-10-10-robot-design-and-bom.md只作导航；本文件是此次交接正文。
+- docs/archive/handoff/2026-10-10-robot-design-and-bom.md只作导航（已归档）；本文件是此次交接正文。
 - 同步目录前已快进合并远端d052490（SQLite与台架修复、参与端去重），本次不撤销或改写该提交。

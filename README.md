@@ -25,7 +25,7 @@
 
 - **2026-10-19 GitHub 新版用户端审查：** 远端 `apps/web` 已重写为纯本地演示版（`localStorage`，不接后端/音视频/ASR/AI/硬件），视觉完整但会覆盖当前功能版；结论与建议见 [审查记录](docs/handoff/2026-10-19-github-app-review.md)。当前真实演示仍用功能版 `/app/`；新版已独立挂到 `/app-demo/`，不接后端。
 
-- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。单元测试 102 项全部通过。机器人实播、AEC、LiveKit 公网部署和连续真人实机验收当时未完成；远程音频 Web 客户端于 10-19 接入，见本页模块说明。
+- **10 月 5 日软件台架历史交付：**[最终交接记录](docs/archive/handoff/2026-10-05-final-handoff.md)及[当时硬件采购清单（归档）](hardware/robot-design/archive/procurement/2026-10-05-hardware-purchase-list.md)。真实录音分段转写、qwen-plus 判断、确认接口和命令排队已完成软件联调；qwen3-vl-plus 视觉接口返回 HTTP 200。单元测试 102 项全部通过。机器人实播、AEC、LiveKit 公网部署和连续真人实机验收当时未完成；远程音频 Web 客户端于 10-19 接入，见本页模块说明。
 
 - [论文依据与技术路径 HTML 报告](docs/product/EffMeet2_论文依据与技术路径.html)：产品形态、机内音频与 Wi-Fi、开源参考及改造映射、任务分工、实施步骤与参赛计划。
 - [v1 接口契约 JSON](docs/product/EffMeet2_contract_v1.json)：统一数据格式、业务接口、媒体契约与合成测试样例。
@@ -133,7 +133,7 @@ C可先按UtteranceFinal和样例接真实ASR；真实模型先产出AnalysisRes
 - 已通过摄像头图片上传和 `qwen3-vl-plus` 视觉接口测试（HTTP 200）。
 - 单元测试结果为 `102/102 OK`。
 - 尚未完成机器人、ESP32、扬声器、AEC 实机效果和 LiveKit 公网/两端实机链路验收。
-- 台架启动：先运行本地 ASR，再配置密钥及模型变量，执行 `.\.venv\Scripts\python.exe scripts/run_bench.py`，打开 http://127.0.0.1:8768/ 。完整命令见 [最终交接记录](docs/handoff/2026-10-05-final-handoff.md)。
+- 台架启动：先运行本地 ASR，再配置密钥及模型变量，执行 `.\.venv\Scripts\python.exe scripts/run_bench.py`，打开 http://127.0.0.1:8768/ 。完整命令见 [最终交接记录](docs/archive/handoff/2026-10-05-final-handoff.md)。
 
 - 模块按报告中的目录边界和统一接口契约开发，公共字段变更先协商再同步上下游。
 - 先交独立自检与共同输入输出样例，再按阶段节点集成。

@@ -2,7 +2,7 @@
 
 > **2026-10-11 v4优先补充：** 测试基线改为GOOUU套装／布局A／PLA Matte及[v4工程复核](revision-20261011-nomi-layoutA/ENGINEERING_REVIEW.md)。旧微雪／Korvo和ABS-GF叙述不作为本轮电气／材料依据。新增头颈接收面／D接收、套装2.8屏窗预算／14针真实接线、后部固定板、外接双麦／功放、显示线束／摄像FPC、真实状态引出必须按T04–T17/T23–T25复测；表格和空白记录模板仍全部未实测。
 
-更新：2026-10-10（北京时间；2026-10-21 修链）。与[现行安装手册](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)、[当前BOM](BOM.md#final-purchase-decision)、[打印执行手册](revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)配套（旧 ASSEMBLY_GUIDE/PRINT_PLAN 已删除）。**本指南定义待执行测试，不是测试报告。** 当前固件与可打印机构尚未完整落实，未做的测试必须记录为NOT_RUN或BLOCKED；本次文档不升级硬件/制造状态。
+更新：2026-10-10（北京时间；2026-10-21 修链）。与[现行安装手册](revision-20261011-nomi-layoutA/print-split-v6/ASSEMBLY.md)、[当前BOM](BOM.md#final-purchase-decision)、[打印执行手册](revision-20261011-nomi-layoutA/print-split-v6/PLATE-RUNBOOK.md)配套（旧 ASSEMBLY_GUIDE/PRINT_PLAN 仍在库，仅作历史保留，不作现行依据）。**本指南定义待执行测试，不是测试报告。** 当前固件与可打印机构尚未完整落实，未做的测试必须记录为NOT_RUN或BLOCKED；本次文档不升级硬件/制造状态。
 
 ## NOMI方向的同步复测
 
@@ -129,4 +129,4 @@ BLOCKED与前置缺口：____
 下一个负责接口/最小动作：____
 ```
 
-本指南不修改项目业务契约；真实回执/确认/去重规则以[项目契约入口](../../../contracts/v1/README.md)和[软件交接](../../../docs/handoff/2026-10-05-final-handoff.md)及最新模块实现为准。旧软件交接仅代表当日状态，不当作今日测试结果。接线基础官方资料见安装指南。
+本指南不修改项目业务契约；真实回执/确认/去重规则及最新模块实现以[项目契约入口](../../../contracts/v1/README.md)和[软件交接（已归档）](../../../docs/archive/handoff/2026-10-05-final-handoff.md)为准。旧软件交接仅代表当日状态，不当作今日测试结果。接线基础官方资料见安装指南。

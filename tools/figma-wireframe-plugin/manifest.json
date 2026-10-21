@@ -1,7 +1,0 @@
-{
-  "name": "EffMeet2 线框原型生成器",
-  "id": "effmeet2-wireframe-gen-v2",
-  "api": "1.0.0",
-  "main": "code.js",
-  "editorType": ["figma"]
-}

@@ -150,7 +150,7 @@
         8.9,
         52.0
       ],
-      "confidence": "85x50 PCB, stack 11 measured; 4 holes pattern UNVERIFIED (80x45 assumed)"
+      "confidence": "85x50 PCB, stack 11 measured; 4 holes 77x45 MEASURED 2026-10-15 (LCD-01 passed)"
     },
     {
       "id": "LCD_FRONT",

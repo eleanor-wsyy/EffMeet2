@@ -1,3 +1,14 @@
+# 2026-10-21 · 跨轴线定为 11 根（方案 1）＋少焊焊接设计
+
+- **起因**：10-20 晚台架实机验证用的接线（`hardware/electronics/wiring-bench.md`）是**两路独立 I2S**：麦 BCLK/WS/DIN=4/5/6，功放 BCLK/WS/DIN/EN=15/16/17/18；与手册原"9 根共用一对 BCLK/WS"口径冲突（按原固件实际需 11–12 根）。
+- **决定（方案 1）**：保留昨晚已验证的固件，**跨轴改为 11 根**——5V、GND、3V3、MIC BCLK、MIC WS、MIC SD、AMP BCLK、AMP WS、AMP DIN、SERVO PWM、KEY；**功放 SD 在模块端接 VIN(5V) 常开，EN 不跨轴**（固件 GPIO18 悬空、不影响出声）。
+- **少焊设计**（写进图解版「11 根跨轴线的焊接方案」）：**唯一必焊 = 喇叭 2 点**；**麦克风可全杜邦免焊**——P32 的 4.2mm 是腔深，带排针时排针/杜邦朝碗内凸出是允许的（凸出朝底座内、不顶杯壁）；3V3/GND/BCLK/WS/SD 用杜邦"一分二"线分给两只麦，L/R 一左一右跳线。将来换正式线束（28AWG）时才焊麦。头端 11 根母头直插排针、功放母对母＋SD→VIN 跳线、停止键母头直插、舵机公对母。**第 29 步不焊。**
+- **文档同步**：`ASSEMBLY-图解版.md`、`ASSEMBLY.md`、`AGENTS.md`、v6 `README.md`、`BOM.md`（§12 多行）、`INTERFACE_GATES.md`（WIRE-01）、`MEASURE-GUIDE.md`、`print-split-v6/PRINT-PLAN.md`、`wiring-bench.md`。
+- **待办/边界**：①固件仍单声道，双麦只取一个槽（双麦全用需改立体声/双通道）；②杜邦非最终动态线束（WIRE-01 仍未冻结，正式件换 28AWG 硅胶线）；③摄像头驱动仍 NOT_SUPPORTED；④功放声学输出（接喇叭后）未验。
+- **LCD 初版驱动（10-21 午）**：照片确认 2.8″ 屏针序为标准 ILI9341 14P（VCC/GND/CS/RESET/DC/SDI/SCK/LED/SDO/T_CLK/T_CS/T_DIN/T_DO/T_IRQ）；新增 `firmware/esp32/main/lcd_ili9341.c`（SPI2 20MHz，CS=10 DC=9 RST=14 MOSI=11 SCK=12 BL=47），开机画七色彩条，REPL `lcd [bars|on|off|fill r g b]`；`idf.py build` 通过。**实机点亮未验**，待接线烧录。
+
+---
+
 # 2026-10-20 晚 · 图解版重写（28 张状态图）+ P03 装配悖论（模型/STL 双证）
 
 - **图解版 v2**：`ASSEMBLY-图解版.md` 全量重写（37 步，每步"干嘛 → 怎么做 → 装完长这样 → 判据 → 坑"）；配 **28 张装配状态图** `steps_img/step-04…32.png`（`tools/render_step_states.py` 从 v6 场景按步骤切可见性批量渲染，step-10 因 P18T 无模型跳过）；PDF：`EffMeet2-装机图解版-20261020-v2.pdf`（15 页，`tools/make_assembly_pdf.py` 重出）。

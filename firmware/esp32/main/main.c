@@ -20,6 +20,7 @@
 #include "audio_playback.h"
 #include "camera_capture.h"
 #include "device_session.h"
+#include "lcd_ili9341.h"
 #include "provision.h"
 #include "servo_yaw.h"
 #include "status_led.h"
@@ -95,6 +96,9 @@ void app_main(void) {
     audio_capture_init();
     aec_afe_init();
     camera_capture_init();
+    if (lcd_ili9341_init() == ESP_OK) {
+        lcd_test_pattern();
+    }
 
     /* The REPL runs in both modes so re-provisioning never needs an NVS erase. */
     provision_start();

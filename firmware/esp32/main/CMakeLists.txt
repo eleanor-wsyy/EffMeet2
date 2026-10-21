@@ -14,6 +14,7 @@ idf_component_register(
         "servo_yaw.c"
         "status_led.c"
         "camera_capture.c"
+        "lcd_ili9341.c"
         "provision.c"
     INCLUDE_DIRS "."
     REQUIRES

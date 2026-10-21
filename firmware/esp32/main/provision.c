@@ -20,6 +20,7 @@
 #include "nvs_flash.h"
 #include "servo_yaw.h"
 #include "status_led.h"
+#include "lcd_ili9341.h"
 
 static const char *TAG = "provision";
 
@@ -210,6 +211,31 @@ static int cmd_uplink(int argc, char **argv) {
     return ESP_OK;
 }
 
+
+/* Bench check for the ILI9341: bars / backlight / solid fill. */
+static int cmd_lcd(int argc, char **argv) {
+    if (argc >= 2 && strcmp(argv[1], "off") == 0) {
+        lcd_backlight(false);
+        printf("lcd: backlight off\n");
+        return ESP_OK;
+    }
+    if (argc >= 2 && strcmp(argv[1], "on") == 0) {
+        lcd_backlight(true);
+        printf("lcd: backlight on\n");
+        return ESP_OK;
+    }
+    if (argc >= 5 && strcmp(argv[1], "fill") == 0) {
+        int r = atoi(argv[2]), g = atoi(argv[3]), b = atoi(argv[4]);
+        uint16_t c = (uint16_t)(((r & 0xF8) << 8) | ((g & 0xFC) << 3) | (b >> 3));
+        lcd_fill(c);
+        printf("lcd: fill rgb(%d,%d,%d)\n", r, g, b);
+        return ESP_OK;
+    }
+    lcd_test_pattern();
+    printf("lcd: color bars (usage: lcd [bars|on|off|fill <r> <g> <b>])\n");
+    return ESP_OK;
+}
+
 esp_err_t provision_start(void) {
     esp_console_repl_t *repl = NULL;
     esp_console_repl_config_t repl_config = ESP_CONSOLE_REPL_CONFIG_DEFAULT();
@@ -261,6 +287,11 @@ esp_err_t provision_start(void) {
         .help = "servo <head_deg -45..45> - move the yaw head",
         .func = &cmd_servo,
     };
+    static const esp_console_cmd_t lcd_cmd = {
+        .command = "lcd",
+        .help = "lcd [bars|on|off|fill r g b] - ILI9341 test",
+        .func = &cmd_lcd,
+    };
     esp_console_cmd_register(&provision_cmd);
     esp_console_cmd_register(&status_cmd);
     esp_console_cmd_register(&led_cmd);
@@ -269,6 +300,7 @@ esp_err_t provision_start(void) {
     esp_console_cmd_register(&rate_cmd);
     esp_console_cmd_register(&uplink_cmd);
     esp_console_cmd_register(&servo_cmd);
+    esp_console_cmd_register(&lcd_cmd);
     rc = esp_console_start_repl(repl);
     if (rc != ESP_OK) {
         return rc;

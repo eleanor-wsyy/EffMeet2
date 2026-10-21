@@ -54,6 +54,14 @@
 #define LED_STRIP_GPIO     48
 #define LED_STRIP_PIXELS   1
 
+/* ---- LCD (2.8" ILI9341 SPI 240x320) — pins fixed on bench 2026-10-21 ---- */
+#define LCD_CS_GPIO        10
+#define LCD_DC_GPIO        9
+#define LCD_RST_GPIO       14
+#define LCD_MOSI_GPIO      11
+#define LCD_SCLK_GPIO      12
+#define LCD_BL_GPIO        47
+
 /* ---- Camera (JPEG snapshot) — model/pins TBD, NOT-VERIFIED ---- */
 /* Pin map intentionally omitted: fill from the finalized camera board. */
 

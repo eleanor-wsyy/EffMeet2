@@ -134,9 +134,9 @@
 | ~~`TMP-FIX-P24_BLACK_016`~~ | ~~黑 0.16~~ | ~~1~~ | ~~5.30mm~~ | ~~34~~ | ~~P24 FACEFLAT~~ | **已作废（镜头孔 4.2 系夹带回退）→ `.SUPERSEDED-by-CAM68`**；用 `candidate-stl/P24`（FACEFLAT＋6.8）或已打件钻 6.8 |
 | `TMP-FIX-P27P28_BLACK_016` | 黑 0.16 | 2 | 2.80mm | 18 | P27,P28 RETAINFIX | brim 外侧 10mm（P28 首层 5.76mm²）；支撑关；挡墙 0.8 完整；卡 [PLATE-CARD-P27P28](plates-merged/PLATE-CARD-P27P28.md) |
 | `TMP-FIX-P29B_BLACK_016` | 黑 0.16 | 1 | 46.10mm | 289 | P29 EDGEGRIP | brim 5–10mm；无支撑；耳槽 0.7 通缝；对象名=盘名（命名漂移，源=`candidate-stl/P29`）；卡 [PLATE-CARD-P29B](plates-merged/PLATE-CARD-P29B.md) |
-| ~~`TMP-FIX-P15B_BLACK_016`~~ | ~~黑 0.16~~ | ~~1~~ | — | — | ~~P15 WIREFIX~~ | **已被合并版 P15 取代**（U 槽孔底/盲孔＋尾端让位槽双修）→ `.SUPERSEDED-by-V6R3MERGED`；用 `reprint-20261019-v6r3/` |
-| `FIX2_P15P26P33_BLACK_016`（STL·reprint-20261019-v6r3） | 黑 0.16 | 3 | 23.70mm | ~148 | **P15 合并版,P26 v6r3,P33 新增** | P15 局部树 5%＋U 槽孔底成实底；P26 镜管朝床 brim5；P33 支撑关；卡 [PRINT-CARD-V6R3](../../../../../reprint-20261019-v6r3/PRINT-CARD-V6R3.md) |
-| `TMP-FIX2-ALL_BLACK_016`（STL·today-20261020） | 黑 0.16 | 7 | 46.10mm | ~289 | P24,P15,P26,P33,P29B,P27,P28 | 10-20 早合一盘；逐件 brim/支撑设置见 `today-20261020/MORNING-PLAN.md` |
+| ~~`TMP-FIX-P15B_BLACK_016`~~ | ~~黑 0.16~~ | ~~1~~ | — | — | ~~P15 WIREFIX~~ | **已被合并版 P15 取代**（U 槽孔底/盲孔＋尾端让位槽双修）→ `.SUPERSEDED-by-V6R3MERGED`；用 `hardware/print-jobs/reprint-20261019-v6r3/` |
+| `FIX2_P15P26P33_BLACK_016`（STL·hardware/print-jobs/reprint-20261019-v6r3） | 黑 0.16 | 3 | 23.70mm | ~148 | **P15 合并版,P26 v6r3,P33 新增** | P15 局部树 5%＋U 槽孔底成实底；P26 镜管朝床 brim5；P33 支撑关；卡 [PRINT-CARD-V6R3](../../../../print-jobs/reprint-20261019-v6r3/PRINT-CARD-V6R3.md) |
+| `TMP-FIX2-ALL_BLACK_016`（STL·hardware/print-jobs/today-20261020） | 黑 0.16 | 7 | 46.10mm | ~289 | P24,P15,P26,P33,P29B,P27,P28 | 10-20 早合一盘；逐件 brim/支撑设置见 `hardware/print-jobs/today-20261020/MORNING-PLAN.md` |
 
 **层数指纹用法**：打完看 App 报的总层数，与本表"隐含层数"对不上 → 说明 Bambu 里的工程
 不是仓库这盘（层高/朝向/内容被改过）。2026-10-16 的 P20 排查正是靠这条发现

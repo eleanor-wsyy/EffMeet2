@@ -23,14 +23,14 @@
 # 2026-10-20 · v6r3（P15/P26/P33）× FACEFLAT 合并落地 + 全仓同步
 
 - **起因（10-19 晚实打）**：MG90S 塞不进 P15（尾端出线无让位）；摄像模组在 P26 里无保持结构。
-- **v6r3 修复**（提交 `a3f4025`）：P15 尾端让位槽 6.8×9.6；**P26 重设计**（前壁 3.5、镜头入 P24 孔 0.5~0.7 导向、两 M3 背柱距 13.9）；**新增 P33 背板**（FPC 槽 6.4×2.5、压筋、2×M3×8 自攻）；FPC 跨距 10.75/余量 3.25。修复盘 `reprint-20261019-v6r3/`。
+- **v6r3 修复**（提交 `a3f4025`）：P15 尾端让位槽 6.8×9.6；**P26 重设计**（前壁 3.5、镜头入 P24 孔 0.5~0.7 导向、两 M3 背柱距 13.9）；**新增 P33 背板**（FPC 槽 6.4×2.5、压筋、2×M3×8 自攻）；FPC 跨距 10.75/余量 3.25。修复盘 `hardware/print-jobs/reprint-20261019-v6r3/`。
 - **合并 origin/main**（`5471204`）：P23/P24 **FACEFLAT 大平脸**（106×96 R21、屏窗 62×46、116×116 R40 边框）＋ P15B（耳垫U槽孔底/底板盲孔）＋ P27/P28 RETAINFIX ＋ P29B EDGEGRIP 全部并入；**P15 双修合一**（让位槽＋U槽孔底/盲孔）。
 - **摄像孔 4.2 风波**：`2d21bdc` 在 P15 提交里夹带把 6.8 改回 4.2（无设计说明），已**改回 6.8**；4.2 版 P24 盘件全部改名作废：`.SUPERSEDED-by-CAM68`（TMP-FIX-P24_BLACK_016 3MF/STL、P24_FACE_PANEL_FACEFLAT.stl）；**已打 FACEFLAT P24 钻 6.8**。P15B 盘件改名 `.SUPERSEDED-by-V6R3MERGED`（被合并版取代）。
 - **件数 31→32**：P33 入 candidate 链（P32 编号保留给无源麦胶座，见 UNREGISTERED-PARTS）；`verify_v6_delivery.py` 已改 32。
 - **同步动作**：parameters.json（FACEFLAT/6.8/跨距/32 件）、plate-registry 重生成＋RUNBOOK §6 新盘行、parts_img 全量重出（含 P33）、INTERFACE_GATES 状态刷新（LCD-01 已实测、FACE-01 压配定案、CAM-01 v6r3）、thinwall 审计七件改动件 **FAIL_THIN 0**（`production/thinwall-v6r3.json`）、SLICE-CARD/UNREGISTERED/MEASUREMENTS/ASSEMBLY §1.4/§3.3/§7/§8 同步。
 - **重建校验**：32 件 overlap 0、containment 全过、yaw 三姿态 0、`verify_v6_delivery.py` **PASS**；改动 STL 恰好 P15/P23/P24/P26/P27/P28/P29＋新增 P33，其余字节不变。
 - **apps/web 保持功能版**：main 的 `apps/web` 即 `apps/web-demo`（演示版）内容，合并时功能版未动。
-- **⚠️ 待办**：队友的 `EffMeet2-重打件检验单-…-20261019.docx/pdf` 里 P15(WIREFIX)/P26 节已过时（被合并版/v6r3 取代），需要按 `reprint-20261019-v6r3/PRINT-CARD-V6R3.md` 重出检验单；10-20 打印包 `today-20261020/`（P23 灰＋七合一黑盘）。
+- **⚠️ 待办**：队友的 `EffMeet2-重打件检验单-…-20261019.docx/pdf` 里 P15(WIREFIX)/P26 节已过时（被合并版/v6r3 取代），需要按 `hardware/print-jobs/reprint-20261019-v6r3/PRINT-CARD-V6R3.md` 重出检验单；10-20 打印包 `hardware/print-jobs/today-20261020/`（P23 灰＋七合一黑盘）。
 - **固件（他人提交）**：`dfe7f27…3161d0b` 五个提交——串口检测/烧录脚本、LAN 网关+设备 token+UART 配网、WS2812 状态灯、MG90S 舵机驱动、INMP441/MAX98357A I2S 驱动（REPL 台架命令）、WS 握手/DHCP 修复。**实机烧录与拾音/播放回执验收仍 NOT_RUN**。
 
 ---
@@ -47,7 +47,7 @@
 
 # 2026-10-18 · P03/P05/P06/P28 重打成功 + 支撑方向收口
 
-- **实打成功配方**：P03 翻转（顶部减重孔朝下）；P05/P06 **保持原向**；树支撑 5% + 分支 2mm + 顶距 0.2 + 界面 1；P06 底部 38.5 孔加 **Ø34×1.0 支撑阻挡器**；P28 单盘 **10mm brim**、不支撑。文件 [reprint-20261018/](../../reprint-20261018/)，设置卡 [PRINT-CARD-REPRINT.md](../../reprint-20261018/PRINT-CARD-REPRINT.md)。
+- **实打成功配方**：P03 翻转（顶部减重孔朝下）；P05/P06 **保持原向**；树支撑 5% + 分支 2mm + 顶距 0.2 + 界面 1；P06 底部 38.5 孔加 **Ø34×1.0 支撑阻挡器**；P28 单盘 **10mm brim**、不支撑。文件 [reprint-20261018/](../print-jobs/reprint-20261018/)，设置卡 [PRINT-CARD-REPRINT.md](../print-jobs/reprint-20261018/PRINT-CARD-REPRINT.md)。
 - **P26 背后方孔 = `CAMERA_FPC_EXIT`（6×10×8）**，给 14mm 摄像头 FPC 出线；不是缺陷、不重打。镜头孔 Ø4.6 对 P24 的 Ø4.2。
 - **版本**：`candidate-stl/P24/P25` 是旧 **80×45**；补打只认 `plates-merged/P24_v6r2_77x45.stl` / `P25_v6r2_77x45.stl`；P01 只认 `P01_v6r3_tolerant_usbc.stl`。
 - **教训 37–47 已入 [PRINT-LESSONS.md](round-yaw-v2/revision-20261011-nomi-layoutA/print-split-v6/PRINT-LESSONS.md)**：支撑方向、P02 接缝、P20 立柱、P28 brim、配合台账、打印前 60 秒自检。
